@@ -8,10 +8,22 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
 {
-    public class CreateUserCommandHandler : GenericCreateCommandHandler<CreateUserCommand, User, Guid>
+    public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
     {
-        public CreateUserCommandHandler(ICommandToModelConverter<CreateUserCommand, User> commandToModel,
-                                        IRepository<User, Guid> repository)
-            : base(commandToModel, repository) { }
+        private readonly IRepository<User, Guid> _userRepository;
+        private readonly IRepository<Contact, Guid> _contactRepository;
+
+        public CreateUserCommandHandler(IRepository<User, Guid> userRepository,
+                                        IRepository<Contact, Guid> contactRepository)
+        {
+            _userRepository = userRepository;
+            _userRepository = userRepository;
+        }
+
+        public void Handle(CreateUserCommand command)
+        {
+            var 
+            _repository
+        }
     }
 }

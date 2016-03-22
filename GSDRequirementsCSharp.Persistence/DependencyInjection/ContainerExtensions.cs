@@ -17,6 +17,8 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
             container.RegisterDecorator(typeof(ICommandHandler<>), 
                                         typeof(CommandHandlerSaveChangesDecorator<>), 
                                         lifestyle);
+
+            
         }
     }
 }
