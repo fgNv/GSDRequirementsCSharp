@@ -78,7 +78,6 @@
     <Compile Include="Entities\ClassPropertyContent.cs" />
     <Compile Include="Entities\ClassRelationship.cs" />
     <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\Context.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Entities\Issue.cs" />
     <Compile Include="Entities\IssueComment.cs" />

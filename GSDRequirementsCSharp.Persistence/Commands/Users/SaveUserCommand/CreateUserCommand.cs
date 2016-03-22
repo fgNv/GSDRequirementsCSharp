@@ -6,13 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace GSDRequirementsCSharp.Persistence.Commands.User.SaveUserCommand
+namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
 {
-
     public class CreateUserCommand : ICommand
     {
+        public CreateUserCommand()
+        {
+            Id = Guid.NewGuid();
+        }
+
         [Required]
-        public Guid Id { get; set; }
+        public Guid Id { get; }
 
         [Required]
         [StringLength(50)]
