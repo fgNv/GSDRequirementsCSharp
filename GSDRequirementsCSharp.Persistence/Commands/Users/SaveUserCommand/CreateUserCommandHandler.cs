@@ -17,13 +17,27 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
                                         IRepository<Contact, Guid> contactRepository)
         {
             _userRepository = userRepository;
-            _userRepository = userRepository;
+            _contactRepository = contactRepository;
         }
 
         public void Handle(CreateUserCommand command)
         {
-            var 
-            _repository
+            var user = new User();
+            user.id = command.Id;
+            user.login = command.Login;
+            user.password = command.Password;
+            
+            var contact = new Contact();
+            contact.email = command.Email;
+            contact.id = command.Id;
+            contact.mobilePhone = command.MobilePhone;
+            contact.name = command.Name;
+            contact.phone = command.Phone;
+            
+            user.Contact = contact;
+
+            _contactRepository.Add(contact);
+            _userRepository.Add(user);
         }
     }
 }
