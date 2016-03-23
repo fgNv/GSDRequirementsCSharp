@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                     {
                         expand: true, flatten: true,
                         src: [bowerPath + 'bootstrap/fonts/*'],
-                        dest: 'Contents/fonts/', filter: 'isFile'
+                        dest: 'Content/fonts/', filter: 'isFile'
                     }
                 ]
             }
@@ -53,8 +53,8 @@ module.exports = function (grunt) {
             concatenate: {
                 files: {
                     'Content/vendors.min.css': ['scripts/Vendors/**/*.css',
-                                                        bowerPath + 'ng-dialog/css/ngDialog.css',
-                                                        bowerPath + 'ng-dialog/css/ngDialog-theme-default.css'],
+                                                bowerPath + 'ng-dialog/css/ngDialog.css',
+                                                bowerPath + 'ng-dialog/css/ngDialog-theme-default.css'],
                     'Content/styles.min.css': ['Content/Styles/**/*.css', '!content/Styles/**/*min.css']
                 }
             }

@@ -68,6 +68,9 @@
     <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="EntitiesCustomization\Contact.cs" />
+    <Compile Include="EntitiesCustomization\Package.cs" />
+    <Compile Include="EntitiesCustomization\Project.cs" />
+    <Compile Include="EntitiesCustomization\Requirement.cs" />
     <Compile Include="EntitiesCustomization\User.cs" />
     <Compile Include="Entities\Actor.cs" />
     <Compile Include="Entities\Class.cs" />
@@ -95,6 +98,8 @@
     <Compile Include="Entities\SpecificationItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserCase.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\GenericImplementations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

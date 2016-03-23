@@ -1,0 +1,79 @@
+﻿<div class="row" data-ng-show="step == 'list'">
+    <h2 class="title-text">Requisitos</h2>
+    <h2>
+        <button class="btn" data-ng-click="addNewRequiremnt()">
+            <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
+        </button>
+    </h2>
+
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th> Descrição</th>
+                    <th> Pacote</th>
+                    <th> Versão</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="r in requirements">
+                    <td>
+                        <button class="btn btn-default"
+                                data-ng-show="r.HasPendingIssues"
+                                style="color: red"
+                                title="Ver observações pendentes">
+                            <span class="glyphicon glyphicon-alert"></span>
+                        </button>
+                    </td>
+                    <td>{{r.Id}}</td>
+                    <td>{{r.Description}}</td>
+                    <td>{{r.Package.Description}}</td>
+                    <td>{{r.Version}}</td>
+                    <td>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="remove(r)"
+                                title="Remover requisito">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="addNewVersion(r)"
+                                title="Adicionar nova versão">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="showDetails(r)"
+                                title="Exibir detalhes e gerenciar versões">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="manageLinks(r)"
+                                title="Gerenciar vínculos">
+                            <span class="glyphicon glyphicon-transfer"></span>
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="addIssue(r)"
+                                title="Adicionar observação">
+                            <span class="glyphicon glyphicon-comment"></span>
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                data-ng-click="addTranslation(r)"
+                                title=" Adicionar tradução"
+                                data-ng-show="!r.CurrentLanguageAvailable">
+                            <span class="glyphicon glyphicon-globe"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -7,6 +7,8 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using SimpleInjector;
+using GSDRequirementsCSharp.Web.DependencyInjection;
 
 namespace GSDRequirementsCSharp.Web
 {
@@ -17,7 +19,9 @@ namespace GSDRequirementsCSharp.Web
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            var container = new Container();
+            container.Configure();
         }
     }
 }

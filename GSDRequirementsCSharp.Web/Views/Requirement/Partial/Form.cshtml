@@ -1,0 +1,79 @@
+﻿<div class="row" data-ng-show="step == 'form'">
+    <h2>Adicionar requisito {{requirement.Type.IdPrefix}}03</h2>
+    <div class="col-md-12">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Pacote</label>
+                <div class="col-sm-8">
+                    <select type="text"
+                            class="form-control"
+                            data-ng-model="requirement.Package"
+                            data-ng-options="package as package.Description for package in packages"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Condição</label>
+
+                <div class="col-sm-8">
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="requirement.Condition"
+                           placeholder="Quando o usuário for administrador">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Sujeito</label>
+                <div class="col-sm-8">
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="requirement.Subject"
+                           placeholder="o sistema">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Ação</label>
+                <div class="col-sm-8">
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="requirement.Action"
+                           placeholder="deve permitir gerenciar permissões de acesso">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Dificuldade</label>
+                <div class="col-sm-8">
+                    <select type="text"
+                            class="form-control"
+                            data-ng-model="requirement.Difficulty"
+                            data-ng-options="difficulty for difficulty in difficultyOptions"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Rank</label>
+                <div class="col-sm-8">
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="requirement.Rank">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2" class="col-sm-1 control-label">Tipo</label>
+                <div class="col-sm-8">
+                    <select type="text"
+                            class="form-control"
+                            data-ng-model="requirement.Type"
+                            data-ng-options="type as type.Label for type in requirementTypeOptions"></select>
+                </div>
+            </div>
+            <div class="btn-group col-sm-offset-1">
+                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button"
+                        data-ng-click="step = 'list'"
+                        class="btn btn-default">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

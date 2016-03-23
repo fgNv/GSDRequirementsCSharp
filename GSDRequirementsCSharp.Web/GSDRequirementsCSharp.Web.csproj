@@ -114,6 +114,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\styles.min.css" />
+    <Content Include="Content\vendors.min.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="Web.config" />
@@ -122,6 +124,7 @@
     <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,6 +135,21 @@
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include="Views\ClassDiagram\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Package\Index.cshtml" />
+    <Content Include="Views\Permission\ProfileManagement.cshtml" />
+    <Content Include="Views\Permission\UserManagement.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Requirement\Index.cshtml" />
+    <Content Include="Views\Requirement\Partial\Details.cshtml" />
+    <Content Include="Views\Requirement\Partial\Form.cshtml" />
+    <Content Include="Views\Requirement\Partial\Links.cshtml" />
+    <Content Include="Views\Requirement\Partial\List.cshtml" />
+    <Content Include="Views\Requirement\Partial\NewIssue.cshtml" />
+    <Content Include="Views\Requirement\Partial\Translation.cshtml" />
+    <Content Include="Views\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Views\UseCaseDiagram\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,9 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Contents\" />
     <Folder Include="Controllers\" />
-    <Folder Include="DependencyInjection\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\App\" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.CQS;
+﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Context;
 using SimpleInjector;
 using SimpleInjector.Extensions;
@@ -23,7 +24,9 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
 
             container.RegisterCollection(typeof(ICommandHandler<>), 
                                          new[] { typeof(ContainerExtensions).Assembly });
-            
+            container.RegisterCollection(typeof(IRepository<,>),
+                                         new[] { typeof(ContainerExtensions).Assembly });
+
         }
     }
 }
