@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Context;
 using SimpleInjector;
+using SimpleInjector.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
                                         typeof(CommandHandlerSaveChangesDecorator<>), 
                                         lifestyle);
 
+            //container.RegisterAllOpenGeneric(typeof(ICommandHandler<>),)
+
+            container.RegisterCollection(typeof(ICommandHandler<>), 
+                                         new[] { typeof(ContainerExtensions).Assembly });
             
         }
     }
