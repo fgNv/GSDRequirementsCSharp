@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using SimpleInjector;
 using GSDRequirementsCSharp.Web.DependencyInjection;
+using GSDRequirementsCSharp.Web.App_Start;
 
 namespace GSDRequirementsCSharp.Web
 {
@@ -20,6 +21,7 @@ namespace GSDRequirementsCSharp.Web
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             var container = new Container();
             container.Configure();
         }
