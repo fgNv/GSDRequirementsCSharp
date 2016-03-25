@@ -13,5 +13,17 @@ namespace GSDRequirementsCSharp.Web.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public ViewResult Login()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ViewResult Unauthenticated()
+        {
+            return View();
+        }
     }
 }

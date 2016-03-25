@@ -123,6 +123,15 @@
   <data name="invalidPassword" xml:space="preserve">
     <value>Senha inválida</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>Autenticar</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Realizar cadastro</value>
+  </data>
+  <data name="requirements" xml:space="preserve">
+    <value>Requisitos</value>
+  </data>
   <data name="userNotFound" xml:space="preserve">
     <value>Usuário não encontrado</value>
   </data>

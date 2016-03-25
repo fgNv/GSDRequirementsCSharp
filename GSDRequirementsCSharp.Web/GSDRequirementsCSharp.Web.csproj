@@ -114,6 +114,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\styles.min.css" />
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\vendors.min.css" />
@@ -121,6 +124,12 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +143,7 @@
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequirementController.cs" />
     <Compile Include="Controllers\UseCaseDiagramController.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
@@ -163,6 +173,12 @@
     <Content Include="Views\Requirement\Partial\Translation.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\UseCaseDiagram\Index.cshtml" />
+    <Content Include="Views\Home\Unauthenticated.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,6 +191,7 @@
     <Folder Include="Filters\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\App\03-Controllers\" />
+    <Folder Include="Views\Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">

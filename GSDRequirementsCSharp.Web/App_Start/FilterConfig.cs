@@ -11,7 +11,6 @@ namespace GSDRequirementsCSharp.Web.App_Start
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            // Novo filtro adicionado
             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
         }
     }

@@ -18,6 +18,11 @@ namespace GSDRequirementsCSharp.Web.Controllers
             _credentialsValidator = credentialsValidator;
         }
 
+        public ViewResult Index()
+        {
+            return View();
+        }
+
         public RedirectResult Authenticate(AuthenticateRequest request)
         {
             _credentialsValidator.Validate(request.Login, request.Password);
