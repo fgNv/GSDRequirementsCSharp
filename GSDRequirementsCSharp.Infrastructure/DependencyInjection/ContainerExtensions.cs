@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Cryptography;
 using GSDRequirementsCSharp.Infrastructure.Validation;
 using SimpleInjector;
 using SimpleInjector.Extensions;
@@ -18,6 +19,7 @@ namespace GSDRequirementsCSharp.Infrastructure.DependencyInjection
             container.RegisterDecorator(typeof(ICommandHandler<>),
                                         typeof(CommandHandlerValidationDecorator<>),
                                         lifestyle);
+            container.Register<ICryptographer, Sha256Cryptographer>(lifestyle);
         }
     }
 }

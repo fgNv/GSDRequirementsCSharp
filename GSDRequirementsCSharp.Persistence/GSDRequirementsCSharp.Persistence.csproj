@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\LocalCredentialsValidator.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />

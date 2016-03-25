@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                     {
                         expand: true, flatten: true,
                         src: [bowerPath + 'bootstrap/fonts/*'],
-                        dest: 'Content/fonts/', filter: 'isFile'
+                        dest: 'fonts/', filter: 'isFile'
                     }
                 ]
             }
