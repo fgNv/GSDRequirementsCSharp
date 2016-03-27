@@ -8,23 +8,16 @@ module.exports = function (grunt) {
     var bowerPath = 'bower_components/';
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-typescript');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        bowercopy: {
-            options: {
-                runBower: true,
-                destPrefix: 'scripts/Vendors'
-            },
-            libs: {
-                files: {
-                    'angular': 'angular',
-                    'jquery': 'jquery/dist',
-                    'bootstrap': 'bootstrap/dist/css'
-                }
+        typescript: {
+            base: {
+                src: ['Scripts/App/**/*.ts'],
+                dest: 'Scripts/App/Interpreted'
             }
         },
         copy: {
@@ -45,6 +38,7 @@ module.exports = function (grunt) {
                     'Scripts/vendor.js': [bowerPath + 'jquery/dist/jquery.js',
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
+                                          bowerPath + 'angular-resource/angular-resource.js',
                                           bowerPath + 'ng-dialog/js/ngDialog.js']
                 }
             }
@@ -78,10 +72,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('minification', ['uglify', 'cssmin', 'copy']);
-    grunt.registerTask('bowerDependencies', ['bowercopy:libs']);
-    grunt.registerTask('default', ['bowerDependencies', 'minification']);
+    grunt.registerTask('default', ['typescript', 'minification']);
 
-    grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');

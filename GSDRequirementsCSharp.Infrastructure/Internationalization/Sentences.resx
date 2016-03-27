@@ -123,6 +123,9 @@
   <data name="changeLanguage" xml:space="preserve">
     <value>Change language</value>
   </data>
+  <data name="createNewAccount" xml:space="preserve">
+    <value>Create New Account</value>
+  </data>
   <data name="invalidPassword" xml:space="preserve">
     <value>Invalid Password</value>
   </data>

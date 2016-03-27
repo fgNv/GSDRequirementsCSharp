@@ -4,7 +4,7 @@
     "use strict";
 
     GSDRequirements.angularModuleName = "app";
-    GSDRequirements.angularDependencies = ['ngDialog'];
+    GSDRequirements.angularDependencies = ['ngDialog', 'ngResource'];
     angular.module(GSDRequirements.angularModuleName, GSDRequirements.angularDependencies);
 
 })(window.GSDRequirements, angular);

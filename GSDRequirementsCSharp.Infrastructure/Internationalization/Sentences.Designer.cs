@@ -79,6 +79,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New Account.
+        /// </summary>
+        public static string createNewAccount {
+            get {
+                return ResourceManager.GetString("createNewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Password.
         /// </summary>
         public static string invalidPassword {

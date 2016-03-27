@@ -1,8 +1,15 @@
-﻿
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Sentences.createNewAccount;
     Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
 }
 
-<h2>Index</h2>
+<article data-ng-controller="NewAccountController">
 
+    <h2>@Sentences.createNewAccount</h2>
+
+    @model CreateUserCommand
+
+</article>
