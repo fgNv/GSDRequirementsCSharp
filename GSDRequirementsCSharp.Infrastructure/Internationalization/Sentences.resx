@@ -120,6 +120,9 @@
   <data name="authenticationFailed" xml:space="preserve">
     <value>Authentication failed</value>
   </data>
+  <data name="changeLanguage" xml:space="preserve">
+    <value>Change language</value>
+  </data>
   <data name="invalidPassword" xml:space="preserve">
     <value>Invalid Password</value>
   </data>

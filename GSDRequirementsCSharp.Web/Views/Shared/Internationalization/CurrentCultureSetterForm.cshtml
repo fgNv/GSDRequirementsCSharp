@@ -1,0 +1,27 @@
+﻿@using System.Threading
+@using GSDRequirementsCSharp.Web.Models;
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+@{
+    var locales = new[] { new Locale("pt-BR", "Português"), new Locale("en-US", "English(United States)") }.OrderBy(l => l.Label);
+    var currentLocale = Thread.CurrentThread.CurrentCulture;
+}
+
+<form method="post" action="@Url.Action("SetCurrentCulture","Internationalization")"
+      class="form-inline" style="margin-top: 10px; ">
+    <div class="form-group" >
+        <select class="form-control" name="Culture">
+            @foreach (var locale in locales)
+            {
+                <option value="@(locale.Name)"
+                        @if (locale.Name == currentLocale.Name) { Write("selected = \"selected\""); }>
+                    @locale.Label
+                </option>
+            }
+        </select>
+    </div>    
+    <input type="hidden" name="ReturnUrl" value="@Request.Url" />
+    <button class="btn btn-primary" type="submit">
+        @Sentences.changeLanguage
+    </button>
+</form>

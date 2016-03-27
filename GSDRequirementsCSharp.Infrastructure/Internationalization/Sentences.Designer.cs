@@ -70,6 +70,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change language.
+        /// </summary>
+        public static string changeLanguage {
+            get {
+                return ResourceManager.GetString("changeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Password.
         /// </summary>
         public static string invalidPassword {
