@@ -10,10 +10,10 @@ namespace GSDRequirementsCSharp.Infrastructure.Validation
     public class CommandHandlerValidationDecorator<T> : ICommandHandler<T>
         where T : class, ICommand
     {
-        private IValidator<T> _validator;
+        private IValidator _validator;
         private ICommandHandler<T> _decorated;
 
-        public CommandHandlerValidationDecorator(IValidator<T> validator,
+        public CommandHandlerValidationDecorator(IValidator validator,
                                                  ICommandHandler<T> decorated)
         {
             _validator = validator;

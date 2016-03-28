@@ -15,8 +15,8 @@ namespace GSDRequirementsCSharp.Web.DependencyInjection
         public static void Configure(this Container container)
         {
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
-            container.RegisterPersistenceDependencies(container.Options.DefaultScopedLifestyle);
             container.RegisterInfrastructureDependencies(container.Options.DefaultScopedLifestyle);
+            container.RegisterPersistenceDependencies(container.Options.DefaultScopedLifestyle);
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configuration.DependencyResolver =

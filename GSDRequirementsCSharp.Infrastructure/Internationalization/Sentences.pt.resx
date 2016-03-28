@@ -123,8 +123,14 @@
   <data name="changeLanguage" xml:space="preserve">
     <value>Alterar idioma</value>
   </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>Confirmação da senha</value>
+  </data>
   <data name="createNewAccount" xml:space="preserve">
     <value>Criar nova conta</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="invalidPassword" xml:space="preserve">
     <value>Senha inválida</value>
@@ -132,11 +138,29 @@
   <data name="login" xml:space="preserve">
     <value>Autenticar</value>
   </data>
+  <data name="mobilePhone" xml:space="preserve">
+    <value>Celular</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
   <data name="register" xml:space="preserve">
     <value>Realizar cadastro</value>
   </data>
   <data name="requirements" xml:space="preserve">
     <value>Requisitos</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Nome de usuário</value>
   </data>
   <data name="userNotFound" xml:space="preserve">
     <value>Usuário não encontrado</value>

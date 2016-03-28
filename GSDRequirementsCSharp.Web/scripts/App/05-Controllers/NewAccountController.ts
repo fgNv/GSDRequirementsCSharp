@@ -7,29 +7,29 @@
     declare var GSDRequirements: GSDRequirementsData;
 
     var app = angular.module(GSDRequirements.angularModuleName);
-    
+
     export class NewAccountController {
-        static $inject = ["$scope", "UserResource"];
-        constructor(protected $scope: any,
-                    protected UserResource: any) {
-            // todo
+        constructor(
+            private $scope: any,
+            private UserResource: any
+        ) {
+            $scope.save = () => this.Save(UserResource, $scope)
+            this.$scope.UserData = new UserData()
         }
-        public UserData: UserData
-        public Save(): void {
-            
-            this.UserResource
-                .save(this.UserData)
-                .$promise
-                .then((response) => {
+        private Save(userResource: any, $scope : any): void {
+            userResource.save($scope.UserData)
+                        .$promise
+                        .then((response) => {
 
-                })
-                .catch( (error) => {
+                        })
+                        .catch((error) => {
 
-                })
-                .finally(() => {
+                        })
+                        .finally(() => {
 
-                });
+                        });
         }
     }
-    app.controller('NewAccountController', NewAccountController);
+    app.controller('NewAccountController', ["$scope", "UserResource", ($scope, UserResource) =>
+        new NewAccountController($scope, UserResource)]);
 }

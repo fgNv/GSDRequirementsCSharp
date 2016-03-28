@@ -19,13 +19,12 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
             container.RegisterDecorator(typeof(ICommandHandler<>), 
                                         typeof(CommandHandlerSaveChangesDecorator<>), 
                                         lifestyle);
-
-            //container.RegisterAllOpenGeneric(typeof(ICommandHandler<>),)
-
-            container.RegisterCollection(typeof(ICommandHandler<>), 
+            
+            container.Register(typeof(ICommandHandler<>), 
                                          new[] { typeof(ContainerExtensions).Assembly });
-            container.RegisterCollection(typeof(IRepository<,>),
+            container.Register(typeof(IRepository<,>),
                                          new[] { typeof(ContainerExtensions).Assembly });
+            container.Register<GSDRequirementsContext, GSDRequirementsContext>(lifestyle);
 
         }
     }

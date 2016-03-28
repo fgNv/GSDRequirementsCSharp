@@ -10,6 +10,75 @@
 
     <h2>@Sentences.createNewAccount</h2>
 
-    @model CreateUserCommand
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.username</label>
+                <input class="form-control"
+                       data-ng-model="UserData.Login" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.email</label>
+                <input class="form-control"
+                       data-ng-model="UserData.Email" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.mobilePhone</label>
+                <input class="form-control"
+                       data-ng-model="UserData.MobilePhone" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.phone</label>
+                <input class="form-control"
+                       data-ng-model="UserData.Phone" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.name</label>
+                <input class="form-control"
+                       data-ng-model="UserData.name" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.password</label>
+                <input class="form-control"
+                       type="password"
+                       data-ng-model="UserData.password" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>@Sentences.confirmPassword</label>
+                <input class="form-control"
+                       type="password"
+                       data-ng-model="passwordConfirmation" />
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
 
 </article>
