@@ -23,6 +23,7 @@ namespace GSDRequirementsCSharp.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public RedirectResult Authenticate(AuthenticateRequest request)
         {
             _credentialsValidator.Validate(request.Login, request.Password);

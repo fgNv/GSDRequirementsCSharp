@@ -99,6 +99,7 @@
     <Compile Include="Entities\SpecificationItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserCase.cs" />
+    <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
   </ItemGroup>

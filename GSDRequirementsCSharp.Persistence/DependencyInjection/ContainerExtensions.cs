@@ -1,6 +1,9 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.Authentication;
 using GSDRequirementsCSharp.Persistence.Context;
+using GSDRequirementsCSharp.Persistence.Repositories;
 using SimpleInjector;
 using SimpleInjector.Extensions;
 using System;
@@ -25,7 +28,8 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
             container.Register(typeof(IRepository<,>),
                                          new[] { typeof(ContainerExtensions).Assembly });
             container.Register<GSDRequirementsContext, GSDRequirementsContext>(lifestyle);
-
+            container.Register<ICredentialsValidator, LocalCredentialsValidator>(lifestyle);
+            container.Register<IUserRepository<User>, AuthenticationUserRepository>(lifestyle);
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    public class UserRepository : GenericRepository<User, Guid>
+    public class GenericUserRepository : GenericRepository<User, Guid>
     {
-        public UserRepository(GSDRequirementsContext context): base(context) { }
+        public GenericUserRepository(GSDRequirementsContext context): base(context) { }
     }
     public class ContactRepository : GenericRepository<Contact, Guid>
     {
