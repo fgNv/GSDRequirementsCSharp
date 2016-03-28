@@ -74,6 +74,14 @@
       <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
@@ -134,10 +142,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\styles.min.css" />
     <Content Include="Content\Styles\Custom.css" />
-    <Content Include="Content\vendors.min.css" />
+    <Content Include="Content\Styles\Loading.css" />
+    <Content Include="Content\Styles\NavBar.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />

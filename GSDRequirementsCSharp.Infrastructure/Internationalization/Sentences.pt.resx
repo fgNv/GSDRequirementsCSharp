@@ -174,4 +174,10 @@
   <data name="passwordAndConfirmationMustMatch" xml:space="preserve">
     <value>A senha e a confirmação devem coincidir</value>
   </data>
+  <data name="authentication" xml:space="preserve">
+    <value>Autenticação</value>
+  </data>
+  <data name="authenticate" xml:space="preserve">
+    <value>Autenticar</value>
+  </data>
 </root>

@@ -7,7 +7,8 @@
     Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
 }
 
-<article data-ng-controller="NewAccountController">
+<article data-ng-controller="NewAccountController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
 
     <h2>@Sentences.createNewAccount</h2>
 
@@ -22,14 +23,21 @@
 
     <div class="row">
         <div class="col-md-6">
-            @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false, Att.NgModel("UserData.MobilePhone"))
+            @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false,
+                                       Att.NgModel("UserData.MobilePhone"),
+                                       Att.NgMaskNumber(),
+                                       Att.Length(10))
         </div>
         <div class="col-md-6">
-            @TextInputHelper.TextInput("phone", Sentences.phone, false, Att.NgModel("UserData.Phone"))
+            @TextInputHelper.TextInput("phone", Sentences.phone, false,
+                                       Att.NgModel("UserData.Phone"),
+                                       Att.NgMaskNumber(), Att.Length(10))
         </div>
     </div>
     <div class="row">
-        @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("UserData.Name"))
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("UserData.Name"))
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -38,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            @TextInputHelper.PasswordInput("passwordConfirmation", Sentences.confirmPassword, true, Att.NgModel("passwordConfirmation"))            
+            @TextInputHelper.PasswordInput("passwordConfirmation", Sentences.confirmPassword, true, Att.NgModel("passwordConfirmation"))
         </div>
     </div>
 

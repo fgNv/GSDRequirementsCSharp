@@ -5,6 +5,7 @@
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
     "ng-dialog": "~0.5.5",
+    "angular-mask": "^3.0.16",
     "angular-resource": "~1.4.7",
     "toastr": "~2.1.2",
     "underscore": "^1.8.3"

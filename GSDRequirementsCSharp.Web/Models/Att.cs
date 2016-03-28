@@ -20,5 +20,20 @@ namespace GSDRequirementsCSharp.Web.Models
         {
             return new Att("data-ng-model", value);
         }
+
+        public static Att NgMask(string value)
+        {
+            return new Att("data-mask", value);
+        }
+
+        public static Att NgMaskNumber()
+        {
+            return NgMask("9999999999999");
+        }
+
+        public static Att Length(int maxLength)
+        {
+            return new Att("length", maxLength.ToString());
+        }
     }
 }

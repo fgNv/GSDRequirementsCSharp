@@ -211,6 +211,7 @@ GSDRequirementsCSharp.Web/Content/styles.min.css
 GSDRequirementsCSharp.Web/Content/vendors.min.css
 GSDRequirementsCSharp.Web/scripts/vendor.js
 GSDRequirementsCSharp.Web/scripts/app.js
+GSDRequirementsCSharp.Web/images
 
 
 # Bower packages installation

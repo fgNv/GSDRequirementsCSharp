@@ -1,17 +1,28 @@
-﻿@{
-    Layout = null;
-}
+﻿
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-<!DOCTYPE html>
+<h2 style="text-align: center">GSD @Sentences.requirements</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+<div class="row" style="margin-top: 20px ">
+    <h2>@Sentences.authentication</h2>
+
+    <form action="@Url.Action("Authenticate", "Authentication")"
+          method="post">
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("login", Sentences.username, true)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.PasswordInput("password", Sentences.password, true)
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary"
+                    type="submit">
+                @Sentences.authenticate
+            </button>
+        </div>
+    </form>
+</div>

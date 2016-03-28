@@ -21,8 +21,10 @@ namespace GSDRequirementsCSharp.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            var container = new Container();
-            container.Configure();
+            var apiContainer = new Container();
+            apiContainer.ConfigureApi();
+            var mvcContainer = new Container();
+            mvcContainer.ConfigureMvc();
         }
     }
 }

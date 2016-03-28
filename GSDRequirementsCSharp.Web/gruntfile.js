@@ -27,6 +27,12 @@ module.exports = function (grunt) {
                         expand: true, flatten: true,
                         src: [bowerPath + 'bootstrap/fonts/*'],
                         dest: 'fonts/', filter: 'isFile'
+                    },
+
+                    {
+                        expand: true, flatten: true,
+                        src: ['Content/images/*'],
+                        dest: 'images/', filter: 'isFile'
                     }
                 ]
             }
@@ -39,6 +45,7 @@ module.exports = function (grunt) {
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
                                           bowerPath + 'toastr/toastr.js',
+                                          bowerPath + 'angular-mask/dist/ngMask.js',
                                           bowerPath + 'underscore/underscore.js',
                                           bowerPath + 'angular-resource/angular-resource.js',
                                           bowerPath + 'ng-dialog/js/ngDialog.js']

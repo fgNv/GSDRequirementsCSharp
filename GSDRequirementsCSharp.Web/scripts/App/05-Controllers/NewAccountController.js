@@ -12,7 +12,7 @@ var Controllers;
             this.$scope.UserData = new UserData();
         }
         NewAccountController.prototype.Save = function (userResource, $scope) {
-            if ($scope.passwordConfirmation != $scope.UserData.password) {
+            if ($scope.passwordConfirmation != $scope.UserData.Password) {
                 Notification.notifyWarning(Sentences.errorSavingUserAccount, [Sentences.passwordAndConfirmationMustMatch]);
                 return;
             }
@@ -21,12 +21,11 @@ var Controllers;
                 .$promise
                 .then(function (response) {
                 Notification.notifySuccess(Sentences.userAccountSuccessfullyCreated);
+                setTimeout(function () { return window.location = (baseUrl + "home/login"); }, 2100);
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorSavingUserAccount, error.data.errors);
-            })
-                .finally(function () {
                 $scope.pendingRequests--;
+                Notification.notifyError(Sentences.errorSavingUserAccount, error.data.errors);
             });
         };
         return NewAccountController;

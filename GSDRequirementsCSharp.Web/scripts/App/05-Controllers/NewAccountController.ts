@@ -6,6 +6,7 @@
     declare var angular: any;
     declare var GSDRequirements: GSDRequirementsData;
     declare var sentences: any;
+    declare var baseUrl: string;
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
@@ -20,7 +21,7 @@
         }
         private Save(userResource: any, $scope: any): void {
 
-            if ($scope.passwordConfirmation != $scope.UserData.password) {
+            if ($scope.passwordConfirmation != $scope.UserData.Password) {
                 Notification.notifyWarning(Sentences.errorSavingUserAccount,
                     [Sentences.passwordAndConfirmationMustMatch]);
                 return;
@@ -31,13 +32,12 @@
                 .$promise
                 .then((response) => {
                     Notification.notifySuccess(Sentences.userAccountSuccessfullyCreated);
+                    setTimeout(() => window.location = <any>(baseUrl + "home/login"), 2100);
                 })
                 .catch((error) => {
+                    $scope.pendingRequests--;
                     Notification.notifyError(Sentences.errorSavingUserAccount,
                                              error.data.errors)
-                })
-                .finally(() => {
-                    $scope.pendingRequests--;
                 });
         }
     }

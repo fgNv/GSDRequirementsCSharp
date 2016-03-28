@@ -61,6 +61,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authenticate.
+        /// </summary>
+        public static string authenticate {
+            get {
+                return ResourceManager.GetString("authenticate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication.
+        /// </summary>
+        public static string authentication {
+            get {
+                return ResourceManager.GetString("authentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authentication failed.
         /// </summary>
         public static string authenticationFailed {
