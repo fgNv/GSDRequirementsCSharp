@@ -1,10 +1,18 @@
 ﻿
+
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <h2 style="text-align: center">GSD @Sentences.requirements</h2>
 
 <div class="row" style="margin-top: 20px ">
     <h2>@Sentences.authentication</h2>
+
+    @if(ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
 
     <form action="@Url.Action("Authenticate", "Authentication")"
           method="post">

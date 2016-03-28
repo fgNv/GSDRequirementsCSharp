@@ -28,7 +28,8 @@ namespace GSDRequirementsCSharp.Web.Controllers
         {
             _credentialsValidator.Validate(request.Login, request.Password);
             FormsAuthentication.SetAuthCookie(request.Login, request.IsPersistentAuthentication);
-            return new RedirectResult(request.ReturnUrl);
+            var returnUrl = String.IsNullOrWhiteSpace(request.ReturnUrl) ? "/" : request.ReturnUrl;
+            return new RedirectResult(returnUrl);
         }
 
         public RedirectResult Logout()

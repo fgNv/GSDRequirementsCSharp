@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\AuthenticationFailedException.cs" />
     <Compile Include="Authentication\ICredentialsValidator.cs" />
     <Compile Include="Authentication\ICurrentUserRetriever.cs" />
     <Compile Include="Authentication\IUserRepository.cs" />

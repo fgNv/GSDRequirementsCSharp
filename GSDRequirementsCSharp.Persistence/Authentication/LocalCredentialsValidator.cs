@@ -25,15 +25,8 @@ namespace GSDRequirementsCSharp.Persistence.Authentication
         public void Validate(string username, string password)
         {
             var user = _userRepository.Get(username);
-            if (user == null)
-                throw new NotificationException(Sentences.authenticationFailed,
-                                                Sentences.userNotFound,
-                                                NoteType.Warning);
-
-            if (user.password != _cryptographer.Encrypt(password))
-                throw new NotificationException(Sentences.authenticationFailed,
-                                                Sentences.invalidPassword,
-                                                NoteType.Warning);
+            if (user == null || user.password != _cryptographer.Encrypt(password))
+                throw new AuthenticationFailedException();
         }
     }
 }

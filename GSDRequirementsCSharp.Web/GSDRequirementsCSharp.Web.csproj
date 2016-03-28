@@ -170,7 +170,12 @@
     <Compile Include="Controllers\RequirementController.cs" />
     <Compile Include="Controllers\UseCaseDiagramController.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
+    <Compile Include="Exceptions\ApiExceptionHandling.cs" />
+    <Compile Include="Exceptions\ExceptionResponse.cs" />
+    <Compile Include="Exceptions\MvcExceptionHandling.cs" />
     <Compile Include="Filters\CurrentCultureSetterFilter.cs" />
+    <Compile Include="Filters\HandleApiException.cs" />
+    <Compile Include="Filters\HandleMvcException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
