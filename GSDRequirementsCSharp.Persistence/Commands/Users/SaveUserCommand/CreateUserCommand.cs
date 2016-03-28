@@ -31,6 +31,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         public string Email { get; set; }
 
         [StringLength(20)]
+        [RegularExpression(@"^([0-9]+)$")]
         public string MobilePhone { get; set; }
 
         [Required]
@@ -38,6 +39,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         public string Name { get; set; }
 
         [StringLength(100)]
+        [RegularExpression(@"^([0-9]+)$")]
         public string Phone { get; set; }
     }
 }

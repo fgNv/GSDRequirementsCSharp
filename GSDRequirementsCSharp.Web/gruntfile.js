@@ -38,6 +38,8 @@ module.exports = function (grunt) {
                     'Scripts/vendor.js': [bowerPath + 'jquery/dist/jquery.js',
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
+                                          bowerPath + 'toastr/toastr.js',
+                                          bowerPath + 'underscore/underscore.js',
                                           bowerPath + 'angular-resource/angular-resource.js',
                                           bowerPath + 'ng-dialog/js/ngDialog.js']
                 }
@@ -47,6 +49,7 @@ module.exports = function (grunt) {
             concatenate: {
                 files: {
                     'Content/vendors.min.css': ['scripts/Vendors/**/*.css',
+                                                bowerPath + 'toastr/toastr.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog-theme-default.css'],
                     'Content/styles.min.css': ['Content/Styles/**/*.css', '!content/Styles/**/*min.css']

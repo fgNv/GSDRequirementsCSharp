@@ -106,6 +106,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error saving user account.
+        /// </summary>
+        public static string errorSavingUserAccount {
+            get {
+                return ResourceManager.GetString("errorSavingUserAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Password.
         /// </summary>
         public static string invalidPassword {
@@ -151,6 +160,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password and confirmation must match.
+        /// </summary>
+        public static string passwordAndConfirmationMustMatch {
+            get {
+                return ResourceManager.GetString("passwordAndConfirmationMustMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
         public static string phone {
@@ -183,6 +201,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string save {
             get {
                 return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User account successfully created.
+        /// </summary>
+        public static string userAccountSuccessfullyCreated {
+            get {
+                return ResourceManager.GetString("userAccountSuccessfullyCreated", resourceCulture);
             }
         }
         

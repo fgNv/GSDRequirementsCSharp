@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Cryptography;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,15 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
     {
         private readonly IRepository<User, Guid> _userRepository;
         private readonly IRepository<Contact, Guid> _contactRepository;
+        private readonly ICryptographer _cryptographer;
 
         public CreateUserCommandHandler(IRepository<User, Guid> userRepository,
-                                        IRepository<Contact, Guid> contactRepository)
+                                        IRepository<Contact, Guid> contactRepository,
+                                        ICryptographer cryptographer)
         {
             _userRepository = userRepository;
             _contactRepository = contactRepository;
+            _cryptographer = cryptographer;
         }
 
         public void Handle(CreateUserCommand command)
@@ -25,7 +29,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
             var user = new User();
             user.id = command.Id;
             user.login = command.Login;
-            user.password = command.Password;
+            user.password = _cryptographer.Encrypt(command.Password);
             
             var contact = new Contact();
             contact.email = command.Email;

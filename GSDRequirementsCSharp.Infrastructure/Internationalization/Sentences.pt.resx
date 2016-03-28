@@ -165,4 +165,13 @@
   <data name="userNotFound" xml:space="preserve">
     <value>Usuário não encontrado</value>
   </data>
+  <data name="errorSavingUserAccount" xml:space="preserve">
+    <value>Falha ao salvar conta de usuário</value>
+  </data>
+  <data name="userAccountSuccessfullyCreated" xml:space="preserve">
+    <value>Conta de usuário criada com sucesso</value>
+  </data>
+  <data name="passwordAndConfirmationMustMatch" xml:space="preserve">
+    <value>A senha e a confirmação devem coincidir</value>
+  </data>
 </root>

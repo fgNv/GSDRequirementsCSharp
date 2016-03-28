@@ -12,11 +12,10 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.username</label>
-                <input class="form-control"
-                       data-ng-model="UserData.Login" />
-            </div>
+            @TextInputHelper.TextInput("login",
+                                       Sentences.username,
+                                       true,
+                                       new Dictionary<string, string> { { "data-ng-model", "UserData.Login" } })            
         </div>
         <div class="col-md-6">
             <div class="form-group">

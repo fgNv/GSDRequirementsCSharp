@@ -165,4 +165,13 @@
   <data name="userNotFound" xml:space="preserve">
     <value>User not found</value>
   </data>
+  <data name="errorSavingUserAccount" xml:space="preserve">
+    <value>Error saving user account</value>
+  </data>
+  <data name="userAccountSuccessfullyCreated" xml:space="preserve">
+    <value>User account successfully created</value>
+  </data>
+  <data name="passwordAndConfirmationMustMatch" xml:space="preserve">
+    <value>Password and confirmation must match</value>
+  </data>
 </root>

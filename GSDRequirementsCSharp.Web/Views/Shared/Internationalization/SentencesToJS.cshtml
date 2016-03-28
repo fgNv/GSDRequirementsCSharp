@@ -1,0 +1,19 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using System.Resources
+@using System.Threading
+@using System.Collections
+
+<script type="text/javascript">
+    @{
+        var culture = Thread.CurrentThread.CurrentCulture;
+        var sentences = Sentences.ResourceManager
+                         .GetResourceSet(culture, false, false)
+                         .Cast<DictionaryEntry>()
+                         .ToDictionary(r => r.Key.ToString(), r => r.Value.ToString()); 
+    }
+
+    @foreach(var sentence in sentences)
+    {
+        WriteLiteral(String.Format("Sentences.{0} = \"{1}\";", sentence.Key, sentence.Value));
+    }
+</script>
