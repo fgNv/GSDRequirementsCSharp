@@ -1,5 +1,6 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 @using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+@using GSDRequirementsCSharp.Web.Models
 
 @{
     ViewBag.Title = Sentences.createNewAccount;
@@ -12,63 +13,32 @@
 
     <div class="row">
         <div class="col-md-6">
-            @TextInputHelper.TextInput("login",
-                                       Sentences.username,
-                                       true,
-                                       new Dictionary<string, string> { { "data-ng-model", "UserData.Login" } })            
+            @TextInputHelper.TextInput("login", Sentences.username, true, Att.NgModel("UserData.Login"))
         </div>
         <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.email</label>
-                <input class="form-control"
-                       data-ng-model="UserData.Email" />
-            </div>
+            @TextInputHelper.TextInput("email", Sentences.email, true, Att.NgModel("UserData.Email"))
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.mobilePhone</label>
-                <input class="form-control"
-                       data-ng-model="UserData.MobilePhone" />
-            </div>
+            @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false, Att.NgModel("UserData.MobilePhone"))
         </div>
         <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.phone</label>
-                <input class="form-control"
-                       data-ng-model="UserData.Phone" />
-            </div>
+            @TextInputHelper.TextInput("phone", Sentences.phone, false, Att.NgModel("UserData.Phone"))
+        </div>
+    </div>
+    <div class="row">
+        @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("UserData.Name"))
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.PasswordInput("password", Sentences.password, true, Att.NgModel("UserData.Password"))
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.name</label>
-                <input class="form-control"
-                       data-ng-model="UserData.name" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.password</label>
-                <input class="form-control"
-                       type="password"
-                       data-ng-model="UserData.password" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>@Sentences.confirmPassword</label>
-                <input class="form-control"
-                       type="password"
-                       data-ng-model="passwordConfirmation" />
-            </div>
+            @TextInputHelper.PasswordInput("passwordConfirmation", Sentences.confirmPassword, true, Att.NgModel("passwordConfirmation"))            
         </div>
     </div>
 
@@ -79,5 +49,4 @@
             @Sentences.save
         </button>
     </div>
-
 </article>

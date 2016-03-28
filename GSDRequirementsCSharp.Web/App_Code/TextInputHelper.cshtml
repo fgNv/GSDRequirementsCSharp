@@ -1,7 +1,6 @@
-﻿@helper TextInput(string name,
-                  string label,
-                  bool required,
-                  Dictionary<string, string> attributes)
+﻿@using GSDRequirementsCSharp.Web.Models
+
+@helper TextInput(string name, string label, bool required, params Att[] attributes)
 {
     <div class="form-group">
         <label for="@name">
@@ -11,14 +10,33 @@
             }
             @label
         </label>
-        <input type="text" id="@name" 
-               @if (required) { 
-                  @: required="required" 
-               }
-               @foreach(var att in attributes) {                  
-                  @: @att.Key="@att.Value"
-               }
-               class="form-control"
-               />
+        <input type="text" id="@name"
+               name="@name"
+               @if (required) {  @: required="required"
+                              }
+               @foreach (var att in attributes) {  @: @att.Key="@att.Value"
+                              }
+               class="form-control" />
+    </div>
+}
+
+
+@helper PasswordInput(string name, string label, bool required, params Att[] attributes)
+{
+    <div class="form-group">
+        <label for="@name">
+            @if (required)
+            {
+                <span class="required">*</span>
+            }
+            @label
+        </label>
+        <input type="password" id="@name"
+               name="@name"
+               @if (required) { @: required="required"
+                                             }
+               @foreach (var att in attributes) { @: @att.Key="@att.Value"
+                                             }
+               class="form-control" />
     </div>
 }
