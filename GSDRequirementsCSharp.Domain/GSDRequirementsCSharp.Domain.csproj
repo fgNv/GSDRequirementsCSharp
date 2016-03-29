@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Projects\CreateProjectCommand.cs" />
+    <Compile Include="Commands\Projects\SaveProjectCommand.cs" />
     <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
+    <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />
+    <Compile Include="Commands\Projects\UpdateProjectCommandHandler.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserCase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

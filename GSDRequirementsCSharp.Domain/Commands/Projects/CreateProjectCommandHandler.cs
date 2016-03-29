@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Commands.Projects
 {
-    class CreateProjectCommandHandler : ICommandHandler<CreateProjectCommand>
+    class CreateProjectCommandHandler : ICommandHandler<SaveProjectCommand>
     {
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly IRepository<ProjectContent, Guid> _projectContentRepository;
@@ -26,14 +26,14 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             _currentUserRetriever = currentUserRetriever;
         }
 
-        public void Handle(CreateProjectCommand command)
+        public void Handle(SaveProjectCommand command)
         {
             var project = new Project();
             project.Id = Guid.NewGuid();
             project.Name = command.Name;
             var content = new ProjectContent();
-            content.description = command.Description;
-            content.locale = Thread.CurrentThread.CurrentCulture.Name; ;
+            content.Description = command.Description;
+            content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
             content.Project = project;
             content.Id = Guid.NewGuid();
             project.CreatedAt = DateTime.Now;

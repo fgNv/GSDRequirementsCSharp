@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Commands.Projects
 {
-    public class CreateProjectCommand : ICommand
+    public class SaveProjectCommand : ICommand
     {
         [Required]
         [StringLength(100)]

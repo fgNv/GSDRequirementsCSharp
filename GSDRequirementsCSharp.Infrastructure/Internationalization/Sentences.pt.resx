@@ -243,4 +243,7 @@
   <data name="addProject" xml:space="preserve">
     <value>Adicionar projeto</value>
   </data>
+  <data name="projectUpdatedSuccessfully" xml:space="preserve">
+    <value>Projeto atualizado com sucesso</value>
+  </data>
 </root>

@@ -5,4 +5,5 @@
     export declare var errorLoadingProjects: string;
     export declare var projectSuccessfullyCreated: string;
     export declare var errorSavingProject: string;
+    export declare var projectUpdatedSuccessfully: string;
 }

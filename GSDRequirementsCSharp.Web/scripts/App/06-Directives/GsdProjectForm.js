@@ -12,8 +12,11 @@ var directives;
                         var promise = $scope.project.id ?
                             ProjectResource.update($scope.project).$promise :
                             ProjectResource.save($scope.project).$promise;
+                        var successMessage = $scope.project.id ?
+                            Sentences.projectUpdatedSuccessfully :
+                            Sentences.projectSuccessfullyCreated;
                         promise.then(function () {
-                            Notification.notifySuccess(Sentences.projectSuccessfullyCreated);
+                            Notification.notifySuccess(successMessage);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
                             }
@@ -35,3 +38,4 @@ var directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectForm.js.map

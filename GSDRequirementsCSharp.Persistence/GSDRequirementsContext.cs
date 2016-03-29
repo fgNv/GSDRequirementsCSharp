@@ -215,15 +215,8 @@ namespace GSDRequirementsCSharp.Persistence
 
             modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
-
-            modelBuilder.Entity<ProjectContent>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProjectContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
+            modelBuilder.Configurations.Add(new ProjectContentMapping());
+            
             modelBuilder.Entity<Requirement>()
                 .HasMany(e => e.RequirementContents)
                 .WithRequired(e => e.Requirement)
