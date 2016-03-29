@@ -231,6 +231,10 @@
     <Folder Include="Views\Internationalization\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
+      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
+      <Name>GSDRequirementsCSharp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
       <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
       <Name>GSDRequirementsCSharp.Infrastructure</Name>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{400B5026-FBC4-4F9A-AD73-DE5BB84561AB}</ProjectGuid>
+    <ProjectGuid>{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GSDRequirementsCSharp.Persistence</RootNamespace>
-    <AssemblyName>GSDRequirementsCSharp.Persistence</AssemblyName>
+    <RootNamespace>GSDRequirementsCSharp.Domain</RootNamespace>
+    <AssemblyName>GSDRequirementsCSharp.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,14 +38,6 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.9.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -53,8 +45,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,36 +53,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\LocalCredentialsValidator.cs" />
-    <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="Commands\Projects\CreateProjectCommand.cs" />
+    <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
+    <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
+    <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
-    <Compile Include="GSDRequirementsContext.cs" />
-    <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\ClassContent.cs" />
+    <Compile Include="Models\ClassDiagram.cs" />
+    <Compile Include="Models\ClassMethod.cs" />
+    <Compile Include="Models\ClassMethodContent.cs" />
+    <Compile Include="Models\ClassMethodParameter.cs" />
+    <Compile Include="Models\ClassMethodParameterContent.cs" />
+    <Compile Include="Models\ClassProperty.cs" />
+    <Compile Include="Models\ClassPropertyContent.cs" />
+    <Compile Include="Models\ClassRelationship.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\IssueComment.cs" />
+    <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectContent.cs" />
+    <Compile Include="Models\Requirement.cs" />
+    <Compile Include="Models\RequirementContent.cs" />
+    <Compile Include="Models\RequirementRisk.cs" />
+    <Compile Include="Models\SpecificationItem.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserCase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
-    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
-    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
-    <Compile Include="Repositories\AuthenticationUserRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\GenericImplementations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
-      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
-      <Name>GSDRequirementsCSharp.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
       <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
       <Name>GSDRequirementsCSharp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

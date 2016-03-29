@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,8 +8,10 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Entity.Spatial;
 
     [Table("gsd_requirements.User")]
-    public partial class User
+    public class User : IEntity<Guid>
     {
+        public Guid Id { get { return id; } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {

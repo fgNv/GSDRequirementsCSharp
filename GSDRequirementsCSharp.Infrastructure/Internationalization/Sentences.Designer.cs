@@ -61,6 +61,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add project.
+        /// </summary>
+        public static string addProject {
+            get {
+                return ResourceManager.GetString("addProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add translation.
         /// </summary>
         public static string addTranslation {

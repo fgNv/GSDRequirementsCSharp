@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSDRequirementsCSharp.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSDRequirementsCSharp.Infrastructure", "GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj", "{7A11A923-4A74-4293-AFC7-7350C2F34B31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSDRequirementsCSharp.Domain", "GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj", "{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7A11A923-4A74-4293-AFC7-7350C2F34B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A11A923-4A74-4293-AFC7-7350C2F34B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A11A923-4A74-4293-AFC7-7350C2F34B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3DBB38-40D9-4141-A684-EE7D8C35A7EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

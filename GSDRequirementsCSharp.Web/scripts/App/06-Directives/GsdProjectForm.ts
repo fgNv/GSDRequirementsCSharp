@@ -32,11 +32,9 @@
                     });
             }
         }]
-
         public static Factory() {
             return new GsdProjectForm();
         }
     }
-
     app.directive('gsdProjectForm', GsdProjectForm.Factory)
 }

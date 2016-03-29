@@ -240,4 +240,7 @@
   <data name="edit" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="addProject" xml:space="preserve">
+    <value>Adicionar projeto</value>
+  </data>
 </root>

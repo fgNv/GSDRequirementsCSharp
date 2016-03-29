@@ -1,5 +1,6 @@
-namespace GSDRequirementsCSharp.Persistence
+namespace GSDRequirementsCSharp.Domain
 {
+    using Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

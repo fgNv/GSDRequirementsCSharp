@@ -5,6 +5,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Data.Common;
+    using Domain;
     public partial class GSDRequirementsContext : DbContext
     {
         public GSDRequirementsContext() : base(GetDbConnection(), true)

@@ -15,5 +15,16 @@
             return !_.any(this.ProjectContents,
                          (c) => c.locale == GSDRequirements.currentLocale)
         }
+        public canEdit() {
+            return _.any(this.ProjectContents,
+                (c) => c.locale == GSDRequirements.currentLocale)
+        }
+        public getCommandModel() {
+            return {
+                'name': this['Name'],
+                'description': this['Description'],
+                'id' : this['Id']
+             }
+        }
     }
 }

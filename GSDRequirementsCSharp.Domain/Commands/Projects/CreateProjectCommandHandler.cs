@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,16 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
 {
     class CreateProjectCommandHandler : ICommandHandler<CreateProjectCommand>
     {
-        private readonly GSDRequirementsContext _context;
+        private readonly IRepository<Project, Guid> _projectRepository;
+        private readonly IRepository<ProjectContent, Guid> _projectContentRepository;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
 
-        public CreateProjectCommandHandler(GSDRequirementsContext context,
+        public CreateProjectCommandHandler(IRepository<Project, Guid> projectRepository,
+                                           IRepository<ProjectContent, Guid> projectContentRepository,
                                            ICurrentUserRetriever<User> currentUserRetriever)
         {
-            _context = context;
+            _projectRepository = projectRepository;
+            _projectContentRepository = projectContentRepository;
             _currentUserRetriever = currentUserRetriever;
         }
 
@@ -35,8 +39,8 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             var currentUser = _currentUserRetriever.Get();
             project.owner_id = currentUser.id;
 
-            _context.Projects.Add(project);
-            _context.ProjectContents.Add(content);
+            _projectRepository.Add(project);
+            _projectContentRepository.Add(content);
         }
     }
 }

@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Entity.Spatial;
 
     [Table("gsd_requirements.Requirement")]
-    public partial class Requirement
+    public class Requirement : IEntity<Guid>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Requirement()
@@ -15,6 +16,8 @@ namespace GSDRequirementsCSharp.Persistence
             RequirementContents = new HashSet<RequirementContent>();
             RequirementRisks = new HashSet<RequirementRisk>();
         }
+
+        public Guid Id { get { return id; } }
 
         public Guid id { get; set; }
 

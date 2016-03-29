@@ -11,6 +11,7 @@
     <h2>
         @Sentences.projects
         <button class="btn btn-primary"
+                title="@Sentences.addProject"
                 data-ng-click="currentProject = {}">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
@@ -33,7 +34,9 @@
                         <td>{{project.name}}</td>
                         <td>
                             <button class="btn btn-default"
-                                    title="@Sentences.edit">
+                                    title="@Sentences.edit"
+                                    data-ng-show="project.canEdit()"
+                                    data-ng-click="currentProject = project.getCommandModel()">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
