@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Infrastructure.Validation
 {
-    public class DataAnnotationValidator<T> : IValidator<T>
-         where T : class
+    public class DataAnnotationValidator : IValidator
     {
-        public IEnumerable<string> Validate(T model)
+        public IEnumerable<string> Validate(object model)
         {
             var context = new ValidationContext(model);
             var results = new List<ValidationResult>();

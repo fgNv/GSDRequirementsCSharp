@@ -4,12 +4,20 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-
+    using System.Data.Common;
     public partial class GSDRequirementsContext : DbContext
     {
-        public GSDRequirementsContext()
-            : base("name=GSDRequirementsContext")
+        public GSDRequirementsContext() : base(GetDbConnection(), true)
         {
+            
+        }
+        
+        public static DbConnection GetDbConnection()
+        {
+            var conn = DbProviderFactories.GetFactory("MySql.Data.MySqlClient").CreateConnection();
+            var connString = Environment.GetEnvironmentVariable("gsd_requirements_conn_string");
+            conn.ConnectionString = connString;
+            return conn;
         }
 
         public virtual DbSet<Actor> Actors { get; set; }

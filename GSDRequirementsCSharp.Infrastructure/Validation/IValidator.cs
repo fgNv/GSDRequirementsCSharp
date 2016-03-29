@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Infrastructure.Validation
 {
-    public interface IValidator<T> where T : class
+    public interface IValidator
     {
-        IEnumerable<string> Validate(T model);
+        IEnumerable<string> Validate(object model);
     }
 }

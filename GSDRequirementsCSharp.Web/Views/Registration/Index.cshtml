@@ -1,0 +1,60 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+@using GSDRequirementsCSharp.Web.Models
+
+@{
+    ViewBag.Title = Sentences.createNewAccount;
+    Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
+}
+
+<article data-ng-controller="NewAccountController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <h2>@Sentences.createNewAccount</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("login", Sentences.username, true, Att.NgModel("UserData.Login"))
+        </div>
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("email", Sentences.email, true, Att.NgModel("UserData.Email"))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false,
+                                       Att.NgModel("UserData.MobilePhone"),
+                                       Att.NgMaskNumber(),
+                                       Att.Length(10))
+        </div>
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("phone", Sentences.phone, false,
+                                       Att.NgModel("UserData.Phone"),
+                                       Att.NgMaskNumber(), Att.Length(10))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("UserData.Name"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.PasswordInput("password", Sentences.password, true, Att.NgModel("UserData.Password"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.PasswordInput("passwordConfirmation", Sentences.confirmPassword, true, Att.NgModel("passwordConfirmation"))
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</article>

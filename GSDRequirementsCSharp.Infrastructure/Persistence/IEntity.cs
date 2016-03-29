@@ -8,6 +8,6 @@ namespace GSDRequirementsCSharp.Infrastructure.Persistence
 {
     public interface IEntity<TKey>
     {
-        TKey Id { get; set; }
+        TKey Id { get; }
     }
 }

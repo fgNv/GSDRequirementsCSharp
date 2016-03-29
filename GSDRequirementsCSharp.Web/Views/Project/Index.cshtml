@@ -1,0 +1,34 @@
+﻿
+@{ 
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-controller="ProjectListController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h2>
+        @Sentences.projects
+        <button class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <div class="alert alert-info" data-ng-show="projects.length == 0">
+        @Sentences.noProjectRegistered
+    </div>
+
+    <table class="table" data-ng-show="projects.length > 0">
+        <thead>
+            <tr>
+                <th>@Sentences.name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="project in projects">
+                <td>{{project.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</article>
