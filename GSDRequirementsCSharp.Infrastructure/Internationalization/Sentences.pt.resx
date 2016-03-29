@@ -222,4 +222,16 @@
   <data name="noProjectRegistered" xml:space="preserve">
     <value>Nenhum projeto cadastrado</value>
   </data>
+  <data name="description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="projectSuccessfullyCreated" xml:space="preserve">
+    <value>Projeto criado com sucesso</value>
+  </data>
+  <data name="errorSavingProject" xml:space="preserve">
+    <value>Erro ao salvar projeto</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
 </root>

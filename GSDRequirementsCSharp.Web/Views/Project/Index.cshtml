@@ -1,47 +1,56 @@
 ﻿
-@{ 
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
 
 <article data-ng-controller="ProjectListController"
          data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     <h2>
         @Sentences.projects
-        <button class="btn btn-primary">
+        <button class="btn btn-primary"
+                data-ng-click="currentProject = {}">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
+    <article data-ng-show="!currentProject">
+        <div class="alert alert-info" data-ng-show="projects.length == 0">
+            @Sentences.noProjectRegistered
+        </div>
 
-    <div class="alert alert-info" data-ng-show="projects.length == 0">
-        @Sentences.noProjectRegistered
-    </div>
+        <article data-ng-show="projects.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="project in projects">
+                        <td>{{project.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <article data-ng-show="projects.length > 0">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>@Sentences.name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="project in projects">
-                    <td>{{project.name}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <nav>
-            <ul class="pagination">
-                <li data-ng-repeat="page in getPaginationRange()"
-                    data-ng-class="{'active' : page == pagination.currentPage}">
-                    <a href="#" data-ng-click="loadPage(page)">
-                        {{page}}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == pagination.currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+    <article data-gsd-project-form=""
+             data-after-save="loadProjects"
+             data-project="currentProject"
+             data-ng-show="currentProject">        
     </article>
 </article>
+

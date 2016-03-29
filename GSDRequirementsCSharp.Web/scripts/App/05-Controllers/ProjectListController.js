@@ -42,4 +42,3 @@ var Controllers;
             return new ProjectListController($scope, ProjectResource);
         }]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ProjectListController.js.map

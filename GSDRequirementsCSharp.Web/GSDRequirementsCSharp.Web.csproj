@@ -140,8 +140,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\Custom.css" />
@@ -217,6 +215,7 @@
     <Content Include="Views\Shared\Internationalization\CurrentCultureSetterForm.cshtml" />
     <Content Include="Views\Shared\Internationalization\SentencesToJS.cshtml" />
     <Content Include="App_Code\TextInputHelper.cshtml" />
+    <Content Include="Views\Project\_Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -246,6 +245,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectForm.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

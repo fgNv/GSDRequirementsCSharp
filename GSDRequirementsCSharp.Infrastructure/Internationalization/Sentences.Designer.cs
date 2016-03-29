@@ -97,6 +97,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change language.
         /// </summary>
         public static string changeLanguage {
@@ -142,6 +151,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string description {
+            get {
+                return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string email {
@@ -156,6 +174,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorLoadingProjects {
             get {
                 return ResourceManager.GetString("errorLoadingProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving project.
+        /// </summary>
+        public static string errorSavingProject {
+            get {
+                return ResourceManager.GetString("errorSavingProject", resourceCulture);
             }
         }
         
@@ -291,6 +318,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string projects {
             get {
                 return ResourceManager.GetString("projects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project successfully created.
+        /// </summary>
+        public static string projectSuccessfullyCreated {
+            get {
+                return ResourceManager.GetString("projectSuccessfullyCreated", resourceCulture);
             }
         }
         

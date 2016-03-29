@@ -1,0 +1,27 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
+
+<article>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("project.Name"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextArea("description", Sentences.description, true, Att.NgModel("project.Description"))
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="project = null">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</article>
