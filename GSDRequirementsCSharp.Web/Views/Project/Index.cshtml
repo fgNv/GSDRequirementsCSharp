@@ -18,17 +18,30 @@
         @Sentences.noProjectRegistered
     </div>
 
-    <table class="table" data-ng-show="projects.length > 0">
-        <thead>
-            <tr>
-                <th>@Sentences.name</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-ng-repeat="project in projects">
-                <td>{{project.name}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <article data-ng-show="projects.length > 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Sentences.name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="project in projects">
+                    <td>{{project.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav>
+            <ul class="pagination">
+                <li data-ng-repeat="page in getPaginationRange()"
+                    data-ng-class="{'active' : page == pagination.currentPage}">
+                    <a href="#" data-ng-click="loadPage(page)">
+                        {{page}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </article>
 </article>

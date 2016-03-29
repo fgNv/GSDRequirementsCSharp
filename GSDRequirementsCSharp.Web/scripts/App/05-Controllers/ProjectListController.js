@@ -12,6 +12,9 @@ var Controllers;
             $scope.projects = [];
             var pageSize = 10;
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
+            $scope.getPaginationRange = function () {
+                return _.range(1, $scope.maxPages + 1);
+            };
             $scope.loadProjects();
             $scope.pendingRequests = 1;
             this.$scope.UserData = new UserData();
