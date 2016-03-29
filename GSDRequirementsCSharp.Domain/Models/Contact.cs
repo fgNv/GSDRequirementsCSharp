@@ -16,10 +16,9 @@ namespace GSDRequirementsCSharp.Persistence
             Requirements = new HashSet<Requirement>();
             Users = new HashSet<User>();
         }
-
-        public Guid Id { get { return id; } }
-
-        public Guid id { get; set; }
+        
+        [Column("id", Order = 0)]
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]

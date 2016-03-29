@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Domain;
     using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
@@ -10,11 +11,10 @@ namespace GSDRequirementsCSharp.Persistence
     [Table("gsd_requirements.ProjectContent")]
     public partial class ProjectContent : IEntity<Guid>
     {
-        public Guid Id { get { return id; } }
 
         [Key]
-        [Column(Order = 0)]
-        public Guid id { get; set; }
+        [Column("id", Order = 0)]
+        public Guid Id { get; set; }
 
         [Column(TypeName = "text")]
         [StringLength(65535)]

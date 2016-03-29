@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
@@ -28,16 +29,16 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
         public void Handle(CreateProjectCommand command)
         {
             var project = new Project();
-            project.id = Guid.NewGuid();
-            project.name = command.Name;
+            project.Id = Guid.NewGuid();
+            project.Name = command.Name;
             var content = new ProjectContent();
             content.description = command.Description;
             content.locale = Thread.CurrentThread.CurrentCulture.Name; ;
             content.Project = project;
-            content.id = Guid.NewGuid();
-            project.created_at = DateTime.Now;
+            content.Id = Guid.NewGuid();
+            project.CreatedAt = DateTime.Now;
             var currentUser = _currentUserRetriever.Get();
-            project.owner_id = currentUser.id;
+            project.OwnerId = currentUser.Id;
 
             _projectRepository.Add(project);
             _projectContentRepository.Add(content);

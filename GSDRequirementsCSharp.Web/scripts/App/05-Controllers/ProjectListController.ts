@@ -26,6 +26,8 @@
                 $scope.loadProjects()
             }
 
+            $scope.setCurrentProject = (p) => $scope.currentProject = p
+
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
                 $scope,
                 pageSize)

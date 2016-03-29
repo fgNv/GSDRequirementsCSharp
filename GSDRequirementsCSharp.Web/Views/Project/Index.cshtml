@@ -36,7 +36,7 @@
                             <button class="btn btn-default"
                                     title="@Sentences.edit"
                                     data-ng-show="project.canEdit()"
-                                    data-ng-click="currentProject = project.getCommandModel()">
+                                    data-ng-click="setCurrentProject(project.getCommandModel())">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
@@ -61,6 +61,7 @@
             </nav>
         </article>
     </article>
+    {{currentProject}}
     <article data-gsd-project-form=""
              data-after-save="loadProjects"
              data-project="currentProject"

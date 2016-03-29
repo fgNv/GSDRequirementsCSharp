@@ -7,20 +7,21 @@ var Models;
             }
         }
         Project.prototype.canAddTranslation = function () {
-            return !_.any(this.ProjectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            return !_.any(this.projectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
         };
         Project.prototype.canEdit = function () {
-            return _.any(this.ProjectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            return _.any(this.projectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
         };
         Project.prototype.getCommandModel = function () {
-            return {
-                'name': this['Name'],
-                'description': this['Description'],
-                'id': this['Id']
+            var projectContent = _.find(this.projectContents, function (p) { return p.locale == GSDRequirements.currentLocale; });
+            var result = {
+                'name': this['name'],
+                'description': projectContent.description,
+                'id': this['id']
             };
+            return result;
         };
         return Project;
     })();
     Models.Project = Project;
 })(Models || (Models = {}));
-//# sourceMappingURL=Project.js.map

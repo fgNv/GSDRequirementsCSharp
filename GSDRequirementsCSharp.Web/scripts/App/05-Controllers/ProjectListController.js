@@ -15,6 +15,7 @@ var Controllers;
                 $scope.currentPage = page;
                 $scope.loadProjects();
             };
+            $scope.setCurrentProject = function (p) { return $scope.currentProject = p; };
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
@@ -46,4 +47,3 @@ var Controllers;
             return new ProjectListController($scope, ProjectResource);
         }]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ProjectListController.js.map

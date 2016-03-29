@@ -16,10 +16,10 @@ namespace GSDRequirementsCSharp.Persistence
             RequirementContents = new HashSet<RequirementContent>();
             RequirementRisks = new HashSet<RequirementRisk>();
         }
-
-        public Guid Id { get { return id; } }
-
-        public Guid id { get; set; }
+        
+        [Key]
+        [Column("id", Order = 0)]
+        public Guid Id { get; set; }
 
         public int rank { get; set; }
 

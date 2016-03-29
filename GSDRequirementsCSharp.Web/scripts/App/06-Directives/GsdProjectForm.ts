@@ -5,23 +5,22 @@
     declare var angular: any;
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    
+
     class GsdProjectForm {
         public scope = { 'project': '=project', 'afterSave': '=afterSave' };
         public templateUrl = GSDRequirements.baseUrl + 'project/form'
         public controller = ['$scope', 'ProjectResource', ($scope: any, ProjectResource: any) => {
             $scope.pendingRequests = 0;
-            
+
             $scope.save = () => {
                 $scope.pendingRequests++;
-                ProjectResource.save($scope.project)
-                    .$promise
-                    .then(function () {
-                        Notification.notifySuccess(Sentences.projectSuccessfullyCreated);
-                        if ($scope.afterSave)
-                        {
-                            $scope.afterSave()
-                        }
+                var promise = $scope.project.id ?
+                    ProjectResource.update($scope.project).$promise :
+                    ProjectResource.save($scope.project).$promise
+
+                promise.then(function () {
+                    Notification.notifySuccess(Sentences.projectSuccessfullyCreated);
+                    if ($scope.afterSave) { $scope.afterSave() }
                         $scope.project = null
                     })
                     .catch(function (error) {

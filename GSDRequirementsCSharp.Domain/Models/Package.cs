@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Domain;
     using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
@@ -11,10 +12,8 @@ namespace GSDRequirementsCSharp.Persistence
     public partial class Package : IEntity<Guid>
     {
         [Key]
-        [Column(Order = 0)]
-        public Guid id { get; set; }
-
-        public Guid Id { get { return id; } }
+        [Column("id", Order = 0)]
+        public Guid Id { get; set; }
 
         public Guid project_id { get; set; }
 

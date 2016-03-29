@@ -6,6 +6,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Linq;
     using System.Data.Common;
     using Domain;
+    using Mappings;
     public partial class GSDRequirementsContext : DbContext
     {
         public GSDRequirementsContext() : base(GetDbConnection(), true)
@@ -212,27 +213,8 @@ namespace GSDRequirementsCSharp.Persistence
                 .WithMany(e => e.Profiles)
                 .Map(m => m.ToTable("User_Profile", "gsd_requirements").MapLeftKey("profile_id").MapRightKey("user_id"));
 
-            modelBuilder.Entity<Project>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.Packages)
-                .WithRequired(e => e.Project)
-                .HasForeignKey(e => e.project_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.Profiles)
-                .WithRequired(e => e.Project)
-                .HasForeignKey(e => e.project_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.ProjectContents)
-                .WithRequired(e => e.Project)
-                .HasForeignKey(e => e.project_id)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Configurations.Add(new ActorMapping());
+            modelBuilder.Configurations.Add(new ProjectMapping());
 
             modelBuilder.Entity<ProjectContent>()
                 .Property(e => e.description)
@@ -314,7 +296,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Projects)
                 .WithRequired(e => e.User)
-                .HasForeignKey(e => e.owner_id)
+                .HasForeignKey(e => e.OwnerId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()

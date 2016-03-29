@@ -1,18 +1,13 @@
-namespace GSDRequirementsCSharp.Persistence
+namespace GSDRequirementsCSharp.Domain
 {
     using Infrastructure.Persistence;
+    using Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.Project")]
     public class Project : IEntity<Guid>
     {
-        public Guid Id { get { return id; } }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Project()
         {
             Packages = new HashSet<Package>();
@@ -20,27 +15,24 @@ namespace GSDRequirementsCSharp.Persistence
             ProjectContents = new HashSet<ProjectContent>();
         }
 
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public Guid owner_id { get; set; }
+        public Guid OwnerId { get; set; }
 
-        public Guid creator_id { get; set; }
+        public Guid CreatorId { get; set; }
 
-        public DateTime created_at { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public DateTime CreatedAt { get; set; }
+        
         public virtual ICollection<Package> Packages { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Profile> Profiles { get; set; }
 
         public virtual User User { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<ProjectContent> ProjectContents { get; set; }
     }
 }

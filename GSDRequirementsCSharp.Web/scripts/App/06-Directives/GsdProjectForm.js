@@ -9,9 +9,10 @@ var directives;
                     $scope.pendingRequests = 0;
                     $scope.save = function () {
                         $scope.pendingRequests++;
-                        ProjectResource.save($scope.project)
-                            .$promise
-                            .then(function () {
+                        var promise = $scope.project.id ?
+                            ProjectResource.update($scope.project).$promise :
+                            ProjectResource.save($scope.project).$promise;
+                        promise.then(function () {
                             Notification.notifySuccess(Sentences.projectSuccessfullyCreated);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
@@ -34,4 +35,3 @@ var directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(directives || (directives = {}));
-//# sourceMappingURL=GsdProjectForm.js.map

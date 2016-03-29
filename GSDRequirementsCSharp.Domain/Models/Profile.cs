@@ -1,5 +1,7 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Domain;
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +9,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Entity.Spatial;
 
     [Table("gsd_requirements.Profile")]
-    public partial class Profile
+    public partial class Profile : IEntity<Guid>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profile()
@@ -15,7 +17,9 @@ namespace GSDRequirementsCSharp.Persistence
             Users = new HashSet<User>();
         }
 
-        public Guid id { get; set; }
+        [Key]
+        [Column("id", Order = 0)]
+        public Guid Id { get; set; }
 
         public Guid project_id { get; set; }
 

@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Persistence
 {
+    using Domain;
     using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
@@ -10,8 +11,6 @@ namespace GSDRequirementsCSharp.Persistence
     [Table("gsd_requirements.User")]
     public class User : IEntity<Guid>
     {
-        public Guid Id { get { return id; } }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
@@ -22,7 +21,9 @@ namespace GSDRequirementsCSharp.Persistence
             Profiles = new HashSet<Profile>();
         }
 
-        public Guid id { get; set; }
+        [Column("id", Order = 0)]
+        [Key]
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(50)]

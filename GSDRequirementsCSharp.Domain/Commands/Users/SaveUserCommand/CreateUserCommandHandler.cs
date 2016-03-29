@@ -27,13 +27,13 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         public void Handle(CreateUserCommand command)
         {
             var user = new User();
-            user.id = command.Id;
+            user.Id = command.Id;
             user.login = command.Login;
             user.password = _cryptographer.Encrypt(command.Password);
             
             var contact = new Contact();
             contact.email = command.Email;
-            contact.id = command.Id;
+            contact.Id = command.Id;
             contact.mobilePhone = command.MobilePhone;
             contact.name = command.Name;
             contact.phone = command.Phone;
