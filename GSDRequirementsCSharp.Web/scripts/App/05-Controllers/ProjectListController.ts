@@ -32,7 +32,7 @@
                 $scope,
                 pageSize)
 
-            $scope.getPaginationRange = function () {
+            $scope.getPaginationRange = function () {                                
                 return _.range(1, $scope.maxPages + 1);
             };
 
@@ -46,9 +46,9 @@
             projectResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.projects = _.map(response.Projects, 
+                    $scope.projects = _.map(response.projects, 
                                             (p) => new Models.Project(p))
-                    $scope.maxPages = response.MaxPages
+                    $scope.maxPages = response.maxPages
                 })
                 .catch((error) => {
                     Notification.notifyError(Sentences.errorLoadingProjects,

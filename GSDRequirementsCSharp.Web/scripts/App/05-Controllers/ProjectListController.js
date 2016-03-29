@@ -30,8 +30,8 @@ var Controllers;
             projectResource.get(request)
                 .$promise
                 .then(function (response) {
-                $scope.projects = _.map(response.Projects, function (p) { return new Models.Project(p); });
-                $scope.maxPages = response.MaxPages;
+                $scope.projects = _.map(response.projects, function (p) { return new Models.Project(p); });
+                $scope.maxPages = response.maxPages;
             })
                 .catch(function (error) {
                 Notification.notifyError(Sentences.errorLoadingProjects, error.data.errors);
