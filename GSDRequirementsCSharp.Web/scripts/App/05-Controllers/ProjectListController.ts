@@ -20,6 +20,12 @@
             $scope.maxPages = 1
             $scope.projects = []
             var pageSize = 10
+
+            $scope.loadPage = (page) => {
+                $scope.currentPage = page
+                $scope.loadProjects()
+            }
+
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
                 $scope,
                 pageSize)
@@ -38,7 +44,8 @@
             projectResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.projects = response.Projects
+                    $scope.projects = _.map(response.Projects, 
+                                            (p) => new Models.Project(p))
                     $scope.maxPages = response.MaxPages
                 })
                 .catch((error) => {

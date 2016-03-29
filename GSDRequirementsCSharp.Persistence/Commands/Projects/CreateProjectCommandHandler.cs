@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Commands.Projects
@@ -27,7 +28,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             project.name = command.Name;
             var content = new ProjectContent();
             content.description = command.Description;
-            content.locale = command.Locale;
+            content.locale = Thread.CurrentThread.CurrentCulture.Name; ;
             content.Project = project;
             content.id = Guid.NewGuid();
             project.created_at = DateTime.Now;

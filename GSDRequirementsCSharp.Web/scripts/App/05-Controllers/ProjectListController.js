@@ -11,6 +11,10 @@ var Controllers;
             $scope.maxPages = 1;
             $scope.projects = [];
             var pageSize = 10;
+            $scope.loadPage = function (page) {
+                $scope.currentPage = page;
+                $scope.loadProjects();
+            };
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
@@ -25,7 +29,7 @@ var Controllers;
             projectResource.get(request)
                 .$promise
                 .then(function (response) {
-                $scope.projects = response.Projects;
+                $scope.projects = _.map(response.Projects, function (p) { return new Models.Project(p); });
                 $scope.maxPages = response.MaxPages;
             })
                 .catch(function (error) {

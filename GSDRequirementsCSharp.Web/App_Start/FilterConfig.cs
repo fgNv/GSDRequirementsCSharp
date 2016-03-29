@@ -13,7 +13,7 @@ namespace GSDRequirementsCSharp.Web.App_Start
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-            filters.Add(new CurrentCultureSetterFilter());
+            filters.Add(new CurrentCultureSetterMvcFilter());
             filters.Add(new HandleMvcException());
         }
     }

@@ -234,4 +234,10 @@
   <data name="cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="addTranslation" xml:space="preserve">
+    <value>Adicionar tradução</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
 </root>

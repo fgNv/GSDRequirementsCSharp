@@ -18,12 +18,5 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
         [StringLength(65535)]
         public string Description { get; set; }
         
-        [StringLength(10)]
-        public string Locale { get; set; }
-
-        public CreateProjectCommand()
-        {
-            Locale = Thread.CurrentThread.CurrentCulture.Name;
-        }
     }
 }

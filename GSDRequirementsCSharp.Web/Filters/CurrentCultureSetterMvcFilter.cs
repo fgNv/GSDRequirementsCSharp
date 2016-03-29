@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace GSDRequirementsCSharp.Web.Filters
 {
-    public class CurrentCultureSetterFilter : ActionFilterAttribute, IActionFilter
+    public class CurrentCultureSetterMvcFilter : ActionFilterAttribute, IActionFilter
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
