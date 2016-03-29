@@ -99,6 +99,9 @@
     <Compile Include="Entities\SpecificationItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserCase.cs" />
+    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
+    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />

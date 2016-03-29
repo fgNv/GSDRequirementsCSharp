@@ -180,4 +180,46 @@
   <data name="authenticate" xml:space="preserve">
     <value>Autenticar</value>
   </data>
+  <data name="artifacts" xml:space="preserve">
+    <value>Artefatos</value>
+  </data>
+  <data name="classDiagrams" xml:space="preserve">
+    <value>Diagramas de classe</value>
+  </data>
+  <data name="currentProject" xml:space="preserve">
+    <value>Projeto atual</value>
+  </data>
+  <data name="manageProfiles" xml:space="preserve">
+    <value>Gerenciar perfis</value>
+  </data>
+  <data name="manageProjects" xml:space="preserve">
+    <value>Gerenciar Projetos</value>
+  </data>
+  <data name="manageUsers" xml:space="preserve">
+    <value>Gerenciar usuários</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="permissions" xml:space="preserve">
+    <value>Permissões</value>
+  </data>
+  <data name="traceabilityMatrix" xml:space="preserve">
+    <value>Matriz de rastreabilidade</value>
+  </data>
+  <data name="useCaseDiagrams" xml:space="preserve">
+    <value>Diagramas de caso de uso</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Relatório</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Projetos</value>
+  </data>
+  <data name="errorLoadingProjects" xml:space="preserve">
+    <value>Erro ao carregar projetos</value>
+  </data>
+  <data name="noProjectRegistered" xml:space="preserve">
+    <value>Nenhum projeto cadastrado</value>
+  </data>
 </root>

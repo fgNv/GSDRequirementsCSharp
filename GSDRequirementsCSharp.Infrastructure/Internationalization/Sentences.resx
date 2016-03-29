@@ -127,7 +127,7 @@
     <value>Confirm Password</value>
   </data>
   <data name="createNewAccount" xml:space="preserve">
-    <value>Create New Account</value>
+    <value>Create new Account</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
@@ -179,5 +179,47 @@
   </data>
   <data name="authenticate" xml:space="preserve">
     <value>Authenticate</value>
+  </data>
+  <data name="artifacts" xml:space="preserve">
+    <value>Artifacts</value>
+  </data>
+  <data name="classDiagrams" xml:space="preserve">
+    <value>Class diagrams</value>
+  </data>
+  <data name="currentProject" xml:space="preserve">
+    <value>Current project</value>
+  </data>
+  <data name="manageProfiles" xml:space="preserve">
+    <value>Manage profiles</value>
+  </data>
+  <data name="manageProjects" xml:space="preserve">
+    <value>Manage projects</value>
+  </data>
+  <data name="manageUsers" xml:space="preserve">
+    <value>Manage users</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="traceabilityMatrix" xml:space="preserve">
+    <value>Traceability matrix</value>
+  </data>
+  <data name="useCaseDiagrams" xml:space="preserve">
+    <value>Use case diagrams</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="errorLoadingProjects" xml:space="preserve">
+    <value>Error loading projects</value>
+  </data>
+  <data name="noProjectRegistered" xml:space="preserve">
+    <value>No project registered</value>
   </data>
 </root>

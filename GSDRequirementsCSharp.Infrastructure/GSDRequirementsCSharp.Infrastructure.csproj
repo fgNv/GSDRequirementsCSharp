@@ -55,9 +55,7 @@
     <Compile Include="CQS\Interfaces\ICommandHandler.cs" />
     <Compile Include="CQS\Interfaces\ICommandToModelConverter.cs" />
     <Compile Include="CQS\Interfaces\IDeleteCommand.cs" />
-    <Compile Include="CQS\Interfaces\IQuery.cs" />
     <Compile Include="CQS\Interfaces\IQueryHandler.cs" />
-    <Compile Include="CQS\Interfaces\IQueryResult.cs" />
     <Compile Include="Cryptography\ICryptographer.cs" />
     <Compile Include="Cryptography\Sha256Cryptographer.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />

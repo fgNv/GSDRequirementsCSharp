@@ -1,4 +1,7 @@
-﻿using GSDRequirementsCSharp.Infrastructure.DependencyInjection;
+﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+using GSDRequirementsCSharp.Infrastructure.DependencyInjection;
+using GSDRequirementsCSharp.Persistence;
+using GSDRequirementsCSharp.Persistence.Authentication;
 using GSDRequirementsCSharp.Persistence.DependencyInjection;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
@@ -29,6 +32,7 @@ namespace GSDRequirementsCSharp.Web.DependencyInjection
         {
             container.RegisterInfrastructureDependencies(lifestyle);
             container.RegisterPersistenceDependencies(lifestyle);
+            container.Register<ICurrentUserRetriever<User>, CurrentUserRetriever>(lifestyle);
         }
 
         public static void ConfigureMvc(this Container container)

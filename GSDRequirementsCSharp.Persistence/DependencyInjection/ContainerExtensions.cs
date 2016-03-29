@@ -25,6 +25,8 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
             
             container.Register(typeof(ICommandHandler<>), 
                                          new[] { typeof(ContainerExtensions).Assembly });
+            container.Register(typeof(IQueryHandler<,>),
+                                         new[] { typeof(ContainerExtensions).Assembly });
             container.Register(typeof(IRepository<,>),
                                          new[] { typeof(ContainerExtensions).Assembly });
             container.Register<GSDRequirementsContext, GSDRequirementsContext>(lifestyle);
