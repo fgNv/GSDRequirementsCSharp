@@ -49,6 +49,8 @@
     <Compile Include="Authentication\ICredentialsValidator.cs" />
     <Compile Include="Authentication\ICurrentUserRetriever.cs" />
     <Compile Include="Authentication\IUserRepository.cs" />
+    <Compile Include="Context\ICurrentLocaleName.cs" />
+    <Compile Include="Context\ICurrentProjectContextId.cs" />
     <Compile Include="CQS\GenericImplementations\GenericCreateCommandHandler.cs" />
     <Compile Include="CQS\GenericImplementations\GenericDeleteCommandHandler.cs" />
     <Compile Include="CQS\Interfaces\ICommand.cs" />

@@ -15,7 +15,7 @@ var Controllers;
                 $scope.currentPage = page;
                 $scope.loadPackages();
             };
-            $scope.setCurrentPackge = function (p) { $scope.currentPackage = p; };
+            $scope.setCurrentPackage = function (p) { $scope.currentPackage = p; };
             $scope.setPackageToTranslate = function (p) { $scope.packageToTranslate = p; };
             $scope.loadPackages = function () { return _this.LoadPackages(PackageResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {

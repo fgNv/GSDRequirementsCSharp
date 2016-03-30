@@ -41,7 +41,7 @@ var directives;
                             $scope.project = null;
                         })
                             .catch(function (error) {
-                            Notification.notifyError(Sentences.errorAddingTranslation, error.data.errors);
+                            Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages);
                         })
                             .finally(function () {
                             $scope.pendingRequests--;

@@ -68,9 +68,13 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Mappings\PackageMapping.cs" />
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />
     <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\PackageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

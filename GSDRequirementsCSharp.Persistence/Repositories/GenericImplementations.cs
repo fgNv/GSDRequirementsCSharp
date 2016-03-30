@@ -19,10 +19,6 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public ProjectRepository(GSDRequirementsContext context) : base(context) { }
     }
-    public class PackageRepository : GenericRepository<Package, Guid>
-    {
-        public PackageRepository(GSDRequirementsContext context) : base(context) { }
-    }
     public class RequirementRepository : GenericRepository<Requirement, Guid>
     {
         public RequirementRepository(GSDRequirementsContext context) : base(context) { }

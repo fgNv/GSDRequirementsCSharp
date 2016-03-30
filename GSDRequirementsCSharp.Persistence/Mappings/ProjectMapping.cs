@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             
             HasMany(e => e.Packages)
             .WithRequired(e => e.Project)
-            .HasForeignKey(e => e.project_id)
+            .HasForeignKey(e => e.ProjectId)
             .WillCascadeOnDelete(false);
 
             HasMany(e => e.Profiles)

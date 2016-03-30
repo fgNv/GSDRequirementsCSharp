@@ -26,7 +26,7 @@
                 $scope.loadPackages()
             }
 
-            $scope.setCurrentPackge = (p): void => { $scope.currentPackage = p }
+            $scope.setCurrentPackage = (p): void => { $scope.currentPackage = p }
             $scope.setPackageToTranslate = (p): void => { $scope.packageToTranslate = p }
 
             $scope.loadPackages = () => this.LoadPackages(PackageResource,

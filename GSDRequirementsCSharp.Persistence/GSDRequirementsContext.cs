@@ -196,13 +196,7 @@ namespace GSDRequirementsCSharp.Persistence
                 .Property(e => e.content)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Package>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Package>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
+            modelBuilder.Configurations.Add(new PackageMapping());
 
             modelBuilder.Entity<Profile>()
                 .Property(e => e.name)
