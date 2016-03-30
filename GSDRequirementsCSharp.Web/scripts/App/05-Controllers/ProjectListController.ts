@@ -7,6 +7,7 @@
     declare var GSDRequirements: GSDRequirementsData;
     declare var sentences: any;
     declare var baseUrl: string;
+    declare var _: any;
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
@@ -19,9 +20,22 @@
             $scope.maxPages = 1
             $scope.projects = []
             var pageSize = 10
+
+            $scope.loadPage = (page) => {
+                $scope.currentPage = page
+                $scope.loadProjects()
+            }
+
+            $scope.setCurrentProject = (p) : void => { $scope.currentProject = p }
+            $scope.setProjectToTranslate = (p) : void => { $scope.projectToTranslate = p }
+
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
                 $scope,
                 pageSize)
+
+            $scope.getPaginationRange = function () {                                
+                return _.range(1, $scope.maxPages + 1);
+            };
 
             $scope.loadProjects()
             $scope.pendingRequests = 1
@@ -33,8 +47,9 @@
             projectResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.projects = response.Projects
-                    $scope.maxPages = response.MaxPages
+                    $scope.projects = _.map(response.projects, 
+                                            (p) => new Models.Project(p))
+                    $scope.maxPages = response.maxPages
                 })
                 .catch((error) => {
                     Notification.notifyError(Sentences.errorLoadingProjects,

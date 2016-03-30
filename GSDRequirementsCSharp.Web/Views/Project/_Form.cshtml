@@ -1,0 +1,29 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
+
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h4 data-ng-hide="project.id">@Sentences.createProject</h4>
+    <h4 data-ng-show="project.id">@Sentences.editProject {{project.name}}</h4>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("project.name"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextArea("description", Sentences.description, true, Att.NgModel("project.description"))
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="project = null">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</article>

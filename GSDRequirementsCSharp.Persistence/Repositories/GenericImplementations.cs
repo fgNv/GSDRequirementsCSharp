@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSDRequirementsCSharp.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,5 +26,9 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     public class RequirementRepository : GenericRepository<Requirement, Guid>
     {
         public RequirementRepository(GSDRequirementsContext context) : base(context) { }
+    }
+    public class ProjectContentRepository : GenericRepository<ProjectContent, Guid>
+    {
+        public ProjectContentRepository(GSDRequirementsContext context) : base(context) { }
     }
 }

@@ -140,22 +140,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />
+    <Content Include="Content\vendors.min.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\ProjectContentResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectResource.js" />
     <Content Include="Scripts\App\03-Resources\UserResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ProjectContentController.cs" />
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -176,7 +177,8 @@
     <Compile Include="Exceptions\ApiExceptionHandling.cs" />
     <Compile Include="Exceptions\ExceptionResponse.cs" />
     <Compile Include="Exceptions\MvcExceptionHandling.cs" />
-    <Compile Include="Filters\CurrentCultureSetterFilter.cs" />
+    <Compile Include="Filters\CurrentCultureSetterApiFilter.cs" />
+    <Compile Include="Filters\CurrentCultureSetterMvcFilter.cs" />
     <Compile Include="Filters\HandleApiException.cs" />
     <Compile Include="Filters\HandleMvcException.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,8 +217,10 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_UnauthenticatedLayout.cshtml" />
     <Content Include="Views\Shared\Internationalization\CurrentCultureSetterForm.cshtml" />
-    <Content Include="Views\Shared\Internationalization\SentencesToJS.cshtml" />
+    <Content Include="Views\Shared\Internationalization\DataToJS.cshtml" />
     <Content Include="App_Code\TextInputHelper.cshtml" />
+    <Content Include="Views\Project\_Form.cshtml" />
+    <Content Include="Views\Project\_Translation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,6 +234,10 @@
     <Folder Include="Views\Internationalization\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
+      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
+      <Name>GSDRequirementsCSharp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
       <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
       <Name>GSDRequirementsCSharp.Infrastructure</Name>
@@ -244,8 +252,11 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Project.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectForm.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectTranslation.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

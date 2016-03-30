@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+﻿using GSDRequirementsCSharp.Domain.DependencyInjection;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.DependencyInjection;
 using GSDRequirementsCSharp.Persistence;
 using GSDRequirementsCSharp.Persistence.Authentication;
@@ -31,6 +32,7 @@ namespace GSDRequirementsCSharp.Web.DependencyInjection
         private static void RegisterDependencies(this Container container, Lifestyle lifestyle)
         {
             container.RegisterInfrastructureDependencies(lifestyle);
+            container.RegisterDomainDependencies(lifestyle);
             container.RegisterPersistenceDependencies(lifestyle);
             container.Register<ICurrentUserRetriever<User>, CurrentUserRetriever>(lifestyle);
         }

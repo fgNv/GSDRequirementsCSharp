@@ -13,5 +13,15 @@ namespace GSDRequirements.Web.Controllers
         {
             return View();
         }
+
+        public PartialViewResult Form()
+        {
+            return PartialView("~/Views/Project/_Form.cshtml");
+        }
+
+        public PartialViewResult Translation()
+        {
+            return PartialView("~/Views/Project/_Translation.cshtml");
+        }
     }
 }

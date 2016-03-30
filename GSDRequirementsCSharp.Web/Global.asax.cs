@@ -10,6 +10,8 @@ using System.Web.Http;
 using SimpleInjector;
 using GSDRequirementsCSharp.Web.DependencyInjection;
 using GSDRequirementsCSharp.Web.App_Start;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace GSDRequirementsCSharp.Web
 {
@@ -19,6 +21,18 @@ namespace GSDRequirementsCSharp.Web
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configuration
+                               .Formatters
+                               .JsonFormatter
+                               .SerializerSettings
+                               .Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            GlobalConfiguration.Configuration
+                               .Formatters
+                               .JsonFormatter
+                               .SerializerSettings
+                               .ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             var apiContainer = new Container();

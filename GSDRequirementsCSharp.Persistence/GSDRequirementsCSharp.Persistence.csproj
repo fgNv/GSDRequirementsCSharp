@@ -64,58 +64,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
-    <Compile Include="Commands\Projects\CreateProjectCommand.cs" />
-    <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
-    <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
-    <Compile Include="EntitiesCustomization\Contact.cs" />
-    <Compile Include="EntitiesCustomization\Package.cs" />
-    <Compile Include="EntitiesCustomization\Project.cs" />
-    <Compile Include="EntitiesCustomization\Requirement.cs" />
-    <Compile Include="EntitiesCustomization\User.cs" />
-    <Compile Include="Entities\Actor.cs" />
-    <Compile Include="Entities\Class.cs" />
-    <Compile Include="Entities\ClassContent.cs" />
-    <Compile Include="Entities\ClassDiagram.cs" />
-    <Compile Include="Entities\ClassMethod.cs" />
-    <Compile Include="Entities\ClassMethodContent.cs" />
-    <Compile Include="Entities\ClassMethodParameter.cs" />
-    <Compile Include="Entities\ClassMethodParameterContent.cs" />
-    <Compile Include="Entities\ClassProperty.cs" />
-    <Compile Include="Entities\ClassPropertyContent.cs" />
-    <Compile Include="Entities\ClassRelationship.cs" />
-    <Compile Include="Entities\Contact.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
-    <Compile Include="Entities\Issue.cs" />
-    <Compile Include="Entities\IssueComment.cs" />
-    <Compile Include="Entities\Package.cs" />
-    <Compile Include="Entities\Profile.cs" />
-    <Compile Include="Entities\Project.cs" />
-    <Compile Include="Entities\ProjectContent.cs" />
+    <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Mappings\ProjectContentMapping.cs" />
+    <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Requirement.cs" />
-    <Compile Include="Entities\RequirementContent.cs" />
-    <Compile Include="Entities\RequirementRisk.cs" />
-    <Compile Include="Entities\SpecificationItem.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\UserCase.cs" />
     <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryHandler.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
+      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
+      <Name>GSDRequirementsCSharp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
       <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
       <Name>GSDRequirementsCSharp.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

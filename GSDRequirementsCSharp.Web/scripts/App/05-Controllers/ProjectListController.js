@@ -11,7 +11,16 @@ var Controllers;
             $scope.maxPages = 1;
             $scope.projects = [];
             var pageSize = 10;
+            $scope.loadPage = function (page) {
+                $scope.currentPage = page;
+                $scope.loadProjects();
+            };
+            $scope.setCurrentProject = function (p) { $scope.currentProject = p; };
+            $scope.setProjectToTranslate = function (p) { $scope.projectToTranslate = p; };
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
+            $scope.getPaginationRange = function () {
+                return _.range(1, $scope.maxPages + 1);
+            };
             $scope.loadProjects();
             $scope.pendingRequests = 1;
             this.$scope.UserData = new UserData();
@@ -22,8 +31,8 @@ var Controllers;
             projectResource.get(request)
                 .$promise
                 .then(function (response) {
-                $scope.projects = response.Projects;
-                $scope.maxPages = response.MaxPages;
+                $scope.projects = _.map(response.projects, function (p) { return new Models.Project(p); });
+                $scope.maxPages = response.maxPages;
             })
                 .catch(function (error) {
                 Notification.notifyError(Sentences.errorLoadingProjects, error.data.errors);

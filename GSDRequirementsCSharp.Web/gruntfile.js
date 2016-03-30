@@ -56,6 +56,8 @@ module.exports = function (grunt) {
             concatenate: {
                 files: {
                     'Content/vendors.min.css': ['scripts/Vendors/**/*.css',
+                                                bowerPath + 'bootstrap/dist/css/bootstrap.css',
+                                                bowerPath + 'bootstrap/dist/css/bootstrap-theme.css',
                                                 bowerPath + 'toastr/toastr.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog-theme-default.css'],
@@ -69,7 +71,7 @@ module.exports = function (grunt) {
                     interrupt: true
                 },
                 files: ['Scripts/App/*/**.js'],
-                tasks: ['typescript', 'uglify']
+                tasks: ['uglify']
             },
             css: {
                 options: {
@@ -82,7 +84,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('minification', ['uglify', 'cssmin', 'copy']);
-    grunt.registerTask('default', ['typescript', 'minification']);
+    grunt.registerTask('default', ['minification']);
 
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-copy');

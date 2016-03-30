@@ -61,6 +61,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add project.
+        /// </summary>
+        public static string addProject {
+            get {
+                return ResourceManager.GetString("addProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add translation.
+        /// </summary>
+        public static string addTranslation {
+            get {
+                return ResourceManager.GetString("addTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add translation for project.
+        /// </summary>
+        public static string addTranslationForProject {
+            get {
+                return ResourceManager.GetString("addTranslationForProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Artifacts.
         /// </summary>
         public static string artifacts {
@@ -93,6 +120,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string authenticationFailed {
             get {
                 return ResourceManager.GetString("authenticationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
@@ -133,11 +169,47 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create project.
+        /// </summary>
+        public static string createProject {
+            get {
+                return ResourceManager.GetString("createProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current project.
         /// </summary>
         public static string currentProject {
             get {
                 return ResourceManager.GetString("currentProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string description {
+            get {
+                return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string edit {
+            get {
+                return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit project.
+        /// </summary>
+        public static string editProject {
+            get {
+                return ResourceManager.GetString("editProject", resourceCulture);
             }
         }
         
@@ -151,11 +223,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error adding translation.
+        /// </summary>
+        public static string errorAddingTranslation {
+            get {
+                return ResourceManager.GetString("errorAddingTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error loading projects.
         /// </summary>
         public static string errorLoadingProjects {
             get {
                 return ResourceManager.GetString("errorLoadingProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving project.
+        /// </summary>
+        public static string errorSavingProject {
+            get {
+                return ResourceManager.GetString("errorSavingProject", resourceCulture);
             }
         }
         
@@ -295,6 +385,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project successfully created.
+        /// </summary>
+        public static string projectSuccessfullyCreated {
+            get {
+                return ResourceManager.GetString("projectSuccessfullyCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project updated successfully.
+        /// </summary>
+        public static string projectUpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("projectUpdatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string register {
@@ -336,6 +444,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string traceabilityMatrix {
             get {
                 return ResourceManager.GetString("traceabilityMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation added successfully.
+        /// </summary>
+        public static string translationAddedSuccessfully {
+            get {
+                return ResourceManager.GetString("translationAddedSuccessfully", resourceCulture);
             }
         }
         

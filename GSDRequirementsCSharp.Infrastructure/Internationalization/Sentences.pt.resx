@@ -222,4 +222,43 @@
   <data name="noProjectRegistered" xml:space="preserve">
     <value>Nenhum projeto cadastrado</value>
   </data>
+  <data name="description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="projectSuccessfullyCreated" xml:space="preserve">
+    <value>Projeto criado com sucesso</value>
+  </data>
+  <data name="errorSavingProject" xml:space="preserve">
+    <value>Erro ao salvar projeto</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="addTranslation" xml:space="preserve">
+    <value>Adicionar tradução</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="addProject" xml:space="preserve">
+    <value>Adicionar projeto</value>
+  </data>
+  <data name="projectUpdatedSuccessfully" xml:space="preserve">
+    <value>Projeto atualizado com sucesso</value>
+  </data>
+  <data name="createProject" xml:space="preserve">
+    <value>Criar projeto</value>
+  </data>
+  <data name="editProject" xml:space="preserve">
+    <value>Editar projeto</value>
+  </data>
+  <data name="addTranslationForProject" xml:space="preserve">
+    <value>Adicionar tradução para projeto</value>
+  </data>
+  <data name="errorAddingTranslation" xml:space="preserve">
+    <value>Erro ao adicionar tradução</value>
+  </data>
+  <data name="translationAddedSuccessfully" xml:space="preserve">
+    <value>Tradução adicionada com sucesso</value>
+  </data>
 </root>
