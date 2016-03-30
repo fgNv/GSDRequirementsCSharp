@@ -86,7 +86,6 @@ module.exports = function (grunt) {
     grunt.registerTask('minification', ['uglify', 'cssmin', 'copy']);
     grunt.registerTask('default', ['minification']);
 
-    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');

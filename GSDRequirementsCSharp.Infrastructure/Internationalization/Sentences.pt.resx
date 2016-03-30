@@ -261,4 +261,10 @@
   <data name="translationAddedSuccessfully" xml:space="preserve">
     <value>Tradução adicionada com sucesso</value>
   </data>
+  <data name="changeProjectInContext" xml:space="preserve">
+    <value>Alterar projeto do contexto</value>
+  </data>
+  <data name="noProjectInContext" xml:space="preserve">
+    <value>Nenhum projeto definido no contexto</value>
+  </data>
 </root>

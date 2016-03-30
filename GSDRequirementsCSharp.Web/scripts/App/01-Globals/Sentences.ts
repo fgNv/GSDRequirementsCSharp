@@ -8,4 +8,5 @@
     export declare var projectUpdatedSuccessfully: string;
     export declare var translationAddedSuccessfully: string;
     export declare var errorAddingTranslation: string;
+    export declare var noProjectInContext: string;
 }

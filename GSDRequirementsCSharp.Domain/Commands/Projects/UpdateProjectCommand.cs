@@ -11,5 +11,13 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
     public class UpdateProjectCommand : SaveProjectCommand
     {
         public Guid Id { get; set; }
+
+        public UpdateProjectCommand(Guid id, SaveProjectCommand command)
+        {
+            this.Id = id;
+            this.Name = command.Name;
+            this.Description = command.Description;
+        }
     }
+    
 }

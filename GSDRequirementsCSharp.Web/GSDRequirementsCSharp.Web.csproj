@@ -140,6 +140,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\Custom.css" />
@@ -163,6 +164,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Authentication\CurrentUserRetriever.cs" />
+    <Compile Include="Context\ProjectContext.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ClassDiagramController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -173,6 +175,7 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequirementController.cs" />
     <Compile Include="Controllers\UseCaseDiagramController.cs" />
+    <Compile Include="Cookies\ResponseExtensions.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Exceptions\ApiExceptionHandling.cs" />
     <Compile Include="Exceptions\ExceptionResponse.cs" />
@@ -190,6 +193,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Requests\Internationalization\SetCurrentCultureRequest.cs" />
+    <Compile Include="Requests\Projects\SetContextProjectRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -221,6 +225,7 @@
     <Content Include="App_Code\TextInputHelper.cshtml" />
     <Content Include="Views\Project\_Form.cshtml" />
     <Content Include="Views\Project\_Translation.cshtml" />
+    <Content Include="Views\Project\_Context.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -255,6 +260,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\Project.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectContext.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\GsdProjectTranslation.ts" />
   </ItemGroup>

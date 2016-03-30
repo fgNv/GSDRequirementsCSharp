@@ -142,6 +142,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change project in context.
+        /// </summary>
+        public static string changeProjectInContext {
+            get {
+                return ResourceManager.GetString("changeProjectInContext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagrams.
         /// </summary>
         public static string classDiagrams {
@@ -318,6 +327,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No project in context.
+        /// </summary>
+        public static string noProjectInContext {
+            get {
+                return ResourceManager.GetString("noProjectInContext", resourceCulture);
             }
         }
         

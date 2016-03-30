@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Context
 
 <html>
 <head>
@@ -22,76 +23,83 @@
             </a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        @Sentences.artifacts <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="@Url.Action("Index", "Requirement")">
-                                @Sentences.requirements
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "UseCaseDiagram")">
-                                @Sentences.useCaseDiagrams
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "ClassDiagram")">
-                                @Sentences.classDiagrams
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index","Package")">
-                        @Sentences.packages
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        @Sentences.permissions <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="@Url.Action("ProfileManagement", "Permission")">
-                                @Sentences.manageProfiles
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("UserManagement", "Permission")">
-                                @Sentences.manageUsers
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        @Sentences.report <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="@Url.Action("ProfileManagement", "Permission")">
-                                @Sentences.traceabilityMatrix
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            @{
+                var currentProjectId = ProjectContext.Current();
+            }
+
+            @if (currentProjectId != null)
+            {
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            @Sentences.artifacts <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("Index", "Requirement")">
+                                    @Sentences.requirements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "UseCaseDiagram")">
+                                    @Sentences.useCaseDiagrams
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "ClassDiagram")">
+                                    @Sentences.classDiagrams
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Package")">
+                            @Sentences.packages
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            @Sentences.permissions <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("ProfileManagement", "Permission")">
+                                    @Sentences.manageProfiles
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("UserManagement", "Permission")">
+                                    @Sentences.manageUsers
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            @Sentences.report <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("Index", "Reports")">
+                                    @Sentences.traceabilityMatrix
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            }
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -100,15 +108,18 @@
                     </a>
                 </li>
                 <li>
-                    <div class="navbar-form">
-                        <div class="form-group">
-                            <label>
-                                @Sentences.currentProject
-                                <select class="form-control">
-                                    <option>Projeto X</option>
-                                    <option>Projeto Y</option>
-                                </select>
-                            </label>
+                <li class="dropdown" id="menuLogin">
+                    <a class="dropdown-toggle"
+                       href="#"
+                       title="@Sentences.changeProjectInContext"
+                       data-toggle="dropdown" id="navLogin">
+                        {{currentProjectName}}
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" style="padding:17px;">
+                        <div data-gsd-project-context=""
+                             data-current-project-id="currentProjectId"
+                             data-current-project-name="currentProjectName">
                         </div>
                     </div>
                 </li>
