@@ -79,6 +79,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add translation for project.
+        /// </summary>
+        public static string addTranslationForProject {
+            get {
+                return ResourceManager.GetString("addTranslationForProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Artifacts.
         /// </summary>
         public static string artifacts {
@@ -160,6 +169,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create project.
+        /// </summary>
+        public static string createProject {
+            get {
+                return ResourceManager.GetString("createProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current project.
         /// </summary>
         public static string currentProject {
@@ -187,11 +205,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit project.
+        /// </summary>
+        public static string editProject {
+            get {
+                return ResourceManager.GetString("editProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string email {
             get {
                 return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error adding translation.
+        /// </summary>
+        public static string errorAddingTranslation {
+            get {
+                return ResourceManager.GetString("errorAddingTranslation", resourceCulture);
             }
         }
         
@@ -408,6 +444,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string traceabilityMatrix {
             get {
                 return ResourceManager.GetString("traceabilityMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation added successfully.
+        /// </summary>
+        public static string translationAddedSuccessfully {
+            get {
+                return ResourceManager.GetString("translationAddedSuccessfully", resourceCulture);
             }
         }
         

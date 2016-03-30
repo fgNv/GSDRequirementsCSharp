@@ -6,4 +6,6 @@
     export declare var projectSuccessfullyCreated: string;
     export declare var errorSavingProject: string;
     export declare var projectUpdatedSuccessfully: string;
+    export declare var translationAddedSuccessfully: string;
+    export declare var errorAddingTranslation: string;
 }

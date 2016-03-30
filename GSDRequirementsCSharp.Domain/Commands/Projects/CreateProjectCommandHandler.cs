@@ -35,7 +35,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             content.Description = command.Description;
             content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
             content.Project = project;
-            content.Id = Guid.NewGuid();
+            content.Id = project.Id;
             project.CreatedAt = DateTime.Now;
             var currentUser = _currentUserRetriever.Get();
             project.OwnerId = currentUser.Id;

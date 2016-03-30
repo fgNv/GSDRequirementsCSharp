@@ -16,7 +16,7 @@
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
-    <article data-ng-show="!currentProject">
+    <article data-ng-show="!currentProject && !projectToTranslate">
         <div class="alert alert-info" data-ng-show="projects.length == 0">
             @Sentences.noProjectRegistered
         </div>
@@ -40,6 +40,7 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
+                                    data-ng-click="setProjectToTranslate(project)"
                                     data-ng-show="project.canAddTranslation()"
                                     title="@Sentences.addTranslation">
                                 <span class="glyphicon glyphicon-globe"></span>
@@ -67,5 +68,10 @@
              data-project="currentProject"
              data-ng-show="currentProject">        
     </article>
+    
+    <article data-gsd-project-translation=""
+             data-after-save="loadProjects"
+             data-project="projectToTranslate"
+             data-ng-show="projectToTranslate"></article>
 </article>
 

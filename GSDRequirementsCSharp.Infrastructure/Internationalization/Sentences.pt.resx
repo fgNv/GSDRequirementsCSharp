@@ -246,4 +246,19 @@
   <data name="projectUpdatedSuccessfully" xml:space="preserve">
     <value>Projeto atualizado com sucesso</value>
   </data>
+  <data name="createProject" xml:space="preserve">
+    <value>Criar projeto</value>
+  </data>
+  <data name="editProject" xml:space="preserve">
+    <value>Editar projeto</value>
+  </data>
+  <data name="addTranslationForProject" xml:space="preserve">
+    <value>Adicionar tradução para projeto</value>
+  </data>
+  <data name="errorAddingTranslation" xml:space="preserve">
+    <value>Erro ao adicionar tradução</value>
+  </data>
+  <data name="translationAddedSuccessfully" xml:space="preserve">
+    <value>Tradução adicionada com sucesso</value>
+  </data>
 </root>

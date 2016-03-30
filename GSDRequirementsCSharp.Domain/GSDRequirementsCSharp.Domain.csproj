@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Projects\AddProjectTranslationCommand.cs" />
+    <Compile Include="Commands\Projects\AddProjectTranslationCommandCommandHandler.cs" />
     <Compile Include="Commands\Projects\SaveProjectCommand.cs" />
     <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />

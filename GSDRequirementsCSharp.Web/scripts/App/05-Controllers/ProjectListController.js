@@ -15,7 +15,8 @@ var Controllers;
                 $scope.currentPage = page;
                 $scope.loadProjects();
             };
-            $scope.setCurrentProject = function (p) { return $scope.currentProject = p; };
+            $scope.setCurrentProject = function (p) { $scope.currentProject = p; };
+            $scope.setProjectToTranslate = function (p) { $scope.projectToTranslate = p; };
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);

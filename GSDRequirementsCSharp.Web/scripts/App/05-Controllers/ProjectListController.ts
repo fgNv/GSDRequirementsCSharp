@@ -26,7 +26,8 @@
                 $scope.loadProjects()
             }
 
-            $scope.setCurrentProject = (p) => $scope.currentProject = p
+            $scope.setCurrentProject = (p) : void => { $scope.currentProject = p }
+            $scope.setProjectToTranslate = (p) : void => { $scope.projectToTranslate = p }
 
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
                 $scope,
