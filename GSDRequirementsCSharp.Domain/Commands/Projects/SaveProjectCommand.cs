@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,10 +12,12 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
 {
     public class SaveProjectCommand : ICommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType=typeof(Sentences),
+         ErrorMessageResourceName= "nameIsARequiredField")]
         [StringLength(100)]
         public string Name { get; set; }
-        
+                
         [StringLength(65535)]
         [Required]
         public string Description { get; set; }

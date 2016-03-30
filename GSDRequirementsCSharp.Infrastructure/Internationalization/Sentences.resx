@@ -297,4 +297,7 @@
   <data name="packageUpdatedSuccessfully" xml:space="preserve">
     <value>Package updated successfully</value>
   </data>
+  <data name="nameIsARequiredField" xml:space="preserve">
+    <value>Name is a required field</value>
+  </data>
 </root>

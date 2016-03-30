@@ -56,3 +56,4 @@ var directives;
     })();
     app.directive('gsdProjectTranslation', GsdProjectTranslation.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectTranslation.js.map

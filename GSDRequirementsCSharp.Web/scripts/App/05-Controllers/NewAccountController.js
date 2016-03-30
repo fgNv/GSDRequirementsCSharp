@@ -35,3 +35,4 @@ var Controllers;
             return new NewAccountController($scope, UserResource);
         }]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=NewAccountController.js.map
