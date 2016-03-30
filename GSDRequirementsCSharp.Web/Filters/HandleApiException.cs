@@ -7,7 +7,7 @@ using System.Web.Http.Filters;
 
 namespace GSDRequirementsCSharp.Web.Filters
 {
-    public class HandleExceptionAttribute : ExceptionFilterAttribute
+    public class HandleApiException : ExceptionFilterAttribute
     {
         public override void OnException(HttpActionExecutedContext context)
         {

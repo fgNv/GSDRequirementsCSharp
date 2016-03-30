@@ -22,6 +22,7 @@ namespace GSDRequirementsCSharp.Web
             );
 
             config.Filters.Add(new CurrentCultureSetterApiFilter());
+            config.Filters.Add(new HandleApiException());
         }
     }
 }

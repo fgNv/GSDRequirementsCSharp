@@ -30,6 +30,11 @@
             @if (currentProjectId != null)
             {
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index","Package")">
+                            @Sentences.packages
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#"
                            class="dropdown-toggle"
@@ -55,11 +60,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Package")">
-                            @Sentences.packages
-                        </a>
                     </li>
                     <li class="dropdown">
                         <a href="#"

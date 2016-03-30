@@ -28,7 +28,7 @@
                         $scope.project = null
                     })
                     .catch(function (error) {
-                        Notification.notifyError(Sentences.errorSavingProject, error.data.errors)
+                        Notification.notifyError(Sentences.errorSavingProject, error.data.messages)
                     })
                     .finally(function () {
                         $scope.pendingRequests--;

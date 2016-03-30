@@ -267,4 +267,34 @@
   <data name="changeProjectInContext" xml:space="preserve">
     <value>Change project in context</value>
   </data>
+  <data name="managePackages" xml:space="preserve">
+    <value>Manage packages</value>
+  </data>
+  <data name="addPackage" xml:space="preserve">
+    <value>Add package</value>
+  </data>
+  <data name="noPackageRegistered" xml:space="preserve">
+    <value>No package registered</value>
+  </data>
+  <data name="createPackage" xml:space="preserve">
+    <value>Create package</value>
+  </data>
+  <data name="editPackage" xml:space="preserve">
+    <value>Edit package</value>
+  </data>
+  <data name="addTranslationForPackage" xml:space="preserve">
+    <value>Add translation for package</value>
+  </data>
+  <data name="errorLoadingPackages" xml:space="preserve">
+    <value>Error loading packages</value>
+  </data>
+  <data name="errorSavingPackage" xml:space="preserve">
+    <value>Error saving package</value>
+  </data>
+  <data name="packageSuccessfullyCreated" xml:space="preserve">
+    <value>Package successfully created</value>
+  </data>
+  <data name="packageUpdatedSuccessfully" xml:space="preserve">
+    <value>Package updated successfully</value>
+  </data>
 </root>

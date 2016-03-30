@@ -43,9 +43,7 @@ var Controllers;
         };
         return ProjectListController;
     })();
-    Controllers.ProjectListController = ProjectListController;
     app.controller('ProjectListController', ["$scope", "ProjectResource", function ($scope, ProjectResource) {
             return new ProjectListController($scope, ProjectResource);
         }]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ProjectListController.js.map

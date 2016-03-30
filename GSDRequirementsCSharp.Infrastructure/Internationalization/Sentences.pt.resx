@@ -267,4 +267,34 @@
   <data name="noProjectInContext" xml:space="preserve">
     <value>Nenhum projeto definido no contexto</value>
   </data>
+  <data name="managePackages" xml:space="preserve">
+    <value>Gerenciar pacotes</value>
+  </data>
+  <data name="addPackage" xml:space="preserve">
+    <value>Adicionar pacote</value>
+  </data>
+  <data name="noPackageRegistered" xml:space="preserve">
+    <value>Nenhum pacote cadastrado</value>
+  </data>
+  <data name="createPackage" xml:space="preserve">
+    <value>Criar pacote</value>
+  </data>
+  <data name="editPackage" xml:space="preserve">
+    <value>Editar pacote</value>
+  </data>
+  <data name="addTranslationForPackage" xml:space="preserve">
+    <value>Adicionar tradução para pacote</value>
+  </data>
+  <data name="errorLoadingPackages" xml:space="preserve">
+    <value>Erro ao carregar pacotes</value>
+  </data>
+  <data name="errorSavingPackage" xml:space="preserve">
+    <value>Erro ao salvar pacote</value>
+  </data>
+  <data name="packageSuccessfullyCreated" xml:space="preserve">
+    <value>Pacote criado com sucesso</value>
+  </data>
+  <data name="packageUpdatedSuccessfully" xml:space="preserve">
+    <value>Pacote atualizado com sucesso</value>
+  </data>
 </root>

@@ -11,48 +11,48 @@
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    class ProjectListController {
+    class PackageListController {
         constructor(
             private $scope: any,
-            private ProjectResource: any
+            private PackageResource: any
         ) {
             $scope.currentPage = 1
             $scope.maxPages = 1
-            $scope.projects = []
+            $scope.packages = []
             var pageSize = 10
 
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
-                $scope.loadProjects()
+                $scope.loadPackages()
             }
 
-            $scope.setCurrentProject = (p) : void => { $scope.currentProject = p }
-            $scope.setProjectToTranslate = (p) : void => { $scope.projectToTranslate = p }
+            $scope.setCurrentPackge = (p): void => { $scope.currentPackage = p }
+            $scope.setPackageToTranslate = (p): void => { $scope.packageToTranslate = p }
 
-            $scope.loadProjects = () => this.LoadProjects(ProjectResource,
+            $scope.loadPackages = () => this.LoadPackages(PackageResource,
                 $scope,
                 pageSize)
 
-            $scope.getPaginationRange = function () {                                
+            $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
 
-            $scope.loadProjects()
+            $scope.loadPackages()
             $scope.pendingRequests = 1
             this.$scope.UserData = new UserData()
         }
-        private LoadProjects(projectResource: any, $scope: any, size: number): void {
+        private LoadPackages(packageResource: any, $scope: any, size: number): void {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size }
-            projectResource.get(request)
+            packageResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.projects = _.map(response.projects, 
-                                            (p) => new Models.Project(p))
+                    $scope.packages = _.map(response.packages,
+                        (p) => new Models.Package(p))
                     $scope.maxPages = response.maxPages
                 })
                 .catch((error) => {
-                    Notification.notifyError(Sentences.errorLoadingProjects,
+                    Notification.notifyError(Sentences.errorLoadingPackages,
                         error.data.errors)
                 })
                 .finally(() => {
@@ -60,6 +60,6 @@
                 });
         }
     }
-    app.controller('ProjectListController', ["$scope", "ProjectResource", ($scope, ProjectResource) =>
-        new ProjectListController($scope, ProjectResource)]);
+    app.controller('PackageListController', ["$scope", "PackageResource", ($scope, PackageResource) =>
+        new PackageListController($scope, PackageResource)]);
 }

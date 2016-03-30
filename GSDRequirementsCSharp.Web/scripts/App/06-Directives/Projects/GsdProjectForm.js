@@ -23,7 +23,7 @@ var directives;
                             $scope.project = null;
                         })
                             .catch(function (error) {
-                            Notification.notifyError(Sentences.errorSavingProject, error.data.errors);
+                            Notification.notifyError(Sentences.errorSavingProject, error.data.messages);
                         })
                             .finally(function () {
                             $scope.pendingRequests--;
@@ -38,4 +38,3 @@ var directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(directives || (directives = {}));
-//# sourceMappingURL=GsdProjectForm.js.map

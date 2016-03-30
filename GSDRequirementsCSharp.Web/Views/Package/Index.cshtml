@@ -1,6 +1,77 @@
 ﻿
-@{ 
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<h2>Gerenciar pacotes</h2>
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+
+<article data-ng-controller="PackageListController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <h2>
+        @Sentences.managePackages
+        <button class="btn btn-primary"
+                title="@Sentences.addPackage"
+                data-ng-click="currentPackage = {}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <article data-ng-show="!currentPackage && !packageToTranslate">
+        <div class="alert alert-info" data-ng-show="packages.length == 0">
+            @Sentences.noPackageRegistered
+        </div>
+
+        <article data-ng-show="packages.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="package in packages">
+                        <td>{{package.name}}</td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.edit"
+                                    data-ng-show="package.canEdit()"
+                                    data-ng-click="setCurrentPackage(package)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-click="setPackageToTranslate(package)"
+                                    data-ng-show="package.canAddTranslation()"
+                                    title="@Sentences.addTranslation">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+    
+    <article data-gsd-package-form=""
+             data-after-save="loadPackages"
+             data-package="currentPackage"
+             data-ng-show="currentPackage"></article>
+
+    <article data-gsd-package-translation=""
+             data-after-save="loadPackages"
+             data-package="packageToTranslate"
+             data-ng-show="packageToTranslate"></article>
+</article>
