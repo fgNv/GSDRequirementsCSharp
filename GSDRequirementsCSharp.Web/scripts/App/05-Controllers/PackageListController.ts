@@ -37,9 +37,29 @@
                 return _.range(1, $scope.maxPages + 1);
             };
 
+            $scope.inactivatePackage = (p): void => {
+                this.InactivatePackage(PackageResource, $scope, p)
+            }
+
             $scope.loadPackages()
             $scope.pendingRequests = 1
             this.$scope.UserData = new UserData()
+        }
+        private InactivatePackage(packageResource: any, $scope: any, packageEntity: Models.Package): void {
+            $scope.pendingRequests++;
+            packageResource.remove({ id: packageEntity.id })
+                .$promise
+                .then(r => {
+                    Notification.notifySuccess(Sentences.packageInactivatedSuccessfully)
+                    $scope.loadPackages()
+                })
+                .catch(error => {
+                    Notification.notifyError(Sentences.errorInactivatingPackage,
+                                             error.messages)
+                })
+                .finally(() => {
+                    $scope.pendingRequests--;
+                });
         }
         private LoadPackages(packageResource: any, $scope: any, size: number): void {
             $scope.pendingRequests++;

@@ -321,4 +321,13 @@
   <data name="projectInactivatedSuccessfully" xml:space="preserve">
     <value>Project inactivated successfully</value>
   </data>
+  <data name="inactivatePackage" xml:space="preserve">
+    <value>Inactivate package</value>
+  </data>
+  <data name="errorInactivatingPackage" xml:space="preserve">
+    <value>Error inactivating package</value>
+  </data>
+  <data name="packageInactivatedSuccessfully" xml:space="preserve">
+    <value>Package inactivated successfully</value>
+  </data>
 </root>

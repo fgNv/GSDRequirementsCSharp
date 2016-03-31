@@ -42,6 +42,11 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
+                                    data-ng-click="inactivatePackage(package)"                                    
+                                    title="@Sentences.inactivatePackage">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                            <button class="btn btn-default"
                                     data-ng-click="setPackageToTranslate(package)"
                                     data-ng-show="package.canAddTranslation()"
                                     title="@Sentences.addTranslation">

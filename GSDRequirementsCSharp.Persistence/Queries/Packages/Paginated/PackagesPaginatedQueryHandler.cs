@@ -69,7 +69,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
             var currentLocale = _currentLocaleName.Get();
 
             Func<Guid,Package> definePackageForId = (id) => DefinePackageForId(packages, currentLocale, id);
-            var packagesResult = ids.Select(definePackageForId);
+            var packagesResult = paginatedIds.Select(definePackageForId);
             var result = new PackagesPaginatedQueryResult(packagesResult, maxPages);
             return result;
         }

@@ -21,10 +21,28 @@ var Controllers;
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
+            $scope.inactivatePackage = function (p) {
+                _this.InactivatePackage(PackageResource, $scope, p);
+            };
             $scope.loadPackages();
             $scope.pendingRequests = 1;
             this.$scope.UserData = new UserData();
         }
+        PackageListController.prototype.InactivatePackage = function (packageResource, $scope, packageEntity) {
+            $scope.pendingRequests++;
+            packageResource.remove({ id: packageEntity.id })
+                .$promise
+                .then(function (r) {
+                Notification.notifySuccess(Sentences.packageInactivatedSuccessfully);
+                $scope.loadPackages();
+            })
+                .catch(function (error) {
+                Notification.notifyError(Sentences.errorInactivatingPackage, error.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
+        };
         PackageListController.prototype.LoadPackages = function (packageResource, $scope, size) {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size };

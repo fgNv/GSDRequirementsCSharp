@@ -6,7 +6,8 @@
 
     export class Package {
         public name: string
-        public locale : string
+        public locale: string
+        public id: string
         constructor(data: Object) {
             for (var prop in data) {
                 this[prop] = data[prop]
