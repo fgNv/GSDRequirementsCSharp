@@ -20,8 +20,13 @@ namespace GSDRequirementsCSharp.Web.Context
         public static Guid? Current()
         {
             var cookie = HttpContext.Current.Request.Cookies.Get(COOKIE_NAME);
-            if (cookie == null || CookieDeactivatedCurrentRequest(cookie))
+            var removalLabel = HttpContext.Current.Request.Cookies.Get("removing"+COOKIE_NAME);
+            if (cookie == null || 
+                CookieDeactivatedCurrentRequest(cookie) ||
+                removalLabel != null)
+            { 
                 return null;
+            }
             var cookieValue = cookie.Value;
             return Guid.Parse(cookieValue);
         }
