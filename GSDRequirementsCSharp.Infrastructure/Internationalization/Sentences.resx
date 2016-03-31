@@ -300,4 +300,13 @@
   <data name="nameIsARequiredField" xml:space="preserve">
     <value>Name is a required field</value>
   </data>
+  <data name="original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="translation" xml:space="preserve">
+    <value>Translation</value>
+  </data>
+  <data name="packageNotFound" xml:space="preserve">
+    <value>Package not found</value>
+  </data>
 </root>

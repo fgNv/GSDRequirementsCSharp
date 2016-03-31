@@ -2,7 +2,9 @@
 @using GSDRequirementsCSharp.Web.Models
 
 <article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-    <h4>@Sentences.addTranslationForProject {{project.name}}</h4>
+    <h3>@Sentences.addTranslationForProject {{project.name}}</h3>
+
+    <h4>@Sentences.original</h4>
     <div class="row">
         <div class="col-md-2">
             {{originalDescriptionLocale}}
@@ -11,6 +13,9 @@
             {{originalDescription}}
         </div>
     </div>
+
+    <h4 style="margin-top: 15px ">@Sentences.translation</h4>
+
     <div class="row">
         <div class="col-md-6">
             @TextInputHelper.TextArea("descriptionTranslation", Sentences.description, true, Att.NgModel("descriptionTranslation"))

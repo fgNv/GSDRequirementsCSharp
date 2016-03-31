@@ -430,6 +430,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Original.
+        /// </summary>
+        public static string original {
+            get {
+                return ResourceManager.GetString("original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package not found.
+        /// </summary>
+        public static string packageNotFound {
+            get {
+                return ResourceManager.GetString("packageNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Packages.
         /// </summary>
         public static string packages {
@@ -561,6 +579,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string traceabilityMatrix {
             get {
                 return ResourceManager.GetString("traceabilityMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation.
+        /// </summary>
+        public static string translation {
+            get {
+                return ResourceManager.GetString("translation", resourceCulture);
             }
         }
         

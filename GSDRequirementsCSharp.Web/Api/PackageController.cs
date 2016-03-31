@@ -42,10 +42,9 @@ namespace GSDRequirementsCSharp.Web.Api
             command.Id = id;
             _updatePackageCommandHandler.Handle(command);
         }
-
-        [HttpPost]
-        [Route("api/packageTranslation")]
-        public void AddTranslation(Guid id, AddPackageTranslationCommand command)
+        
+        [Route("api/packageTranslation/{id}")]
+        public void Post(Guid id, AddPackageTranslationCommand command)
         {
             command.PackageId = id;
             _addPackageTranslationCommandHandler.Handle(command);
