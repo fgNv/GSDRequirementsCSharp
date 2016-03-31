@@ -12,7 +12,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
     {
         public ProjectContentMapping()
         {
-            ToTable("gsd_requirements.ProjectContent");
+            ToTable("ProjectContent");
             Property(pc => pc.Id).HasColumnName("id");
             Property(pc => pc.Locale).HasColumnName("locale");
             Property(pc => pc.ProjectId).HasColumnName("project_id");

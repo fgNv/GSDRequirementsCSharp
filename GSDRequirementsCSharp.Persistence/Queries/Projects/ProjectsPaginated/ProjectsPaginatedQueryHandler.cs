@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.Queries.Projects.ProjectsPaginated;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -30,10 +31,19 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                   .Where(p => p.OwnerId == currentUser.Id);
 
             var maxPages = (int)Math.Ceiling(dbQuery.Count() / (double)query.PageSize);
-            var projects = dbQuery.OrderBy(p => p.Name)
+            var projects = dbQuery.Where(p => p.Active)
+                                  .OrderBy(p => p.Name)
                                   .Include(p => p.ProjectContents)                                    
                                   .Skip(skip)
                                   .Take(query.PageSize)
+                                  .Select(p => new ProjectViewModel
+                                  {
+                                      Id = p.Id,
+                                      Name = p.Name,
+                                      IsCurrentUserOwner = p.OwnerId == currentUser.Id,
+                                      CreatedAt = p.CreatedAt,
+                                      ProjectContents = p.ProjectContents
+                                  })
                                   .ToList();
             return new ProjectsPaginatedQueryResult(projects, maxPages);
         }

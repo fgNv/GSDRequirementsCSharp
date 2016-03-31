@@ -71,6 +71,11 @@
     <Compile Include="Mappings\PackageMapping.cs" />
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
+    <Compile Include="Migrations\201603311214223_initial-migration.cs" />
+    <Compile Include="Migrations\201603311214223_initial-migration.Designer.cs">
+      <DependentUpon>201603311214223_initial-migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Packages\ByGuid\PackagesByGuidQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
@@ -80,6 +85,7 @@
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectViewModel.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
@@ -102,6 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603311214223_initial-migration.resx">
+      <DependentUpon>201603311214223_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

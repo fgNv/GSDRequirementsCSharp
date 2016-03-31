@@ -8,7 +8,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.Profile")]
+    [Table("Profile")]
     public partial class Profile : IEntity<Guid>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

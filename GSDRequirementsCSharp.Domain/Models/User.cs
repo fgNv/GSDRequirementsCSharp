@@ -8,7 +8,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.User")]
+    [Table("User")]
     public class User : IEntity<Guid>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

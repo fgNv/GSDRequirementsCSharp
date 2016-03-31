@@ -7,7 +7,7 @@ namespace GSDRequirementsCSharp.Domain
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.UserCase")]
+    [Table("UserCase")]
     public partial class UserCase
     {
         public Guid id { get; set; }

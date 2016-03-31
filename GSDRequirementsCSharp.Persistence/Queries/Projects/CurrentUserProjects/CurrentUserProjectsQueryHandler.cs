@@ -48,14 +48,17 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
         public CurrentUserProjectsQueryResult Handle(CurrentUserProjectsQuery query)
         {
             var currentUser = _currentUserRetriever.Get();
-            var projects = _context.Projects.Where(p => p.OwnerId == currentUser.Id)
-                             .OrderBy(p => p.Name)
-                             .Select(p => new ProjectOption
-                             {
-                                 Name = p.Name,
-                                 Id = p.Id
-                             })
-                             .ToList();
+            var projects = _context.Projects
+                                   .Where(p => p.OwnerId == currentUser.Id &&
+                                               p.Active)
+                                   .OrderBy(p => p.Name)
+                                   .Select(p => new ProjectOption
+                                   {
+                                       Name = p.Name,
+                                       Id = p.Id
+                                   })
+                                   .ToList();
+
             var result = new CurrentUserProjectsQueryResult();
             result.Projects = projects;
             return result;

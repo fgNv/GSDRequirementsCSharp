@@ -26,13 +26,15 @@ namespace GSDRequirementsCSharp.Domain
         public Guid CreatorId { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        
+
         public virtual ICollection<Package> Packages { get; set; }
         
         public virtual ICollection<Profile> Profiles { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Owner { get; set; }
         
         public virtual ICollection<ProjectContent> ProjectContents { get; set; }
+
+        public bool Active { get; set; }
     }
 }

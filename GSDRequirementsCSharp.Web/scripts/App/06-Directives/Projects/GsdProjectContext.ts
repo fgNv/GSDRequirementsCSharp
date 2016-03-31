@@ -54,8 +54,12 @@
             $scope.$watch('currentProjectId',
                 (newValue, oldValue): void =>
                     self.setCurrentProjectName(newValue, $scope))
-
-            this.loadProjects($scope, CurrentUserProjectResource)
+            
+            var self = this
+            $scope.loadProjects =
+                () => self.loadProjects($scope, CurrentUserProjectResource)
+            $scope.$on('projectListChanged', $scope.loadProjects)
+            $scope.loadProjects()
         }]
         public static Factory() {
             return new GsdProjectContext();

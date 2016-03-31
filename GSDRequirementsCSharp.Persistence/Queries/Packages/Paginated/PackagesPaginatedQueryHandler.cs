@@ -51,7 +51,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
             var currentProjectId = _currentProjectContextId.Get();
 
             var ids = _context.Packages
-                              .Where(p => p.Project.Id == currentProjectId)
+                              .Where(p => p.Project.Id == currentProjectId &&
+                                          p.Active)
                               .OrderBy(p => p.Description)
                               .Select(p => p.Id)
                               .Distinct()

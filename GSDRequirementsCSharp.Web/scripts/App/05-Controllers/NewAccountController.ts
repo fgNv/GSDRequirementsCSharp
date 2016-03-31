@@ -10,7 +10,7 @@
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    export class NewAccountController {
+    class NewAccountController {
         constructor(
             private $scope: any,
             private UserResource: any

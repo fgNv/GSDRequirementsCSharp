@@ -11,7 +11,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
     {
         public PackageMapping()
         {
-            ToTable("gsd_requirements.Package");
+            ToTable("Package");
             HasKey(p => new { p.Id, p.Locale });
             Property(p => p.Id).HasColumnName("id");
             Property(p => p.ProjectId).HasColumnName("project_id");
@@ -21,8 +21,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(p => p.CreatorId).HasColumnName("creator_id");
             Property(p => p.Locale).HasColumnName("locale")
                                    .HasMaxLength(10);
+            Property(p => p.Active).HasColumnName("active");
 
             Property(e => e.Description).IsUnicode(false);
+
 
             Property(e => e.Locale).IsUnicode(false);
         }

@@ -6,7 +6,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.Issue")]
+    [Table("Issue")]
     public partial class Issue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -17,7 +17,7 @@ namespace GSDRequirementsCSharp.Persistence
 
         public Guid id { get; set; }
 
-        public sbyte concluded { get; set; }
+        public bool concluded { get; set; }
 
         [Column(TypeName = "text")]
         [Required]

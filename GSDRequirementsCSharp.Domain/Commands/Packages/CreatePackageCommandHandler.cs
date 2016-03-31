@@ -45,6 +45,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
             var currentProjectId = _currentProjectContextId.Get();
             var project = _projectRepository.Get(currentProjectId);
             package.Project = project;
+            package.Active = true;
 
             _packageRepository.Add(package);
         }

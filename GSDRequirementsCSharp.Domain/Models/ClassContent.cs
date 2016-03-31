@@ -6,7 +6,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("gsd_requirements.ClassContent")]
+    [Table("ClassContent")]
     public partial class ClassContent
     {
         [Key]

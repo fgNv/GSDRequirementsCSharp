@@ -2,6 +2,7 @@
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             var project = new Project();
             project.Id = Guid.NewGuid();
             project.Name = command.Name;
+            project.Active = true;
+
             var content = new ProjectContent();
             content.Description = command.Description;
             content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
@@ -38,7 +41,11 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             content.Id = project.Id;
             project.CreatedAt = DateTime.Now;
             var currentUser = _currentUserRetriever.Get();
-            project.OwnerId = currentUser.Id;
+
+            if(currentUser == null)
+                throw new Exception(Sentences.youMustBeLoggedIn);
+            
+            project.Owner = currentUser;
 
             _projectRepository.Add(project);
             _projectContentRepository.Add(content);

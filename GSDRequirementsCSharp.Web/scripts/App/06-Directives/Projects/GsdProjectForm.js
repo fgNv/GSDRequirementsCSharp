@@ -17,6 +17,7 @@ var directives;
                             Sentences.projectSuccessfullyCreated;
                         promise.then(function () {
                             Notification.notifySuccess(successMessage);
+                            $scope.$broadcast('projectListChanged');
                             if ($scope.afterSave) {
                                 $scope.afterSave();
                             }

@@ -11,7 +11,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
     {
         public ActorMapping()
         {
-            ToTable("gsd_requirements.Actor");
+            ToTable("Actor");
             HasKey(a => new { a.id, a.locale });
         }
     }

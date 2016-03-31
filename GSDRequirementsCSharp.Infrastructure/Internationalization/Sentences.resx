@@ -309,4 +309,7 @@
   <data name="packageNotFound" xml:space="preserve">
     <value>Package not found</value>
   </data>
+  <data name="youMustBeLoggedIn" xml:space="preserve">
+    <value>You must be logged in</value>
+  </data>
 </root>

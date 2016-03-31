@@ -46,7 +46,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
             translatedPackage.Description = command.Description;
             translatedPackage.CreatorId = originalPackage.CreatorId;
             translatedPackage.Id = originalPackage.Id;
-
+            translatedPackage.Active = true;
             translatedPackage.Locale = currentLocale;
 
             var currentProjectId = _currentProjectContextId.Get();

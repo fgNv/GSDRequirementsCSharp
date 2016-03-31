@@ -635,5 +635,14 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
                 return ResourceManager.GetString("userNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must be logged in.
+        /// </summary>
+        public static string youMustBeLoggedIn {
+            get {
+                return ResourceManager.GetString("youMustBeLoggedIn", resourceCulture);
+            }
+        }
     }
 }

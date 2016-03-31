@@ -12,13 +12,14 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
     {
         public ProjectMapping()
         {
-            ToTable("gsd_requirements.Project");
+            ToTable("Project");
             Property(p => p.Id).HasColumnName("id");
             HasKey(p => p.Id);
             Property(p => p.Name).HasColumnName("name");
             Property(p => p.OwnerId).HasColumnName("owner_id");
             Property(p => p.CreatorId).HasColumnName("creator_id");
             Property(p => p.CreatedAt).HasColumnName("created_at");
+            Property(p => p.Active).HasColumnName("active");
 
             Property(e => e.Name).IsUnicode(false);
             

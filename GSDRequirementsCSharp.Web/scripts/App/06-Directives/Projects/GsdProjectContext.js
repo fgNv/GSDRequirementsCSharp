@@ -46,7 +46,11 @@ var directives;
                     $scope.$watch('currentProjectId', function (newValue, oldValue) {
                         return self.setCurrentProjectName(newValue, $scope);
                     });
-                    _this.loadProjects($scope, CurrentUserProjectResource);
+                    var self = _this;
+                    $scope.loadProjects =
+                        function () { return self.loadProjects($scope, CurrentUserProjectResource); };
+                    $scope.$on('projectListChanged', $scope.loadProjects);
+                    $scope.loadProjects();
                 }];
         }
         GsdProjectContext.Factory = function () {

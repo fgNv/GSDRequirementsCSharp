@@ -7,11 +7,15 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Common;
     using Domain;
     using Mappings;
-    public partial class GSDRequirementsContext : DbContext
+    using System.Data.Entity.ModelConfiguration.Conventions;
+    using MySql.Data.Entity;
+
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
+    public class GSDRequirementsContext : DbContext
     {
         public GSDRequirementsContext() : base(GetDbConnection(), true)
         {
-            
+            Database.SetInitializer<GSDRequirementsContext>(null);
         }
         
         public static DbConnection GetDbConnection()
@@ -49,6 +53,8 @@ namespace GSDRequirementsCSharp.Persistence
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+                        
             modelBuilder.Entity<Actor>()
                 .Property(e => e.name)
                 .IsUnicode(false);
@@ -205,7 +211,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Entity<Profile>()
                 .HasMany(e => e.Users)
                 .WithMany(e => e.Profiles)
-                .Map(m => m.ToTable("User_Profile", "gsd_requirements").MapLeftKey("profile_id").MapRightKey("user_id"));
+                .Map(m => m.ToTable("User_Profile").MapLeftKey("profile_id").MapRightKey("user_id"));
 
             modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
@@ -282,7 +288,7 @@ namespace GSDRequirementsCSharp.Persistence
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Projects)
-                .WithRequired(e => e.User)
+                .WithRequired(e => e.Owner)
                 .HasForeignKey(e => e.OwnerId)
                 .WillCascadeOnDelete(false);
 

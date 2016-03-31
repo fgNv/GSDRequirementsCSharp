@@ -1,13 +1,15 @@
-﻿(function (angular, angularModuleName) {
-
-    angular.module(angularModuleName).controller("MainController", ['$scope', 'ngDialog', function ($scope, ngDialog) {
-        /// <param name="$scope" type="Object" />
-
-        $scope.modal = {};
-        $scope.modal.open = function (id) {
-            ngDialog.open({ template: id });
-        };
-
-    }]);
-
-})(angular, window.GSDRequirements.angularModuleName);
+var Controllers;
+(function (Controllers) {
+    var app = angular.module(GSDRequirements.angularModuleName);
+    var MainController = (function () {
+        function MainController($scope) {
+            this.$scope = $scope;
+            $scope.pendingRequests = 0;
+        }
+        return MainController;
+    })();
+    app.controller('MainController', ["$scope", function ($scope) {
+            return new MainController($scope);
+        }]);
+})(Controllers || (Controllers = {}));
+//# sourceMappingURL=MainController.js.map

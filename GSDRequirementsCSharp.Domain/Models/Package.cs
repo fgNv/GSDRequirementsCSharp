@@ -14,6 +14,7 @@ namespace GSDRequirementsCSharp.Persistence
         public Guid CreatorId { get; set; }
         public string Locale { get; set; }
         public virtual Project Project { get; set; }
+        public bool Active { get; set; }
 
         PackageKey IEntity<PackageKey>.Id
         {
