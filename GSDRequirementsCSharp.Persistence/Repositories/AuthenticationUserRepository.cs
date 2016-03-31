@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
 
         public User Get(string login)
         {
-            var user = _context.Users.FirstOrDefault(u => u.login == login);
+            var user = _context.Users.FirstOrDefault(u => u.Login == login);
             return user;
         }
     }

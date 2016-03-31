@@ -180,7 +180,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Entity<Contact>()
                 .HasMany(e => e.Requirements)
                 .WithRequired(e => e.Contact)
-                .HasForeignKey(e => e.contact_id)
+                .HasForeignKey(e => e.ContactId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Contact>()
@@ -216,17 +216,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
             modelBuilder.Configurations.Add(new ProjectContentMapping());
-            
-            modelBuilder.Entity<Requirement>()
-                .HasMany(e => e.RequirementContents)
-                .WithRequired(e => e.Requirement)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Requirement>()
-                .HasMany(e => e.RequirementRisks)
-                .WithRequired(e => e.Requirement)
-                .HasForeignKey(e => e.requirement_id)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Configurations.Add(new RequirementMapping());
 
             modelBuilder.Entity<RequirementContent>()
                 .Property(e => e.locale)
@@ -267,36 +257,7 @@ namespace GSDRequirementsCSharp.Persistence
                 .HasOptional(e => e.UserCase)
                 .WithRequired(e => e.SpecificationItem);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.login)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Issues)
-                .WithOptional(e => e.User)
-                .HasForeignKey(e => e.creator_id);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.IssueComments)
-                .WithRequired(e => e.User)
-                .HasForeignKey(e => e.creator_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Projects)
-                .WithRequired(e => e.Owner)
-                .HasForeignKey(e => e.OwnerId)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Requirements)
-                .WithRequired(e => e.User)
-                .HasForeignKey(e => e.creator_id)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Configurations.Add(new UserMapping());
 
             modelBuilder.Entity<UserCase>()
                 .Property(e => e.name)

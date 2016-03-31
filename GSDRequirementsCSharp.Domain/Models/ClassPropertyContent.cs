@@ -1,4 +1,4 @@
-namespace GSDRequirementsCSharp.Persistence
+namespace GSDRequirementsCSharp.Domain
 {
     using System;
     using System.Collections.Generic;

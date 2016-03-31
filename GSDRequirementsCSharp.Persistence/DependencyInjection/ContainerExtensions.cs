@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Authentication;

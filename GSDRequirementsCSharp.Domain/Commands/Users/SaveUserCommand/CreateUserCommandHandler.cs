@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Cryptography;
 using System;
@@ -28,8 +29,8 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         {
             var user = new User();
             user.Id = command.Id;
-            user.login = command.Login;
-            user.password = _cryptographer.Encrypt(command.Password);
+            user.Login = command.Login;
+            user.Password = _cryptographer.Encrypt(command.Password);
             
             var contact = new Contact();
             contact.email = command.Email;

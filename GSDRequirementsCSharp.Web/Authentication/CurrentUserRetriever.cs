@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace GSDRequirementsCSharp.Persistence.Authentication
         public User Get()
         {
             var username = HttpContext.Current.User.Identity.Name;
-            var user = _context.Users.FirstOrDefault(u => u.login == username);
+            var user = _context.Users.FirstOrDefault(u => u.Login == username);
             return user;
         }
     }

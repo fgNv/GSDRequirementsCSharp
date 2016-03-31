@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Cryptography;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
@@ -25,7 +26,7 @@ namespace GSDRequirementsCSharp.Persistence.Authentication
         public void Validate(string username, string password)
         {
             var user = _userRepository.Get(username);
-            if (user == null || user.password != _cryptographer.Encrypt(password))
+            if (user == null || user.Password != _cryptographer.Encrypt(password))
                 throw new AuthenticationFailedException();
         }
     }

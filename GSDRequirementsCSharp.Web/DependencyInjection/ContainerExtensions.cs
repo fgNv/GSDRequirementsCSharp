@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Domain.DependencyInjection;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.DependencyInjection;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.DependencyInjection;

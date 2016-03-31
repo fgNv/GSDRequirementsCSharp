@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;

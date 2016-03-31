@@ -71,6 +71,8 @@
     <Compile Include="Mappings\PackageMapping.cs" />
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
+    <Compile Include="Mappings\RequirementMapping.cs" />
+    <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Migrations\201603311214223_initial-migration.cs" />
     <Compile Include="Migrations\201603311214223_initial-migration.Designer.cs">
       <DependentUpon>201603311214223_initial-migration.cs</DependentUpon>
