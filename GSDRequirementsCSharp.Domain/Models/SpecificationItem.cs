@@ -1,36 +1,32 @@
 namespace GSDRequirementsCSharp.Domain
 {
     using Domain;
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("SpecificationItem")]
-    public partial class SpecificationItem
+    public class SpecificationItem : IEntity<Guid>
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SpecificationItem()
         {
-            ClassDiagrams = new HashSet<ClassDiagram>();
             Issues = new HashSet<Issue>();
         }
 
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid package_id { get; set; }
+        public Guid PackageId { get; set; }
 
-        public int version { get; set; }
+        public Package Package { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClassDiagram> ClassDiagrams { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Issue> Issues { get; set; }
 
-        public virtual Requirement Requirement { get; set; }
+        public virtual ICollection<Requirement> Requirements { get; set; }
 
-        public virtual UserCase UserCase { get; set; }
+        public virtual ICollection<UserCase> UserCases { get; set; }
+
+        public virtual ICollection<ClassDiagram> ClassDiagrams { get; set; }        
     }
 }

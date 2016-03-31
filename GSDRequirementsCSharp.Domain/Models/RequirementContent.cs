@@ -1,35 +1,40 @@
 namespace GSDRequirementsCSharp.Domain
 {
     using Domain;
+    using Infrastructure.Persistence;
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("RequirementContent")]
-    public partial class RequirementContent
+    public class RequirementContent : IEntity<LocaleKey>
     {
-        [Key]
-        [Column(Order = 0)]
-        public Guid id { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
+        public Guid Id { get; set; }
+        
         [StringLength(10)]
-        public string locale { get; set; }
+        public string Locale { get; set; }
 
         [StringLength(150)]
-        public string action { get; set; }
+        public string Action { get; set; }
 
         [StringLength(150)]
-        public string condition { get; set; }
+        public string Condition { get; set; }
 
         [StringLength(150)]
-        public string subject { get; set; }
+        public string Subject { get; set; }
 
-        public Guid? creator_id { get; set; }
+        public Guid? CreatorId { get; set; }
 
         public virtual Requirement Requirement { get; set; }
+
+        LocaleKey IEntity<LocaleKey>.Id
+        {
+            get
+            {
+                return new LocaleKey { Id = Id, Locale = Locale };
+            }
+        }
     }
 }

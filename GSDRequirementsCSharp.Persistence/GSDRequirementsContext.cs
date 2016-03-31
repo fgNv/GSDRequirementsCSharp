@@ -217,46 +217,9 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new ProjectMapping());
             modelBuilder.Configurations.Add(new ProjectContentMapping());
             modelBuilder.Configurations.Add(new RequirementMapping());
-
-            modelBuilder.Entity<RequirementContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RequirementContent>()
-                .Property(e => e.action)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RequirementContent>()
-                .Property(e => e.condition)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RequirementContent>()
-                .Property(e => e.subject)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<RequirementRisk>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SpecificationItem>()
-                .HasMany(e => e.ClassDiagrams)
-                .WithRequired(e => e.SpecificationItem)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SpecificationItem>()
-                .HasMany(e => e.Issues)
-                .WithRequired(e => e.SpecificationItem)
-                .HasForeignKey(e => e.specification_item_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SpecificationItem>()
-                .HasOptional(e => e.Requirement)
-                .WithRequired(e => e.SpecificationItem);
-
-            modelBuilder.Entity<SpecificationItem>()
-                .HasOptional(e => e.UserCase)
-                .WithRequired(e => e.SpecificationItem);
-
+            modelBuilder.Configurations.Add(new RequirementContentMapping());
+            modelBuilder.Configurations.Add(new RequirementRiskMapping());
+            modelBuilder.Configurations.Add(new SpecificationItemMapping());
             modelBuilder.Configurations.Add(new UserMapping());
 
             modelBuilder.Entity<UserCase>()

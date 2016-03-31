@@ -68,18 +68,22 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Mappings\PackageContentMapping.cs" />
     <Compile Include="Mappings\PackageMapping.cs" />
+    <Compile Include="Mappings\RequirementContentMapping.cs" />
+    <Compile Include="Mappings\RequirementRiskMapping.cs" />
+    <Compile Include="Mappings\SpecificationItemMapping.cs" />
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201603311214223_initial-migration.cs" />
-    <Compile Include="Migrations\201603311214223_initial-migration.Designer.cs">
-      <DependentUpon>201603311214223_initial-migration.cs</DependentUpon>
+    <Compile Include="Migrations\201603312350153_initial-migration.cs" />
+    <Compile Include="Migrations\201603312350153_initial-migration.Designer.cs">
+      <DependentUpon>201603312350153_initial-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\Packages\ByGuid\PackagesByGuidQueryHandler.cs" />
+    <Compile Include="Queries\Packages\WithCurrentCulture\PackagesByGuidQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />
@@ -91,8 +95,9 @@
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
+    <Compile Include="Repositories\GenericLocaleRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\PackageRepository.cs" />
+    <Compile Include="Repositories\VersionKeyRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,8 +117,8 @@
     <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603311214223_initial-migration.resx">
-      <DependentUpon>201603311214223_initial-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603312350153_initial-migration.resx">
+      <DependentUpon>201603312350153_initial-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

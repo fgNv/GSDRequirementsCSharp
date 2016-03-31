@@ -1,4 +1,6 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries.Packages;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -13,22 +15,21 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
     class UpdatePackageCommandHandler : ICommandHandler<UpdatePackageCommand>
     {
-        private readonly IRepository<Package, PackageKey> _packageRepository;
-        private readonly ICurrentLocaleName _currentLocaleName;
+        private readonly IRepository<Package, Guid> _packageRepository;
+        private readonly IQueryHandler<Guid, PackageWithCurrentCultureContentsQueryResult> _packageWithCurrentCultureContentsQueryHandler;
 
-        public UpdatePackageCommandHandler(IRepository<Package, PackageKey> packageRepository,
-                                           ICurrentLocaleName currentLocaleName)
+        public UpdatePackageCommandHandler(IRepository<Package, Guid> packageRepository,
+                                           IQueryHandler<Guid, PackageWithCurrentCultureContentsQueryResult> packageWithCurrentCultureContentsQueryHandler)
         {
             _packageRepository = packageRepository;
-            _currentLocaleName = currentLocaleName;
+            _packageWithCurrentCultureContentsQueryHandler = packageWithCurrentCultureContentsQueryHandler;
         }
 
         public void Handle(UpdatePackageCommand command)
         {
-            var currentLocale = _currentLocaleName.Get();
-            var key = new PackageKey { Id = command.Id, Locale = currentLocale };
-            var package = _packageRepository.Get(key);
-            package.Description = command.Description;
+            var packageAndContent = _packageWithCurrentCultureContentsQueryHandler
+                                        .Handle(command.Id);
+            packageAndContent.PackageContent.Description = command.Description;
         }
     }
 }
