@@ -13,4 +13,6 @@
     export declare var packageUpdatedSuccessfully: string;
     export declare var packageSuccessfullyCreated: string;
     export declare var errorSavingPackage: string;
+    export declare var projectInactivatedSuccessfully: string;
+    export declare var errorInactivatingProject: string;
 }

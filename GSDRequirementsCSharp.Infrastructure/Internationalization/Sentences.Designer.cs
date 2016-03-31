@@ -277,6 +277,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error inactivating project.
+        /// </summary>
+        public static string errorInactivatingProject {
+            get {
+                return ResourceManager.GetString("errorInactivatingProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error loading packages.
         /// </summary>
         public static string errorLoadingPackages {
@@ -318,6 +327,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorSavingUserAccount {
             get {
                 return ResourceManager.GetString("errorSavingUserAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactivate project.
+        /// </summary>
+        public static string inactivateProject {
+            get {
+                return ResourceManager.GetString("inactivateProject", resourceCulture);
             }
         }
         
@@ -507,6 +525,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string phone {
             get {
                 return ResourceManager.GetString("phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project inactivated successfully.
+        /// </summary>
+        public static string projectInactivatedSuccessfully {
+            get {
+                return ResourceManager.GetString("projectInactivatedSuccessfully", resourceCulture);
             }
         }
         

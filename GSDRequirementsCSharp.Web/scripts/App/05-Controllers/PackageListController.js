@@ -47,4 +47,3 @@ var Controllers;
             return new PackageListController($scope, PackageResource);
         }]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=PackageListController.js.map

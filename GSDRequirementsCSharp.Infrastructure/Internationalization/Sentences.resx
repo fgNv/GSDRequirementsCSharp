@@ -312,4 +312,13 @@
   <data name="youMustBeLoggedIn" xml:space="preserve">
     <value>You must be logged in</value>
   </data>
+  <data name="inactivateProject" xml:space="preserve">
+    <value>Inactivate project</value>
+  </data>
+  <data name="errorInactivatingProject" xml:space="preserve">
+    <value>Error inactivating project</value>
+  </data>
+  <data name="projectInactivatedSuccessfully" xml:space="preserve">
+    <value>Project inactivated successfully</value>
+  </data>
 </root>

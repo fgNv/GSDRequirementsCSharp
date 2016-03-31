@@ -312,4 +312,13 @@
   <data name="youMustBeLoggedIn" xml:space="preserve">
     <value>Você deve estar autenticado</value>
   </data>
+  <data name="inactivateProject" xml:space="preserve">
+    <value>Inativar projeto</value>
+  </data>
+  <data name="errorInactivatingProject" xml:space="preserve">
+    <value>Erro ao inativar projetos</value>
+  </data>
+  <data name="projectInactivatedSuccessfully" xml:space="preserve">
+    <value>Projeto inativado com sucesso</value>
+  </data>
 </root>

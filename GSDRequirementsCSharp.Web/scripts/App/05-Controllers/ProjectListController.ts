@@ -2,6 +2,7 @@
 
     import UserData = NewAccount.UserData
     import GSDRequirementsData = Globals.GSDRequirementsData
+    import Project = Models.Project
 
     declare var angular: any;
     declare var GSDRequirements: GSDRequirementsData;
@@ -26,14 +27,18 @@
                 $scope.loadProjects()
             }
 
-            $scope.setCurrentProject = (p) : void => { $scope.currentProject = p }
-            $scope.setProjectToTranslate = (p) : void => { $scope.projectToTranslate = p }
+            $scope.setCurrentProject = (p): void => { $scope.currentProject = p }
+            $scope.setProjectToTranslate = (p): void => { $scope.projectToTranslate = p }
 
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
                 $scope,
                 pageSize)
 
-            $scope.getPaginationRange = function () {                                
+            $scope.inactivateProject = (p): void => {
+                this.InactivateProject(ProjectResource, $scope, p)
+            }
+
+            $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
 
@@ -41,14 +46,29 @@
             $scope.pendingRequests = 1
             this.$scope.UserData = new UserData()
         }
+        private InactivateProject(projectResource: any, $scope: any, project: Project): void {
+            $scope.pendingRequests++;
+            projectResource.remove({ id: project.id })
+                .$promise
+                .then(r => {
+                    Notification.notifySuccess(Sentences.projectInactivatedSuccessfully)
+                    $scope.loadProjects()
+                })
+                .catch(error => {
+                    Notification.notifyError(Sentences.errorInactivatingProject, error.messages)
+                })
+                .finally(() => {
+                    $scope.pendingRequests--;
+                });
+        }
         private LoadProjects(projectResource: any, $scope: any, size: number): void {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size }
             projectResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.projects = _.map(response.projects, 
-                                            (p) => new Models.Project(p))
+                    $scope.projects = _.map(response.projects,
+                        (p) => new Models.Project(p))
                     $scope.maxPages = response.maxPages
                 })
                 .catch((error) => {

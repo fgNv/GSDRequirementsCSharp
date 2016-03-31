@@ -6,6 +6,7 @@
 
     export class Project {
         public projectContents: Array<Object>
+        public id : string
         constructor(data: Object) {
             for (var prop in data) {
                 this[prop] = data[prop]

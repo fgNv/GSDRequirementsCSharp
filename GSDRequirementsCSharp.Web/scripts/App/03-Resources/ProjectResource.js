@@ -2,7 +2,10 @@
     app.service('ProjectResource', ['$resource', function ($resource) {
         return $resource('/api/project/:id',
                         { 'id': '@id' },
-                        { 'update': { method: 'PUT' } });
+                        {
+                            'update': { method: 'PUT' },
+                            'remove': { method: 'DELETE' }
+                        });
     }]);
 
     app.service('CurrentUserProjectResource', ['$resource', function ($resource) {
