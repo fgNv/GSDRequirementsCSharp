@@ -15,16 +15,19 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<AddPackageTranslationCommand> _addPackageTranslationCommandHandler;
         private readonly ICommandHandler<SavePackageCommand> _createPackageCommandHandler;
         private readonly ICommandHandler<UpdatePackageCommand> _updatePackageCommandHandler;
+        private readonly ICommandHandler<InactivatePackageCommand> _inactivatePackageCommand;
 
         public PackageController(IQueryHandler<PackagesPaginatedQuery, PackagesPaginatedQueryResult> packagesPaginatedQueryHandler,
                                 ICommandHandler<AddPackageTranslationCommand> addPackageTranslationCommandHandler,
                                 ICommandHandler<SavePackageCommand> createPackageCommandHandler,
-                                ICommandHandler<UpdatePackageCommand> updatePackageCommandHandler)
+                                ICommandHandler<UpdatePackageCommand> updatePackageCommandHandler,
+                                ICommandHandler<InactivatePackageCommand> inactivatePackageCommand)
         {
             _packagesPaginatedQueryHandler = packagesPaginatedQueryHandler;
             _addPackageTranslationCommandHandler = addPackageTranslationCommandHandler;
             _createPackageCommandHandler = createPackageCommandHandler;
             _updatePackageCommandHandler = updatePackageCommandHandler;
+            _inactivatePackageCommand = inactivatePackageCommand;
         }
 
         public PackagesPaginatedQueryResult Get([FromUri]PackagesPaginatedQuery query)
@@ -41,6 +44,11 @@ namespace GSDRequirementsCSharp.Web.Api
         {
             command.Id = id;
             _updatePackageCommandHandler.Handle(command);
+        }
+
+        public void Delete(Guid id)
+        {
+            _inactivatePackageCommand.Handle(id);
         }
         
         [Route("api/packageTranslation/{id}")]

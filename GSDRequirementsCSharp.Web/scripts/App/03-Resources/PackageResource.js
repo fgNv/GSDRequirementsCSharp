@@ -2,7 +2,10 @@
     app.service('PackageResource', ['$resource', function ($resource) {
         return $resource('/api/package/:id',
                         { 'id': '@id' },
-                        { 'update': { method: 'PUT' } });
+                        {
+                            'update': { method: 'PUT' },
+                            'remove': { method: 'DELETE' }
+                        });
     }]);
 
     app.service('PackageTranslationResource', ['$resource', function ($resource) {

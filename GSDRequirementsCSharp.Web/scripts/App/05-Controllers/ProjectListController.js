@@ -34,6 +34,7 @@ var Controllers;
                 .$promise
                 .then(function (r) {
                 Notification.notifySuccess(Sentences.projectInactivatedSuccessfully);
+                $scope.$emit(Globals.EventNames.projectListChanged);
                 $scope.loadProjects();
             })
                 .catch(function (error) {
@@ -65,3 +66,4 @@ var Controllers;
             return new ProjectListController($scope, ProjectResource);
         }]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ProjectListController.js.map

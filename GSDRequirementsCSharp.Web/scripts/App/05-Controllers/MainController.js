@@ -5,6 +5,9 @@ var Controllers;
         function MainController($scope) {
             this.$scope = $scope;
             $scope.pendingRequests = 0;
+            $scope.$on(Globals.EventNames.projectListChanged, function () {
+                $scope.$broadcast(Globals.EventNames.updateProjectList);
+            });
         }
         return MainController;
     })();
@@ -12,3 +15,4 @@ var Controllers;
             return new MainController($scope);
         }]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=MainController.js.map

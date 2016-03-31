@@ -15,6 +15,9 @@
             private $scope: any
         ) {
             $scope.pendingRequests = 0
+            $scope.$on(Globals.EventNames.projectListChanged, () => {
+                $scope.$broadcast(Globals.EventNames.updateProjectList)
+            })
         }
     }
 

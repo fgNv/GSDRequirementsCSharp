@@ -17,7 +17,7 @@ var directives;
                             Sentences.projectSuccessfullyCreated;
                         promise.then(function () {
                             Notification.notifySuccess(successMessage);
-                            $scope.$broadcast('projectListChanged');
+                            $scope.$emit(Globals.EventNames.projectListChanged);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
                             }
@@ -39,3 +39,4 @@ var directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectForm.js.map

@@ -20,16 +20,19 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<SaveProjectCommand> _createProjectCommand;
         private readonly ICommandHandler<UpdateProjectCommand> _updateProjectCommand;
         private readonly IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> _currentUserProjectsQueryHandler;
+        private readonly ICommandHandler<InactivateProjectCommand> _inactivateProjectCommand;
 
         public ProjectController(IQueryHandler<ProjectsPaginatedQuery, ProjectsPaginatedQueryResult> projectsPaginatedQueryHandler,
                                  ICommandHandler<SaveProjectCommand> createProjectCommand,
                                  ICommandHandler<UpdateProjectCommand> updateProjectCommand,
-                                 IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> currentUserProjectsQueryHandler)
+                                 IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> currentUserProjectsQueryHandler,
+                                 ICommandHandler<InactivateProjectCommand> inactivateProjectCommand)
         {
             _projectsPaginatedQueryHandler = projectsPaginatedQueryHandler;
             _createProjectCommand = createProjectCommand;
             _updateProjectCommand = updateProjectCommand;
             _currentUserProjectsQueryHandler = currentUserProjectsQueryHandler;
+            _inactivateProjectCommand = inactivateProjectCommand;
         }
 
         [Route("api/currentUser/projects")]
@@ -53,6 +56,11 @@ namespace GSDRequirementsCSharp.Web.Api
         {
             var updateCommand = new UpdateProjectCommand(id, command);
             _updateProjectCommand.Handle(updateCommand);
+        }
+
+        public void Delete(Guid id)
+        {
+            _inactivateProjectCommand.Handle(id);
         }
     }
 }

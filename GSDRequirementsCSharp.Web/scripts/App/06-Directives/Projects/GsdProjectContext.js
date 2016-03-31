@@ -49,7 +49,7 @@ var directives;
                     var self = _this;
                     $scope.loadProjects =
                         function () { return self.loadProjects($scope, CurrentUserProjectResource); };
-                    $scope.$on('projectListChanged', $scope.loadProjects);
+                    $scope.$on(Globals.EventNames.updateProjectList, $scope.loadProjects);
                     $scope.loadProjects();
                 }];
         }
@@ -60,3 +60,4 @@ var directives;
     })();
     app.directive('gsdProjectContext', GsdProjectContext.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectContext.js.map

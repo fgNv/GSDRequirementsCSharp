@@ -260,6 +260,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Package.ts" />

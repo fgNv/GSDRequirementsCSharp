@@ -5,4 +5,5 @@
         public baseUrl: string
         public currentLocale : string
     }
+
 }

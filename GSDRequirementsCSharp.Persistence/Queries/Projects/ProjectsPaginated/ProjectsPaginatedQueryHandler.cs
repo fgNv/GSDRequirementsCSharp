@@ -28,11 +28,10 @@ namespace GSDRequirementsCSharp.Persistence.Queries
             var skip = (query.Page - 1) * query.PageSize;
             var currentUser = _currentUserRetriever.Get();
             var dbQuery = _context.Projects
-                                  .Where(p => p.OwnerId == currentUser.Id);
+                                  .Where(p => p.OwnerId == currentUser.Id && p.Active);
 
             var maxPages = (int)Math.Ceiling(dbQuery.Count() / (double)query.PageSize);
-            var projects = dbQuery.Where(p => p.Active)
-                                  .OrderBy(p => p.Name)
+            var projects = dbQuery.OrderBy(p => p.Name)
                                   .Include(p => p.ProjectContents)                                    
                                   .Skip(skip)
                                   .Take(query.PageSize)

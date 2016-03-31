@@ -52,6 +52,7 @@
                 .$promise
                 .then(r => {
                     Notification.notifySuccess(Sentences.projectInactivatedSuccessfully)
+                    $scope.$emit(Globals.EventNames.projectListChanged)
                     $scope.loadProjects()
                 })
                 .catch(error => {

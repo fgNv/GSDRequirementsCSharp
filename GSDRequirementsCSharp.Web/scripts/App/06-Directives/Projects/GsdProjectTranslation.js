@@ -39,6 +39,7 @@ var directives;
                                 $scope.afterSave();
                             }
                             $scope.project = null;
+                            $scope.$emit(Globals.EventNames.projectListChanged);
                         })
                             .catch(function (error) {
                             Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages);
@@ -56,3 +57,4 @@ var directives;
     })();
     app.directive('gsdProjectTranslation', GsdProjectTranslation.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectTranslation.js.map

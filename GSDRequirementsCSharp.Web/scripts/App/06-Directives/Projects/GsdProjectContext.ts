@@ -15,7 +15,7 @@
         public templateUrl = GSDRequirements.baseUrl + 'project/context'
         private loadProjects = ($scope, CurrentUserProjectResource) => {
             $scope.pendingRequests++;
-
+            
             CurrentUserProjectResource.query()
                 .$promise
                 .then((projects) => {
@@ -58,7 +58,7 @@
             var self = this
             $scope.loadProjects =
                 () => self.loadProjects($scope, CurrentUserProjectResource)
-            $scope.$on('projectListChanged', $scope.loadProjects)
+            $scope.$on(Globals.EventNames.updateProjectList, $scope.loadProjects)
             $scope.loadProjects()
         }]
         public static Factory() {

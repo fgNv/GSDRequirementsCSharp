@@ -24,7 +24,7 @@
 
                 promise.then(function () {
                     Notification.notifySuccess(successMessage);
-                    $scope.$broadcast('projectListChanged');
+                    $scope.$emit(Globals.EventNames.projectListChanged)
                     if ($scope.afterSave) { $scope.afterSave() }
                         $scope.project = null
                     })
