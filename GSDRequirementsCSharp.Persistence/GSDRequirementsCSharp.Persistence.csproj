@@ -77,9 +77,9 @@
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201603312350153_initial-migration.cs" />
-    <Compile Include="Migrations\201603312350153_initial-migration.Designer.cs">
-      <DependentUpon>201603312350153_initial-migration.cs</DependentUpon>
+    <Compile Include="Migrations\201604010155596_initial-migration.cs" />
+    <Compile Include="Migrations\201604010155596_initial-migration.Designer.cs">
+      <DependentUpon>201604010155596_initial-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,8 +117,8 @@
     <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603312350153_initial-migration.resx">
-      <DependentUpon>201603312350153_initial-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604010155596_initial-migration.resx">
+      <DependentUpon>201604010155596_initial-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -201,9 +201,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Entity<IssueComment>()
                 .Property(e => e.content)
                 .IsUnicode(false);
-
-            modelBuilder.Configurations.Add(new PackageMapping());
-
+            
             modelBuilder.Entity<Profile>()
                 .Property(e => e.name)
                 .IsUnicode(false);
@@ -214,6 +212,8 @@ namespace GSDRequirementsCSharp.Persistence
                 .Map(m => m.ToTable("User_Profile").MapLeftKey("profile_id").MapRightKey("user_id"));
 
             modelBuilder.Configurations.Add(new ActorMapping());
+            modelBuilder.Configurations.Add(new PackageMapping());
+            modelBuilder.Configurations.Add(new PackageContentMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
             modelBuilder.Configurations.Add(new ProjectContentMapping());
             modelBuilder.Configurations.Add(new RequirementMapping());

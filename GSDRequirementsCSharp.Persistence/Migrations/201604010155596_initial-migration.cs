@@ -287,14 +287,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 "dbo.PackageContent",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
-                        Description = c.String(unicode: false),
-                        Locale = c.String(unicode: false),
-                        Package_Id = c.Guid(nullable: false),
+                        id = c.Guid(nullable: false),
+                        locale = c.String(nullable: false, maxLength: 10, unicode: false),
+                        description = c.String(unicode: false, storeType: "text"),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Package", t => t.Package_Id, cascadeDelete: true)
-                .Index(t => t.Package_Id);
+                .PrimaryKey(t => new { t.id, t.locale })
+                .ForeignKey("dbo.Package", t => t.id, cascadeDelete: true)
+                .Index(t => t.id);
             
             CreateTable(
                 "dbo.ProjectContent",
@@ -365,7 +364,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropForeignKey("dbo.ProjectContent", "project_id", "dbo.Project");
             DropForeignKey("dbo.Profile", "project_id", "dbo.Project");
             DropForeignKey("dbo.Package", "project_id", "dbo.Project");
-            DropForeignKey("dbo.PackageContent", "Package_Id", "dbo.Package");
+            DropForeignKey("dbo.PackageContent", "id", "dbo.Package");
             DropForeignKey("dbo.Issue", "creator_id", "dbo.User");
             DropForeignKey("dbo.IssueComment", "creator_id", "dbo.User");
             DropForeignKey("dbo.User", "contactId", "dbo.Contact");
@@ -384,7 +383,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("dbo.User_Profile", new[] { "profile_id" });
             DropIndex("dbo.UserCase", new[] { "SpecificationItem_Id" });
             DropIndex("dbo.ProjectContent", new[] { "project_id" });
-            DropIndex("dbo.PackageContent", new[] { "Package_Id" });
+            DropIndex("dbo.PackageContent", new[] { "id" });
             DropIndex("dbo.Package", new[] { "project_id" });
             DropIndex("dbo.Project", new[] { "owner_id" });
             DropIndex("dbo.Profile", new[] { "project_id" });

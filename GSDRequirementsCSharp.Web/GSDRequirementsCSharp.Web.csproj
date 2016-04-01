@@ -264,6 +264,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Package.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\PackageContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Project.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />

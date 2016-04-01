@@ -16,9 +16,12 @@ namespace GSDRequirementsCSharp.Domain
             RequirementContents = new HashSet<RequirementContent>();
             RequirementRisks = new HashSet<RequirementRisk>();
         }
-        
+
+
+        [Key, Column(Order = 0)]
         public Guid Id { get; set; }
 
+        [Key, Column(Order = 1)]
         public int Version { get; set; }
 
         public bool IsLastVersion { get; set; }

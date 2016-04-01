@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -15,11 +16,11 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
     class CreateProjectCommandHandler : ICommandHandler<SaveProjectCommand>
     {
         private readonly IRepository<Project, Guid> _projectRepository;
-        private readonly IRepository<ProjectContent, Guid> _projectContentRepository;
+        private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
 
         public CreateProjectCommandHandler(IRepository<Project, Guid> projectRepository,
-                                           IRepository<ProjectContent, Guid> projectContentRepository,
+                                           IRepository<ProjectContent, LocaleKey> projectContentRepository,
                                            ICurrentUserRetriever<User> currentUserRetriever)
         {
             _projectRepository = projectRepository;

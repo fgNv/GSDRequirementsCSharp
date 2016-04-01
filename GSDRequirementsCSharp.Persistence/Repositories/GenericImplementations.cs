@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public RequirementRepository(GSDRequirementsContext context) : base(context) { }
     }
-    public class ProjectContentRepository : GenericRepository<ProjectContent, Guid>
+    public class ProjectContentRepository : GenericLocaleRepository<ProjectContent>
     {
         public ProjectContentRepository(GSDRequirementsContext context) : base(context) { }
     }
@@ -36,6 +36,11 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     public class PackageRepository : GenericRepository<Package, Guid>
     {
         public PackageRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    public class PackageContentRepository : GenericLocaleRepository<PackageContent>
+    {
+        public PackageContentRepository(GSDRequirementsContext context) : base(context) { }
     }
 
     public class RequirementContentRepository : GenericLocaleRepository<RequirementContent>

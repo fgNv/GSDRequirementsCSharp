@@ -5,12 +5,30 @@ var Models;
             for (var prop in data) {
                 this[prop] = data[prop];
             }
+            this.defineContent();
         }
+        Package.prototype.defineContent = function () {
+            var currentLocale = _.find(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            if (currentLocale) {
+                this.fillWithContent(currentLocale);
+                return;
+            }
+            var enUsLocale = _.find(this.contents, function (c) { return c.locale == "en-US"; });
+            if (enUsLocale) {
+                this.fillWithContent(enUsLocale);
+                return;
+            }
+            this.fillWithContent(this.contents[0]);
+        };
+        Package.prototype.fillWithContent = function (content) {
+            this.description = content.description;
+            this.locale = content.locale;
+        };
         Package.prototype.canAddTranslation = function () {
-            return this.locale != GSDRequirements.currentLocale;
+            return !_.any(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });
         };
         Package.prototype.canEdit = function () {
-            return this.locale == GSDRequirements.currentLocale;
+            return _.any(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });
         };
         return Package;
     })();

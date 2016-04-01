@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,9 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
         public CurrentUserProjectsQueryResult Handle(CurrentUserProjectsQuery query)
         {
             var currentUser = _currentUserRetriever.Get();
+            if (currentUser == null)
+                throw new Exception(Sentences.youMustBeLoggedIn);
+
             var projects = _context.Projects
                                    .Where(p => p.OwnerId == currentUser.Id &&
                                                p.Active)

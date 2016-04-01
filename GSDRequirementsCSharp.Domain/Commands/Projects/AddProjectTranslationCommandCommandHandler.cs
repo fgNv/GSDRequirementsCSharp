@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
     public class AddProjectTranslationCommandCommandHandler : ICommandHandler<AddProjectTranslationCommand>
     {
         private readonly IRepository<Project, Guid> _projectRepository;
-        private readonly IRepository<ProjectContent, Guid> _projectContentRepository;
+        private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
 
         public AddProjectTranslationCommandCommandHandler(IRepository<Project, Guid> projectRepository,
-                                                          IRepository<ProjectContent, Guid> projectContentRepository)
+                                                          IRepository<ProjectContent, LocaleKey> projectContentRepository)
         {
             _projectRepository = projectRepository;
             _projectContentRepository = projectContentRepository;
