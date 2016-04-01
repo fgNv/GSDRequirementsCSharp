@@ -2,25 +2,22 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var RequirementsController = (function () {
-        function RequirementsController($scope, RequirementResource, PackageResource) {
+        function RequirementsController($scope, RequirementResource) {
             this.$scope = $scope;
             this.RequirementResource = RequirementResource;
-            this.PackageResource = PackageResource;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
             $scope.requirements = [];
-            $scope.packagesOptions = [];
             $scope.pendingRequests = 0;
             var pageSize = 10;
             this.SetScopeMethods($scope, RequirementResource, pageSize);
             this.LoadRequirements(RequirementResource, $scope, pageSize);
-            this.LoadPackagesOptions(PackageResource, $scope);
         }
         RequirementsController.prototype.SetScopeMethods = function ($scope, RequirementResource, pageSize) {
             var _this = this;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
-                $scope.loadPackages();
+                $scope.loadRequirements();
             };
             $scope.setCurrentRequirement = function (r) { $scope.currentRequirement = r; };
             $scope.setRequirementToTranslate = function (r) { $scope.requirementToTranslate = r; };
@@ -70,24 +67,8 @@ var Controllers;
                 $scope.pendingRequests--;
             });
         };
-        RequirementsController.prototype.LoadPackagesOptions = function (packageResource, $scope) {
-            packageResource.query()
-                .$promise
-                .then(function (response) {
-                $scope.packagesOptions = response;
-            })
-                .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
-            })
-                .finally(function () {
-                $scope.pendingRequests--;
-            });
-        };
         return RequirementsController;
     })();
-    app.controller('RequirementsController', ["$scope", "RequirementResource", "PackageResource",
-        function ($scope, RequirementResource, PackageResource) {
-            return new RequirementsController($scope, RequirementResource, PackageResource);
-        }]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource",
+        function ($scope, RequirementResource) { return new RequirementsController($scope, RequirementResource); }]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=RequirementsController.js.map

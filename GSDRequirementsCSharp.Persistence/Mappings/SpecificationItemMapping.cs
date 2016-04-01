@@ -18,6 +18,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             Property(si => si.Id).HasColumnName("id");
             Property(si => si.PackageId).HasColumnName("package_id");
+            Property(si => si.Active).HasColumnName("active");
             HasRequired(si => si.Package);
 
             HasMany(e => e.Issues)

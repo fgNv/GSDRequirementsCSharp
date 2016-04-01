@@ -10,7 +10,7 @@
         public action: string
         public locale: string
         public id: string
-        public contents: Array<Models.RequirementContent>
+        public requirementContents: Array<Models.RequirementContent>
         constructor(data: Object) {
             for (var prop in data) {
                 this[prop] = data[prop]
@@ -18,19 +18,19 @@
             this.defineContent()
         }
         private defineContent() {
-            var currentLocale = _.find(this.contents,
+            var currentLocale = _.find(this.requirementContents,
                 (c) => c.locale == GSDRequirements.currentLocale)
             if (currentLocale) {
                 this.fillWithContent(currentLocale)
                 return;
             }
-            var enUsLocale = _.find(this.contents,
+            var enUsLocale = _.find(this.requirementContents,
                 (c) => c.locale == "en-US")
             if (enUsLocale) {
                 this.fillWithContent(enUsLocale)
                 return;
             }
-            this.fillWithContent(this.contents[0])
+            this.fillWithContent(this.requirementContents[0])
         }
         private fillWithContent(content: RequirementContent) {
             this.condition = content.condition
@@ -39,11 +39,11 @@
             this.locale = content.locale
         }
         public canAddTranslation() {
-            return !_.any(this.contents,
+            return !_.any(this.requirementContents,
                 (c) => c.locale == GSDRequirements.currentLocale)
         }
         public canEdit() {
-            return _.any(this.contents,
+            return _.any(this.requirementContents,
                 (c) => c.locale == GSDRequirements.currentLocale)
         }
     }

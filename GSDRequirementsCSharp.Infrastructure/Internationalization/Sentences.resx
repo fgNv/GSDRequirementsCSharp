@@ -396,4 +396,37 @@
   <data name="requirementUpdatedSuccessfully" xml:space="preserve">
     <value>Requirement updated successfully</value>
   </data>
+  <data name="seePendingIssues" xml:space="preserve">
+    <value>See pending Issues</value>
+  </data>
+  <data name="noRequirementRegistered" xml:space="preserve">
+    <value>No requirement registered</value>
+  </data>
+  <data name="difficulty" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="editRequirement" xml:space="preserve">
+    <value>Edit requirement</value>
+  </data>
+  <data name="rank" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="easy" xml:space="preserve">
+    <value>Easy</value>
+  </data>
+  <data name="hard" xml:space="preserve">
+    <value>Hard</value>
+  </data>
+  <data name="medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="functional" xml:space="preserve">
+    <value>Functional</value>
+  </data>
+  <data name="nonFunction" xml:space="preserve">
+    <value>Non functional</value>
+  </data>
 </root>

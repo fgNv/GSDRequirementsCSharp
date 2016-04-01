@@ -3,10 +3,15 @@ var directives;
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdRequirementForm = (function () {
         function GsdRequirementForm() {
+            var _this = this;
             this.scope = { 'requirement': '=requirement', 'afterSave': '=afterSave' };
             this.templateUrl = GSDRequirements.baseUrl + 'requirement/form';
-            this.controller = ['$scope', 'RequirementResource', function ($scope, RequirementResource) {
+            this.controller = ['$scope', 'RequirementResource', 'PackageResource',
+                function ($scope, RequirementResource, PackageResource) {
                     $scope.pendingRequests = 0;
+                    _this.LoadPackagesOptions(PackageResource, $scope);
+                    $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty);
+                    $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType);
                     $scope.save = function () {
                         $scope.pendingRequests++;
                         var promise = $scope.requirement.id ?
@@ -31,6 +36,19 @@ var directives;
                     };
                 }];
         }
+        GsdRequirementForm.prototype.LoadPackagesOptions = function (packageResource, $scope) {
+            packageResource.query()
+                .$promise
+                .then(function (response) {
+                $scope.packagesOptions = _.map(response, function (r) { return new Models.Package(r); });
+            })
+                .catch(function (err) {
+                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
+        };
         GsdRequirementForm.Factory = function () {
             return new GsdRequirementForm();
         };
@@ -38,4 +56,3 @@ var directives;
     })();
     app.directive('gsdRequirementForm', GsdRequirementForm.Factory);
 })(directives || (directives = {}));
-//# sourceMappingURL=GsdRequirementForm.js.map

@@ -286,6 +286,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Difficulty.
+        /// </summary>
+        public static string difficulty {
+            get {
+                return ResourceManager.GetString("difficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Easy.
+        /// </summary>
+        public static string easy {
+            get {
+                return ResourceManager.GetString("easy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string edit {
@@ -309,6 +327,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string editProject {
             get {
                 return ResourceManager.GetString("editProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit requirement.
+        /// </summary>
+        public static string editRequirement {
+            get {
+                return ResourceManager.GetString("editRequirement", resourceCulture);
             }
         }
         
@@ -421,6 +448,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Functional.
+        /// </summary>
+        public static string functional {
+            get {
+                return ResourceManager.GetString("functional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hard.
+        /// </summary>
+        public static string hard {
+            get {
+                return ResourceManager.GetString("hard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Id.
         /// </summary>
         public static string id {
@@ -511,6 +556,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Medium.
+        /// </summary>
+        public static string medium {
+            get {
+                return ResourceManager.GetString("medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile phone.
         /// </summary>
         public static string mobilePhone {
@@ -547,6 +601,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non functional.
+        /// </summary>
+        public static string nonFunction {
+            get {
+                return ResourceManager.GetString("nonFunction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No package registered.
         /// </summary>
         public static string noPackageRegistered {
@@ -570,6 +633,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string noProjectRegistered {
             get {
                 return ResourceManager.GetString("noProjectRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No requirement registered.
+        /// </summary>
+        public static string noRequirementRegistered {
+            get {
+                return ResourceManager.GetString("noRequirementRegistered", resourceCulture);
             }
         }
         
@@ -709,6 +781,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        public static string rank {
+            get {
+                return ResourceManager.GetString("rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string register {
@@ -781,6 +862,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to See pending Issues.
+        /// </summary>
+        public static string seePendingIssues {
+            get {
+                return ResourceManager.GetString("seePendingIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show details and manage versions.
         /// </summary>
         public static string showDetailsAndManageVersions {
@@ -831,6 +921,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string translationAddedSuccessfully {
             get {
                 return ResourceManager.GetString("translationAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string type {
+            get {
+                return ResourceManager.GetString("type", resourceCulture);
             }
         }
         

@@ -1,83 +1,76 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-<div class="row" data-ng-show="showList()">    
-    <h2>
-       @Sentences.requirements
-        <button class="btn btn-primary"
-                title="@Sentences.addRequirement"
-                data-ng-click="currentRequirement = {}">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </h2>
-
-    <div class="col-md-12">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>@Sentences.id</th>
-                    <th>@Sentences.description</th>
-                    <th>@Sentences.package</th>
-                    <th>@Sentences.version</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="r in requirements">
-                    <td>
-                        <button class="btn btn-default"
-                                data-ng-show="r.HasPendingIssues"
-                                style="color: red"
-                                title="Ver observações pendentes">
-                            <span class="glyphicon glyphicon-alert"></span>
-                        </button>
-                    </td>
-                    <td>{{r.Id}}</td>
-                    <td>{{r.Description}}</td>
-                    <td>{{r.Package.Description}}</td>
-                    <td>{{r.Version}}</td>
-                    <td>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="remove(r)"
-                                title="@Sentences.removeRequirement">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="setCurrentRequirement(r)"
-                                title="@Sentences.addNewVersion">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="showDetails(r)"
-                                title="@Sentences.showDetailsAndManageVersions">
-                            <span class="glyphicon glyphicon-info-sign"></span>
-                        </button>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="manageLinks(r)"
-                                title="@Sentences.manageLinks">
-                            <span class="glyphicon glyphicon-transfer"></span>
-                        </button>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="addIssue(r)"
-                                title="@Sentences.addIssue">
-                            <span class="glyphicon glyphicon-comment"></span>
-                        </button>
-                        <button class="btn btn-default"
-                                type="button"
-                                data-ng-click="setRequirementToTranslate(r)"
-                                title="@Sentences.addTranslation"
-                                data-ng-show="r.canAddTranslation()">
-                            <span class="glyphicon glyphicon-globe"></span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="row" data-ng-show="showList()">
+    <div class="alert alert-info" data-ng-show="requirements.length == 0">
+        @Sentences.noRequirementRegistered
     </div>
+
+    <table class="table table-hover" data-ng-show="requirements.length > 0">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Sentences.id</th>
+                <th>@Sentences.description</th>
+                <th>@Sentences.package</th>
+                <th>@Sentences.version</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="r in requirements">
+                <td>
+                    <button class="btn btn-default"
+                            data-ng-show="r.HasPendingIssues"
+                            style="color: red"
+                            title="@Sentences.seePendingIssues">
+                        <span class="glyphicon glyphicon-alert"></span>
+                    </button>
+                </td>
+                <td>{{r.id}}</td>
+                <td>{{r.description}}</td>
+                <td>{{r.package.description}}</td>
+                <td>{{r.version}}</td>
+                <td>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="remove(r)"
+                            title="@Sentences.removeRequirement">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="setCurrentRequirement(r)"
+                            title="@Sentences.addNewVersion">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="showDetails(r)"
+                            title="@Sentences.showDetailsAndManageVersions">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="manageLinks(r)"
+                            title="@Sentences.manageLinks">
+                        <span class="glyphicon glyphicon-transfer"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="addIssue(r)"
+                            title="@Sentences.addIssue">
+                        <span class="glyphicon glyphicon-comment"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="setRequirementToTranslate(r)"
+                            title="@Sentences.addTranslation"
+                            data-ng-show="r.canAddTranslation()">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 

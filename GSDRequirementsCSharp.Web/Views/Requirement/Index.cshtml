@@ -3,17 +3,30 @@
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<article data-ng-controller="RequirementsController">
-    @Html.Partial("Partial/List")
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-controller="RequirementsController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     
-    <article data-gsd-project-form=""
+    <h2>
+        @Sentences.requirements
+        <button class="btn btn-primary"
+                title="@Sentences.addRequirement"
+                data-ng-click="currentRequirement = {}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    @Html.Partial("Partial/List")
+
+    <article data-gsd-requirement-form=""
              data-after-save="loadRequirements"
-             data-project="currentRequirement"
+             data-requirement="currentRequirement"
              data-ng-show="currentRequirement"></article>
 
-    <article data-gsd-project-translation=""
+    <article data-gsd-requirement-translation=""
              data-after-save="loadRequirements"
-             data-project="requirementToTranslate"
+             data-requirement="requirementToTranslate"
              data-ng-show="requirementToTranslate"></article>
 
     @Html.Partial("Partial/Details")

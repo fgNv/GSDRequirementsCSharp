@@ -6,5 +6,6 @@
     export interface IListScope extends IScope {
         currentPage: number
         maxPages: number
+        getPaginationRange () : Array<number>
     }
 }

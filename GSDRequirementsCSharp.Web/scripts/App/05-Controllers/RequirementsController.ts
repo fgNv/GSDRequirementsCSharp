@@ -1,18 +1,26 @@
-﻿module Controllers {
-
-    import UserData = NewAccount.UserData
+﻿module Controllers {    
     import GSDRequirementsData = Globals.GSDRequirementsData
 
     declare var angular: any;
     declare var GSDRequirements: GSDRequirementsData;
-    declare var sentences: any;
     declare var baseUrl: string;
     declare var _: any;
 
-    interface IRequirementsControllerScope extends Globals.IListScope {        
-        packagesOptions: Array<Models.Package>
+    interface IRequirementsControllerScope extends Globals.IListScope {                
         requirements: Array<Models.Requirement>
-        loadRequirements() : void
+        loadRequirements(): void
+
+        currentRequirement: Models.Requirement
+        requirementToTranslate: Models.Requirement
+        requirementToShowDetails: Models.Requirement
+        requirementToAddIssues: Models.Requirement
+        requirementToManageLinks: Models.Requirement
+
+        loadPage(page: number): void
+        setCurrentRequirement(r: Models.Requirement): void
+        setRequirementToTranslate(r: Models.Requirement): void
+        inactivateRequirement(r: Models.Requirement): void
+        showList(): boolean
     }
 
     var app = angular.module(GSDRequirements.angularModuleName);
@@ -20,24 +28,23 @@
     class RequirementsController {
         constructor(
             private $scope: IRequirementsControllerScope,
-            private RequirementResource: any,
-            private PackageResource: any
+            private RequirementResource: any            
         ) {
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.requirements = []
-            $scope.packagesOptions = []
             $scope.pendingRequests = 0
 
             var pageSize = 10
             this.SetScopeMethods($scope, RequirementResource, pageSize)
             this.LoadRequirements(RequirementResource, $scope, pageSize)
-            this.LoadPackagesOptions(PackageResource, $scope)
         }
-        private SetScopeMethods($scope: any, RequirementResource: any, pageSize: number) {
+        private SetScopeMethods($scope: IRequirementsControllerScope,
+                                RequirementResource: any,
+                                pageSize: number) {
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
-                $scope.loadPackages()
+                $scope.loadRequirements()
             }
 
             $scope.setCurrentRequirement = (r): void => { $scope.currentRequirement = r }
@@ -100,23 +107,8 @@
                     $scope.pendingRequests--;
                 });
         }
-        private LoadPackagesOptions(packageResource: any,
-                                    $scope: IRequirementsControllerScope): void {
-            packageResource.query()
-                .$promise
-                .then((response) => {
-                    $scope.packagesOptions = response
-                })
-                .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingPackages, err.messages)
-                })
-                .finally((): void => {
-                    $scope.pendingRequests--
-                })
-        }
     }
 
-    app.controller('RequirementsController', ["$scope", "RequirementResource", "PackageResource",
-        ($scope, RequirementResource, PackageResource) =>
-            new RequirementsController($scope, RequirementResource, PackageResource)]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource",
+        ($scope, RequirementResource) => new RequirementsController($scope, RequirementResource)]);
 }

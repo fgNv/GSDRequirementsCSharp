@@ -1,79 +1,107 @@
-﻿<div class="row" data-ng-show="step == 'form'">
-    <h2>Adicionar requisito {{requirement.Type.IdPrefix}}03</h2>
-    <div class="col-md-12">
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Pacote</label>
-                <div class="col-sm-8">
-                    <select type="text"
-                            class="form-control"
-                            data-ng-model="requirement.Package"
-                            data-ng-options="package as package.Description for package in packages"></select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Condição</label>
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Condition"
-                           placeholder="Quando o usuário for administrador">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Sujeito</label>
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Subject"
-                           placeholder="o sistema">
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h2 data-ng-show="!requirement.id">
+        @Sentences.addRequirement
+    </h2>
+    <h2 data-ng-show="requirement.id">
+        @Sentences.editRequirement {{"requirement.id"}}
+    </h2>
 
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Ação</label>
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Action"
-                           placeholder="deve permitir gerenciar permissões de acesso">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Dificuldade</label>
-                <div class="col-sm-8">
-                    <select type="text"
-                            class="form-control"
-                            data-ng-model="requirement.Difficulty"
-                            data-ng-options="difficulty for difficulty in difficultyOptions"></select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Rank</label>
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Rank">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Tipo</label>
-                <div class="col-sm-8">
-                    <select type="text"
-                            class="form-control"
-                            data-ng-model="requirement.Type"
-                            data-ng-options="type as type.Label for type in requirementTypeOptions"></select>
-                </div>
-            </div>
-            <div class="btn-group col-sm-offset-1">
-                <button type="button" class="btn btn-primary">Salvar</button>
-                <button type="button"
-                        data-ng-click="step = 'list'"
-                        class="btn btn-default">
-                    Cancelar
-                </button>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.package
+            </label>
+
+            <div class="col-sm-8">
+                <select type="text"
+                        class="form-control"
+                        data-ng-model="requirement.packageId"
+                        data-ng-options="package.id as package.description for
+                                         package in packagesOptions"></select>
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.condition
+            </label>
+
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="requirement.condition"
+                       placeholder="@Sentences.whenTheUserIsAnAdministrator">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.subject
+            </label>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="requirement.subject"
+                       placeholder="@Sentences.theSystem">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.action
+            </label>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="requirement.action"
+                       placeholder="@Sentences.mustAllowAccessPermissionManagement">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.difficulty
+            </label>
+            <div class="col-sm-8">
+                <select type="text"
+                        class="form-control"
+                        data-ng-model="requirement.difficulty"
+                        data-ng-options="difficulty.value as difficulty.label   
+                                         for difficulty in difficultyOptions">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.rank
+            </label>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="requirement.rank">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">
+                @Sentences.type
+            </label>
+            <div class="col-sm-8">
+                <select type="text"
+                        class="form-control"
+                        data-ng-model="requirement.type"
+                        data-ng-options="type.value as type.label for
+                                         type in requirementTypeOptions"></select>
+            </div>
+        </div>
+        <div class="btn-group col-sm-offset-1">
+            <button type="button" 
+                    class="btn btn-primary"
+                    data-ng-click="save()">
+                @Sentences.save
+            </button>
+            <button type="button"
+                    data-ng-click="currentRequirement = null"
+                    class="btn btn-default">
+                @Sentences.cancel
+            </button>
+        </div>
     </div>
-</div>
+</article>

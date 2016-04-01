@@ -20,6 +20,8 @@ namespace GSDRequirementsCSharp.Domain
         public Guid PackageId { get; set; }
 
         public Package Package { get; set; }
+    
+        public bool Active { get; set; }
 
         public virtual ICollection<Issue> Issues { get; set; }
 

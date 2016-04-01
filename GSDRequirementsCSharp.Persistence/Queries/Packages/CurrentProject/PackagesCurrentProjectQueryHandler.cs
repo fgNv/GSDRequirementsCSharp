@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject
 {
@@ -30,6 +31,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject
         {
             var projectId = _currentProjectContextId.Get();
             var packages = _context.Packages
+                                   .Include(p => p.Contents)
                                    .Where(p => p.Project.Id == projectId)
                                    .ToList();
 
