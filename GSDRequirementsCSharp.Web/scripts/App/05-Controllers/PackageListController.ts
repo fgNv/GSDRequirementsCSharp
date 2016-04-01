@@ -20,6 +20,7 @@
             $scope.maxPages = 1
             $scope.packages = []
             var pageSize = 10
+            $scope.pendingRequests = 0
 
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
@@ -42,7 +43,6 @@
             }
 
             $scope.loadPackages()
-            $scope.pendingRequests = 1
             this.$scope.UserData = new UserData()
         }
         private InactivatePackage(packageResource: any, $scope: any, packageEntity: Models.Package): void {
@@ -71,9 +71,8 @@
                         (p) => new Models.Package(p))
                     $scope.maxPages = response.maxPages
                 })
-                .catch((error) => {
-                    Notification.notifyError(Sentences.errorLoadingPackages,
-                        error.data.errors)
+                .catch((err) => {
+                    Notification.notifyError(Sentences.errorLoadingPackages, err.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

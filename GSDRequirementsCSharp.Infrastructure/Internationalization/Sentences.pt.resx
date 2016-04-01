@@ -330,4 +330,70 @@
   <data name="packageInactivatedSuccessfully" xml:space="preserve">
     <value>Pacote inativado com sucesso</value>
   </data>
+  <data name="errorInactivatingRequirement" xml:space="preserve">
+    <value>Erro ao inativar requisito</value>
+  </data>
+  <data name="errorLoadingRequirements" xml:space="preserve">
+    <value>Erro ao carregar requisitos</value>
+  </data>
+  <data name="requirementInactivatedSuccessfully" xml:space="preserve">
+    <value>Requisitos inativados com sucesso</value>
+  </data>
+  <data name="addIssue" xml:space="preserve">
+    <value>Adicionar observação</value>
+  </data>
+  <data name="addNewVersion" xml:space="preserve">
+    <value>Adicionar nova versão</value>
+  </data>
+  <data name="addRequirement" xml:space="preserve">
+    <value>Adicionar requisito</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="manageLinks" xml:space="preserve">
+    <value>Gerenciar vínculos</value>
+  </data>
+  <data name="package" xml:space="preserve">
+    <value>Pacote</value>
+  </data>
+  <data name="removeRequirement" xml:space="preserve">
+    <value>Remover requisito</value>
+  </data>
+  <data name="showDetailsAndManageVersions" xml:space="preserve">
+    <value>Exibir detalhes e gerenciar versões </value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="addTranslationForRequirement" xml:space="preserve">
+    <value>Adicionar tradução para requisito</value>
+  </data>
+  <data name="condition" xml:space="preserve">
+    <value>Condição</value>
+  </data>
+  <data name="mustAllowAccessPermissionManagement" xml:space="preserve">
+    <value>Deve permitir o gerenciamento de permissão de acesso</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Sujeito</value>
+  </data>
+  <data name="theSystem" xml:space="preserve">
+    <value>O sistema</value>
+  </data>
+  <data name="whenTheUserIsAnAdministrator" xml:space="preserve">
+    <value>Quando o usuário é administrador</value>
+  </data>
+  <data name="errorSavingRequirement" xml:space="preserve">
+    <value>Erro ao salvar requisito</value>
+  </data>
+  <data name="requirementSuccessfullyCreated" xml:space="preserve">
+    <value>Requisito criado com sucesso</value>
+  </data>
+  <data name="requirementUpdatedSuccessfully" xml:space="preserve">
+    <value>Requisito atualizado com sucesso</value>
+  </data>
 </root>

@@ -330,4 +330,70 @@
   <data name="packageInactivatedSuccessfully" xml:space="preserve">
     <value>Package inactivated successfully</value>
   </data>
+  <data name="errorInactivatingRequirement" xml:space="preserve">
+    <value>Error inactivating requirement</value>
+  </data>
+  <data name="errorLoadingRequirements" xml:space="preserve">
+    <value>Error loading requirements</value>
+  </data>
+  <data name="requirementInactivatedSuccessfully" xml:space="preserve">
+    <value>Requirement inactivated successfully</value>
+  </data>
+  <data name="addIssue" xml:space="preserve">
+    <value>Add issue</value>
+  </data>
+  <data name="addNewVersion" xml:space="preserve">
+    <value>Add new version</value>
+  </data>
+  <data name="addRequirement" xml:space="preserve">
+    <value>Add requirement</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="manageLinks" xml:space="preserve">
+    <value>Manage links</value>
+  </data>
+  <data name="package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="removeRequirement" xml:space="preserve">
+    <value>Remove requirement</value>
+  </data>
+  <data name="showDetailsAndManageVersions" xml:space="preserve">
+    <value>Show details and manage versions</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="addTranslationForRequirement" xml:space="preserve">
+    <value>Add translation for requirement</value>
+  </data>
+  <data name="condition" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="mustAllowAccessPermissionManagement" xml:space="preserve">
+    <value>Must allow access permission management</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="theSystem" xml:space="preserve">
+    <value>The system</value>
+  </data>
+  <data name="whenTheUserIsAnAdministrator" xml:space="preserve">
+    <value>When the user is an administrator</value>
+  </data>
+  <data name="errorSavingRequirement" xml:space="preserve">
+    <value>Error saving requirement</value>
+  </data>
+  <data name="requirementSuccessfullyCreated" xml:space="preserve">
+    <value>Requirement successfully created</value>
+  </data>
+  <data name="requirementUpdatedSuccessfully" xml:space="preserve">
+    <value>Requirement updated successfully</value>
+  </data>
 </root>

@@ -1,121 +1,93 @@
-﻿/// <reference path="../angularapplication.js" />
-/// <reference path="../gsdrequirementsnamespace.js" />
-(function (angularModuleName, angular) {
-
-    angular.module(angularModuleName).controller("RequirementsController", ["$scope", function ($scope) {
-        ///<param name="$scope" type="Object"/>
-
-        $scope.step = "list";
-        $scope.requirement = {};
-
-        $scope.difficultyOptions = ['Fácil', 'Médio', 'Difícil'];
-        $scope.requirementTypeOptions = [
-            { 'Label': 'Requisito funcional', 'IdPrefix': 'FR' },
-            { 'Label': 'Requisito não funcional', 'IdPrefix': 'NFR' }
-        ];
-                
-        $scope.packages = [
-            { 'Description': 'PKG01' }, { 'Description': 'PKG02' }
-        ];
-
-        $scope.versions = [
-            { 'Number': 3, 'Creator': 'Dev', 'CreationDate': new Date(2011, 6, 3) },
-            { 'Number': 2, 'Creator': 'Dev', 'CreationDate': new Date(2011, 4, 2) },
-            { 'Number': 1, 'Creator': 'Dev', 'CreationDate': new Date(2011, 2, 1) }
-        ];
-
-        $scope.links = [
-            { 'Item': 'CD01', 'ItemType': 'Diagrama de classes', 'Creator': 'Dev', 'CreationDate': new Date(2011, 6, 3) }
-        ];
-
-        $scope.specificationItems = [
-            { 'Item': 'CD01', 'ItemType': 'Diagrama de classes' },
-            { 'Item': 'UC01', 'ItemType': 'Caso de uso' },
-            { 'Item': 'FR01', 'ItemType': 'Requisito' }
-        ];
-
-        $scope.setDefaultOptions = function () {
-            $scope.requirement.Difficulty = $scope.difficultyOptions[0];
-            $scope.requirement.Type = $scope.requirementTypeOptions[0];
-            $scope.requirement.Package = $scope.packages[0];
+var Controllers;
+(function (Controllers) {
+    var app = angular.module(GSDRequirements.angularModuleName);
+    var RequirementsController = (function () {
+        function RequirementsController($scope, RequirementResource, PackageResource) {
+            this.$scope = $scope;
+            this.RequirementResource = RequirementResource;
+            this.PackageResource = PackageResource;
+            $scope.currentPage = 1;
+            $scope.maxPages = 1;
+            $scope.requirements = [];
+            $scope.packagesOptions = [];
+            $scope.pendingRequests = 0;
+            var pageSize = 10;
+            this.SetScopeMethods($scope, RequirementResource, pageSize);
+            this.LoadRequirements(RequirementResource, $scope, pageSize);
+            this.LoadPackagesOptions(PackageResource, $scope);
+        }
+        RequirementsController.prototype.SetScopeMethods = function ($scope, RequirementResource, pageSize) {
+            var _this = this;
+            $scope.loadPage = function (page) {
+                $scope.currentPage = page;
+                $scope.loadPackages();
+            };
+            $scope.setCurrentRequirement = function (r) { $scope.currentRequirement = r; };
+            $scope.setRequirementToTranslate = function (r) { $scope.requirementToTranslate = r; };
+            $scope.showList = function () {
+                return !$scope.currentRequirement &&
+                    !$scope.requirementToTranslate &&
+                    !$scope.requirementToShowDetails &&
+                    !$scope.requirementToAddIssues &&
+                    !$scope.requirementToManageLinks;
+            };
+            $scope.loadRequirements = function () { return _this.LoadRequirements(RequirementResource, $scope, pageSize); };
+            $scope.getPaginationRange = function () {
+                return _.range(1, $scope.maxPages + 1);
+            };
+            $scope.inactivateRequirement = function (r) {
+                _this.InactivateRequirement(RequirementResource, $scope, r);
+            };
         };
-
-        $scope.addNewRequiremnt = function () {
-            $scope.requirement = {};
-            $scope.step = "form";
-            $scope.setDefaultOptions();
+        RequirementsController.prototype.LoadRequirements = function (requirementResource, $scope, pageSize) {
+            $scope.pendingRequests++;
+            var request = { page: $scope.currentPage, pageSize: pageSize };
+            requirementResource.get(request)
+                .$promise
+                .then(function (response) {
+                $scope.requirements = _.map(response.requirements, function (p) { return new Models.Requirement(p); });
+                $scope.maxPages = response.maxPages;
+            })
+                .catch(function (err) {
+                Notification.notifyError(Sentences.errorLoadingRequirements, err.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
         };
-
-        $scope.addIssue = function (r) {
-            $scope.requirement = r;
-            $scope.step = "newIssue";
-            $scope.setDefaultOptions();
+        RequirementsController.prototype.InactivateRequirement = function (requirementResource, $scope, requirement) {
+            $scope.pendingRequests++;
+            requirementResource.remove({ id: requirement.id })
+                .$promise
+                .then(function (r) {
+                Notification.notifySuccess(Sentences.requirementInactivatedSuccessfully);
+                $scope.loadRequirements();
+            })
+                .catch(function (error) {
+                Notification.notifyError(Sentences.errorInactivatingRequirement, error.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
         };
-
-        $scope.remove = function (r) {
-            if (confirm("Você realmente deseja excluir o requisito " + r.Id + " e todos os itens relacionados?")) {
-
-            }
+        RequirementsController.prototype.LoadPackagesOptions = function (packageResource, $scope) {
+            packageResource.query()
+                .$promise
+                .then(function (response) {
+                $scope.packagesOptions = response;
+            })
+                .catch(function (err) {
+                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
         };
-
-        $scope.addTranslation = function (r) {
-            $scope.requirement = r;
-            $scope.step = "translation";
-            $scope.setDefaultOptions();
-        };
-
-        $scope.showDetails = function (r) {
-            $scope.requirement = r;
-            $scope.step = "details";
-        };
-
-        $scope.manageLinks = function (r) {
-            $scope.requirement = r;
-            $scope.step = "linksList";
-        };
-
-        $scope.addNewLink = function (r) {
-            $scope.requirement = r;
-            $scope.step = "addNewLink";
-        };
-
-        $scope.addNewVersion = function (r) {
-            $scope.requirement = r;
-            $scope.step = "form";
-            $scope.setDefaultOptions();
-        };
-
-        //$scope.issues = [
-        //    {"" : ""}
-        //];
-
-        $scope.requirements = [{
-            "Id": "FR01",
-            "Description": "Quando o usuário tiver permissão o sistema deve permitir gerenciar produtos",
-            "Type": $scope.requirementTypeOptions[0],
-            "Package": $scope.packages[0],
-            "Version": 1,
-            "CurrentLanguageAvailable": true,
-            "HasPendingIssues" : true
-        },
-        {
-            "Id": "FR02",
-            "Description": "O sistema deve permitir realizar compras",
-            "Type": $scope.requirementTypeOptions[0],
-            "Package": $scope.packages[0],
-            "Version": 1,
-            "CurrentLanguageAvailable": true,
-            "HasPendingIssues" : false
-        },
-        {
-            "Id": "FR03",
-            "Description": "The system should allow users to login",
-            "Type": $scope.requirementTypeOptions[0],
-            "Package": $scope.packages[0],
-            "Version": 3,
-            "CurrentLanguageAvailable": false,
-            "HasPendingIssues": false
-        }];
-    }]);
-
-})(window.GSDRequirements.angularModuleName, angular);
+        return RequirementsController;
+    })();
+    app.controller('RequirementsController', ["$scope", "RequirementResource", "PackageResource",
+        function ($scope, RequirementResource, PackageResource) {
+            return new RequirementsController($scope, RequirementResource, PackageResource);
+        }]);
+})(Controllers || (Controllers = {}));
+//# sourceMappingURL=RequirementsController.js.map

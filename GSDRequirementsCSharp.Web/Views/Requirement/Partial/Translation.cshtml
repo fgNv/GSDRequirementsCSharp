@@ -1,62 +1,73 @@
-﻿<div class="row" data-ng-show="step == 'translation'">
-    <h2>Adicionar tradução para requisito FR01</h2>
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-    <div class="col-md-12">
-        <div class="form-horizontal">
-            <div class="form-group">
-                <span class="col-sm-1">Original:</span>
-                <span class="col-sm-11"> When the user is an administrator</span>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Condição</label>
+<article>
+    <h2>@Sentences.addTranslationForRequirement {{requirement.identifier}}</h2>
 
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Condition"
-                           placeholder="Quando o usuário for administrador">
-                </div>
-            </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <span class="col-sm-1">
+                @Sentences.original:
+                {{requirement.locale}}
+            </span>
+            <span class="col-sm-11"> {{requirement.condition}}</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName2" class="col-sm-1 control-label">
+                @Sentences.condition
+            </label>
 
-            <hr />
-
-            <div class="form-group">
-                <span class="col-sm-1">Original:</span>
-                <span class="col-sm-11">  the system</span>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Sujeito</label>
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Subject"
-                           placeholder="o sistema">
-                </div>
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <span class="col-sm-1">Original:</span>
-                <span class="col-sm-11">   must allow access permission management</span>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2" class="col-sm-1 control-label">Ação</label>
-                <div class="col-sm-8">
-                    <input type="text"
-                           class="form-control"
-                           data-ng-model="requirement.Action"
-                           placeholder="deve permitir gerenciar permissões de acesso">
-                </div>
-            </div>
-            <div class="btn-group col-sm-offset-1">
-                <button type="button" class="btn btn-primary">Salvar</button>
-                <button type="button"
-                        data-ng-click="step = 'list'"
-                        class="btn btn-default">
-                    Cancelar
-                </button>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="requirement.Condition"
+                       placeholder="@Sentences.whenTheUserIsAnAdministrator">
             </div>
         </div>
+
+        <hr />
+
+        <div class="form-group">
+            <span class="col-sm-1">@Sentences.original:</span>
+            <span class="col-sm-11">{{requirement.subject}}</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName2" class="col-sm-1 control-label">
+                @Sentences.subject
+            </label>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="translation.subject"
+                       placeholder="@Sentences.theSystem">
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            <span class="col-sm-1">@Sentences.original:</span>
+            <span class="col-sm-11">{{requirement.action}}</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName2" class="col-sm-1 control-label">
+                @Sentences.action
+            </label>
+            <div class="col-sm-8">
+                <input type="text"
+                       class="form-control"
+                       data-ng-model="translation.action"
+                       placeholder="@Sentences.mustAllowAccessPermissionManagement">
+            </div>
+        </div>
+        <div class="btn-group col-sm-offset-1">
+            <button type="button" class="btn btn-primary">
+                @Sentences.save
+            </button>
+            <button type="button"
+                    data-ng-click="requirement = null"
+                    class="btn btn-default">
+                @Sentences.cancel
+            </button>
+        </div>
     </div>
-</div>
+</article>

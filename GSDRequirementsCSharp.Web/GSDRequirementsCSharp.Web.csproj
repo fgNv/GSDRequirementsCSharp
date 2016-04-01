@@ -151,6 +151,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\RequirementResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectContentResource.js" />
     <Content Include="Scripts\App\03-Resources\PackageResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectResource.js" />
@@ -258,6 +259,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\App\01-Globals\Interfaces\IScope.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
@@ -266,15 +268,20 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\Package.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\PackageContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Project.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Requirement.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\PackageListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectContext.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementForm.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslation.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

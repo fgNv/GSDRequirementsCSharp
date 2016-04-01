@@ -1,8 +1,12 @@
-﻿<div class="row" data-ng-show="step == 'list'">
-    <h2 class="title-text">Requisitos</h2>
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<div class="row" data-ng-show="showList()">    
     <h2>
-        <button class="btn" data-ng-click="addNewRequiremnt()">
-            <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
+       @Sentences.requirements
+        <button class="btn btn-primary"
+                title="@Sentences.addRequirement"
+                data-ng-click="currentRequirement = {}">
+            <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
 
@@ -11,10 +15,10 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Id</th>
-                    <th> Descrição</th>
-                    <th> Pacote</th>
-                    <th> Versão</th>
+                    <th>@Sentences.id</th>
+                    <th>@Sentences.description</th>
+                    <th>@Sentences.package</th>
+                    <th>@Sentences.version</th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,38 +40,38 @@
                         <button class="btn btn-default"
                                 type="button"
                                 data-ng-click="remove(r)"
-                                title="Remover requisito">
+                                title="@Sentences.removeRequirement">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                         <button class="btn btn-default"
                                 type="button"
-                                data-ng-click="addNewVersion(r)"
-                                title="Adicionar nova versão">
+                                data-ng-click="setCurrentRequirement(r)"
+                                title="@Sentences.addNewVersion">
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                         <button class="btn btn-default"
                                 type="button"
                                 data-ng-click="showDetails(r)"
-                                title="Exibir detalhes e gerenciar versões">
+                                title="@Sentences.showDetailsAndManageVersions">
                             <span class="glyphicon glyphicon-info-sign"></span>
                         </button>
                         <button class="btn btn-default"
                                 type="button"
                                 data-ng-click="manageLinks(r)"
-                                title="Gerenciar vínculos">
+                                title="@Sentences.manageLinks">
                             <span class="glyphicon glyphicon-transfer"></span>
                         </button>
                         <button class="btn btn-default"
                                 type="button"
                                 data-ng-click="addIssue(r)"
-                                title="Adicionar observação">
+                                title="@Sentences.addIssue">
                             <span class="glyphicon glyphicon-comment"></span>
                         </button>
                         <button class="btn btn-default"
                                 type="button"
-                                data-ng-click="addTranslation(r)"
-                                title="Adicionar tradução"
-                                data-ng-show="!r.CurrentLanguageAvailable">
+                                data-ng-click="setRequirementToTranslate(r)"
+                                title="@Sentences.addTranslation"
+                                data-ng-show="r.canAddTranslation()">
                             <span class="glyphicon glyphicon-globe"></span>
                         </button>
                     </td>

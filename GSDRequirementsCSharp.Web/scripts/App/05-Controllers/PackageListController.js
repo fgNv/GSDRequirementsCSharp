@@ -11,6 +11,7 @@ var Controllers;
             $scope.maxPages = 1;
             $scope.packages = [];
             var pageSize = 10;
+            $scope.pendingRequests = 0;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
                 $scope.loadPackages();
@@ -25,7 +26,6 @@ var Controllers;
                 _this.InactivatePackage(PackageResource, $scope, p);
             };
             $scope.loadPackages();
-            $scope.pendingRequests = 1;
             this.$scope.UserData = new UserData();
         }
         PackageListController.prototype.InactivatePackage = function (packageResource, $scope, packageEntity) {
@@ -52,8 +52,8 @@ var Controllers;
                 $scope.packages = _.map(response.packages, function (p) { return new Models.Package(p); });
                 $scope.maxPages = response.maxPages;
             })
-                .catch(function (error) {
-                Notification.notifyError(Sentences.errorLoadingPackages, error.data.errors);
+                .catch(function (err) {
+                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;

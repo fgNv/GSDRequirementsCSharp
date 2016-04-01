@@ -1,5 +1,7 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Packages;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Commands.Packages;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject;
 using GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated;
 using System;
 using System.Collections.Generic;
@@ -16,20 +18,29 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<SavePackageCommand> _createPackageCommandHandler;
         private readonly ICommandHandler<UpdatePackageCommand> _updatePackageCommandHandler;
         private readonly ICommandHandler<InactivatePackageCommand> _inactivatePackageCommand;
+        private readonly IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>> _packagesCurrentProjectQueryHandler;
 
         public PackageController(IQueryHandler<PackagesPaginatedQuery, PackagesPaginatedQueryResult> packagesPaginatedQueryHandler,
                                 ICommandHandler<AddPackageTranslationCommand> addPackageTranslationCommandHandler,
                                 ICommandHandler<SavePackageCommand> createPackageCommandHandler,
                                 ICommandHandler<UpdatePackageCommand> updatePackageCommandHandler,
-                                ICommandHandler<InactivatePackageCommand> inactivatePackageCommand)
+                                ICommandHandler<InactivatePackageCommand> inactivatePackageCommand,
+                                IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>> packagesCurrentProjectQueryHandler)
         {
             _packagesPaginatedQueryHandler = packagesPaginatedQueryHandler;
             _addPackageTranslationCommandHandler = addPackageTranslationCommandHandler;
             _createPackageCommandHandler = createPackageCommandHandler;
             _updatePackageCommandHandler = updatePackageCommandHandler;
             _inactivatePackageCommand = inactivatePackageCommand;
+            _packagesCurrentProjectQueryHandler = packagesCurrentProjectQueryHandler;
+        }
+        
+        public IEnumerable<Package> Get()
+        {
+            return _packagesCurrentProjectQueryHandler.Handle(null);
         }
 
+        [Route("api/package/{page}/{pageSize}")]
         public PackagesPaginatedQueryResult Get([FromUri]PackagesPaginatedQuery query)
         {
             return _packagesPaginatedQueryHandler.Handle(query);

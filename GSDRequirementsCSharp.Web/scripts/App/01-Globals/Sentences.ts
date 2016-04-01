@@ -17,4 +17,10 @@
     export declare var errorInactivatingProject: string;
     export declare var packageInactivatedSuccessfully: string;
     export declare var errorInactivatingPackage: string;
+    export declare var errorLoadingRequirements: string;
+    export declare var requirementInactivatedSuccessfully: string;
+    export declare var errorInactivatingRequirement: string;
+    export declare var requirementUpdatedSuccessfully: string;
+    export declare var requirementSuccessfullyCreated: string;
+    export declare var errorSavingRequirement: string;
 }

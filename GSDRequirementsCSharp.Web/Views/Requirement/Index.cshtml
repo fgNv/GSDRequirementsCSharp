@@ -5,9 +5,18 @@
 
 <article data-ng-controller="RequirementsController">
     @Html.Partial("Partial/List")
-    @Html.Partial("Partial/Form")
+    
+    <article data-gsd-project-form=""
+             data-after-save="loadRequirements"
+             data-project="currentRequirement"
+             data-ng-show="currentRequirement"></article>
+
+    <article data-gsd-project-translation=""
+             data-after-save="loadRequirements"
+             data-project="requirementToTranslate"
+             data-ng-show="requirementToTranslate"></article>
+
     @Html.Partial("Partial/Details")
     @Html.Partial("Partial/Links")
-    @Html.Partial("Partial/Translation")
     @Html.Partial("Partial/NewIssue")
 </article>
