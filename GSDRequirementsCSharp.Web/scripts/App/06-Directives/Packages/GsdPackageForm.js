@@ -7,8 +7,16 @@ var Directives;
             this.templateUrl = GSDRequirements.baseUrl + 'package/form';
             this.controller = ['$scope', 'PackageResource', function ($scope, PackageResource) {
                     $scope.pendingRequests = 0;
+                    $scope.translations = [];
                     $scope.save = function () {
                         $scope.pendingRequests++;
+                        $scope.package.items = [
+                            {
+                                "description": $scope.package.description,
+                                "locale": GSDRequirements.currentLocale
+                            }
+                        ];
+                        _.each($scope.translations, function (i) { return $scope.package.items.push(i); });
                         var promise = $scope.package.id ?
                             PackageResource.update($scope.package).$promise :
                             PackageResource.save($scope.package).$promise;

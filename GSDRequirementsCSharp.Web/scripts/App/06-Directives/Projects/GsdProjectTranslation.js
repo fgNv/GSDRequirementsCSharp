@@ -56,7 +56,10 @@ var Directives;
                 }];
         }
         GsdProjectTranslation.prototype.defineAvailableLocaleContents = function ($scope, project) {
-            var projectLocales = _.map(project.projectContents, function (c) { return c.locale; });
+            var projectLocales = _.chain(project.projectContents)
+                .filter(function (c) { return c.isUpdated; })
+                .map(function (c) { return c.locale; })
+                .value();
             $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable, function (l) { return _.any(projectLocales, function (pl) { return pl == l.name; }); });
         };
         GsdProjectTranslation.prototype.clearScope = function ($scope) {

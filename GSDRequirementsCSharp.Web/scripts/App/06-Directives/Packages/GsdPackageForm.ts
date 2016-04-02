@@ -3,6 +3,7 @@
     import GSDRequirementsData = Globals.GSDRequirementsData
 
     declare var angular: any;
+    declare var _: any;
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
 
@@ -11,9 +12,20 @@
         public templateUrl = GSDRequirements.baseUrl + 'package/form'
         public controller = ['$scope', 'PackageResource', ($scope: any, PackageResource: any) => {
             $scope.pendingRequests = 0;
+            $scope.translations = []
 
             $scope.save = () => {
                 $scope.pendingRequests++;
+
+                $scope.package.items = [
+                    {
+                        "description": $scope.package.description,
+                        "locale": GSDRequirements.currentLocale
+                    }
+                ]
+
+                _.each($scope.translations, (i): void=> $scope.package.items.push(i))
+
                 var promise = $scope.package.id ?
                     PackageResource.update($scope.package).$promise :
                     PackageResource.save($scope.package).$promise

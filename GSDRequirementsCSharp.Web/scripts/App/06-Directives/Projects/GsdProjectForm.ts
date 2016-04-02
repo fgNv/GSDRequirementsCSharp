@@ -13,8 +13,7 @@
         public controller = ['$scope', 'ProjectResource', '$uibModal', ($scope: any, ProjectResource: any, $uibModal: any) => {
             $scope.pendingRequests = 0;
             $scope.translations = []
-
-
+            
             $scope.save = () => {
                 $scope.pendingRequests++;
 
