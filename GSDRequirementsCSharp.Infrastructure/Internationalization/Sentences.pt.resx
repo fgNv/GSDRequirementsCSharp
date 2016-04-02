@@ -456,4 +456,7 @@
   <data name="allTranslationsAdded" xml:space="preserve">
     <value>Todas as traduções foram adicionadas</value>
   </data>
+  <data name="invalidItems" xml:space="preserve">
+    <value>Itens inválidos</value>
+  </data>
 </root>

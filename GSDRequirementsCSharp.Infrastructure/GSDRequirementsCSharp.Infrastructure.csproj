@@ -76,6 +76,7 @@
     <Compile Include="Persistence\IEntity.cs" />
     <Compile Include="Persistence\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\Attributes\ValidateCollectionAttribute.cs" />
     <Compile Include="Validation\CommandHandlerValidationDecorator.cs" />
     <Compile Include="Validation\CommandValidationException.cs" />
     <Compile Include="Validation\DataAnnotationValidator.cs" />

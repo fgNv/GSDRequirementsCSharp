@@ -529,6 +529,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid items.
+        /// </summary>
+        public static string invalidItems {
+            get {
+                return ResourceManager.GetString("invalidItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Password.
         /// </summary>
         public static string invalidPassword {
