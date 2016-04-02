@@ -18,7 +18,10 @@ namespace GSDRequirementsCSharp.Web.Models
 
         public static IEnumerable<Locale> GetLocales()
         {
-            return new[] { new Locale("pt-BR", "Português"), new Locale("en-US", "English(United States)") }.OrderBy(l => l.Label);
+            return new[] { new Locale("pt-BR", "Português"),
+                           new Locale("en-US", "English(United States)"),
+                           new Locale("fr-FR", "Français"),
+                           new Locale("es-ES", "Español")}.OrderBy(l => l.Label);
         }
     }
 }

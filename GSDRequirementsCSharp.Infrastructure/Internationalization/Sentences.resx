@@ -450,4 +450,10 @@
   <data name="noTranslationAdded" xml:space="preserve">
     <value>No translation added</value>
   </data>
+  <data name="chooseALanguage" xml:space="preserve">
+    <value>Choose a language</value>
+  </data>
+  <data name="allTranslationsAdded" xml:space="preserve">
+    <value>All translation added</value>
+  </data>
 </root>

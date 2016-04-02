@@ -43,6 +43,6 @@
 
     @foreach(var locale in localesAvailable)
     {
-       @: GSDRequirements.localesAvailable.push({name:'@locale.Name', label:'@locale.Label'});
+       @: GSDRequirements.localesAvailable.push({name:'@locale.Name', label:'@Html.Raw(locale.Label)'});
     }
 </script>

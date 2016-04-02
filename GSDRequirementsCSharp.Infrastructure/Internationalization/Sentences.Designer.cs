@@ -160,6 +160,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All translation added.
+        /// </summary>
+        public static string allTranslationsAdded {
+            get {
+                return ResourceManager.GetString("allTranslationsAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Artifacts.
         /// </summary>
         public static string artifacts {
@@ -219,6 +228,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string changeProjectInContext {
             get {
                 return ResourceManager.GetString("changeProjectInContext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a language.
+        /// </summary>
+        public static string chooseALanguage {
+            get {
+                return ResourceManager.GetString("chooseALanguage", resourceCulture);
             }
         }
         

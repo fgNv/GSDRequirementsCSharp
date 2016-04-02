@@ -5,13 +5,32 @@
     <h4 data-ng-hide="project.id">@Sentences.createProject</h4>
     <h4 data-ng-show="project.id">@Sentences.editProject {{project.name}}</h4>
 
-    @Html.Partial("_ContentFields")
-    
+    <article data-ng-form="" data-name="projectForm">
+
+        @Html.Partial("_ContentFields")
+
+    </article>
+
     <script type="text/ng-template" id="translationContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">asdas</h3>
+            <h3 class="modal-title">@Sentences.addTranslation</h3>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" data-ng-form="" data-name="translationForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="language">@Sentences.language</label>
+                        <select class="form-control"
+                                id="language"
+                                required=""
+                                data-ng-options="language.name as language.label for language in languageOptions"
+                                data-ng-model="project.locale">
+                            <option value="">@Sentences.chooseALanguage</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             @Html.Partial("_ContentFields")
         </div>
         <div class="modal-footer">
@@ -21,6 +40,7 @@
                     @Sentences.cancel
                 </button>
                 <button class="btn btn-primary"
+                        data-ng-disabled="!translationForm.$valid"
                         data-ng-click="conclude()">
                     @Sentences.save
                 </button>
@@ -31,8 +51,15 @@
     <h4>
         @Sentences.translations
         <button class="btn btn-primary"
+                data-ng-hide="allTranslationsProvided()"
                 data-ng-click="addTranslation()"
                 title="@Sentences.addTranslation">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button class="btn btn-primary"
+                data-ng-disabled="allTranslationsProvided()"
+                data-ng-show="allTranslationsProvided()"
+                title="@Sentences.allTranslationsAdded">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h4>
@@ -50,11 +77,15 @@
             <tr data-ng-repeat="translation in translations">
                 <td>{{translation.locale}}</td>
                 <td>
-                    <button class="btn">
-                        <span class="glyphicon glyphicon-trash"
-                              title="@Sentences.removeTranslation"></span>
-                        <span class="glyphicon glyphicon-pencil"
-                              title="@Sentences.editTranslation"></span>
+                    <button class="btn btn-default"
+                            data-ng-click="removeTranslation(translation)"
+                            title="@Sentences.removeTranslation">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            data-ng-click="editTranslation(translation)"
+                            title="@Sentences.editTranslation">
+                        <span class="glyphicon glyphicon-pencil"></span>
                     </button>
                 </td>
             </tr>
@@ -68,6 +99,7 @@
         </button>
         <button class="btn btn-primary"
                 type="button"
+                data-ng-disabled="!projectForm.$valid"
                 data-ng-click="save()">
             @Sentences.save
         </button>
