@@ -109,6 +109,5 @@
         }
     }
 
-    app.controller('RequirementsController', ["$scope", "RequirementResource",
-        ($scope, RequirementResource) => new RequirementsController($scope, RequirementResource)]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", RequirementsController]);
 }

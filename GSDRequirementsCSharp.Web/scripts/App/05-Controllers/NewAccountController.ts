@@ -41,6 +41,5 @@
                 });
         }
     }
-    app.controller('NewAccountController', ["$scope", "UserResource", ($scope, UserResource) =>
-        new NewAccountController($scope, UserResource)]);
+    app.controller('NewAccountController', ["$scope", "UserResource", NewAccountController]);
 }

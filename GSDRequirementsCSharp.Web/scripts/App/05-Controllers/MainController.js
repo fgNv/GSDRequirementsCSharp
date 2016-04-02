@@ -11,7 +11,5 @@ var Controllers;
         }
         return MainController;
     })();
-    app.controller('MainController', ["$scope", function ($scope) {
-            return new MainController($scope);
-        }]);
+    app.controller('MainController', ["$scope", MainController]);
 })(Controllers || (Controllers = {}));

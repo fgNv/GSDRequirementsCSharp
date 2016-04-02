@@ -21,6 +21,5 @@
         }
     }
 
-    app.controller('MainController', ["$scope", ($scope) =>
-        new MainController($scope)]);
+    app.controller('MainController', ["$scope", MainController]);
 }

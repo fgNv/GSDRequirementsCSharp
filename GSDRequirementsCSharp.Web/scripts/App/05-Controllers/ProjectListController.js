@@ -62,7 +62,5 @@ var Controllers;
         };
         return ProjectListController;
     })();
-    app.controller('ProjectListController', ["$scope", "ProjectResource", function ($scope, ProjectResource) {
-            return new ProjectListController($scope, ProjectResource);
-        }]);
+    app.controller('ProjectListController', ["$scope", "ProjectResource", ProjectListController]);
 })(Controllers || (Controllers = {}));

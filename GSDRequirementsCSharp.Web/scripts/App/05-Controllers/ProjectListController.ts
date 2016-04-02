@@ -81,6 +81,5 @@
                 });
         }
     }
-    app.controller('ProjectListController', ["$scope", "ProjectResource", ($scope, ProjectResource) =>
-        new ProjectListController($scope, ProjectResource)]);
+    app.controller('ProjectListController', ["$scope", "ProjectResource", ProjectListController]);
 }

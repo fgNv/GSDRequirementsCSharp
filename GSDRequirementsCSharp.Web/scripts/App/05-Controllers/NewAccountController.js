@@ -30,7 +30,5 @@ var Controllers;
         };
         return NewAccountController;
     })();
-    app.controller('NewAccountController', ["$scope", "UserResource", function ($scope, UserResource) {
-            return new NewAccountController($scope, UserResource);
-        }]);
+    app.controller('NewAccountController', ["$scope", "UserResource", NewAccountController]);
 })(Controllers || (Controllers = {}));

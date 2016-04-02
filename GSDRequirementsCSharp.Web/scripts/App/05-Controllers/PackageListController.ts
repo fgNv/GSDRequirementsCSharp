@@ -79,6 +79,5 @@
                 });
         }
     }
-    app.controller('PackageListController', ["$scope", "PackageResource", ($scope, PackageResource) =>
-        new PackageListController($scope, PackageResource)]);
+    app.controller('PackageListController', ["$scope", "PackageResource", PackageListController]);
 }

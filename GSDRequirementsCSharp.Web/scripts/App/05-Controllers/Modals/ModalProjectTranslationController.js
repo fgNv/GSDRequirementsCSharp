@@ -1,9 +1,22 @@
 var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
+    function notAlreadyProvided(translationsAlreadyProvided, locale) {
+        return _.every(translationsAlreadyProvided, function (provided) { return locale.name != provided; });
+    }
+    function isInCurrentEdition(translationToEdit, locale) {
+        return translationToEdit && translationToEdit.locale == locale.name;
+    }
     var ModalProjectTranslationController = (function () {
-        function ModalProjectTranslationController($scope, $uibModalInstance) {
-            $scope.project = {};
+        function ModalProjectTranslationController($scope, $uibModalInstance, translationsAlreadyProvided, translationToEdit) {
+            if (translationToEdit) {
+                $scope.project = translationToEdit;
+            }
+            else {
+                $scope.project = {};
+            }
+            $scope.languageOptions = _.filter(GSDRequirements.localesAvailable, function (l) { return l.name != GSDRequirements.currentLocale &&
+                (notAlreadyProvided(translationsAlreadyProvided, l) || isInCurrentEdition(translationToEdit, l)); });
             $scope.conclude = function () {
                 $uibModalInstance.close($scope.project);
             };
@@ -13,7 +26,6 @@ var Controllers;
         }
         return ModalProjectTranslationController;
     })();
-    app.controller('ModalProjectTranslationController', ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-            return new ModalProjectTranslationController($scope, $uibModalInstance);
-        }]);
+    app.controller('ModalProjectTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
+        "translationToEdit", ModalProjectTranslationController]);
 })(Controllers || (Controllers = {}));

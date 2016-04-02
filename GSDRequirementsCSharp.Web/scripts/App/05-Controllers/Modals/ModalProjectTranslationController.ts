@@ -1,13 +1,29 @@
 ﻿module Controllers {
-    
+
     declare var angular: any;
+    declare var _: any;
     declare var GSDRequirements: Globals.GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    class ModalProjectTranslationController {
-        constructor($scope: any, $uibModalInstance : any) {
+    function notAlreadyProvided(translationsAlreadyProvided: any, locale: any) {
+        return _.every(translationsAlreadyProvided, (provided) => locale.name != provided);
+    }
 
-            $scope.project = {}
+    function isInCurrentEdition(translationToEdit: any, locale) {
+        return translationToEdit && translationToEdit.locale == locale.name;
+    }
+
+    class ModalProjectTranslationController {
+        constructor($scope: any, $uibModalInstance: any, translationsAlreadyProvided: any, translationToEdit: any) {
+            
+            if (translationToEdit) {
+                $scope.project = translationToEdit
+            } else {
+                $scope.project = {}
+            }
+            $scope.languageOptions = _.filter(GSDRequirements.localesAvailable,
+                (l) => l.name != GSDRequirements.currentLocale &&
+                    (notAlreadyProvided(translationsAlreadyProvided, l) || isInCurrentEdition(translationToEdit, l)));
 
             $scope.conclude = function () {
                 $uibModalInstance.close($scope.project);
@@ -18,7 +34,7 @@
             };
         }
     }
-    
-    app.controller('ModalProjectTranslationController', ["$scope", "$uibModalInstance", ($scope, $uibModalInstance) =>
-        new ModalProjectTranslationController($scope, $uibModalInstance)]);
+
+    app.controller('ModalProjectTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
+        "translationToEdit", ModalProjectTranslationController]);
 }

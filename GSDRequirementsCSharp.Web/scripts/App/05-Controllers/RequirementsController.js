@@ -69,6 +69,5 @@ var Controllers;
         };
         return RequirementsController;
     })();
-    app.controller('RequirementsController', ["$scope", "RequirementResource",
-        function ($scope, RequirementResource) { return new RequirementsController($scope, RequirementResource); }]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", RequirementsController]);
 })(Controllers || (Controllers = {}));

@@ -15,14 +15,44 @@
 
             $scope.translations = []
 
-            $scope.addTranslation = () => {
+            function openTranslationModal(translationToEdit) {
+                var translationsAlreadProvided = _.map($scope.translations, (t) => t.locale)
+
+                console.log('translationsAlreadProvided')
+                console.log(translationsAlreadProvided)
+
                 var modal = $uibModal.open({
                     templateUrl: 'translationContent.html',
                     controller: 'ModalProjectTranslationController',
-                    size: 'lg'
+                    size: 'lg',
+                    resolve: {
+                        translationsAlreadyProvided: () => translationsAlreadProvided,
+                        translationToEdit: () => translationToEdit
+                    }
                 });
+                return modal;
+            }
 
+            $scope.addTranslation = () => {
+                var modal = openTranslationModal(null)
                 modal.result.then((data): void => $scope.translations.push(data));
+            }
+
+            $scope.removeTranslation = (translationToRemove) => {
+                $scope.translations = _.filter($scope.translation, (t) => t != translationToRemove)
+            }
+
+            $scope.editTranslation = (translation) => {
+                var translationClone = {}
+                for (var prop in translation) {
+                    translationClone[prop] = translation[prop]
+                }                
+                var modal = openTranslationModal(translationClone)
+
+                modal.result.then((data): void => {
+                    $scope.removeTranslation(translation)
+                    $scope.translations.push(translationClone)
+                });
             }
 
             $scope.save = () => {

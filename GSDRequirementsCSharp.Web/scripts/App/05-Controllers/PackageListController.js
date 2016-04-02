@@ -61,7 +61,5 @@ var Controllers;
         };
         return PackageListController;
     })();
-    app.controller('PackageListController', ["$scope", "PackageResource", function ($scope, PackageResource) {
-            return new PackageListController($scope, PackageResource);
-        }]);
+    app.controller('PackageListController', ["$scope", "PackageResource", PackageListController]);
 })(Controllers || (Controllers = {}));
