@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.CQS;
+﻿using GSDRequirementsCSharp.Domain.Commands.Requirements;
+using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Queries;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ namespace GSDRequirementsCSharp.Web.Api
     public class RequirementController : ApiController
     {
         private readonly IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> _requirementsPaginatedQueryHandler;
+        private ICommandHandler<SaveRequirementCommand> _createRequirementCommand;
 
-        public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler)
+        public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler,
+                                     ICommandHandler<SaveRequirementCommand> createRequirementCommand)
         {
             _requirementsPaginatedQueryHandler = requirementsPaginatedQueryHandler;
+            _createRequirementCommand = createRequirementCommand;
         }
         
         [Route("api/requirement/{page}/{pageSize}")]
@@ -25,8 +29,9 @@ namespace GSDRequirementsCSharp.Web.Api
         }
         
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post(SaveRequirementCommand command)
         {
+            _createRequirementCommand.Handle(command);
         }
 
         // PUT api/<controller>/5

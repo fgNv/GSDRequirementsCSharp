@@ -176,13 +176,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Entity<Contact>()
                 .Property(e => e.phone)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .HasMany(e => e.Requirements)
-                .WithRequired(e => e.Contact)
-                .HasForeignKey(e => e.ContactId)
-                .WillCascadeOnDelete(false);
-
+            
             modelBuilder.Entity<Contact>()
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.Contact)

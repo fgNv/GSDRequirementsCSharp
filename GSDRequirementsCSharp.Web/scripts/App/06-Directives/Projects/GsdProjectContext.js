@@ -60,3 +60,4 @@ var directives;
     })();
     app.directive('gsdProjectContext', GsdProjectContext.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdProjectContext.js.map

@@ -131,6 +131,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                     {
                         id = c.Guid(nullable: false),
                         package_id = c.Guid(nullable: false),
+                        active = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Package", t => t.package_id, cascadeDelete: true)
@@ -203,15 +204,15 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         difficulty = c.Int(nullable: false),
                         type = c.Int(nullable: false),
                         creator_id = c.Guid(nullable: false),
-                        contact_id = c.Guid(nullable: false),
+                        ContactId = c.Guid(),
                     })
                 .PrimaryKey(t => new { t.id, t.version })
-                .ForeignKey("dbo.Contact", t => t.contact_id)
+                .ForeignKey("dbo.Contact", t => t.ContactId)
                 .ForeignKey("dbo.User", t => t.creator_id)
                 .ForeignKey("dbo.SpecificationItem", t => t.id, cascadeDelete: true)
                 .Index(t => t.id)
                 .Index(t => t.creator_id)
-                .Index(t => t.contact_id);
+                .Index(t => t.ContactId);
             
             CreateTable(
                 "dbo.RequirementContent",
@@ -368,9 +369,9 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropForeignKey("dbo.Issue", "creator_id", "dbo.User");
             DropForeignKey("dbo.IssueComment", "creator_id", "dbo.User");
             DropForeignKey("dbo.User", "contactId", "dbo.Contact");
-            DropForeignKey("dbo.Requirement", "contact_id", "dbo.Contact");
             DropForeignKey("dbo.RequirementRisk", new[] { "Requirement_Id", "Requirement_Version" }, "dbo.Requirement");
             DropForeignKey("dbo.RequirementContent", new[] { "Requirement_Id", "Requirement_Version" }, "dbo.Requirement");
+            DropForeignKey("dbo.Requirement", "ContactId", "dbo.Contact");
             DropForeignKey("dbo.ClassDiagram", "id", "dbo.SpecificationItem");
             DropForeignKey("dbo.ClassProperty", "class_id", "dbo.Class");
             DropForeignKey("dbo.ClassPropertyContent", "id", "dbo.ClassProperty");
@@ -389,7 +390,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("dbo.Profile", new[] { "project_id" });
             DropIndex("dbo.RequirementRisk", new[] { "Requirement_Id", "Requirement_Version" });
             DropIndex("dbo.RequirementContent", new[] { "Requirement_Id", "Requirement_Version" });
-            DropIndex("dbo.Requirement", new[] { "contact_id" });
+            DropIndex("dbo.Requirement", new[] { "ContactId" });
             DropIndex("dbo.Requirement", new[] { "creator_id" });
             DropIndex("dbo.Requirement", new[] { "id" });
             DropIndex("dbo.User", new[] { "contactId" });

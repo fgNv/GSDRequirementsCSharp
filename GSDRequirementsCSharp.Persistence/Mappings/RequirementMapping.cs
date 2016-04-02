@@ -18,9 +18,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(r => r.Difficulty).HasColumnName("difficulty");
             Property(r => r.Type).HasColumnName("type");
             Property(r => r.CreatorId).HasColumnName("creator_id");
-            Property(r => r.ContactId).HasColumnName("contact_id");
             Property(r => r.Version).HasColumnName("version");
             Property(r => r.IsLastVersion).HasColumnName("is_last_version");
+
+            HasOptional(r => r.Contact).WithMany(r => r.Requirements)
+                                       .HasForeignKey(r => r.ContactId);
 
             HasMany(e => e.RequirementContents)
                 .WithRequired(e => e.Requirement)

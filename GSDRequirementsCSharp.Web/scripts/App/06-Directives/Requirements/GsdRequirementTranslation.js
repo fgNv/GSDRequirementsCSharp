@@ -57,3 +57,4 @@ var directives;
     })();
     app.directive('gsdRequirementTranslation', GsdRequirementTranslation.Factory);
 })(directives || (directives = {}));
+//# sourceMappingURL=GsdRequirementTranslation.js.map

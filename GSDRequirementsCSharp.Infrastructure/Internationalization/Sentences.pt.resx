@@ -403,13 +403,13 @@
     <value>Não há requisitos cadastrados</value>
   </data>
   <data name="difficulty" xml:space="preserve">
-    <value>Difficulty</value>
+    <value>Dificuldade</value>
   </data>
   <data name="editRequirement" xml:space="preserve">
     <value>Editar requisito</value>
   </data>
   <data name="rank" xml:space="preserve">
-    <value>Rank</value>
+    <value>Prioridade</value>
   </data>
   <data name="type" xml:space="preserve">
     <value>Tipo</value>
