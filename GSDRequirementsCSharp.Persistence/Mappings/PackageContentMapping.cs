@@ -20,7 +20,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             Property(p => p.Id).HasColumnName("id");
             Property(p => p.Id).HasColumnOrder(0);
-            
+
+            Property(p => p.IsUpdated).HasColumnName("is_updated");
+
             Property(p => p.Locale).HasColumnName("locale");
             Property(p => p.Locale).HasMaxLength(10);
             Property(p => p.Locale).HasColumnOrder(1);

@@ -58,6 +58,7 @@
     <Compile Include="Commands\Packages\CreatePackageCommandHandler.cs" />
     <Compile Include="Commands\Packages\InactivatePackageCommand.cs" />
     <Compile Include="Commands\Packages\InactivatePackageCommandHandler.cs" />
+    <Compile Include="Commands\Packages\PackageContentItem.cs" />
     <Compile Include="Commands\Packages\SavePackageCommand.cs" />
     <Compile Include="Commands\Packages\UpdatePackageCommand.cs" />
     <Compile Include="Commands\Packages\UpdatePackageCommandHandler.cs" />

@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
     public class SavePackageCommand : ICommand
     {
-        [Required]
-        [MaxLength(65535)]
-        public string Description { get; set; }        
+        [ValidateCollection]        
+        public IEnumerable<PackageContentItem> Items { get; set; }        
     }
 }

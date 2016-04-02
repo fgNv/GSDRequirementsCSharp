@@ -16,35 +16,42 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
     {
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IRepository<PackageContent, LocaleKey> _packageContentRepository;
-        private readonly ICurrentLocaleName _currentLocaleName;
         private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IQueryHandler<Guid, Package> _packageWithContents;
 
         public AddPackageTranslationCommandHandler(IRepository<Package, Guid> packageRepository,
                                                    IRepository<PackageContent, LocaleKey> packageContentRepository,
-                                                   ICurrentLocaleName currentLocaleName,
-                                                   ICurrentProjectContextId currentProjectContextId)
+                                                   ICurrentProjectContextId currentProjectContextId,
+                                                   IQueryHandler<Guid, Package> packageWithContents)
         {
             _packageRepository = packageRepository;
             _packageContentRepository = packageContentRepository;
-            _currentLocaleName = currentLocaleName;
             _currentProjectContextId = currentProjectContextId;
+            _packageWithContents = packageWithContents;
         }
 
         public void Handle(AddPackageTranslationCommand command)
         {
-            var currentLocale = _currentLocaleName.Get();
-            var package = _packageRepository.Get(command.PackageId);
+            var package = _packageWithContents.Handle(command.Id);
+            foreach (var item in command.Items)
+            {
+                var content = package.Contents.FirstOrDefault(c => c.Locale == item.Locale);
 
-            if (package == null)
-                throw new Exception(Sentences.packageNotFound);
-            
-            var translation = new PackageContent();
-            translation.Description = command.Description;
-            translation.Id = package.Id;
-            translation.Locale = currentLocale;
-            translation.Package = package;
+                if (content != null && content.IsUpdated)
+                    continue;
 
-            _packageContentRepository.Add(translation);
+                if (content == null)
+                {
+                    content = new PackageContent();
+                    content.Package = package;
+                    content.Locale = item.Locale;
+                    content.Id = package.Id;
+                    _packageContentRepository.Add(content);
+                }
+
+                content.IsUpdated = true;
+                content.Description = item.Description;
+            }
         }
     }
 }

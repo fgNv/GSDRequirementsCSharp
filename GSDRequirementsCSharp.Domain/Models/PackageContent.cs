@@ -25,5 +25,7 @@ namespace GSDRequirementsCSharp.Domain.Models
                 return new LocaleKey {  Id = Id, Locale = Locale};
             }
         }
+
+        public bool IsUpdated { get; set; }
     }
 }

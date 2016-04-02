@@ -16,20 +16,31 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
     class UpdatePackageCommandHandler : ICommandHandler<UpdatePackageCommand>
     {
         private readonly IRepository<Package, Guid> _packageRepository;
-        private readonly IQueryHandler<Guid, PackageWithCurrentCultureContentsQueryResult> _packageWithCurrentCultureContentsQueryHandler;
+        private readonly IQueryHandler<Guid, Package> _packageWithContentsQueryHandler;
 
         public UpdatePackageCommandHandler(IRepository<Package, Guid> packageRepository,
-                                           IQueryHandler<Guid, PackageWithCurrentCultureContentsQueryResult> packageWithCurrentCultureContentsQueryHandler)
+                                           IQueryHandler<Guid, Package> packageWithContentsQueryHandler)
         {
             _packageRepository = packageRepository;
-            _packageWithCurrentCultureContentsQueryHandler = packageWithCurrentCultureContentsQueryHandler;
+            _packageWithContentsQueryHandler = packageWithContentsQueryHandler;
         }
 
         public void Handle(UpdatePackageCommand command)
         {
-            var packageAndContent = _packageWithCurrentCultureContentsQueryHandler
-                                        .Handle(command.Id);
-            packageAndContent.PackageContent.Description = command.Description;
+            var package = _packageWithContentsQueryHandler.Handle(command.Id);
+            foreach (var content in package.Contents)
+            {
+                if (command.Items.Any(i => content.Locale == i.Locale))
+                {
+                    var item = command.Items.FirstOrDefault(i => content.Locale == i.Locale);
+                    content.IsUpdated = true;
+                    content.Description = item.Description;
+                }
+                else
+                {
+                    content.IsUpdated = false;
+                }
+            }
         }
     }
 }

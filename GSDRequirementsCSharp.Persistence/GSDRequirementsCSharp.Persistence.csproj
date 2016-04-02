@@ -88,7 +88,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
-    <Compile Include="Queries\Packages\WithCurrentCulture\PackagesByGuidQueryHandler.cs" />
+    <Compile Include="Queries\Packages\WithContents\PackageWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />

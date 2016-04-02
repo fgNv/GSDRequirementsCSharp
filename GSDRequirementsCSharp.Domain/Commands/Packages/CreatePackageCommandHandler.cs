@@ -16,21 +16,18 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
     {
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IRepository<PackageContent, LocaleKey> _packageContentRepository;
-        private readonly ICurrentLocaleName _currentLocaleName;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
         
         public CreatePackageCommandHandler(IRepository<Package, Guid> packageRepository,
                                            IRepository<PackageContent, LocaleKey> packageContentRepository,
-                                           ICurrentLocaleName currentLocaleName,
                                            ICurrentUserRetriever<User> currentUserRetriever,
                                            IRepository<Project, Guid> projectRepository,
                                            ICurrentProjectContextId currentProjectContextId)
         {
             _packageRepository = packageRepository;
             _packageContentRepository = packageContentRepository;
-            _currentLocaleName = currentLocaleName;
             _currentUserRetriever = currentUserRetriever;
             _projectRepository = projectRepository;
             _currentProjectContextId = currentProjectContextId;
@@ -39,12 +36,18 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
         public void Handle(SavePackageCommand command)
         {
             var package = new Package();
-            var content = new PackageContent();
-            content.Locale = _currentLocaleName.Get();
             package.Id = Guid.NewGuid();
-            content.Id = package.Id;
-            content.Description = command.Description;
-            content.Package = package;
+
+            foreach(var item in command.Items)
+            {
+                var content = new PackageContent();
+                content.Id = package.Id;
+                content.Locale = item.Locale;
+                content.Description = item.Description;
+                content.Package = package;
+                content.IsUpdated = true;
+                _packageContentRepository.Add(content);
+            }
 
             var currentUser = _currentUserRetriever.Get();
             package.CreatorId = currentUser.Id;
@@ -55,7 +58,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
             package.Active = true;
 
             _packageRepository.Add(package);
-            _packageContentRepository.Add(content);
         }
     }
 }

@@ -37,6 +37,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
                     content = new ProjectContent();
                     _projectContentRepository.Add(content);
                     content.Project = project;
+                    content.Id = project.Id;
                     content.Locale = item.Locale;
                 }
 
