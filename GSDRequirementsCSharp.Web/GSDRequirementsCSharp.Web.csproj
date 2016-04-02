@@ -233,6 +233,7 @@
     <Content Include="Views\Project\_Context.cshtml" />
     <Content Include="Views\Package\_Form.cshtml" />
     <Content Include="Views\Package\_Translation.cshtml" />
+    <Content Include="Views\Project\_ContentFields.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -267,6 +268,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Locale.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Package.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\PackageContent.ts" />
@@ -275,6 +277,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\requirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalProjectTranslationController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\PackageListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />

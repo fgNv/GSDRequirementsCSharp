@@ -48,6 +48,7 @@ module.exports = function (grunt) {
                                           bowerPath + 'angular-mask/dist/ngMask.js',
                                           bowerPath + 'underscore/underscore.js',
                                           bowerPath + 'angular-resource/angular-resource.js',
+                                          bowerPath + 'angular-bootstrap/ui-bootstrap-tpls.js',
                                           bowerPath + 'ng-dialog/js/ngDialog.js']
                 }
             }

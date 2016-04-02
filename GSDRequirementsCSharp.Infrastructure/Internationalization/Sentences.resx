@@ -447,4 +447,7 @@
   <data name="translations" xml:space="preserve">
     <value>Translations</value>
   </data>
+  <data name="noTranslationAdded" xml:space="preserve">
+    <value>No translation added</value>
+  </data>
 </root>

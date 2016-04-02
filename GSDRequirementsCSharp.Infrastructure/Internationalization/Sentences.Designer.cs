@@ -682,6 +682,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No translation added.
+        /// </summary>
+        public static string noTranslationAdded {
+            get {
+                return ResourceManager.GetString("noTranslationAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Original.
         /// </summary>
         public static string original {

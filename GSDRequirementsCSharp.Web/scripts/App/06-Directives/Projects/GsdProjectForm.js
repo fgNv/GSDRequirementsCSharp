@@ -5,10 +5,27 @@ var directives;
         function GsdProjectForm() {
             this.scope = { 'project': '=project', 'afterSave': '=afterSave' };
             this.templateUrl = GSDRequirements.baseUrl + 'project/form';
-            this.controller = ['$scope', 'ProjectResource', function ($scope, ProjectResource) {
+            this.controller = ['$scope', 'ProjectResource', '$uibModal', function ($scope, ProjectResource, $uibModal) {
                     $scope.pendingRequests = 0;
+                    $scope.translations = [];
+                    $scope.addTranslation = function () {
+                        var modal = $uibModal.open({
+                            templateUrl: 'translationContent.html',
+                            controller: 'ModalProjectTranslationController',
+                            size: 'lg'
+                        });
+                        modal.result.then(function (data) { return $scope.translations.push(data); });
+                    };
                     $scope.save = function () {
                         $scope.pendingRequests++;
+                        $scope.project.items = [
+                            {
+                                "name": $scope.project.name,
+                                "description": $scope.project.description,
+                                "locale": GSDRequirements.currentLocale
+                            }
+                        ];
+                        _.each($scope.translations, function (i) { return $scope.project.items.push(i); });
                         var promise = $scope.project.id ?
                             ProjectResource.update($scope.project).$promise :
                             ProjectResource.save($scope.project).$promise;
@@ -39,4 +56,3 @@ var directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(directives || (directives = {}));
-//# sourceMappingURL=GsdProjectForm.js.map
