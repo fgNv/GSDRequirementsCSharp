@@ -7,10 +7,7 @@ var Models;
             }
         }
         Project.prototype.canAddTranslation = function () {
-            return !_.any(this.projectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
-        };
-        Project.prototype.canEdit = function () {
-            return _.any(this.projectContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            return _.any(this.projectContents, function (c) { return !c.isUpdated; });
         };
         Project.prototype.getCommandModel = function () {
             var projectContent = _.find(this.projectContents, function (p) { return p.locale == GSDRequirements.currentLocale; });

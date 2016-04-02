@@ -19,6 +19,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(pc => pc.Description).HasColumnName("description")
                                           .HasColumnType("text");
             Property(pc => pc.Id).HasColumnName("id");
+
+            Property(p => p.Name).HasColumnName("name");
+            Property(e => e.Name).IsUnicode(false);
+
             HasKey(pc => new { pc.Id, pc.Locale });
 
             Property(e => e.Description).IsUnicode(false);

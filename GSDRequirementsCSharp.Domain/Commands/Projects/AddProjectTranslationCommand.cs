@@ -8,12 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
-    public class AddProjectTranslationCommand : ICommand
+    public class AddProjectTranslationCommand : UpdateProjectCommand
     {
-        [Required]
-        public string Description { get; set; }
-
-        [Required]
-        public Guid ProjectId { get; set; }
     }
 }

@@ -32,24 +32,29 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
         {
             var project = new Project();
             project.Id = Guid.NewGuid();
-            project.Name = command.Name;
             project.Active = true;
 
-            var content = new ProjectContent();
-            content.Description = command.Description;
-            content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
-            content.Project = project;
-            content.Id = project.Id;
+            foreach (var item in command.Items)
+            {
+                var content = new ProjectContent();
+                content.Description = item.Description;
+                content.Name = item.Name;
+                content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
+                content.Project = project;
+                content.IsUpdated = true;
+                content.Id = project.Id;
+                _projectContentRepository.Add(content);
+            }
+
             project.CreatedAt = DateTime.Now;
             var currentUser = _currentUserRetriever.Get();
 
-            if(currentUser == null)
+            if (currentUser == null)
                 throw new Exception(Sentences.youMustBeLoggedIn);
-            
+
             project.Owner = currentUser;
 
             _projectRepository.Add(project);
-            _projectContentRepository.Add(content);
         }
     }
 }

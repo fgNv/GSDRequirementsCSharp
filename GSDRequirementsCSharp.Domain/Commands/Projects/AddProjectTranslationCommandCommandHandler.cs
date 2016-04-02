@@ -12,26 +12,29 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
     public class AddProjectTranslationCommandCommandHandler : ICommandHandler<AddProjectTranslationCommand>
     {
-        private readonly IRepository<Project, Guid> _projectRepository;
-        private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
+        private readonly IQueryHandler<Guid, Project> _projectWithContentsQueryHandler;
 
-        public AddProjectTranslationCommandCommandHandler(IRepository<Project, Guid> projectRepository,
-                                                          IRepository<ProjectContent, LocaleKey> projectContentRepository)
+        public AddProjectTranslationCommandCommandHandler(IQueryHandler<Guid, Project> projectWithContentsQueryHandler)
         {
-            _projectRepository = projectRepository;
-            _projectContentRepository = projectContentRepository;
+            _projectWithContentsQueryHandler = projectWithContentsQueryHandler;
         }
 
         public void Handle(AddProjectTranslationCommand command)
         {
-            var project = _projectRepository.Get(command.ProjectId);
-            var content = new ProjectContent();
-            content.Description = command.Description;
-            content.Project = project;
-            var currentLocale = Thread.CurrentThread.CurrentCulture.Name;
-            content.Locale = currentLocale;
-            content.Id = project.Id;
-            _projectContentRepository.Add(content);
+            var project = _projectWithContentsQueryHandler.Handle(command.Id);
+            foreach (var content in project.ProjectContents)
+            {
+                if (content.IsUpdated)
+                    continue;
+
+                var item = command.Items.FirstOrDefault(i => content.Locale == i.LocaleName);
+                if (item == null)
+                    continue;
+
+                content.IsUpdated = true;
+                content.Name = item.Name;
+                content.Description = item.Description;
+            }
         }
     }
 }

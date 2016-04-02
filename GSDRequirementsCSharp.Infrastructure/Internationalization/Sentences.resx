@@ -432,4 +432,19 @@
   <data name="logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="removeTranslation" xml:space="preserve">
+    <value>Remove translation</value>
+  </data>
+  <data name="editTranslation" xml:space="preserve">
+    <value>Edit translation</value>
+  </data>
+  <data name="translations" xml:space="preserve">
+    <value>Translations</value>
+  </data>
 </root>

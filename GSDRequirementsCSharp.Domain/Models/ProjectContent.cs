@@ -11,6 +11,10 @@ namespace GSDRequirementsCSharp.Domain
     {   
         public Guid Id { get; set; }
         
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
         [StringLength(65535)]
         public string Description { get; set; }
         
@@ -18,6 +22,8 @@ namespace GSDRequirementsCSharp.Domain
         public string Locale { get; set; }
 
         public Guid ProjectId { get; set; }
+
+        public bool IsUpdated { get; set; }
 
         public virtual Project Project { get; set; }
 

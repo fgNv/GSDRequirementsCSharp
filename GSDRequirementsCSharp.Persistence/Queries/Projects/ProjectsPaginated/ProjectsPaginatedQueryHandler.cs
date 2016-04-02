@@ -32,14 +32,15 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                   .Where(p => p.OwnerId == currentUser.Id && p.Active);
 
             var maxPages = (int)Math.Ceiling(dbQuery.Count() / (double)query.PageSize);
-            var projects = dbQuery.OrderBy(p => p.Name)
+            var projects = dbQuery.OrderBy(p => p.Id)
                                   .Include(p => p.ProjectContents)                                    
                                   .Skip(skip)
                                   .Take(query.PageSize)
+                                  .ToList()
                                   .Select(p => new ProjectViewModel
                                   {
                                       Id = p.Id,
-                                      Name = p.Name,
+                                      Name = p.GetName(),
                                       IsCurrentUserOwner = p.OwnerId == currentUser.Id,
                                       CreatedAt = p.CreatedAt,
                                       ProjectContents = p.ProjectContents

@@ -70,6 +70,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string actions {
+            get {
+                return ResourceManager.GetString("actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add issue.
         /// </summary>
         public static string addIssue {
@@ -340,6 +349,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit translation.
+        /// </summary>
+        public static string editTranslation {
+            get {
+                return ResourceManager.GetString("editTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string email {
@@ -498,6 +516,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string invalidPassword {
             get {
                 return ResourceManager.GetString("invalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
             }
         }
         
@@ -817,6 +844,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove translation.
+        /// </summary>
+        public static string removeTranslation {
+            get {
+                return ResourceManager.GetString("removeTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report.
         /// </summary>
         public static string report {
@@ -930,6 +966,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string translationAddedSuccessfully {
             get {
                 return ResourceManager.GetString("translationAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translations.
+        /// </summary>
+        public static string translations {
+            get {
+                return ResourceManager.GetString("translations", resourceCulture);
             }
         }
         

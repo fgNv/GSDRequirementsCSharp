@@ -65,6 +65,7 @@
     <Compile Include="Commands\Projects\AddProjectTranslationCommandCommandHandler.cs" />
     <Compile Include="Commands\Projects\InactivateProjectCommand.cs" />
     <Compile Include="Commands\Projects\InactivateProjectCommandHandler.cs" />
+    <Compile Include="Commands\Projects\ProjectContentItem.cs" />
     <Compile Include="Commands\Projects\SaveProjectCommand.cs" />
     <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />

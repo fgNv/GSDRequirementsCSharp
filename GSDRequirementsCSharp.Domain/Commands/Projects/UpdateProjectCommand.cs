@@ -12,11 +12,15 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
     {
         public Guid Id { get; set; }
 
+        public UpdateProjectCommand()
+        {
+
+        }
+
         public UpdateProjectCommand(Guid id, SaveProjectCommand command)
         {
-            this.Id = id;
-            this.Name = command.Name;
-            this.Description = command.Description;
+            Id = id;
+            Items = command.Items;
         }
     }
     

@@ -15,14 +15,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             ToTable("Project");
             Property(p => p.Id).HasColumnName("id");
             HasKey(p => p.Id);
-            Property(p => p.Name).HasColumnName("name");
             Property(p => p.OwnerId).HasColumnName("owner_id");
             Property(p => p.CreatorId).HasColumnName("creator_id");
             Property(p => p.CreatedAt).HasColumnName("created_at");
             Property(p => p.Active).HasColumnName("active");
-
-            Property(e => e.Name).IsUnicode(false);
-            
+                        
             HasMany(e => e.Packages)
             .WithRequired(e => e.Project)
             .HasForeignKey(e => e.ProjectId)

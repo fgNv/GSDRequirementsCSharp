@@ -13,12 +13,8 @@
             }
         }
         public canAddTranslation() {            
-            return !_.any(this.projectContents,
-                         (c) => c.locale == GSDRequirements.currentLocale)
-        }
-        public canEdit() {
             return _.any(this.projectContents,
-                (c) => c.locale == GSDRequirements.currentLocale)
+                         (c) => !c.isUpdated)
         }
         public getCommandModel() {
             var projectContent = _.find(this.projectContents,

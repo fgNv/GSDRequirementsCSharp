@@ -15,6 +15,35 @@
         </div>
     </div>
 
+    <h4>
+        @Sentences.translations
+        <button class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"
+                  title="@Sentences.addTranslation"></span>
+        </button>
+    </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Sentences.language</th>
+                <th>@Sentences.actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="translation in translations">
+                <td>{{translation.locale}}</td>
+                <td>
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-trash"
+                              title="@Sentences.removeTranslation"></span> 
+                        <span class="glyphicon glyphicon-pencil"
+                              title="@Sentences.editTranslation"></span> 
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     <div class="btn-group">
         <button class="btn btn-default"
                 data-ng-click="project = null">
