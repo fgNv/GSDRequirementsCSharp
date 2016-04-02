@@ -6,32 +6,37 @@ var Directives;
             var _this = this;
             this.scope = { 'project': '=project', 'afterSave': '=afterSave' };
             this.templateUrl = GSDRequirements.baseUrl + 'project/translation';
-            this.defineDisplayDescription = function ($scope) {
-                var content = null;
-                if (GSDRequirements.currentLocale == 'en-US') {
-                    content = $scope.project.projectContents[0];
-                }
-                else {
-                    content = _.first($scope.project.projectContents, function (pc) { return pc.locale == 'en-US'; });
-                    if (!content) {
-                        content = $scope.project.projectContents[0];
-                    }
-                }
-                $scope.originalDescriptionLocale = content.locale;
-                $scope.originalDescription = content.description;
-            };
-            this.controller = ['$scope', 'ProjectContentResource', function ($scope, ProjectContentResource) {
+            this.controller = ['$scope', 'ProjectTranslationResource', function ($scope, ProjectTranslationResource) {
                     $scope.pendingRequests = 0;
+                    $scope.availableLocaleContents = [];
+                    $scope.translations = [];
+                    $scope.translationsAlreadyProvided = [];
+                    $scope.displayLocale = null;
+                    $scope.originalDescription = '';
+                    $scope.originalName = '';
+                    $scope.project = null;
                     var self = _this;
                     $scope.$watch('project', function (newValue, oldValue) {
-                        if (newValue) {
-                            self.defineDisplayDescription($scope);
+                        if (!newValue) {
+                            return;
                         }
+                        _this.clearScope($scope);
+                        self.defineAvailableLocaleContents($scope, newValue);
+                        $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, function (c) { return c.name; });
+                        $scope.displayLocale = $scope.translationsAlreadyProvided[0];
+                    });
+                    $scope.$watch('displayLocale', function (newValue, oldValue) {
+                        if (!newValue || !$scope.project) {
+                            return;
+                        }
+                        var content = _.find($scope.project.projectContents, function (c) { return c.locale == newValue; });
+                        $scope.originalDescription = content.description;
+                        $scope.originalName = content.name;
                     });
                     $scope.save = function () {
                         $scope.pendingRequests++;
-                        var request = { projectId: $scope.project.id, description: $scope.descriptionTranslation };
-                        ProjectContentResource.save(request)
+                        var request = { id: $scope.project.id, items: $scope.translations };
+                        ProjectTranslationResource.save(request)
                             .$promise
                             .then(function () {
                             Notification.notifySuccess(Sentences.translationAddedSuccessfully);
@@ -50,6 +55,17 @@ var Directives;
                     };
                 }];
         }
+        GsdProjectTranslation.prototype.defineAvailableLocaleContents = function ($scope, project) {
+            var projectLocales = _.map(project.projectContents, function (c) { return c.locale; });
+            $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable, function (l) { return _.any(projectLocales, function (pl) { return pl == l.name; }); });
+        };
+        GsdProjectTranslation.prototype.clearScope = function ($scope) {
+            $scope.availableLocaleContents = [];
+            $scope.translations = [];
+            $scope.displayLocale = null;
+            $scope.originalDescription = '';
+            $scope.originalName = '';
+        };
         GsdProjectTranslation.Factory = function () {
             return new GsdProjectTranslation();
         };

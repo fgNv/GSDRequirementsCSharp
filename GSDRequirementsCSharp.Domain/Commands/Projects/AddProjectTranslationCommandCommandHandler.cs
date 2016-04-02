@@ -13,23 +13,32 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
     public class AddProjectTranslationCommandCommandHandler : ICommandHandler<AddProjectTranslationCommand>
     {
         private readonly IQueryHandler<Guid, Project> _projectWithContentsQueryHandler;
+        private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
 
-        public AddProjectTranslationCommandCommandHandler(IQueryHandler<Guid, Project> projectWithContentsQueryHandler)
+        public AddProjectTranslationCommandCommandHandler(IQueryHandler<Guid, Project> projectWithContentsQueryHandler,
+                                                          IRepository<ProjectContent, LocaleKey> projectContentRepository)
         {
             _projectWithContentsQueryHandler = projectWithContentsQueryHandler;
+            _projectContentRepository = projectContentRepository;
         }
 
         public void Handle(AddProjectTranslationCommand command)
         {
             var project = _projectWithContentsQueryHandler.Handle(command.Id);
-            foreach (var content in project.ProjectContents)
+            foreach (var item in command.Items)
             {
-                if (content.IsUpdated)
-                    continue;
+                var content = project.ProjectContents.FirstOrDefault(c => c.Locale == item.Locale);
 
-                var item = command.Items.FirstOrDefault(i => content.Locale == i.Locale);
-                if (item == null)
+                if (content != null && content.IsUpdated)
                     continue;
+                
+                if(content == null)
+                {
+                    content = new ProjectContent();
+                    _projectContentRepository.Add(content);
+                    content.Project = project;
+                    content.Locale = item.Locale;
+                }
 
                 content.IsUpdated = true;
                 content.Name = item.Name;

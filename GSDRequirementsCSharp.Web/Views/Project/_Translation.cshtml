@@ -2,25 +2,44 @@
 @using GSDRequirementsCSharp.Web.Models
 
 <article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-    <h3>@Sentences.addTranslationForProject {{project.name}}</h3>
+    <h3>
+        @Sentences.addTranslationForProject
+    </h3>
 
-    <h4>@Sentences.original</h4>
+    <h4>
+        @Sentences.original
+    </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <select class="form-control"
+                        data-ng-model="displayLocale"
+                        data-ng-options="locale.name as locale.label for locale in availableLocaleContents"></select>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-2">
-            {{originalDescriptionLocale}}
+            @Sentences.name
+        </div>
+        <div class="col-md-6">
+            {{originalName}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            @Sentences.description
         </div>
         <div class="col-md-6">
             {{originalDescription}}
         </div>
     </div>
 
-    <h4 style="margin-top: 15px ">@Sentences.translation</h4>
-
-    <div class="row">
-        <div class="col-md-6">
-            @TextInputHelper.TextArea("descriptionTranslation", Sentences.description, true, Att.NgModel("descriptionTranslation"))
-        </div>
-    </div>
+    <article data-gsd-project-translation-list=""
+             data-translations="translations"
+             data-translations-already-provided="translationsAlreadyProvided"></article>
 
     <div class="btn-group">
         <button class="btn btn-default"

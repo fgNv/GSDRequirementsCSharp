@@ -21,18 +21,21 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<UpdateProjectCommand> _updateProjectCommand;
         private readonly IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> _currentUserProjectsQueryHandler;
         private readonly ICommandHandler<InactivateProjectCommand> _inactivateProjectCommand;
+        private readonly ICommandHandler<AddProjectTranslationCommand> _addProjectTranslationCommandHandler;
 
         public ProjectController(IQueryHandler<ProjectsPaginatedQuery, ProjectsPaginatedQueryResult> projectsPaginatedQueryHandler,
                                  ICommandHandler<SaveProjectCommand> createProjectCommand,
                                  ICommandHandler<UpdateProjectCommand> updateProjectCommand,
                                  IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> currentUserProjectsQueryHandler,
-                                 ICommandHandler<InactivateProjectCommand> inactivateProjectCommand)
+                                 ICommandHandler<InactivateProjectCommand> inactivateProjectCommand,
+                                 ICommandHandler<AddProjectTranslationCommand> addProjectTranslationCommandHandler)
         {
             _projectsPaginatedQueryHandler = projectsPaginatedQueryHandler;
             _createProjectCommand = createProjectCommand;
             _updateProjectCommand = updateProjectCommand;
             _currentUserProjectsQueryHandler = currentUserProjectsQueryHandler;
             _inactivateProjectCommand = inactivateProjectCommand;
+            _addProjectTranslationCommandHandler = addProjectTranslationCommandHandler;
         }
 
         [Route("api/currentUser/projects")]
@@ -61,6 +64,12 @@ namespace GSDRequirementsCSharp.Web.Api
         public void Delete(Guid id)
         {
             _inactivateProjectCommand.Handle(id);
+        }
+        
+        [Route("api/project/{id}/translation")]
+        public void AddTranslations(AddProjectTranslationCommand command)
+        {
+            _addProjectTranslationCommandHandler.Handle(command);
         }
     }
 }

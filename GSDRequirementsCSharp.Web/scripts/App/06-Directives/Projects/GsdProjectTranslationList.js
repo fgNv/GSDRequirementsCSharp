@@ -3,20 +3,20 @@ var Directives;
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdProjectTranslationList = (function () {
         function GsdProjectTranslationList() {
-            this.scope = { 'translations': '=translations' };
+            this.scope = { 'translations': '=translations', 'translationsAlreadyProvided': '=translationsAlreadyProvided' };
             this.templateUrl = GSDRequirements.baseUrl + 'project/translationList';
             this.controller = ["$scope", "$uibModal", function ($scope, $uibModal) {
                     $scope.translations = [];
+                    $scope.translationsAlreadyProvided = [];
                     function openTranslationModal(translationToEdit) {
-                        var translationsAlreadProvided = _.map($scope.translations, function (t) { return t.locale; });
-                        console.log('$uibModal');
-                        console.log($uibModal);
+                        var translationsAlreadyProvided = _.map($scope.translations, function (t) { return t.locale; });
+                        translationsAlreadyProvided = _.union(translationsAlreadyProvided, $scope.translationsAlreadyProvided);
                         var modal = $uibModal.open({
                             templateUrl: 'translationContent.html',
                             controller: 'ModalProjectTranslationController',
                             size: 'lg',
                             resolve: {
-                                translationsAlreadyProvided: function () { return translationsAlreadProvided; },
+                                translationsAlreadyProvided: function () { return translationsAlreadyProvided; },
                                 translationToEdit: function () { return translationToEdit; }
                             }
                         });
