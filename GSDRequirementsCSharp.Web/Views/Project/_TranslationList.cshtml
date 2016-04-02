@@ -1,84 +1,8 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
 
-<article>    
-    <script type="text/ng-template" id="translationContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">@Sentences.addTranslation</h3>
-        </div>
-        <div class="modal-body" data-ng-form="" data-name="translationForm">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="language">@Sentences.language</label>
-                        <select class="form-control"
-                                id="language"
-                                required=""
-                                data-ng-options="language.name as language.label for language in languageOptions"
-                                data-ng-model="project.locale">
-                            <option value="">@Sentences.chooseALanguage</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+@{
+    Layout = "~/Views/Shared/_TranslationListLayout.cshtml";
+}
 
-            @Html.Partial("_ContentFields")
-        </div>
-        <div class="modal-footer">
-            <div class="btn-group">
-                <button class="btn btn-default"
-                        data-ng-click="cancel()">
-                    @Sentences.cancel
-                </button>
-                <button class="btn btn-primary"
-                        data-ng-disabled="!translationForm.$valid"
-                        data-ng-click="conclude()">
-                    @Sentences.save
-                </button>
-            </div>
-        </div>
-    </script>
-
-    <h4>
-        @Sentences.translations
-        <button class="btn btn-primary"
-                data-ng-hide="allTranslationsProvided()"
-                data-ng-click="addTranslation()"
-                title="@Sentences.addTranslation">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-        <button class="btn btn-primary"
-                data-ng-disabled="allTranslationsProvided()"
-                data-ng-show="allTranslationsProvided()"
-                title="@Sentences.allTranslationsAdded">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </h4>
-    <div class="alert alert-info" data-ng-show="translations.length == 0">
-        @Sentences.noTranslationAdded
-    </div>
-    <table class="table" data-ng-show="translations.length > 0">
-        <thead>
-            <tr>
-                <th>@Sentences.language</th>
-                <th>@Sentences.actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-ng-repeat="translation in translations">
-                <td>{{translation.locale}}</td>
-                <td>
-                    <button class="btn btn-default"
-                            data-ng-click="removeTranslation(translation)"
-                            title="@Sentences.removeTranslation">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <button class="btn btn-default"
-                            data-ng-click="editTranslation(translation)"
-                            title="@Sentences.editTranslation">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</article>
+@Html.Partial("_ContentFields")

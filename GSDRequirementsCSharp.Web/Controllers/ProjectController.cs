@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Web.Context;
 using GSDRequirementsCSharp.Web.Cookies;
+using GSDRequirementsCSharp.Web.Models;
 using GSDRequirementsCSharp.Web.Requests.Projects;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,8 @@ namespace GSDRequirements.Web.Controllers
 
         public PartialViewResult TranslationList()
         {
-            return PartialView("~/Views/Project/_TranslationList.cshtml");
+            var model = new TranslationListViewModel { NgModelEntityReference = "project" };
+            return PartialView("~/Views/Project/_TranslationList.cshtml", model);
         }
 
         public PartialViewResult Context()

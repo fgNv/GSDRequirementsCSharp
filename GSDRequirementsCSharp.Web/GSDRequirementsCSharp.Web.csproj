@@ -194,6 +194,7 @@
     <Compile Include="Models\Att.cs" />
     <Compile Include="Models\Internationalization.cs" />
     <Compile Include="Models\Locale.cs" />
+    <Compile Include="Models\TranslationListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Requests\Internationalization\SetCurrentCultureRequest.cs" />
@@ -234,6 +235,8 @@
     <Content Include="Views\Package\_Translation.cshtml" />
     <Content Include="Views\Project\_ContentFields.cshtml" />
     <Content Include="Views\Project\_TranslationList.cshtml" />
+    <Content Include="Views\Package\_TranslationList.cshtml" />
+    <Content Include="Views\Shared\_TranslationListLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

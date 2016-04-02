@@ -1,6 +1,7 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 @using GSDRequirementsCSharp.Web.Models
 
+
 <article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     <h3>@Sentences.addTranslationForPackage {{package.description}}</h3>
 
@@ -15,12 +16,10 @@
     </div>
 
     <h4 style="margin-top: 15px ">@Sentences.translation</h4>
-
-    <div class="row">
-        <div class="col-md-6">
-            @TextInputHelper.TextInput("description", Sentences.description, true, Att.NgModel("descriptionTranslation"))
-        </div>
-    </div>
+    
+    <article data-gsd-package-translation-list=""
+             data-translations="translations"
+             data-translations-already-provided="translationsAlreadyProvided"></article>
 
     <div class="btn-group">
         <button class="btn btn-default"
