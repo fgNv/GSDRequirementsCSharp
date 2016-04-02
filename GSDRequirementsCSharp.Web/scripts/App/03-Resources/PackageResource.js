@@ -13,7 +13,7 @@
     }]);
 
     app.service('PackageTranslationResource', ['$resource', function ($resource) {
-        return $resource('/api/packageTranslation/:id',
+        return $resource('/api/package/:id/translation',
                         { 'id': '@id' });
     }]);
 

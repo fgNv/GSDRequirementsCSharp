@@ -62,10 +62,9 @@ namespace GSDRequirementsCSharp.Web.Api
             _inactivatePackageCommand.Handle(id);
         }
         
-        [Route("api/packageTranslation/{id}")]
-        public void Post(Guid id, AddPackageTranslationCommand command)
+        [Route("api/package/{id}/translation")]
+        public void Post(AddPackageTranslationCommand command)
         {
-            command.PackageId = id;
             _addPackageTranslationCommandHandler.Handle(command);
         }
     }

@@ -38,3 +38,4 @@ var Directives;
     })();
     app.directive('gsdPackageForm', GsdPackageForm.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdPackageForm.js.map
