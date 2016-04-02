@@ -2,6 +2,8 @@
 
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
 @using GSDRequirementsCSharp.Web.Context
+@using GSDRequirementsCSharp.Web.Models;
+@using System.Threading
 
 <html>
 <head>
@@ -108,7 +110,7 @@
                     </a>
                 </li>
                 <li>
-                <li class="dropdown" id="menuLogin">
+                <li class="dropdown">
                     <a class="dropdown-toggle"
                        href="#"
                        title="@Sentences.changeProjectInContext"
@@ -123,8 +125,32 @@
                         </div>
                     </div>
                 </li>
+
+                @{
+                    var locales = Locale.GetLocales();
+                    var currentLocaleName = Thread.CurrentThread.CurrentCulture.Name;
+                    var currentLocale = locales.FirstOrDefault(l => l.Name == currentLocaleName);
+                    if (currentLocale == null)
+                    {
+                        currentLocale = locales.FirstOrDefault();
+                    }
+                }
+                <li class="dropdown">
+                    <a class="dropdown-toggle"
+                       href="#"
+                       title="@Sentences.changeProjectInContext"
+                       data-toggle="dropdown" id="navLogin">
+                        @currentLocale.Label
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" style="padding:17px;">
+                        @Html.Partial("Internationalization/CurrentCultureSetterForm")
+                    </div>
+                </li>
                 <li>
-                    @Html.Partial("Internationalization/CurrentCultureSetterForm")
+                    <a href="@Url.Action("Logout", "Authentication")">
+                        @Sentences.logout
+                    </a>
                 </li>
             </ul>
         </div>

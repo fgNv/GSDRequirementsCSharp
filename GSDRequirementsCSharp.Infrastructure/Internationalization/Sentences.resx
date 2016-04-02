@@ -429,4 +429,7 @@
   <data name="nonFunction" xml:space="preserve">
     <value>Non functional</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
 </root>

@@ -3,7 +3,7 @@
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 @{
-    var locales = new[] { new Locale("pt-BR", "Português"), new Locale("en-US", "English(United States)") }.OrderBy(l => l.Label);
+    var locales = Locale.GetLocales();
     var currentLocale = Thread.CurrentThread.CurrentCulture;
 }
 

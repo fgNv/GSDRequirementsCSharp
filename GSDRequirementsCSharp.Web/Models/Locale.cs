@@ -15,5 +15,10 @@ namespace GSDRequirementsCSharp.Web.Models
             Name = name;
             Label = label;
         }
+
+        public static IEnumerable<Locale> GetLocales()
+        {
+            return new[] { new Locale("pt-BR", "Português"), new Locale("en-US", "English(United States)") }.OrderBy(l => l.Label);
+        }
     }
 }
