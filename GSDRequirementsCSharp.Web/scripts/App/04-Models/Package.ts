@@ -36,12 +36,8 @@
             this.locale = content.locale
         }
         public canAddTranslation() {
-            return !_.any(this.contents,
-                (c) => c.locale == GSDRequirements.currentLocale)
-        }
-        public canEdit() {
-            return _.any(this.contents,
-                (c) => c.locale == GSDRequirements.currentLocale)
+            return _.any(this.contents, (c) => !c.isUpdated) ||
+                this.contents.length < GSDRequirements.localesAvailable.length
         }
     }
 }

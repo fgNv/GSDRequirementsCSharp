@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201604020157595_projectContentControl.Designer.cs">
       <DependentUpon>201604020157595_projectContentControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604022209563_packageContentControl.cs" />
+    <Compile Include="Migrations\201604022209563_packageContentControl.Designer.cs">
+      <DependentUpon>201604022209563_packageContentControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604020157595_projectContentControl.resx">
       <DependentUpon>201604020157595_projectContentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604022209563_packageContentControl.resx">
+      <DependentUpon>201604022209563_packageContentControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

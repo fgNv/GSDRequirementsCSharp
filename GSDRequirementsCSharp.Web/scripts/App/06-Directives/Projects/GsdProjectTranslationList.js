@@ -49,4 +49,3 @@ var Directives;
     })();
     app.directive('gsdProjectTranslationList', GsdProjectTranslationList.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdProjectTranslationList.js.map

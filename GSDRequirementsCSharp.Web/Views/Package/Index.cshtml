@@ -37,14 +37,13 @@
                         <td>
                             <button class="btn btn-default"
                                     title="@Sentences.edit"
-                                    data-ng-show="package.canEdit()"
                                     data-ng-click="setCurrentPackage(package)">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-click="inactivatePackage(package)"                                    
                                     title="@Sentences.inactivatePackage">
-                                <span class="glyphicon glyphicon-minus"></span>
+                                <span class="glyphicon glyphicon-trash"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-click="setPackageToTranslate(package)"

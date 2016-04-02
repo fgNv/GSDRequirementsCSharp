@@ -49,7 +49,7 @@
                 })
 
                 $scope.$watch('displayLocale', (newValue, oldValue) => {
-                    if (!newValue || !$scope.project) { return; }
+                    if (!newValue || !$scope.package) { return; }
 
                     var content = <Models.PackageContent>_.find($scope.package.contents,
                         (c: Models.PackageContent) => c.locale == newValue)

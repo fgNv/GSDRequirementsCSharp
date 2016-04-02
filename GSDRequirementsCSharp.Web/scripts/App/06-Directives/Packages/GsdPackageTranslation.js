@@ -27,7 +27,7 @@ var Directives;
                         $scope.displayLocale = $scope.translationsAlreadyProvided[0];
                     });
                     $scope.$watch('displayLocale', function (newValue, oldValue) {
-                        if (!newValue || !$scope.project) {
+                        if (!newValue || !$scope.package) {
                             return;
                         }
                         var content = _.find($scope.package.contents, function (c) { return c.locale == newValue; });
@@ -75,4 +75,3 @@ var Directives;
     })();
     app.directive('gsdPackageTranslation', GsdPackageTranslation.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdPackageTranslation.js.map

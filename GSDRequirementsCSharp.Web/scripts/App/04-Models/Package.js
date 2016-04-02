@@ -25,13 +25,10 @@ var Models;
             this.locale = content.locale;
         };
         Package.prototype.canAddTranslation = function () {
-            return !_.any(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });
-        };
-        Package.prototype.canEdit = function () {
-            return _.any(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            return _.any(this.contents, function (c) { return !c.isUpdated; }) ||
+                this.contents.length < GSDRequirements.localesAvailable.length;
         };
         return Package;
     })();
     Models.Package = Package;
 })(Models || (Models = {}));
-//# sourceMappingURL=Package.js.map
