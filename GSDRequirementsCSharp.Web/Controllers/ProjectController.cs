@@ -29,6 +29,11 @@ namespace GSDRequirements.Web.Controllers
             return PartialView("~/Views/Project/_Translation.cshtml");
         }
 
+        public PartialViewResult TranslationList()
+        {
+            return PartialView("~/Views/Project/_TranslationList.cshtml");
+        }
+
         public PartialViewResult Context()
         {
             return PartialView("~/Views/Project/_Context.cshtml");

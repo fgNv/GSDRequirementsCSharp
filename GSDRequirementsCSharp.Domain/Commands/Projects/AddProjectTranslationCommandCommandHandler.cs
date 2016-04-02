@@ -27,7 +27,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
                 if (content.IsUpdated)
                     continue;
 
-                var item = command.Items.FirstOrDefault(i => content.Locale == i.LocaleName);
+                var item = command.Items.FirstOrDefault(i => content.Locale == i.Locale);
                 if (item == null)
                     continue;
 

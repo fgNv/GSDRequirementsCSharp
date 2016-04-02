@@ -7,8 +7,7 @@
     var currentLocale = Thread.CurrentThread.CurrentCulture;
 }
 
-<form method="post" action="@Url.Action("SetCurrentCulture","Internationalization")"
-      class="form-inline" style="margin-top: 10px; ">
+<form method="post" action="@Url.Action("SetCurrentCulture","Internationalization")">
     <div class="form-group" >
         <select class="form-control" name="Culture">
             @foreach (var locale in locales)

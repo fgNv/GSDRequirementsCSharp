@@ -1,5 +1,5 @@
-var directives;
-(function (directives) {
+var Directives;
+(function (Directives) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdPackageForm = (function () {
         function GsdPackageForm() {
@@ -37,4 +37,4 @@ var directives;
         return GsdPackageForm;
     })();
     app.directive('gsdPackageForm', GsdPackageForm.Factory);
-})(directives || (directives = {}));
+})(Directives || (Directives = {}));

@@ -1,9 +1,7 @@
-﻿module directives {
-
-    import GSDRequirementsData = Globals.GSDRequirementsData
-
+﻿module Directives {
+    
     declare var angular: any;
-    declare var GSDRequirements: GSDRequirementsData;
+    declare var GSDRequirements: Globals.GSDRequirementsData;
     declare var _: any;
     var app = angular.module(GSDRequirements.angularModuleName);
 

@@ -1,4 +1,4 @@
-﻿module directives {
+﻿module Directives {
 
     import GSDRequirementsData = Globals.GSDRequirementsData
 

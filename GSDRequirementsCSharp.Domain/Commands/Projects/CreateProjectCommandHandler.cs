@@ -39,7 +39,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
                 var content = new ProjectContent();
                 content.Description = item.Description;
                 content.Name = item.Name;
-                content.Locale = Thread.CurrentThread.CurrentCulture.Name; ;
+                content.Locale = item.Locale;
                 content.Project = project;
                 content.IsUpdated = true;
                 content.Id = project.Id;

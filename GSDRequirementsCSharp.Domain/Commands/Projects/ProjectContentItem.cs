@@ -11,7 +11,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
     public class ProjectContentItem
     {
         [Required]
-        public string LocaleName { get; set; }
+        public string Locale { get; set; }
 
         [Required(
          ErrorMessageResourceType = typeof(Sentences),

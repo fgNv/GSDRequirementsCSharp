@@ -234,6 +234,7 @@
     <Content Include="Views\Package\_Form.cshtml" />
     <Content Include="Views\Package\_Translation.cshtml" />
     <Content Include="Views\Project\_ContentFields.cshtml" />
+    <Content Include="Views\Project\_TranslationList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -287,6 +288,7 @@
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslation.ts" />
   </ItemGroup>

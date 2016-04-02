@@ -1,5 +1,5 @@
-var directives;
-(function (directives) {
+var Directives;
+(function (Directives) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdProjectTranslation = (function () {
         function GsdProjectTranslation() {
@@ -56,4 +56,4 @@ var directives;
         return GsdProjectTranslation;
     })();
     app.directive('gsdProjectTranslation', GsdProjectTranslation.Factory);
-})(directives || (directives = {}));
+})(Directives || (Directives = {}));

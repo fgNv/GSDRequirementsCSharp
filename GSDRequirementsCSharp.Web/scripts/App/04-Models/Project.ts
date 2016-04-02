@@ -12,9 +12,9 @@
                 this[prop] = data[prop]
             }
         }
-        public canAddTranslation() {            
-            return _.any(this.projectContents,
-                         (c) => !c.isUpdated)
+        public canAddTranslation() {
+            return _.any(this.projectContents, (c) => !c.isUpdated) ||
+                   this.projectContents.length < GSDRequirements.localesAvailable.length
         }
         public getCommandModel() {
             var projectContent = _.find(this.projectContents,
