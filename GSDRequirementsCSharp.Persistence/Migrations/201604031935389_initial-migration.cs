@@ -145,7 +145,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         concluded = c.Boolean(nullable: false),
                         description = c.String(nullable: false, unicode: false, storeType: "text"),
                         specification_item_id = c.Guid(nullable: false),
-                        creator_id = c.Guid(),
+                        creator_id = c.Int(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.User", t => t.creator_id)
@@ -160,7 +160,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         id = c.Guid(nullable: false),
                         content = c.String(nullable: false, unicode: false, storeType: "text"),
                         issue_id = c.Guid(nullable: false),
-                        creator_id = c.Guid(nullable: false),
+                        creator_id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.User", t => t.creator_id)
@@ -172,7 +172,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 "dbo.User",
                 c => new
                     {
-                        id = c.Guid(nullable: false),
+                        id = c.Int(nullable: false, identity: true),
                         login = c.String(nullable: false, maxLength: 50, unicode: false),
                         password = c.String(nullable: false, maxLength: 50, unicode: false),
                         contactId = c.Guid(nullable: false),
@@ -203,7 +203,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         Rank = c.Int(nullable: false),
                         difficulty = c.Int(nullable: false),
                         type = c.Int(nullable: false),
-                        creator_id = c.Guid(nullable: false),
+                        creator_id = c.Int(nullable: false),
                         ContactId = c.Guid(),
                     })
                 .PrimaryKey(t => new { t.id, t.version })
@@ -261,14 +261,16 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        owner_id = c.Guid(nullable: false),
-                        creator_id = c.Guid(nullable: false),
+                        owner_id = c.Int(nullable: false),
+                        creator_id = c.Int(nullable: false),
                         created_at = c.DateTime(nullable: false, precision: 0),
                         active = c.Boolean(nullable: false),
+                        identifier = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.User", t => t.owner_id)
-                .Index(t => t.owner_id);
+                .Index(t => t.owner_id)
+                .Index(t => new { t.identifier, t.creator_id }, unique: true, name: "project_identifier");
             
             CreateTable(
                 "dbo.Package",
@@ -276,7 +278,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                     {
                         id = c.Guid(nullable: false),
                         project_id = c.Guid(nullable: false),
-                        creator_id = c.Guid(nullable: false),
+                        creator_id = c.Int(nullable: false),
                         active = c.Boolean(nullable: false),
                         identifier = c.Int(nullable: false),
                     })
@@ -344,7 +346,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         profile_id = c.Guid(nullable: false),
-                        user_id = c.Guid(nullable: false),
+                        user_id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.profile_id, t.user_id })
                 .ForeignKey("dbo.Profile", t => t.profile_id, cascadeDelete: true)
@@ -389,6 +391,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("dbo.ProjectContent", new[] { "project_id" });
             DropIndex("dbo.PackageContent", new[] { "id" });
             DropIndex("dbo.Package", "package_identifier");
+            DropIndex("dbo.Project", "project_identifier");
             DropIndex("dbo.Project", new[] { "owner_id" });
             DropIndex("dbo.Profile", new[] { "project_id" });
             DropIndex("dbo.RequirementRisk", new[] { "Requirement_Id", "Requirement_Version" });

@@ -12,11 +12,11 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
 {
     public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
     {
-        private readonly IRepository<User, Guid> _userRepository;
+        private readonly IRepository<User, int> _userRepository;
         private readonly IRepository<Contact, Guid> _contactRepository;
         private readonly ICryptographer _cryptographer;
 
-        public CreateUserCommandHandler(IRepository<User, Guid> userRepository,
+        public CreateUserCommandHandler(IRepository<User, int> userRepository,
                                         IRepository<Contact, Guid> contactRepository,
                                         ICryptographer cryptographer)
         {
@@ -28,7 +28,6 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         public void Handle(CreateUserCommand command)
         {
             var user = new User();
-            user.Id = command.Id;
             user.Login = command.Login;
             user.Password = _cryptographer.Encrypt(command.Password);
             

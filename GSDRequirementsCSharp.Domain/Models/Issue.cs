@@ -27,7 +27,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public Guid specification_item_id { get; set; }
 
-        public Guid? creator_id { get; set; }
+        public int? creator_id { get; set; }
 
         public virtual User User { get; set; }
 

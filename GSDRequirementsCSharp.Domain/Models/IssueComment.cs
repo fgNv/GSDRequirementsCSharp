@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public Guid issue_id { get; set; }
 
-        public Guid creator_id { get; set; }
+        public int creator_id { get; set; }
 
         public virtual Issue Issue { get; set; }
 

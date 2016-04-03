@@ -9,7 +9,7 @@ namespace GSDRequirementsCSharp.Domain
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public class User : IEntity<Guid>
+    public class User : IEntity<int>
     {
         public User()
         {
@@ -20,7 +20,7 @@ namespace GSDRequirementsCSharp.Domain
             Profiles = new HashSet<Profile>();
         }
         
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]

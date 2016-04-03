@@ -108,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Packages\PackageNextIdQuery.cs" />
     <Compile Include="Queries\Packages\PackageWithCurrentCultureContentsQueryResult.cs" />
+    <Compile Include="Queries\Projects\ProjectNextIdQuery.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
   </ItemGroup>
   <ItemGroup>

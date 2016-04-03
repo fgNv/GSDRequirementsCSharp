@@ -77,9 +77,9 @@
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201604031846384_initial-migration.cs" />
-    <Compile Include="Migrations\201604031846384_initial-migration.Designer.cs">
-      <DependentUpon>201604031846384_initial-migration.cs</DependentUpon>
+    <Compile Include="Migrations\201604031935389_initial-migration.cs" />
+    <Compile Include="Migrations\201604031935389_initial-migration.Designer.cs">
+      <DependentUpon>201604031935389_initial-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />
     <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
+    <Compile Include="Queries\Projects\NextId\ProjectNextIdQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
@@ -123,8 +124,8 @@
     <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604031846384_initial-migration.resx">
-      <DependentUpon>201604031846384_initial-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604031935389_initial-migration.resx">
+      <DependentUpon>201604031935389_initial-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

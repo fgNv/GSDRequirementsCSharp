@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         public UserMapping()
         {
             HasKey(u => u.Id);
-            Property(u => u.Id).HasColumnName("id");
+            Property(u => u.Id).HasColumnName("id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(u => u.ContactId).HasColumnName("contactId");
             Property(u => u.Login).HasColumnName("login");
             Property(u => u.Password).HasColumnName("password");

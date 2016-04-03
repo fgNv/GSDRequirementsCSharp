@@ -12,7 +12,7 @@ namespace GSDRequirementsCSharp.Domain
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
         public ICollection<PackageContent> Contents { get; set; }
-        public Guid CreatorId { get; set; }        
+        public int CreatorId { get; set; }        
         public virtual Project Project { get; set; }
         public bool Active { get; set; }
         public int Identifier { get; set; }

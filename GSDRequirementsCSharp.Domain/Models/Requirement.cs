@@ -29,7 +29,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public RequirementType Type { get; set; }
 
-        public Guid CreatorId { get; set; }
+        public int CreatorId { get; set; }
 
         public virtual Guid? ContactId { get; set; }
 

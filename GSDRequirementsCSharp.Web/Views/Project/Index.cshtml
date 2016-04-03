@@ -25,12 +25,14 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>@Sentences.id</th>
                         <th>@Sentences.name</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="project in projects">
+                        <td>{{project.identifier}}</td>
                         <td>{{project.name}}</td>
                         <td>
                             <button class="btn btn-default"

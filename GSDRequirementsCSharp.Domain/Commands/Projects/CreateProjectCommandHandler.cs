@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries.Projects;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -18,14 +19,17 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
+        private readonly IQueryHandler<ProjectNextIdQuery, int> _projectNextIdQuery;
 
         public CreateProjectCommandHandler(IRepository<Project, Guid> projectRepository,
                                            IRepository<ProjectContent, LocaleKey> projectContentRepository,
-                                           ICurrentUserRetriever<User> currentUserRetriever)
+                                           ICurrentUserRetriever<User> currentUserRetriever,
+                                           IQueryHandler<ProjectNextIdQuery, int> projectNextIdQuery)
         {
             _projectRepository = projectRepository;
             _projectContentRepository = projectContentRepository;
             _currentUserRetriever = currentUserRetriever;
+            _projectNextIdQuery = projectNextIdQuery;
         }
 
         public void Handle(SaveProjectCommand command)
@@ -52,7 +56,11 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             if (currentUser == null)
                 throw new Exception(Sentences.youMustBeLoggedIn);
 
+            var identifier = _projectNextIdQuery.Handle(currentUser.Id);
+
             project.Owner = currentUser;
+            project.CreatorId = currentUser.Id;
+            project.Identifier = identifier;
 
             _projectRepository.Add(project);
         }

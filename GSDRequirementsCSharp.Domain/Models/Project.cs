@@ -19,9 +19,9 @@ namespace GSDRequirementsCSharp.Domain
 
         public Guid Id { get; set; }
         
-        public Guid OwnerId { get; set; }
+        public int OwnerId { get; set; }
 
-        public Guid CreatorId { get; set; }
+        public int CreatorId { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
@@ -34,6 +34,8 @@ namespace GSDRequirementsCSharp.Domain
         public virtual ICollection<ProjectContent> ProjectContents { get; set; }
 
         public bool Active { get; set; }
+
+        public int Identifier { get; set; }
 
         public string GetName()
         {

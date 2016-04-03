@@ -14,5 +14,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.ProjectsPaginated
         public bool IsCurrentUserOwner { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid Id { get; set; }
+        public string Identifier { get; set; }
     }
 }

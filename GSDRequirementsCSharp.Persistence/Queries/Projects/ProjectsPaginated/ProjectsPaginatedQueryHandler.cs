@@ -32,7 +32,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                   .Where(p => p.OwnerId == currentUser.Id && p.Active);
 
             var maxPages = (int)Math.Ceiling(dbQuery.Count() / (double)query.PageSize);
-            var projects = dbQuery.OrderBy(p => p.Id)
+            var projects = dbQuery.OrderBy(p => p.CreatorId)
+                                  .ThenBy(p => p.Identifier)
                                   .Include(p => p.ProjectContents)                                    
                                   .Skip(skip)
                                   .Take(query.PageSize)
@@ -43,7 +44,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                       Name = p.GetName(),
                                       IsCurrentUserOwner = p.OwnerId == currentUser.Id,
                                       CreatedAt = p.CreatedAt,
-                                      ProjectContents = p.ProjectContents
+                                      ProjectContents = p.ProjectContents,
+                                      Identifier = $"PJT{p.CreatorId}.{p.Identifier}"
                                   })
                                   .ToList();
             return new ProjectsPaginatedQueryResult(projects, maxPages);
