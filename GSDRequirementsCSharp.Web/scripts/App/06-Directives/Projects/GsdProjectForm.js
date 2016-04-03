@@ -8,6 +8,11 @@ var Directives;
             this.controller = ['$scope', 'ProjectResource', '$uibModal', function ($scope, ProjectResource, $uibModal) {
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
+                    $scope.$watch("project", function (newValue, oldValue) {
+                        if (!newValue)
+                            return;
+                        $scope.translations = [];
+                    });
                     $scope.save = function () {
                         $scope.pendingRequests++;
                         $scope.project.items = [
@@ -46,3 +51,4 @@ var Directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdProjectForm.js.map

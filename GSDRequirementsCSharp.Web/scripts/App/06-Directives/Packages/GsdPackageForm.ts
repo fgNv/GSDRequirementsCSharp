@@ -14,6 +14,13 @@
             $scope.pendingRequests = 0;
             $scope.translations = []
 
+            $scope.$watch("package", (newValue, oldValue) => {
+                if (!newValue)
+                    return
+
+                $scope.translations = []
+            })
+
             $scope.save = () => {
                 $scope.pendingRequests++;
 

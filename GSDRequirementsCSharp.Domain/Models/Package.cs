@@ -15,6 +15,6 @@ namespace GSDRequirementsCSharp.Domain
         public Guid CreatorId { get; set; }        
         public virtual Project Project { get; set; }
         public bool Active { get; set; }
-        
+        public int Identifier { get; set; }
     }
 }

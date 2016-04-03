@@ -261,7 +261,6 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        name = c.String(nullable: false, maxLength: 100, unicode: false),
                         owner_id = c.Guid(nullable: false),
                         creator_id = c.Guid(nullable: false),
                         created_at = c.DateTime(nullable: false, precision: 0),
@@ -279,10 +278,11 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         project_id = c.Guid(nullable: false),
                         creator_id = c.Guid(nullable: false),
                         active = c.Boolean(nullable: false),
+                        identifier = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Project", t => t.project_id)
-                .Index(t => t.project_id);
+                .Index(t => new { t.identifier, t.project_id }, unique: true, name: "package_identifier");
             
             CreateTable(
                 "dbo.PackageContent",
@@ -291,6 +291,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         id = c.Guid(nullable: false),
                         locale = c.String(nullable: false, maxLength: 10, unicode: false),
                         description = c.String(unicode: false, storeType: "text"),
+                        is_updated = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id, t.locale })
                 .ForeignKey("dbo.Package", t => t.id, cascadeDelete: true)
@@ -302,8 +303,10 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                     {
                         id = c.Guid(nullable: false),
                         locale = c.String(nullable: false, maxLength: 10, unicode: false),
+                        name = c.String(nullable: false, maxLength: 100, unicode: false),
                         description = c.String(unicode: false, storeType: "text"),
                         project_id = c.Guid(nullable: false),
+                        IsUpdated = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id, t.locale })
                 .ForeignKey("dbo.Project", t => t.project_id)
@@ -385,7 +388,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("dbo.UserCase", new[] { "SpecificationItem_Id" });
             DropIndex("dbo.ProjectContent", new[] { "project_id" });
             DropIndex("dbo.PackageContent", new[] { "id" });
-            DropIndex("dbo.Package", new[] { "project_id" });
+            DropIndex("dbo.Package", "package_identifier");
             DropIndex("dbo.Project", new[] { "owner_id" });
             DropIndex("dbo.Profile", new[] { "project_id" });
             DropIndex("dbo.RequirementRisk", new[] { "Requirement_Id", "Requirement_Version" });

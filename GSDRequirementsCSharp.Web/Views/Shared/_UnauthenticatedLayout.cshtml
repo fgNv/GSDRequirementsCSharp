@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models;
+@using System.Threading
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -20,9 +24,28 @@
             </a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    @Html.Partial("Internationalization/CurrentCultureSetterForm")
+            <ul class="nav navbar-nav navbar-right">
+                @{
+                    var locales = Locale.GetLocales();
+                    var currentLocaleName = Thread.CurrentThread.CurrentCulture.Name;
+                    var currentLocale = locales.FirstOrDefault(l => l.Name == currentLocaleName);
+                    if (currentLocale == null)
+                    {
+                        currentLocale = locales.FirstOrDefault();
+                    }
+                }
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle"
+                       href="#"
+                       title="@Sentences.changeLanguage"
+                       data-toggle="dropdown" id="navLogin">
+                        @currentLocale.Label
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" style="padding:17px;">
+                        @Html.Partial("Internationalization/CurrentCultureSetterForm")
+                    </div>
                 </li>
             </ul>
         </div>

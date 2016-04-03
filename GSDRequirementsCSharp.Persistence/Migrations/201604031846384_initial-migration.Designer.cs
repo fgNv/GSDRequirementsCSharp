@@ -7,13 +7,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class projectContentControl : IMigrationMetadata
+    public sealed partial class initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(projectContentControl));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604020157595_projectContentControl"; }
+            get { return "201604031846384_initial-migration"; }
         }
         
         string IMigrationMetadata.Source

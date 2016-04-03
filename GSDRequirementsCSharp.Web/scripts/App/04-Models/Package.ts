@@ -8,6 +8,7 @@
         public description: string        
         public locale : string
         public id: string
+        public identifier: number
         public contents: Array<PackageContent>
         constructor(data: Object) {
             for (var prop in data) {

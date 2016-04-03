@@ -32,7 +32,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
 
             var maxPages = (int)Math.Ceiling(packagesQuery.Count() / (double)query.PageSize);
 
-            var packages = packagesQuery.OrderBy(p => p.Id)
+            var packages = packagesQuery.OrderBy(p => p.Identifier)
                                         .Include(p => p.Contents)
                                         .Skip(skip)
                                         .Take(query.PageSize)

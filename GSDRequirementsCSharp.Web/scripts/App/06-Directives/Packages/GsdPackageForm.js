@@ -8,6 +8,11 @@ var Directives;
             this.controller = ['$scope', 'PackageResource', function ($scope, PackageResource) {
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
+                    $scope.$watch("package", function (newValue, oldValue) {
+                        if (!newValue)
+                            return;
+                        $scope.translations = [];
+                    });
                     $scope.save = function () {
                         $scope.pendingRequests++;
                         $scope.package.items = [
@@ -46,3 +51,4 @@ var Directives;
     })();
     app.directive('gsdPackageForm', GsdPackageForm.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdPackageForm.js.map

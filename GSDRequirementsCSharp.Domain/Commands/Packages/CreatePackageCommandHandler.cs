@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries.Packages;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
@@ -19,18 +20,21 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
-        
+        private readonly IQueryHandler<PackageNextIdQuery, int> _packageNextIdQueryHandler;
+
         public CreatePackageCommandHandler(IRepository<Package, Guid> packageRepository,
                                            IRepository<PackageContent, LocaleKey> packageContentRepository,
                                            ICurrentUserRetriever<User> currentUserRetriever,
                                            IRepository<Project, Guid> projectRepository,
-                                           ICurrentProjectContextId currentProjectContextId)
+                                           ICurrentProjectContextId currentProjectContextId,
+                                           IQueryHandler<PackageNextIdQuery, int> packageNextIdQueryHandler)
         {
             _packageRepository = packageRepository;
             _packageContentRepository = packageContentRepository;
             _currentUserRetriever = currentUserRetriever;
             _projectRepository = projectRepository;
             _currentProjectContextId = currentProjectContextId;
+            _packageNextIdQueryHandler = packageNextIdQueryHandler;
         }
 
         public void Handle(SavePackageCommand command)
@@ -56,6 +60,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
             var project = _projectRepository.Get(currentProjectId);
             package.Project = project;
             package.Active = true;
+
+            var nextId = _packageNextIdQueryHandler.Handle(project.Id);
+            package.Identifier = nextId;
 
             _packageRepository.Add(package);
         }

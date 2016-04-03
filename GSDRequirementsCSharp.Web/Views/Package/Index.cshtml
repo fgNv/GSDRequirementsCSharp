@@ -27,12 +27,14 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>@Sentences.id</th>
                         <th>@Sentences.description</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="package in packages">
+                        <td>PKG{{package.identifier}}</td>
                         <td>{{package.description}}</td>
                         <td>
                             <button class="btn btn-default"
