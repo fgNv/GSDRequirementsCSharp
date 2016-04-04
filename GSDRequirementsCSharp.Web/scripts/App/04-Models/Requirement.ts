@@ -9,13 +9,29 @@
         public subject: string
         public action: string
         public locale: string
+        public identifier: number
+        public type: requirementType
+        public difficulty: difficulty
+        public prefix: string
+        public package: Models.Package
         public id: string
+        public description : string
         public requirementContents: Array<Models.RequirementContent>
         constructor(data: Object) {
             for (var prop in data) {
                 this[prop] = data[prop]
             }
+            this.package = new Models.Package(data['specificationItem']['package'])
+            switch (this.type) {
+                case requirementType.functional:
+                    this.prefix = "FR"
+                    break;
+                case requirementType.nonFunction:
+                    this.prefix = "NFR"
+                    break;
+            }
             this.defineContent()
+            this.description = `${this.condition || ""} ${this.subject || ""} ${this.action || ""}`;
         }
         private defineContent() {
             var currentLocale = _.find(this.requirementContents,

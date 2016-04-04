@@ -5,7 +5,9 @@ var Models;
             for (var prop in data) {
                 this[prop] = data[prop];
             }
-            this.defineContent();
+            if (this.contents) {
+                this.defineContent();
+            }
         }
         Package.prototype.defineContent = function () {
             var currentLocale = _.find(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });

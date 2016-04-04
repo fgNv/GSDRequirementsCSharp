@@ -19,16 +19,16 @@
         <tbody>
             <tr data-ng-repeat="r in requirements">
                 <td>
-                    <button class="btn btn-default"
+                    <!--<button class="btn btn-default"
                             data-ng-show="r.HasPendingIssues"
                             style="color: red"
                             title="@Sentences.seePendingIssues">
                         <span class="glyphicon glyphicon-alert"></span>
-                    </button>
+                    </button>-->
                 </td>
-                <td>{{r.id}}</td>
+                <td>{{r.prefix}}{{r.identifier}}</td>
                 <td>{{r.description}}</td>
-                <td>{{r.package.description}}</td>
+                <td>PKG{{r.package.identifier}}</td>
                 <td>{{r.version}}</td>
                 <td>
                     <button class="btn btn-default"
@@ -43,7 +43,7 @@
                             title="@Sentences.addNewVersion">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
-                    <button class="btn btn-default"
+                    <!--<button class="btn btn-default"
                             type="button"
                             data-ng-click="showDetails(r)"
                             title="@Sentences.showDetailsAndManageVersions">
@@ -60,7 +60,7 @@
                             data-ng-click="addIssue(r)"
                             title="@Sentences.addIssue">
                         <span class="glyphicon glyphicon-comment"></span>
-                    </button>
+                    </button>-->
                     <button class="btn btn-default"
                             type="button"
                             data-ng-click="setRequirementToTranslate(r)"

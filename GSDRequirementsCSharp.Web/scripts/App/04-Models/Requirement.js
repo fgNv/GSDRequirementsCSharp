@@ -5,7 +5,17 @@ var Models;
             for (var prop in data) {
                 this[prop] = data[prop];
             }
+            this.package = new Models.Package(data['specificationItem']['package']);
+            switch (this.type) {
+                case Models.requirementType.functional:
+                    this.prefix = "FR";
+                    break;
+                case Models.requirementType.nonFunction:
+                    this.prefix = "NFR";
+                    break;
+            }
             this.defineContent();
+            this.description = (this.condition || "") + " " + (this.subject || "") + " " + (this.action || "");
         }
         Requirement.prototype.defineContent = function () {
             var currentLocale = _.find(this.requirementContents, function (c) { return c.locale == GSDRequirements.currentLocale; });

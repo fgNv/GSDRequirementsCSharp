@@ -43,6 +43,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             _currentLocaleName = currentLocaleName;
             _currentUserRetriever = currentUserRetriever;
             _projectRepository = projectRepository;
+            _currentProjectContextId = currentProjectContextId;
             _requirementNextIdQueryHandler = requirementNextIdQueryHandler;
         }
 

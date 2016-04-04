@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries
 {
@@ -28,13 +29,14 @@ namespace GSDRequirementsCSharp.Persistence.Queries
             var currentProjectId = _currentProjectContextId.Get();
 
             var requirementsQuery = _context.Requirements
-                                 .Where(p => p.SpecificationItem.Package.Project.Id == currentProjectId && 
-                                             p.SpecificationItem.Active);
+                                            .Include(r => r.SpecificationItem.Package)
+                                            .Where(p => p.SpecificationItem.Package.Project.Id == currentProjectId && 
+                                                        p.SpecificationItem.Active);
 
             var maxPages = (int)Math.Ceiling(requirementsQuery.Count() / (double)query.PageSize);
 
-            var requirements = requirementsQuery.OrderBy(p => p.Id)
-                                        .Include(p => p.RequirementContents)
+            var requirements = requirementsQuery.OrderBy(r => r.Identifier)
+                                        .Include(r => r.RequirementContents)
                                         .Skip(skip)
                                         .Take(query.PageSize)
                                         .ToList();

@@ -125,9 +125,7 @@
       <Name>GSDRequirementsCSharp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604031935389_initial-migration.resx">
       <DependentUpon>201604031935389_initial-migration.cs</DependentUpon>

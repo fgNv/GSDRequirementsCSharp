@@ -14,7 +14,9 @@
             for (var prop in data) {
                 this[prop] = data[prop]
             }
-            this.defineContent()
+            if (this.contents) {
+                this.defineContent()
+            }
         }
         private defineContent() {
             var currentLocale = _.find(this.contents,
