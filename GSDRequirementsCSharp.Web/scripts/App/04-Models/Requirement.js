@@ -15,6 +15,8 @@ var Models;
                     break;
             }
             this.defineContent();
+            this.packageId = this.package.id;
+            this.requirementType = this.type;
             this.description = (this.condition || "") + " " + (this.subject || "") + " " + (this.action || "");
         }
         Requirement.prototype.defineContent = function () {
@@ -46,4 +48,3 @@ var Models;
     })();
     Models.Requirement = Requirement;
 })(Models || (Models = {}));
-//# sourceMappingURL=Requirement.js.map

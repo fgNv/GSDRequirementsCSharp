@@ -5,7 +5,7 @@
         @Sentences.addRequirement
     </h2>
     <h2 data-ng-show="requirement.id">
-        @Sentences.editRequirement {{"requirement.id"}}
+        @Sentences.editRequirement {{requirement.prefix}}{{requirement.idenfitier}}
     </h2>
 
     <div class="form-horizontal">
@@ -72,7 +72,7 @@
 
         <div class="btn-group col-sm-offset-1">
             <button type="button"
-                    data-ng-click="currentRequirement = null"
+                    data-ng-click="requirement = null"
                     class="btn btn-default">
                 @Sentences.cancel
             </button>

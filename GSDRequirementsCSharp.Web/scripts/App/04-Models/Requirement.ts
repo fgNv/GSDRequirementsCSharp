@@ -11,8 +11,10 @@
         public locale: string
         public identifier: number
         public type: requirementType
+        public requirementType: requirementType
         public difficulty: difficulty
         public prefix: string
+        public packageId: string
         public package: Models.Package
         public id: string
         public description : string
@@ -31,6 +33,8 @@
                     break;
             }
             this.defineContent()
+            this.packageId = this.package.id
+            this.requirementType = this.type
             this.description = `${this.condition || ""} ${this.subject || ""} ${this.action || ""}`;
         }
         private defineContent() {
