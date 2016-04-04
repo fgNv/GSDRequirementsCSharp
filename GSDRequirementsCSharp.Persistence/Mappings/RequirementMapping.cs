@@ -1,6 +1,8 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,39 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(r => r.CreatorId).HasColumnName("creator_id");
             Property(r => r.Version).HasColumnName("version");
             Property(r => r.IsLastVersion).HasColumnName("is_last_version");
+            Property(r => r.Identifier).HasColumnName("identifier");
+            Property(r => r.ProjectId).HasColumnName("project_id");
+
+            HasRequired(r => r.Project).WithMany()
+                                       .HasForeignKey(p => p.ProjectId);
+                        
+            Property(p => p.Identifier).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("requirement_identifier", 1)
+                {
+                    IsUnique = true
+                }));
+
+            Property(p => p.Type).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("requirement_identifier", 2)
+                {
+                    IsUnique = true
+                }));
+
+            Property(p => p.ProjectId).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("requirement_identifier", 3)
+                {
+                    IsUnique = true
+                }));
+
+            Property(p => p.Version).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("requirement_identifier", 4)
+                {
+                    IsUnique = true
+                }));
 
             HasOptional(r => r.Contact).WithMany(r => r.Requirements)
                                        .HasForeignKey(r => r.ContactId);

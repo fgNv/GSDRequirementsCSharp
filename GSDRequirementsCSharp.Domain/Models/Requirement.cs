@@ -21,6 +21,8 @@ namespace GSDRequirementsCSharp.Domain
         
         public int Version { get; set; }
 
+        public int Identifier { get; set; }
+
         public bool IsLastVersion { get; set; }
 
         public int Rank { get; set; }
@@ -34,7 +36,11 @@ namespace GSDRequirementsCSharp.Domain
         public virtual Guid? ContactId { get; set; }
 
         public virtual Contact Contact { get; set; }
-        
+
+        public Guid ProjectId { get; set; }
+
+        public Project Project { get; set; }
+
         public virtual ICollection<RequirementContent> RequirementContents { get; set; }
 
         public virtual User User { get; set; }

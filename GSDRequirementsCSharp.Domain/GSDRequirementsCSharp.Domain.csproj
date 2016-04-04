@@ -72,7 +72,7 @@
     <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommandHandler.cs" />
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
-    <Compile Include="Commands\Requirements\SaveRequirementCommandHandler.cs" />
+    <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="Queries\Packages\PackageWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Projects\ProjectNextIdQuery.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
+    <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

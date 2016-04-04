@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries.Requirements;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
@@ -11,22 +12,28 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
-    public class SaveRequirementCommandHandler : ICommandHandler<SaveRequirementCommand>
+    public class CreateRequirementCommandHandler : ICommandHandler<SaveRequirementCommand>
     {
-        private IRepository<Requirement, VersionKey> _requirementRepository;
-        private IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
-        private IRepository<SpecificationItem, Guid> _specificationItemRepository;
-        private IRepository<Package, Guid> _packageRepository;
-        private ICurrentLocaleName _currentLocaleName;
-        private ICurrentUserRetriever<User> _currentUserRetriever;
+        private readonly IRepository<Requirement, VersionKey> _requirementRepository;
+        private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
+        private readonly IRepository<SpecificationItem, Guid> _specificationItemRepository;
+        private readonly IRepository<Package, Guid> _packageRepository;
+        private readonly ICurrentLocaleName _currentLocaleName;
+        private readonly ICurrentUserRetriever<User> _currentUserRetriever;
+        private readonly IRepository<Project, Guid> _projectRepository;
+        private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IQueryHandler<RequirementNextIdQuery, int> _requirementNextIdQueryHandler;
 
-        public SaveRequirementCommandHandler(
+        public CreateRequirementCommandHandler(
              IRepository<Requirement, VersionKey> requirementRepository,
              IRepository<RequirementContent, LocaleKey> requirementContentRepository,
              IRepository<SpecificationItem, Guid> specificationItemRepository,
              IRepository<Package, Guid> packageRepository,
              ICurrentLocaleName currentLocaleName,
-             ICurrentUserRetriever<User> currentUserRetriever
+             ICurrentUserRetriever<User> currentUserRetriever,
+             IRepository<Project, Guid> projectRepository,
+             ICurrentProjectContextId currentProjectContextId,
+             IQueryHandler<RequirementNextIdQuery, int> requirementNextIdQueryHandler
             )
         {
             _requirementRepository = requirementRepository;
@@ -35,6 +42,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             _packageRepository = packageRepository;
             _currentLocaleName = currentLocaleName;
             _currentUserRetriever = currentUserRetriever;
+            _projectRepository = projectRepository;
+            _requirementNextIdQueryHandler = requirementNextIdQueryHandler;
         }
 
         public void Handle(SaveRequirementCommand command)
@@ -64,10 +73,23 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             var package = _packageRepository.Get(command.PackageId);
             specificationItem.Package = package;
 
+            var currentProjectId = _currentProjectContextId.Get();
+            var project = _projectRepository.Get(currentProjectId);
+
             requirement.SpecificationItem = specificationItem;
             requirement.Type = command.RequirementType;
             requirement.User = currentUser;
             requirement.Version = 1;
+            requirement.Project = project;
+
+            var nextIdQuery = new RequirementNextIdQuery
+            {
+                ProjectId = project.Id,
+                RequirementType = requirement.Type
+            };
+
+            var identifier = _requirementNextIdQueryHandler.Handle(nextIdQuery);
+            requirement.Identifier = identifier;
 
             _specificationItemRepository.Add(specificationItem);
             _requirementRepository.Add(requirement);

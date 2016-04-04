@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201604031935389_initial-migration.Designer.cs">
       <DependentUpon>201604031935389_initial-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604041132414_requirement-identifier.cs" />
+    <Compile Include="Migrations\201604041132414_requirement-identifier.Designer.cs">
+      <DependentUpon>201604041132414_requirement-identifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
@@ -97,6 +101,7 @@
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectViewModel.cs" />
     <Compile Include="Queries\Projects\ProjectWithContents\ProjectWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\NextId\RequirementNextIdQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
@@ -126,6 +131,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604031935389_initial-migration.resx">
       <DependentUpon>201604031935389_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604041132414_requirement-identifier.resx">
+      <DependentUpon>201604041132414_requirement-identifier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
