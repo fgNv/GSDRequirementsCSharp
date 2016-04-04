@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSDRequirementsCSharp.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,12 +17,18 @@ namespace GSDRequirements.Web.Controllers
 
         public PartialViewResult Form()
         {
-            return PartialView("~/Views/Requirement/Partial/Form.cshtml");
+            return PartialView("Form");
         }
 
         public PartialViewResult Translation()
         {
-            return PartialView("~/Views/Requirement/Partial/Translation.cshtml");
+            return PartialView("Translation");
+        }
+
+        public PartialViewResult TranslationList()
+        {
+            var model = new TranslationListViewModel { NgModelEntityReference = "requirement" };
+            return PartialView("_TranslationList", model);
         }
     }
 }

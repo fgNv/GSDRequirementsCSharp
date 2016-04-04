@@ -15,8 +15,7 @@
             $scope.translations = []
 
             $scope.$watch("package", (newValue, oldValue) => {
-                if (!newValue)
-                    return
+                if (!newValue) return
 
                 $scope.translations = []
             })

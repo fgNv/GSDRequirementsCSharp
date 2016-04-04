@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,14 +15,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
         [Required]
         public Guid PackageId { get; set; }
 
-        [StringLength(150)]
-        public string Action { get; set; }
-
-        [StringLength(150)]
-        public string Condition { get; set; }
-
-        [StringLength(150)]
-        public string Subject { get; set; }
+        [ValidateCollection]
+        public IEnumerable<RequirementContentItem> Items { get; set; }
 
         [Required]
         public Difficulty Difficulty { get; set; }

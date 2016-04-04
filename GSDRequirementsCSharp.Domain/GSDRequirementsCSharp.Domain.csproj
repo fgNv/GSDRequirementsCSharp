@@ -71,6 +71,7 @@
     <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommandHandler.cs" />
+    <Compile Include="Commands\Requirements\RequirementContentItem.cs" />
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />

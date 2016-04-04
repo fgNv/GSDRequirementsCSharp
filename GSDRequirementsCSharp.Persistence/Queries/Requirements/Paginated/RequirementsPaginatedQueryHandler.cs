@@ -35,11 +35,12 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 
             var maxPages = (int)Math.Ceiling(requirementsQuery.Count() / (double)query.PageSize);
 
-            var requirements = requirementsQuery.OrderBy(r => r.Identifier)
-                                        .Include(r => r.RequirementContents)
-                                        .Skip(skip)
-                                        .Take(query.PageSize)
-                                        .ToList();
+            var requirements = requirementsQuery.OrderBy(r => r.Type)
+                                                .ThenBy(r => r.Identifier)
+                                                .Include(r => r.RequirementContents)
+                                                .Skip(skip)
+                                                .Take(query.PageSize)
+                                                .ToList();
                         
             var result = new RequirementsPaginatedQueryResult(requirements, maxPages);
             return result;

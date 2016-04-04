@@ -9,11 +9,26 @@ var Directives;
             this.controller = ['$scope', 'RequirementResource', 'PackageResource',
                 function ($scope, RequirementResource, PackageResource) {
                     $scope.pendingRequests = 0;
+                    $scope.translations = [];
                     _this.LoadPackagesOptions(PackageResource, $scope);
                     $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty);
                     $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType);
+                    $scope.$watch("project", function (newValue, oldValue) {
+                        if (!newValue)
+                            return;
+                        $scope.translations = [];
+                    });
                     $scope.save = function () {
                         $scope.pendingRequests++;
+                        $scope.requirement.items = [
+                            {
+                                "action": $scope.requirement.action,
+                                "subject": $scope.requirement.subject,
+                                "condition": $scope.requirement.condition,
+                                "locale": GSDRequirements.currentLocale
+                            }
+                        ];
+                        _.each($scope.translations, function (i) { return $scope.requirement.items.push(i); });
                         var promise = $scope.requirement.id ?
                             RequirementResource.update($scope.requirement).$promise :
                             RequirementResource.save($scope.requirement).$promise;
