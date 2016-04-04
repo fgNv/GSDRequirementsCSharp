@@ -162,6 +162,7 @@
     <Compile Include="Api\PackageController.cs" />
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\RequirementController.cs" />
+    <Compile Include="Api\SpecificationItemController.cs" />
     <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

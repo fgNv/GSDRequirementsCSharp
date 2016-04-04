@@ -47,8 +47,13 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             requirement.IsLastVersion = true; ;
             requirement.ProjectId = latestVersion.ProjectId;
             requirement.Rank = command.Rank;
+            
+            requirement.SpecificationItem = specificationItem;
+            requirement.CreatorId = latestVersion.CreatorId;
+            requirement.Version = latestVersion.Version + 1;
+            requirement.Type = latestVersion.Type;
 
-            foreach(var item in command.Items)
+            foreach (var item in command.Items)
             {
                 var content = new RequirementContent();
                 content.Action = item.Action;
@@ -56,14 +61,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
                 content.Condition = item.Condition;
                 content.Id = requirement.Id;
                 content.Locale = item.Locale;
+                content.Version = requirement.Version;
                 content.Requirement = requirement;
                 _requirementContentRepository.Add(content);
             }
-
-            requirement.SpecificationItem = specificationItem;
-            requirement.CreatorId = latestVersion.CreatorId;
-            requirement.Version = latestVersion.Version + 1;
-            requirement.Type = latestVersion.Type;
 
             _requirementRepository.Add(requirement); 
         }

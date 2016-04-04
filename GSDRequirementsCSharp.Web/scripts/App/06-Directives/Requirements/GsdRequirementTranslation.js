@@ -6,8 +6,8 @@ var Directives;
             var _this = this;
             this.scope = { 'requirement': '=requirement', 'afterSave': '=afterSave' };
             this.templateUrl = GSDRequirements.baseUrl + 'requirement/translation';
-            this.controller = ['$scope', 'RequirementContentResource',
-                function ($scope, RequirementContentResource) {
+            this.controller = ['$scope', 'RequirementTranslationResource',
+                function ($scope, RequirementTranslationResource) {
                     $scope.pendingRequests = 0;
                     $scope.availableLocaleContents = [];
                     $scope.translations = [];
@@ -38,7 +38,7 @@ var Directives;
                     $scope.save = function () {
                         $scope.pendingRequests++;
                         var request = { id: $scope.requirement.id, items: $scope.translations };
-                        RequirementContentResource.save(request)
+                        RequirementTranslationResource.save(request)
                             .$promise
                             .then(function () {
                             Notification.notifySuccess(Sentences.translationAddedSuccessfully);
@@ -77,3 +77,4 @@ var Directives;
     })();
     app.directive('gsdRequirementTranslation', GsdRequirementTranslation.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdRequirementTranslation.js.map

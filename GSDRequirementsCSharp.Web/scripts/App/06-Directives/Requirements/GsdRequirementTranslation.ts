@@ -26,8 +26,8 @@
             $scope.originalSubject = ''
             $scope.originalCondition = ''
         }
-        public controller = ['$scope', 'RequirementContentResource',
-            ($scope: any, RequirementContentResource: any) => {
+        public controller = ['$scope', 'RequirementTranslationResource',
+            ($scope: any, RequirementTranslationResource: any) => {
                 $scope.pendingRequests = 0
 
                 $scope.availableLocaleContents = []
@@ -64,7 +64,7 @@
                     
                     var request = { id: $scope.requirement.id, items: $scope.translations }
 
-                    RequirementContentResource.save(request)
+                    RequirementTranslationResource.save(request)
                         .$promise
                         .then(function () {
                             Notification.notifySuccess(Sentences.translationAddedSuccessfully);

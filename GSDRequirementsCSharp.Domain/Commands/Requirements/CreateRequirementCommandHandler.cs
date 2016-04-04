@@ -62,6 +62,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
                 content.Condition = item.Condition;
                 content.Id = requirement.Id;
                 content.Locale = item.Locale;
+                content.Version = 1;
                 content.Requirement = requirement;
                 _requirementContentRepository.Add(content);
             }

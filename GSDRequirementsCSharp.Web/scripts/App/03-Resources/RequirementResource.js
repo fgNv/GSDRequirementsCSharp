@@ -12,8 +12,8 @@
                         });
     }]);
 
-    app.service('RequirementContentResource', ['$resource', function ($resource) {
-        return $resource('/api/requirement/:id/content',
+    app.service('RequirementTranslationResource', ['$resource', function ($resource) {
+        return $resource('/api/requirement/:id/translation',
                         { 'id': '@id' });
     }]);
 

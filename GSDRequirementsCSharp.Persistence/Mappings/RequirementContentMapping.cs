@@ -12,13 +12,14 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
     {
         public RequirementContentMapping()
         {
-            HasKey(rc => new { rc.Id, rc.Locale });
+            HasKey(rc => new { rc.Id, rc.Locale, rc.Version });
             Property(rc => rc.Id).HasColumnName("id");
             Property(rc => rc.Locale).HasColumnName("locale");
             Property(rc => rc.Action).HasColumnName("action");
             Property(rc => rc.Condition).HasColumnName("condition");
             Property(rc => rc.Subject).HasColumnName("subject");
             Property(rc => rc.CreatorId).HasColumnName("creator_id");
+            Property(rc => rc.Version).HasColumnName("version");
             ToTable("RequirementContent");
 
             Property(e => e.Locale).IsUnicode(false);

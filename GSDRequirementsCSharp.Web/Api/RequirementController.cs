@@ -14,15 +14,18 @@ namespace GSDRequirementsCSharp.Web.Api
     {
         private readonly IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> _requirementsPaginatedQueryHandler;
         private readonly ICommandHandler<SaveRequirementCommand> _createRequirementCommand;
-        private readonly ICommandHandler<CreateRequirementVersionCommand> _createRequirementVersionCommand;
+        private readonly ICommandHandler<CreateRequirementVersionCommand> _createRequirementVersionCommandHandler;
+        private readonly ICommandHandler<AddRequirementTranslationCommand> _addRequirementTranslationCommandHandler;
 
         public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler,
-                                     ICommandHandler<SaveRequirementCommand> createRequirementCommand,
-                                     ICommandHandler<CreateRequirementVersionCommand> createRequirementVersionCommand)
+                                     ICommandHandler<SaveRequirementCommand> createRequirementCommandHandler,
+                                     ICommandHandler<CreateRequirementVersionCommand> createRequirementVersionCommandHandler,
+                                     ICommandHandler<AddRequirementTranslationCommand> addRequirementTranslationCommandHandler)
         {
             _requirementsPaginatedQueryHandler = requirementsPaginatedQueryHandler;
-            _createRequirementCommand = createRequirementCommand;
-            _createRequirementVersionCommand = createRequirementVersionCommand;
+            _createRequirementCommand = createRequirementCommandHandler;
+            _createRequirementVersionCommandHandler = createRequirementVersionCommandHandler;
+            _addRequirementTranslationCommandHandler = addRequirementTranslationCommandHandler;
         }
         
         [Route("api/requirement/{page}/{pageSize}")]
@@ -40,12 +43,13 @@ namespace GSDRequirementsCSharp.Web.Api
         // PUT api/<controller>/5
         public void Put([FromBody]CreateRequirementVersionCommand command)
         {
-            _createRequirementVersionCommand.Handle(command);
+            _createRequirementVersionCommandHandler.Handle(command);
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        [Route("api/requirement/{id}/translation")]
+        public void Post(AddRequirementTranslationCommand command)
         {
+            _addRequirementTranslationCommandHandler.Handle(command);
         }
     }
 }
