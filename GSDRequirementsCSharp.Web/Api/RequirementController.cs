@@ -13,13 +13,16 @@ namespace GSDRequirementsCSharp.Web.Api
     public class RequirementController : ApiController
     {
         private readonly IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> _requirementsPaginatedQueryHandler;
-        private ICommandHandler<SaveRequirementCommand> _createRequirementCommand;
+        private readonly ICommandHandler<SaveRequirementCommand> _createRequirementCommand;
+        private readonly ICommandHandler<CreateRequirementVersionCommand> _createRequirementVersionCommand;
 
         public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler,
-                                     ICommandHandler<SaveRequirementCommand> createRequirementCommand)
+                                     ICommandHandler<SaveRequirementCommand> createRequirementCommand,
+                                     ICommandHandler<CreateRequirementVersionCommand> createRequirementVersionCommand)
         {
             _requirementsPaginatedQueryHandler = requirementsPaginatedQueryHandler;
             _createRequirementCommand = createRequirementCommand;
+            _createRequirementVersionCommand = createRequirementVersionCommand;
         }
         
         [Route("api/requirement/{page}/{pageSize}")]
@@ -35,8 +38,9 @@ namespace GSDRequirementsCSharp.Web.Api
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]CreateRequirementVersionCommand command)
         {
+            _createRequirementVersionCommand.Handle(command);
         }
 
         // DELETE api/<controller>/5

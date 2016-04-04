@@ -35,7 +35,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
              .HasForeignKey(e => e.OwnerId)
              .WillCascadeOnDelete(false);
 
-            HasMany(e => e.Requirements).WithRequired(e => e.User)
+            HasMany(e => e.Requirements).WithRequired(e => e.Creator)
             .HasForeignKey(e => e.CreatorId)
             .WillCascadeOnDelete(false);
         }

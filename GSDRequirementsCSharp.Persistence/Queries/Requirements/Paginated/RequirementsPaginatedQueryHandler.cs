@@ -31,6 +31,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
             var requirementsQuery = _context.Requirements
                                             .Include(r => r.SpecificationItem.Package)
                                             .Where(p => p.SpecificationItem.Package.Project.Id == currentProjectId && 
+                                                        p.IsLastVersion &&
                                                         p.SpecificationItem.Active);
 
             var maxPages = (int)Math.Ceiling(requirementsQuery.Count() / (double)query.PageSize);

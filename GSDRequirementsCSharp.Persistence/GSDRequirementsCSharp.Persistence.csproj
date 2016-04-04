@@ -105,6 +105,7 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
     <Compile Include="Repositories\GenericLocaleRepository.cs" />

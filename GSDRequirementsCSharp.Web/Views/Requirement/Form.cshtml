@@ -56,6 +56,7 @@
             </label>
             <div class="col-sm-8">
                 <select type="text"
+                        data-ng-disabled="requirement.id"
                         class="form-control"
                         data-ng-model="requirement.requirementType"
                         data-ng-options="type.value as type.label for

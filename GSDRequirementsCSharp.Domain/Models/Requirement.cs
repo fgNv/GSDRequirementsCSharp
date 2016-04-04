@@ -31,8 +31,6 @@ namespace GSDRequirementsCSharp.Domain
 
         public RequirementType Type { get; set; }
 
-        public int CreatorId { get; set; }
-
         public virtual Guid? ContactId { get; set; }
 
         public virtual Contact Contact { get; set; }
@@ -43,8 +41,10 @@ namespace GSDRequirementsCSharp.Domain
 
         public virtual ICollection<RequirementContent> RequirementContents { get; set; }
 
-        public virtual User User { get; set; }
-        
+        public virtual User Creator { get; set; }
+
+        public int CreatorId { get; set; }
+
         public virtual ICollection<RequirementRisk> RequirementRisks { get; set; }
 
         public virtual SpecificationItem SpecificationItem { get; set; }

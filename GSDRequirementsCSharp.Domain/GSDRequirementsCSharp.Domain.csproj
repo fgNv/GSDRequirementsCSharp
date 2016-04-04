@@ -71,6 +71,8 @@
     <Compile Include="Commands\Projects\CreateProjectCommandHandler.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommand.cs" />
     <Compile Include="Commands\Projects\UpdateProjectCommandHandler.cs" />
+    <Compile Include="Commands\Requirements\CreateRequirementVersionCommand.cs" />
+    <Compile Include="Commands\Requirements\CreateRequirementVersionCommandHandler.cs" />
     <Compile Include="Commands\Requirements\RequirementContentItem.cs" />
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Queries\Projects\ProjectNextIdQuery.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

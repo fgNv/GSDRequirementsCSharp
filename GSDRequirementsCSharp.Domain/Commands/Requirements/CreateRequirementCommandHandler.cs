@@ -18,7 +18,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
         private readonly IRepository<SpecificationItem, Guid> _specificationItemRepository;
         private readonly IRepository<Package, Guid> _packageRepository;
-        private readonly ICurrentLocaleName _currentLocaleName;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
@@ -29,7 +28,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
              IRepository<RequirementContent, LocaleKey> requirementContentRepository,
              IRepository<SpecificationItem, Guid> specificationItemRepository,
              IRepository<Package, Guid> packageRepository,
-             ICurrentLocaleName currentLocaleName,
              ICurrentUserRetriever<User> currentUserRetriever,
              IRepository<Project, Guid> projectRepository,
              ICurrentProjectContextId currentProjectContextId,
@@ -40,7 +38,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             _requirementContentRepository = requirementContentRepository;
             _specificationItemRepository = specificationItemRepository;
             _packageRepository = packageRepository;
-            _currentLocaleName = currentLocaleName;
             _currentUserRetriever = currentUserRetriever;
             _projectRepository = projectRepository;
             _currentProjectContextId = currentProjectContextId;
@@ -56,8 +53,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             requirement.Id = Guid.NewGuid();
             requirement.IsLastVersion = true;
             requirement.Rank = command.Rank;
-
-            var currentLocale = _currentLocaleName.Get();
+            
             foreach (var item in command.Items)
             {
                 var content = new RequirementContent();
@@ -82,7 +78,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 
             requirement.SpecificationItem = specificationItem;
             requirement.Type = command.RequirementType;
-            requirement.User = currentUser;
+            requirement.Creator = currentUser;
             requirement.Version = 1;
             requirement.Project = project;
 
