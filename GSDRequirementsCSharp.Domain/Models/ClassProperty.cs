@@ -4,10 +4,8 @@ namespace GSDRequirementsCSharp.Domain
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("ClassProperty")]
-    public partial class ClassProperty
+    
+    public class ClassProperty
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ClassProperty()
@@ -15,19 +13,18 @@ namespace GSDRequirementsCSharp.Domain
             ClassPropertyContents = new HashSet<ClassPropertyContent>();
         }
 
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid class_id { get; set; }
+        public Guid ClassId { get; set; }
 
-        public int visibility { get; set; }
+        public int Visibility { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string type { get; set; }
+        public string Type { get; set; }
 
         public virtual Class Class { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<ClassPropertyContent> ClassPropertyContents { get; set; }
     }
 }

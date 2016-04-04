@@ -32,11 +32,11 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
             user.Password = _cryptographer.Encrypt(command.Password);
             
             var contact = new Contact();
-            contact.email = command.Email;
+            contact.Email = command.Email;
             contact.Id = command.Id;
-            contact.mobilePhone = command.MobilePhone;
-            contact.name = command.Name;
-            contact.phone = command.Phone;
+            contact.MobilePhone = command.MobilePhone;
+            contact.Name = command.Name;
+            contact.Phone = command.Phone;
             
             user.Contact = contact;
 

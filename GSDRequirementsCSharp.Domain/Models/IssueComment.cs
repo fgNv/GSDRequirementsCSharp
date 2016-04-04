@@ -5,24 +5,21 @@ namespace GSDRequirementsCSharp.Domain
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("IssueComment")]
-    public partial class IssueComment
+    
+    public class IssueComment
     {
-        public Guid id { get; set; }
-
-        [Column(TypeName = "text")]
+        public Guid Id { get; set; }
+        
         [Required]
         [StringLength(65535)]
-        public string content { get; set; }
+        public string Content { get; set; }
 
-        public Guid issue_id { get; set; }
+        public Guid IssueId { get; set; }
 
-        public int creator_id { get; set; }
+        public int CreatorId { get; set; }
 
         public virtual Issue Issue { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Creator { get; set; }
     }
 }

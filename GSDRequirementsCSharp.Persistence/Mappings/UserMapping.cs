@@ -25,10 +25,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.Password).IsUnicode(false);
 
             HasMany(e => e.Issues).WithOptional(e => e.User)
-            .HasForeignKey(e => e.creator_id);
+            .HasForeignKey(e => e.CreatorId);
 
-            HasMany(e => e.IssueComments).WithRequired(e => e.User)
-            .HasForeignKey(e => e.creator_id)
+            HasMany(e => e.IssueComments).WithRequired(e => e.Creator)
+            .HasForeignKey(e => e.CreatorId)
             .WillCascadeOnDelete(false);
 
             HasMany(e => e.Projects).WithRequired(e => e.Owner)

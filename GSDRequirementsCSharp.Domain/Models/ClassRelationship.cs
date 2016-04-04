@@ -3,24 +3,22 @@ namespace GSDRequirementsCSharp.Domain
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("ClassRelationship")]
-    public partial class ClassRelationship
+    using System.ComponentModel.DataAnnotations.Schema; 
+    
+    public class ClassRelationship
     {
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         [StringLength(10)]
-        public string source_multiplicity { get; set; }
+        public string SourceMultiplicity { get; set; }
 
         [StringLength(10)]
-        public string target_multiplicity { get; set; }
+        public string TargetMultiplicity { get; set; }
 
-        public Guid source_id { get; set; }
+        public Guid SourceId { get; set; }
 
-        public Guid target_id { get; set; }
+        public Guid TargetId { get; set; }
 
-        public int type { get; set; }
+        public int Type { get; set; }
     }
 }

@@ -68,18 +68,37 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Mappings\ClassContentMapping.cs" />
+    <Compile Include="Mappings\ClassDiagramMapping.cs" />
+    <Compile Include="Mappings\ClassMapping.cs" />
+    <Compile Include="Mappings\ClassMethodContentMapping.cs" />
+    <Compile Include="Mappings\ClassMethodMapping.cs" />
+    <Compile Include="Mappings\ClassMethodParameterContentMapping.cs" />
+    <Compile Include="Mappings\ClassMethodParameterMapping.cs" />
+    <Compile Include="Mappings\ClassPropertyContentMapping.cs" />
+    <Compile Include="Mappings\ClassPropertyMapping.cs" />
+    <Compile Include="Mappings\ClassRelationshipMapping.cs" />
+    <Compile Include="Mappings\ContactMapping.cs" />
+    <Compile Include="Mappings\IssueCommentMapping.cs" />
+    <Compile Include="Mappings\IssueMapping.cs" />
     <Compile Include="Mappings\PackageContentMapping.cs" />
     <Compile Include="Mappings\PackageMapping.cs" />
+    <Compile Include="Mappings\ProfileMapping.cs" />
     <Compile Include="Mappings\RequirementContentMapping.cs" />
     <Compile Include="Mappings\RequirementRiskMapping.cs" />
     <Compile Include="Mappings\SpecificationItemMapping.cs" />
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
+    <Compile Include="Mappings\UserCaseMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Migrations\201604041405230_initial-migration.cs" />
     <Compile Include="Migrations\201604041405230_initial-migration.Designer.cs">
       <DependentUpon>201604041405230_initial-migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604042350384_class-method-return-type-required.cs" />
+    <Compile Include="Migrations\201604042350384_class-method-return-type-required.Designer.cs">
+      <DependentUpon>201604042350384_class-method-return-type-required.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +145,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604041405230_initial-migration.resx">
       <DependentUpon>201604041405230_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604042350384_class-method-return-type-required.resx">
+      <DependentUpon>201604042350384_class-method-return-type-required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
