@@ -1015,6 +1015,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Translations is outdated.
+        /// </summary>
+        public static string translationsIsOutdated {
+            get {
+                return ResourceManager.GetString("translationsIsOutdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string type {

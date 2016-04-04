@@ -35,7 +35,14 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="package in packages">
-                        <td>PKG{{package.identifier}}</td>
+                        <td>
+                            PKG{{package.identifier}}
+                            <span class="glyphicon glyphicon-alert"
+                                  data-ng-show="package.isOutdated"
+                                  style="color: red"
+                                  title="@Sentences.translationsIsOutdated">
+                            </span>
+                        </td>
                         <td>{{package.description}}</td>
                         <td>
                             <button class="btn btn-default"

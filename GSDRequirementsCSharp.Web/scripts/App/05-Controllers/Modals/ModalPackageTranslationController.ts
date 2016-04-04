@@ -14,7 +14,10 @@
     }
 
     class ModalPackageTranslationController {
-        constructor($scope: any, $uibModalInstance: any, translationsAlreadyProvided: any, translationToEdit: any) {
+        constructor($scope: any,
+            $uibModalInstance: any,
+            translationsAlreadyProvided: any,
+            translationToEdit: any) {
             
             if (translationToEdit) {
                 $scope.package = translationToEdit
@@ -22,10 +25,11 @@
                 $scope.package = {}
             }
             $scope.languageOptions = _.filter(GSDRequirements.localesAvailable,
-                (l) => l.name != GSDRequirements.currentLocale &&
-                    (notAlreadyProvided(translationsAlreadyProvided, l) || isInCurrentEdition(translationToEdit, l)));
+                (l) => (notAlreadyProvided(translationsAlreadyProvided, l) ||
+                       isInCurrentEdition(translationToEdit, l)));
 
             $scope.conclude = function () {
+                $scope.package.isUpdated = true
                 $uibModalInstance.close($scope.package);
             };
 

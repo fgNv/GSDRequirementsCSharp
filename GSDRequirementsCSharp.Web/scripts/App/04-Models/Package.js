@@ -25,6 +25,7 @@ var Models;
         Package.prototype.fillWithContent = function (content) {
             this.description = content.description;
             this.locale = content.locale;
+            this.isOutdated = !content.isUpdated;
         };
         Package.prototype.canAddTranslation = function () {
             return _.any(this.contents, function (c) { return !c.isUpdated; }) ||
@@ -34,4 +35,3 @@ var Models;
     })();
     Models.Package = Package;
 })(Models || (Models = {}));
-//# sourceMappingURL=Package.js.map

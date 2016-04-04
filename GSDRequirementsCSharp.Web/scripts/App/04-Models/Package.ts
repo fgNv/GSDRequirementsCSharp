@@ -9,6 +9,7 @@
         public locale : string
         public id: string
         public identifier: number
+        public isOutdated: boolean
         public contents: Array<PackageContent>
         constructor(data: Object) {
             for (var prop in data) {
@@ -37,6 +38,7 @@
         private fillWithContent(content: PackageContent) {
             this.description = content.description
             this.locale = content.locale
+            this.isOutdated = !content.isUpdated
         }
         public canAddTranslation() {
             return _.any(this.contents, (c) => !c.isUpdated) ||

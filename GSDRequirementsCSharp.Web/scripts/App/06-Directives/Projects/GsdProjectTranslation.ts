@@ -10,10 +10,10 @@
         public templateUrl = GSDRequirements.baseUrl + 'project/translation'
         private defineAvailableLocaleContents($scope, project) {
             var projectLocales = _.chain(project.projectContents)
-                .filter((c: Models.ProjectContent) => c.isUpdated)
+                .filter((c: Models.ProjectContent) => c.isUpdated == true)
                 .map(c => c.locale)
                 .value();
-
+            
             $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable,
                 l => _.any(projectLocales, (pl) => pl == l.name))
         }

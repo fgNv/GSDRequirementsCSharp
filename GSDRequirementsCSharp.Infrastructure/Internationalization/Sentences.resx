@@ -459,4 +459,7 @@
   <data name="invalidItems" xml:space="preserve">
     <value>Invalid items</value>
   </data>
+  <data name="translationsIsOutdated" xml:space="preserve">
+    <value>Translations is outdated</value>
+  </data>
 </root>

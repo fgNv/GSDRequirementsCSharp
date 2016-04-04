@@ -44,11 +44,11 @@ namespace GSDRequirementsCSharp.Domain
             if (currentLocaleContent != null)
                 return currentLocaleContent.Name;
 
-            var enUsContent = ProjectContents.FirstOrDefault(pc => pc.Locale == "en-US");
+            var enUsContent = ProjectContents.FirstOrDefault(pc => pc.Locale == "en-US" && pc.IsUpdated);
             if (enUsContent != null)
                 return enUsContent.Name;
 
-            return ProjectContents.FirstOrDefault()?.Name ?? "-";
+            return ProjectContents.FirstOrDefault(pc => pc.IsUpdated)?.Name ?? "-";
         }
     }
 }

@@ -9,7 +9,10 @@ var Directives;
                     $scope.translations = [];
                     $scope.translationsAlreadyProvided = [];
                     function openTranslationModal(translationToEdit) {
-                        var translationsAlreadyProvided = _.map($scope.translations, function (t) { return t.locale; });
+                        var translationsAlreadyProvided = _.chain($scope.translations)
+                            .filter(function (t) { return t.isUpdated == true; })
+                            .map(function (t) { return t.locale; })
+                            .value();
                         translationsAlreadyProvided = _.union(translationsAlreadyProvided, $scope.translationsAlreadyProvided);
                         var modal = $uibModal.open({
                             templateUrl: 'translationContent.html',
@@ -27,7 +30,7 @@ var Directives;
                         modal.result.then(function (data) { return $scope.translations.push(data); });
                     };
                     $scope.removeTranslation = function (translationToRemove) {
-                        $scope.translations = _.filter($scope.translation, function (t) { return t != translationToRemove; });
+                        $scope.translations = _.filter($scope.translations, function (t) { return t != translationToRemove; });
                     };
                     $scope.editTranslation = function (translation) {
                         var translationClone = {};
@@ -49,4 +52,3 @@ var Directives;
     })();
     app.directive('gsdProjectTranslationList', GsdProjectTranslationList.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdProjectTranslationList.js.map

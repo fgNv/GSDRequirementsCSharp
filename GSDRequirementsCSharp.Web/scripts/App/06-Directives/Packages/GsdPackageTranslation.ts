@@ -12,7 +12,7 @@
         public templateUrl = GSDRequirements.baseUrl + 'package/translation'
         private defineAvailableLocaleContents($scope, packageEntity: Models.Package) {
             var packageLocales = _.chain(packageEntity.contents)
-                .filter((c: Models.PackageContent) => c.isUpdated)
+                .filter((c: Models.PackageContent) => c.isUpdated == true)
                 .map(c => c.locale)
                 .value()
 

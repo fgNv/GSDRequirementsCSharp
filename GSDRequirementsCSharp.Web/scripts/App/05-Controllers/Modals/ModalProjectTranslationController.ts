@@ -22,10 +22,11 @@
                 $scope.project = {}
             }
             $scope.languageOptions = _.filter(GSDRequirements.localesAvailable,
-                (l) => l.name != GSDRequirements.currentLocale &&
-                    (notAlreadyProvided(translationsAlreadyProvided, l) || isInCurrentEdition(translationToEdit, l)));
+                (l) => (notAlreadyProvided(translationsAlreadyProvided, l) ||
+                        isInCurrentEdition(translationToEdit, l)));
 
             $scope.conclude = function () {
+                $scope.project.isUpdated = true
                 $uibModalInstance.close($scope.project);
             };
 

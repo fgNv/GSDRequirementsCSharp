@@ -15,9 +15,10 @@ var Controllers;
             else {
                 $scope.package = {};
             }
-            $scope.languageOptions = _.filter(GSDRequirements.localesAvailable, function (l) { return l.name != GSDRequirements.currentLocale &&
-                (notAlreadyProvided(translationsAlreadyProvided, l) || isInCurrentEdition(translationToEdit, l)); });
+            $scope.languageOptions = _.filter(GSDRequirements.localesAvailable, function (l) { return (notAlreadyProvided(translationsAlreadyProvided, l) ||
+                isInCurrentEdition(translationToEdit, l)); });
             $scope.conclude = function () {
+                $scope.package.isUpdated = true;
                 $uibModalInstance.close($scope.package);
             };
             $scope.cancel = function () {
@@ -29,4 +30,3 @@ var Controllers;
     app.controller('ModalPackageTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
         "translationToEdit", ModalPackageTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalPackageTranslationController.js.map

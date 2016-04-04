@@ -33,7 +33,14 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="project in projects">
-                        <td>{{project.identifier}}</td>
+                        <td>
+                            {{project.identifier}}
+                            <span class="glyphicon glyphicon-alert"
+                                  data-ng-show="project.isOutdated"
+                                  style="color: red"
+                                  title="@Sentences.translationsIsOutdated">
+                            </span>
+                        </td>
                         <td>{{project.name}}</td>
                         <td>
                             <button class="btn btn-default"

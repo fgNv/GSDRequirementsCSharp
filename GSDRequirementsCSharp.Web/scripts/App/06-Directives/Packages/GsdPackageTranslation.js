@@ -56,7 +56,7 @@ var Directives;
         }
         GsdPackageTranslation.prototype.defineAvailableLocaleContents = function ($scope, packageEntity) {
             var packageLocales = _.chain(packageEntity.contents)
-                .filter(function (c) { return c.isUpdated; })
+                .filter(function (c) { return c.isUpdated == true; })
                 .map(function (c) { return c.locale; })
                 .value();
             $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable, function (l) { return _.any(packageLocales, function (pl) { return pl == l.name; }); });
@@ -75,4 +75,3 @@ var Directives;
     })();
     app.directive('gsdPackageTranslation', GsdPackageTranslation.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdPackageTranslation.js.map

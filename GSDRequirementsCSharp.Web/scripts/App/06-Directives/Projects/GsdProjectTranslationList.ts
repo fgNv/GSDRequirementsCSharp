@@ -14,7 +14,11 @@
             $scope.translationsAlreadyProvided = []
 
             function openTranslationModal(translationToEdit) {
-                var translationsAlreadyProvided = _.map($scope.translations, (t) => t.locale)
+                var translationsAlreadyProvided = _.chain($scope.translations)
+                                                   .filter(t => t.isUpdated == true)
+                                                   .map((t) => t.locale)
+                                                   .value();
+                
                 translationsAlreadyProvided = _.union(translationsAlreadyProvided, $scope.translationsAlreadyProvided)
 
                 var modal = $uibModal.open({
@@ -35,7 +39,7 @@
             }
 
             $scope.removeTranslation = (translationToRemove) => {
-                $scope.translations = _.filter($scope.translation, (t) => t != translationToRemove)
+                $scope.translations = _.filter($scope.translations, (t) => t != translationToRemove)
             }
 
             $scope.editTranslation = (translation) => {
