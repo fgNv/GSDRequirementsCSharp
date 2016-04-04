@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Web.Api
         }
 
         // DELETE api/<controller>/5
-        public void Delete(InativateSpecificationItemCommand command)
+        public void Delete([FromUri]InativateSpecificationItemCommand command)
         {
             _inativateSpecificationItemCommandHandler.Handle(command);
         }

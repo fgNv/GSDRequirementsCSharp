@@ -155,6 +155,7 @@
     <Content Include="Scripts\App\03-Resources\ProjectTranslationResource.js" />
     <Content Include="Scripts\App\03-Resources\PackageResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectResource.js" />
+    <Content Include="Scripts\App\03-Resources\SpecificationItemResource.js" />
     <Content Include="Scripts\App\03-Resources\UserResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>

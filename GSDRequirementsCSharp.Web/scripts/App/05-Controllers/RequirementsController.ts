@@ -1,4 +1,4 @@
-﻿module Controllers {    
+﻿module Controllers {
     import GSDRequirementsData = Globals.GSDRequirementsData
 
     declare var angular: any;
@@ -6,7 +6,7 @@
     declare var baseUrl: string;
     declare var _: any;
 
-    interface IRequirementsControllerScope extends Globals.IListScope {                
+    interface IRequirementsControllerScope extends Globals.IListScope {
         requirements: Array<Models.Requirement>
         loadRequirements(): void
 
@@ -21,6 +21,8 @@
         setRequirementToTranslate(r: Models.Requirement): void
         inactivateRequirement(r: Models.Requirement): void
         showList(): boolean
+
+        remove(r: Models.Requirement): void
     }
 
     var app = angular.module(GSDRequirements.angularModuleName);
@@ -28,7 +30,8 @@
     class RequirementsController {
         constructor(
             private $scope: IRequirementsControllerScope,
-            private RequirementResource: any            
+            private RequirementResource: any,
+            private SpecificationItemResource: any
         ) {
             $scope.currentPage = 1
             $scope.maxPages = 1
@@ -36,17 +39,18 @@
             $scope.pendingRequests = 0
 
             var pageSize = 10
-            this.SetScopeMethods($scope, RequirementResource, pageSize)
+            this.SetScopeMethods($scope, RequirementResource, SpecificationItemResource, pageSize)
             this.LoadRequirements(RequirementResource, $scope, pageSize)
         }
         private SetScopeMethods($scope: IRequirementsControllerScope,
-                                RequirementResource: any,
-                                pageSize: number) {
+            RequirementResource: any,
+            SpecificationItemResource : any,
+            pageSize: number) {
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
                 $scope.loadRequirements()
             }
-
+            
             $scope.setCurrentRequirement = (r): void => { $scope.currentRequirement = r }
             $scope.setRequirementToTranslate = (r): void => { $scope.requirementToTranslate = r }
 
@@ -67,12 +71,12 @@
             };
 
             $scope.inactivateRequirement = (r): void => {
-                this.InactivateRequirement(RequirementResource, $scope, r)
+                this.InactivateRequirement(SpecificationItemResource, $scope, r)
             }
         }
         private LoadRequirements(requirementResource: any,
-                                 $scope: IRequirementsControllerScope,
-                                 pageSize: number): void {
+            $scope: IRequirementsControllerScope,
+            pageSize: number): void {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: pageSize }
             requirementResource.get(request)
@@ -89,11 +93,11 @@
                     $scope.pendingRequests--;
                 });
         }
-        private InactivateRequirement(requirementResource: any,
-                                      $scope: IRequirementsControllerScope,
-                                      requirement: Models.Requirement): void {
+        private InactivateRequirement(specificationItemResource: any,
+            $scope: IRequirementsControllerScope,
+            requirement: Models.Requirement): void {
             $scope.pendingRequests++;
-            requirementResource.remove({ id: requirement.id })
+            specificationItemResource.remove({ id: requirement.id })
                 .$promise
                 .then(r => {
                     Notification.notifySuccess(Sentences.requirementInactivatedSuccessfully)
@@ -109,5 +113,5 @@
         }
     }
 
-    app.controller('RequirementsController', ["$scope", "RequirementResource", RequirementsController]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
 }

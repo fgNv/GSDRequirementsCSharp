@@ -2,18 +2,19 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var RequirementsController = (function () {
-        function RequirementsController($scope, RequirementResource) {
+        function RequirementsController($scope, RequirementResource, SpecificationItemResource) {
             this.$scope = $scope;
             this.RequirementResource = RequirementResource;
+            this.SpecificationItemResource = SpecificationItemResource;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
             $scope.requirements = [];
             $scope.pendingRequests = 0;
             var pageSize = 10;
-            this.SetScopeMethods($scope, RequirementResource, pageSize);
+            this.SetScopeMethods($scope, RequirementResource, SpecificationItemResource, pageSize);
             this.LoadRequirements(RequirementResource, $scope, pageSize);
         }
-        RequirementsController.prototype.SetScopeMethods = function ($scope, RequirementResource, pageSize) {
+        RequirementsController.prototype.SetScopeMethods = function ($scope, RequirementResource, SpecificationItemResource, pageSize) {
             var _this = this;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
@@ -33,7 +34,7 @@ var Controllers;
                 return _.range(1, $scope.maxPages + 1);
             };
             $scope.inactivateRequirement = function (r) {
-                _this.InactivateRequirement(RequirementResource, $scope, r);
+                _this.InactivateRequirement(SpecificationItemResource, $scope, r);
             };
         };
         RequirementsController.prototype.LoadRequirements = function (requirementResource, $scope, pageSize) {
@@ -52,9 +53,9 @@ var Controllers;
                 $scope.pendingRequests--;
             });
         };
-        RequirementsController.prototype.InactivateRequirement = function (requirementResource, $scope, requirement) {
+        RequirementsController.prototype.InactivateRequirement = function (specificationItemResource, $scope, requirement) {
             $scope.pendingRequests++;
-            requirementResource.remove({ id: requirement.id })
+            specificationItemResource.remove({ id: requirement.id })
                 .$promise
                 .then(function (r) {
                 Notification.notifySuccess(Sentences.requirementInactivatedSuccessfully);
@@ -69,6 +70,6 @@ var Controllers;
         };
         return RequirementsController;
     })();
-    app.controller('RequirementsController', ["$scope", "RequirementResource", RequirementsController]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
 })(Controllers || (Controllers = {}));
 //# sourceMappingURL=RequirementsController.js.map
