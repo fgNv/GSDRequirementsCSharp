@@ -11,6 +11,7 @@
     <h2>
         @Sentences.projects
         <button class="btn btn-primary"
+                data-ng-show="!currentProject && !projectToTranslate"
                 title="@Sentences.addProject"
                 data-ng-click="currentProject = {}">
             <span class="glyphicon glyphicon-plus"></span>

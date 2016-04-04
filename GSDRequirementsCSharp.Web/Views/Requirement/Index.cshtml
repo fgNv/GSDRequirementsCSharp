@@ -11,6 +11,7 @@
     <h2>
         @Sentences.requirements
         <button class="btn btn-primary"
+                data-ng-show="showList()"
                 title="@Sentences.addRequirement"
                 data-ng-click="currentRequirement = {}">
             <span class="glyphicon glyphicon-plus"></span>
@@ -23,7 +24,7 @@
              data-after-save="loadRequirements"
              data-requirement="currentRequirement"
              data-ng-show="currentRequirement"></article>
-
+    
     <article data-gsd-requirement-translation=""
              data-after-save="loadRequirements"
              data-requirement="requirementToTranslate"

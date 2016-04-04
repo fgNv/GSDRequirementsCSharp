@@ -13,4 +13,3 @@ var Controllers;
     })();
     app.controller('MainController', ["$scope", MainController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=MainController.js.map

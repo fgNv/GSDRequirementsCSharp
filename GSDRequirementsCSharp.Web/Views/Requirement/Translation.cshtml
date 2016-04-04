@@ -1,73 +1,62 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <article>
-    <h2>@Sentences.addTranslationForRequirement {{requirement.identifier}}</h2>
-
-    <div class="form-horizontal">
-        <div class="form-group">
-            <span class="col-sm-1">
-                @Sentences.original:
-                {{requirement.locale}}
-            </span>
-            <span class="col-sm-11"> {{requirement.condition}}</span>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputName2" class="col-sm-1 control-label">
-                @Sentences.condition
-            </label>
-
-            <div class="col-sm-8">
-                <input type="text"
-                       class="form-control"
-                       data-ng-model="requirement.Condition"
-                       placeholder="@Sentences.whenTheUserIsAnAdministrator">
+    <h3>
+        @Sentences.addTranslationForRequirement {{requirement.prefix}}{{requirement.identifier}}
+    </h3>
+    <h4>
+        @Sentences.original
+    </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <select class="form-control"
+                        data-ng-model="displayLocale"
+                        data-ng-options="locale.name as locale.label for locale in availableLocaleContents"></select>
             </div>
         </div>
+    </div>
 
-        <hr />
+    <div class="row">
+        <div class="col-md-2">
+            @Sentences.condition
+        </div>
+        <div class="col-md-6">
+            {{originalCondition}}
+        </div>
+    </div>
 
-        <div class="form-group">
-            <span class="col-sm-1">@Sentences.original:</span>
-            <span class="col-sm-11">{{requirement.subject}}</span>
+    <div class="row">
+        <div class="col-md-2">
+            @Sentences.subject
         </div>
-        <div class="form-group">
-            <label for="exampleInputName2" class="col-sm-1 control-label">
-                @Sentences.subject
-            </label>
-            <div class="col-sm-8">
-                <input type="text"
-                       class="form-control"
-                       data-ng-model="translation.subject"
-                       placeholder="@Sentences.theSystem">
-            </div>
+        <div class="col-md-6">
+            {{originalSubject}}
         </div>
+    </div>
 
-        <hr />
+    <div class="row">
+        <div class="col-md-2">
+            @Sentences.action
+        </div>
+        <div class="col-md-6">
+            {{originalAction}}
+        </div>
+    </div>
 
-        <div class="form-group">
-            <span class="col-sm-1">@Sentences.original:</span>
-            <span class="col-sm-11">{{requirement.action}}</span>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputName2" class="col-sm-1 control-label">
-                @Sentences.action
-            </label>
-            <div class="col-sm-8">
-                <input type="text"
-                       class="form-control"
-                       data-ng-model="translation.action"
-                       placeholder="@Sentences.mustAllowAccessPermissionManagement">
-            </div>
-        </div>
-        <div class="btn-group col-sm-offset-1">
-            <button type="button"
-                    data-ng-click="requirement = null"
-                    class="btn btn-default">
-                @Sentences.cancel
-            </button>
-            <button type="button" class="btn btn-primary">
-                @Sentences.save
-            </button>
-        </div>
+    <article data-gsd-requirement-translation-list=""
+             data-translations="translations"
+             data-translations-already-provided="translationsAlreadyProvided"></article>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="requirement = null">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
     </div>
 </article>

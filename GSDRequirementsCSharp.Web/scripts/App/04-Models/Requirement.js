@@ -39,13 +39,9 @@ var Models;
             this.locale = content.locale;
         };
         Requirement.prototype.canAddTranslation = function () {
-            return !_.any(this.requirementContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
-        };
-        Requirement.prototype.canEdit = function () {
-            return _.any(this.requirementContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
+            return this.requirementContents.length < GSDRequirements.localesAvailable.length;
         };
         return Requirement;
     })();
     Models.Requirement = Requirement;
 })(Models || (Models = {}));
-//# sourceMappingURL=Requirement.js.map
