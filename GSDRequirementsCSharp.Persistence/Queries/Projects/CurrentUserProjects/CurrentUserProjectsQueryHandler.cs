@@ -53,7 +53,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
 
             var projects = _context.Projects
                                    .Include(p => p.ProjectContents)
-                                   .Where(p => p.OwnerId == currentUser.Id &&
+                                   .Where(p => p.Permissions.Any(perm => perm.UserId == currentUser.Id) &&
                                                p.Active)
                                    .ToList()
                                    .Select(p => new ProjectOption

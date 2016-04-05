@@ -20,16 +20,19 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
         private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
         private readonly IQueryHandler<ProjectNextIdQuery, int> _projectNextIdQuery;
+        private readonly IRepository<Permission, Guid> _permissionRepository;
 
         public CreateProjectCommandHandler(IRepository<Project, Guid> projectRepository,
                                            IRepository<ProjectContent, LocaleKey> projectContentRepository,
                                            ICurrentUserRetriever<User> currentUserRetriever,
-                                           IQueryHandler<ProjectNextIdQuery, int> projectNextIdQuery)
+                                           IQueryHandler<ProjectNextIdQuery, int> projectNextIdQuery,
+                                           IRepository<Permission, Guid> permissionRepository)
         {
             _projectRepository = projectRepository;
             _projectContentRepository = projectContentRepository;
             _currentUserRetriever = currentUserRetriever;
             _projectNextIdQuery = projectNextIdQuery;
+            _permissionRepository = permissionRepository;
         }
 
         public void Handle(SaveProjectCommand command)
@@ -62,6 +65,13 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             project.CreatorId = currentUser.Id;
             project.Identifier = identifier;
 
+            var permission = new Permission();
+            permission.Id = Guid.NewGuid();
+            permission.Profile = Profile.ProjectOwner;
+            permission.Project = project;
+            permission.User = currentUser;
+
+            _permissionRepository.Add(permission);
             _projectRepository.Add(project);
         }
     }

@@ -42,7 +42,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             .HasForeignKey(e => e.ProjectId)
             .WillCascadeOnDelete(false);
 
-            HasMany(e => e.Profiles)
+            HasMany(e => e.Permissions)
             .WithRequired(e => e.Project)
             .HasForeignKey(e => e.ProjectId)
             .WillCascadeOnDelete(false);

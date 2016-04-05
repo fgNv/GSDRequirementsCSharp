@@ -13,7 +13,7 @@ namespace GSDRequirementsCSharp.Domain
         public Project()
         {
             Packages = new HashSet<Package>();
-            Profiles = new HashSet<Permission>();
+            Permissions = new HashSet<Permission>();
             ProjectContents = new HashSet<ProjectContent>();
         }
 
@@ -27,7 +27,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public virtual ICollection<Package> Packages { get; set; }
         
-        public virtual ICollection<Permission> Profiles { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
 
         public virtual User Owner { get; set; }
         
