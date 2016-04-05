@@ -54,158 +54,24 @@ namespace GSDRequirementsCSharp.Persistence
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-                        
-            modelBuilder.Entity<Actor>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Actor>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Class>()
-                .HasMany(e => e.ClassContents)
-                .WithRequired(e => e.Class)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Class>()
-                .HasMany(e => e.ClassMethods)
-                .WithRequired(e => e.Class)
-                .HasForeignKey(e => e.class_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Class>()
-                .HasMany(e => e.ClassProperties)
-                .WithRequired(e => e.Class)
-                .HasForeignKey(e => e.class_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ClassContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassContent>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassDiagram>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassDiagram>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethod>()
-                .Property(e => e.return_type)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethod>()
-                .HasMany(e => e.ClassMethodContents)
-                .WithRequired(e => e.ClassMethod)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ClassMethod>()
-                .HasMany(e => e.ClassMethodParameters)
-                .WithRequired(e => e.ClassMethod)
-                .HasForeignKey(e => e.class_method_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ClassMethodContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethodContent>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethodParameter>()
-                .Property(e => e.type)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethodParameter>()
-                .HasMany(e => e.ClassMethodParameterContents)
-                .WithRequired(e => e.ClassMethodParameter)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ClassMethodParameterContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassMethodParameterContent>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassProperty>()
-                .Property(e => e.type)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassProperty>()
-                .HasMany(e => e.ClassPropertyContents)
-                .WithRequired(e => e.ClassProperty)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ClassPropertyContent>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassPropertyContent>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassRelationship>()
-                .Property(e => e.source_multiplicity)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ClassRelationship>()
-                .Property(e => e.target_multiplicity)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.mobilePhone)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.phone)
-                .IsUnicode(false);
-            
-            modelBuilder.Entity<Contact>()
-                .HasMany(e => e.Users)
-                .WithRequired(e => e.Contact)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Issue>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Issue>()
-                .HasMany(e => e.IssueComments)
-                .WithRequired(e => e.Issue)
-                .HasForeignKey(e => e.issue_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<IssueComment>()
-                .Property(e => e.content)
-                .IsUnicode(false);
-            
-            modelBuilder.Entity<Profile>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Profile>()
-                .HasMany(e => e.Users)
-                .WithMany(e => e.Profiles)
-                .Map(m => m.ToTable("User_Profile").MapLeftKey("profile_id").MapRightKey("user_id"));
 
             modelBuilder.Configurations.Add(new ActorMapping());
+            modelBuilder.Configurations.Add(new ClassMapping());
+            modelBuilder.Configurations.Add(new ClassContentMapping());
+            modelBuilder.Configurations.Add(new ClassDiagramMapping());
+            modelBuilder.Configurations.Add(new ClassMethodMapping());
+            modelBuilder.Configurations.Add(new ClassMethodContentMapping());
+            modelBuilder.Configurations.Add(new ClassMethodParameterMapping());
+            modelBuilder.Configurations.Add(new ClassMethodParameterContentMapping());
+            modelBuilder.Configurations.Add(new ClassPropertyMapping());
+            modelBuilder.Configurations.Add(new ClassPropertyContentMapping());
+            modelBuilder.Configurations.Add(new ClassRelationshipMapping());
+            modelBuilder.Configurations.Add(new ContactMapping());
+            modelBuilder.Configurations.Add(new IssueMapping());
+            modelBuilder.Configurations.Add(new IssueCommentMapping());
+
+            modelBuilder.Configurations.Add(new ProfileMapping());
+            
             modelBuilder.Configurations.Add(new PackageMapping());
             modelBuilder.Configurations.Add(new PackageContentMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
@@ -216,13 +82,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new SpecificationItemMapping());
             modelBuilder.Configurations.Add(new UserMapping());
 
-            modelBuilder.Entity<UserCase>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<UserCase>()
-                .Property(e => e.description)
-                .IsUnicode(false);
+            modelBuilder.Configurations.Add(new UserCaseMapping());
         }
     }
 }

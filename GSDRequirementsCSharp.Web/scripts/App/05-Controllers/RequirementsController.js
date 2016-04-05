@@ -72,3 +72,4 @@ var Controllers;
     })();
     app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=RequirementsController.js.map

@@ -4,23 +4,17 @@ namespace GSDRequirementsCSharp.Domain
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("ClassMethodContent")]
-    public partial class ClassMethodContent
+    public class ClassMethodContent
     {
-        [Key]
-        [Column(Order = 0)]
-        public Guid id { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
+        public Guid Id { get; set; }
+        
         [StringLength(10)]
-        public string locale { get; set; }
+        public string Locale { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         public virtual ClassMethod ClassMethod { get; set; }
     }

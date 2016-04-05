@@ -5,23 +5,20 @@ namespace GSDRequirementsCSharp.Domain
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("UserCase")]
-    public partial class UserCase
+    
+    public class UserCase
     {
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string name { get; set; }
-
-        [Column(TypeName = "text")]
+        public string Name { get; set; }
+        
         [Required]
         [StringLength(65535)]
-        public string description { get; set; }
+        public string Description { get; set; }
 
-        public Guid? actor_id { get; set; }
+        public Guid? ActorId { get; set; }
 
         public virtual SpecificationItem SpecificationItem { get; set; }
     }

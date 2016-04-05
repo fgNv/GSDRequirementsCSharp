@@ -2,14 +2,9 @@ namespace GSDRequirementsCSharp.Domain
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("Class")]
-    public partial class Class
+    
+    public class Class
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Class()
         {
             ClassContents = new HashSet<ClassContent>();
@@ -17,19 +12,16 @@ namespace GSDRequirementsCSharp.Domain
             ClassProperties = new HashSet<ClassProperty>();
         }
 
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
-        public int visibility { get; set; }
+        public int Visibility { get; set; }
 
-        public Guid class_diagram_id { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public Guid ClassDiagramId { get; set; }
+        
         public virtual ICollection<ClassContent> ClassContents { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<ClassMethod> ClassMethods { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<ClassProperty> ClassProperties { get; set; }
     }
 }
