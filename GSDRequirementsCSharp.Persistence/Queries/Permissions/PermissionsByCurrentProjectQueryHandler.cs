@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.Permissions;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -26,7 +27,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Permissions
         {
             var projectId = _currentProjectContextId.Get();
             var permissions = _context.Permissions
-                                      .Where(p => p.Project.Id == projectId)
+                                      .Where(p => p.Project.Id == projectId && 
+                                                  p.Profile != Profile.ProjectOwner)
                                       .ToList();
 
             return permissions;

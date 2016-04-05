@@ -1,4 +1,6 @@
 ﻿using GSDRequirementsCSharp.Infrastructure.Authentication;
+using GSDRequirementsCSharp.Web.Context;
+using GSDRequirementsCSharp.Web.Cookies;
 using GSDRequirementsCSharp.Web.Requests.Authentication;
 using System;
 using System.Collections.Generic;
@@ -36,6 +38,7 @@ namespace GSDRequirementsCSharp.Web.Controllers
         {
             var returnUrl = Request.UrlReferrer != null ? Request.UrlReferrer.ToString() : "/";
             FormsAuthentication.SignOut();
+            Response.RemoveCookie(ProjectContext.COOKIE_NAME);
             Session.Abandon();
             return new RedirectResult(returnUrl);
         }
