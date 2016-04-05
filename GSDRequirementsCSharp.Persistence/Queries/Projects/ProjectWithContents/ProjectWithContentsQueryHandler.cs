@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Domain.Queries.Projects
 {
-    public class ProjectWithContentsQueryHandler : IQueryHandler<Guid, Project>
+    internal class ProjectWithContentsQueryHandler : IQueryHandler<Guid, Project>
     {
         private readonly GSDRequirementsContext _context;
 

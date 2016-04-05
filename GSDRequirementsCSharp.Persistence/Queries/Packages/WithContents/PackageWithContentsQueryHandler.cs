@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Packages.WithContents
 {
-    public class PackageWithContentsQueryHandler : IQueryHandler<Guid, Package>
+    internal class PackageWithContentsQueryHandler : IQueryHandler<Guid, Package>
     {
         private readonly GSDRequirementsContext _context;
 

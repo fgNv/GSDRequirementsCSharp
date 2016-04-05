@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
+using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace GSDRequirementsCSharp.Persistence.Authentication
 {
     public class CurrentUserRetriever : ICurrentUserRetriever<User>
     {
-        private readonly GSDRequirementsContext _context;
+        private readonly IQueryHandler<string, User> _userByLoginQueryHandler;
 
-        public CurrentUserRetriever(GSDRequirementsContext context)
+        public CurrentUserRetriever(IQueryHandler<string, User> userByLoginQueryHandler)
         {
-            _context = context;
+            _userByLoginQueryHandler = userByLoginQueryHandler;
         }
 
         public User Get()
         {
             var username = HttpContext.Current.User.Identity.Name;
-            var user = _context.Users.FirstOrDefault(u => u.Login == username);
+            var user = _userByLoginQueryHandler.Handle(username);
             return user;
         }
     }

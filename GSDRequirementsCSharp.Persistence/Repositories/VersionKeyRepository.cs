@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    public class VersionKeyRepository<T> : IRepository<T, VersionKey>
+    internal class VersionKeyRepository<T> : IRepository<T, VersionKey>
         where T : class, IEntity<VersionKey>
     {
         private readonly GSDRequirementsContext _context;

@@ -7,13 +7,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class classmethodreturntyperequired : IMigrationMetadata
+    public sealed partial class initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(classmethodreturntyperequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604042350384_class-method-return-type-required"; }
+            get { return "201604051129040_initial-migration"; }
         }
         
         string IMigrationMetadata.Source

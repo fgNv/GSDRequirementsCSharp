@@ -16,7 +16,7 @@ namespace GSDRequirementsCSharp.Domain
             IssueComments = new HashSet<IssueComment>();
             Projects = new HashSet<Project>();
             Requirements = new HashSet<Requirement>();
-            Profiles = new HashSet<Profile>();
+            Permissions = new HashSet<Permission>();
         }
         
         public int Id { get; set; }
@@ -41,6 +41,8 @@ namespace GSDRequirementsCSharp.Domain
         
         public virtual ICollection<Requirement> Requirements { get; set; }
         
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
+
+
     }
 }

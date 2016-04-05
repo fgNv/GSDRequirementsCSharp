@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.LastVersion
 {
-    public class LastVersionRequirementQueryHandler : IQueryHandler<LastVersionRequirementQuery, Requirement>
+    internal class LastVersionRequirementQueryHandler : IQueryHandler<LastVersionRequirementQuery, Requirement>
     {
         private readonly GSDRequirementsContext _context;
 

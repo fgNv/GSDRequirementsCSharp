@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithRequirements
 {
-    public class SpecificationItemWithRequirementsQueryHandler : IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItem>
+    internal class SpecificationItemWithRequirementsQueryHandler : IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItem>
     {
         private readonly GSDRequirementsContext _context;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    public class AuthenticationUserRepository : IUserRepository<User>
+    internal class AuthenticationUserRepository : IUserRepository<User>
     {
         private readonly GSDRequirementsContext _context;
 

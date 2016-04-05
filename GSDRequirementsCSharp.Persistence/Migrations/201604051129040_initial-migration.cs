@@ -12,8 +12,8 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        locale = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        name = c.String(nullable: false, maxLength: 100, storeType: "nvarchar"),
+                        locale = c.String(nullable: false, maxLength: 10, unicode: false),
+                        name = c.String(nullable: false, maxLength: 100, unicode: false),
                     })
                 .PrimaryKey(t => new { t.id, t.locale });
             
@@ -44,7 +44,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        return_type = c.String(nullable: false, maxLength: 100, unicode: false),
+                        return_type = c.String(maxLength: 100, unicode: false),
                         visibility = c.Int(nullable: false),
                         class_id = c.Guid(nullable: false),
                     })
@@ -57,10 +57,10 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        locale = c.String(nullable: false, maxLength: 10, unicode: false),
+                        Locale = c.String(nullable: false, maxLength: 10, unicode: false),
                         name = c.String(nullable: false, maxLength: 100, unicode: false),
                     })
-                .PrimaryKey(t => new { t.id, t.locale })
+                .PrimaryKey(t => new { t.id, t.Locale })
                 .ForeignKey("dbo.ClassMethod", t => t.id)
                 .Index(t => t.id);
             
@@ -262,16 +262,19 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 .Index(t => t.id);
             
             CreateTable(
-                "dbo.Profile",
+                "dbo.Permission",
                 c => new
                     {
-                        id = c.Guid(nullable: false),
+                        Id = c.Guid(nullable: false),
                         project_id = c.Guid(nullable: false),
-                        name = c.String(maxLength: 100, unicode: false),
+                        profile = c.Int(nullable: false),
+                        user_id = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.id)
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.User", t => t.user_id, cascadeDelete: true)
                 .ForeignKey("dbo.Project", t => t.project_id)
-                .Index(t => t.project_id);
+                .Index(t => t.project_id)
+                .Index(t => t.user_id);
             
             CreateTable(
                 "dbo.ProjectContent",
@@ -344,19 +347,6 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                     })
                 .PrimaryKey(t => t.id);
             
-            CreateTable(
-                "dbo.User_Profile",
-                c => new
-                    {
-                        profile_id = c.Guid(nullable: false),
-                        user_id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.profile_id, t.user_id })
-                .ForeignKey("dbo.Profile", t => t.profile_id, cascadeDelete: true)
-                .ForeignKey("dbo.User", t => t.user_id, cascadeDelete: true)
-                .Index(t => t.profile_id)
-                .Index(t => t.user_id);
-            
         }
         
         public override void Down()
@@ -375,9 +365,8 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropForeignKey("dbo.RequirementContent", new[] { "id", "version" }, "dbo.Requirement");
             DropForeignKey("dbo.Requirement", "project_id", "dbo.Project");
             DropForeignKey("dbo.ProjectContent", "project_id", "dbo.Project");
-            DropForeignKey("dbo.Profile", "project_id", "dbo.Project");
-            DropForeignKey("dbo.User_Profile", "user_id", "dbo.User");
-            DropForeignKey("dbo.User_Profile", "profile_id", "dbo.Profile");
+            DropForeignKey("dbo.Permission", "project_id", "dbo.Project");
+            DropForeignKey("dbo.Permission", "user_id", "dbo.User");
             DropForeignKey("dbo.Package", "project_id", "dbo.Project");
             DropForeignKey("dbo.PackageContent", "id", "dbo.Package");
             DropForeignKey("dbo.Requirement", "ContactId", "dbo.Contact");
@@ -389,13 +378,12 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropForeignKey("dbo.ClassMethodParameterContent", "id", "dbo.ClassMethodParameter");
             DropForeignKey("dbo.ClassMethodContent", "id", "dbo.ClassMethod");
             DropForeignKey("dbo.ClassContent", "id", "dbo.Class");
-            DropIndex("dbo.User_Profile", new[] { "user_id" });
-            DropIndex("dbo.User_Profile", new[] { "profile_id" });
             DropIndex("dbo.UserCase", new[] { "SpecificationItem_Id" });
             DropIndex("dbo.RequirementRisk", new[] { "Requirement_Id", "Requirement_Version" });
             DropIndex("dbo.RequirementContent", new[] { "id", "version" });
             DropIndex("dbo.ProjectContent", new[] { "project_id" });
-            DropIndex("dbo.Profile", new[] { "project_id" });
+            DropIndex("dbo.Permission", new[] { "user_id" });
+            DropIndex("dbo.Permission", new[] { "project_id" });
             DropIndex("dbo.PackageContent", new[] { "id" });
             DropIndex("dbo.Package", "package_identifier");
             DropIndex("dbo.Project", "project_identifier");
@@ -418,13 +406,12 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("dbo.ClassMethodContent", new[] { "id" });
             DropIndex("dbo.ClassMethod", new[] { "class_id" });
             DropIndex("dbo.ClassContent", new[] { "id" });
-            DropTable("dbo.User_Profile");
             DropTable("dbo.ClassRelationship");
             DropTable("dbo.UserCase");
             DropTable("dbo.RequirementRisk");
             DropTable("dbo.RequirementContent");
             DropTable("dbo.ProjectContent");
-            DropTable("dbo.Profile");
+            DropTable("dbo.Permission");
             DropTable("dbo.PackageContent");
             DropTable("dbo.Package");
             DropTable("dbo.Project");

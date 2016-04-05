@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
 {
-    public class PackagesPaginatedQueryHandler : IQueryHandler<PackagesPaginatedQuery, PackagesPaginatedQueryResult>
+    internal class PackagesPaginatedQueryHandler : IQueryHandler<PackagesPaginatedQuery, PackagesPaginatedQueryResult>
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;

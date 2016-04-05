@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Queries.Projects
 {
-    public class ProjectWithCurrentCultureContentsQueryHandler : IQueryHandler<Guid, ProjectWithCurrentCultureContentsQueryResult>
+    internal class ProjectWithCurrentCultureContentsQueryHandler : IQueryHandler<Guid, ProjectWithCurrentCultureContentsQueryResult>
     {
         private readonly GSDRequirementsContext _context;
 

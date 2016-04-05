@@ -11,7 +11,7 @@ using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries
 {
-    public class RequirementsPaginatedQueryHandler : IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult>
+    internal class RequirementsPaginatedQueryHandler : IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult>
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;

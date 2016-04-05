@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    public class GenericRepository<TEntity, TKey> : IRepository<TEntity, TKey>
+    internal class GenericRepository<TEntity, TKey> : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
         private readonly GSDRequirementsContext _context;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Context
 {
-    public class CommandHandlerSaveChangesDecorator<T> :
+    internal class CommandHandlerSaveChangesDecorator<T> :
         ICommandHandler<T>
         where T : ICommand
     {

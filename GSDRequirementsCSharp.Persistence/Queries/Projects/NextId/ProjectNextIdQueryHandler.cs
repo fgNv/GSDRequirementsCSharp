@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Projects.NextId
 {
-    public class ProjectNextIdQueryHandler : IQueryHandler<ProjectNextIdQuery, int>
+    internal class ProjectNextIdQueryHandler : IQueryHandler<ProjectNextIdQuery, int>
     {
         private readonly GSDRequirementsContext _context;
 

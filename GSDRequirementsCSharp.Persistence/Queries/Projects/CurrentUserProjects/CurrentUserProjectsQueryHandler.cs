@@ -30,7 +30,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
         }
     }
 
-    public class CurrentUserProjectsQueryHandler : IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult>
+    internal class CurrentUserProjectsQueryHandler : IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult>
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    public class GenericLocaleRepository<T> : IRepository<T, LocaleKey>
+    internal class GenericLocaleRepository<T> : IRepository<T, LocaleKey>
         where T : class, IEntity<LocaleKey>
     {
         private readonly GSDRequirementsContext _context;

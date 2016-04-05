@@ -15,7 +15,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject
 
     }
 
-    public class PackagesCurrentProjectQueryHandler : IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>>
+    internal class PackagesCurrentProjectQueryHandler : IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>>
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;

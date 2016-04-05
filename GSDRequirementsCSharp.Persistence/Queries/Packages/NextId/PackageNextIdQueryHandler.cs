@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries
 {
-    public class PackageNextIdQueryHandler : IQueryHandler<PackageNextIdQuery, int>
+    internal class PackageNextIdQueryHandler : IQueryHandler<PackageNextIdQuery, int>
     {
         private readonly GSDRequirementsContext _context;
 
