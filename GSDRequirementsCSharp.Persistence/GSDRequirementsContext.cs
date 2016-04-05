@@ -54,14 +54,8 @@ namespace GSDRequirementsCSharp.Persistence
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-                        
-            modelBuilder.Entity<Actor>()
-                .Property(e => e.name)
-                .IsUnicode(false);
 
-            modelBuilder.Entity<Actor>()
-                .Property(e => e.locale)
-                .IsUnicode(false);
+            modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new ClassMapping());
             modelBuilder.Configurations.Add(new ClassContentMapping());
             modelBuilder.Configurations.Add(new ClassDiagramMapping());
@@ -77,8 +71,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new IssueCommentMapping());
 
             modelBuilder.Configurations.Add(new ProfileMapping());
-
-            modelBuilder.Configurations.Add(new ActorMapping());
+            
             modelBuilder.Configurations.Add(new PackageMapping());
             modelBuilder.Configurations.Add(new PackageContentMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());

@@ -14,6 +14,12 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         {
             ToTable("Actor");
             HasKey(a => new { a.id, a.locale });
+
+            Property(e => e.name)
+               .IsUnicode(false);
+
+            Property(e => e.locale)
+                .IsUnicode(false);
         }
     }
 }
