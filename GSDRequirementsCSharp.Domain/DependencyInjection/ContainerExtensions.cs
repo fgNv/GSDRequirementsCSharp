@@ -18,9 +18,9 @@ namespace GSDRequirementsCSharp.Domain.DependencyInjection
                                                            Lifestyle lifestyle)
         {     
             container.Register(typeof(ICommandHandler<>), 
-                                         new[] { typeof(ContainerExtensions).Assembly });
+                                         new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
             container.Register(typeof(IQueryHandler<,>),
-                                         new[] { typeof(ContainerExtensions).Assembly });
+                                         new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
             container.Register<ICredentialsValidator, LocalCredentialsValidator>(lifestyle);
 
         }

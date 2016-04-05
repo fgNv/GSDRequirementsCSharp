@@ -462,4 +462,31 @@
   <data name="translationsIsOutdated" xml:space="preserve">
     <value>Translations is outdated</value>
   </data>
+  <data name="manageProjectUsers" xml:space="preserve">
+    <value>Manage project users</value>
+  </data>
+  <data name="filterByName" xml:space="preserve">
+    <value>Filter by name</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="undo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="errorGrantingPermissions" xml:space="preserve">
+    <value>Error granting permissions</value>
+  </data>
+  <data name="permissionsSuccessfullyGranted" xml:space="preserve">
+    <value>Permissions successfully granted</value>
+  </data>
+  <data name="errorLoadingPermissions" xml:space="preserve">
+    <value>Error loading permissions</value>
+  </data>
+  <data name="addPermissions" xml:space="preserve">
+    <value>Add permissions</value>
+  </data>
+  <data name="noPermissionRegistered" xml:space="preserve">
+    <value>No permission registered</value>
+  </data>
 </root>

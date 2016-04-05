@@ -23,4 +23,7 @@
     export declare var requirementUpdatedSuccessfully: string;
     export declare var requirementSuccessfullyCreated: string;
     export declare var errorSavingRequirement: string;
+    export declare var permissionsSuccessfullyGranted: string;
+    export declare var errorGrantingPermissions: string;
+    export declare var errorLoadingPermissions: string;
 }

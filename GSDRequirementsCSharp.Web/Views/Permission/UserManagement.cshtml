@@ -1,6 +1,90 @@
-﻿
-@{ 
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<h2>Gerenciar usuários do projeto</h2>
+<div data-ng-controller="PermissionController">
+
+    <script type="text/ng-template" id="permissionAddModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">@Sentences.addPermissions</h3>
+        </div>
+        <div class="modal-body" data-ng-form="" data-name="permissionForm">
+
+
+        </div>
+        <div class="modal-footer">
+            <div class="btn-group">
+                <button class="btn btn-default"
+                        data-ng-click="cancel()">
+                    @Sentences.cancel
+                </button>
+                <button class="btn btn-primary"
+                        data-ng-disabled="!permissionForm.$valid"
+                        data-ng-click="conclude()">
+                    @Sentences.save
+                </button>
+            </div>
+        </div>
+    </script>
+
+    <h2>
+        @Sentences.manageProjectUsers
+        <button class="btn btn-primary"
+                title="@Sentences.addRequirement"
+                data-ng-click="showAddPermissionsModal()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <div class="alert alert-info" data-ng-show="permissions.length == 0">
+        @Sentences.noPermissionRegistered
+    </div>
+
+    <article data-ng-show="permissions.length > 0">
+        <div class="form-group">
+            <label>@Sentences.filterByName</label>
+            <input type="text" data-ng-model="nameFilter" class="form-control" />
+        </div>
+
+        <div style="height: 250px; overflow-x: auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.name</th>
+                        <th>@Sentences.email</th>
+                        <th>@Sentences.profile</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="permission in permissions">
+                        <th>permission.user.contact.name</th>
+                        <th>permission.user.contact.email</th>
+                        <th>
+                            <select class="form-control"
+                                    data-ng-options="profile.value as profile.label
+                                                 for profile in profileOptions"
+                                    data-ng-model="permission.profile"></select>
+                        </th>
+                        <th>
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+
+    <div class="button-group">
+        <button class="btn btn-default">
+            @Sentences.undo
+        </button>
+        <button class="btn btn-primary">
+            @Sentences.save
+        </button>
+    </div>
+</div>

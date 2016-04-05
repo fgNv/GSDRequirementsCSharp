@@ -106,6 +106,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add permissions.
+        /// </summary>
+        public static string addPermissions {
+            get {
+                return ResourceManager.GetString("addPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add project.
         /// </summary>
         public static string addProject {
@@ -394,6 +403,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error granting permissions.
+        /// </summary>
+        public static string errorGrantingPermissions {
+            get {
+                return ResourceManager.GetString("errorGrantingPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error inactivating package.
         /// </summary>
         public static string errorInactivatingPackage {
@@ -426,6 +444,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorLoadingPackages {
             get {
                 return ResourceManager.GetString("errorLoadingPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading permissions.
+        /// </summary>
+        public static string errorLoadingPermissions {
+            get {
+                return ResourceManager.GetString("errorLoadingPermissions", resourceCulture);
             }
         }
         
@@ -480,6 +507,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorSavingUserAccount {
             get {
                 return ResourceManager.GetString("errorSavingUserAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by name.
+        /// </summary>
+        public static string filterByName {
+            get {
+                return ResourceManager.GetString("filterByName", resourceCulture);
             }
         }
         
@@ -610,6 +646,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage project users.
+        /// </summary>
+        public static string manageProjectUsers {
+            get {
+                return ResourceManager.GetString("manageProjectUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage users.
         /// </summary>
         public static string manageUsers {
@@ -678,6 +723,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string noPackageRegistered {
             get {
                 return ResourceManager.GetString("noPackageRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No permission registered.
+        /// </summary>
+        public static string noPermissionRegistered {
+            get {
+                return ResourceManager.GetString("noPermissionRegistered", resourceCulture);
             }
         }
         
@@ -808,11 +862,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permissions successfully granted.
+        /// </summary>
+        public static string permissionsSuccessfullyGranted {
+            get {
+                return ResourceManager.GetString("permissionsSuccessfullyGranted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
         public static string phone {
             get {
                 return ResourceManager.GetString("phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string profile {
+            get {
+                return ResourceManager.GetString("profile", resourceCulture);
             }
         }
         
@@ -1029,6 +1101,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string type {
             get {
                 return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undo.
+        /// </summary>
+        public static string undo {
+            get {
+                return ResourceManager.GetString("undo", resourceCulture);
             }
         }
         
