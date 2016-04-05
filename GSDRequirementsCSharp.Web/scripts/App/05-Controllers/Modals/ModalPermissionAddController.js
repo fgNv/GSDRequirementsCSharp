@@ -4,9 +4,10 @@ var Controllers;
     var ModalPermissionAddController = (function () {
         function ModalPermissionAddController($scope, $uibModalInstance, UserResource) {
             this.UserResource = UserResource;
-            $scope.profileOptions = Globals.enumerateEnum(Models.profile);
+            $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile), function (i) { return i.value != Models.profile.projectOwner; });
             $scope.loadingUsers = false;
-            $scope.permissions = [];
+            $scope.permission = {};
+            $scope.permission.profile = Models.profile.editor;
             $scope.getUserLabel = function (user) {
                 if (!user)
                     return "";
@@ -27,7 +28,7 @@ var Controllers;
                 });
             };
             $scope.conclude = function () {
-                $uibModalInstance.close($scope.permissions);
+                $uibModalInstance.close($scope.permission);
             };
             $scope.cancel = function () {
                 $uibModalInstance.dismiss('cancel');

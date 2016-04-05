@@ -10,7 +10,10 @@ var Controllers;
             $scope.save = function () { return _this.Save(PermissionResource, $scope); };
             $scope.pendingRequests = 0;
             $scope.permissions = [];
-            $scope.profileOptions = Globals.enumerateEnum(Models.profile);
+            $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile), function (i) { return i.value != Models.profile.projectOwner; });
+            $scope.removePermission = function (p) {
+                $scope.permissions = _.filter($scope.permissions, function (i) { return i != p; });
+            };
             $scope.showAddPermissionsModal = function () {
                 var modal = $uibModal.open({
                     templateUrl: 'permissionAddModal.html',
@@ -18,7 +21,7 @@ var Controllers;
                     size: 'md'
                 });
                 modal.result.then(function (data) {
-                    $scope.permissions = _.union($scope.permissions, data);
+                    $scope.permissions.push(data);
                 });
             };
             this.LoadPermissions($scope, PermissionResource);
@@ -28,7 +31,7 @@ var Controllers;
             permissionResource.query()
                 .$promise
                 .then(function (response) {
-                $scope.permissions = response;
+                $scope.permissions = _.map(response, function (d) { return new Models.Permission(d); });
             })
                 .catch(function (error) {
                 Notification.notifyError(Sentences.errorLoadingPermissions, error.messages);
@@ -39,7 +42,12 @@ var Controllers;
         };
         PermissionController.prototype.Save = function (permissionResource, $scope) {
             $scope.pendingRequests++;
-            permissionResource.save($scope.permissions)
+            $scope.permissions = _.map($scope.permissions, function (p) {
+                p.userId = p.user.id;
+                return p;
+            });
+            var request = { items: $scope.permissions };
+            permissionResource.save(request)
                 .$promise
                 .then(function (response) {
                 Notification.notifySuccess(Sentences.permissionsSuccessfullyGranted);

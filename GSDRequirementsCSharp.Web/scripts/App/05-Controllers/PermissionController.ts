@@ -20,7 +20,12 @@
             $scope.pendingRequests = 0
             $scope.permissions = []
 
-            $scope.profileOptions = Globals.enumerateEnum(Models.profile)
+            $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile),
+                (i) => i.value != Models.profile.projectOwner)
+
+            $scope.removePermission = (p): void=> {
+                $scope.permissions = _.filter($scope.permissions,(i) => i != p)
+            }
 
             $scope.showAddPermissionsModal = () => {
                 var modal = $uibModal.open({
@@ -29,7 +34,7 @@
                     size: 'md'
                 });
                 modal.result.then((data): void => {
-                    $scope.permissions = _.union($scope.permissions, data)
+                    $scope.permissions.push(data)
                 });
             }
 
@@ -41,7 +46,7 @@
             permissionResource.query()
                 .$promise
                 .then((response: any): void => {
-                    $scope.permissions = response
+                    $scope.permissions = _.map(response, (d) => new Models.Permission(d))
                 })
                 .catch((error: any): void => {
                     Notification.notifyError(Sentences.errorLoadingPermissions,
@@ -53,8 +58,15 @@
         }
         private Save(permissionResource: any, $scope: any): void {
             $scope.pendingRequests++;
+            
+            $scope.permissions = _.map($scope.permissions, (p) => {
+                p.userId = p.user.id
+                return p
+            })
 
-            permissionResource.save($scope.permissions)
+            var request = { items: $scope.permissions}
+
+            permissionResource.save(request)
                 .$promise
                 .then((response): void => {
                     Notification.notifySuccess(Sentences.permissionsSuccessfullyGranted);

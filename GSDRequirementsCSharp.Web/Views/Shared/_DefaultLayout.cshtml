@@ -135,6 +135,7 @@
                        href="#"
                        title="@Sentences.changeLanguage"
                        data-toggle="dropdown" id="navLogin">
+                        <span class="glyphicon glyphicon-globe"></span>
                         @currentLocale.Label
                         <span class="caret"></span>
                     </a>
@@ -143,6 +144,12 @@
                     </div>
                 </li>
                 <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <strong>@HttpContext.Current.User.Identity.Name</strong>
+                    </a>
+                </li>
+                <li>                    
                     <a href="@Url.Action("Logout", "Authentication")">
                         @Sentences.logout
                     </a>

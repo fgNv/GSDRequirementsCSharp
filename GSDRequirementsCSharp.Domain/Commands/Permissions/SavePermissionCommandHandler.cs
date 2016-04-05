@@ -15,6 +15,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
         private readonly IQueryHandler<PermissionsByCurrentProjectQuery, IEnumerable<Permission>> _permissionsByCurrentProjectQueryHandler;
         private readonly IRepository<Permission, Guid> _permissionRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
+       // private readonly IRepository<Project, Guid> _projectRepository;
 
         public SavePermissionCommandHandler(IQueryHandler<PermissionsByCurrentProjectQuery, IEnumerable<Permission>> permissionsByCurrentProjectQueryHandler,
                                             IRepository<Permission, Guid> permissionRepository,
@@ -41,6 +42,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
             }
 
             var projectId = _currentProjectContextId.Get();
+            //var project = _projectRepository.Get(projectId);
             foreach (var item in command.Items)
             {
                 if (currentPermissions.Any(cp => cp.UserId == item.UserId))

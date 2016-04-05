@@ -4,8 +4,9 @@
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<div data-ng-controller="PermissionController">
-    
+<div data-ng-controller="PermissionController"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
     <script type="text/ng-template" id="permissionAddModal.html">
         <div class="modal-header">
             <h3 class="modal-title">@Sentences.addPermissions</h3>
@@ -16,14 +17,16 @@
                     <label for="userForm"
                            title="@Sentences.searchForAnUserByNameOrEmail">
                         @Sentences.user
-                    </label>                   
-                    <input type="text" 
+                    </label>
+                    <input type="text"
                            id="userForm"
-                           data-ng-model="userSelected" 
-                           placeholder="@Sentences.searchForAnUserByNameOrEmail" 
-                           data-typeahead-loading="loadingUsers" 
+                           data-ng-model="permission.user"
+                           placeholder="@Sentences.searchForAnUserByNameOrEmail"
+                           data-typeahead-loading="loadingUsers"
+                           data-typeahead-min-length="3"
+                           data-typeahead-wait-ms="400"
                            data-typeahead-no-results="noResults"
-                           data-uib-typeahead="user as getUserLabel(user) for user in getUsers($viewValue)"                                                      
+                           data-uib-typeahead="user as getUserLabel(user) for user in getUsers($viewValue)"
                            class="form-control">
                     <i data-ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
                     <div data-ng-show="noResults">
@@ -71,12 +74,16 @@
     </div>
 
     <article data-ng-show="permissions.length > 0">
-        <div class="form-group">
-            <label>@Sentences.filterByName</label>
-            <input type="text" data-ng-model="nameFilter" class="form-control" />
-        </div>
+      <!--  <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@Sentences.filterByName</label>
+                    <input type="text" data-ng-model="nameFilter" class="form-control" />
+                </div>
+            </div>
+        </div>-->
 
-        <div style="height: 250px; overflow-x: auto">
+        <div style="max-height: 250px; overflow-x: auto">
             <table class="table">
                 <thead>
                     <tr>
@@ -88,19 +95,20 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="permission in permissions">
-                        <th>permission.user.contact.name</th>
-                        <th>permission.user.contact.email</th>
-                        <th>
+                        <td>{{permission.user.name}}</td>
+                        <td>{{permission.user.email}}</td>
+                        <td>
                             <select class="form-control"
                                     data-ng-options="profile.value as profile.label
                                                  for profile in profileOptions"
                                     data-ng-model="permission.profile"></select>
-                        </th>
-                        <th>
-                            <button class="btn btn-default">
+                        </td>
+                        <td>
+                            <button class="btn btn-default"
+                                    data-ng-click="removePermission(permission)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
-                        </th>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -111,7 +119,8 @@
         <button class="btn btn-default">
             @Sentences.undo
         </button>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary"
+                data-ng-click="save()">
             @Sentences.save
         </button>
     </div>

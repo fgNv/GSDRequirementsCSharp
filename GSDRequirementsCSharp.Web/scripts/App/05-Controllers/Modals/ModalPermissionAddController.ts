@@ -10,9 +10,12 @@
             $uibModalInstance: any,
             private UserResource: any) {
             
-            $scope.profileOptions = Globals.enumerateEnum(Models.profile)
+            $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile),
+                (i) => i.value != Models.profile.projectOwner)
+
             $scope.loadingUsers = false;
-            $scope.permissions = []
+            $scope.permission = {}
+            $scope.permission.profile = Models.profile.editor
 
             $scope.getUserLabel = (user) => {
                 if (!user) return "";
@@ -36,7 +39,7 @@
             }
 
             $scope.conclude = () => {
-                $uibModalInstance.close($scope.permissions);
+                $uibModalInstance.close($scope.permission);
             };
 
             $scope.cancel = () => {
