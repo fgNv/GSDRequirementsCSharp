@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Persistence.Authentication
+namespace GSDRequirementsCSharp.Domain.Authentication
 {
     public class LocalCredentialsValidator : ICredentialsValidator
     {

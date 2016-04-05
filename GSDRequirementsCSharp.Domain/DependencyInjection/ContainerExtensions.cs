@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain.Authentication;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using SimpleInjector;
@@ -20,6 +21,8 @@ namespace GSDRequirementsCSharp.Domain.DependencyInjection
                                          new[] { typeof(ContainerExtensions).Assembly });
             container.Register(typeof(IQueryHandler<,>),
                                          new[] { typeof(ContainerExtensions).Assembly });
+            container.Register<ICredentialsValidator, LocalCredentialsValidator>(lifestyle);
+
         }
     }
 }

@@ -41,7 +41,7 @@ namespace GSDRequirementsCSharp.Persistence
         public virtual DbSet<Issue> Issues { get; set; }
         public virtual DbSet<IssueComment> IssueComments { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
-        public virtual DbSet<Permission> Profiles { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<ProjectContent> ProjectContents { get; set; }
         public virtual DbSet<Requirement> Requirements { get; set; }

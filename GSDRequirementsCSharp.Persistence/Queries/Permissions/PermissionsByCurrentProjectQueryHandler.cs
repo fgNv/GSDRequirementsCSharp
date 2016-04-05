@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Queries.Permissions;
+using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,23 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Permissions
     class PermissionsByCurrentProjectQueryHandler : IQueryHandler<PermissionsByCurrentProjectQuery, IEnumerable<Permission>>
     {
         private readonly GSDRequirementsContext _context;
+        private readonly ICurrentProjectContextId _currentProjectContextId;
 
-        public PermissionsByCurrentProjectQueryHandler(GSDRequirementsContext context)
+        public PermissionsByCurrentProjectQueryHandler(GSDRequirementsContext context,
+                                                       ICurrentProjectContextId currentProjectContextId)
         {
             _context = context;
+            _currentProjectContextId = currentProjectContextId;
         }
 
         public IEnumerable<Permission> Handle(PermissionsByCurrentProjectQuery query)
         {
-            throw new NotImplementedException();
+            var projectId = _currentProjectContextId.Get();
+            var permissions = _context.Permissions
+                                      .Where(p => p.Project.Id == projectId)
+                                      .ToList();
+
+            return permissions;
         }
     }
 }

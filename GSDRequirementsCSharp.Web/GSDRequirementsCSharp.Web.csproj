@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\PackageController.cs" />
+    <Compile Include="Api\PermissionController.cs" />
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\RequirementController.cs" />
     <Compile Include="Api\SpecificationItemController.cs" />
