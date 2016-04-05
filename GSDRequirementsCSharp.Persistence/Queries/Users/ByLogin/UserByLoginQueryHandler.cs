@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.Queries.Users.ByLogin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Users
 {
-    internal class UserByLoginQueryHandler : IQueryHandler<string, User>
+    internal class UserByLoginQueryHandler : IQueryHandler<UserByLoginQuery, User>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -17,9 +18,10 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Users
             _context = context;
         }
 
-        public User Handle(string username)
+        public User Handle(UserByLoginQuery query)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Login == username);
+            var user = _context.Users
+                               .FirstOrDefault(u => u.Login == query.Login);
             return user;
         }
     }

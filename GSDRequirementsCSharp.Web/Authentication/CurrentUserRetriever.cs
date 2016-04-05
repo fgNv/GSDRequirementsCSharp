@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.Queries.Users.ByLogin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace GSDRequirementsCSharp.Persistence.Authentication
 {
     public class CurrentUserRetriever : ICurrentUserRetriever<User>
     {
-        private readonly IQueryHandler<string, User> _userByLoginQueryHandler;
+        private readonly IQueryHandler<UserByLoginQuery, User> _userByLoginQueryHandler;
 
-        public CurrentUserRetriever(IQueryHandler<string, User> userByLoginQueryHandler)
+        public CurrentUserRetriever(IQueryHandler<UserByLoginQuery, User> userByLoginQueryHandler)
         {
             _userByLoginQueryHandler = userByLoginQueryHandler;
         }

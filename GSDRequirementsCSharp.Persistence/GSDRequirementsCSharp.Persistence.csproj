@@ -118,7 +118,11 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
-    <Compile Include="Queries\Users\UserByLoginQueryHandler.cs" />
+    <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
+    <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQuery.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQueryHandler.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UserViewModel.cs" />
     <Compile Include="Repositories\AuthenticationUserRepository.cs" />
     <Compile Include="Repositories\GenericImplementations.cs" />
     <Compile Include="Repositories\GenericLocaleRepository.cs" />

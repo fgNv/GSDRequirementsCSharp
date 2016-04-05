@@ -26,7 +26,7 @@
                 var modal = $uibModal.open({
                     templateUrl: 'permissionAddModal.html',
                     controller: 'ModalPermissionAddController',
-                    size: 'lg'
+                    size: 'md'
                 });
                 modal.result.then((data): void => {
                     $scope.permissions = _.union($scope.permissions, data)

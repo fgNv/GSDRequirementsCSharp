@@ -26,4 +26,5 @@
     export declare var permissionsSuccessfullyGranted: string;
     export declare var errorGrantingPermissions: string;
     export declare var errorLoadingPermissions: string;
+    export declare var errorSearchingUsers: string;
 }

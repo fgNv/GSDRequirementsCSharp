@@ -7,18 +7,39 @@
     
     class ModalPermissionAddController {
         constructor($scope: any,
-            private UserResource: any,
-            $uibModalInstance: any) {
+            $uibModalInstance: any,
+            private UserResource: any) {
             
             $scope.profileOptions = Globals.enumerateEnum(Models.profile)
-
+            $scope.loadingUsers = false;
             $scope.permissions = []
 
-            $scope.conclude = function () {
+            $scope.getUserLabel = (user) => {
+                if (!user) return "";
+                return `${user.name} (${user.email})`
+            }
+
+            $scope.getUsers = (searchTerm) => {
+                $scope.loadingUsers = true;
+                return UserResource.query({ 'searchTerm': searchTerm })
+                                   .$promise
+                                   .then((r) => {
+                                       return r;
+                                   })
+                                   .catch((error) => {
+                                        Notification.notifyError(Sentences.errorSearchingUsers,
+                                           error.messages)
+                                   })
+                                   .finally((r) => {
+                                       $scope.loadingUsers = false
+                                   })
+            }
+
+            $scope.conclude = () => {
                 $uibModalInstance.close($scope.permissions);
             };
 
-            $scope.cancel = function () {
+            $scope.cancel = () => {
                 $uibModalInstance.dismiss('cancel');
             };
         }

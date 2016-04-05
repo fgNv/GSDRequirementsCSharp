@@ -79,6 +79,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add issue.
         /// </summary>
         public static string addIssue {
@@ -259,6 +268,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collaborator.
+        /// </summary>
+        public static string collaborator {
+            get {
+                return ResourceManager.GetString("collaborator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Condition.
         /// </summary>
         public static string condition {
@@ -345,6 +363,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editor.
+        /// </summary>
+        public static string editor {
+            get {
+                return ResourceManager.GetString("editor", resourceCulture);
             }
         }
         
@@ -507,6 +534,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorSavingUserAccount {
             get {
                 return ResourceManager.GetString("errorSavingUserAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error searching users.
+        /// </summary>
+        public static string errorSearchingUsers {
+            get {
+                return ResourceManager.GetString("errorSearchingUsers", resourceCulture);
             }
         }
         
@@ -763,11 +799,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No results.
+        /// </summary>
+        public static string noResults {
+            get {
+                return ResourceManager.GetString("noResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No translation added.
         /// </summary>
         public static string noTranslationAdded {
             get {
                 return ResourceManager.GetString("noTranslationAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observer.
+        /// </summary>
+        public static string observer {
+            get {
+                return ResourceManager.GetString("observer", resourceCulture);
             }
         }
         
@@ -898,6 +952,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project owner.
+        /// </summary>
+        public static string projectOwner {
+            get {
+                return ResourceManager.GetString("projectOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Projects.
         /// </summary>
         public static string projects {
@@ -1015,6 +1078,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search for an user by name or email.
+        /// </summary>
+        public static string searchForAnUserByNameOrEmail {
+            get {
+                return ResourceManager.GetString("searchForAnUserByNameOrEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to See pending Issues.
         /// </summary>
         public static string seePendingIssues {
@@ -1119,6 +1191,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string useCaseDiagrams {
             get {
                 return ResourceManager.GetString("useCaseDiagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string user {
+            get {
+                return ResourceManager.GetString("user", resourceCulture);
             }
         }
         

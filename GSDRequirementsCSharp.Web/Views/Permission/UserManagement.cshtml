@@ -5,14 +5,42 @@
 }
 
 <div data-ng-controller="PermissionController">
-
+    
     <script type="text/ng-template" id="permissionAddModal.html">
         <div class="modal-header">
             <h3 class="modal-title">@Sentences.addPermissions</h3>
         </div>
         <div class="modal-body" data-ng-form="" data-name="permissionForm">
-
-
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="userForm"
+                           title="@Sentences.searchForAnUserByNameOrEmail">
+                        @Sentences.user
+                    </label>                   
+                    <input type="text" 
+                           id="userForm"
+                           data-ng-model="userSelected" 
+                           placeholder="@Sentences.searchForAnUserByNameOrEmail" 
+                           data-typeahead-loading="loadingUsers" 
+                           data-typeahead-no-results="noResults"
+                           data-uib-typeahead="user as getUserLabel(user) for user in getUsers($viewValue)"                                                      
+                           class="form-control">
+                    <i data-ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+                    <div data-ng-show="noResults">
+                        <i class="glyphicon glyphicon-remove"></i> @Sentences.noResults
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profileForm">
+                        @Sentences.profile
+                    </label>
+                    <select class="form-control"
+                            id="profileForm"
+                            data-ng-options="profile.value as profile.label
+                                             for profile in profileOptions"
+                            data-ng-model="permission.profile"></select>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
             <div class="btn-group">
@@ -23,7 +51,7 @@
                 <button class="btn btn-primary"
                         data-ng-disabled="!permissionForm.$valid"
                         data-ng-click="conclude()">
-                    @Sentences.save
+                    @Sentences.add
                 </button>
             </div>
         </div>

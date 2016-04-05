@@ -489,4 +489,31 @@
   <data name="noPermissionRegistered" xml:space="preserve">
     <value>No permission registered</value>
   </data>
+  <data name="searchForAnUserByNameOrEmail" xml:space="preserve">
+    <value>Search for an user by name or email</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="collaborator" xml:space="preserve">
+    <value>Collaborator</value>
+  </data>
+  <data name="editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="observer" xml:space="preserve">
+    <value>Observer</value>
+  </data>
+  <data name="projectOwner" xml:space="preserve">
+    <value>Project owner</value>
+  </data>
+  <data name="noResults" xml:space="preserve">
+    <value>No results</value>
+  </data>
+  <data name="errorSearchingUsers" xml:space="preserve">
+    <value>Error searching users</value>
+  </data>
 </root>
