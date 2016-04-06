@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Web.Filters;
+﻿using GSDRequirementsCSharp.Infrastructure.ServiceProviders;
+using GSDRequirementsCSharp.Web.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace GSDRequirementsCSharp.Web.App_Start
             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new CurrentCultureSetterMvcFilter());
             filters.Add(new HandleMvcException());
+            filters.Add(new UserProfileSetterMvcFilter());
         }
     }
 }

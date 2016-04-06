@@ -8,6 +8,7 @@ using GSDRequirementsCSharp.Persistence.Authentication;
 using GSDRequirementsCSharp.Persistence.DependencyInjection;
 using GSDRequirementsCSharp.Web.Context;
 using SimpleInjector;
+using SimpleInjector.Extensions.LifetimeScoping;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjector.Integration.WebApi;
@@ -49,6 +50,14 @@ namespace GSDRequirementsCSharp.Web.DependencyInjection
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());            
             container.RegisterMvcIntegratedFilterProvider();
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+        }
+
+        public static Container GetScopedContainer()
+        {
+            var container = new Container();
+            var lifestyle = new LifetimeScopeLifestyle();
+            container.RegisterDependencies(lifestyle);
+            return container;
         }
     }
 }

@@ -19,7 +19,8 @@ namespace GSDRequirementsCSharp.Web
     {
         void Application_Start(object sender, EventArgs e)
         {
-            AreaRegistration.RegisterAllAreas();
+            AreaRegistration.RegisterAllAreas();            
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration
                                .Formatters
@@ -34,7 +35,6 @@ namespace GSDRequirementsCSharp.Web
                                .ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             var apiContainer = new Container();
             apiContainer.ConfigureApi();
             var mvcContainer = new Container();

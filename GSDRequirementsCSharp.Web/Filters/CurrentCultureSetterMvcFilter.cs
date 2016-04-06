@@ -18,7 +18,7 @@ namespace GSDRequirementsCSharp.Web.Filters
             var cultureInfo = new CultureInfo(locale);
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
-
+            
             base.OnActionExecuting(filterContext);
         }
     }
