@@ -4,6 +4,7 @@ using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             specificationItem.Package = package;
 
             var currentProjectId = _currentProjectContextId.Get();
-            var project = _projectRepository.Get(currentProjectId);
+            if (currentProjectId == null)
+                throw new Exception(Sentences.noProjectInContext);
+
+            var project = _projectRepository.Get(currentProjectId.Value);
 
             requirement.SpecificationItem = specificationItem;
             requirement.Type = command.RequirementType;

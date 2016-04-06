@@ -11,7 +11,7 @@
     <h2>
         @Sentences.requirements
         <button class="btn btn-primary"
-                data-ng-show="showList()"
+                data-ng-show="hasEditPermission && showList()"
                 title="@Sentences.addRequirement"
                 data-ng-click="currentRequirement = {}">
             <span class="glyphicon glyphicon-plus"></span>

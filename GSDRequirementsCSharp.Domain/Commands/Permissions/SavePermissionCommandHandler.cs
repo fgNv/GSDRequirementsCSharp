@@ -2,6 +2,7 @@
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
             }
 
             var projectId = _currentProjectContextId.Get();
-            //var project = _projectRepository.Get(projectId);
+
+            if (projectId == null)
+                throw new Exception(Sentences.noProjectInContext);
+
             foreach (var item in command.Items)
             {
                 if (currentPermissions.Any(cp => cp.UserId == item.UserId))
@@ -50,7 +54,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
                 var permission = new Permission();
                 permission.Id = Guid.NewGuid();
                 permission.Profile = item.Profile;
-                permission.ProjectId = projectId;
+                permission.ProjectId = projectId.Value;
                 permission.UserId = item.UserId;
                 _permissionRepository.Add(permission);
             }

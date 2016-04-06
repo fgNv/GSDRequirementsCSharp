@@ -45,4 +45,9 @@
     {
        @: GSDRequirements.localesAvailable.push({name:'@locale.Name', label:'@Html.Raw(locale.Label)'});
     }
+
+    @if(ViewBag.Profile != null)
+    {        
+       @: GSDRequirements.currentProfile = @((int)ViewBag.Profile);
+    }
 </script>

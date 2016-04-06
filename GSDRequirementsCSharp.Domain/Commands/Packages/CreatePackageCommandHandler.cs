@@ -4,6 +4,7 @@ using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Persistence;
 using System;
 using System.Collections.Generic;
@@ -56,8 +57,12 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
             var currentUser = _currentUserRetriever.Get();
             package.CreatorId = currentUser.Id;
 
+
             var currentProjectId = _currentProjectContextId.Get();
-            var project = _projectRepository.Get(currentProjectId);
+            if (currentProjectId == null)
+                throw new Exception(Sentences.noProjectInContext);
+
+            var project = _projectRepository.Get(currentProjectId.Value);
             package.Project = project;
             package.Active = true;
 

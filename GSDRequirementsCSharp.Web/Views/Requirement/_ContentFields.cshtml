@@ -1,7 +1,11 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-
 <div class="form-horizontal">
+
+    <input type="hidden" data-ng-init="conditionPlaceholder = '@Sentences.whenTheUserIsAnAdministrator'" />
+    <input type="hidden" data-ng-init="subjectPlaceholder = '@Sentences.theSystem'" />
+    <input type="hidden" data-ng-init="actionPlaceholder = '@Sentences.mustAllowAccessPermissionManagement'" />
+    
     <div class="form-group">
         <label class="col-sm-1 control-label">
             @Sentences.condition
@@ -11,7 +15,7 @@
             <input type="text"
                    class="form-control"
                    data-ng-model="requirement.condition"
-                   placeholder="@Sentences.whenTheUserIsAnAdministrator">
+                   placeholder="{{conditionPlaceholder}}">
         </div>
     </div>
     <div class="form-group">
@@ -22,7 +26,7 @@
             <input type="text"
                    class="form-control"
                    data-ng-model="requirement.subject"
-                   placeholder="@Sentences.theSystem">
+                   placeholder="{{subjectPlaceholder}}">
         </div>
     </div>
     <div class="form-group">
@@ -33,7 +37,7 @@
             <input type="text"
                    class="form-control"
                    data-ng-model="requirement.action"
-                   placeholder="@Sentences.mustAllowAccessPermissionManagement">
+                   placeholder="{{actionPlaceholder}}">
         </div>
     </div>
 </div>

@@ -33,12 +33,14 @@
                 <td>
                     <button class="btn btn-default"
                             type="button"
+                            data-ng-show="hasEditPermission"
                             data-ng-click="inactivateRequirement(r)"
                             title="@Sentences.removeRequirement">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                     <button class="btn btn-default"
                             type="button"
+                            data-ng-show="hasEditPermission"
                             data-ng-click="setCurrentRequirement(r)"
                             title="@Sentences.addNewVersion">
                         <span class="glyphicon glyphicon-plus"></span>
@@ -65,7 +67,7 @@
                             type="button"
                             data-ng-click="setRequirementToTranslate(r)"
                             title="@Sentences.addTranslation"
-                            data-ng-show="r.canAddTranslation()">
+                            data-ng-show="hasEditPermission && r.canAddTranslation()">
                         <span class="glyphicon glyphicon-globe"></span>
                     </button>
                 </td>

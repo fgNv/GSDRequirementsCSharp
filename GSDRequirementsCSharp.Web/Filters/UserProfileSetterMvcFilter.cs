@@ -25,7 +25,7 @@ namespace GSDRequirementsCSharp.Web.Filters
                 var permissionByUserAndProjectQueryHandler = container.GetInstance<IQueryHandler<PermissionByUserAndProjectQuery, Permission>>();
 
                 var currentProjectId = currentProjectContextId.Get();
-                if (currentProjectId == Guid.Empty)
+                if (currentProjectId == null || currentProjectId.Value == Guid.Empty)
                     return;
 
                 var currentUser = currentUserProvider.Get();
@@ -35,13 +35,13 @@ namespace GSDRequirementsCSharp.Web.Filters
                 var query = new PermissionByUserAndProjectQuery
                 {
                     UserId = currentUser.Id,
-                    ProjectId = currentProjectId
+                    ProjectId = currentProjectId.Value
                 };
 
                 var permission = permissionByUserAndProjectQueryHandler.Handle(query);
 
-                if (permission == null)
-                    return;                
+                if (permission != null)
+                    filterContext.Controller.ViewBag.Profile = permission.Profile;                
             }
         }
     }

@@ -12,7 +12,7 @@
     <h2>
         @Sentences.managePackages
         <button class="btn btn-primary"
-                data-ng-show="!currentPackage && !packageToTranslate"
+                data-ng-show="!currentPackage && !packageToTranslate && hasEditPermission"
                 title="@Sentences.addPackage"
                 data-ng-click="currentPackage = {}">
             <span class="glyphicon glyphicon-plus"></span>
@@ -47,17 +47,19 @@
                         <td>
                             <button class="btn btn-default"
                                     title="@Sentences.edit"
+                                    data-ng-show="hasEditPermission"
                                     data-ng-click="setCurrentPackage(package)">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
+                                    data-ng-show="hasEditPermission"
                                     data-ng-click="inactivatePackage(package)"                                    
                                     title="@Sentences.inactivatePackage">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-click="setPackageToTranslate(package)"
-                                    data-ng-show="package.canAddTranslation()"
+                                    data-ng-show="package.canAddTranslation() && hasEditPermission"
                                     title="@Sentences.addTranslation">
                                 <span class="glyphicon glyphicon-globe"></span>
                             </button>

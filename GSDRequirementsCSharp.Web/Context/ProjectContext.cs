@@ -31,12 +31,10 @@ namespace GSDRequirementsCSharp.Web.Context
             return Guid.Parse(cookieValue);
         }
 
-        public Guid Get()
+        public Guid? Get()
         {
-            var projectId = Current();
-            if (projectId == null)
-                throw new Exception(Sentences.noProjectInContext);
-            return projectId.Value;
+            var projectId = Current();            
+            return projectId;
         }
     }
 }

@@ -12,6 +12,9 @@ var Controllers;
             $scope.packages = [];
             var pageSize = 10;
             $scope.pendingRequests = 0;
+            $scope.hasEditPermission =
+                GSDRequirements.currentProfile == Models.profile.editor ||
+                    GSDRequirements.currentProfile == Models.profile.projectOwner;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
                 $scope.loadPackages();

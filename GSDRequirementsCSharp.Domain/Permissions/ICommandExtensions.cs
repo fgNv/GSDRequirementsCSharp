@@ -45,7 +45,7 @@ namespace GSDRequirementsCSharp.Domain.Permissions
 
             var query = new PermissionByUserAndProjectQuery
             {
-                ProjectId = currentProjectId,
+                ProjectId = currentProjectId.Value,
                 UserId = currentUser.Id
             };
             var permission = permissionByUserAndProjectQueryHandler.Handle(query);

@@ -8,6 +8,6 @@ namespace GSDRequirementsCSharp.Infrastructure.Context
 {
     public interface ICurrentProjectContextId
     {
-        Guid Get();
+        Guid? Get();
     }
 }

@@ -10,6 +10,9 @@ var Controllers;
             $scope.maxPages = 1;
             $scope.requirements = [];
             $scope.pendingRequests = 0;
+            $scope.hasEditPermission =
+                GSDRequirements.currentProfile == Models.profile.editor ||
+                    GSDRequirements.currentProfile == Models.profile.projectOwner;
             var pageSize = 10;
             this.SetScopeMethods($scope, RequirementResource, SpecificationItemResource, pageSize);
             this.LoadRequirements(RequirementResource, $scope, pageSize);
