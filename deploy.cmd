@@ -85,7 +85,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 echo Handling node.js deployment.
 
-pushd Web
+pushd GSDRequirementsCSharp.Web
 
 ECHO 1. Select node version
 call :SelectNodeVersion
