@@ -149,7 +149,6 @@
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />
-    <Content Include="Content\vendors.min.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
