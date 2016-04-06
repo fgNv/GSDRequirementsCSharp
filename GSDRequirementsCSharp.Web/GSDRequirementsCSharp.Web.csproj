@@ -144,7 +144,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\Custom.css" />
