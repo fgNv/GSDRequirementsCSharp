@@ -25,6 +25,7 @@
             $scope.originalAction = ''
             $scope.originalSubject = ''
             $scope.originalCondition = ''
+            $scope.originalData = {}
         }
         public controller = ['$scope', 'RequirementTranslationResource',
             ($scope: any, RequirementTranslationResource: any) => {
@@ -57,6 +58,11 @@
                     $scope.originalAction = content.action
                     $scope.originalCondition = content.condition
                     $scope.originalSubject = content.subject
+                    $scope.originalData = {
+                        'action': content.action,
+                        'condition': content.condition,
+                        'subject': content.subject
+                    }
                 })
 
                 $scope.save = () => {

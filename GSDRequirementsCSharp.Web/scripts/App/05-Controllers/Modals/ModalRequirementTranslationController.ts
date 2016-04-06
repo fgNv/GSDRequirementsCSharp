@@ -14,8 +14,22 @@
     }
 
     class ModalRequirementTranslationController {
-        constructor($scope: any, $uibModalInstance: any, translationsAlreadyProvided: any, translationToEdit: any) {
+        constructor($scope: any,
+            $uibModalInstance: any,
+            translationsAlreadyProvided: any,
+            translationToEdit: any,
+            originalData: any) {
             
+            if (originalData) {
+                $scope.conditionPlaceholder = originalData.condition
+                $scope.subjectPlaceholder = originalData.subject
+                $scope.actionPlaceholder = originalData.action
+            } else {
+                $scope.conditionPlaceholder = $scope.defaultConditionPlaceholder
+                $scope.subjectPlaceholder = $scope.defaultSubjectPlaceholder
+                $scope.actionPlaceholder = $scope.defaultActionPlaceholder
+            }
+
             if (translationToEdit) {
                 $scope.requirement = translationToEdit
             } else {
@@ -36,5 +50,5 @@
     }
 
     app.controller('ModalRequirementTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
-        "translationToEdit", ModalRequirementTranslationController]);
+        "translationToEdit", "originalData", ModalRequirementTranslationController]);
 }

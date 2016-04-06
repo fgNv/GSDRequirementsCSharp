@@ -3,7 +3,11 @@ var Directives;
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdRequirementTranslationList = (function () {
         function GsdRequirementTranslationList() {
-            this.scope = { 'translations': '=translations', 'translationsAlreadyProvided': '=translationsAlreadyProvided' };
+            this.scope = {
+                'translations': '=translations',
+                'translationsAlreadyProvided': '=translationsAlreadyProvided',
+                'originalData': '=originalData'
+            };
             this.templateUrl = GSDRequirements.baseUrl + 'requirement/translationList';
             this.controller = ["$scope", "$uibModal", function ($scope, $uibModal) {
                     $scope.translations = [];
@@ -17,7 +21,8 @@ var Directives;
                             size: 'lg',
                             resolve: {
                                 translationsAlreadyProvided: function () { return translationsAlreadyProvided; },
-                                translationToEdit: function () { return translationToEdit; }
+                                translationToEdit: function () { return translationToEdit; },
+                                originalData: function () { return $scope.originalData; }
                             }
                         });
                         return modal;
@@ -49,4 +54,3 @@ var Directives;
     })();
     app.directive('gsdRequirementTranslationList', GsdRequirementTranslationList.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdRequirementTranslationList.js.map

@@ -10,4 +10,3 @@ var Globals;
     }
     Globals.enumerateEnum = enumerateEnum;
 })(Globals || (Globals = {}));
-//# sourceMappingURL=EnumEnumerator.js.map

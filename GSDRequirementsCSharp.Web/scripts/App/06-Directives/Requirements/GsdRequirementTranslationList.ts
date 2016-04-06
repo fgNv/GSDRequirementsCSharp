@@ -6,13 +6,17 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class GsdRequirementTranslationList {
-        public scope = { 'translations': '=translations', 'translationsAlreadyProvided': '=translationsAlreadyProvided' };
+        public scope = {
+            'translations': '=translations',
+            'translationsAlreadyProvided': '=translationsAlreadyProvided',
+            'originalData': '=originalData'
+        };
         public templateUrl = GSDRequirements.baseUrl + 'requirement/translationList'
         public controller = ["$scope", "$uibModal", ($scope: any, $uibModal: any) => {
 
             $scope.translations = []
             $scope.translationsAlreadyProvided = []
-
+            
             function openTranslationModal(translationToEdit) {
                 var translationsAlreadyProvided = _.map($scope.translations, (t) => t.locale)
                 translationsAlreadyProvided = _.union(translationsAlreadyProvided, $scope.translationsAlreadyProvided)
@@ -23,7 +27,8 @@
                     size: 'lg',
                     resolve: {
                         translationsAlreadyProvided: () => translationsAlreadyProvided,
-                        translationToEdit: () => translationToEdit
+                        translationToEdit: () => translationToEdit,
+                        originalData: () => $scope.originalData
                     }
                 });
                 return modal;

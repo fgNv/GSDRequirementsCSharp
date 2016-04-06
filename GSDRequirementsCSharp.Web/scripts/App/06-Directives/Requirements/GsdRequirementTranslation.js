@@ -34,6 +34,11 @@ var Directives;
                         $scope.originalAction = content.action;
                         $scope.originalCondition = content.condition;
                         $scope.originalSubject = content.subject;
+                        $scope.originalData = {
+                            'action': content.action,
+                            'condition': content.condition,
+                            'subject': content.subject
+                        };
                     });
                     $scope.save = function () {
                         $scope.pendingRequests++;
@@ -69,6 +74,7 @@ var Directives;
             $scope.originalAction = '';
             $scope.originalSubject = '';
             $scope.originalCondition = '';
+            $scope.originalData = {};
         };
         GsdRequirementTranslation.Factory = function () {
             return new GsdRequirementTranslation();
@@ -77,4 +83,3 @@ var Directives;
     })();
     app.directive('gsdRequirementTranslation', GsdRequirementTranslation.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdRequirementTranslation.js.map

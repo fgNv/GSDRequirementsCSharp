@@ -8,7 +8,17 @@ var Controllers;
         return translationToEdit && translationToEdit.locale == locale.name;
     }
     var ModalRequirementTranslationController = (function () {
-        function ModalRequirementTranslationController($scope, $uibModalInstance, translationsAlreadyProvided, translationToEdit) {
+        function ModalRequirementTranslationController($scope, $uibModalInstance, translationsAlreadyProvided, translationToEdit, originalData) {
+            if (originalData) {
+                $scope.conditionPlaceholder = originalData.condition;
+                $scope.subjectPlaceholder = originalData.subject;
+                $scope.actionPlaceholder = originalData.action;
+            }
+            else {
+                $scope.conditionPlaceholder = $scope.defaultConditionPlaceholder;
+                $scope.subjectPlaceholder = $scope.defaultSubjectPlaceholder;
+                $scope.actionPlaceholder = $scope.defaultActionPlaceholder;
+            }
             if (translationToEdit) {
                 $scope.requirement = translationToEdit;
             }
@@ -27,6 +37,5 @@ var Controllers;
         return ModalRequirementTranslationController;
     })();
     app.controller('ModalRequirementTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
-        "translationToEdit", ModalRequirementTranslationController]);
+        "translationToEdit", "originalData", ModalRequirementTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalRequirementTranslationController.js.map
