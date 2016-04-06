@@ -8,20 +8,12 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
-    public class UpdateProjectCommand : SaveProjectCommand
+    public class UpdateProjectCommand : IProjectOwnerCommand
     {
         public Guid Id { get; set; }
 
-        public UpdateProjectCommand()
-        {
+        public Guid ProjectId { get { return Id; } }
 
-        }
-
-        public UpdateProjectCommand(Guid id, SaveProjectCommand command)
-        {
-            Id = id;
-            Items = command.Items;
-        }
+        public IEnumerable<ProjectContentItem> Items { get; set; }        
     }
-    
 }

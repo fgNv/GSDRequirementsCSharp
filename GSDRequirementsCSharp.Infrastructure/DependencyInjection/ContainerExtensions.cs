@@ -21,6 +21,7 @@ namespace GSDRequirementsCSharp.Infrastructure.DependencyInjection
                                         lifestyle);
             container.Register<IValidator, DataAnnotationValidator>(lifestyle);
             container.Register<ICryptographer, Sha256Cryptographer>(lifestyle);
+            container.Register<IServiceProvider>(() => container);
         }
     }
 }

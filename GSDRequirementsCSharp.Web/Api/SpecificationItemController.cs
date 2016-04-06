@@ -1,10 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Commands.SpecificationItems;
-using GSDRequirementsCSharp.Infrastructure.CQS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using GSDRequirementsCSharp.Infrastructure;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api

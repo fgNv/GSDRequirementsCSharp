@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
-    public class SaveRequirementCommand : ICommand
+    public class SaveRequirementCommand : IProjectCommand
     {
         [Required]
         public Guid PackageId { get; set; }

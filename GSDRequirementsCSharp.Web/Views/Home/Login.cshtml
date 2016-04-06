@@ -15,7 +15,8 @@
     }
 
     <form action="@Url.Action("Authenticate", "Authentication")"
-          method="post">
+          method="post"
+          style="margin-bottom: 15px">
         <div class="row">
             <div class="col-md-6">
                 @TextInputHelper.TextInput("login", Sentences.username, true)
@@ -26,11 +27,14 @@
                 @TextInputHelper.PasswordInput("password", Sentences.password, true)
             </div>
         </div>
-        <div class="btn-group">
+        <div class="btn-group">            
             <button class="btn btn-primary"
                     type="submit">
                 @Sentences.authenticate
             </button>
         </div>
     </form>
+    <a href="@Url.Action("Index", "Registration")">
+        @Sentences.register
+    </a>
 </div>

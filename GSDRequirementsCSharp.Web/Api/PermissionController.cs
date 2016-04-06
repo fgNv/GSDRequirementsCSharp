@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands.Permissions;
 using GSDRequirementsCSharp.Domain.Queries.Permissions;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;

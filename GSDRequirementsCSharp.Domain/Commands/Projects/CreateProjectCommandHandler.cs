@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Commands.Projects;
 using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.Projects;
 using GSDRequirementsCSharp.Infrastructure;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Commands.Projects
 {
-    class CreateProjectCommandHandler : ICommandHandler<SaveProjectCommand>
+    class CreateProjectCommandHandler : ICommandHandler<CreateProjectCommand>
     {
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly IRepository<ProjectContent, LocaleKey> _projectContentRepository;
@@ -35,7 +36,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Projects
             _permissionRepository = permissionRepository;
         }
 
-        public void Handle(SaveProjectCommand command)
+        public void Handle(CreateProjectCommand command)
         {
             var project = new Project();
             project.Id = Guid.NewGuid();

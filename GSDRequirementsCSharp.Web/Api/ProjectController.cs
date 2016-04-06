@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands.Projects;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence;
 using GSDRequirementsCSharp.Persistence.Commands.Projects;
@@ -17,14 +18,14 @@ namespace GSDRequirementsCSharp.Web.Api
     public class ProjectController : ApiController
     {
         private readonly IQueryHandler<ProjectsPaginatedQuery, ProjectsPaginatedQueryResult> _projectsPaginatedQueryHandler;
-        private readonly ICommandHandler<SaveProjectCommand> _createProjectCommand;
+        private readonly ICommandHandler<CreateProjectCommand> _createProjectCommand;
         private readonly ICommandHandler<UpdateProjectCommand> _updateProjectCommand;
         private readonly IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> _currentUserProjectsQueryHandler;
         private readonly ICommandHandler<InactivateProjectCommand> _inactivateProjectCommand;
         private readonly ICommandHandler<AddProjectTranslationCommand> _addProjectTranslationCommandHandler;
 
         public ProjectController(IQueryHandler<ProjectsPaginatedQuery, ProjectsPaginatedQueryResult> projectsPaginatedQueryHandler,
-                                 ICommandHandler<SaveProjectCommand> createProjectCommand,
+                                 ICommandHandler<CreateProjectCommand> createProjectCommand,
                                  ICommandHandler<UpdateProjectCommand> updateProjectCommand,
                                  IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult> currentUserProjectsQueryHandler,
                                  ICommandHandler<InactivateProjectCommand> inactivateProjectCommand,
@@ -50,15 +51,14 @@ namespace GSDRequirementsCSharp.Web.Api
             return _projectsPaginatedQueryHandler.Handle(query);
         }
 
-        public void Post(SaveProjectCommand command)
+        public void Post(CreateProjectCommand command)
         {
             _createProjectCommand.Handle(command);
         }
 
-        public void Put(Guid id, SaveProjectCommand command)
+        public void Put(UpdateProjectCommand command)
         {
-            var updateCommand = new UpdateProjectCommand(id, command);
-            _updateProjectCommand.Handle(updateCommand);
+            _updateProjectCommand.Handle(command);
         }
 
         public void Delete(Guid id)

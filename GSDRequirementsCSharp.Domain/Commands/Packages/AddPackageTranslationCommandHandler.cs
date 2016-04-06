@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
-    class AddPackageTranslationCommandHandler : IProjectCommandHandler<AddPackageTranslationCommand>
+    class AddPackageTranslationCommandHandler : ICommandHandler<AddPackageTranslationCommand>
     {
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IRepository<PackageContent, LocaleKey> _packageContentRepository;

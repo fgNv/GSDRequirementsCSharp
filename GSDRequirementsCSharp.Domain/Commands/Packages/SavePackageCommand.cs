@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
-    public class SavePackageCommand : ICommand
+    public class SavePackageCommand : IProjectCommand
     {
         [ValidateCollection]        
         public IEnumerable<PackageContentItem> Items { get; set; }        

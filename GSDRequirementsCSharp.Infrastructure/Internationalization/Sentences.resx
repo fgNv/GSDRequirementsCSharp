@@ -516,4 +516,16 @@
   <data name="errorSearchingUsers" xml:space="preserve">
     <value>Error searching users</value>
   </data>
+  <data name="youDontHavePermissionToAccessThisProject" xml:space="preserve">
+    <value>You don't have permission to access this project</value>
+  </data>
+  <data name="youMustHaveEditorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>You must have editor permission for this project to execute this action</value>
+  </data>
+  <data name="projectNotFound" xml:space="preserve">
+    <value>Project not found</value>
+  </data>
+  <data name="youMustBeTheProjectOwnerToExecuteThisAction" xml:space="preserve">
+    <value>You must be the project owner to execute this action</value>
+  </data>
 </root>

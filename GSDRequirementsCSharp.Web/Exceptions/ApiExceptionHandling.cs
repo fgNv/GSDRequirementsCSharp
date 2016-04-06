@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
+using GSDRequirementsCSharp.Infrastructure.Exceptions;
 using GSDRequirementsCSharp.Infrastructure.Validation;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -50,6 +51,13 @@ namespace GSDRequirementsCSharp.Web.Exceptions
         {
             var response = BuildContent(e.Messages);
             response.StatusCode = HttpStatusCode.BadRequest;            
+            context.Response = response;
+        }
+
+        public static void Handle(this PermissionException e, HttpActionExecutedContext context)
+        {
+            var response = BuildContent(new[] { e.Message });
+            response.StatusCode = HttpStatusCode.Forbidden;
             context.Response = response;
         }
     }

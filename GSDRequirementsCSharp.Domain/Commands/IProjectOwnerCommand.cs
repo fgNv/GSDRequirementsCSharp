@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
+namespace GSDRequirementsCSharp.Domain.Commands
 {
-    public class InativateSpecificationItemCommand : IProjectCommand
+    public interface IProjectOwnerCommand : ICommand
     {
-        public Guid Id { get; set; }
+        Guid ProjectId { get; }
     }
 }

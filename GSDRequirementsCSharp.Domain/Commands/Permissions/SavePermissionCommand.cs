@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Permissions
 {
-    public class SavePermissionCommand : ICommand
+    public class SavePermissionCommand : IProjectCommand
     {
         public IEnumerable<PermissionItem> Items { get; set; }
     }

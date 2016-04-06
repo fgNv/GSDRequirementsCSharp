@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
-    public class InactivateProjectCommand : ICommand
+    public class InactivateProjectCommand : IProjectOwnerCommand
     {
         public Guid Id { get; set; }
+
+        public Guid ProjectId { get { return Id; } }
 
         public static implicit operator InactivateProjectCommand(Guid id)
         {

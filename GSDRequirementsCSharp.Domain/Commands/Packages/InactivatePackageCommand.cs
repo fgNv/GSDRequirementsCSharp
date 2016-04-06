@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
-    public class InactivatePackageCommand : ICommand
+    public class InactivatePackageCommand : IProjectCommand
     {
         public Guid Id { get; set; }
 

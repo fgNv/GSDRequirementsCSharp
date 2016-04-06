@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 {
-    class InativateSpecificationItemCommandHandler : IProjectCommandHandler<InativateSpecificationItemCommand>
+    class InativateSpecificationItemCommandHandler : ICommandHandler<InativateSpecificationItemCommand>
     {
         private readonly IRepository<SpecificationItem, Guid> _specificationItemRepository;
 

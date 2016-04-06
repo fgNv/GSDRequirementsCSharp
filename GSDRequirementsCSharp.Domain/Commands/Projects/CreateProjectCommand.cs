@@ -6,13 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Requirements
+namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
-    public class AddRequirementTranslationCommand : IProjectCommand
+    public class CreateProjectCommand : ICommand
     {
-        public Guid Id { get; set; }
-
         [ValidateCollection]
-        public IEnumerable<RequirementContentItem> Items { get; set; }
+        public IEnumerable<ProjectContentItem> Items { get; set; }
     }
 }

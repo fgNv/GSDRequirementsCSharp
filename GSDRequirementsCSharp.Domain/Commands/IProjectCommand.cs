@@ -15,8 +15,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
         only by users with ProjectOwner or Editor permission
      </summary>
      */
-    public interface IProjectCommandHandler<T> : ICommandHandler<T>
-        where T : ICommand
+    public interface IProjectCommand : ICommand
     {
     }
 }

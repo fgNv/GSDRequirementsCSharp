@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
-    class UpdatePackageCommandHandler : IProjectCommandHandler<UpdatePackageCommand>
+    class UpdatePackageCommandHandler : ICommandHandler<UpdatePackageCommand>
     {
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IQueryHandler<Guid, Package> _packageWithContentsQueryHandler;

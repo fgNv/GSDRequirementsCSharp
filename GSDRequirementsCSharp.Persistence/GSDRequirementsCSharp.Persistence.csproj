@@ -103,6 +103,7 @@
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Permissions\PermissionByUserAndProjectQueryHandler.cs" />
     <Compile Include="Queries\Permissions\PermissionsByCurrentProjectQueryHandler.cs" />
     <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
     <Compile Include="Queries\Projects\NextId\ProjectNextIdQueryHandler.cs" />

@@ -952,6 +952,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project not found.
+        /// </summary>
+        public static string projectNotFound {
+            get {
+                return ResourceManager.GetString("projectNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project owner.
         /// </summary>
         public static string projectOwner {
@@ -1249,11 +1258,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You don&apos;t have permission to access this project.
+        /// </summary>
+        public static string youDontHavePermissionToAccessThisProject {
+            get {
+                return ResourceManager.GetString("youDontHavePermissionToAccessThisProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must be logged in.
         /// </summary>
         public static string youMustBeLoggedIn {
             get {
                 return ResourceManager.GetString("youMustBeLoggedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must be the project owner to execute this action.
+        /// </summary>
+        public static string youMustBeTheProjectOwnerToExecuteThisAction {
+            get {
+                return ResourceManager.GetString("youMustBeTheProjectOwnerToExecuteThisAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must have editor permission for this project to execute this action.
+        /// </summary>
+        public static string youMustHaveEditorPermissionForThisProjectToExecuteThisAction {
+            get {
+                return ResourceManager.GetString("youMustHaveEditorPermissionForThisProjectToExecuteThisAction", resourceCulture);
             }
         }
     }
