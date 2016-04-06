@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
-    public class CreateRequirementVersionCommandHandler : ICommandHandler<CreateRequirementVersionCommand>
+    public class CreateRequirementVersionCommandHandler : IProjectCommandHandler<CreateRequirementVersionCommand>
     {
         private readonly IRepository<Requirement, VersionKey> _requirementRepository;
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
-    public class CreatePackageCommandHandler : ICommandHandler<SavePackageCommand>
+    public class CreatePackageCommandHandler : IProjectCommandHandler<SavePackageCommand>
     {
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IRepository<PackageContent, LocaleKey> _packageContentRepository;

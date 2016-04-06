@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
-    public class AddRequirementTranslationCommandHandler : ICommandHandler<AddRequirementTranslationCommand>
+    public class AddRequirementTranslationCommandHandler : IProjectCommandHandler<AddRequirementTranslationCommand>
     {
         private readonly IQueryHandler<LastVersionRequirementQuery, Requirement> _lastVersionRequirementQueryHandler;
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;

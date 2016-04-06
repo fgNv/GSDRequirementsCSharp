@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Infrastructure.CQS
+namespace GSDRequirementsCSharp.Infrastructure
 {
     public interface ICommandHandler<T> where T : ICommand
     {
