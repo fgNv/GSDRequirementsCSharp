@@ -6,7 +6,6 @@
 
     declare var angular: any;
     declare var GSDRequirements: GSDRequirementsData;
-    declare var sentences: any;
     declare var baseUrl: string;
     declare var _: any;
 
@@ -43,7 +42,7 @@
             };
 
             $scope.loadProjects()
-            $scope.pendingRequests = 1
+            $scope.pendingRequests = 0
             this.$scope.UserData = new UserData()
         }
         private InactivateProject(projectResource: any, $scope: any, project: Project): void {

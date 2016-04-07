@@ -241,6 +241,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string changePassword {
+            get {
+                return ResourceManager.GetString("changePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change project in context.
         /// </summary>
         public static string changeProjectInContext {
@@ -327,6 +336,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string currentProject {
             get {
                 return ResourceManager.GetString("currentProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data successfully updated.
+        /// </summary>
+        public static string dataSuccessfullyUpdated {
+            get {
+                return ResourceManager.GetString("dataSuccessfullyUpdated", resourceCulture);
             }
         }
         
@@ -426,6 +444,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorAddingTranslation {
             get {
                 return ResourceManager.GetString("errorAddingTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error changing password.
+        /// </summary>
+        public static string errorChangingPassword {
+            get {
+                return ResourceManager.GetString("errorChangingPassword", resourceCulture);
             }
         }
         
@@ -543,6 +570,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorSearchingUsers {
             get {
                 return ResourceManager.GetString("errorSearchingUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error updating data.
+        /// </summary>
+        public static string errorUpdatingData {
+            get {
+                return ResourceManager.GetString("errorUpdatingData", resourceCulture);
             }
         }
         
@@ -907,6 +943,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password successfully changed.
+        /// </summary>
+        public static string passwordSuccessfullyChanged {
+            get {
+                return ResourceManager.GetString("passwordSuccessfullyChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Permissions.
         /// </summary>
         public static string permissions {
@@ -1191,6 +1236,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string undo {
             get {
                 return ResourceManager.GetString("undo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update profile data.
+        /// </summary>
+        public static string updateProfileData {
+            get {
+                return ResourceManager.GetString("updateProfileData", resourceCulture);
             }
         }
         

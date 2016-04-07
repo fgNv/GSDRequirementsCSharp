@@ -25,7 +25,7 @@ var Controllers;
                 return _.range(1, $scope.maxPages + 1);
             };
             $scope.loadProjects();
-            $scope.pendingRequests = 1;
+            $scope.pendingRequests = 0;
             this.$scope.UserData = new UserData();
         }
         ProjectListController.prototype.InactivateProject = function (projectResource, $scope, project) {
@@ -64,4 +64,3 @@ var Controllers;
     })();
     app.controller('ProjectListController', ["$scope", "ProjectResource", ProjectListController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ProjectListController.js.map

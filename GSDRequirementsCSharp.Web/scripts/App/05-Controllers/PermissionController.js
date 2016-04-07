@@ -24,6 +24,9 @@ var Controllers;
                     $scope.permissions.push(data);
                 });
             };
+            $scope.loadPermissions = function () {
+                _this.LoadPermissions($scope, PermissionResource);
+            };
             this.LoadPermissions($scope, PermissionResource);
         }
         PermissionController.prototype.LoadPermissions = function ($scope, permissionResource) {
@@ -64,4 +67,3 @@ var Controllers;
     app.controller('PermissionController', ["$scope", "PermissionResource", "$uibModal",
         PermissionController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=PermissionController.js.map

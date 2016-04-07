@@ -9,6 +9,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
     public class CreateRequirementVersionCommand : SaveRequirementCommand
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
     }
 }

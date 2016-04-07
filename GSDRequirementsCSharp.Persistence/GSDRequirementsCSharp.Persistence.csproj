@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
     <Compile Include="Queries\Packages\NextId\PackageNextIdQueryHandler.cs" />
     <Compile Include="Queries\Packages\WithContents\PackageWithContentsQueryHandler.cs" />

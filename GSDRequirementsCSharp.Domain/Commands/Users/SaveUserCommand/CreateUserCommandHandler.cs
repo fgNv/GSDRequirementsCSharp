@@ -33,7 +33,7 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
             
             var contact = new Contact();
             contact.Email = command.Email;
-            contact.Id = command.Id;
+            contact.Id = Guid.NewGuid();
             contact.MobilePhone = command.MobilePhone;
             contact.Name = command.Name;
             contact.Phone = command.Phone;

@@ -16,7 +16,7 @@ namespace GSDRequirementsCSharp.Web.App_Start
             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new CurrentCultureSetterMvcFilter());
             filters.Add(new HandleMvcException());
-            filters.Add(new UserProfileSetterMvcFilter());
+            filters.Add(new UserDataSetterMvcFilter());
         }
     }
 }

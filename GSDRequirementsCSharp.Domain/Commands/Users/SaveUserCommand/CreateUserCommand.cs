@@ -10,14 +10,6 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
 {
     public class CreateUserCommand : ICommand
     {
-        public CreateUserCommand()
-        {
-            Id = Guid.NewGuid();
-        }
-
-        [Required]
-        public Guid Id { get; }
-
         [Required]
         [StringLength(50)]
         public string Login { get; set; }
