@@ -12,6 +12,8 @@ using GSDRequirementsCSharp.Web.DependencyInjection;
 using GSDRequirementsCSharp.Web.App_Start;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Data.Entity.Migrations;
+using GSDRequirementsCSharp.Persistence.Migrations;
 
 namespace GSDRequirementsCSharp.Web
 {
@@ -39,6 +41,8 @@ namespace GSDRequirementsCSharp.Web
             apiContainer.ConfigureApi();
             var mvcContainer = new Container();
             mvcContainer.ConfigureMvc();
+
+            MigrationsRunner.RunMigrations();
         }
     }
 }
