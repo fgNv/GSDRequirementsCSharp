@@ -149,6 +149,7 @@
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />
+    <Content Include="Content\Styles\UnderlinedPills.css" />
     <Content Include="Content\Styles\UserNavbar.css" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
@@ -257,8 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Authentication\" />
-    <Folder Include="Views\Internationalization\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
