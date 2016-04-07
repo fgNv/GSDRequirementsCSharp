@@ -95,10 +95,7 @@ IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
 
 goto :EOF
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Deployment
-:: ----------
-
+:Deployment
 
 echo Handling node.js deployment.
 
@@ -131,7 +128,10 @@ IF EXIST "gruntfile.js" (
 
 popd
 
-:Deployment
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Deployment
+:: ----------
+
 echo Handling .NET Web Application deployment.
 
 :: 1. Restore NuGet packages
