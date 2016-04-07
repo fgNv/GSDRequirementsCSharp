@@ -241,6 +241,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string changePassword {
+            get {
+                return ResourceManager.GetString("changePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change project in context.
         /// </summary>
         public static string changeProjectInContext {
@@ -1191,6 +1200,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string undo {
             get {
                 return ResourceManager.GetString("undo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update profile data.
+        /// </summary>
+        public static string updateProfileData {
+            get {
+                return ResourceManager.GetString("updateProfileData", resourceCulture);
             }
         }
         

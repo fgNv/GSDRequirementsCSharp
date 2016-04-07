@@ -1,0 +1,20 @@
+﻿.nav-pills.underlined > .active > a, .nav-pills.underlined > .active > a:hover,
+.nav-pills.underlined > li > a:hover {
+    color: #002666;
+    background-color: transparent !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: #5588ff;
+}
+
+.nav-pills.underlined > li.active > a , 
+li.active > a:hover{
+    color: #335666;
+}
+
+.nav-pills.underlined > li > a {
+    border-radius: 0px;
+}

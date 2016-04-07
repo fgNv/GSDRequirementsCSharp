@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
+
+<div class="navbar-collapse">
+    <input type="hidden" data-ng-init="currentForm = 'contactData'" />
+    <ul class="nav nav-pills underlined">
+        <li role="presentation"
+            data-ng-class="{'active' : currentForm == 'contactData'}">
+            <a href="#"
+               data-ng-click="currentForm = 'contactData'">
+                @Sentences.updateProfileData
+            </a>
+        </li>
+        <li role="presentation"
+            data-ng-class="{'active' : currentForm == 'password'}">
+            <a href="#" data-ng-click="currentForm = 'password'">
+                @Sentences.changePassword
+            </a>
+        </li>
+    </ul>
+
+    <div data-ng-show="currentForm == 'contactData'">
+        <h3>
+            @Sentences.updateProfileData
+        </h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("name", Sentences.name, true, Att.NgModel("UserData.Name"))
+            </div>
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("email", Sentences.email, true, Att.NgModel("UserData.Email"))
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false,
+                                       Att.NgModel("UserData.MobilePhone"),
+                                       Att.NgMaskNumber(),
+                                       Att.Length(10))
+            </div>
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("phone", Sentences.phone, false,
+                                       Att.NgModel("UserData.Phone"),
+                                       Att.NgMaskNumber(), Att.Length(10))
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary"
+                    type="button"
+                    data-ng-click="save()">
+                @Sentences.save
+            </button>
+        </div>
+    </div>
+
+    <div data-ng-show="currentForm == 'password'">
+        <h3>
+            @Sentences.changePassword
+        </h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.PasswordInput("password", Sentences.password, true, Att.NgModel("UserData.Password"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.PasswordInput("passwordConfirmation", Sentences.confirmPassword, true, Att.NgModel("passwordConfirmation"))
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary"
+                    type="button"
+                    data-ng-click="save()">
+                @Sentences.save
+            </button>
+        </div>
+    </div>
+</div>

@@ -528,4 +528,10 @@
   <data name="youMustBeTheProjectOwnerToExecuteThisAction" xml:space="preserve">
     <value>You must be the project owner to execute this action</value>
   </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="updateProfileData" xml:space="preserve">
+    <value>Update profile data</value>
+  </data>
 </root>

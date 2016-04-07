@@ -2,3 +2,15 @@
     color: cornflowerblue;
     background-color: aliceblue;
 }
+
+.collapse.navbar-collapse.in-page {
+    color: #272727;
+    background-color: #FAFAFA;
+}
+
+.collapse.navbar-collapse.in-page .navbar-nav > li > a {
+  color: #333;
+  border-bottom: 1px solid transparent;
+  padding: 0; /*removing spacing*/
+  margin: 14px; /*add spacing*/
+}

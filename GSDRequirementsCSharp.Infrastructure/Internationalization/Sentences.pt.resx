@@ -528,4 +528,10 @@
   <data name="projectNotFound" xml:space="preserve">
     <value>Projeto não encontrado</value>
   </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="updateProfileData" xml:space="preserve">
+    <value>Atualizar dados do perfil</value>
+  </data>
 </root>

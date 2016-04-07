@@ -186,6 +186,7 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequirementController.cs" />
     <Compile Include="Controllers\UseCaseDiagramController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Cookies\ResponseExtensions.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Exceptions\ApiExceptionHandling.cs" />
@@ -246,6 +247,7 @@
     <Content Include="Views\Shared\_TranslationListLayout.cshtml" />
     <Content Include="Views\Requirement\_ContentFields.cshtml" />
     <Content Include="Views\Requirement\_TranslationList.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
