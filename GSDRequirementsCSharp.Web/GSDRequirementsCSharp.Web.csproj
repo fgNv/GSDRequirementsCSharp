@@ -195,7 +195,7 @@
     <Compile Include="Filters\CurrentCultureSetterMvcFilter.cs" />
     <Compile Include="Filters\HandleApiException.cs" />
     <Compile Include="Filters\HandleMvcException.cs" />
-    <Compile Include="Filters\UserProfileSetterMvcFilter.cs" />
+    <Compile Include="Filters\UserDataSetterMvcFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

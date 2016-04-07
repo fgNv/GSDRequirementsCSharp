@@ -11,7 +11,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
     /**
      * 
      <summary>
-        Command handlers that can be executed 
+        Commands that can be executed 
         only by users with ProjectOwner or Editor permission
      </summary>
      */

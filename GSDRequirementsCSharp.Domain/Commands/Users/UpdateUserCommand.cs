@@ -1,23 +1,24 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+namespace GSDRequirementsCSharp.Domain.Commands.Users
 {
-    public class CreateUserCommand : ICommand
+    public class UpdateUserCommand : IUserCommand
     {
+        [Required]
+        public int? Id { get; }
+
+        public int UserId { get { return Id ?? 0; } }
+
         [Required]
         [StringLength(50)]
         public string Login { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Password { get; set; }
-
+        
         [Required]
         [StringLength(100)]
         public string Email { get; set; }
