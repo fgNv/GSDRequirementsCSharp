@@ -6,11 +6,6 @@
       "version": "2.4.1",
       "from": "jasmine-core@*",
       "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz"
-    },
-    "glob": {
-    	"version": "6.0.4",
-    	"from": "grunt@*",
-    	"resolved": "https://registry.npmjs.org/glob/-/glob-6.0.4.tgz"
     }
   }
 }
