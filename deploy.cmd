@@ -141,7 +141,6 @@ IF EXIST "bower.json" (
 ECHO 4. Run grunt Tasks
 IF EXIST "gruntfile.js" (
   call !NPM_CMD! install grunt-cli
-  call !NPM_CMD! install glob@^6.0.4 --save
   IF !ERRORLEVEL! NEQ 0 goto error
   call .\node_modules\.bin\grunt
   IF !ERRORLEVEL! NEQ 0 goto error
