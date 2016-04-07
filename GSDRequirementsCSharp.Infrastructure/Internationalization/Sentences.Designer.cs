@@ -340,6 +340,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data successfully updated.
+        /// </summary>
+        public static string dataSuccessfullyUpdated {
+            get {
+                return ResourceManager.GetString("dataSuccessfullyUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string description {
@@ -435,6 +444,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorAddingTranslation {
             get {
                 return ResourceManager.GetString("errorAddingTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error changing password.
+        /// </summary>
+        public static string errorChangingPassword {
+            get {
+                return ResourceManager.GetString("errorChangingPassword", resourceCulture);
             }
         }
         
@@ -552,6 +570,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorSearchingUsers {
             get {
                 return ResourceManager.GetString("errorSearchingUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error updating data.
+        /// </summary>
+        public static string errorUpdatingData {
+            get {
+                return ResourceManager.GetString("errorUpdatingData", resourceCulture);
             }
         }
         
@@ -912,6 +939,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string passwordAndConfirmationMustMatch {
             get {
                 return ResourceManager.GetString("passwordAndConfirmationMustMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password successfully changed.
+        /// </summary>
+        public static string passwordSuccessfullyChanged {
+            get {
+                return ResourceManager.GetString("passwordSuccessfullyChanged", resourceCulture);
             }
         }
         

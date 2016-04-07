@@ -534,4 +534,16 @@
   <data name="updateProfileData" xml:space="preserve">
     <value>Update profile data</value>
   </data>
+  <data name="dataSuccessfullyUpdated" xml:space="preserve">
+    <value>Data successfully updated</value>
+  </data>
+  <data name="errorChangingPassword" xml:space="preserve">
+    <value>Error changing password</value>
+  </data>
+  <data name="errorUpdatingData" xml:space="preserve">
+    <value>Error updating data</value>
+  </data>
+  <data name="passwordSuccessfullyChanged" xml:space="preserve">
+    <value>Password successfully changed</value>
+  </data>
 </root>

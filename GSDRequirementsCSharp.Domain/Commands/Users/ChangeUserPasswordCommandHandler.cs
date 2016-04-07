@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Cryptography;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,18 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
     public class ChangeUserPasswordCommandHandler : ICommandHandler<ChangeUserPasswordCommand>
     {
         private readonly ICryptographer _cryptographer;
-        private readonly IRepository<User, int> _userRepository;
+        private readonly ICurrentUserRetriever<User> _currentUserRetriever;
 
         public ChangeUserPasswordCommandHandler(ICryptographer cryptographer,
-                                                IRepository<User, int> userRepository)
+                                                ICurrentUserRetriever<User> currentUserRetriever)
         {
             _cryptographer = cryptographer;
-            _userRepository = userRepository;
+            _currentUserRetriever = currentUserRetriever;
         }
 
         public void Handle(ChangeUserPasswordCommand command)
         {
-            var user = _userRepository.Get(command.UserId);
+            var user = _currentUserRetriever.Get();
             user.Password = _cryptographer.Encrypt(command.Password);
         }
     }

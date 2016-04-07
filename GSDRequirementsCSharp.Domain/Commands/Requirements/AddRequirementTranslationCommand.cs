@@ -10,7 +10,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
     public class AddRequirementTranslationCommand : IProjectCommand
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         [ValidateCollection]
         public IEnumerable<RequirementContentItem> Items { get; set; }

@@ -8,17 +8,8 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Users
 {
-    public class UpdateUserCommand : IUserCommand
-    {
-        [Required]
-        public int? Id { get; }
-
-        public int UserId { get { return Id ?? 0; } }
-
-        [Required]
-        [StringLength(50)]
-        public string Login { get; set; }
-        
+    public class UpdateUserCommand : ICommand
+    {                
         [Required]
         [StringLength(100)]
         public string Email { get; set; }

@@ -48,7 +48,6 @@
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
     <Compile Include="Commands\IProjectOwnerCommand.cs" />
-    <Compile Include="Commands\IUserCommand.cs" />
     <Compile Include="Commands\Packages\AddPackageTranslationCommand.cs" />
     <Compile Include="Commands\Packages\AddPackageTranslationCommandHandler.cs" />
     <Compile Include="Commands\Packages\CreatePackageCommandHandler.cs" />

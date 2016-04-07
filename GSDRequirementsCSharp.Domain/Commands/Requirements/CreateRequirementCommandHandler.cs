@@ -50,10 +50,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             var requirement = new Requirement();
             var currentUser = _currentUserRetriever.Get();
             requirement.CreatorId = currentUser.Id;
-            requirement.Difficulty = command.Difficulty;
+            requirement.Difficulty = command.Difficulty.Value;
             requirement.Id = Guid.NewGuid();
             requirement.IsLastVersion = true;
-            requirement.Rank = command.Rank;
+            requirement.Rank = command.Rank.Value;
             
             foreach (var item in command.Items)
             {
@@ -72,7 +72,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             specificationItem.Active = true;
             specificationItem.Id = requirement.Id;
 
-            var package = _packageRepository.Get(command.PackageId);
+            var package = _packageRepository.Get(command.PackageId.Value);
             specificationItem.Package = package;
 
             var currentProjectId = _currentProjectContextId.Get();
@@ -82,7 +82,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             var project = _projectRepository.Get(currentProjectId.Value);
 
             requirement.SpecificationItem = specificationItem;
-            requirement.Type = command.RequirementType;
+            requirement.Type = command.RequirementType.Value;
             requirement.Creator = currentUser;
             requirement.Version = 1;
             requirement.Project = project;

@@ -40,13 +40,13 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             }
 
             var requirement = new Requirement();
-            requirement.Id = command.Id;
+            requirement.Id = command.Id.Value;
             requirement.CreatorId = latestVersion.CreatorId;
-            requirement.Difficulty = command.Difficulty;
+            requirement.Difficulty = command.Difficulty.Value;
             requirement.Identifier = latestVersion.Identifier;
             requirement.IsLastVersion = true; ;
             requirement.ProjectId = latestVersion.ProjectId;
-            requirement.Rank = command.Rank;
+            requirement.Rank = command.Rank.Value;
             
             requirement.SpecificationItem = specificationItem;
             requirement.CreatorId = latestVersion.CreatorId;

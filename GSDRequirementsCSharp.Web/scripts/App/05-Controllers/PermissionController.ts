@@ -24,7 +24,7 @@
                 (i) => i.value != Models.profile.projectOwner)
 
             $scope.removePermission = (p): void=> {
-                $scope.permissions = _.filter($scope.permissions,(i) => i != p)
+                $scope.permissions = _.filter($scope.permissions, (i) => i != p)
             }
 
             $scope.showAddPermissionsModal = () => {
@@ -36,6 +36,10 @@
                 modal.result.then((data): void => {
                     $scope.permissions.push(data)
                 });
+            }
+
+            $scope.loadPermissions = (): void=> {
+                this.LoadPermissions($scope, PermissionResource)
             }
 
             this.LoadPermissions($scope, PermissionResource)
@@ -58,13 +62,13 @@
         }
         private Save(permissionResource: any, $scope: any): void {
             $scope.pendingRequests++;
-            
+
             $scope.permissions = _.map($scope.permissions, (p) => {
                 p.userId = p.user.id
                 return p
             })
 
-            var request = { items: $scope.permissions}
+            var request = { items: $scope.permissions }
 
             permissionResource.save(request)
                 .$promise
