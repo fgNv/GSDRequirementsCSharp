@@ -146,6 +146,9 @@ IF EXIST "gruntfile.js" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
+call del /S /Q .\node_modules
+call del /S /Q .\bower_components
+
 popd
 
 :: 3. KuduSync
