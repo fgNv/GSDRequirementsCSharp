@@ -549,4 +549,7 @@
   <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
     <value>Você deve ter permissão de colaborador para esse projeto para executar essa ação</value>
   </data>
+  <data name="addIssueFor" xml:space="preserve">
+    <value>Adicionar observação para</value>
+  </data>
 </root>

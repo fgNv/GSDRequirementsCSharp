@@ -155,6 +155,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\IssueResource.js" />
     <Content Include="Scripts\App\03-Resources\PermissionResource.js" />
     <Content Include="Scripts\App\03-Resources\RequirementResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectTranslationResource.js" />
@@ -182,6 +183,7 @@
     <Compile Include="Controllers\ClassDiagramController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternationalizationController.cs" />
+    <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -226,7 +228,6 @@
     <Content Include="Views\Requirement\Form.cshtml" />
     <Content Include="Views\Requirement\Links.cshtml" />
     <Content Include="Views\Requirement\List.cshtml" />
-    <Content Include="Views\Requirement\NewIssue.cshtml" />
     <Content Include="Views\Requirement\Translation.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\UseCaseDiagram\Index.cshtml" />
@@ -250,6 +251,8 @@
     <Content Include="Views\Requirement\_ContentFields.cshtml" />
     <Content Include="Views\Requirement\_TranslationList.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Issue\_Create.cshtml" />
+    <Content Include="Views\Issue\_Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -295,6 +298,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\requirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalIssueAddController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPermissionAddController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalRequirementTranslationController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPackageTranslationController.ts" />
@@ -305,6 +309,7 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdIssueCreate.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectContext.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageForm.ts" />

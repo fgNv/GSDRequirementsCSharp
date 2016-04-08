@@ -97,6 +97,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add issue for.
+        /// </summary>
+        public static string addIssueFor {
+            get {
+                return ResourceManager.GetString("addIssueFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new version.
         /// </summary>
         public static string addNewVersion {

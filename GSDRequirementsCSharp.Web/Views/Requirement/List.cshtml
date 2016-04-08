@@ -56,13 +56,11 @@
                             data-ng-click="manageLinks(r)"
                             title="@Sentences.manageLinks">
                         <span class="glyphicon glyphicon-transfer"></span>
-                    </button>
-                    <button class="btn btn-default"
-                            type="button"
-                            data-ng-click="addIssue(r)"
-                            title="@Sentences.addIssue">
-                        <span class="glyphicon glyphicon-comment"></span>
                     </button>-->
+                    <gsd-issue-create data-specification-item-id="r.id"
+                                      data-after-save="loadRequirements">
+                    </gsd-issue-create>
+
                     <button class="btn btn-default"
                             type="button"
                             data-ng-click="setRequirementToTranslate(r)"

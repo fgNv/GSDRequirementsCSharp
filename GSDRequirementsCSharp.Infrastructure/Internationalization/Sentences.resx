@@ -549,4 +549,7 @@
   <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
     <value>You must have collaborator permission for this project to execute this action</value>
   </data>
+  <data name="addIssueFor" xml:space="preserve">
+    <value>Add issue for</value>
+  </data>
 </root>

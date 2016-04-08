@@ -1,0 +1,30 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+
+<div class="modal-header">
+    <h2>@Sentences.addIssueFor </h2>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>
+                    Descrição
+                    <textarea class="form-control"></textarea>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="cancel()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="conclude()">
+            @Sentences.save
+        </button>
+    </div>
+</div>
