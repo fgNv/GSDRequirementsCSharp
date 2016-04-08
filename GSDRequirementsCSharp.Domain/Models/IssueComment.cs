@@ -20,8 +20,12 @@ namespace GSDRequirementsCSharp.Domain
 
         public DateTime CreatedAt { get; set; }
 
+        public DateTime LastModification { get; set; }
+
         public virtual Issue Issue { get; set; }
 
         public virtual User Creator { get; set; }
+
+        public bool Active { get; set; }
     }
 }

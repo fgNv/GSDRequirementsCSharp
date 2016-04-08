@@ -48,7 +48,15 @@
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
     <Compile Include="Commands\IProjectOwnerCommand.cs" />
+    <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\UpdateIssueCommentCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\UpdateIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\AddIssueCommentTranslationCommand.cs" />
+    <Compile Include="Commands\IssuesComments\AddIssueCommentTranslationCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\CreateIssueCommentCommandHandler.cs" />
     <Compile Include="Commands\IssuesComments\CreateIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\IssueCommentContentItem.cs" />
     <Compile Include="Commands\Issues\AddIssueTranslationCommand.cs" />
     <Compile Include="Commands\Issues\AddIssueTranslationCommandHandler.cs" />
     <Compile Include="Commands\Issues\ConcludeIssueCommand.cs" />
@@ -132,6 +140,7 @@
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQuery.cs" />
+    <Compile Include="Queries\Issue\IssueCommentWithContentsQuery.cs" />
     <Compile Include="Queries\Issue\IssueNextIdQuery.cs" />
     <Compile Include="Queries\Issue\IssueWithContentsQuery.cs" />
     <Compile Include="Queries\Packages\PackageNextIdQuery.cs" />
