@@ -546,4 +546,7 @@
   <data name="passwordSuccessfullyChanged" xml:space="preserve">
     <value>Password successfully changed</value>
   </data>
+  <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>You must have collaborator permission for this project to execute this action</value>
+  </data>
 </root>

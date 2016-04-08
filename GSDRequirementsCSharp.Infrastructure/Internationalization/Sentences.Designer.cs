@@ -1339,6 +1339,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must have collaborator permission for this project to execute this action.
+        /// </summary>
+        public static string youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction {
+            get {
+                return ResourceManager.GetString("youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must have editor permission for this project to execute this action.
         /// </summary>
         public static string youMustHaveEditorPermissionForThisProjectToExecuteThisAction {

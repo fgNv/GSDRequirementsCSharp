@@ -78,7 +78,9 @@
     <Compile Include="Mappings\ClassPropertyMapping.cs" />
     <Compile Include="Mappings\ClassRelationshipMapping.cs" />
     <Compile Include="Mappings\ContactMapping.cs" />
+    <Compile Include="Mappings\IssueCommentContentMapping.cs" />
     <Compile Include="Mappings\IssueCommentMapping.cs" />
+    <Compile Include="Mappings\IssueContentMapping.cs" />
     <Compile Include="Mappings\IssueMapping.cs" />
     <Compile Include="Mappings\PackageContentMapping.cs" />
     <Compile Include="Mappings\PackageMapping.cs" />
@@ -98,6 +100,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
     <Compile Include="Queries\Packages\NextId\PackageNextIdQueryHandler.cs" />
     <Compile Include="Queries\Packages\WithContents\PackageWithContentsQueryHandler.cs" />

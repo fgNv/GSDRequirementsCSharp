@@ -23,7 +23,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             HasMany(e => e.Issues)
                             .WithRequired(e => e.SpecificationItem)
-                            .HasForeignKey(e => e.specification_item_id)
+                            .HasForeignKey(e => e.SpecificationItemId)
                             .WillCascadeOnDelete(false);
 
             HasMany(e => e.ClassDiagrams)

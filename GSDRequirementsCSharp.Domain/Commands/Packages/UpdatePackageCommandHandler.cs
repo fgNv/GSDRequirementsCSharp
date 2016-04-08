@@ -15,15 +15,12 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 {
     class UpdatePackageCommandHandler : ICommandHandler<UpdatePackageCommand>
     {
-        private readonly IRepository<Package, Guid> _packageRepository;
         private readonly IQueryHandler<Guid, Package> _packageWithContentsQueryHandler;
         private readonly IRepository<PackageContent, LocaleKey> _packageContentRepository;
 
-        public UpdatePackageCommandHandler(IRepository<Package, Guid> packageRepository,
-                                           IQueryHandler<Guid, Package> packageWithContentsQueryHandler,
+        public UpdatePackageCommandHandler(IQueryHandler<Guid, Package> packageWithContentsQueryHandler,
                                            IRepository<PackageContent, LocaleKey> packageContentRepository)
-        {
-            _packageRepository = packageRepository;
+        {   
             _packageWithContentsQueryHandler = packageWithContentsQueryHandler;
             _packageContentRepository = packageContentRepository;
         }

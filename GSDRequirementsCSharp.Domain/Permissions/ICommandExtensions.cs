@@ -75,5 +75,19 @@ namespace GSDRequirementsCSharp.Domain.Permissions
             if (project.OwnerId != currentUser.Id)
                 throw new PermissionException(Sentences.youMustBeTheProjectOwnerToExecuteThisAction);
         }
+
+        public static void VerifyPermission(this IProjectCollaboratorCommand command, IServiceProvider serviceProvider)
+        {
+            var permission = GetPermissionCurrentUserCurrentProject(serviceProvider);
+            if (permission == null)
+                throw new PermissionException(Sentences.youDontHavePermissionToAccessThisProject);
+
+            var hasRequiredProfile = permission.Profile != Profile.Editor &&
+                                     permission.Profile != Profile.ProjectOwner &&
+                                     permission.Profile != Profile.Collaborator;
+
+            if (!hasRequiredProfile)
+                throw new PermissionException(Sentences.youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction);
+        }
     }
 }

@@ -16,12 +16,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.CreatorId).HasColumnName("creator_id");
-            Property(e => e.IssueId).HasColumnName("issue_id");            
-            Property(e => e.Content).HasColumnName("content")
-                                    .HasColumnType("text");
-
-            Property(e => e.Content)
-                .IsUnicode(false);
+            Property(e => e.IssueId).HasColumnName("issue_id");
+            Property(e => e.CreatedAt).HasColumnName("created_at");
+            HasMany(e => e.Contents).WithRequired(e => e.IssueComment);                            
         }
     }
 }

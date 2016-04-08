@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             Property(e => e.Password).IsUnicode(false);
 
-            HasMany(e => e.Issues).WithOptional(e => e.User)
+            HasMany(e => e.Issues).WithOptional(e => e.Creator)
             .HasForeignKey(e => e.CreatorId);
 
             HasMany(e => e.IssueComments).WithRequired(e => e.Creator)

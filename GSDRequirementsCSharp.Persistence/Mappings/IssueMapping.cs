@@ -17,16 +17,20 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.Concluded).HasColumnName("concluded");
             Property(e => e.CreatorId).HasColumnName("creator_id");
-            Property(e => e.Description).HasColumnName("description")
-                                        .HasColumnType("text");            
+            Property(i => i.SpecificationItemId).HasColumnName("specification_item_id");
 
-            Property(e => e.Description)
-                .IsUnicode(false);
+            Property(i => i.CreatedAt).HasColumnName("created_at");
+            Property(i => i.LastModification).HasColumnName("last_modification");
+            Property(i => i.ConcludedAt).HasColumnName("concluded_at");
 
-            HasMany(e => e.IssueComments)
-                .WithRequired(e => e.Issue)
-                .HasForeignKey(e => e.IssueId)
-                .WillCascadeOnDelete(false);
+            HasRequired(i => i.Project).WithMany()
+                                       .HasForeignKey(i => i.ProjectId);
+            
+            HasMany(e => e.Contents).WithRequired(e => e.Issue);
+
+            HasMany(e => e.IssueComments).WithRequired(e => e.Issue)
+                                         .HasForeignKey(e => e.IssueId)
+                                         .WillCascadeOnDelete(false);
         }
     }
 }
