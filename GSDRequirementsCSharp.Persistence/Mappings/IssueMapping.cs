@@ -23,6 +23,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(i => i.LastModification).HasColumnName("last_modification");
             Property(i => i.ConcludedAt).HasColumnName("concluded_at");
 
+            Property(i => i.ProjectId).HasColumnName("project_id");
+            Property(i => i.Identifier).HasColumnName("identifier");
+
             HasRequired(i => i.Project).WithMany()
                                        .HasForeignKey(i => i.ProjectId);
             

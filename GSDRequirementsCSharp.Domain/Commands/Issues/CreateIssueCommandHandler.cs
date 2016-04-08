@@ -49,6 +49,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Issues
                 content.Description = item.Description;
                 content.Locale = item.Locale;
                 content.Issue = issue;
+                content.Id = issue.Id;
                 content.IsUpdated = true;
                 _issueContentRepository.Add(content);
             }

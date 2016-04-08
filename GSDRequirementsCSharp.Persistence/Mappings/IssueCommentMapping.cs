@@ -20,6 +20,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.CreatedAt).HasColumnName("created_at");
             HasMany(e => e.Contents).WithRequired(e => e.IssueComment);
             Property(e => e.LastModification).HasColumnName("last_modification");
+            Property(e => e.Active).HasColumnName("active");
         }
     }
 }
