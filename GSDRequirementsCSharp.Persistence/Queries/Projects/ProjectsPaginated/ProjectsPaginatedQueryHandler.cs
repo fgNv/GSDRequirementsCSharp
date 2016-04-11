@@ -1,13 +1,10 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence.Queries.Projects.ProjectsPaginated;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries
 {
@@ -38,15 +35,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                   .Skip(skip)
                                   .Take(query.PageSize)
                                   .ToList()
-                                  .Select(p => new ProjectViewModel
-                                  {
-                                      Id = p.Id,
-                                      Name = p.GetName(),
-                                      IsCurrentUserOwner = p.OwnerId == currentUser.Id,
-                                      CreatedAt = p.CreatedAt,
-                                      ProjectContents = p.ProjectContents,
-                                      Identifier = $"PJT{p.CreatorId}.{p.Identifier}"
-                                  })
+                                  .Select(ProjectViewModel.FromModel)
                                   .ToList();
             return new ProjectsPaginatedQueryResult(projects, maxPages);
         }

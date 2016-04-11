@@ -43,16 +43,21 @@
                 self.defineAvailableLocaleContents($scope, newValue)
                 $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, (c: Models.Locale) => c.name)
                 $scope.displayLocale = $scope.translationsAlreadyProvided[0]
+                setDisplayLocale(newValue, $scope.displayLocale)
             })
 
-            $scope.$watch('displayLocale', (newValue, oldValue) => {
-                if (!newValue || !$scope.project) { return; }
-
-                var content = <Models.ProjectContent>_.find($scope.project.projectContents,
-                    (c: Models.ProjectContent) => c.locale == newValue)
+            function setDisplayLocale(project, locale) {
+                if (!project) return;
+                var content = <Models.ProjectContent>_.find(project.projectContents,
+                    (c: Models.ProjectContent) => c.locale == locale)
 
                 $scope.originalDescription = content.description
                 $scope.originalName = content.name
+            }
+
+            $scope.$watch('displayLocale', (newValue, oldValue) => {
+                if (!newValue || !$scope.project) { return; }
+                setDisplayLocale($scope.project, newValue)
             })
 
             $scope.save = () => {

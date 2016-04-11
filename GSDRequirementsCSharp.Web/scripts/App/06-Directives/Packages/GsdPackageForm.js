@@ -8,6 +8,7 @@ var Directives;
             this.controller = ['$scope', 'PackageResource', function ($scope, PackageResource) {
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
+                    $scope.translationsAlreadyProvided = [GSDRequirements.currentLocale];
                     $scope.$watch("package", function (newValue, oldValue) {
                         if (!newValue)
                             return;
@@ -51,4 +52,3 @@ var Directives;
     })();
     app.directive('gsdPackageForm', GsdPackageForm.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdPackageForm.js.map

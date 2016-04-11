@@ -46,15 +46,21 @@
                     self.defineAvailableLocaleContents($scope, newValue)
                     $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, (c: Models.Locale) => c.name)
                     $scope.displayLocale = $scope.translationsAlreadyProvided[0]
+
+                    setDisplayLocale(newValue, $scope.displayLocale) 
                 })
+
+                function setDisplayLocale(packageEntity, locale) {
+                    var content = <Models.PackageContent>_.find(packageEntity.contents,
+                        (c: Models.PackageContent) => c.locale == locale)
+
+                    $scope.originalDescription = content.description
+                }
 
                 $scope.$watch('displayLocale', (newValue, oldValue) => {
                     if (!newValue || !$scope.package) { return; }
 
-                    var content = <Models.PackageContent>_.find($scope.package.contents,
-                        (c: Models.PackageContent) => c.locale == newValue)
-
-                    $scope.originalDescription = content.description
+                    setDisplayLocale($scope.package, newValue)
                 })
 
                 $scope.save = () => {

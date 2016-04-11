@@ -8,6 +8,7 @@ var Directives;
             this.controller = ['$scope', 'ProjectResource', '$uibModal', function ($scope, ProjectResource, $uibModal) {
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
+                    $scope.translationsAlreadyProvided = [GSDRequirements.currentLocale];
                     $scope.$watch("project", function (newValue, oldValue) {
                         if (!newValue)
                             return;
@@ -51,4 +52,3 @@ var Directives;
     })();
     app.directive('gsdProjectForm', GsdProjectForm.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdProjectForm.js.map

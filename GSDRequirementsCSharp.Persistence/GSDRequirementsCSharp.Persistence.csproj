@@ -126,7 +126,6 @@
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
-    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectViewModel.cs" />
     <Compile Include="Queries\Projects\ProjectWithContents\ProjectWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
     <Compile Include="Queries\Requirements\LastVersion\LastVersionRequirementQueryHandler.cs" />

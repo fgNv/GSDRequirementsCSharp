@@ -13,6 +13,7 @@
         public controller = ['$scope', 'PackageResource', ($scope: any, PackageResource: any) => {
             $scope.pendingRequests = 0;
             $scope.translations = []
+            $scope.translationsAlreadyProvided = [GSDRequirements.currentLocale]
 
             $scope.$watch("package", (newValue, oldValue) => {
                 if (!newValue) return
