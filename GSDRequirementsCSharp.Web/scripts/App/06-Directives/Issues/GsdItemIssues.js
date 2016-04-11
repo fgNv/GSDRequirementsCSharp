@@ -1,35 +1,29 @@
 var Directives;
 (function (Directives) {
     var app = angular.module(GSDRequirements.angularModuleName);
-    var GsdIssueCreate = (function () {
-        function GsdIssueCreate() {
+    var GsdItemIssues = (function () {
+        function GsdItemIssues() {
             this.scope = {
-                'specificationItem': '=specificationItem',
-                'afterSave': '=afterSave'
+                'specificationItem': '=specificationItem'
             };
-            this.templateUrl = GSDRequirements.baseUrl + 'issue/create';
+            this.templateUrl = GSDRequirements.baseUrl + 'issue/itemIssues';
             this.controller = ['$scope', "$uibModal", function ($scope, $uibModal) {
                     $scope.addIssue = function () {
                         var modal = $uibModal.open({
                             templateUrl: GSDRequirements.baseUrl + "issue/form",
-                            controller: 'ModalIssueAddController',
+                            controller: 'ModalItemIssuesController',
                             size: 'lg',
                             resolve: {
                                 'specificationItem': function () { return $scope.specificationItem; }
                             }
                         });
-                        modal.result.then(function () {
-                            if ($scope.afterSave) {
-                                $scope.afterSave();
-                            }
-                        });
                     };
                 }];
         }
-        GsdIssueCreate.Factory = function () {
-            return new GsdIssueCreate();
+        GsdItemIssues.Factory = function () {
+            return new GsdItemIssues();
         };
-        return GsdIssueCreate;
+        return GsdItemIssues;
     })();
-    app.directive('gsdIssueCreate', GsdIssueCreate.Factory);
+    app.directive('gsdItemIssues', GsdItemIssues.Factory);
 })(Directives || (Directives = {}));

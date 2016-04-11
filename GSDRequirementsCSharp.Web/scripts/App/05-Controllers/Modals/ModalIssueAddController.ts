@@ -4,13 +4,12 @@
     declare var _: any;
     declare var GSDRequirements: Globals.GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
-
-
+    
     class ModalIssueAddController {
         constructor($scope, $uibModalInstance, issueResource, specificationItem) {
             $scope.pendingRequests = 0
             $scope.availableLocales = []
-            $scope.specificationItem = specificationItem;
+            $scope.specificationItem = specificationItem
             
             $scope.contentItems = [
                 {

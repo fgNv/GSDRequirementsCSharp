@@ -19,12 +19,13 @@
         <tbody>
             <tr data-ng-repeat="r in requirements">
                 <td>
-                    <!--<button class="btn btn-default"
-                            data-ng-show="r.HasPendingIssues"
+                    <button class="btn btn-default"
+                            data-ng-show="r.issues.length > 0"
                             style="color: red"
                             title="@Sentences.seePendingIssues">
                         <span class="glyphicon glyphicon-alert"></span>
-                    </button>-->
+                    </button>
+
                 </td>
                 <td>{{r.prefix}}{{r.identifier}}</td>
                 <td>{{r.description}}</td>

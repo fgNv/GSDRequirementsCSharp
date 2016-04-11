@@ -29,7 +29,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 
             var requirementsQuery = _context.Requirements
                                             .Include(r => r.SpecificationItem.Package)
-                                            .Include(r => r.SpecificationItem.Issues)
                                             .Where(p => p.SpecificationItem.Package.Project.Id == currentProjectId &&
                                                         p.IsLastVersion &&
                                                         p.SpecificationItem.Active);
@@ -38,6 +37,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 
             var requirements = requirementsQuery.OrderBy(r => r.Type)
                                                 .ThenBy(r => r.Identifier)
+                                                .Include(r => r.SpecificationItem.Issues)
                                                 .Include(r => r.RequirementContents)
                                                 .Skip(skip)
                                                 .Take(query.PageSize)

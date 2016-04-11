@@ -22,4 +22,3 @@ var Notification;
     }
     Notification.notifyInfo = notifyInfo;
 })(Notification || (Notification = {}));
-//# sourceMappingURL=Toaster.js.map
