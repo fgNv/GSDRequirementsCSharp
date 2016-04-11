@@ -7,10 +7,10 @@
 
 
     class ModalIssueAddController {
-        constructor($scope: any, $uibModalInstance: any, issueResource) {
+        constructor($scope, $uibModalInstance, issueResource, specificationItem) {
             $scope.pendingRequests = 0
-
             $scope.availableLocales = []
+            $scope.specificationItem = specificationItem;
             
             $scope.contentItems = [
                 {
@@ -40,14 +40,35 @@
                 setAvailableLocales()
             }
 
-            $scope.specificationItemLabel = 'specificationItemLabel';
+            $scope.specificationItemLabel = specificationItem.getLabel();
 
-            $scope.save = (): void => {
-                issueResource.save()
+            $scope.cancel = (): void => {
+                $uibModalInstance.dismiss('cancel');
             }
 
+            $scope.save = (): void => {
+                $scope.pendingRequests++
+
+                var request = {
+                    'specificationItemId': specificationItem.id,
+                    'contents': $scope.contentItems
+                }
+                issueResource.save(request)
+                    .$promise
+                    .then(() :void=> {
+                        Notification.notifySuccess(Sentences.issueCreatedSuccessfully)
+                        $uibModalInstance.close();
+                    })
+                    .catch((error): void=> {
+                        Notification.notifyError(Sentences.errorCreatingIssue,
+                            error.messages)
+                    })
+                    .finally((): void=> {
+                        $scope.pendingRequests--
+                    })
+            }
         }
     }
-    app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
-        "IssueResource", ModalIssueAddController]);
+    app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance", 
+        "IssueResource", 'specificationItem', ModalIssueAddController]);
 }

@@ -1,5 +1,6 @@
 ﻿module Sentences {
     export declare var dataSuccessfullyUpdated: string;
+    export declare var errorCreatingIssue: string;
     export declare var errorLoadingProjects: string;
     export declare var errorSavingUserAccount: string;
     export declare var errorSavingProject: string;
@@ -15,6 +16,7 @@
     export declare var errorLoadingPermissions: string;
     export declare var errorSearchingUsers: string;
     export declare var errorChangingPassword: string;
+    export declare var issueCreatedSuccessfully: string;
     export declare var errorLoadingRequirements: string;
     export declare var noProjectInContext: string;
     export declare var passwordAndConfirmationMustMatch: string;

@@ -9,10 +9,10 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 {
     public class RequirementsPaginatedQueryResult
     {
-        public IEnumerable<Requirement> Requirements { get; set; }
+        public IEnumerable<RequirementViewModel> Requirements { get; set; }
         public int MaxPages { get; set; }
 
-        public RequirementsPaginatedQueryResult(IEnumerable<Requirement> requirements,
+        public RequirementsPaginatedQueryResult(IEnumerable<RequirementViewModel> requirements,
                                             int maxPages)
         {
             Requirements = requirements;

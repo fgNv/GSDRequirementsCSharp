@@ -9,7 +9,7 @@
 
     class GsdIssueCreate {
         public scope = {
-            'specificationItemId': '=specificationItemId',
+            'specificationItem': '=specificationItem',
             'afterSave': '=afterSave'
         };
         public templateUrl = GSDRequirements.baseUrl + 'issue/create'
@@ -18,8 +18,17 @@
                 var modal = $uibModal.open({
                     templateUrl: `${GSDRequirements.baseUrl}issue/form`,
                     controller: 'ModalIssueAddController',
-                    size: 'lg'
+                    size: 'lg',
+                    resolve: {
+                        'specificationItem': () => $scope.specificationItem 
+                    }
                 });
+
+                modal.result.then((): void=> {
+                    if ($scope.afterSave) {
+                        $scope.afterSave()
+                    }
+                })
             }
         }]
         public static Factory() {

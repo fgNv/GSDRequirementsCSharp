@@ -552,4 +552,10 @@
   <data name="addIssueFor" xml:space="preserve">
     <value>Add issue for</value>
   </data>
+  <data name="errorCreatingIssue" xml:space="preserve">
+    <value>Error creating issue</value>
+  </data>
+  <data name="issueCreatedSuccessfully" xml:space="preserve">
+    <value>Issue created successfully</value>
+  </data>
 </root>

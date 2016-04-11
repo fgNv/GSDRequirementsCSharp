@@ -466,6 +466,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error creating issue.
+        /// </summary>
+        public static string errorCreatingIssue {
+            get {
+                return ResourceManager.GetString("errorCreatingIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error granting permissions.
         /// </summary>
         public static string errorGrantingPermissions {
@@ -660,6 +669,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string invalidPassword {
             get {
                 return ResourceManager.GetString("invalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue created successfully.
+        /// </summary>
+        public static string issueCreatedSuccessfully {
+            get {
+                return ResourceManager.GetString("issueCreatedSuccessfully", resourceCulture);
             }
         }
         

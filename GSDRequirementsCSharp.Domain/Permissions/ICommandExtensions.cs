@@ -82,9 +82,9 @@ namespace GSDRequirementsCSharp.Domain.Permissions
             if (permission == null)
                 throw new PermissionException(Sentences.youDontHavePermissionToAccessThisProject);
 
-            var hasRequiredProfile = permission.Profile != Profile.Editor &&
-                                     permission.Profile != Profile.ProjectOwner &&
-                                     permission.Profile != Profile.Collaborator;
+            var hasRequiredProfile = permission.Profile == Profile.Editor ||
+                                     permission.Profile == Profile.ProjectOwner ||
+                                     permission.Profile == Profile.Collaborator;
 
             if (!hasRequiredProfile)
                 throw new PermissionException(Sentences.youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction);

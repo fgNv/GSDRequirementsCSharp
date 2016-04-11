@@ -552,4 +552,10 @@
   <data name="addIssueFor" xml:space="preserve">
     <value>Adicionar observação para</value>
   </data>
+  <data name="errorCreatingIssue" xml:space="preserve">
+    <value>Erro ao criar observação</value>
+  </data>
+  <data name="issueCreatedSuccessfully" xml:space="preserve">
+    <value>Observação criada com sucesso</value>
+  </data>
 </root>

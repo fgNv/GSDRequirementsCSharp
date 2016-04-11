@@ -4,7 +4,7 @@ var Directives;
     var GsdIssueCreate = (function () {
         function GsdIssueCreate() {
             this.scope = {
-                'specificationItemId': '=specificationItemId',
+                'specificationItem': '=specificationItem',
                 'afterSave': '=afterSave'
             };
             this.templateUrl = GSDRequirements.baseUrl + 'issue/create';
@@ -13,7 +13,15 @@ var Directives;
                         var modal = $uibModal.open({
                             templateUrl: GSDRequirements.baseUrl + "issue/form",
                             controller: 'ModalIssueAddController',
-                            size: 'lg'
+                            size: 'lg',
+                            resolve: {
+                                'specificationItem': function () { return $scope.specificationItem; }
+                            }
+                        });
+                        modal.result.then(function () {
+                            if ($scope.afterSave) {
+                                $scope.afterSave();
+                            }
                         });
                     };
                 }];
@@ -25,3 +33,4 @@ var Directives;
     })();
     app.directive('gsdIssueCreate', GsdIssueCreate.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdIssueCreate.js.map

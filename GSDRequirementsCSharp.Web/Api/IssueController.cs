@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GSDRequirementsCSharp.Domain.Commands.Issues;
+using GSDRequirementsCSharp.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,23 +11,17 @@ namespace GSDRequirementsCSharp.Web.Api
 {
     public class IssueController : ApiController
     {
+        private ICommandHandler<CreateIssueCommand> _createIssueCommandHandler;
 
-
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IssueController(ICommandHandler<CreateIssueCommand> createIssueCommandHandler)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
+            _createIssueCommandHandler = createIssueCommandHandler;
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post(CreateIssueCommand command)
         {
+            _createIssueCommandHandler.Handle(command);
         }
 
         // PUT api/<controller>/5

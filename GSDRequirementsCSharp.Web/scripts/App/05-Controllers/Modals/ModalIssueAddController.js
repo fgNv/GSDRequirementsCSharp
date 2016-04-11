@@ -2,9 +2,10 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalIssueAddController = (function () {
-        function ModalIssueAddController($scope, $uibModalInstance, issueResource) {
+        function ModalIssueAddController($scope, $uibModalInstance, issueResource, specificationItem) {
             $scope.pendingRequests = 0;
             $scope.availableLocales = [];
+            $scope.specificationItem = specificationItem;
             $scope.contentItems = [
                 {
                     locale: GSDRequirements.currentLocale,
@@ -28,13 +29,33 @@ var Controllers;
                 });
                 setAvailableLocales();
             };
-            $scope.specificationItemLabel = 'specificationItemLabel';
+            $scope.specificationItemLabel = specificationItem.getLabel();
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
             $scope.save = function () {
-                issueResource.save();
+                $scope.pendingRequests++;
+                var request = {
+                    'specificationItemId': specificationItem.id,
+                    'contents': $scope.contentItems
+                };
+                issueResource.save(request)
+                    .$promise
+                    .then(function () {
+                    Notification.notifySuccess(Sentences.issueCreatedSuccessfully);
+                    $uibModalInstance.close();
+                })
+                    .catch(function (error) {
+                    Notification.notifyError(Sentences.errorCreatingIssue, error.messages);
+                })
+                    .finally(function () {
+                    $scope.pendingRequests--;
+                });
             };
         }
         return ModalIssueAddController;
     })();
     app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
-        "IssueResource", ModalIssueAddController]);
+        "IssueResource", 'specificationItem', ModalIssueAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalIssueAddController.js.map
