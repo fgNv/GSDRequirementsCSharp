@@ -12,7 +12,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public int Identifier { get; set; }
         public IEnumerable<PackageContentViewModel> Contents { get; set; }
 
-        internal static PackageViewModel FromModel(Package package)
+        public static PackageViewModel FromModel(Package package)
         {
             return new PackageViewModel
             {

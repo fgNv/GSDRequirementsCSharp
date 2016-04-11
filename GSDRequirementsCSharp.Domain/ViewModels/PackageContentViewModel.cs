@@ -13,13 +13,16 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public string Locale { get; set; }
         public string Description { get; set; }
 
+        public bool IsUpdated { get; set; }
+
         internal static PackageContentViewModel FromModel(PackageContent model)
         {
             return new PackageContentViewModel
             {
                 Description = model.Description,
                 Locale = model.Locale,
-                Id = model.Id
+                Id = model.Id,
+                IsUpdated = model.IsUpdated
             };
         }
     }

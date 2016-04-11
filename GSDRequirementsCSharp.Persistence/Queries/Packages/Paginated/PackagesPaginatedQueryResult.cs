@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
 {
     public class PackagesPaginatedQueryResult
     {
-        public IEnumerable<Package> Packages { get; set; }
+        public IEnumerable<PackageViewModel> Packages { get; set; }
         public int MaxPages { get; set; }
 
-        public PackagesPaginatedQueryResult(IEnumerable<Package> packages,
+        public PackagesPaginatedQueryResult(IEnumerable<PackageViewModel> packages,
                                             int maxPages)
         {
             Packages = packages;

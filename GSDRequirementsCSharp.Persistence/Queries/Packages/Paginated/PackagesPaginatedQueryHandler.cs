@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
@@ -36,6 +37,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.Paginated
                                         .Include(p => p.Contents)
                                         .Skip(skip)
                                         .Take(query.PageSize)
+                                        .Select(PackageViewModel.FromModel)
                                         .ToList();
                         
             var result = new PackagesPaginatedQueryResult(packages, maxPages);
