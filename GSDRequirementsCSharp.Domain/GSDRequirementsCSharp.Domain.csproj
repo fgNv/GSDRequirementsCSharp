@@ -152,6 +152,12 @@
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
+    <Compile Include="ViewModels\IssueContentViewModel.cs" />
+    <Compile Include="ViewModels\IssueViewModel.cs" />
+    <Compile Include="ViewModels\PackageContentViewModel.cs" />
+    <Compile Include="ViewModels\PackageViewModel.cs" />
+    <Compile Include="ViewModels\RequirementContentViewModel.cs" />
+    <Compile Include="ViewModels\RequirementViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

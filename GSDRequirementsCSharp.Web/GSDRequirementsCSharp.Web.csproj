@@ -254,6 +254,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Issue\_Create.cshtml" />
     <Content Include="Views\Issue\_Form.cshtml" />
+    <Content Include="Views\Issue\_ItemIssues.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -300,6 +301,7 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalIssueAddController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalItemIssuesController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPermissionAddController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalRequirementTranslationController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPackageTranslationController.ts" />
@@ -311,6 +313,7 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdIssueCreate.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdItemIssues.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectContext.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageForm.ts" />

@@ -1,9 +1,12 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,33 +32,29 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 
             var requirementsQuery = _context.Requirements
                                             .Include(r => r.SpecificationItem.Package)
-                                            .Where(p => p.SpecificationItem.Package.Project.Id == currentProjectId &&
-                                                        p.IsLastVersion &&
-                                                        p.SpecificationItem.Active);
+                                            .Where(r => r.ProjectId == currentProjectId &&
+                                                        r.IsLastVersion &&
+                                                        r.SpecificationItem.Active);
 
             var maxPages = (int)Math.Ceiling(requirementsQuery.Count() / (double)query.PageSize);
 
-            var requirements = requirementsQuery.OrderBy(r => r.Type)
+            var paginatedQuery = requirementsQuery.OrderBy(r => r.Type)
                                                 .ThenBy(r => r.Identifier)
-                                                .Include(r => r.SpecificationItem.Issues)
                                                 .Include(r => r.RequirementContents)
                                                 .Skip(skip)
-                                                .Take(query.PageSize)
-                                                .Select(r => new RequirementViewModel
-                                                {
-                                                    RequirementContents = r.RequirementContents,
-                                                    Difficulty = r.Difficulty,
-                                                    Id = r.Id,
-                                                    Package = r.SpecificationItem.Package,
-                                                    PackageId = r.SpecificationItem.PackageId,
-                                                    Identifier = r.Identifier,
-                                                    RequirementType = r.Type,
-                                                    Type = r.Type,
-                                                    Issues = r.SpecificationItem
-                                                              .Issues
-                                                              .Where(i => !i.Concluded)
-                                                })
-                                                .ToList();
+                                                .Take(query.PageSize);
+
+            var requirements = paginatedQuery.Select(RequirementViewModel.FromModel)
+                                             .ToList();
+
+            var itemsIds = requirements.Select(r => r.Id);
+            var issues = _context.Issues
+                                 .Where(i => !i.Concluded && itemsIds.Contains(i.SpecificationItemId))
+                                 .Select(IssueViewModel.FromModel)
+                                 .ToList();
+
+            foreach(var r in requirements)
+                r.Issues = issues.Where(i => i.SpecificationItemId == r.Id);
 
             var result = new RequirementsPaginatedQueryResult(requirements, maxPages);
             return result;

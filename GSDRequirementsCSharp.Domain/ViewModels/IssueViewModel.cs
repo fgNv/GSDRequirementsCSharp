@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GSDRequirementsCSharp.Domain.ViewModels
+{
+    public class IssueViewModel
+    {
+        public Guid Id { get; set; }
+
+        public Guid SpecificationItemId { get; set; }
+
+        public IEnumerable<IssueContentViewModel> Contents { get; set; }
+        
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime LastModification { get; set; }
+
+        public static IssueViewModel FromModel(Issue model)
+        {
+            return new IssueViewModel
+            {
+                CreatedAt = model.CreatedAt,
+                Id = model.Id,
+                LastModification = model.LastModification,
+                SpecificationItemId = model.SpecificationItemId,
+                Contents = model.Contents?
+                                .Select(IssueContentViewModel.FromModel)
+            };
+        }
+    }
+}
