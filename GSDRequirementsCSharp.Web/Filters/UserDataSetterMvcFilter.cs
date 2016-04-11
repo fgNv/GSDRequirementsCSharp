@@ -4,6 +4,7 @@ using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.ServiceProviders;
+using GSDRequirementsCSharp.Web.Filters.Attributes;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,12 @@ namespace GSDRequirementsCSharp.Web.Filters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            var attributes = filterContext.ActionDescriptor
+                                          .GetCustomAttributes(false);
+
+            if (attributes.Any(a => a is SkipUserDataSetterAttribute))
+                return;
+
             var container = DependencyInjection.ContainerExtensions.GetScopedContainer();
             using (container.BeginLifetimeScope())
             {

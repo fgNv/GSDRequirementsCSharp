@@ -20,7 +20,7 @@
             translationToEdit: any,
             originalData: any) {
             
-            if (originalData) {
+            if (originalData.condition || originalData.subject || originalData.action) {
                 $scope.conditionPlaceholder = originalData.condition
                 $scope.subjectPlaceholder = originalData.subject
                 $scope.actionPlaceholder = originalData.action

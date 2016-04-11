@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSDRequirementsCSharp.Web.Filters.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,13 @@ namespace GSDRequirementsCSharp.Web.Controllers
 {
     public class IssueController : Controller
     {
+        [SkipUserDataSetter]
         public PartialViewResult Create()
         {
             return PartialView("~/Views/Issue/_Create.cshtml");
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Form()
         {
             return PartialView("~/Views/Issue/_Form.cshtml");

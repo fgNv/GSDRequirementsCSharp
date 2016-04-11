@@ -460,7 +460,7 @@
     <value>Invalid items</value>
   </data>
   <data name="translationsIsOutdated" xml:space="preserve">
-    <value>Translations is outdated</value>
+    <value>Translation is outdated</value>
   </data>
   <data name="manageProjectUsers" xml:space="preserve">
     <value>Manage project users</value>

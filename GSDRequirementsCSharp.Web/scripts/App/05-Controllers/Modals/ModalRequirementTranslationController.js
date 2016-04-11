@@ -9,7 +9,7 @@ var Controllers;
     }
     var ModalRequirementTranslationController = (function () {
         function ModalRequirementTranslationController($scope, $uibModalInstance, translationsAlreadyProvided, translationToEdit, originalData) {
-            if (originalData) {
+            if (originalData.condition || originalData.subject || originalData.action) {
                 $scope.conditionPlaceholder = originalData.condition;
                 $scope.subjectPlaceholder = originalData.subject;
                 $scope.actionPlaceholder = originalData.action;
@@ -39,4 +39,3 @@ var Controllers;
     app.controller('ModalRequirementTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
         "translationToEdit", "originalData", ModalRequirementTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalRequirementTranslationController.js.map

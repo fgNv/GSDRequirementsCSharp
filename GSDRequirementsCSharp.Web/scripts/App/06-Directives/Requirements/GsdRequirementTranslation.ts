@@ -47,14 +47,13 @@
                     self.defineAvailableLocaleContents($scope, newValue)
                     $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, (c: Models.Locale) => c.name)
                     $scope.displayLocale = $scope.translationsAlreadyProvided[0]
+                    setDisplayLocale(newValue, $scope.displayLocale)
                 })
                 
-                $scope.$watch('displayLocale', (newValue, oldValue) => {
-                    if (!newValue || !$scope.requirement) { return; }
-
-                    var content = <Models.RequirementContent>_.find($scope.requirement.requirementContents,
-                        (c: Models.RequirementContent) => c.locale == newValue)
-
+                function setDisplayLocale(requirement, locale) {
+                    var content = <Models.RequirementContent>_.find(requirement.requirementContents,
+                        (c: Models.RequirementContent) => c.locale == locale)
+                    
                     $scope.originalAction = content.action
                     $scope.originalCondition = content.condition
                     $scope.originalSubject = content.subject
@@ -63,6 +62,11 @@
                         'condition': content.condition,
                         'subject': content.subject
                     }
+                }
+
+                $scope.$watch('displayLocale', (newValue, oldValue) => {
+                    if (!newValue || !$scope.requirement) { return; }
+                    setDisplayLocale($scope.requirement, newValue)
                 })
 
                 $scope.save = () => {

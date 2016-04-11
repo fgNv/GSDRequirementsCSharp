@@ -25,12 +25,10 @@ var Directives;
                         self.defineAvailableLocaleContents($scope, newValue);
                         $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, function (c) { return c.name; });
                         $scope.displayLocale = $scope.translationsAlreadyProvided[0];
+                        setDisplayLocale(newValue, $scope.displayLocale);
                     });
-                    $scope.$watch('displayLocale', function (newValue, oldValue) {
-                        if (!newValue || !$scope.requirement) {
-                            return;
-                        }
-                        var content = _.find($scope.requirement.requirementContents, function (c) { return c.locale == newValue; });
+                    function setDisplayLocale(requirement, locale) {
+                        var content = _.find(requirement.requirementContents, function (c) { return c.locale == locale; });
                         $scope.originalAction = content.action;
                         $scope.originalCondition = content.condition;
                         $scope.originalSubject = content.subject;
@@ -39,6 +37,12 @@ var Directives;
                             'condition': content.condition,
                             'subject': content.subject
                         };
+                    }
+                    $scope.$watch('displayLocale', function (newValue, oldValue) {
+                        if (!newValue || !$scope.requirement) {
+                            return;
+                        }
+                        setDisplayLocale($scope.requirement, newValue);
                     });
                     $scope.save = function () {
                         $scope.pendingRequests++;
@@ -83,4 +87,3 @@ var Directives;
     })();
     app.directive('gsdRequirementTranslation', GsdRequirementTranslation.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdRequirementTranslation.js.map

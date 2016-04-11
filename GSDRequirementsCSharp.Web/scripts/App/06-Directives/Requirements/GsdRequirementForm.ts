@@ -34,10 +34,14 @@
                 $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty)
                 $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType)
                 
-                $scope.$watch("project", (newValue, oldValue) => {
+                $scope.$watch("requirement", (newValue, oldValue) => {
                     if (!newValue) return
 
                     $scope.translations = []
+
+                    $scope.conditionPlaceholder = $scope.defaultConditionPlaceholder
+                    $scope.actionPlaceholder = $scope.defaultActionPlaceholder
+                    $scope.subjectPlaceholder = $scope.defaultSubjectPlaceholder
                 })
 
                 $scope.save = () => {

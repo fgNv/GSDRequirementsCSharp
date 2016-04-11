@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Web.Context;
 using GSDRequirementsCSharp.Web.Cookies;
+using GSDRequirementsCSharp.Web.Filters.Attributes;
 using GSDRequirementsCSharp.Web.Models;
 using GSDRequirementsCSharp.Web.Requests.Projects;
 using System;
@@ -20,22 +21,26 @@ namespace GSDRequirements.Web.Controllers
             return View();
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Form()
         {
             return PartialView("~/Views/Project/_Form.cshtml");
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Translation()
         {
             return PartialView("~/Views/Project/_Translation.cshtml");
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult TranslationList()
         {
             var model = new TranslationListViewModel { NgModelEntityReference = "project" };
             return PartialView("~/Views/Project/_TranslationList.cshtml", model);
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Context()
         {
             return PartialView("~/Views/Project/_Context.cshtml");

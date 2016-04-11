@@ -1222,7 +1222,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translations is outdated.
+        ///   Looks up a localized string similar to Translation is outdated.
         /// </summary>
         public static string translationsIsOutdated {
             get {

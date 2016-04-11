@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Web.Models;
+﻿using GSDRequirementsCSharp.Web.Filters.Attributes;
+using GSDRequirementsCSharp.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,19 @@ namespace GSDRequirements.Web.Controllers
             return View();
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Form()
         {
             return PartialView("~/Views/Package/_Form.cshtml");
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult Translation()
         {
             return PartialView("~/Views/Package/_Translation.cshtml");
         }
 
+        [SkipUserDataSetter]
         public PartialViewResult TranslationList()
         {
             var model = new TranslationListViewModel { NgModelEntityReference = "package" };

@@ -196,6 +196,7 @@
     <Compile Include="Exceptions\ApiExceptionHandling.cs" />
     <Compile Include="Exceptions\ExceptionResponse.cs" />
     <Compile Include="Exceptions\MvcExceptionHandling.cs" />
+    <Compile Include="Filters\Attributes\SkipUserDataSetterAttribute.cs" />
     <Compile Include="Filters\CurrentCultureSetterApiFilter.cs" />
     <Compile Include="Filters\CurrentCultureSetterMvcFilter.cs" />
     <Compile Include="Filters\HandleApiException.cs" />
