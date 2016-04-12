@@ -10,24 +10,13 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using GSDRequirementsCSharp.Infrastructure.Context;
 
-namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
+namespace GSDRequirementsCSharp.Persistence.Queries
 {
     public class CurrentUserProjectsQuery { }
 
     public class CurrentUserProjectsQueryResult
     {
         public IEnumerable<ProjectOption> Projects { get; set; }
-    }
-
-    public class ProjectOption
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        
-        public ProjectOption()
-        {
-
-        }
     }
 
     internal class CurrentUserProjectsQueryHandler : IQueryHandler<CurrentUserProjectsQuery, CurrentUserProjectsQueryResult>
@@ -44,7 +33,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
             _currentUserRetriever = currentUserRetriever;
             _currentLocaleName = currentLocaleName;
         }
-        
+
         public CurrentUserProjectsQueryResult Handle(CurrentUserProjectsQuery query)
         {
             var currentUser = _currentUserRetriever.Get();
@@ -56,11 +45,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects
                                    .Where(p => p.Permissions.Any(perm => perm.UserId == currentUser.Id) &&
                                                p.Active)
                                    .ToList()
-                                   .Select(p => new ProjectOption
-                                   {
-                                       Name = p.GetName(),
-                                       Id = p.Id
-                                   })
+                                   .Select(ProjectOption.FromModel)
                                    .OrderBy(p => p.Name)
                                    .ToList();
 
