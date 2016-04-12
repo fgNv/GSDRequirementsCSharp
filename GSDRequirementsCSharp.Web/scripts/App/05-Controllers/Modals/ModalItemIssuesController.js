@@ -27,3 +27,4 @@ var Controllers;
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalItemIssuesController.js.map

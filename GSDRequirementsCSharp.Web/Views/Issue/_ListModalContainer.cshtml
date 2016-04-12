@@ -1,7 +1,7 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <div class="modal-header">
-    <h2>@Sentences.issuesForArtifact {{specificationItemLabel}}</h2>
+    <h2>@Sentences.issuesForArtifact {{specificationItem.getLabel()}}</h2>
 </div>
 <div class="modal-body">
     @Html.Partial("_List")
