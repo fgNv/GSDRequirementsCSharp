@@ -62,6 +62,7 @@
     <Compile Include="Cryptography\Sha256Cryptographer.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Exceptions.cs" />
+    <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\PermissionException.cs" />
     <Compile Include="Internationalization\Sentences.pt.Designer.cs">
       <DependentUpon>Sentences.pt.resx</DependentUpon>

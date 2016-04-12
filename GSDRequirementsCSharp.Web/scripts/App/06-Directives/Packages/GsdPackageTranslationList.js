@@ -7,7 +7,9 @@ var Directives;
             this.templateUrl = GSDRequirements.baseUrl + 'package/translationList';
             this.controller = ["$scope", "$uibModal", function ($scope, $uibModal) {
                     $scope.translations = [];
-                    $scope.translationsAlreadyProvided = [];
+                    if (!$scope.translationsAlreadyProvided) {
+                        $scope.translationsAlreadyProvided = [];
+                    }
                     function openTranslationModal(translationToEdit) {
                         var translationsAlreadyProvided = _.chain($scope.translations)
                             .filter(function (t) { return t.isUpdated == true; })
@@ -52,4 +54,3 @@ var Directives;
     })();
     app.directive('gsdPackageTranslationList', GsdPackageTranslationList.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdPackageTranslationList.js.map

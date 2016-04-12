@@ -78,7 +78,9 @@
     <Compile Include="Mappings\ClassPropertyMapping.cs" />
     <Compile Include="Mappings\ClassRelationshipMapping.cs" />
     <Compile Include="Mappings\ContactMapping.cs" />
+    <Compile Include="Mappings\IssueCommentContentMapping.cs" />
     <Compile Include="Mappings\IssueCommentMapping.cs" />
+    <Compile Include="Mappings\IssueContentMapping.cs" />
     <Compile Include="Mappings\IssueMapping.cs" />
     <Compile Include="Mappings\PackageContentMapping.cs" />
     <Compile Include="Mappings\PackageMapping.cs" />
@@ -95,9 +97,22 @@
     <Compile Include="Migrations\201604051129040_initial-migration.Designer.cs">
       <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604081330225_issues-translations.cs" />
+    <Compile Include="Migrations\201604081330225_issues-translations.Designer.cs">
+      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.cs" />
+    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.Designer.cs">
+      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
+    <Compile Include="Queries\Issues\BySpecificationItem\SpecificationItemIssuesQuery.cs" />
+    <Compile Include="Queries\Issues\BySpecificationItem\SpecificationItemIssuesQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueCommentWithContentsQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
     <Compile Include="Queries\Packages\NextId\PackageNextIdQueryHandler.cs" />
     <Compile Include="Queries\Packages\WithContents\PackageWithContentsQueryHandler.cs" />
@@ -111,7 +126,6 @@
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
-    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectViewModel.cs" />
     <Compile Include="Queries\Projects\ProjectWithContents\ProjectWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
     <Compile Include="Queries\Requirements\LastVersion\LastVersionRequirementQueryHandler.cs" />
@@ -148,6 +162,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604051129040_initial-migration.resx">
       <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604081330225_issues-translations.resx">
+      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111346476_issue-paginated-query-indexes.resx">
+      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

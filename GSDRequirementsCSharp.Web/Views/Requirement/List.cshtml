@@ -19,12 +19,9 @@
         <tbody>
             <tr data-ng-repeat="r in requirements">
                 <td>
-                    <!--<button class="btn btn-default"
-                            data-ng-show="r.HasPendingIssues"
-                            style="color: red"
-                            title="@Sentences.seePendingIssues">
-                        <span class="glyphicon glyphicon-alert"></span>
-                    </button>-->
+                    <gsd-item-issues data-specification-item="r"
+                                     data-ng-show="r.issues.length > 0">
+                    </gsd-item-issues>
                 </td>
                 <td>{{r.prefix}}{{r.identifier}}</td>
                 <td>{{r.description}}</td>
@@ -56,13 +53,11 @@
                             data-ng-click="manageLinks(r)"
                             title="@Sentences.manageLinks">
                         <span class="glyphicon glyphicon-transfer"></span>
-                    </button>
-                    <button class="btn btn-default"
-                            type="button"
-                            data-ng-click="addIssue(r)"
-                            title="@Sentences.addIssue">
-                        <span class="glyphicon glyphicon-comment"></span>
                     </button>-->
+                    <gsd-issue-create data-specification-item="r"
+                                      data-after-save="loadRequirements">
+                    </gsd-issue-create>
+
                     <button class="btn btn-default"
                             type="button"
                             data-ng-click="setRequirementToTranslate(r)"

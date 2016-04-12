@@ -97,6 +97,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add issue for.
+        /// </summary>
+        public static string addIssueFor {
+            get {
+                return ResourceManager.GetString("addIssueFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new version.
         /// </summary>
         public static string addNewVersion {
@@ -286,6 +295,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comments.
+        /// </summary>
+        public static string comments {
+            get {
+                return ResourceManager.GetString("comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Condition.
         /// </summary>
         public static string condition {
@@ -457,6 +475,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error creating issue.
+        /// </summary>
+        public static string errorCreatingIssue {
+            get {
+                return ResourceManager.GetString("errorCreatingIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error granting permissions.
         /// </summary>
         public static string errorGrantingPermissions {
@@ -489,6 +516,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorInactivatingRequirement {
             get {
                 return ResourceManager.GetString("errorInactivatingRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading issues.
+        /// </summary>
+        public static string errorLoadingIssues {
+            get {
+                return ResourceManager.GetString("errorLoadingIssues", resourceCulture);
             }
         }
         
@@ -655,11 +691,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue created successfully.
+        /// </summary>
+        public static string issueCreatedSuccessfully {
+            get {
+                return ResourceManager.GetString("issueCreatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issues for artifact.
+        /// </summary>
+        public static string issuesForArtifact {
+            get {
+                return ResourceManager.GetString("issuesForArtifact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
             get {
                 return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last modification at.
+        /// </summary>
+        public static string lastModificationAt {
+            get {
+                return ResourceManager.GetString("lastModificationAt", resourceCulture);
             }
         }
         
@@ -1213,7 +1276,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translations is outdated.
+        ///   Looks up a localized string similar to Translation is outdated.
         /// </summary>
         public static string translationsIsOutdated {
             get {
@@ -1335,6 +1398,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string youMustBeTheProjectOwnerToExecuteThisAction {
             get {
                 return ResourceManager.GetString("youMustBeTheProjectOwnerToExecuteThisAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must have collaborator permission for this project to execute this action.
+        /// </summary>
+        public static string youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction {
+            get {
+                return ResourceManager.GetString("youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction", resourceCulture);
             }
         }
         

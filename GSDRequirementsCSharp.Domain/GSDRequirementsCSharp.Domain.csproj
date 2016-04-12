@@ -48,6 +48,24 @@
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
     <Compile Include="Commands\IProjectOwnerCommand.cs" />
+    <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\UpdateIssueCommentCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\UpdateIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\AddIssueCommentTranslationCommand.cs" />
+    <Compile Include="Commands\IssuesComments\AddIssueCommentTranslationCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\CreateIssueCommentCommandHandler.cs" />
+    <Compile Include="Commands\IssuesComments\CreateIssueCommentCommand.cs" />
+    <Compile Include="Commands\IssuesComments\IssueCommentContentItem.cs" />
+    <Compile Include="Commands\Issues\AddIssueTranslationCommand.cs" />
+    <Compile Include="Commands\Issues\AddIssueTranslationCommandHandler.cs" />
+    <Compile Include="Commands\Issues\ConcludeIssueCommand.cs" />
+    <Compile Include="Commands\Issues\ConcludeIssueCommandHandler.cs" />
+    <Compile Include="Commands\Issues\CreateIssueCommand.cs" />
+    <Compile Include="Commands\Issues\CreateIssueCommandHandler.cs" />
+    <Compile Include="Commands\Issues\IssueContentItem.cs" />
+    <Compile Include="Commands\Issues\UpdateIssueCommand.cs" />
+    <Compile Include="Commands\Issues\UpdateIssueCommandHandler.cs" />
     <Compile Include="Commands\Packages\AddPackageTranslationCommand.cs" />
     <Compile Include="Commands\Packages\AddPackageTranslationCommandHandler.cs" />
     <Compile Include="Commands\Packages\CreatePackageCommandHandler.cs" />
@@ -80,6 +98,7 @@
     <Compile Include="Commands\SpecificationItems\InativateSpecificationItemCommandHandler.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommand.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommandHandler.cs" />
+    <Compile Include="Commands\IProjectCollaboratorCommand.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommand.cs" />
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="Commands\Users\UpdateUserCommand.cs" />
@@ -100,6 +119,8 @@
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\IssueComment.cs" />
+    <Compile Include="Models\IssueCommentContent.cs" />
+    <Compile Include="Models\IssueContent.cs" />
     <Compile Include="Models\LocaleKey.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\PackageContent.cs" />
@@ -119,6 +140,9 @@
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQuery.cs" />
+    <Compile Include="Queries\Issue\IssueCommentWithContentsQuery.cs" />
+    <Compile Include="Queries\Issue\IssueNextIdQuery.cs" />
+    <Compile Include="Queries\Issue\IssueWithContentsQuery.cs" />
     <Compile Include="Queries\Packages\PackageNextIdQuery.cs" />
     <Compile Include="Queries\Packages\PackageWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Permissions\PermissionByUserAndProjectQuery.cs" />
@@ -128,6 +152,16 @@
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
+    <Compile Include="ViewModels\IssueCommentContentViewModel.cs" />
+    <Compile Include="ViewModels\IssueCommentViewModel.cs" />
+    <Compile Include="ViewModels\IssueContentViewModel.cs" />
+    <Compile Include="ViewModels\IssueViewModel.cs" />
+    <Compile Include="ViewModels\PackageContentViewModel.cs" />
+    <Compile Include="ViewModels\PackageViewModel.cs" />
+    <Compile Include="ViewModels\ProjectContentViewModel.cs" />
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
+    <Compile Include="ViewModels\RequirementContentViewModel.cs" />
+    <Compile Include="ViewModels\RequirementViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,14 +13,18 @@
         return translationToEdit && translationToEdit.locale == locale.name;
     }
 
+    function anyData(originalData) {
+        return originalData.condition || originalData.subject || originalData.action
+    }
+
     class ModalRequirementTranslationController {
         constructor($scope: any,
             $uibModalInstance: any,
             translationsAlreadyProvided: any,
             translationToEdit: any,
             originalData: any) {
-            
-            if (originalData) {
+
+            if (originalData && anyData(originalData)) {
                 $scope.conditionPlaceholder = originalData.condition
                 $scope.subjectPlaceholder = originalData.subject
                 $scope.actionPlaceholder = originalData.action

@@ -460,7 +460,7 @@
     <value>Invalid items</value>
   </data>
   <data name="translationsIsOutdated" xml:space="preserve">
-    <value>Translations is outdated</value>
+    <value>Translation is outdated</value>
   </data>
   <data name="manageProjectUsers" xml:space="preserve">
     <value>Manage project users</value>
@@ -545,5 +545,29 @@
   </data>
   <data name="passwordSuccessfullyChanged" xml:space="preserve">
     <value>Password successfully changed</value>
+  </data>
+  <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>You must have collaborator permission for this project to execute this action</value>
+  </data>
+  <data name="addIssueFor" xml:space="preserve">
+    <value>Add issue for</value>
+  </data>
+  <data name="errorCreatingIssue" xml:space="preserve">
+    <value>Error creating issue</value>
+  </data>
+  <data name="issueCreatedSuccessfully" xml:space="preserve">
+    <value>Issue created successfully</value>
+  </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="lastModificationAt" xml:space="preserve">
+    <value>Last modification at</value>
+  </data>
+  <data name="issuesForArtifact" xml:space="preserve">
+    <value>Issues for artifact</value>
+  </data>
+  <data name="errorLoadingIssues" xml:space="preserve">
+    <value>Error loading issues</value>
   </data>
 </root>

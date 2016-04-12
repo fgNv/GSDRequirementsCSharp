@@ -7,9 +7,12 @@ var Controllers;
     function isInCurrentEdition(translationToEdit, locale) {
         return translationToEdit && translationToEdit.locale == locale.name;
     }
+    function anyData(originalData) {
+        return originalData.condition || originalData.subject || originalData.action;
+    }
     var ModalRequirementTranslationController = (function () {
         function ModalRequirementTranslationController($scope, $uibModalInstance, translationsAlreadyProvided, translationToEdit, originalData) {
-            if (originalData) {
+            if (originalData && anyData(originalData)) {
                 $scope.conditionPlaceholder = originalData.condition;
                 $scope.subjectPlaceholder = originalData.subject;
                 $scope.actionPlaceholder = originalData.action;
@@ -39,4 +42,3 @@ var Controllers;
     app.controller('ModalRequirementTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
         "translationToEdit", "originalData", ModalRequirementTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalRequirementTranslationController.js.map

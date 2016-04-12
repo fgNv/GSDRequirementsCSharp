@@ -8,9 +8,11 @@ var Controllers;
             $scope.$on(Globals.EventNames.projectListChanged, function () {
                 $scope.$broadcast(Globals.EventNames.updateProjectList);
             });
+            setTimeout(function () {
+                $('.hidden-pre-load').fadeIn('slow', function () { });
+            }, 110);
         }
         return MainController;
     })();
     app.controller('MainController', ["$scope", MainController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=MainController.js.map

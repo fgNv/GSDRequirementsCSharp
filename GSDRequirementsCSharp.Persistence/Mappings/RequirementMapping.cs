@@ -21,13 +21,23 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(r => r.Type).HasColumnName("type");
             Property(r => r.CreatorId).HasColumnName("creator_id");
             Property(r => r.Version).HasColumnName("version");
-            Property(r => r.IsLastVersion).HasColumnName("is_last_version");
-            Property(r => r.Identifier).HasColumnName("identifier");
+            Property(r => r.IsLastVersion).HasColumnName("is_last_version")
+                                          .HasColumnAnnotation("Index",
+                                                         new IndexAnnotation(new IndexAttribute("IX_Requirement_Last_Version")
+                                                         {
+                                                             IsUnique = false
+                                                         })); ;
+            Property(r => r.Identifier).HasColumnName("identifier")
+                                       .HasColumnAnnotation("Index",
+                                                         new IndexAnnotation(new IndexAttribute("IX_Requirement_Identifier")
+                                                         {
+                                                             IsUnique = false
+                                                         }));
             Property(r => r.ProjectId).HasColumnName("project_id");
 
             HasRequired(r => r.Project).WithMany()
                                        .HasForeignKey(p => p.ProjectId);
-                        
+
             Property(p => p.Identifier).HasColumnAnnotation(
                 IndexAnnotation.AnnotationName,
                 new IndexAnnotation(new IndexAttribute("requirement_identifier", 1)

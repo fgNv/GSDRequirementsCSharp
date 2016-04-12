@@ -1,0 +1,22 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>@Sentences.id</th>
+                    <th>@Sentences.lastModificationAt</th>
+                    <th>@Sentences.description</th>
+                    <th>@Sentences.comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="issue in issues">
+                    <td>#{{issue.identifier}}</td>
+                    <td>{{issue.lastModificationLabel}}</td>
+                    <td>{{issue.description}}</td>
+                    <td>{{issue.comments.length}}</td>
+                </tr>
+            </tbody>
+    </table>
+</article>

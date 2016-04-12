@@ -6,4 +6,3 @@ var Models;
     })(Models.requirementType || (Models.requirementType = {}));
     var requirementType = Models.requirementType;
 })(Models || (Models = {}));
-//# sourceMappingURL=requirementType.js.map

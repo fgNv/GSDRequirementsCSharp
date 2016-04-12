@@ -7,6 +7,7 @@
     declare var GSDRequirements: GSDRequirementsData;
     declare var sentences: any;
     declare var baseUrl: string;
+    declare var $: any;
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
@@ -18,6 +19,10 @@
             $scope.$on(Globals.EventNames.projectListChanged, () => {
                 $scope.$broadcast(Globals.EventNames.updateProjectList)
             })
+
+            setTimeout(function () {
+                $('.hidden-pre-load').fadeIn('slow', function () { });
+            }, 110);
         }
     }
 

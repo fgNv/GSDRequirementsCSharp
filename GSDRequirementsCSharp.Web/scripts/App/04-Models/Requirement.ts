@@ -19,11 +19,16 @@
         public id: string
         public description : string
         public requirementContents: Array<Models.RequirementContent>
+        public issues: Array<Object>
+
+        public getLabel() {
+            return `${this.prefix}${this.identifier}`
+        }
         constructor(data: Object) {
             for (var prop in data) {
                 this[prop] = data[prop]
             }
-            this.package = new Models.Package(data['specificationItem']['package'])
+            this.package = new Models.Package(data['package'])
             switch (this.type) {
                 case requirementType.functional:
                     this.prefix = "FR"

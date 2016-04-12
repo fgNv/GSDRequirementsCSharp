@@ -1,0 +1,50 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+
+<div class="modal-header">
+    <h2>@Sentences.addIssueFor {{specificationItemLabel}}</h2>
+</div>
+<div class="modal-body"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <div class="form-inline" data-ng-show="availableLocales.length > 0" style="margin-bottom: 12px; ">
+        <div class="form-group">
+            <label>
+                @Sentences.language
+            </label>
+            <select data-ng-options="locale as locale.label for locale in availableLocales"
+                    data-ng-model="newContentLocale"
+                    class="form-control"></select>
+        </div>
+        <button class="btn btn-default"
+                data-ng-click="addContentItem(newContentLocale)">
+            @Sentences.addTranslation
+        </button>
+    </div>
+    <div class="row" data-ng-repeat="contentItem in contentItems">        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>
+                    @Sentences.description ({{contentItem.locale}})                    
+                    <button class="btn btn-default"
+                            data-ng-click="removeContentItem(contentItem)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </label>
+                <textarea class="form-control"
+                          data-ng-model="contentItem.description"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="cancel()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</div>

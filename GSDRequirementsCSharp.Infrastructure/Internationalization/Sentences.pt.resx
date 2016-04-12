@@ -546,4 +546,28 @@
   <data name="passwordSuccessfullyChanged" xml:space="preserve">
     <value>Senha alterada com sucesso</value>
   </data>
+  <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>Você deve ter permissão de colaborador para esse projeto para executar essa ação</value>
+  </data>
+  <data name="addIssueFor" xml:space="preserve">
+    <value>Adicionar observação para</value>
+  </data>
+  <data name="errorCreatingIssue" xml:space="preserve">
+    <value>Erro ao criar observação</value>
+  </data>
+  <data name="issueCreatedSuccessfully" xml:space="preserve">
+    <value>Observação criada com sucesso</value>
+  </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comentários</value>
+  </data>
+  <data name="lastModificationAt" xml:space="preserve">
+    <value>Última alteração em</value>
+  </data>
+  <data name="issuesForArtifact" xml:space="preserve">
+    <value>Observações para artefato</value>
+  </data>
+  <data name="errorLoadingIssues" xml:space="preserve">
+    <value>Erro ao carregar observações</value>
+  </data>
 </root>

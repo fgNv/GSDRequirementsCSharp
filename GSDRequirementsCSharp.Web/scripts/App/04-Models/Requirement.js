@@ -5,7 +5,7 @@ var Models;
             for (var prop in data) {
                 this[prop] = data[prop];
             }
-            this.package = new Models.Package(data['specificationItem']['package']);
+            this.package = new Models.Package(data['package']);
             switch (this.type) {
                 case Models.requirementType.functional:
                     this.prefix = "FR";
@@ -19,6 +19,9 @@ var Models;
             this.requirementType = this.type;
             this.description = (this.condition || "") + " " + (this.subject || "") + " " + (this.action || "");
         }
+        Requirement.prototype.getLabel = function () {
+            return "" + this.prefix + this.identifier;
+        };
         Requirement.prototype.defineContent = function () {
             var currentLocale = _.find(this.requirementContents, function (c) { return c.locale == GSDRequirements.currentLocale; });
             if (currentLocale) {
@@ -45,4 +48,3 @@ var Models;
     })();
     Models.Requirement = Requirement;
 })(Models || (Models = {}));
-//# sourceMappingURL=Requirement.js.map
