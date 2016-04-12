@@ -88,6 +88,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add comment.
+        /// </summary>
+        public static string addComment {
+            get {
+                return ResourceManager.GetString("addComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add issue.
         /// </summary>
         public static string addIssue {
@@ -637,6 +646,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go back to list.
+        /// </summary>
+        public static string goBackToList {
+            get {
+                return ResourceManager.GetString("goBackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hard.
         /// </summary>
         public static string hard {
@@ -696,6 +714,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string issueCreatedSuccessfully {
             get {
                 return ResourceManager.GetString("issueCreatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue details.
+        /// </summary>
+        public static string issueDetails {
+            get {
+                return ResourceManager.GetString("issueDetails", resourceCulture);
             }
         }
         

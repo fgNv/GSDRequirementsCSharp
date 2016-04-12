@@ -570,4 +570,13 @@
   <data name="errorLoadingIssues" xml:space="preserve">
     <value>Erro ao carregar observações</value>
   </data>
+  <data name="issueDetails" xml:space="preserve">
+    <value>Detalhes da observação</value>
+  </data>
+  <data name="addComment" xml:space="preserve">
+    <value>Adicionar comentário</value>
+  </data>
+  <data name="goBackToList" xml:space="preserve">
+    <value>Voltar para lista</value>
+  </data>
 </root>

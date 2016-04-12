@@ -570,4 +570,13 @@
   <data name="errorLoadingIssues" xml:space="preserve">
     <value>Error loading issues</value>
   </data>
+  <data name="issueDetails" xml:space="preserve">
+    <value>Issue details</value>
+  </data>
+  <data name="addComment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="goBackToList" xml:space="preserve">
+    <value>Go back to list</value>
+  </data>
 </root>

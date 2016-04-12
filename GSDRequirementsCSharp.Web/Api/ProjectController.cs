@@ -1,16 +1,9 @@
-﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Commands.Projects;
+﻿using GSDRequirementsCSharp.Domain.Commands.Projects;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence;
-using GSDRequirementsCSharp.Persistence.Commands.Projects;
 using GSDRequirementsCSharp.Persistence.Queries;
-using GSDRequirementsCSharp.Persistence.Queries.Projects.CurrentUserProjects;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api

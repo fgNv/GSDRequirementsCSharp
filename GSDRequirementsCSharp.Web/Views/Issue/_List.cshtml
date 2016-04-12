@@ -1,7 +1,7 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <article>
-    <table class="table">
+    <table class="table" data-ng-show="issueInDetail == null">
             <thead>
                 <tr>
                     <th>@Sentences.id</th>
@@ -12,11 +12,47 @@
             </thead>
             <tbody>
                 <tr data-ng-repeat="issue in issues">
-                    <td>#{{issue.identifier}}</td>
+                    <td>
+                        <a data-ng-href="#/issue/{{issue.identifier}}"
+                           data-ng-click="issueInDetail = issue">
+                            #{{issue.identifier}}
+                        </a>
+                    </td>
                     <td>{{issue.lastModificationLabel}}</td>
                     <td>{{issue.description}}</td>
                     <td>{{issue.comments.length}}</td>
                 </tr>
             </tbody>
     </table>
+    <div data-ng-show="issueInDetail">
+        <h3> #{{issueInDetail.identifier}} @Sentences.issueDetails</h3>
+
+        <div class="form-group">
+             <select class="form-control"
+                     data-ng-options="locale.name for locale in availableContentLocales"
+                     data-ng-model="displayLocale">
+             </select>
+        </div>
+        <dl>
+            <dt>@Sentences.description</dt>
+            <dd>
+                {{currentDescription}}
+            </dd>             
+        </dl>
+
+        <div data-ng-repeat="comment in issueInDetail.comments">
+            {{comment.creator.name}} - {{comment.description}}
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-default"
+                    data-ng-click="issueInDetail = null">
+                @Sentences.goBackToList
+            </button>
+            <button class="btn btn-primary"
+                    data-ng-click="addComment(issueInDetail)">
+                @Sentences.addComment
+            </button>
+        </div>
+    </div>
 </article>

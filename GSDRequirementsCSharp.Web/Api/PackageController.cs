@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands.Packages;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject;
@@ -19,14 +20,14 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<SavePackageCommand> _createPackageCommandHandler;
         private readonly ICommandHandler<UpdatePackageCommand> _updatePackageCommandHandler;
         private readonly ICommandHandler<InactivatePackageCommand> _inactivatePackageCommand;
-        private readonly IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>> _packagesCurrentProjectQueryHandler;
+        private readonly IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<PackageViewModel>> _packagesCurrentProjectQueryHandler;
 
         public PackageController(IQueryHandler<PackagesPaginatedQuery, PackagesPaginatedQueryResult> packagesPaginatedQueryHandler,
                                 ICommandHandler<AddPackageTranslationCommand> addPackageTranslationCommandHandler,
                                 ICommandHandler<SavePackageCommand> createPackageCommandHandler,
                                 ICommandHandler<UpdatePackageCommand> updatePackageCommandHandler,
                                 ICommandHandler<InactivatePackageCommand> inactivatePackageCommand,
-                                IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<Package>> packagesCurrentProjectQueryHandler)
+                                IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<PackageViewModel>> packagesCurrentProjectQueryHandler)
         {
             _packagesPaginatedQueryHandler = packagesPaginatedQueryHandler;
             _addPackageTranslationCommandHandler = addPackageTranslationCommandHandler;
@@ -36,7 +37,7 @@ namespace GSDRequirementsCSharp.Web.Api
             _packagesCurrentProjectQueryHandler = packagesCurrentProjectQueryHandler;
         }
         
-        public IEnumerable<Package> Get()
+        public IEnumerable<PackageViewModel> Get()
         {
             return _packagesCurrentProjectQueryHandler.Handle(null);
         }
