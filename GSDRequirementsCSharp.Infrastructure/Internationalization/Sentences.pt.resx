@@ -558,4 +558,10 @@
   <data name="issueCreatedSuccessfully" xml:space="preserve">
     <value>Observação criada com sucesso</value>
   </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comentários</value>
+  </data>
+  <data name="lastModificationAt" xml:space="preserve">
+    <value>Última alteração em</value>
+  </data>
 </root>

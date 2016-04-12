@@ -156,6 +156,7 @@
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
     <Content Include="Scripts\App\03-Resources\IssueResource.js" />
+    <Content Include="Scripts\App\03-Resources\ItemIssuesResource.js" />
     <Content Include="Scripts\App\03-Resources\PermissionResource.js" />
     <Content Include="Scripts\App\03-Resources\RequirementResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectTranslationResource.js" />
@@ -255,6 +256,7 @@
     <Content Include="Views\Issue\_Create.cshtml" />
     <Content Include="Views\Issue\_Form.cshtml" />
     <Content Include="Views\Issue\_ItemIssues.cshtml" />
+    <Content Include="Views\Issue\_List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

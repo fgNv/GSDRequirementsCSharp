@@ -8,7 +8,7 @@ var Controllers;
         }
         return ModalItemIssuesController;
     })();
-    app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
+    app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
 //# sourceMappingURL=ModalItemIssuesController.js.map

@@ -8,9 +8,9 @@ var Directives;
             };
             this.templateUrl = GSDRequirements.baseUrl + 'issue/itemIssues';
             this.controller = ['$scope', "$uibModal", function ($scope, $uibModal) {
-                    $scope.addIssue = function () {
+                    $scope.seeIssues = function () {
                         var modal = $uibModal.open({
-                            templateUrl: GSDRequirements.baseUrl + "issue/form",
+                            templateUrl: GSDRequirements.baseUrl + "issue/list",
                             controller: 'ModalItemIssuesController',
                             size: 'lg',
                             resolve: {

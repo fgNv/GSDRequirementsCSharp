@@ -13,6 +13,6 @@
         }
     }
 
-    app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
+    app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', ModalItemIssuesController]);
 }

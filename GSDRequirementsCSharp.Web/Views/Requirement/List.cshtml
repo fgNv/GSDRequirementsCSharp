@@ -19,13 +19,9 @@
         <tbody>
             <tr data-ng-repeat="r in requirements">
                 <td>
-                    <button class="btn btn-default"
-                            data-ng-show="r.issues.length > 0"
-                            style="color: red"
-                            title="@Sentences.seePendingIssues">
-                        <span class="glyphicon glyphicon-alert"></span>
-                    </button>
-
+                    <gsd-item-issues data-specification-item="r"
+                                     data-ng-show="r.issues.length > 0">
+                    </gsd-item-issues>
                 </td>
                 <td>{{r.prefix}}{{r.identifier}}</td>
                 <td>{{r.description}}</td>

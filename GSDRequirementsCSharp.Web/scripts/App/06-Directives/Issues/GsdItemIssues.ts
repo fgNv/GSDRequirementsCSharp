@@ -13,9 +13,9 @@
         };
         public templateUrl = GSDRequirements.baseUrl + 'issue/itemIssues'
         public controller = ['$scope', "$uibModal", ($scope: any, $uibModal: any) => {
-            $scope.addIssue = (): void=> {
+            $scope.seeIssues = (): void=> {
                 var modal = $uibModal.open({
-                    templateUrl: `${GSDRequirements.baseUrl}issue/form`,
+                    templateUrl: `${GSDRequirements.baseUrl}issue/list`,
                     controller: 'ModalItemIssuesController',
                     size: 'lg',
                     resolve: {

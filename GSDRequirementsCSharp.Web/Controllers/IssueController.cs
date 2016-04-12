@@ -20,5 +20,11 @@ namespace GSDRequirementsCSharp.Web.Controllers
         {
             return PartialView("~/Views/Issue/_Form.cshtml");
         }
+
+        [SkipUserDataSetter]
+        public PartialViewResult ItemIssues()
+        {
+            return PartialView("~/Views/Issue/_ItemIssues.cshtml");
+        }
     }
 }

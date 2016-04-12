@@ -13,7 +13,9 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public Guid SpecificationItemId { get; set; }
 
         public IEnumerable<IssueContentViewModel> Contents { get; set; }
-        
+
+        public IEnumerable<IssueCommentViewModel> Comments { get; set; }
+
         public DateTime CreatedAt { get; set; }
 
         public DateTime LastModification { get; set; }
@@ -27,7 +29,9 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 LastModification = model.LastModification,
                 SpecificationItemId = model.SpecificationItemId,
                 Contents = model.Contents?
-                                .Select(IssueContentViewModel.FromModel)
+                                .Select(IssueContentViewModel.FromModel),
+                Comments = model.IssueComments?
+                                .Select(IssueCommentViewModel.FromModel)
             };
         }
     }

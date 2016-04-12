@@ -295,6 +295,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comments.
+        /// </summary>
+        public static string comments {
+            get {
+                return ResourceManager.GetString("comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Condition.
         /// </summary>
         public static string condition {
@@ -687,6 +696,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string language {
             get {
                 return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last modification at.
+        /// </summary>
+        public static string lastModificationAt {
+            get {
+                return ResourceManager.GetString("lastModificationAt", resourceCulture);
             }
         }
         
