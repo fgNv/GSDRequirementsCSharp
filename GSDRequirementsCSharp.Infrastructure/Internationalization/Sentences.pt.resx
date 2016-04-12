@@ -564,4 +564,7 @@
   <data name="lastModificationAt" xml:space="preserve">
     <value>Última alteração em</value>
   </data>
+  <data name="issuesForArtifact" xml:space="preserve">
+    <value>Observações para artefato</value>
+  </data>
 </root>

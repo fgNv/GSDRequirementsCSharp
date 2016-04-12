@@ -22,7 +22,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public static IssueViewModel FromModel(Issue model)
         {
-            return new IssueViewModel
+            var vm = new IssueViewModel
             {
                 CreatedAt = model.CreatedAt,
                 Id = model.Id,
@@ -31,8 +31,9 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Contents = model.Contents?
                                 .Select(IssueContentViewModel.FromModel),
                 Comments = model.IssueComments?
-                                .Select(IssueCommentViewModel.FromModel)
-            };
+                               .Select(IssueCommentViewModel.FromModel)
+        };
+            return vm;
         }
     }
 }

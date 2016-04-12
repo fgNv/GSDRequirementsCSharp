@@ -257,6 +257,7 @@
     <Content Include="Views\Issue\_Form.cshtml" />
     <Content Include="Views\Issue\_ItemIssues.cshtml" />
     <Content Include="Views\Issue\_List.cshtml" />
+    <Content Include="Views\Issue\_ListModalContainer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -16,6 +16,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public PackageViewModel Package { get; set; }
         public Guid Id { get; set; }
         public int Version { get; set; }
+        public int Rank { get; set; }
         public IEnumerable<RequirementContentViewModel> RequirementContents { get; set; }
         public IEnumerable<IssueViewModel> Issues { get; set; }
 
@@ -30,7 +31,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Package = PackageViewModel.FromModel(model.SpecificationItem.Package),
                 Identifier = model.Identifier,
                 RequirementType = model.Type,
-                Type = model.Type
+                Type = model.Type,
+                Rank = model.Rank
             };
         }
     }

@@ -691,6 +691,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issues for artifact.
+        /// </summary>
+        public static string issuesForArtifact {
+            get {
+                return ResourceManager.GetString("issuesForArtifact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {

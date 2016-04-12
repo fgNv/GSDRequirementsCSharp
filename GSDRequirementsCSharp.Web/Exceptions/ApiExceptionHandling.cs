@@ -28,7 +28,8 @@ namespace GSDRequirementsCSharp.Web.Exceptions
 
         public static void Handle(this Exception e, HttpActionExecutedContext context)
         {
-            var response = BuildContent(new[] { e.Message });
+            var messages = e.GetMessages();
+            var response = BuildContent(messages);
             response.StatusCode = HttpStatusCode.InternalServerError;
             context.Response = response;
         }

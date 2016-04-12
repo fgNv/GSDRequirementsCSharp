@@ -19,8 +19,9 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
             return new IssueCommentViewModel
             {
                 Id = model.Id,
-                LastModification = model.LastModification,
-                Contents = model.Contents?.Select(IssueCommentContentViewModel.FromModel)
+                LastModification = model.LastModification/*,
+                Contents = model.Contents?
+                                .Select(IssueCommentContentViewModel.FromModel)*/
             };
         }
     }

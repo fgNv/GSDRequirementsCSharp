@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
         private readonly ICurrentProjectContextId _currentProjectContextId;
 
         public RequirementsPaginatedQueryHandler(GSDRequirementsContext context,
-                                             ICurrentProjectContextId currentProjectContextId)
+                                                 ICurrentProjectContextId currentProjectContextId)
         {
             _context = context;
             _currentProjectContextId = currentProjectContextId;
@@ -47,8 +47,11 @@ namespace GSDRequirementsCSharp.Persistence.Queries
             var requirements = paginatedQuery.Select(RequirementViewModel.FromModel)
                                              .ToList();
 
-            var itemsIds = requirements.Select(r => r.Id);
+            var itemsIds = requirements.Select(r => r.Id)
+                                       .ToList();
             var issues = _context.Issues
+                                 .Include(i => i.Contents)
+                                 .Include(i => i.IssueComments.Select(ic => ic.Contents))
                                  .Where(i => !i.Concluded && itemsIds.Contains(i.SpecificationItemId))
                                  .Select(IssueViewModel.FromModel)
                                  .ToList();
