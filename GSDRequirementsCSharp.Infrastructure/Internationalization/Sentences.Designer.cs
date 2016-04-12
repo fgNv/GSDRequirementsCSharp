@@ -520,6 +520,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading issues.
+        /// </summary>
+        public static string errorLoadingIssues {
+            get {
+                return ResourceManager.GetString("errorLoadingIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error loading packages.
         /// </summary>
         public static string errorLoadingPackages {

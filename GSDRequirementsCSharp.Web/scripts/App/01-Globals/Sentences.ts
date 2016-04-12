@@ -6,6 +6,7 @@
     export declare var errorSavingProject: string;
     export declare var errorAddingTranslation: string;
     export declare var errorInactivatingProject: string;
+    export declare var errorLoadingIssues: string;
     export declare var errorLoadingPackages: string;
     export declare var errorSavingPackage: string;
     export declare var errorInactivatingRequirement: string;

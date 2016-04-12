@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using GSDRequirementsCSharp.Domain.ViewModels;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Issues.BySpecificationItem
 {
-    class SpecificationItemIssuesQueryHandler : IQueryHandler<SpecificationItemIssuesQuery, IEnumerable<Issue>>
+    class SpecificationItemIssuesQueryHandler : IQueryHandler<SpecificationItemIssuesQuery, IEnumerable<IssueViewModel>>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -18,12 +19,14 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Issues.BySpecificationItem
             _context = context;
         }
 
-        public IEnumerable<Issue> Handle(SpecificationItemIssuesQuery query)
+        public IEnumerable<IssueViewModel> Handle(SpecificationItemIssuesQuery query)
         {
             return _context.Issues
                            .Include(i => i.IssueComments)
+                           .Include(i => i.Contents)
                            .Where(i => i.SpecificationItemId == query.SpeficiationItemId)
                            .OrderByDescending(i => i.LastModification)
+                           .Select(IssueViewModel.FromModel)                           
                            .ToList();
         }
     }

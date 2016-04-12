@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.ViewModels
@@ -16,9 +17,22 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public IEnumerable<IssueCommentViewModel> Comments { get; set; }
 
+        public int Identifier { get; set; }
+
         public DateTime CreatedAt { get; set; }
 
         public DateTime LastModification { get; set; }
+
+        public string LastModificationLabel
+        {
+            get
+            {
+                var currentCultureFormat = Thread.CurrentThread
+                                                 .CurrentUICulture
+                                                 .DateTimeFormat;
+                return LastModification.ToString(currentCultureFormat);
+            }
+        }
 
         public static IssueViewModel FromModel(Issue model)
         {
@@ -28,11 +42,12 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Id = model.Id,
                 LastModification = model.LastModification,
                 SpecificationItemId = model.SpecificationItemId,
+                Identifier = model.Identifier,
                 Contents = model.Contents?
                                 .Select(IssueContentViewModel.FromModel),
                 Comments = model.IssueComments?
                                .Select(IssueCommentViewModel.FromModel)
-        };
+            };
             return vm;
         }
     }

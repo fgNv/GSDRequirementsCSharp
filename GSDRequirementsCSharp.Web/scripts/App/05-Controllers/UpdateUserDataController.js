@@ -25,4 +25,3 @@ var Controllers;
     })();
     app.controller('UpdateUserDataController', ["$scope", "UserResource", UpdateUserDataController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=UpdateUserDataController.js.map
