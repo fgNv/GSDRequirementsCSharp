@@ -122,6 +122,7 @@
     <Compile Include="Queries\Permissions\PermissionByUserAndProjectQueryHandler.cs" />
     <Compile Include="Queries\Permissions\PermissionsByCurrentProjectQueryHandler.cs" />
     <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
+    <Compile Include="Queries\Projects\CurrentUserProjects\ProjectOption.cs" />
     <Compile Include="Queries\Projects\NextId\ProjectNextIdQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
