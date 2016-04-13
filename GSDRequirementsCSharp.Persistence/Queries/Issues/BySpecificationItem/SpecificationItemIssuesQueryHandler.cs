@@ -22,7 +22,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Issues.BySpecificationItem
         public IEnumerable<IssueViewModel> Handle(SpecificationItemIssuesQuery query)
         {
             return _context.Issues
-                           .Include(i => i.IssueComments)
+                           .Include(i => i.IssueComments.Select(ic => ic.Contents))
                            .Include(i => i.Contents)
                            .Where(i => i.SpecificationItemId == query.SpeficiationItemId)
                            .OrderByDescending(i => i.LastModification)

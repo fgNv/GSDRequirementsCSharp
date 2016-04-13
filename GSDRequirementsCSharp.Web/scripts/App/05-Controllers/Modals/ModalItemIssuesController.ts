@@ -36,7 +36,7 @@
             $scope.commentData = {}
             $scope.commentData.locale = GSDRequirements.currentLocale
             $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
-            
+
             $scope = {}
             $scope.comments = {}
 
@@ -53,13 +53,50 @@
             if (!content) return;
             $scope.currentDescription = content.description
         }
+        private loadComments($scope, issue, IssueCommentResource) {
+            $scope.pendingRequests++;
+
+            IssueCommentResource.query({ 'issueId': issue.id })
+                .$promise
+                .then((comments): void => {
+                    issue.comments = _.map(comments, c => new Models.IssueComment(c))
+                })
+                .finally((): void => {
+                    $scope.pendingRequests--
+                });
+        }
         constructor($scope, $uibModalInstance, itemIssuesResource,
-            specificationItem, $rootScope, $location) {
+            specificationItem, $rootScope, $location, IssueCommentResource) {
             $scope.pendingRequests = 0
             $scope.specificationItem = specificationItem
             $scope.issues = []
             $scope.availableContentLocales = []
             $scope.currentDescription = ''
+
+            $scope.addComment = (issue) => {
+                $scope.pendingRequests++;
+                var request = { 'issueId': issue.id, 'contents': [] }
+
+                _.each($scope.comments, (val, key) => {
+                    val.locale = key
+                    if (val.description)
+                        request.contents.push(val)
+                })
+
+                IssueCommentResource.save(request)
+                    .$promise
+                    .then(() => {
+                        Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
+                        this.loadComments($scope, $scope.issueInDetail, IssueCommentResource)
+                    })
+                    .catch((error) => {
+                        Notification.notifyError(Sentences.errorAddingComment,
+                            error.messages)
+                    })
+                    .finally(() => {
+                        $scope.pendingRequests--;
+                    });
+            }
 
             $scope.utility = {}
             $scope.utility.newCommentContainsLocale =
@@ -100,5 +137,5 @@
 
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
-        ModalItemIssuesController]);
+        "IssueCommentResource", ModalItemIssuesController]);
 }

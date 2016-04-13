@@ -322,6 +322,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment successfully added.
+        /// </summary>
+        public static string commentSuccessfullyAdded {
+            get {
+                return ResourceManager.GetString("commentSuccessfullyAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Condition.
         /// </summary>
         public static string condition {

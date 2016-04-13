@@ -588,4 +588,7 @@
   <data name="newCommentLanguage" xml:space="preserve">
     <value>Idioma do novo comentário</value>
   </data>
+  <data name="errorAddingComment" xml:space="preserve">
+    <value>Erro ao adicionar comentário</value>
+  </data>
 </root>

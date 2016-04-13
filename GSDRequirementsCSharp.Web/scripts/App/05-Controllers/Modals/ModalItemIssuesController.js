@@ -2,13 +2,34 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalItemIssuesController = (function () {
-        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location) {
+        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location, IssueCommentResource) {
             var _this = this;
             $scope.pendingRequests = 0;
             $scope.specificationItem = specificationItem;
             $scope.issues = [];
             $scope.availableContentLocales = [];
             $scope.currentDescription = '';
+            $scope.addComment = function (issue) {
+                $scope.pendingRequests++;
+                var request = { 'issueId': issue.id, 'contents': [] };
+                _.each($scope.comments, function (val, key) {
+                    val.locale = key;
+                    if (val.description)
+                        request.contents.push(val);
+                });
+                IssueCommentResource.save(request)
+                    .$promise
+                    .then(function () {
+                    Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
+                    _this.loadComments($scope, $scope.issueInDetail, IssueCommentResource);
+                })
+                    .catch(function (error) {
+                    Notification.notifyError(Sentences.errorAddingComment, error.messages);
+                })
+                    .finally(function () {
+                    $scope.pendingRequests--;
+                });
+            };
             $scope.utility = {};
             $scope.utility.newCommentContainsLocale =
                 function (l) {
@@ -81,9 +102,21 @@ var Controllers;
                 return;
             $scope.currentDescription = content.description;
         };
+        ModalItemIssuesController.prototype.loadComments = function ($scope, issue, IssueCommentResource) {
+            $scope.pendingRequests++;
+            IssueCommentResource.query({ 'issueId': issue.id })
+                .$promise
+                .then(function (comments) {
+                issue.comments = _.map(comments, function (c) { return new Models.IssueComment(c); });
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
+        };
         return ModalItemIssuesController;
     })();
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
-        ModalItemIssuesController]);
+        "IssueCommentResource", ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalItemIssuesController.js.map

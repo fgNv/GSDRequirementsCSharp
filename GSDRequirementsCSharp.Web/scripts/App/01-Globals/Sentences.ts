@@ -1,5 +1,7 @@
 ﻿module Sentences {
+    export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
+    export declare var errorAddingComment: string; 
     export declare var errorCreatingIssue: string;
     export declare var errorLoadingProjects: string;
     export declare var errorSavingUserAccount: string;
