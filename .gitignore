@@ -219,6 +219,7 @@ GSDRequirementsCSharp.Web/scripts/Vendors
 
 # Bower packages installation
 Scripts/Vendors
+fonts
 
 a
 a.pub
