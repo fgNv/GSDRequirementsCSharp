@@ -1,7 +1,12 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-<article>
-    <table class="table" data-ng-show="issueInDetail == null">
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <div class="alert alert-success"
+         data-ng-show="issueInDetail == null && issues.length == 0">
+        @Sentences.allIssuesWereConcluded
+    </div>
+    <table class="table"
+           data-ng-show="issueInDetail == null && issues.length > 0">
         <thead>
             <tr>
                 <th>@Sentences.id</th>
@@ -25,9 +30,16 @@
         </tbody>
     </table>
     <div data-ng-show="issueInDetail">
-        <h3> #{{issueInDetail.identifier}} @Sentences.issueDetails</h3>
+        <h3>
+            #{{issueInDetail.identifier}} @Sentences.issueDetails
+            <button class="btn btn-success"
+                    data-ng-click="markAsConcluded(issueInDetail)">
+                @Sentences.markAsConcluded
+            </button>
+        </h3>
 
         <div class="form-group">
+            <label>@Sentences.language</label>
             <select class="form-control"
                     data-ng-options="locale for locale in availableContentLocales"
                     data-ng-model="displayLocale"></select>
@@ -37,10 +49,22 @@
             <dd>
                 {{currentDescription}}
             </dd>
+            <dt>@Sentences.creator</dt>
+            <dd>
+                {{issueInDetail.creatorName}}
+            </dd>
+            <dt>@Sentences.lastModificationAt</dt>
+            <dd>
+                {{issueInDetail.lastModificationLabel}}
+            </dd>
         </dl>
 
+        <h4>@Sentences.comments</h4>
+
         <div data-ng-repeat="comment in issueInDetail.comments">
-            {{comment.creatorName}} ({{comment.lastModificationLabel}}) - {{comment.description}}
+            <b>{{comment.creatorName}}</b>
+            <small>({{comment.lastModificationLabel}})</small>
+            {{comment.description}}
         </div>
 
         <h4 style="cursor: pointer"

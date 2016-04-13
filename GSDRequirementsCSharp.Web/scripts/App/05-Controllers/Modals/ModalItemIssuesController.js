@@ -2,13 +2,30 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalItemIssuesController = (function () {
-        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location, IssueCommentResource) {
+        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location, IssueCommentResource, IssueConclusionResource, onAllIssuesConcluded) {
             var _this = this;
             $scope.pendingRequests = 0;
             $scope.specificationItem = specificationItem;
             $scope.issues = [];
             $scope.availableContentLocales = [];
             $scope.currentDescription = '';
+            $scope.markAsConcluded = function (issue) {
+                $scope.pendingRequests++;
+                IssueConclusionResource.update({ id: issue.id })
+                    .$promise
+                    .then(function () {
+                    Notification.notifySuccess(Sentences.issueSuccessfullyConcluded);
+                    window.location.href = "#";
+                    _this.initializeCommentData($scope);
+                    _this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded);
+                })
+                    .catch(function (error) {
+                    Notification.notifyError(Sentences.errorConcludingIssue, error.messages);
+                })
+                    .finally(function () {
+                    $scope.pendingRequests--;
+                });
+            };
             $scope.addComment = function (issue) {
                 $scope.pendingRequests++;
                 var request = { 'issueId': issue.id, 'contents': [] };
@@ -59,14 +76,17 @@ var Controllers;
                     $scope.issueInDetail = null;
                 }
             });
-            this.loadIssues($scope, itemIssuesResource, specificationItem);
+            this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded);
         }
-        ModalItemIssuesController.prototype.loadIssues = function ($scope, itemIssuesResource, specificationItem) {
+        ModalItemIssuesController.prototype.loadIssues = function ($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded) {
             $scope.pendingRequests++;
             itemIssuesResource.query({ id: specificationItem.id })
                 .$promise
                 .then(function (issues) {
                 $scope.issues = _.map(issues, function (i) { return new Models.Issue(i); });
+                if (issues.length == 0 && onAllIssuesConcluded) {
+                    onAllIssuesConcluded();
+                }
             })
                 .catch(function (error) {
                 Notification.notifyError(Sentences.errorLoadingIssues, error.messages);
@@ -120,6 +140,7 @@ var Controllers;
     })();
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
-        "IssueCommentResource", ModalItemIssuesController]);
+        "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
+        ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
 //# sourceMappingURL=ModalItemIssuesController.js.map

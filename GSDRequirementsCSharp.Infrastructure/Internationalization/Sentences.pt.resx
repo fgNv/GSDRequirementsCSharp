@@ -594,4 +594,19 @@
   <data name="commentSuccessfullyAdded" xml:space="preserve">
     <value>Comentário adicionado com sucesso</value>
   </data>
+  <data name="markAsConcluded" xml:space="preserve">
+    <value>Marcar como concluída</value>
+  </data>
+  <data name="errorConcludingIssue" xml:space="preserve">
+    <value>Erro ao concluir observação</value>
+  </data>
+  <data name="issueSuccessfullyConcluded" xml:space="preserve">
+    <value>Observação concluída com sucesso</value>
+  </data>
+  <data name="allIssuesWereConcluded" xml:space="preserve">
+    <value>Todas as observações foram concluídas</value>
+  </data>
+  <data name="creator" xml:space="preserve">
+    <value>Criador</value>
+  </data>
 </root>

@@ -196,6 +196,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All issues were concluded.
+        /// </summary>
+        public static string allIssuesWereConcluded {
+            get {
+                return ResourceManager.GetString("allIssuesWereConcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All translation added.
         /// </summary>
         public static string allTranslationsAdded {
@@ -376,6 +385,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creator.
+        /// </summary>
+        public static string creator {
+            get {
+                return ResourceManager.GetString("creator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current project.
         /// </summary>
         public static string currentProject {
@@ -498,6 +516,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorChangingPassword {
             get {
                 return ResourceManager.GetString("errorChangingPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error concluding issue.
+        /// </summary>
+        public static string errorConcludingIssue {
+            get {
+                return ResourceManager.GetString("errorConcludingIssue", resourceCulture);
             }
         }
         
@@ -754,6 +781,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue successfully concluded.
+        /// </summary>
+        public static string issueSuccessfullyConcluded {
+            get {
+                return ResourceManager.GetString("issueSuccessfullyConcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
@@ -840,6 +876,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageUsers {
             get {
                 return ResourceManager.GetString("manageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark as concluded.
+        /// </summary>
+        public static string markAsConcluded {
+            get {
+                return ResourceManager.GetString("markAsConcluded", resourceCulture);
             }
         }
         

@@ -51,6 +51,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
                                        .ToList();
             var issues = _context.Issues
                                  .Include(i => i.Contents)
+                                 .Include(i => i.Creator.Contact)
                                  .Include(i => i.IssueComments.Select(ic => ic.Contents))
                                  .Where(i => !i.Concluded && itemsIds.Contains(i.SpecificationItemId))
                                  .Select(IssueViewModel.FromModel)

@@ -11,7 +11,8 @@
     "underscore": "^1.8.3",
     "angular-bootstrap": "1.2.5",
     "angular-ui-select": "0.16.1",
-    "angular-sanitize": "^1.5.3"
+    "angular-sanitize": "^1.5.3",
+    "components-font-awesome": "^4.5.0"
   },
   "resolutions": {
     "angular": "~1.4.7"

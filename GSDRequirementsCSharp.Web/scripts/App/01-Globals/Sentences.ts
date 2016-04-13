@@ -7,6 +7,7 @@
     export declare var errorSavingUserAccount: string;
     export declare var errorSavingProject: string;
     export declare var errorAddingTranslation: string;
+    export declare var errorConcludingIssue: string;
     export declare var errorInactivatingProject: string;
     export declare var errorLoadingIssues: string;
     export declare var errorLoadingPackages: string;
@@ -20,6 +21,7 @@
     export declare var errorSearchingUsers: string;
     export declare var errorChangingPassword: string;
     export declare var issueCreatedSuccessfully: string;
+    export declare var issueSuccessfullyConcluded: string;
     export declare var errorLoadingRequirements: string;
     export declare var noProjectInContext: string;
     export declare var passwordAndConfirmationMustMatch: string;

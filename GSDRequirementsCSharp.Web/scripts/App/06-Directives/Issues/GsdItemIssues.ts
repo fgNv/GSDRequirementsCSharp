@@ -9,21 +9,28 @@
 
     class GsdItemIssues {
         public scope = {
-            'specificationItem': '=specificationItem'
+            'specificationItem': '=specificationItem',
+            'onAllIssuesConcluded': '=onAllIssuesConcluded'
         };
         public templateUrl = GSDRequirements.baseUrl + 'issue/itemIssues'
         public controller = ['$scope', "$uibModal", ($scope: any, $uibModal: any) => {
+            $scope.pendingRequests = 0
+
             $scope.seeIssues = (): void=> {
+                $scope.pendingRequests++
                 var modal = $uibModal.open({
                     templateUrl: `${GSDRequirements.baseUrl}issue/list`,
                     controller: 'ModalItemIssuesController',
                     size: 'lg',
                     resolve: {
-                        'specificationItem': () => $scope.specificationItem
+                        'specificationItem': () => $scope.specificationItem,
+                        'onAllIssuesConcluded': () => $scope.onAllIssuesConcluded
                     }
                 });
 
-                modal.closed.then((): void => { window.location.href = "#" }) 
+                modal.rendered.then((): void => { $scope.pendingRequests-- })
+
+                modal.closed.then((): void => { window.location.href = "#" })
             }
         }]
         public static Factory() {

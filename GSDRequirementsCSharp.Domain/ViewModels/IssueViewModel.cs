@@ -23,6 +23,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public DateTime LastModification { get; set; }
 
+        public string CreatorName { get; set; }
+
         public string LastModificationLabel
         {
             get
@@ -40,6 +42,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
             {
                 CreatedAt = model.CreatedAt,
                 Id = model.Id,
+                CreatorName = model.Creator?.Contact?.Name,
                 LastModification = model.LastModification,
                 SpecificationItemId = model.SpecificationItemId,
                 Identifier = model.Identifier,

@@ -6,12 +6,15 @@
     var app = angular.module(GSDRequirements.angularModuleName)
 
     class ModalItemIssuesController {
-        private loadIssues($scope, itemIssuesResource, specificationItem) {
+        private loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded) {
             $scope.pendingRequests++;
             itemIssuesResource.query({ id: specificationItem.id })
                 .$promise
                 .then((issues): void => {
                     $scope.issues = _.map(issues, i => new Models.Issue(i))
+                    if (issues.length == 0 && onAllIssuesConcluded) {
+                        onAllIssuesConcluded()
+                    }
                 })
                 .catch((error): void => {
                     Notification.notifyError(Sentences.errorLoadingIssues, error.messages)
@@ -68,12 +71,32 @@
                 });
         }
         constructor($scope, $uibModalInstance, itemIssuesResource,
-            specificationItem, $rootScope, $location, IssueCommentResource) {
+            specificationItem, $rootScope, $location, IssueCommentResource,
+            IssueConclusionResource, onAllIssuesConcluded) {
             $scope.pendingRequests = 0
             $scope.specificationItem = specificationItem
             $scope.issues = []
             $scope.availableContentLocales = []
             $scope.currentDescription = ''
+
+            $scope.markAsConcluded = (issue) => {
+                $scope.pendingRequests++
+                IssueConclusionResource.update({ id: issue.id })
+                    .$promise
+                    .then(() => {
+                        Notification.notifySuccess(Sentences.issueSuccessfullyConcluded);
+                        window.location.href = "#"
+                        this.initializeCommentData($scope)
+                        this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded)
+                    })
+                    .catch((error) => {
+                        Notification.notifyError(Sentences.errorConcludingIssue,
+                            error.messages)
+                    })
+                    .finally((): void=> {
+                        $scope.pendingRequests--
+                    });
+            }
 
             $scope.addComment = (issue) => {
                 $scope.pendingRequests++;
@@ -134,11 +157,12 @@
                 }
             });
 
-            this.loadIssues($scope, itemIssuesResource, specificationItem)
+            this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded)
         }
     }
 
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
-        "IssueCommentResource", ModalItemIssuesController]);
+        "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
+        ModalItemIssuesController]);
 }
