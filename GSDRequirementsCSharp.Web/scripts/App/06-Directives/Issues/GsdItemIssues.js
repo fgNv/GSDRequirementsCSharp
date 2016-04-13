@@ -17,6 +17,7 @@ var Directives;
                                 'specificationItem': function () { return $scope.specificationItem; }
                             }
                         });
+                        modal.closed.then(function () { window.location.href = "#"; });
                     };
                 }];
         }

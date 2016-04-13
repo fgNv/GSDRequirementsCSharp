@@ -9,7 +9,9 @@
     "angular-resource": "~1.4.7",
     "toastr": "~2.1.2",
     "underscore": "^1.8.3",
-    "angular-bootstrap": "1.2.5"
+    "angular-bootstrap": "1.2.5",
+    "angular-ui-select": "0.16.1",
+    "angular-sanitize": "^1.5.3"
   },
   "resolutions": {
     "angular": "~1.4.7"

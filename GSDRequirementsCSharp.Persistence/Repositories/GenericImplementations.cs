@@ -21,6 +21,10 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public IssueContentRepository(GSDRequirementsContext context) : base(context) { }
     }
+    internal class IssueCommentRepository : GenericRepository<IssueComment, Guid>
+    {
+        public IssueCommentRepository(GSDRequirementsContext context) : base(context) { }
+    }
     internal class IssueCommentContentRepository : GenericLocaleRepository<IssueCommentContent>
     {
         public IssueCommentContentRepository(GSDRequirementsContext context) : base(context) { }

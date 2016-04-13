@@ -22,6 +22,8 @@
                         'specificationItem': () => $scope.specificationItem
                     }
                 });
+
+                modal.closed.then((): void => { window.location.href = "#" }) 
             }
         }]
         public static Factory() {

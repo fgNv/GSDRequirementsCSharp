@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -155,6 +156,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueResource.js" />
     <Content Include="Scripts\App\03-Resources\ItemIssuesResource.js" />
     <Content Include="Scripts\App\03-Resources\PermissionResource.js" />
@@ -292,6 +294,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Issue.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueComment.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IssueCommentContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Locale.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
@@ -350,7 +353,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49805</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49805/</IISUrl>
+          <IISUrl>http://localhost:49806/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

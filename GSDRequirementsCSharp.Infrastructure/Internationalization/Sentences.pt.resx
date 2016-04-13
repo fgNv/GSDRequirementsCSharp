@@ -579,4 +579,19 @@
   <data name="goBackToList" xml:space="preserve">
     <value>Voltar para lista</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="newComment" xml:space="preserve">
+    <value>Novo comentário</value>
+  </data>
+  <data name="newCommentLanguage" xml:space="preserve">
+    <value>Idioma do novo comentário</value>
+  </data>
+  <data name="errorAddingComment" xml:space="preserve">
+    <value>Erro ao adicionar comentário</value>
+  </data>
+  <data name="commentSuccessfullyAdded" xml:space="preserve">
+    <value>Comentário adicionado com sucesso</value>
+  </data>
 </root>
