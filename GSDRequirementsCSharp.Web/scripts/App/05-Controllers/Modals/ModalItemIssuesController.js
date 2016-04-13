@@ -9,6 +9,14 @@ var Controllers;
             $scope.issues = [];
             $scope.availableContentLocales = [];
             $scope.currentDescription = '';
+            $scope.utility = {};
+            $scope.utility.newCommentContainsLocale =
+                function (l) {
+                    return $scope.comments &&
+                        $scope.comments[l] &&
+                        $scope.comments[l].description;
+                };
+            $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
             $scope.$watch('displayLocale', function (newValue, oldValue) {
                 if (!$scope.issueInDetail)
                     return;
@@ -55,6 +63,16 @@ var Controllers;
                 _.find(locales, function (l) { return l == GSDRequirements.currentLocale; }) ||
                     _.find(locales, function (l) { return l == "en-US"; }) ||
                     locales[0];
+            $scope.commentData = {};
+            $scope.commentData.locale = GSDRequirements.currentLocale;
+            $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
+            $scope = {};
+            $scope.comments = {};
+            _.each(GSDRequirements.localesAvailable, function (l) {
+                $scope.comments[l.name] = {};
+                $scope.comments[l.name].description = '';
+                $scope.comments[l.name].locale = l.name;
+            });
             this.defineDisplayContent($scope, issue, $scope.displayLocale);
         };
         ModalItemIssuesController.prototype.defineDisplayContent = function ($scope, issue, locale) {

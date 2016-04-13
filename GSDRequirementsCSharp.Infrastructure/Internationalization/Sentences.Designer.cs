@@ -304,6 +304,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string comment {
+            get {
+                return ResourceManager.GetString("comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comments.
         /// </summary>
         public static string comments {
@@ -867,6 +876,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string nameIsARequiredField {
             get {
                 return ResourceManager.GetString("nameIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New comment.
+        /// </summary>
+        public static string newComment {
+            get {
+                return ResourceManager.GetString("newComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New comment language.
+        /// </summary>
+        public static string newCommentLanguage {
+            get {
+                return ResourceManager.GetString("newCommentLanguage", resourceCulture);
             }
         }
         

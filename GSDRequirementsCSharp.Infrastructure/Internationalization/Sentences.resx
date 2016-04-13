@@ -579,4 +579,13 @@
   <data name="goBackToList" xml:space="preserve">
     <value>Go back to list</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="newComment" xml:space="preserve">
+    <value>New comment</value>
+  </data>
+  <data name="newCommentLanguage" xml:space="preserve">
+    <value>New comment language</value>
+  </data>
 </root>

@@ -50,7 +50,9 @@ module.exports = function (grunt) {
                                           bowerPath + 'underscore/underscore.js',
                                           bowerPath + 'angular-resource/angular-resource.js',
                                           bowerPath + 'angular-bootstrap/ui-bootstrap-tpls.js',
-                                          bowerPath + 'ng-dialog/js/ngDialog.js']
+                                          bowerPath + 'ng-dialog/js/ngDialog.js',
+                                          bowerPath + 'angular-ui-select/dist/select.js',
+                                          bowerPath + 'angular-sanitize/angular-sanitize.js']
                 }
             }
         },
@@ -62,7 +64,8 @@ module.exports = function (grunt) {
                                                 bowerPath + 'bootstrap/dist/css/bootstrap-theme.css',
                                                 bowerPath + 'toastr/toastr.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog.css',
-                                                bowerPath + 'ng-dialog/css/ngDialog-theme-default.css'],
+                                                bowerPath + 'ng-dialog/css/ngDialog-theme-default.css',
+                                                bowerPath + 'angular-ui-select/dist/select.css'],
                     'Content/styles.min.css': ['Content/Styles/**/*.css', '!content/Styles/**/*min.css']
                 }
             }

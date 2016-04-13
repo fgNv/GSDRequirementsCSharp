@@ -33,6 +33,19 @@
                 _.find(locales, l => l == "en-US") ||
                 locales[0]
 
+            $scope.commentData = {}
+            $scope.commentData.locale = GSDRequirements.currentLocale
+            $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
+            
+            $scope = {}
+            $scope.comments = {}
+
+            _.each(GSDRequirements.localesAvailable, (l): void => {
+                $scope.comments[l.name] = {}
+                $scope.comments[l.name].description = ''
+                $scope.comments[l.name].locale = l.name
+            })
+
             this.defineDisplayContent($scope, issue, $scope.displayLocale)
         }
         private defineDisplayContent($scope, issue, locale) {
@@ -47,6 +60,16 @@
             $scope.issues = []
             $scope.availableContentLocales = []
             $scope.currentDescription = ''
+
+            $scope.utility = {}
+            $scope.utility.newCommentContainsLocale =
+                (l) => {
+                    return $scope.comments &&
+                        $scope.comments[l] &&
+                        $scope.comments[l].description
+                }
+
+            $scope.locales = _.map(GSDRequirements.localesAvailable, (l: Models.Locale) => l.name)
 
             $scope.$watch('displayLocale', (newValue, oldValue) => {
                 if (!$scope.issueInDetail) return
