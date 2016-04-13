@@ -40,7 +40,7 @@
         </dl>
 
         <div data-ng-repeat="comment in issueInDetail.comments">
-            {{comment.creator.name}} - {{comment.description}}
+            {{comment.creatorName}} ({{comment.lastModificationLabel}}) - {{comment.description}}
         </div>
 
         <h4 style="cursor: pointer"

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.ViewModels
@@ -15,6 +16,17 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public int CreatorId { get; set; }
 
         public string CreatorName { get; set; }
+
+        public string LastModificationLabel
+        {
+            get
+            {
+                var currentCultureFormat = Thread.CurrentThread
+                                                 .CurrentUICulture
+                                                 .DateTimeFormat;
+                return LastModification.ToString(currentCultureFormat);
+            }
+        }
 
         public IEnumerable<IssueCommentContentViewModel> Contents { get; set; }
 

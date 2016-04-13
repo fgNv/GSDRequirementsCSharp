@@ -25,8 +25,9 @@ namespace GSDRequirementsCSharp.Persistence.Queries.IsssueComments
                                    .Include(ic => ic.Contents)
                                    .Include(ic => ic.Creator)
                                    .Where(ic => ic.IssueId == query.IssueId)
-                                   .Select(IssueCommentViewModel.FromModel)
-                                   .ToList();
+                                   .OrderByDescending(c => c.LastModification)
+                                   .ToList()
+                                   .Select(IssueCommentViewModel.FromModel);
             return comments;
         }
     }
