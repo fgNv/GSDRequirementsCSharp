@@ -8,6 +8,7 @@ var Controllers;
             $scope.$on(Globals.EventNames.projectListChanged, function () {
                 $scope.$broadcast(Globals.EventNames.updateProjectList);
             });
+            window.location.href = "#";
             setTimeout(function () {
                 $('.hidden-pre-load').fadeIn('slow', function () { });
             }, 110);
@@ -16,4 +17,3 @@ var Controllers;
     })();
     app.controller('MainController', ["$scope", MainController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=MainController.js.map

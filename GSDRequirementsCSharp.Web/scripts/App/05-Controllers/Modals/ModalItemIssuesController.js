@@ -2,10 +2,33 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalItemIssuesController = (function () {
-        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem) {
+        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location) {
+            var _this = this;
             $scope.pendingRequests = 0;
             $scope.specificationItem = specificationItem;
             $scope.issues = [];
+            $scope.availableContentLocales = [];
+            $scope.currentDescription = '';
+            $scope.$watch('displayLocale', function (newValue, oldValue) {
+                if (!$scope.issueInDetail)
+                    return;
+                _this.defineDisplayContent($scope, $scope.issueInDetail, newValue);
+            });
+            $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+                var pathValues = $location.path().split('/');
+                var step = pathValues[1];
+                var identifier = pathValues[2];
+                if (step == "issue" && identifier) {
+                    var issue = _.find($scope.issues, function (i) { return i.identifier == identifier; });
+                    if (!issue)
+                        return;
+                    $scope.issueInDetail = issue;
+                    _this.populateDetailData($scope, issue);
+                }
+                if (!step) {
+                    $scope.issueInDetail = null;
+                }
+            });
             this.loadIssues($scope, itemIssuesResource, specificationItem);
         }
         ModalItemIssuesController.prototype.loadIssues = function ($scope, itemIssuesResource, specificationItem) {
@@ -22,9 +45,27 @@ var Controllers;
                 $scope.pendingRequests--;
             });
         };
+        ModalItemIssuesController.prototype.populateDetailData = function ($scope, issue) {
+            var locales = _.chain(issue.contents)
+                .map(function (i) { return i.locale; })
+                .sortBy(function (l) { return l; })
+                .value();
+            $scope.availableContentLocales = locales;
+            $scope.displayLocale =
+                _.find(locales, function (l) { return l == GSDRequirements.currentLocale; }) ||
+                    _.find(locales, function (l) { return l == "en-US"; }) ||
+                    locales[0];
+            this.defineDisplayContent($scope, issue, $scope.displayLocale);
+        };
+        ModalItemIssuesController.prototype.defineDisplayContent = function ($scope, issue, locale) {
+            var content = _.find(issue.contents, function (c) { return c.locale == locale; });
+            if (!content)
+                return;
+            $scope.currentDescription = content.description;
+        };
         return ModalItemIssuesController;
     })();
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
-        "ItemIssuesResource", 'specificationItem', ModalItemIssuesController]);
+        "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
+        ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalItemIssuesController.js.map

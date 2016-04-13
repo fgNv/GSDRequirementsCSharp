@@ -29,7 +29,7 @@
 
         <div class="form-group">
              <select class="form-control"
-                     data-ng-options="locale.name for locale in availableContentLocales"
+                     data-ng-options="locale for locale in availableContentLocales"
                      data-ng-model="displayLocale">
              </select>
         </div>
@@ -45,10 +45,11 @@
         </div>
 
         <div class="btn-group">
-            <button class="btn btn-default"
-                    data-ng-click="issueInDetail = null">
+            <a class="btn btn-default"
+               href="#/"
+               data-ng-click="">
                 @Sentences.goBackToList
-            </button>
+            </a>
             <button class="btn btn-primary"
                     data-ng-click="addComment(issueInDetail)">
                 @Sentences.addComment

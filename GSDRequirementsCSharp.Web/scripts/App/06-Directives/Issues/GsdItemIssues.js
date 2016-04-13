@@ -17,6 +17,7 @@ var Directives;
                                 'specificationItem': function () { return $scope.specificationItem; }
                             }
                         });
+                        modal.closed.then(function () { window.location.href = "#"; });
                     };
                 }];
         }
@@ -27,4 +28,3 @@ var Directives;
     })();
     app.directive('gsdItemIssues', GsdItemIssues.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdItemIssues.js.map
