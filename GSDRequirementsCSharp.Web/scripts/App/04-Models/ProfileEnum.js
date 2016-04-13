@@ -8,4 +8,3 @@ var Models;
     })(Models.profile || (Models.profile = {}));
     var profile = Models.profile;
 })(Models || (Models = {}));
-//# sourceMappingURL=ProfileEnum.js.map

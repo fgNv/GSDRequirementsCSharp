@@ -38,7 +38,8 @@ var Directives;
                         var successMessage = $scope.requirement.id ?
                             Sentences.requirementUpdatedSuccessfully :
                             Sentences.requirementSuccessfullyCreated;
-                        promise.then(function () {
+                        promise
+                            .then(function () {
                             Notification.notifySuccess(successMessage);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
@@ -55,6 +56,7 @@ var Directives;
                 }];
         }
         GsdRequirementForm.prototype.LoadPackagesOptions = function (packageResource, $scope) {
+            $scope.pendingRequests++;
             packageResource.query()
                 .$promise
                 .then(function (response) {
@@ -74,4 +76,3 @@ var Directives;
     })();
     app.directive('gsdRequirementForm', GsdRequirementForm.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdRequirementForm.js.map

@@ -12,6 +12,7 @@
         public templateUrl = GSDRequirements.baseUrl + 'requirement/form'
         private LoadPackagesOptions(packageResource: any,
             $scope: any): void {
+            $scope.pendingRequests++
             packageResource.query()
                 .$promise
                 .then((response) => {
@@ -33,7 +34,7 @@
 
                 $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty)
                 $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType)
-                
+
                 $scope.$watch("requirement", (newValue, oldValue) => {
                     if (!newValue) return
 
@@ -46,7 +47,7 @@
 
                 $scope.save = () => {
                     $scope.pendingRequests++;
-                    
+
                     $scope.requirement.items = [
                         {
                             "action": $scope.requirement.action,
@@ -66,16 +67,17 @@
                         Sentences.requirementUpdatedSuccessfully :
                         Sentences.requirementSuccessfullyCreated;
 
-                    promise.then(function () {
-                        Notification.notifySuccess(successMessage);
+                    promise
+                        .then(() :void => {
+                            Notification.notifySuccess(successMessage);
 
-                        if ($scope.afterSave) { $scope.afterSave() }
-                        $scope.requirement = null
-                    })
-                        .catch(function (error) {
+                            if ($scope.afterSave) { $scope.afterSave() }
+                            $scope.requirement = null
+                        })
+                        .catch((error) => {
                             Notification.notifyError(Sentences.errorSavingRequirement, error.data.messages)
                         })
-                        .finally(function () {
+                        .finally(() => {
                             $scope.pendingRequests--;
                         });
                 }
