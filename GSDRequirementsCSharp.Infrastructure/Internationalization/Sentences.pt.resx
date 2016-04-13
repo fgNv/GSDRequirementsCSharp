@@ -591,4 +591,7 @@
   <data name="errorAddingComment" xml:space="preserve">
     <value>Erro ao adicionar comentário</value>
   </data>
+  <data name="commentSuccessfullyAdded" xml:space="preserve">
+    <value>Comentário adicionado com sucesso</value>
+  </data>
 </root>

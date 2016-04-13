@@ -22,6 +22,7 @@ var Controllers;
                     .then(function () {
                     Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
                     _this.loadComments($scope, $scope.issueInDetail, IssueCommentResource);
+                    _this.initializeCommentData($scope);
                 })
                     .catch(function (error) {
                     Notification.notifyError(Sentences.errorAddingComment, error.messages);
@@ -84,17 +85,19 @@ var Controllers;
                 _.find(locales, function (l) { return l == GSDRequirements.currentLocale; }) ||
                     _.find(locales, function (l) { return l == "en-US"; }) ||
                     locales[0];
+            this.initializeCommentData($scope);
+            this.defineDisplayContent($scope, issue, $scope.displayLocale);
+        };
+        ModalItemIssuesController.prototype.initializeCommentData = function ($scope) {
             $scope.commentData = {};
             $scope.commentData.locale = GSDRequirements.currentLocale;
             $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
-            $scope = {};
             $scope.comments = {};
             _.each(GSDRequirements.localesAvailable, function (l) {
                 $scope.comments[l.name] = {};
                 $scope.comments[l.name].description = '';
                 $scope.comments[l.name].locale = l.name;
             });
-            this.defineDisplayContent($scope, issue, $scope.displayLocale);
         };
         ModalItemIssuesController.prototype.defineDisplayContent = function ($scope, issue, locale) {
             var content = _.find(issue.contents, function (c) { return c.locale == locale; });

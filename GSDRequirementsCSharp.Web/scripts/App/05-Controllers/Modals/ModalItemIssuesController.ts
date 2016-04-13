@@ -33,11 +33,15 @@
                 _.find(locales, l => l == "en-US") ||
                 locales[0]
 
+            this.initializeCommentData($scope)
+
+            this.defineDisplayContent($scope, issue, $scope.displayLocale)
+        }
+        private initializeCommentData($scope) {
             $scope.commentData = {}
             $scope.commentData.locale = GSDRequirements.currentLocale
             $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
 
-            $scope = {}
             $scope.comments = {}
 
             _.each(GSDRequirements.localesAvailable, (l): void => {
@@ -45,8 +49,6 @@
                 $scope.comments[l.name].description = ''
                 $scope.comments[l.name].locale = l.name
             })
-
-            this.defineDisplayContent($scope, issue, $scope.displayLocale)
         }
         private defineDisplayContent($scope, issue, locale) {
             var content = _.find(issue.contents, c => c.locale == locale)
@@ -88,6 +90,7 @@
                     .then(() => {
                         Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
                         this.loadComments($scope, $scope.issueInDetail, IssueCommentResource)
+                        this.initializeCommentData($scope)
                     })
                     .catch((error) => {
                         Notification.notifyError(Sentences.errorAddingComment,
