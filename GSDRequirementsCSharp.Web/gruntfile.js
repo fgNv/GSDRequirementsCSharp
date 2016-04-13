@@ -26,10 +26,10 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true, flatten: true,
-                        src: [bowerPath + 'bootstrap/fonts/*'],
+                        src: [bowerPath + 'bootstrap/fonts/*',
+                              bowerPath + 'components-font-awesome/fonts/*'],
                         dest: 'fonts/', filter: 'isFile'
                     },
-
                     {
                         expand: true, flatten: true,
                         src: ['Content/images/*'],
@@ -63,6 +63,7 @@ module.exports = function (grunt) {
                                                 bowerPath + 'bootstrap/dist/css/bootstrap.css',
                                                 bowerPath + 'bootstrap/dist/css/bootstrap-theme.css',
                                                 bowerPath + 'toastr/toastr.css',
+                                                bowerPath + 'components-font-awesome/css/font-awesome.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog-theme-default.css',
                                                 bowerPath + 'angular-ui-select/dist/select.css'],

@@ -20,7 +20,8 @@
             <tr data-ng-repeat="r in requirements">
                 <td>
                     <gsd-item-issues data-specification-item="r"
-                                     data-ng-show="r.issues.length > 0">
+                                     data-ng-show="r.issues.length > 0"
+                                     data-on-all-issues-concluded="loadRequirements">
                     </gsd-item-issues>
                 </td>
                 <td>{{r.prefix}}{{r.identifier}}</td>

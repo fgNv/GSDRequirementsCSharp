@@ -18,7 +18,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Issues
 
         public void Handle(ConcludeIssueCommand command)
         {
-            var issue = _issueRepository.Get(command.IssueId);
+            var issue = _issueRepository.Get(command.IssueId.Value);
             issue.Concluded = true;
             issue.ConcludedAt = DateTime.Now;
             issue.LastModification = DateTime.Now;
