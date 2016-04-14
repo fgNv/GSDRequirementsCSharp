@@ -1330,6 +1330,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specification item not found.
+        /// </summary>
+        public static string specificationItemNotFound {
+            get {
+                return ResourceManager.GetString("specificationItemNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subject.
         /// </summary>
         public static string subject {

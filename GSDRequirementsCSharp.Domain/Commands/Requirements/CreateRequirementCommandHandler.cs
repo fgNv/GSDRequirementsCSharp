@@ -71,6 +71,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             var specificationItem = new SpecificationItem();
             specificationItem.Active = true;
             specificationItem.Id = requirement.Id;
+            specificationItem.Type = SpecificationItemType.Requirement;
 
             var package = _packageRepository.Get(command.PackageId.Value);
             specificationItem.Package = package;

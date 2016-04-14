@@ -110,7 +110,6 @@
                 </li>
                 <li>
                 <li class="dropdown">
-                    <input type="hidden" data-ng-init="projectContextPendingRequests = 0" />
                     <a class="dropdown-toggle"
                        href="#"
                        title="@Sentences.changeProjectInContext"
@@ -119,7 +118,7 @@
                         {{currentProjectName}}
                         <span class="caret" data-ng-show="projectContextPendingRequests == 0"></span>
                         <span data-ng-show="projectContextPendingRequests > 0"
-                              class="fa fa-spinner fa-spin">
+                              class="fa fa-spinner fa-spin fa-pulse">
                         </span>
                     </a>
                     

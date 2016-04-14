@@ -606,4 +606,7 @@
   <data name="creator" xml:space="preserve">
     <value>Creator</value>
   </data>
+  <data name="specificationItemNotFound" xml:space="preserve">
+    <value>Specification item not found</value>
+  </data>
 </root>
