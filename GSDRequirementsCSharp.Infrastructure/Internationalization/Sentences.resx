@@ -609,4 +609,25 @@
   <data name="specificationItemNotFound" xml:space="preserve">
     <value>Specification item not found</value>
   </data>
+  <data name="addLink" xml:space="preserve">
+    <value>Add link</value>
+  </data>
+  <data name="addNewLinkToArtifact" xml:space="preserve">
+    <value>Add new link to artifact</value>
+  </data>
+  <data name="goBack" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="manageArtifactsLinks" xml:space="preserve">
+    <value>Manage artifact`s links </value>
+  </data>
+  <data name="removeLink" xml:space="preserve">
+    <value>Remove link</value>
+  </data>
+  <data name="errorLoadingLinks" xml:space="preserve">
+    <value>Error loading links</value>
+  </data>
+  <data name="thisArtifactHasNoLinks" xml:space="preserve">
+    <value>This artifact has no links</value>
+  </data>
 </root>

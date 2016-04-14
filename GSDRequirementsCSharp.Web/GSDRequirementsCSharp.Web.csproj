@@ -189,6 +189,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternationalizationController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -232,7 +233,6 @@
     <Content Include="Views\Requirement\Index.cshtml" />
     <Content Include="Views\Requirement\Details.cshtml" />
     <Content Include="Views\Requirement\Form.cshtml" />
-    <Content Include="Views\Requirement\Links.cshtml" />
     <Content Include="Views\Requirement\List.cshtml" />
     <Content Include="Views\Requirement\Translation.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
@@ -262,6 +262,7 @@
     <Content Include="Views\Issue\_ItemIssues.cshtml" />
     <Content Include="Views\Issue\_List.cshtml" />
     <Content Include="Views\Issue\_ListModalContainer.cshtml" />
+    <Content Include="Views\Link\_Management.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,6 +326,7 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdIssueCreate.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdItemIssues.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Links\GsdLinksManagement.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectContext.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageForm.ts" />

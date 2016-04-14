@@ -115,6 +115,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add link.
+        /// </summary>
+        public static string addLink {
+            get {
+                return ResourceManager.GetString("addLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new link to artifact.
+        /// </summary>
+        public static string addNewLinkToArtifact {
+            get {
+                return ResourceManager.GetString("addNewLinkToArtifact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new version.
         /// </summary>
         public static string addNewVersion {
@@ -583,6 +601,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading links.
+        /// </summary>
+        public static string errorLoadingLinks {
+            get {
+                return ResourceManager.GetString("errorLoadingLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error loading packages.
         /// </summary>
         public static string errorLoadingPackages {
@@ -687,6 +714,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string functional {
             get {
                 return ResourceManager.GetString("functional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go back.
+        /// </summary>
+        public static string goBack {
+            get {
+                return ResourceManager.GetString("goBack", resourceCulture);
             }
         }
         
@@ -822,6 +858,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string logout {
             get {
                 return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage artifact`s links .
+        /// </summary>
+        public static string manageArtifactsLinks {
+            get {
+                return ResourceManager.GetString("manageArtifactsLinks", resourceCulture);
             }
         }
         
@@ -1231,6 +1276,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove link.
+        /// </summary>
+        public static string removeLink {
+            get {
+                return ResourceManager.GetString("removeLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove requirement.
         /// </summary>
         public static string removeRequirement {
@@ -1353,6 +1407,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string theSystem {
             get {
                 return ResourceManager.GetString("theSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This artifact has no links.
+        /// </summary>
+        public static string thisArtifactHasNoLinks {
+            get {
+                return ResourceManager.GetString("thisArtifactHasNoLinks", resourceCulture);
             }
         }
         

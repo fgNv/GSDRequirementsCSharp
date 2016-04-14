@@ -609,4 +609,25 @@
   <data name="creator" xml:space="preserve">
     <value>Criador</value>
   </data>
+  <data name="addLink" xml:space="preserve">
+    <value>Adicionar vínculo</value>
+  </data>
+  <data name="addNewLinkToArtifact" xml:space="preserve">
+    <value>Adicionar vínculo para artefato</value>
+  </data>
+  <data name="goBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="manageArtifactsLinks" xml:space="preserve">
+    <value>Gerenciar vínculos do artefato</value>
+  </data>
+  <data name="removeLink" xml:space="preserve">
+    <value>Remover vínculo</value>
+  </data>
+  <data name="errorLoadingLinks" xml:space="preserve">
+    <value>Erro ao carregar vínculos</value>
+  </data>
+  <data name="thisArtifactHasNoLinks" xml:space="preserve">
+    <value>Esse artefato não possui vínculos</value>
+  </data>
 </root>

@@ -25,6 +25,7 @@ var Controllers;
             };
             $scope.setCurrentRequirement = function (r) { $scope.currentRequirement = r; };
             $scope.setRequirementToTranslate = function (r) { $scope.requirementToTranslate = r; };
+            $scope.setRequirementToManageLinks = function (r) { $scope.requirementToManageLinks = r; };
             $scope.showList = function () {
                 return !$scope.currentRequirement &&
                     !$scope.requirementToTranslate &&

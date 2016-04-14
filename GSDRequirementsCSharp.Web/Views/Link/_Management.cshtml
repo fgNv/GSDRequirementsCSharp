@@ -1,0 +1,80 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article>
+    <h2 class="title-text">
+        @Sentences.manageArtifactsLinks {{specificationItem.getLabel()}}
+        <button class="btn btn-primary" 
+                data-ng-click="addNewLink()"
+                title="@Sentences.addLink">
+            <span class="glyphicon glyphicon-plus"></span>            
+        </button>
+    </h2>
+
+    <div class="col-md-10">
+        <div class="alert alert-info">
+            @Sentences.thisArtifactHasNoLinks
+        </div>
+        <table class="table table-hover" data-ng-show="links.length > 0">
+            <thead>
+                <tr>
+                    <th>@Sentences.id</th>
+                    <th>@Sentences.type</th>
+                    <th>@Sentences.lastModificationAt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="itemLink in links">
+                    <td>{{itemLink.label}}</td>
+                    <td>{{itemLink.type}}</td>
+                    <td>{{itemLink.lastModificationLabel}}</td>
+                    <td>
+                        <button class="btn" 
+                                title="@Sentences.removeLink">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button"
+                data-ng-click="specificationItem = null"
+                class="btn btn-default">
+            @Sentences.goBack
+        </button>
+    </div>
+
+    <div class="row" data-ng-show="addingNewLink">
+        <h2>@Sentences.addNewLinkToArtifact {{specificationItem.label}}</h2>
+
+        <div class="col-md-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="item in specificationItems">
+                        <td>{{item.Item}}</td>
+                        <td>{{item.ItemType}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="btn-group">
+                <button type="button"
+                        data-ng-click="manageLinks()"
+                        class="btn btn-default">
+                    @Sentences.cancel
+                </button>
+                <button class="btn btn-primary">
+                    @Sentences.add
+                </button>
+            </div>
+        </div>
+        <div class="col-md-7">
+            ~Dados do artefato~
+        </div>
+    </div>
+</article>
