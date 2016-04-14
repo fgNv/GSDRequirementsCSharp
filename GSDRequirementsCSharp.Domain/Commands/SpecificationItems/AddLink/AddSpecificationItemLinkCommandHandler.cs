@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems.AddLink
+namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 {
     public class AddSpecificationItemLinkCommandHandler : ICommandHandler<AddSpecificationItemLinkCommand>
     {
@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems.AddLink
 
         public void Handle(AddSpecificationItemLinkCommand command)
         {
-            var origin = _specificationItemRepository.Get(command.OriginItemId.Value);
+            var origin = _specificationItemRepository.Get(command.Id.Value);
             var target = _specificationItemRepository.Get(command.TargetItemId.Value);
 
             if (origin == null || target == null)

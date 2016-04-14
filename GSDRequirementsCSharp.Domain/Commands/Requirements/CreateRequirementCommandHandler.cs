@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.Requirements;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
@@ -67,26 +68,12 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
                 content.Requirement = requirement;
                 _requirementContentRepository.Add(content);
             }
-
-            var specificationItem = new SpecificationItem();
-            specificationItem.Active = true;
-            specificationItem.Id = requirement.Id;
-            specificationItem.Type = SpecificationItemType.Requirement;
-
-            var package = _packageRepository.Get(command.PackageId.Value);
-            specificationItem.Package = package;
-
+            
             var currentProjectId = _currentProjectContextId.Get();
             if (currentProjectId == null)
                 throw new Exception(Sentences.noProjectInContext);
 
             var project = _projectRepository.Get(currentProjectId.Value);
-
-            requirement.SpecificationItem = specificationItem;
-            requirement.Type = command.RequirementType.Value;
-            requirement.Creator = currentUser;
-            requirement.Version = 1;
-            requirement.Project = project;
 
             var nextIdQuery = new RequirementNextIdQuery
             {
@@ -95,6 +82,23 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             };
 
             var identifier = _requirementNextIdQueryHandler.Handle(nextIdQuery);
+
+            var specificationItem = new SpecificationItem();
+            specificationItem.Active = true;
+            specificationItem.Id = requirement.Id;
+            specificationItem.Type = SpecificationItemType.Requirement;
+            var prefix = RequirementViewModel.GetPrefixFromType(command.RequirementType.Value);
+            specificationItem.Label = $"{prefix}{identifier}";
+
+            var package = _packageRepository.Get(command.PackageId.Value);
+            specificationItem.Package = package;
+            
+            requirement.SpecificationItem = specificationItem;
+            requirement.Type = command.RequirementType.Value;
+            requirement.Creator = currentUser;
+            requirement.Version = 1;
+            requirement.Project = project;
+
             requirement.Identifier = identifier;
 
             _specificationItemRepository.Add(specificationItem);

@@ -5,7 +5,7 @@ namespace GSDRequirementsCSharp.Domain
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     
-    public partial class ClassDiagram
+    public class ClassDiagram
     {
         public Guid Id { get; set; }
 

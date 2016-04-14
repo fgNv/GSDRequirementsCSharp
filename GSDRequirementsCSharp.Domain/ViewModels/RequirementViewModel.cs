@@ -7,6 +7,22 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 {
     public class RequirementViewModel
     {
+        public static string GetPrefixFromType(RequirementType type)
+        {
+            var prefix = "";
+            switch (type)
+            {
+                case RequirementType.Functional:
+                    prefix = "FR";
+                    break;
+                case RequirementType.NonFunction:
+                    prefix = "NFR";
+                    break;
+            }
+
+            return prefix;
+        }
+
         public int Identifier { get; set; }
         public RequirementType Type { get; set; }
         public RequirementType RequirementType { get; set; }

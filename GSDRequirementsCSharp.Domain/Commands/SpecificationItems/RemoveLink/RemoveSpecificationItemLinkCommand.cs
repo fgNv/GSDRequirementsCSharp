@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 {
-    public class RemoveSpecificationItemLinkCommand : ICommand
+    public class RemoveSpecificationItemLinkCommand : IProjectCommand
     {
+        /** <summary>Origin item id</summary>  */
         [Required]
-        public Guid? OriginItemId { get; set; }
+        public Guid? Id { get; set; }
 
         [Required]
         public Guid? TargetItemId { get; set; }

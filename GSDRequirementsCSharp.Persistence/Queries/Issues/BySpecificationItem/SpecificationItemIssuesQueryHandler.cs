@@ -25,7 +25,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Issues.BySpecificationItem
                            .Include(i => i.IssueComments.Select(ic => ic.Contents))
                            .Include(i => i.Contents)
                            .Include(i => i.Creator.Contact)
-                           .Where(i => i.SpecificationItemId == query.SpeficiationItemId &&
+                           .Where(i => i.SpecificationItemId == query.SpecificationItemId &&
                                        !i.Concluded)
                            .OrderByDescending(i => i.LastModification)
                            .Select(IssueViewModel.FromModel)                           

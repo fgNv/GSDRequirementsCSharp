@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 
         public void Handle(RemoveSpecificationItemLinkCommand command)
         {
-            var origin = _specificationItemRepository.Get(command.OriginItemId.Value);
+            var origin = _specificationItemRepository.Get(command.Id.Value);
             var target = _specificationItemRepository.Get(command.TargetItemId.Value);
 
             if (origin == null || target == null)

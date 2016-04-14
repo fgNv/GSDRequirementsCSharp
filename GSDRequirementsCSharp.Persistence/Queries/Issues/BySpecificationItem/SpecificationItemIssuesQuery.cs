@@ -8,11 +8,11 @@ namespace GSDRequirementsCSharp.Persistence.Queries
 {
     public class SpecificationItemIssuesQuery
     {
-        public Guid SpeficiationItemId { get; set; }
+        public Guid SpecificationItemId { get; set; }
 
         public static implicit operator SpecificationItemIssuesQuery(Guid id)
         {
-            return new SpecificationItemIssuesQuery { SpeficiationItemId = id };
+            return new SpecificationItemIssuesQuery { SpecificationItemId = id };
         }
     }
 }

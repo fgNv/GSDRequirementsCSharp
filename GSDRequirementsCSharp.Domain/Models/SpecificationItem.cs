@@ -20,6 +20,8 @@ namespace GSDRequirementsCSharp.Domain
     
         public bool Active { get; set; }
 
+        public string Label { get; set; }
+
         public SpecificationItemType Type { get; set; }
 
         public virtual ICollection<Issue> Issues { get; set; }
