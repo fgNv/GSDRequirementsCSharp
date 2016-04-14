@@ -162,6 +162,7 @@
     <Content Include="Scripts\App\03-Resources\ItemIssuesResource.js" />
     <Content Include="Scripts\App\03-Resources\ItemLinkResource.js" />
     <Content Include="Scripts\App\03-Resources\PermissionResource.js" />
+    <Content Include="Scripts\App\03-Resources\ProjectItemResource.js" />
     <Content Include="Scripts\App\03-Resources\RequirementResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectTranslationResource.js" />
     <Content Include="Scripts\App\03-Resources\PackageResource.js" />

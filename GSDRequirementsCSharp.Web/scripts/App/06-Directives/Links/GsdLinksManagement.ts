@@ -27,10 +27,34 @@
                     $scope.pendingRequests--
                 })
         }
+        private loadSpecificationItems($scope, CurrentProjectItemResource) {
+            $scope.pendingRequests++
+
+            CurrentProjectItemResource.query()
+                .$promise
+                .then((links): void => {
+                    $scope.specificationItems = links
+                })
+                .catch((error): void=> {
+                    Notification.notifyError(Sentences.errorLoadingSpecificationItems,
+                        error.data.messages)
+                })
+                .finally((): void => {
+                    $scope.pendingRequests--
+                })
+        }
         public templateUrl = GSDRequirements.baseUrl + 'link/management'
-        public controller = ['$scope', 'ItemLinkResource', ($scope, ItemLinkResource) => {
+        public controller = ['$scope', 'ItemLinkResource', 'CurrentProjectItemResource',
+            ($scope, ItemLinkResource, CurrentProjectItemResource) => {
             $scope.pendingRequests = 0;
             $scope.links = []
+            $scope.specificationItems = []
+
+            this.loadSpecificationItems($scope, CurrentProjectItemResource)
+
+            $scope.addNewLink = (): void=> {
+                $scope.addingNewLink = true
+            }
 
             $scope.$watch("specificationItem", (newValue, oldValue) => {
                 $scope.links = []

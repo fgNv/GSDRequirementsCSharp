@@ -78,7 +78,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             var nextIdQuery = new RequirementNextIdQuery
             {
                 ProjectId = project.Id,
-                RequirementType = requirement.Type
+                RequirementType = command.RequirementType
             };
 
             var identifier = _requirementNextIdQueryHandler.Handle(nextIdQuery);

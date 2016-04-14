@@ -630,4 +630,16 @@
   <data name="thisArtifactHasNoLinks" xml:space="preserve">
     <value>Esse artefato não possui vínculos</value>
   </data>
+  <data name="errorLoadingSpecificationItems" xml:space="preserve">
+    <value>Erro ao carregar itens de especificação</value>
+  </data>
+  <data name="classDiagram" xml:space="preserve">
+    <value>Diagrama de classe</value>
+  </data>
+  <data name="requirement" xml:space="preserve">
+    <value>Requisito</value>
+  </data>
+  <data name="useCase" xml:space="preserve">
+    <value>Caso de uso</value>
+  </data>
 </root>

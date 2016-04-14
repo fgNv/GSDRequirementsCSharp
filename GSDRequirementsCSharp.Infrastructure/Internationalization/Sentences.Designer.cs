@@ -313,6 +313,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class diagram.
+        /// </summary>
+        public static string classDiagram {
+            get {
+                return ResourceManager.GetString("classDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagrams.
         /// </summary>
         public static string classDiagrams {
@@ -642,6 +651,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorLoadingRequirements {
             get {
                 return ResourceManager.GetString("errorLoadingRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading specification items.
+        /// </summary>
+        public static string errorLoadingSpecificationItems {
+            get {
+                return ResourceManager.GetString("errorLoadingSpecificationItems", resourceCulture);
             }
         }
         
@@ -1312,6 +1330,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Requirement.
+        /// </summary>
+        public static string requirement {
+            get {
+                return ResourceManager.GetString("requirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requirement inactivated successfully.
         /// </summary>
         public static string requirementInactivatedSuccessfully {
@@ -1488,6 +1515,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string updateProfileData {
             get {
                 return ResourceManager.GetString("updateProfileData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use case.
+        /// </summary>
+        public static string useCase {
+            get {
+                return ResourceManager.GetString("useCase", resourceCulture);
             }
         }
         

@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,31 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public string Label { get; set; }
 
         public PackageViewModel Package { get; set; }
-        
+
+        public string Type { get; set; }
+
+        public static string GetTypeLabel(SpecificationItemType type)
+        {
+            switch (type)
+            {
+                case SpecificationItemType.ClassDiagram:
+                    return Sentences.classDiagram;
+                case SpecificationItemType.Requirement:
+                    return Sentences.requirement;
+                case SpecificationItemType.UseCase:
+                    return Sentences.useCase;
+            }
+            return "";
+        }
+
         public static SpecificationItemViewModel FromModel(SpecificationItem item)
         {
             return new SpecificationItemViewModel
             {
                 Id = item.Id,
                 Package = PackageViewModel.FromModel(item.Package),
-                Label = item.Label
+                Label = item.Label,
+                Type = GetTypeLabel(item.Type)
             };
         }
     }

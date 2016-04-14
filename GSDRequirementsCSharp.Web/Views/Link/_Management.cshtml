@@ -1,7 +1,7 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <article>
-    <h2 class="title-text">
+    <h2 class="title-text" data-ng-hide="addingNewLink">
         @Sentences.manageArtifactsLinks {{specificationItem.getLabel()}}
         <button class="btn btn-primary" 
                 data-ng-click="addNewLink()"
@@ -10,7 +10,7 @@
         </button>
     </h2>
 
-    <div class="col-md-10">
+    <div class="col-md-10" data-ng-hide="addingNewLink">
         <div class="alert alert-info">
             @Sentences.thisArtifactHasNoLinks
         </div>
@@ -56,15 +56,15 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="item in specificationItems">
-                        <td>{{item.Item}}</td>
-                        <td>{{item.ItemType}}</td>
+                        <td>{{item.label}}</td>
+                        <td>{{item.type}}</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="btn-group">
                 <button type="button"
-                        data-ng-click="manageLinks()"
+                        data-ng-click="addingNewLink = false"
                         class="btn btn-default">
                     @Sentences.cancel
                 </button>

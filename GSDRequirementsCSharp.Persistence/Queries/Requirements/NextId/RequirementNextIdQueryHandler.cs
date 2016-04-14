@@ -22,6 +22,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.NextId
             var dbQuery = _context.Requirements
                                   .Where(r => r.ProjectId == query.ProjectId &&
                                               r.Type == query.RequirementType);
+            var ae = dbQuery.ToList();
             if (!dbQuery.Any())
                 return 1;
 

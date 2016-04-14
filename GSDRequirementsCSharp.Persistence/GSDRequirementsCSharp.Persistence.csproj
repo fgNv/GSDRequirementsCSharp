@@ -149,6 +149,8 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />

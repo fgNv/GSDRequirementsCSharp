@@ -8,9 +8,15 @@ var Directives;
                 'specificationItem': '=specificationItem'
             };
             this.templateUrl = GSDRequirements.baseUrl + 'link/management';
-            this.controller = ['$scope', 'ItemLinkResource', function ($scope, ItemLinkResource) {
+            this.controller = ['$scope', 'ItemLinkResource', 'CurrentProjectItemResource',
+                function ($scope, ItemLinkResource, CurrentProjectItemResource) {
                     $scope.pendingRequests = 0;
                     $scope.links = [];
+                    $scope.specificationItems = [];
+                    _this.loadSpecificationItems($scope, CurrentProjectItemResource);
+                    $scope.addNewLink = function () {
+                        $scope.addingNewLink = true;
+                    };
                     $scope.$watch("specificationItem", function (newValue, oldValue) {
                         $scope.links = [];
                         if (!newValue)
@@ -28,6 +34,20 @@ var Directives;
             })
                 .catch(function (error) {
                 Notification.notifyError(Sentences.errorLoadingLinks, error.data.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
+        };
+        GsdLinksManagement.prototype.loadSpecificationItems = function ($scope, CurrentProjectItemResource) {
+            $scope.pendingRequests++;
+            CurrentProjectItemResource.query()
+                .$promise
+                .then(function (links) {
+                $scope.specificationItems = links;
+            })
+                .catch(function (error) {
+                Notification.notifyError(Sentences.errorLoadingSpecificationItems, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
