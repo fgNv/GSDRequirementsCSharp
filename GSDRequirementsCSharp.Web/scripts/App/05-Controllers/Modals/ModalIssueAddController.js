@@ -58,3 +58,4 @@ var Controllers;
     app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
         "IssueResource", 'specificationItem', ModalIssueAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalIssueAddController.js.map

@@ -110,16 +110,23 @@
                 </li>
                 <li>
                 <li class="dropdown">
+                    <input type="hidden" data-ng-init="projectContextPendingRequests = 0" />
                     <a class="dropdown-toggle"
                        href="#"
                        title="@Sentences.changeProjectInContext"
-                       data-toggle="dropdown" id="navLogin">
+                       data-toggle="dropdown" 
+                       id="navLogin">
                         {{currentProjectName}}
-                        <span class="caret"></span>
+                        <span class="caret" data-ng-show="projectContextPendingRequests == 0"></span>
+                        <span data-ng-show="projectContextPendingRequests > 0"
+                              class="fa fa-spinner fa-spin">
+                        </span>
                     </a>
+                    
                     <div class="dropdown-menu" style="padding:17px;">
                         <div data-gsd-project-context=""
                              data-current-project-id="currentProjectId"
+                             data-pending-requests="projectContextPendingRequests"
                              data-current-project-name="currentProjectName">
                         </div>
                     </div>

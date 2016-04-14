@@ -6,7 +6,8 @@ var Directives;
             var _this = this;
             this.scope = {
                 'currentProjectId': '=currentProjectId',
-                'currentProjectName': '=currentProjectName'
+                'currentProjectName': '=currentProjectName',
+                'pendingRequests': '=pendingRequests'
             };
             this.templateUrl = GSDRequirements.baseUrl + 'project/context';
             this.loadProjects = function ($scope, CurrentUserProjectResource) {
@@ -60,3 +61,4 @@ var Directives;
     })();
     app.directive('gsdProjectContext', GsdProjectContext.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdProjectContext.js.map
