@@ -23,9 +23,11 @@
     export declare var errorLoadingPermissions: string;
     export declare var errorSearchingUsers: string;
     export declare var errorChangingPassword: string;
+    export declare var errorRemovingLink: string;
     export declare var issueCreatedSuccessfully: string;
     export declare var issueSuccessfullyConcluded: string;
     export declare var linkSavedSuccessfully: string;
+    export declare var linkRemovedSuccessfully: string;
     export declare var errorLoadingRequirements: string;
     export declare var noProjectInContext: string;
     export declare var passwordAndConfirmationMustMatch: string;

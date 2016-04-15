@@ -47,7 +47,7 @@ namespace GSDRequirementsCSharp.Web.Api
 
         [Route("api/specificationItem/{id}/link")]
         [HttpDelete]
-        public void DeleteLink(RemoveSpecificationItemLinkCommand command)
+        public void DeleteLink([FromUri]RemoveSpecificationItemLinkCommand command)
         {
             _removeSpecificationItemLinkCommand.Handle(command);
         }

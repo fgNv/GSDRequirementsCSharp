@@ -664,6 +664,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error removing link.
+        /// </summary>
+        public static string errorRemovingLink {
+            get {
+                return ResourceManager.GetString("errorRemovingLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error saving link.
         /// </summary>
         public static string errorSavingLink {
@@ -867,6 +876,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string lastModificationAt {
             get {
                 return ResourceManager.GetString("lastModificationAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link removed successfully.
+        /// </summary>
+        public static string linkRemovedSuccessfully {
+            get {
+                return ResourceManager.GetString("linkRemovedSuccessfully", resourceCulture);
             }
         }
         

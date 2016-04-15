@@ -7,7 +7,7 @@
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    class GsdLinksManagement {        
+    class GsdLinksManagement {
         private $q: any
         private loadLinks($scope, ItemLinkResource, itemId) {
             $scope.pendingRequests++
@@ -83,6 +83,29 @@
                     $scope.addingNewLink = true
                 }
 
+                $scope.removeLink = (link): void => {
+                    $scope.pendingRequests++
+
+                    var request = {
+                        id: link.origin.id,
+                        targetItemId: link.target.id
+                    }
+                    
+                    ItemLinkResource.remove(request)
+                        .$promise
+                        .then((): void => {
+                            Notification.notifySuccess(Sentences.linkRemovedSuccessfully);
+                            this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id)
+                        })
+                        .catch((error): void => {
+                            Notification.notifyError(Sentences.errorRemovingLink,
+                                error.data.messages)
+                        })
+                        .finally((): void=> {
+                            $scope.pendingRequests--
+                        });
+                }
+
                 $scope.saveLink = (): void=> {
                     if (!$scope.selected || !$scope.specificationItem)
                         return;
@@ -99,13 +122,14 @@
                         .$promise
                         .then((): void => {
                             Notification.notifySuccess(Sentences.linkSavedSuccessfully);
+                            this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id)
                         })
                         .catch((error): void => {
                             Notification.notifyError(Sentences.errorSavingLink,
                                 error.data.messages)
                         })
                         .finally((): void=> {
-                            $scope.pendingRequests++
+                            $scope.pendingRequests--
                         });
                 }
 

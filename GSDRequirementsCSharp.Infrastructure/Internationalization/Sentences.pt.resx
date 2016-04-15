@@ -654,4 +654,10 @@
   <data name="linkSavedSuccessfully" xml:space="preserve">
     <value>Vínculo salvo com sucesso</value>
   </data>
+  <data name="errorRemovingLink" xml:space="preserve">
+    <value>Erro ao remover vínculo</value>
+  </data>
+  <data name="linkRemovedSuccessfully" xml:space="preserve">
+    <value>Vínculo removido com sucesso</value>
+  </data>
 </root>

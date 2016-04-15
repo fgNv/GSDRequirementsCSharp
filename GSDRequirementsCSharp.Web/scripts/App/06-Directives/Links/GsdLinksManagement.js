@@ -24,6 +24,25 @@ var Directives;
                     $scope.addNewLink = function () {
                         $scope.addingNewLink = true;
                     };
+                    $scope.removeLink = function (link) {
+                        $scope.pendingRequests++;
+                        var request = {
+                            id: link.origin.id,
+                            targetItemId: link.target.id
+                        };
+                        ItemLinkResource.remove(request)
+                            .$promise
+                            .then(function () {
+                            Notification.notifySuccess(Sentences.linkRemovedSuccessfully);
+                            _this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id);
+                        })
+                            .catch(function (error) {
+                            Notification.notifyError(Sentences.errorRemovingLink, error.data.messages);
+                        })
+                            .finally(function () {
+                            $scope.pendingRequests--;
+                        });
+                    };
                     $scope.saveLink = function () {
                         if (!$scope.selected || !$scope.specificationItem)
                             return;
@@ -37,12 +56,13 @@ var Directives;
                             .$promise
                             .then(function () {
                             Notification.notifySuccess(Sentences.linkSavedSuccessfully);
+                            _this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id);
                         })
                             .catch(function (error) {
                             Notification.notifyError(Sentences.errorSavingLink, error.data.messages);
                         })
                             .finally(function () {
-                            $scope.pendingRequests++;
+                            $scope.pendingRequests--;
                         });
                     };
                     $scope.$watch("specificationItem", function (newValue, oldValue) {
