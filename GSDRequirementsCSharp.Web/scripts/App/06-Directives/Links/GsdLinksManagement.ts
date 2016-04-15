@@ -7,17 +7,26 @@
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    class GsdLinksManagement {
-        public scope = {
-            'specificationItem': '=specificationItem'
-        };
+    class GsdLinksManagement {        
+        private $q: any
         private loadLinks($scope, ItemLinkResource, itemId) {
             $scope.pendingRequests++
 
             ItemLinkResource.query({ id: itemId })
                 .$promise
                 .then((links): void => {
-                    $scope.links = links
+                    $scope.links = _.map(links, l => new Models.ItemLink(l))
+
+                    if ($scope.originalSpecificationItems.length == 0)
+                        return
+
+                    $scope.specificationItems = _.chain($scope.originalSpecificationItems)
+                        .filter(si => si.id != itemId)
+                        .map(si => {
+                            si.linked = _.any(links, l => l.target.id == si.id)
+                            return si;
+                        })
+                        .value();
                 })
                 .catch((error): void=> {
                     Notification.notifyError(Sentences.errorLoadingLinks,
@@ -29,40 +38,88 @@
         }
         private loadSpecificationItems($scope, CurrentProjectItemResource) {
             $scope.pendingRequests++
+            var deferred = this.$q.defer()
 
             CurrentProjectItemResource.query()
                 .$promise
-                .then((links): void => {
-                    $scope.specificationItems = links
+                .then((items): void => {
+                    $scope.originalSpecificationItems = items
+                    deferred.resolve(items);
                 })
                 .catch((error): void=> {
                     Notification.notifyError(Sentences.errorLoadingSpecificationItems,
                         error.data.messages)
+                    deferred.reject(error);
                 })
                 .finally((): void => {
                     $scope.pendingRequests--
                 })
+
+            return deferred.promise
         }
+        public scope = {
+            'specificationItem': '=specificationItem'
+        };
         public templateUrl = GSDRequirements.baseUrl + 'link/management'
         public controller = ['$scope', 'ItemLinkResource', 'CurrentProjectItemResource',
-            ($scope, ItemLinkResource, CurrentProjectItemResource) => {
-            $scope.pendingRequests = 0;
-            $scope.links = []
-            $scope.specificationItems = []
-
-            this.loadSpecificationItems($scope, CurrentProjectItemResource)
-
-            $scope.addNewLink = (): void=> {
-                $scope.addingNewLink = true
-            }
-
-            $scope.$watch("specificationItem", (newValue, oldValue) => {
+            '$q',
+            ($scope, ItemLinkResource, CurrentProjectItemResource, $q) => {
+                $scope.pendingRequests = 0
                 $scope.links = []
-                if (!newValue) return;
 
-                this.loadLinks($scope, ItemLinkResource, newValue.id)
-            })
-        }]
+                $scope.selected = null
+
+                $scope.selectItem = (item): void => {
+                    $scope.selected = item
+                }
+
+                $scope.originalSpecificationItems = []
+                $scope.specificationItems = []
+                this.$q = $q
+
+                this.loadSpecificationItems($scope, CurrentProjectItemResource)
+
+                $scope.addNewLink = (): void=> {
+                    $scope.addingNewLink = true
+                }
+
+                $scope.saveLink = (): void=> {
+                    if (!$scope.selected || !$scope.specificationItem)
+                        return;
+
+                    $scope.pendingRequests++
+
+                    var request = {
+                        id: $scope.specificationItem.id,
+                        targetItemId: $scope.selected.id,
+                        isBidirectional: true
+                    }
+
+                    ItemLinkResource.save(request)
+                        .$promise
+                        .then((): void => {
+                            Notification.notifySuccess(Sentences.linkSavedSuccessfully);
+                        })
+                        .catch((error): void => {
+                            Notification.notifyError(Sentences.errorSavingLink,
+                                error.data.messages)
+                        })
+                        .finally((): void=> {
+                            $scope.pendingRequests++
+                        });
+                }
+
+                $scope.$watch("specificationItem", (newValue, oldValue) => {
+                    $scope.selected = null
+                    $scope.links = []
+                    if (!newValue) return
+
+                    this.loadSpecificationItems($scope, CurrentProjectItemResource)
+                        .then((items): void => {
+                            this.loadLinks($scope, ItemLinkResource, newValue.id)
+                        })
+                })
+            }]
         public static Factory() {
             return new GsdLinksManagement();
         }

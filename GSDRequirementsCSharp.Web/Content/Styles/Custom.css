@@ -10,3 +10,7 @@
 .hidden-pre-load{
 	display: none;
 }
+
+tr.selected {
+    background-color: #D5ffE0
+}

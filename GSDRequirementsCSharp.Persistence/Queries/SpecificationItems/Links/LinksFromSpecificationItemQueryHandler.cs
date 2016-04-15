@@ -22,7 +22,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.Links
         public IEnumerable<ItemLinkViewModel> Handle(LinksFromSpecificationItemQuery query)
         {
             var speficiationItem = _context.SpecificationItems
-                                           .Include(si => si.LinkedItems)
+                                           .Include(si => si.LinkedItems
+                                                            .Select(l => l.Package.Contents))
                                            .Include(si => si.Package.Contents)
                                            .FirstOrDefault(si => si.Id == query.Id);
 
@@ -33,7 +34,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.Links
                                         .Select(t => ItemLinkViewModel.FromModel(speficiationItem, t))
                                         .OrderBy(s => s.Target.Label)
                                         .ToList();
-
             return links;
         }
     }

@@ -664,6 +664,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error saving link.
+        /// </summary>
+        public static string errorSavingLink {
+            get {
+                return ResourceManager.GetString("errorSavingLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error saving package.
         /// </summary>
         public static string errorSavingPackage {
@@ -862,6 +871,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Link saved successfully.
+        /// </summary>
+        public static string linkSavedSuccessfully {
+            get {
+                return ResourceManager.GetString("linkSavedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string login {
@@ -1011,6 +1029,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string newCommentLanguage {
             get {
                 return ResourceManager.GetString("newCommentLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No artifacts available to link.
+        /// </summary>
+        public static string noArtifactsAvailableToLink {
+            get {
+                return ResourceManager.GetString("noArtifactsAvailableToLink", resourceCulture);
             }
         }
         
@@ -1398,6 +1425,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string seePendingIssues {
             get {
                 return ResourceManager.GetString("seePendingIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an artifact to see its details.
+        /// </summary>
+        public static string selectAnArtifactToSeeItsDetails {
+            get {
+                return ResourceManager.GetString("selectAnArtifactToSeeItsDetails", resourceCulture);
             }
         }
         

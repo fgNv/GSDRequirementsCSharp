@@ -30,4 +30,3 @@ var Controllers;
     app.controller('ModalPackageTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
         "translationToEdit", ModalPackageTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalPackageTranslationController.js.map

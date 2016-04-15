@@ -642,4 +642,16 @@
   <data name="useCase" xml:space="preserve">
     <value>Caso de uso</value>
   </data>
+  <data name="noArtifactsAvailableToLink" xml:space="preserve">
+    <value>Não há artefatos disponíveis para vincular</value>
+  </data>
+  <data name="selectAnArtifactToSeeItsDetails" xml:space="preserve">
+    <value>Selecione um artefato para ver seus detalhes</value>
+  </data>
+  <data name="errorSavingLink" xml:space="preserve">
+    <value>Erro ao salvar vínculo</value>
+  </data>
+  <data name="linkSavedSuccessfully" xml:space="preserve">
+    <value>Vínculo salvo com sucesso</value>
+  </data>
 </root>

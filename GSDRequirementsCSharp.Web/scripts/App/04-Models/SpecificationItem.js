@@ -1,12 +1,12 @@
 var Models;
 (function (Models) {
-    var IssueContent = (function () {
-        function IssueContent(data) {
+    var SpecificationItem = (function () {
+        function SpecificationItem(data) {
             for (var prop in data) {
                 this[prop] = data[prop];
             }
         }
-        return IssueContent;
+        return SpecificationItem;
     })();
-    Models.IssueContent = IssueContent;
+    Models.SpecificationItem = SpecificationItem;
 })(Models || (Models = {}));

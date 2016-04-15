@@ -642,4 +642,16 @@
   <data name="useCase" xml:space="preserve">
     <value>Use case</value>
   </data>
+  <data name="noArtifactsAvailableToLink" xml:space="preserve">
+    <value>No artifacts available to link</value>
+  </data>
+  <data name="selectAnArtifactToSeeItsDetails" xml:space="preserve">
+    <value>Select an artifact to see its details</value>
+  </data>
+  <data name="errorSavingLink" xml:space="preserve">
+    <value>Error saving link</value>
+  </data>
+  <data name="linkSavedSuccessfully" xml:space="preserve">
+    <value>Link saved successfully</value>
+  </data>
 </root>

@@ -18,12 +18,14 @@
     export declare var errorUpdatingData: string;
     export declare var errorInactivatingPackage: string;
     export declare var errorGrantingPermissions: string;
+    export declare var errorSavingLink: string;
     export declare var errorSavingRequirement: string;
     export declare var errorLoadingPermissions: string;
     export declare var errorSearchingUsers: string;
     export declare var errorChangingPassword: string;
     export declare var issueCreatedSuccessfully: string;
     export declare var issueSuccessfullyConcluded: string;
+    export declare var linkSavedSuccessfully: string;
     export declare var errorLoadingRequirements: string;
     export declare var noProjectInContext: string;
     export declare var passwordAndConfirmationMustMatch: string;
