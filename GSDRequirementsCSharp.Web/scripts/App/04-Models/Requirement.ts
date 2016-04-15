@@ -10,8 +10,8 @@
         public action: string
         public locale: string
         public identifier: number
-        public type: requirementType
-        public requirementType: requirementType
+        public type: RequirementType
+        public requirementType: RequirementType
         public difficulty: difficulty
         public prefix: string
         public packageId: string
@@ -30,10 +30,10 @@
             }
             this.package = new Models.Package(data['package'])
             switch (this.type) {
-                case requirementType.functional:
+                case RequirementType.functional:
                     this.prefix = "FR"
                     break;
-                case requirementType.nonFunction:
+                case RequirementType.nonFunction:
                     this.prefix = "NFR"
                     break;
             }

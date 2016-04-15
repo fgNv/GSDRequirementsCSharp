@@ -27,3 +27,4 @@ var Controllers;
     })();
     app.controller('ChangeUserPasswordController', ["$scope", "UserPasswordResource", ChangeUserPasswordController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ChangeUserPasswordController.js.map

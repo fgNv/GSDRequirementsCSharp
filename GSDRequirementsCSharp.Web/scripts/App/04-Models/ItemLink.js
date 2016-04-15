@@ -13,3 +13,4 @@ var Models;
     })();
     Models.ItemLink = ItemLink;
 })(Models || (Models = {}));
+//# sourceMappingURL=ItemLink.js.map

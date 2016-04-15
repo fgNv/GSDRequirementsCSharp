@@ -7,10 +7,10 @@ var Models;
             }
             this.package = new Models.Package(data['package']);
             switch (this.type) {
-                case Models.requirementType.functional:
+                case Models.RequirementType.functional:
                     this.prefix = "FR";
                     break;
-                case Models.requirementType.nonFunction:
+                case Models.RequirementType.nonFunction:
                     this.prefix = "NFR";
                     break;
             }
@@ -48,3 +48,4 @@ var Models;
     })();
     Models.Requirement = Requirement;
 })(Models || (Models = {}));
+//# sourceMappingURL=Requirement.js.map

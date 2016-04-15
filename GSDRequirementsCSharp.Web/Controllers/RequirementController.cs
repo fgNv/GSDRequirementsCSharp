@@ -19,13 +19,19 @@ namespace GSDRequirements.Web.Controllers
         [SkipUserDataSetter]
         public PartialViewResult Form()
         {
-            return PartialView("Form");
+            return PartialView("_Form");
         }
 
         [SkipUserDataSetter]
         public PartialViewResult Translation()
         {
-            return PartialView("Translation");
+            return PartialView("_Translation");
+        }
+
+        [SkipUserDataSetter]
+        public PartialViewResult Details()
+        {
+            return PartialView("_Details");
         }
 
         [SkipUserDataSetter]

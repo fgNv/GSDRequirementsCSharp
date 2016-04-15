@@ -5,8 +5,9 @@ var Globals;
     }
     function enumerateEnum(e) {
         return getValues(e).map(function (v) {
-            return { label: Sentences[e[v]], value: v };
+            return { label: Sentences[e[v]], value: v, key: e[v] };
         });
     }
     Globals.enumerateEnum = enumerateEnum;
 })(Globals || (Globals = {}));
+//# sourceMappingURL=EnumEnumerator.js.map

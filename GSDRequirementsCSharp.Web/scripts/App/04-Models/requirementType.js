@@ -1,8 +1,9 @@
 var Models;
 (function (Models) {
-    (function (requirementType) {
-        requirementType[requirementType["functional"] = 50] = "functional";
-        requirementType[requirementType["nonFunction"] = 800] = "nonFunction";
-    })(Models.requirementType || (Models.requirementType = {}));
-    var requirementType = Models.requirementType;
+    (function (RequirementType) {
+        RequirementType[RequirementType["functional"] = 50] = "functional";
+        RequirementType[RequirementType["nonFunction"] = 800] = "nonFunction";
+    })(Models.RequirementType || (Models.RequirementType = {}));
+    var RequirementType = Models.RequirementType;
 })(Models || (Models = {}));
+//# sourceMappingURL=RequirementType.js.map

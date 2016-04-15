@@ -6,7 +6,7 @@
 
     export function enumerateEnum(e) {
         return getValues(e).map(v => {
-            return { label: Sentences[e[v] as string], value: v };
+            return { label: Sentences[e[v] as string], value: v, key: e[v] as string };
         });
     }
 }

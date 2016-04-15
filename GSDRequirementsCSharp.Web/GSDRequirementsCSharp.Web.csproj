@@ -263,10 +263,10 @@
     <Content Include="Views\Permission\UserManagement.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Requirement\Index.cshtml" />
-    <Content Include="Views\Requirement\Details.cshtml" />
-    <Content Include="Views\Requirement\Form.cshtml" />
+    <Content Include="Views\Requirement\_Details.cshtml" />
+    <Content Include="Views\Requirement\_Form.cshtml" />
     <Content Include="Views\Requirement\List.cshtml" />
-    <Content Include="Views\Requirement\Translation.cshtml" />
+    <Content Include="Views\Requirement\_Translation.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\UseCaseDiagram\Index.cshtml" />
     <Content Include="Views\Home\Unauthenticated.cshtml" />
@@ -457,6 +457,7 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Interfaces\IScope.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
@@ -475,7 +476,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\ProjectContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Requirement.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
-    <TypeScriptCompile Include="Scripts\App\04-Models\requirementType.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
@@ -501,6 +502,7 @@
     <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslationList.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementDetails.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslation.ts" />

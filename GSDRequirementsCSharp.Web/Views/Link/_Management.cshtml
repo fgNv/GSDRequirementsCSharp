@@ -91,7 +91,7 @@
                 </button>
                 <button class="btn btn-primary"
                         data-ng-click="saveLink()"
-                        data-ng-disabled="!selected">
+                        data-ng-disabled="!selected || selected.linked">
                     @Sentences.add
                 </button>
             </div>
@@ -102,8 +102,11 @@
                 @Sentences.selectAnArtifactToSeeItsDetails
             </small>
         </div>
-        <div class="col-md-7" data-ng-show="selected && !selected.linked">
-            ~Dados do artefato~
+        <div class="col-md-7" data-ng-show="selected">
+            <gsd-requirement-details data-ng-if="selected.type == artifactTypes.Requirement"
+                                     data-specification-item="selected">
+
+            </gsd-requirement-details>
         </div>
     </div>
 </article>

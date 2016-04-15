@@ -17,6 +17,13 @@ var Directives;
                     $scope.selectItem = function (item) {
                         $scope.selected = item;
                     };
+                    var artifactTypes = Globals.enumerateEnum(Models.ArtifactType);
+                    console.log('artifactTypes');
+                    console.log(artifactTypes);
+                    $scope.artifactTypes = {};
+                    _.each(artifactTypes, function (t) {
+                        $scope.artifactTypes[t.key] = t.key;
+                    });
                     $scope.originalSpecificationItems = [];
                     $scope.specificationItems = [];
                     _this.$q = $q;
@@ -125,3 +132,4 @@ var Directives;
     })();
     app.directive('gsdLinksManagement', GsdLinksManagement.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdLinksManagement.js.map
