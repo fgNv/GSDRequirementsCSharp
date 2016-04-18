@@ -7,7 +7,7 @@ var Models;
             this.id = data['id'];
         }
         ItemLink.prototype.getDescription = function () {
-            return this.origin.label + "(" + this.origin.type + ") -> " + this.target.label + "(" + this.target.type + ")";
+            return this.origin.label + "(" + this.origin.typeLabel + ") -> \n                    " + this.target.label + "(" + this.target.typeLabel + ")";
         };
         return ItemLink;
     })();

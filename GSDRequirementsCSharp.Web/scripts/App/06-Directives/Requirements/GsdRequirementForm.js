@@ -11,7 +11,7 @@ var Directives;
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
                     _this.LoadPackagesOptions(PackageResource, $scope);
-                    $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty);
+                    $scope.difficultyOptions = Globals.enumerateEnum(Models.Difficulty);
                     $scope.requirementTypeOptions = Globals.enumerateEnum(Models.RequirementType);
                     $scope.$watch("requirement", function (newValue, oldValue) {
                         if (!newValue)

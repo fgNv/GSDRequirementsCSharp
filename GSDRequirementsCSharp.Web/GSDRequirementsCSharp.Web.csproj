@@ -428,6 +428,8 @@
     <Content Include="bower_components\components-font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="bower_components\components-font-awesome\scss\_stacked.scss" />
     <Content Include="bower_components\components-font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Link\_List.cshtml" />
+    <Content Include="Views\Version\_List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

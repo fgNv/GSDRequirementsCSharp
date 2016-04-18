@@ -660,4 +660,13 @@
   <data name="linkRemovedSuccessfully" xml:space="preserve">
     <value>Link removed successfully</value>
   </data>
+  <data name="data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="requirementDetails" xml:space="preserve">
+    <value>Requirement details</value>
+  </data>
+  <data name="errorLoadingRequirement" xml:space="preserve">
+    <value>Error loading requirement</value>
+  </data>
 </root>

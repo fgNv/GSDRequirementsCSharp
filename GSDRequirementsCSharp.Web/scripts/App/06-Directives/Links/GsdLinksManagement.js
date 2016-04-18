@@ -17,13 +17,7 @@ var Directives;
                     $scope.selectItem = function (item) {
                         $scope.selected = item;
                     };
-                    var artifactTypes = Globals.enumerateEnum(Models.ArtifactType);
-                    console.log('artifactTypes');
-                    console.log(artifactTypes);
-                    $scope.artifactTypes = {};
-                    _.each(artifactTypes, function (t) {
-                        $scope.artifactTypes[t.key] = t.key;
-                    });
+                    $scope.artifactTypes = Models.ArtifactType;
                     $scope.originalSpecificationItems = [];
                     $scope.specificationItems = [];
                     _this.$q = $q;

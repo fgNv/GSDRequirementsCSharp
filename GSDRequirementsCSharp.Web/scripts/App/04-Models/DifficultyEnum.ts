@@ -1,6 +1,6 @@
 ﻿module Models {
 
-    export enum difficulty {
+    export enum Difficulty {
         easy = 10,
         medium = 70,
         hard = 900

@@ -72,14 +72,8 @@
                 $scope.selectItem = (item): void => {
                     $scope.selected = item
                 }
-
-                var artifactTypes = Globals.enumerateEnum(Models.ArtifactType)
-                console.log('artifactTypes')
-                console.log(artifactTypes)
-                $scope.artifactTypes = {}
-                _.each(artifactTypes, (t) :void => {
-                    $scope.artifactTypes[t.key] = t.key
-                })
+                
+                $scope.artifactTypes = Models.ArtifactType
 
                 $scope.originalSpecificationItems = []
                 $scope.specificationItems = []

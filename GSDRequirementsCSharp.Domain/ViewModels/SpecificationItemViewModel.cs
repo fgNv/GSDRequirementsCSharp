@@ -16,7 +16,9 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public PackageViewModel Package { get; set; }
 
-        public string Type { get; set; }
+        public string TypeLabel { get; set; }
+
+        public SpecificationItemType Type { get; set; }
 
         public static string GetTypeLabel(SpecificationItemType type)
         {
@@ -39,7 +41,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Id = item.Id,
                 Package = PackageViewModel.FromModel(item.Package),
                 Label = item.Label,
-                Type = GetTypeLabel(item.Type)
+                Type = item.Type,
+                TypeLabel = GetTypeLabel(item.Type),
             };
         }
     }

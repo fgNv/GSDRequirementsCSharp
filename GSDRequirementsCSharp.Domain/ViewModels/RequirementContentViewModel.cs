@@ -20,6 +20,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public static RequirementContentViewModel FromModel(RequirementContent model)
         {
+            if (model == null) return null;
+
             return new RequirementContentViewModel
             {
                 Id = model.Id,

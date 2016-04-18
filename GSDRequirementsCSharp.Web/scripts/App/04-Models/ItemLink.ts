@@ -9,7 +9,8 @@
             this.id = data['id']
         }
         public getDescription() {
-            return `${this.origin.label}(${this.origin.type}) -> ${this.target.label}(${this.target.type})`
+            return `${this.origin.label}(${this.origin.typeLabel}) -> 
+                    ${this.target.label}(${this.target.typeLabel})`
         }
     }
 }

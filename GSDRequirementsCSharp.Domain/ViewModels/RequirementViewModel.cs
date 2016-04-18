@@ -48,7 +48,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Identifier = model.Identifier,
                 RequirementType = model.Type,
                 Type = model.Type,
-                Rank = model.Rank
+                Rank = model.Rank,
+                Version = model.Version
             };
         }
     }

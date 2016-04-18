@@ -430,6 +430,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string data {
+            get {
+                return ResourceManager.GetString("data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data successfully updated.
         /// </summary>
         public static string dataSuccessfullyUpdated {
@@ -642,6 +651,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorLoadingProjects {
             get {
                 return ResourceManager.GetString("errorLoadingProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading requirement.
+        /// </summary>
+        public static string errorLoadingRequirement {
+            get {
+                return ResourceManager.GetString("errorLoadingRequirement", resourceCulture);
             }
         }
         
@@ -1380,6 +1398,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string requirement {
             get {
                 return ResourceManager.GetString("requirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requirement details.
+        /// </summary>
+        public static string requirementDetails {
+            get {
+                return ResourceManager.GetString("requirementDetails", resourceCulture);
             }
         }
         

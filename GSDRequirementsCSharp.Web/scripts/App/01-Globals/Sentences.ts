@@ -10,6 +10,7 @@
     export declare var errorConcludingIssue: string;
     export declare var errorInactivatingProject: string;
     export declare var errorLoadingLinks: string;
+    export declare var errorLoadingRequirement: string; 
     export declare var errorLoadingIssues: string;
     export declare var errorLoadingPackages: string;
     export declare var errorLoadingSpecificationItems: string;
