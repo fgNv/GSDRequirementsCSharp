@@ -10,9 +10,9 @@
         public action: string
         public locale: string
         public identifier: number
-        public type: requirementType
-        public requirementType: requirementType
-        public difficulty: difficulty
+        public type: RequirementType
+        public requirementType: RequirementType
+        public difficulty: Difficulty
         public prefix: string
         public packageId: string
         public package: Models.Package
@@ -30,17 +30,26 @@
             }
             this.package = new Models.Package(data['package'])
             switch (this.type) {
-                case requirementType.functional:
+                case RequirementType.functional:
                     this.prefix = "FR"
                     break;
-                case requirementType.nonFunction:
+                case RequirementType.nonFunction:
                     this.prefix = "NFR"
                     break;
             }
             this.defineContent()
             this.packageId = this.package.id
             this.requirementType = this.type
-            this.description = `${this.condition || ""} ${this.subject || ""} ${this.action || ""}`;
+            this.defineDescription()
+        }
+        private defineDescription() {
+            this.description = `${this.condition || ""} ${this.subject || ""} ${this.action || ""}`
+        }
+        public setLocale(locale: string) {
+            var content = _.find(this.requirementContents, rc => rc.locale == locale)
+            
+            if (content)
+                this.fillWithContent(content)
         }
         private defineContent() {
             var currentLocale = _.find(this.requirementContents,
@@ -62,6 +71,8 @@
             this.subject = content.subject
             this.action = content.action
             this.locale = content.locale
+
+            this.defineDescription()
         }
         public canAddTranslation() {
             return this.requirementContents.length < GSDRequirements.localesAvailable.length

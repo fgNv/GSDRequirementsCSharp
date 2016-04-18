@@ -14,6 +14,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public static PackageViewModel FromModel(Package package)
         {
+            if (package == null) return null;
+
             return new PackageViewModel
             {
                 Contents = package.Contents?.Select(PackageContentViewModel.FromModel),

@@ -7,3 +7,4 @@ var NewAccount;
     })();
     NewAccount.UserData = UserData;
 })(NewAccount || (NewAccount = {}));
+//# sourceMappingURL=UserData.js.map

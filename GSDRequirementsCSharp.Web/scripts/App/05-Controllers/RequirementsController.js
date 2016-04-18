@@ -25,6 +25,7 @@ var Controllers;
             };
             $scope.setCurrentRequirement = function (r) { $scope.currentRequirement = r; };
             $scope.setRequirementToTranslate = function (r) { $scope.requirementToTranslate = r; };
+            $scope.setRequirementToManageLinks = function (r) { $scope.requirementToManageLinks = r; };
             $scope.showList = function () {
                 return !$scope.currentRequirement &&
                     !$scope.requirementToTranslate &&
@@ -75,3 +76,4 @@ var Controllers;
     })();
     app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=RequirementsController.js.map

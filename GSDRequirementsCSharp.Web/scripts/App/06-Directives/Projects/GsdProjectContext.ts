@@ -10,7 +10,8 @@
     class GsdProjectContext {
         public scope = {
             'currentProjectId': '=currentProjectId',
-            'currentProjectName': '=currentProjectName'
+            'currentProjectName': '=currentProjectName',
+            'pendingRequests': '=pendingRequests'
          };
         public templateUrl = GSDRequirements.baseUrl + 'project/context'
         private loadProjects = ($scope, CurrentUserProjectResource) => {

@@ -19,6 +19,7 @@
         loadPage(page: number): void
         setCurrentRequirement(r: Models.Requirement): void
         setRequirementToTranslate(r: Models.Requirement): void
+        setRequirementToManageLinks(r: Models.Requirement): void
         inactivateRequirement(r: Models.Requirement): void
         showList(): boolean
 
@@ -58,6 +59,7 @@
             
             $scope.setCurrentRequirement = (r): void => { $scope.currentRequirement = r }
             $scope.setRequirementToTranslate = (r): void => { $scope.requirementToTranslate = r }
+            $scope.setRequirementToManageLinks = (r): void => { $scope.requirementToManageLinks = r }
 
             $scope.showList = () => {
                 return !$scope.currentRequirement &&

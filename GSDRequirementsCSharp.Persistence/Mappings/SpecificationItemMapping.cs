@@ -25,6 +25,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
                                                          new IndexAnnotation(new IndexAttribute("IX_Specification_Active") {
                                                              IsUnique = false
                                                          }));
+            Property(si => si.Type).HasColumnName("type");
+            Property(si => si.Label).HasColumnName("label");
+
             HasRequired(si => si.Package);
 
             HasMany(e => e.Issues)
@@ -33,15 +36,17 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
                             .WillCascadeOnDelete(false);
 
             HasMany(e => e.ClassDiagrams)
-                            .WithRequired(e => e.SpecificationItem);
+                            .WithRequired(e => e.SpecificationItem)
+                            .HasForeignKey(e => e.Id);
 
             HasMany(e => e.Requirements)
-                            .WithRequired(e => e.SpecificationItem);
+                            .WithRequired(e => e.SpecificationItem)
+                            .HasForeignKey(e => e.Id);
 
             HasMany(e => e.UserCases)
                             .WithRequired(e => e.SpecificationItem);
 
-            
+            HasMany(e => e.LinkedItems).WithMany();
         }
     }
 }

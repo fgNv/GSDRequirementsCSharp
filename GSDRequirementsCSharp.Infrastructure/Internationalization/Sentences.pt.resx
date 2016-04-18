@@ -609,4 +609,64 @@
   <data name="creator" xml:space="preserve">
     <value>Criador</value>
   </data>
+  <data name="addLink" xml:space="preserve">
+    <value>Adicionar vínculo</value>
+  </data>
+  <data name="addNewLinkToArtifact" xml:space="preserve">
+    <value>Adicionar vínculo para artefato</value>
+  </data>
+  <data name="goBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="manageArtifactsLinks" xml:space="preserve">
+    <value>Gerenciar vínculos do artefato</value>
+  </data>
+  <data name="removeLink" xml:space="preserve">
+    <value>Remover vínculo</value>
+  </data>
+  <data name="errorLoadingLinks" xml:space="preserve">
+    <value>Erro ao carregar vínculos</value>
+  </data>
+  <data name="thisArtifactHasNoLinks" xml:space="preserve">
+    <value>Esse artefato não possui vínculos</value>
+  </data>
+  <data name="errorLoadingSpecificationItems" xml:space="preserve">
+    <value>Erro ao carregar itens de especificação</value>
+  </data>
+  <data name="classDiagram" xml:space="preserve">
+    <value>Diagrama de classe</value>
+  </data>
+  <data name="requirement" xml:space="preserve">
+    <value>Requisito</value>
+  </data>
+  <data name="useCase" xml:space="preserve">
+    <value>Caso de uso</value>
+  </data>
+  <data name="noArtifactsAvailableToLink" xml:space="preserve">
+    <value>Não há artefatos disponíveis para vincular</value>
+  </data>
+  <data name="selectAnArtifactToSeeItsDetails" xml:space="preserve">
+    <value>Selecione um artefato para ver seus detalhes</value>
+  </data>
+  <data name="errorSavingLink" xml:space="preserve">
+    <value>Erro ao salvar vínculo</value>
+  </data>
+  <data name="linkSavedSuccessfully" xml:space="preserve">
+    <value>Vínculo salvo com sucesso</value>
+  </data>
+  <data name="errorRemovingLink" xml:space="preserve">
+    <value>Erro ao remover vínculo</value>
+  </data>
+  <data name="linkRemovedSuccessfully" xml:space="preserve">
+    <value>Vínculo removido com sucesso</value>
+  </data>
+  <data name="data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="requirementDetails" xml:space="preserve">
+    <value>Detalhes do requisito</value>
+  </data>
+  <data name="errorLoadingRequirement" xml:space="preserve">
+    <value>Erro ao carregar requisito</value>
+  </data>
 </root>

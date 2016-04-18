@@ -1,5 +1,5 @@
 ﻿module Models {
-    export enum requirementType {
+    export enum RequirementType {
         functional = 50,
         nonFunction = 800
     }

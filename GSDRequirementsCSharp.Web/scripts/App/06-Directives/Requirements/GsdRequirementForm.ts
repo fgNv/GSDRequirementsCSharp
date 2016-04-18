@@ -32,8 +32,8 @@
 
                 this.LoadPackagesOptions(PackageResource, $scope)
 
-                $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty)
-                $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType)
+                $scope.difficultyOptions = Globals.enumerateEnum(Models.Difficulty)
+                $scope.requirementTypeOptions = Globals.enumerateEnum(Models.RequirementType)
 
                 $scope.$watch("requirement", (newValue, oldValue) => {
                     if (!newValue) return

@@ -6,7 +6,7 @@
         @Sentences.addRequirement
     </h2>
     <h2 data-ng-show="requirement.id">
-        @Sentences.editRequirement {{requirement.prefix}}{{requirement.idenfitier}}
+        @Sentences.editRequirement {{requirement.getLabel()}}
     </h2>
 
     <div class="form-horizontal">

@@ -4,6 +4,7 @@ using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.LastVersion
         public Requirement Handle(LastVersionRequirementQuery query)
         {
             return _context.Requirements
+                           .Include(r => r.RequirementContents)
+                           .Include(r => r.SpecificationItem.Package.Contents)
                            .FirstOrDefault(r => r.IsLastVersion && r.Id == query.Id);
         }
     }

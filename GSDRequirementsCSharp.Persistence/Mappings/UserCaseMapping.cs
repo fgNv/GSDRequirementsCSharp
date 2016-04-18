@@ -14,6 +14,8 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         {
             ToTable("UserCase");
 
+            HasKey(u => u.Id);
+
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.Name).HasColumnName("name");
             Property(e => e.Description).HasColumnName("description")

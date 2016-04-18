@@ -11,8 +11,8 @@ var Directives;
                     $scope.pendingRequests = 0;
                     $scope.translations = [];
                     _this.LoadPackagesOptions(PackageResource, $scope);
-                    $scope.difficultyOptions = Globals.enumerateEnum(Models.difficulty);
-                    $scope.requirementTypeOptions = Globals.enumerateEnum(Models.requirementType);
+                    $scope.difficultyOptions = Globals.enumerateEnum(Models.Difficulty);
+                    $scope.requirementTypeOptions = Globals.enumerateEnum(Models.RequirementType);
                     $scope.$watch("requirement", function (newValue, oldValue) {
                         if (!newValue)
                             return;
@@ -76,3 +76,4 @@ var Directives;
     })();
     app.directive('gsdRequirementForm', GsdRequirementForm.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdRequirementForm.js.map

@@ -19,16 +19,18 @@
 
     @Html.Partial("List")
 
-    <article data-gsd-requirement-form=""
-             data-after-save="loadRequirements"
-             data-requirement="currentRequirement"
-             data-ng-show="currentRequirement"></article>
+    <article data-gsd-links-management=""
+             data-specification-item="requirementToManageLinks"
+             data-ng-show="requirementToManageLinks"></article>
     
     <article data-gsd-requirement-translation=""
              data-after-save="loadRequirements"
              data-requirement="requirementToTranslate"
              data-ng-show="requirementToTranslate"></article>
 
-    @Html.Partial("Details")
-    @Html.Partial("Links")
+    <article data-gsd-requirement-form=""
+             data-after-save="loadRequirements"
+             data-requirement="currentRequirement"
+             data-ng-show="currentRequirement"></article>
+
 </article>
