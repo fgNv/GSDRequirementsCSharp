@@ -7,4 +7,3 @@ var Models;
     })(Models.Difficulty || (Models.Difficulty = {}));
     var Difficulty = Models.Difficulty;
 })(Models || (Models = {}));
-//# sourceMappingURL=DifficultyEnum.js.map

@@ -14,4 +14,3 @@ var Models;
     })();
     Models.Permission = Permission;
 })(Models || (Models = {}));
-//# sourceMappingURL=Permission.js.map

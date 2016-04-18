@@ -126,11 +126,10 @@
 
             $scope.utility = {}
             $scope.utility.newCommentContainsLocale =
-                (l) => {
-                    return $scope.comments &&
-                        $scope.comments[l] &&
-                        $scope.comments[l].description
-                }
+                (l) => $scope.comments &&
+                    $scope.comments[l] &&
+                    $scope.comments[l].description
+
 
             $scope.locales = _.map(GSDRequirements.localesAvailable, (l: Models.Locale) => l.name)
 

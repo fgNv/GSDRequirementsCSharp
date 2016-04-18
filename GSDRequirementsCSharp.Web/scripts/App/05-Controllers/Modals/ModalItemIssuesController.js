@@ -50,11 +50,9 @@ var Controllers;
             };
             $scope.utility = {};
             $scope.utility.newCommentContainsLocale =
-                function (l) {
-                    return $scope.comments &&
-                        $scope.comments[l] &&
-                        $scope.comments[l].description;
-                };
+                function (l) { return $scope.comments &&
+                    $scope.comments[l] &&
+                    $scope.comments[l].description; };
             $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
             $scope.$watch('displayLocale', function (newValue, oldValue) {
                 if (!$scope.issueInDetail)
@@ -143,4 +141,3 @@ var Controllers;
         "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
         ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalItemIssuesController.js.map
