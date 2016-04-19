@@ -103,6 +103,10 @@
         private InactivateRequirement(specificationItemResource: any,
             $scope: IRequirementsControllerScope,
             requirement: Models.Requirement): void {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
+
             $scope.pendingRequests++;
             specificationItemResource.remove({ id: requirement.id })
                 .$promise

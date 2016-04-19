@@ -162,17 +162,23 @@
   <data name="thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm" xml:space="preserve">
     <value>This can be accomplished by pressing the "Register" button below the login form.</value>
   </data>
+  <data name="allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt" xml:space="preserve">
+    <value>All actions related to projects can be done only by its owner which is the user that created it.</value>
+  </data>
   <data name="butItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
     <value>but its possible to add translations before submitting the data</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
-    <value>by clicking the "Edit Button" (Pencil) you will be able to edit a project</value>
+    <value>By clicking the "Edit Button" (Pencil) in the project list, you will be able to edit a project</value>
   </data>
   <data name="creatingANewProject" xml:space="preserve">
     <value>Creating a new project</value>
   </data>
   <data name="dataInsertedAtFirstWillReferTo" xml:space="preserve">
     <value>Data inserted at first will refer to </value>
+  </data>
+  <data name="editingAProject" xml:space="preserve">
+    <value>Editing a project</value>
   </data>
   <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
     <value>if the current language contains an obsolete translation</value>
@@ -184,7 +190,10 @@
     <value>Next to it there's the project context control, which defines which project data is displayed</value>
   </data>
   <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
-    <value>Pressing the button "create project" (plus sign) in the "Manage Project Screen", will lead you to the create project form</value>
+    <value>Pressing the button "create project" (plus sign) in the "Manage Project Screen", will lead you to the create project form.</value>
+  </data>
+  <data name="removingAProject" xml:space="preserve">
+    <value>Removing a project</value>
   </data>
   <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
     <value>the "Add Translation" button will be available when there are obsolete translations, to update them</value>
@@ -194,6 +203,12 @@
   </data>
   <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
     <value>the translations will be considered obsolete and a warning in the row will be displayed</value>
+  </data>
+  <data name="thisActionIsIrreversible" xml:space="preserve">
+    <value>This action is irreversible</value>
+  </data>
+  <data name="toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction" xml:space="preserve">
+    <value>To remove a project, it's necessary to press the "Remove Project" button (trash) in the project list, and confirm the action.</value>
   </data>
   <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
     <value>When creating a project and not providing translation for all languages an "Add Translation" Button (globe) will be available in the project list.</value>

@@ -166,7 +166,7 @@
     <value>mas é possível adicionar traduções antes de submeter os dados</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
-    <value>ao clicar o botão de editar (lápis), você poderá editar um projeto</value>
+    <value>Ao clicar o botão de editar (lápis) na listagem de projetos, você poderá editar um projeto</value>
   </data>
   <data name="creatingANewProject" xml:space="preserve">
     <value>Criando um novo projeto</value>
@@ -184,7 +184,7 @@
     <value>Do lado está o controle do projeto do contexto, que define os dados de qual projeto serão exibidos</value>
   </data>
   <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
-    <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto</value>
+    <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto.</value>
   </data>
   <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
     <value>o botão "Adicionar tradução" ficará disponível quando houver traduções obsoletas, permitindo atualizá-las.</value>
@@ -200,5 +200,20 @@
   </data>
   <data name="whenEditingAProjectWithTranslationsButNotUpdatingThem" xml:space="preserve">
     <value>Ao editar um projeto com traduções, mas não atualizá-las</value>
+  </data>
+  <data name="allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt" xml:space="preserve">
+    <value>Todas as ações relacionadas a projeto podem ser feitas apenas pelo seu dono, que é o usuário que o criou.</value>
+  </data>
+  <data name="editingAProject" xml:space="preserve">
+    <value>Editando um projeto</value>
+  </data>
+  <data name="removingAProject" xml:space="preserve">
+    <value>Removendo um projeto</value>
+  </data>
+  <data name="thisActionIsIrreversible" xml:space="preserve">
+    <value>Essa ação é irreversível.</value>
+  </data>
+  <data name="toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um projeto, é necessário clicar no botão "Remover Projeto" (lixo) na listagem de projetos, e confirmar a ação.</value>
   </data>
 </root>

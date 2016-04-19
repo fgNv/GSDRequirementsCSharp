@@ -79,6 +79,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All actions related to projects can be done only by its owner which is the user that created it..
+        /// </summary>
+        public static string allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt {
+            get {
+                return ResourceManager.GetString("allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to and when inserting new data the first language added will be the one selected.
         /// </summary>
         public static string andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected {
@@ -115,7 +124,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to by clicking the &quot;Edit Button&quot; (Pencil) you will be able to edit a project.
+        ///   Looks up a localized string similar to By clicking the &quot;Edit Button&quot; (Pencil) in the project list, you will be able to edit a project.
         /// </summary>
         public static string byClickingTheEditButtonYouWillBeAbleToEditAProject {
             get {
@@ -147,6 +156,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string dataInsertedAtFirstWillReferTo {
             get {
                 return ResourceManager.GetString("dataInsertedAtFirstWillReferTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editing a project.
+        /// </summary>
+        public static string editingAProject {
+            get {
+                return ResourceManager.GetString("editingAProject", resourceCulture);
             }
         }
         
@@ -225,7 +243,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pressing the button &quot;create project&quot; (plus sign) in the &quot;Manage Project Screen&quot;, will lead you to the create project form.
+        ///   Looks up a localized string similar to Pressing the button &quot;create project&quot; (plus sign) in the &quot;Manage Project Screen&quot;, will lead you to the create project form..
         /// </summary>
         public static string pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm {
             get {
@@ -240,6 +258,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string ProjectThatContainsPackages {
             get {
                 return ResourceManager.GetString("ProjectThatContainsPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removing a project.
+        /// </summary>
+        public static string removingAProject {
+            get {
+                return ResourceManager.GetString("removingAProject", resourceCulture);
             }
         }
         
@@ -290,11 +317,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This action is irreversible.
+        /// </summary>
+        public static string thisActionIsIrreversible {
+            get {
+                return ResourceManager.GetString("thisActionIsIrreversible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This can be accomplished by pressing the &quot;Register&quot; button below the login form..
         /// </summary>
         public static string thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm {
             get {
                 return ResourceManager.GetString("thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To remove a project, it&apos;s necessary to press the &quot;Remove Project&quot; button (trash) in the project list, and confirm the action..
+        /// </summary>
+        public static string toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction {
+            get {
+                return ResourceManager.GetString("toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction", resourceCulture);
             }
         }
         

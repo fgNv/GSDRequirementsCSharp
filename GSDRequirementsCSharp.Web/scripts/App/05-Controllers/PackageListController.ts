@@ -49,6 +49,10 @@
             this.$scope.UserData = new UserData()
         }
         private InactivatePackage(packageResource: any, $scope: any, packageEntity: Models.Package): void {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
+
             $scope.pendingRequests++;
             packageResource.remove({ id: packageEntity.id })
                 .$promise

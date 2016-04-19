@@ -232,6 +232,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you certain you wish to remove this item? This action is irreversible.
+        /// </summary>
+        public static string areYouCertainYouWishToRemoveThisItem {
+            get {
+                return ResourceManager.GetString("areYouCertainYouWishToRemoveThisItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Artifacts.
         /// </summary>
         public static string artifacts {

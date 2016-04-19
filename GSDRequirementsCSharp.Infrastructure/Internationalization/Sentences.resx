@@ -696,4 +696,7 @@
   <data name="theStructureOfDataIs" xml:space="preserve">
     <value>The structure of data is: </value>
   </data>
+  <data name="areYouCertainYouWishToRemoveThisItem" xml:space="preserve">
+    <value>Are you certain you wish to remove this item? This action is irreversible</value>
+  </data>
 </root>

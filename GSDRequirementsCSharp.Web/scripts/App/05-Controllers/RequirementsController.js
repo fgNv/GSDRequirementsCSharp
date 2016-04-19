@@ -58,6 +58,9 @@ var Controllers;
             });
         };
         RequirementsController.prototype.InactivateRequirement = function (specificationItemResource, $scope, requirement) {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
             $scope.pendingRequests++;
             specificationItemResource.remove({ id: requirement.id })
                 .$promise

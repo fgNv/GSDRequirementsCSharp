@@ -1,4 +1,5 @@
 ﻿module Sentences {
+    export declare var areYouCertainYouWishToRemoveThisItem: string;
     export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
     export declare var errorAddingComment: string; 

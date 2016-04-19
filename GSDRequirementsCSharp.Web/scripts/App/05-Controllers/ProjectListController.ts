@@ -46,6 +46,10 @@
             this.$scope.UserData = new UserData()
         }
         private InactivateProject(projectResource: any, $scope: any, project: Project): void {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
+
             $scope.pendingRequests++;
             projectResource.remove({ id: project.id })
                 .$promise

@@ -29,6 +29,9 @@ var Controllers;
             this.$scope.UserData = new UserData();
         }
         ProjectListController.prototype.InactivateProject = function (projectResource, $scope, project) {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
             $scope.pendingRequests++;
             projectResource.remove({ id: project.id })
                 .$promise

@@ -32,6 +32,9 @@ var Controllers;
             this.$scope.UserData = new UserData();
         }
         PackageListController.prototype.InactivatePackage = function (packageResource, $scope, packageEntity) {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
             $scope.pendingRequests++;
             packageResource.remove({ id: packageEntity.id })
                 .$promise
