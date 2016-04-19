@@ -10,3 +10,4 @@ var Models;
     })();
     Models.SpecificationItem = SpecificationItem;
 })(Models || (Models = {}));
+//# sourceMappingURL=SpecificationItem.js.map

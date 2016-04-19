@@ -58,6 +58,29 @@
             if (!content) return;
             $scope.currentDescription = content.description
         }
+
+        private definePlaceholder($scope, locale, $q) {
+            var deferred = $q.defer()
+
+            if (!$scope.commentData)
+                return deferred.promise; 
+
+            if ($scope.commentData.locale == locale) {
+                deferred.reject()
+                return deferred.promise;
+            }
+
+            var content = $scope.comments[locale]
+            if (!content.description) {
+                deferred.reject()
+                return deferred.promise;
+            }
+
+            $scope.commentPlaceholder = content.description
+            deferred.resolve()
+
+            return deferred.promise
+        }
         private loadComments($scope, issue, IssueCommentResource) {
             $scope.pendingRequests++;
 
@@ -72,7 +95,7 @@
         }
         constructor($scope, $uibModalInstance, itemIssuesResource,
             specificationItem, $rootScope, $location, IssueCommentResource,
-            IssueConclusionResource, onAllIssuesConcluded) {
+            IssueConclusionResource, onAllIssuesConcluded, $q) {
             $scope.pendingRequests = 0
             $scope.specificationItem = specificationItem
             $scope.issues = []
@@ -139,6 +162,18 @@
                 this.defineDisplayContent($scope, $scope.issueInDetail, newValue)
             })
 
+            $scope.$watch('commentData.locale', (newValue, oldValue) => {
+                var self = this
+
+                self.definePlaceholder($scope, GSDRequirements.currentLocale, $q)
+                    .catch(() => self.definePlaceholder($scope, 'en-US', $q))
+                    .catch(() => {
+                        var firstContent = _.find($scope.comments, i => i.description)
+                        if (firstContent)
+                            $scope.commentPlaceholder = firstContent.description
+                    })
+            })
+
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
                 var pathValues = $location.path().split('/')
                 var step = pathValues[1];
@@ -163,5 +198,5 @@
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
         "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
-        ModalItemIssuesController]);
+        "$q", ModalItemIssuesController]);
 }
