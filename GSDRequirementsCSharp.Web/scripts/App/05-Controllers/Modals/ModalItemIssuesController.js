@@ -2,7 +2,7 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalItemIssuesController = (function () {
-        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location, IssueCommentResource, IssueConclusionResource, onAllIssuesConcluded) {
+        function ModalItemIssuesController($scope, $uibModalInstance, itemIssuesResource, specificationItem, $rootScope, $location, IssueCommentResource, IssueConclusionResource, onAllIssuesConcluded, $q) {
             var _this = this;
             $scope.pendingRequests = 0;
             $scope.specificationItem = specificationItem;
@@ -37,6 +37,7 @@ var Controllers;
                 IssueCommentResource.save(request)
                     .$promise
                     .then(function () {
+                    $scope.commentPlaceholder = '';
                     Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
                     _this.loadComments($scope, $scope.issueInDetail, IssueCommentResource);
                     _this.initializeCommentData($scope);
@@ -50,16 +51,24 @@ var Controllers;
             };
             $scope.utility = {};
             $scope.utility.newCommentContainsLocale =
-                function (l) {
-                    return $scope.comments &&
-                        $scope.comments[l] &&
-                        $scope.comments[l].description;
-                };
+                function (l) { return $scope.comments &&
+                    $scope.comments[l] &&
+                    $scope.comments[l].description; };
             $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
             $scope.$watch('displayLocale', function (newValue, oldValue) {
                 if (!$scope.issueInDetail)
                     return;
                 _this.defineDisplayContent($scope, $scope.issueInDetail, newValue);
+            });
+            $scope.$watch('commentData.locale', function (newValue, oldValue) {
+                var self = _this;
+                self.definePlaceholder($scope, GSDRequirements.currentLocale, $q)
+                    .catch(function () { return self.definePlaceholder($scope, 'en-US', $q); })
+                    .catch(function () {
+                    var firstContent = _.find($scope.comments, function (i) { return i.description; });
+                    if (firstContent)
+                        $scope.commentPlaceholder = firstContent.description;
+                });
             });
             $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
                 var pathValues = $location.path().split('/');
@@ -125,6 +134,23 @@ var Controllers;
                 return;
             $scope.currentDescription = content.description;
         };
+        ModalItemIssuesController.prototype.definePlaceholder = function ($scope, locale, $q) {
+            var deferred = $q.defer();
+            if (!$scope.commentData)
+                return deferred.promise;
+            if ($scope.commentData.locale == locale) {
+                deferred.reject();
+                return deferred.promise;
+            }
+            var content = $scope.comments[locale];
+            if (!content.description) {
+                deferred.reject();
+                return deferred.promise;
+            }
+            $scope.commentPlaceholder = content.description;
+            deferred.resolve();
+            return deferred.promise;
+        };
         ModalItemIssuesController.prototype.loadComments = function ($scope, issue, IssueCommentResource) {
             $scope.pendingRequests++;
             IssueCommentResource.query({ 'issueId': issue.id })
@@ -141,6 +167,5 @@ var Controllers;
     app.controller('ModalItemIssuesController', ["$scope", "$uibModalInstance",
         "ItemIssuesResource", 'specificationItem', '$rootScope', '$location',
         "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
-        ModalItemIssuesController]);
+        "$q", ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalItemIssuesController.js.map

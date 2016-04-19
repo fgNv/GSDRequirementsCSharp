@@ -6,34 +6,36 @@
 </div>
 <div class="modal-body"
      data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-    <div class="form-inline" data-ng-show="availableLocales.length > 0" style="margin-bottom: 12px; ">
-        <div class="form-group">
-            <label>
-                @Sentences.language
-            </label>
-            <select data-ng-options="locale as locale.label for locale in availableLocales"
-                    data-ng-model="newContentLocale"
-                    class="form-control"></select>
-        </div>
-        <button class="btn btn-default"
-                data-ng-click="addContentItem(newContentLocale)">
-            @Sentences.addTranslation
-        </button>
+
+    <div class="select-box" data-ng-if="utility">
+        <label>@Sentences.language</label>
+        <ui-select data-ng-model="issueData.locale"
+                   data-theme="bootstrap"
+                   data-search-enabled="false"
+                   append-to-body="false">
+            <ui-select-match>
+                {{$select.selected}}
+                <span class="glyphicon glyphicon-ok"
+                      style="color: #008A21"
+                      data-ng-show="utility.issueContainsLocale($select.selected)">
+                </span>
+            </ui-select-match>
+            <ui-select-choices repeat="locale in locales track by locale">
+                <span ng-bind="locale"></span>
+                <span class="glyphicon glyphicon-ok"
+                      style="color: #008A21"
+                      data-ng-show="utility.issueContainsLocale(locale)">
+                </span>
+            </ui-select-choices>
+        </ui-select>
     </div>
-    <div class="row" data-ng-repeat="contentItem in contentItems">        
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>
-                    @Sentences.description ({{contentItem.locale}})                    
-                    <button class="btn btn-default"
-                            data-ng-click="removeContentItem(contentItem)">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </label>
-                <textarea class="form-control"
-                          data-ng-model="contentItem.description"></textarea>
-            </div>
-        </div>
+    <div class="form-group">
+        <label>
+            @Sentences.description
+        </label>
+        <textarea class="form-control"
+                  placeholder="{{placeholder}}"
+                  data-ng-model="issue[issueData.locale].description"></textarea>
     </div>
 </div>
 <div class="modal-footer">

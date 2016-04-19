@@ -85,12 +85,14 @@
                     <ui-select-match>
                         {{$select.selected}}
                         <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
                               data-ng-show="utility.newCommentContainsLocale($select.selected)">
                         </span>
                     </ui-select-match>
                     <ui-select-choices repeat="locale in locales track by locale">
                         <span ng-bind="locale"></span>
                         <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
                               data-ng-show="utility.newCommentContainsLocale(locale)">
                         </span>
                     </ui-select-choices>
@@ -100,6 +102,7 @@
             <div class="form-group" style="margin-top: 12px; ">
                 <label>@Sentences.comment</label>
                 <textarea class="form-control"
+                          placeholder="{{commentPlaceholder}}"
                           data-ng-model="comments[commentData.locale].description"></textarea>
             </div>
 
