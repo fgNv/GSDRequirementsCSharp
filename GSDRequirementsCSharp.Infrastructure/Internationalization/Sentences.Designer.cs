@@ -790,11 +790,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GSD Requirements.
+        /// </summary>
+        public static string gsdRequirements {
+            get {
+                return ResourceManager.GetString("gsdRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hard.
         /// </summary>
         public static string hard {
             get {
                 return ResourceManager.GetString("hard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string help {
+            get {
+                return ResourceManager.GetString("help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homepage.
+        /// </summary>
+        public static string homePage {
+            get {
+                return ResourceManager.GetString("homePage", resourceCulture);
             }
         }
         
@@ -822,6 +849,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string inactivateProject {
             get {
                 return ResourceManager.GetString("inactivateProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduction.
+        /// </summary>
+        public static string introduction {
+            get {
+                return ResourceManager.GetString("introduction", resourceCulture);
             }
         }
         
@@ -993,6 +1029,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageUsers {
             get {
                 return ResourceManager.GetString("manageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Managing packages.
+        /// </summary>
+        public static string managingPackages {
+            get {
+                return ResourceManager.GetString("managingPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Managing permissions.
+        /// </summary>
+        public static string managingPermissions {
+            get {
+                return ResourceManager.GetString("managingPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Managing Projects.
+        /// </summary>
+        public static string managingProjects {
+            get {
+                return ResourceManager.GetString("managingProjects", resourceCulture);
             }
         }
         
@@ -1357,6 +1420,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        public static string registration {
+            get {
+                return ResourceManager.GetString("registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
         public static string removeLink {
@@ -1506,6 +1578,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string subject {
             get {
                 return ResourceManager.GetString("subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The structure of data is: .
+        /// </summary>
+        public static string theStructureOfDataIs {
+            get {
+                return ResourceManager.GetString("theStructureOfDataIs", resourceCulture);
             }
         }
         

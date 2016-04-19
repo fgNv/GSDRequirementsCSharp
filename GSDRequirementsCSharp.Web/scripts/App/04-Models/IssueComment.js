@@ -19,3 +19,4 @@ var Models;
     })();
     Models.IssueComment = IssueComment;
 })(Models || (Models = {}));
+//# sourceMappingURL=IssueComment.js.map

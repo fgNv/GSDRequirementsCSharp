@@ -18,6 +18,7 @@
         ) {
             $scope.currentPage = 1
             $scope.maxPages = 1
+            $scope.pendingRequests = 0
             $scope.projects = []
             var pageSize = 10
 
@@ -42,7 +43,6 @@
             };
 
             $scope.loadProjects()
-            $scope.pendingRequests = 0
             this.$scope.UserData = new UserData()
         }
         private InactivateProject(projectResource: any, $scope: any, project: Project): void {

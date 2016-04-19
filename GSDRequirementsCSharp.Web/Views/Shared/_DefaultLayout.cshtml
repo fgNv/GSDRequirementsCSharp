@@ -30,6 +30,14 @@
                 var currentProjectId = ProjectContext.Current();
             }
 
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                        <span class="fa fa-home"></span>
+                        @Sentences.homePage
+                    </a>
+                </li>
+            </ul>
             @if (currentProjectId != null && ViewBag.Profile != null)
             {
                 <ul class="nav navbar-nav">
@@ -131,6 +139,12 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="@Url.Action("Index","Help")">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        @Sentences.help
+                    </a>
+                </li>
                 @{
                     var locales = Locale.GetLocales();
                     var currentLocaleName = Thread.CurrentThread.CurrentCulture.Name;

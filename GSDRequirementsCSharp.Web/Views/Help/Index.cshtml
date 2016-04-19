@@ -1,0 +1,145 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+@Html.Partial("_SidebarStyle")
+
+@{
+    if (ViewBag.UserContact == null)
+    {
+        Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    }
+}
+
+<h2>@Sentences.help</h2>
+
+<div class="row">
+    <div class="col-md-9">
+
+        <h3 id="introduction">@Sentences.introduction</h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>@Sentences.gsdRequirements</b>
+            @HelpSentences.isAToolForRequirementManagementAimedForGlobalTeams
+            @HelpSentences.gsdStandsForGlobalSoftwareDevelopmentInOtherWordsATeamWithMembersFromDifferentCountries
+            @HelpSentences.forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion
+        </p>
+
+        <p style="font-weight: bolder; color: #323232; text-align: center;
+                 margin: 20px 0">
+            @HelpSentences.theRequirementsManagementInThisToolIsMeantToBeMadeCollaboratively
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@Sentences.theStructureOfDataIs
+            <ul>
+                <li>@HelpSentences.ProjectThatContainsPackages</li>
+                <li>@HelpSentences.PackagesThatContainsArtifacts</li>
+            </ul>
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams
+            @HelpSentences.accessPermissionsForOtherUsersAreGrantedByProject
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage
+            @HelpSentences.byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData
+            @HelpSentences.andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected
+        </p>
+
+        <h3 id="registration">
+            @Sentences.registration
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.beforeYouCanManageProjectsAndArtifactsYouMustRegister
+            @HelpSentences.thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm
+            @HelpSentences.afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects
+        </p>
+
+        <h3 id="projects">
+            @Sentences.managingProjects
+        </h3>
+
+        <p>
+            @HelpSentences.theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader
+            @HelpSentences.nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed
+        </p>
+
+        <h4>@HelpSentences.creatingANewProject</h4>
+
+        <p>
+            @HelpSentences.pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm
+            @HelpSentences.dataInsertedAtFirstWillReferTo @HelpSentences.theCurrentLanguage 
+            @HelpSentences.butItsPossibleToAddTranslationBeforeSubmittingTheData
+        </p>
+
+        <p>
+            @HelpSentences.whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable
+            @HelpSentences.itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations
+        </p>
+
+        <p>
+            @HelpSentences.byClickingTheEditButtonYouWillBeAbleToEditAProject
+            @HelpSentences.whenEditingAProjectWithTranslationsButNotUpdatingThem
+            @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
+            @HelpSentences.ifTheCurrentLanguageContainsAnObsoleteTranslation
+            @HelpSentences.theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem
+        </p>
+
+        <h3 id="packages">
+            @Sentences.managingPackages
+        </h3>
+
+        <h3 id="permissions">
+            @Sentences.managingPermissions
+        </h3>
+
+        <h3 id="requirements">
+            @Sentences.requirements
+        </h3>
+
+        <h3 id="classDiagrams">
+            @Sentences.classDiagrams
+        </h3>
+
+        <h3 id="useCaseDiagrams">
+            @Sentences.useCaseDiagrams
+        </h3>
+    </div>
+    <div class="col-md-3">
+        <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix"
+             style="top: 70px">
+            <ul class="nav bs-docs-sidenav">
+                <li>
+                    <a href="#introduction">@Sentences.introduction</a>
+                </li>
+                <li>
+                    <a href="#registration">@Sentences.registration</a>
+                </li>
+                <li>
+                    <a href="#projects">@Sentences.managingProjects</a>
+                </li>
+                <li>
+                    <a href="#packages">@Sentences.managingPackages</a>
+                </li>
+                <li>
+                    <a href="#permissions">@Sentences.managingPermissions</a>
+                </li>
+                <li>
+                    <a href="#requirements">@Sentences.requirements</a>
+                </li>
+                <li>
+                    <a href="#classDiagrams">@Sentences.classDiagrams</a>
+                </li>
+                <li>
+                    <a href="#useCaseDiagrams">@Sentences.useCaseDiagrams</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

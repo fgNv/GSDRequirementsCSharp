@@ -669,4 +669,31 @@
   <data name="errorLoadingRequirement" xml:space="preserve">
     <value>Erro ao carregar requisito</value>
   </data>
+  <data name="help" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="homePage" xml:space="preserve">
+    <value>Página inicial</value>
+  </data>
+  <data name="gsdRequirements" xml:space="preserve">
+    <value>Requisitos GSD</value>
+  </data>
+  <data name="introduction" xml:space="preserve">
+    <value>Introdução</value>
+  </data>
+  <data name="managingPackages" xml:space="preserve">
+    <value>Gerenciando pacotes</value>
+  </data>
+  <data name="managingPermissions" xml:space="preserve">
+    <value>Gerenciando permissões</value>
+  </data>
+  <data name="managingProjects" xml:space="preserve">
+    <value>Gerenciamento dos projetos</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
+  <data name="theStructureOfDataIs" xml:space="preserve">
+    <value>A estrutura de dados é:</value>
+  </data>
 </root>

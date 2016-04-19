@@ -24,6 +24,14 @@
             </a>
         </div>
         <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                        <span class="fa fa-home"></span>
+                        @Sentences.homePage
+                    </a>
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 @{
                     var locales = Locale.GetLocales();
@@ -34,7 +42,12 @@
                         currentLocale = locales.FirstOrDefault();
                     }
                 }
-
+                <li>
+                    <a href="@Url.Action("Index","Help")">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        @Sentences.help
+                    </a>
+                </li>
                 <li class="dropdown" style="margin-right: 19px; ">
                     <a class="dropdown-toggle"
                        href="#"

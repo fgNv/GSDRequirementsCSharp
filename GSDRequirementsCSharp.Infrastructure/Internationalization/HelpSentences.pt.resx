@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="accessPermissionsForOtherUsersAreGrantedByProject" xml:space="preserve">
+    <value>Permissão de acesso para outros usuários é concedida por projeto.</value>
+  </data>
+  <data name="afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects" xml:space="preserve">
+    <value>Após submeter os dados de cadastro, você poderá autenticar e gerenciar projetos.</value>
+  </data>
+  <data name="andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected" xml:space="preserve">
+    <value>e ao inserir novos dados, o primeiro idioma adicionado será o selecionado</value>
+  </data>
+  <data name="artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams" xml:space="preserve">
+    <value>Artefatos são requisitos, diagramas de classe e diagramas de caso de uso</value>
+  </data>
+  <data name="beforeYouCanManageProjectsAndArtifactsYouMustRegister" xml:space="preserve">
+    <value>Antes de você poder gerenciar os projetos e artefatos, você deve realizar um cadastro.</value>
+  </data>
+  <data name="byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData" xml:space="preserve">
+    <value>ao fazer isso traduções das informações no idioma selecionado serão exibidas (caso disponíveis), em vez da informação original.</value>
+  </data>
+  <data name="forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion" xml:space="preserve">
+    <value>Para esse propósito, praticamente todos os dados inseridos podem ter uma versão traduzida em outro idioma.</value>
+  </data>
+  <data name="gsdStandsForGlobalSoftwareDevelopmentInOtherWordsATeamWithMembersFromDifferentCountries" xml:space="preserve">
+    <value>GSD quer dizer Global Software Development (Desenvolvimento de sofware global), em outras palavras, equipes de desenvolvedores, analistas e demais envolvidos de diferentes países.</value>
+  </data>
+  <data name="isAToolForRequirementManagementAimedForGlobalTeams" xml:space="preserve">
+    <value>é uma ferramenta de gerenciamento de requisitos direcionada para equipes globais.</value>
+  </data>
+  <data name="itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage" xml:space="preserve">
+    <value>É possível alterar o idioma atual pressionando o botão "Alterar idioma" (globo) no topo da página.</value>
+  </data>
+  <data name="PackagesThatContainsArtifacts" xml:space="preserve">
+    <value>Pacotes contém artefatos</value>
+  </data>
+  <data name="ProjectThatContainsPackages" xml:space="preserve">
+    <value>Projetos contém pacotes</value>
+  </data>
+  <data name="theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader" xml:space="preserve">
+    <value>O gerenciamento de projetos é acessível pelo botão "Gerenciar projetos" no topo da página.</value>
+  </data>
+  <data name="theRequirementsManagementInThisToolIsMeantToBeMadeCollaboratively" xml:space="preserve">
+    <value>O gerenciamento de requisitos nessa ferramenta é para ser feito de forma colaborativa.</value>
+  </data>
+  <data name="thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm" xml:space="preserve">
+    <value>Isso pode ser feito pressionando o botão \"Realizar Cadastro\", que está abaixo do formulário de autenticação.</value>
+  </data>
+  <data name="butItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
+    <value>mas é possível adicionar traduções antes de submeter os dados</value>
+  </data>
+  <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
+    <value>ao clicar o botão de editar (lápis), você poderá editar um projeto</value>
+  </data>
+  <data name="creatingANewProject" xml:space="preserve">
+    <value>Criando um novo projeto</value>
+  </data>
+  <data name="dataInsertedAtFirstWillReferTo" xml:space="preserve">
+    <value>Os primeiros dados inseridos serão references ao</value>
+  </data>
+  <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
+    <value>se o idioma atual possui uma tradução obsoleta.</value>
+  </data>
+  <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
+    <value>Isso irá disponibilizar um formulário onde é possível adicionar traduções para os idiomas que não a possuem ainda.</value>
+  </data>
+  <data name="nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
+    <value>Do lado está o controle do projeto do contexto, que define os dados de qual projeto serão exibidos</value>
+  </data>
+  <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
+    <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto</value>
+  </data>
+  <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
+    <value>o botão "Adicionar tradução" ficará disponível quando houver traduções obsoletas, permitindo atualizá-las.</value>
+  </data>
+  <data name="theCurrentLanguage" xml:space="preserve">
+    <value>idioma atual</value>
+  </data>
+  <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
+    <value>As traduções serão consideradas obsoletas e um aviso na linha será exibido</value>
+  </data>
+  <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
+    <value>Ao criar um projeto e não disponibilizar traduções para todos os idiomas, o botão "Adicionar tradução" (Globo) será disponbilizado na listagem de projetos.</value>
+  </data>
+  <data name="whenEditingAProjectWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Ao editar um projeto com traduções, mas não atualizá-las</value>
+  </data>
+</root>
