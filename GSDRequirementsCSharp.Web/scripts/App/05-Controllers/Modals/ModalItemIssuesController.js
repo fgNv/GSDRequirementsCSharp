@@ -37,6 +37,7 @@ var Controllers;
                 IssueCommentResource.save(request)
                     .$promise
                     .then(function () {
+                    $scope.commentPlaceholder = '';
                     Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
                     _this.loadComments($scope, $scope.issueInDetail, IssueCommentResource);
                     _this.initializeCommentData($scope);
@@ -168,4 +169,3 @@ var Controllers;
         "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
         "$q", ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalItemIssuesController.js.map

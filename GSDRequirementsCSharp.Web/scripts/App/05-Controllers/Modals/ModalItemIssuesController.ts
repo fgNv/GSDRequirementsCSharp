@@ -134,6 +134,7 @@
                 IssueCommentResource.save(request)
                     .$promise
                     .then(() => {
+                        $scope.commentPlaceholder = ''
                         Notification.notifySuccess(Sentences.commentSuccessfullyAdded);
                         this.loadComments($scope, $scope.issueInDetail, IssueCommentResource)
                         this.initializeCommentData($scope)

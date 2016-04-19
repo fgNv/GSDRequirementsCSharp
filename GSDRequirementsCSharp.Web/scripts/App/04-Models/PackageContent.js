@@ -7,4 +7,3 @@ var Models;
     })();
     Models.PackageContent = PackageContent;
 })(Models || (Models = {}));
-//# sourceMappingURL=PackageContent.js.map

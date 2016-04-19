@@ -7,4 +7,3 @@ var Models;
     })();
     Models.ProjectContent = ProjectContent;
 })(Models || (Models = {}));
-//# sourceMappingURL=ProjectContent.js.map
