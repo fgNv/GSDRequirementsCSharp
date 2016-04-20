@@ -1168,6 +1168,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No comments.
+        /// </summary>
+        public static string noComments {
+            get {
+                return ResourceManager.GetString("noComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Non functional.
         /// </summary>
         public static string nonFunction {

@@ -270,8 +270,14 @@
   <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
     <value>Após selecionar um projeto no contexto, o botão de Permissões ficará disponível no canto superior esquerdo da tela.</value>
   </data>
+  <data name="byClickingInTheIssueIdentifierItsDetailsCommentsAndAFormForAddingNewCommentsWillBeDisplayed" xml:space="preserve">
+    <value>Ao clicar no identificador da pendências, os seus detalhes, comentários e um formulário para adicionar novos comentários serão exibidos.</value>
+  </data>
   <data name="byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement" xml:space="preserve">
     <value>Ao clicar no botão "Adicionar versão" (sinal de soma em cada linha), você poderá adicionar uma nova versão do requisito.</value>
+  </data>
+  <data name="byPressingTheAddIssueButtonYouCanAddAnIssueToAnArtifact" xml:space="preserve">
+    <value>Ao pressionar o botão "Adicionar observação", você pode adicionar observações ao artefato.</value>
   </data>
   <data name="canAddCommentAndConcludeIssues" xml:space="preserve">
     <value>Pode adicionar, comentar e concluir observações.</value>
@@ -306,6 +312,9 @@
   <data name="permissionProfiles" xml:space="preserve">
     <value>Perfis de permissões</value>
   </data>
+  <data name="pressingItAListWithTheIssuesWillBeDisplayed" xml:space="preserve">
+    <value>Ao pressiona-lo, uma lista com as observações pendentes será exibida.</value>
+  </data>
   <data name="pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm" xml:space="preserve">
     <value>Apertando o botão "Criar requisito", na tela "Gerenciar requisitos", você será direcionado para o formulário "Criar requisito".</value>
   </data>
@@ -314,6 +323,12 @@
   </data>
   <data name="revokingPermissions" xml:space="preserve">
     <value>Revogando permissões</value>
+  </data>
+  <data name="theLinksAreAlwaysBidirectional" xml:space="preserve">
+    <value>Vínculos são sempre bidirecionais.</value>
+  </data>
+  <data name="theManageLinksButtonWillOpenTheManageArtifactsLinksScreen" xml:space="preserve">
+    <value>O botão "Gerenciar Vínculos" (duas flechas apontando para direções opostas em cada linha), irá abrir a tela "Gerenciar vínculos de artefatos".</value>
   </data>
   <data name="thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile" xml:space="preserve">
     <value>então é necessário buscar um usuário por nome ou e-mail, e selecionar o perfil.</value>
@@ -324,11 +339,17 @@
   <data name="theUserMustBeAlreadyRegisteredForThePermissionToBeGranted" xml:space="preserve">
     <value>O usuário já deve estar registrado para que a permissão seja concedida.</value>
   </data>
+  <data name="toAddANewLinkPressTheAddLinkButtonSelectOneArtifactItsDetailsWillBeDisplayedAndPressAdd" xml:space="preserve">
+    <value>Para adicionar um novo vínculo, pressione o botão "Adicionar vínculo", selecione um artefato (os seus detalhes serão exibidos) e pressione o botão "Adicionar".</value>
+  </data>
   <data name="toPerformTheseActionsItsRequiredToBeTheProjectOwner" xml:space="preserve">
     <value>Para executar essas ações, é necessário ser o dono do projeto.</value>
   </data>
   <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
     <value>Para executar essas ações, deve-se possuir a "Permissão de Editor" no projeto, ou ser o seu dono.</value>
+  </data>
+  <data name="toRemoveALinkPressTheRemoveLinkButtonInTheLinksList" xml:space="preserve">
+    <value>Para remover um vínculo, pressione o botão "Remover Vínculo" na lista de vínculos.</value>
   </data>
   <data name="toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction" xml:space="preserve">
     <value>Para remover um requisito, é necessário pressionar o botão "Remover Requisito" e confirmar a ação.</value>
@@ -338,5 +359,8 @@
   </data>
   <data name="whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem" xml:space="preserve">
     <value>Ao adicionar uma nova versão de um requisito que possui traduções, mas não atualizá-las</value>
+  </data>
+  <data name="whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide" xml:space="preserve">
+    <value>Quando há observações pendentes para um artefato, um botão vermelho com um símbolo de aviso em cada linha na listagem de artefatos, do lado esquerdo.</value>
   </data>
 </root>

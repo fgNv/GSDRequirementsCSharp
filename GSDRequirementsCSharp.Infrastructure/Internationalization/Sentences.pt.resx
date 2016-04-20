@@ -711,4 +711,7 @@
   <data name="underConstruction" xml:space="preserve">
     <value>Em construção</value>
   </data>
+  <data name="noComments" xml:space="preserve">
+    <value>Nenhum comentário</value>
+  </data>
 </root>

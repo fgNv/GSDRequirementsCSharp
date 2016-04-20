@@ -182,6 +182,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to By clicking in the issue identifier, its details, comments and a form for adding new comments will be displayed..
+        /// </summary>
+        public static string byClickingInTheIssueIdentifierItsDetailsCommentsAndAFormForAddingNewCommentsWillBeDisplayed {
+            get {
+                return ResourceManager.GetString("byClickingInTheIssueIdentifierItsDetailsCommentsAndAFormForAddingNewCommentsWillB" +
+                        "eDisplayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to By clicking the &quot;Add Version&quot; button (plus sign in each row), you will be able to add a new version of the requirement..
         /// </summary>
         public static string byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement {
@@ -214,6 +224,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData {
             get {
                 return ResourceManager.GetString("byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By pressing the &quot;Add Issue&quot; button, you can add an issue to an artifact..
+        /// </summary>
+        public static string byPressingTheAddIssueButtonYouCanAddAnIssueToAnArtifact {
+            get {
+                return ResourceManager.GetString("byPressingTheAddIssueButtonYouCanAddAnIssueToAnArtifact", resourceCulture);
             }
         }
         
@@ -423,7 +442,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It will provide access to a form where it&apos;s possible to add the missing translations.
+        ///   Looks up a localized string similar to It will provide access to a form where it&apos;s possible to add the missing translations..
         /// </summary>
         public static string itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations {
             get {
@@ -474,6 +493,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string permissionProfiles {
             get {
                 return ResourceManager.GetString("permissionProfiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pressing it, a list with the pending issues will be displayed..
+        /// </summary>
+        public static string pressingItAListWithTheIssuesWillBeDisplayed {
+            get {
+                return ResourceManager.GetString("pressingItAListWithTheIssuesWillBeDisplayed", resourceCulture);
             }
         }
         
@@ -553,7 +581,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to the &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them.
+        ///   Looks up a localized string similar to the &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them..
         /// </summary>
         public static string theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem {
             get {
@@ -568,6 +596,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string theCurrentLanguage {
             get {
                 return ResourceManager.GetString("theCurrentLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The links are always bidirectional.
+        /// </summary>
+        public static string theLinksAreAlwaysBidirectional {
+            get {
+                return ResourceManager.GetString("theLinksAreAlwaysBidirectional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &quot;Manage Links&quot; button (two arrows pointing in opposing directions in each row), will open the &quot;Manage Artifacts Links&quot; screen..
+        /// </summary>
+        public static string theManageLinksButtonWillOpenTheManageArtifactsLinksScreen {
+            get {
+                return ResourceManager.GetString("theManageLinksButtonWillOpenTheManageArtifactsLinksScreen", resourceCulture);
             }
         }
         
@@ -645,6 +691,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To add a new link, press the &quot;Add Link&quot; button, select one artifact (its details will be displayed) and press the &quot;Add&quot; button..
+        /// </summary>
+        public static string toAddANewLinkPressTheAddLinkButtonSelectOneArtifactItsDetailsWillBeDisplayedAndPressAdd {
+            get {
+                return ResourceManager.GetString("toAddANewLinkPressTheAddLinkButtonSelectOneArtifactItsDetailsWillBeDisplayedAndPr" +
+                        "essAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To manage a project packages, artifacts and permissions, it must be selected in the context..
         /// </summary>
         public static string toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext {
@@ -669,6 +725,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
             get {
                 return ResourceManager.GetString("toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwne" +
                         "r", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To remove a link, press the &quot;Remove Link&quot; button in the links list..
+        /// </summary>
+        public static string toRemoveALinkPressTheRemoveLinkButtonInTheLinksList {
+            get {
+                return ResourceManager.GetString("toRemoveALinkPressTheRemoveLinkButtonInTheLinksList", resourceCulture);
             }
         }
         
@@ -744,6 +809,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string whenEditingAProjectWithTranslationsButNotUpdatingThem {
             get {
                 return ResourceManager.GetString("whenEditingAProjectWithTranslationsButNotUpdatingThem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When there are pending issues for an artifact, a red button with a warning sign will be displayed in each artifact row, at the left side..
+        /// </summary>
+        public static string whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide {
+            get {
+                return ResourceManager.GetString("whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheR" +
+                        "owAtTheLeftSide", resourceCulture);
             }
         }
     }
