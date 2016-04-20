@@ -166,7 +166,7 @@
     <value>mas é possível adicionar traduções antes de submeter os dados</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
-    <value>Ao clicar o botão de editar (lápis) na listagem de projetos, você poderá editar um projeto</value>
+    <value>Ao clicar o botão de editar (lápis) na listagem de projetos, você poderá editar um projeto.</value>
   </data>
   <data name="creatingANewProject" xml:space="preserve">
     <value>Criando um novo projeto</value>
@@ -175,13 +175,13 @@
     <value>Os primeiros dados inseridos serão references ao</value>
   </data>
   <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
-    <value>se o idioma atual possui uma tradução obsoleta.</value>
+    <value>Se o idioma atual possui uma tradução obsoleta.</value>
   </data>
   <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
     <value>Isso irá disponibilizar um formulário onde é possível adicionar traduções para os idiomas que não a possuem ainda.</value>
   </data>
-  <data name="nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
-    <value>Do lado está o controle do projeto do contexto, que define os dados de qual projeto serão exibidos</value>
+  <data name="nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
+    <value>Do lado do botão "Gerenciar Projetos", está o controle do projeto do contexto, que define os dados de qual projeto serão exibidos.</value>
   </data>
   <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
     <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto.</value>
@@ -193,7 +193,7 @@
     <value>idioma atual</value>
   </data>
   <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
-    <value>As traduções serão consideradas obsoletas e um aviso na linha será exibido</value>
+    <value>As traduções serão consideradas obsoletas e um aviso na linha será exibido.</value>
   </data>
   <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
     <value>Ao criar um projeto e não disponibilizar traduções para todos os idiomas, o botão "Adicionar tradução" (Globo) será disponbilizado na listagem de projetos.</value>
@@ -215,5 +215,59 @@
   </data>
   <data name="toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction" xml:space="preserve">
     <value>Para remover um projeto, é necessário clicar no botão "Remover Projeto" (lixo) na listagem de projetos, e confirmar a ação.</value>
+  </data>
+  <data name="contextProject" xml:space="preserve">
+    <value>Projeto do contexto</value>
+  </data>
+  <data name="toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext" xml:space="preserve">
+    <value>Para gerenciar os pacotes, artefatos e permissões de um projeto, ele deve estar selecionado no contexto.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, itens de menu para gerenciar os dados do projeto são disponibilizados no topo da página, no lado esquerdo.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o botão "Pacotes" será disponibilizado no lado esquerdo superior da tela.</value>
+  </data>
+  <data name="byClickingTheEditButtonYouWillBeAbleToEditAPackage" xml:space="preserve">
+    <value>Ao clicar no botão "Editar pacote" (lápis, na listagem de pacotes, você poderá editar um pacote.</value>
+  </data>
+  <data name="creatingANewPackage" xml:space="preserve">
+    <value>Criando um novo pacote</value>
+  </data>
+  <data name="dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
+    <value>Os primeiros dados inseridos, serão references ao idioma atual, mas é possível adicionar traduções para outros idiomas antes de submeter os dados.</value>
+  </data>
+  <data name="editingPackages" xml:space="preserve">
+    <value>Editando pacotes</value>
+  </data>
+  <data name="ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations" xml:space="preserve">
+    <value>Se a tradução não for fornecida para qualquer idioma, depois o botão "Adicionar Tradução" estará disponível na listagem de pacotes, para fornecer as traduções que estejam faltando.</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages" xml:space="preserve">
+    <value>Clicando nele, a página de gerenciamento de pacotes é exibida, onde é possível criar, editar e remover pacotes.</value>
+  </data>
+  <data name="pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm" xml:space="preserve">
+    <value>Pressionando o botão "Criar pacote" (sinal de soma) na página "Gerenciar Pacotes", o formulário "Criar pacote" será exibido.</value>
+  </data>
+  <data name="removingPackages" xml:space="preserve">
+    <value>Removendo pacotes</value>
+  </data>
+  <data name="toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um pacote, deve-se pressionar o botão "Remover pacote" (lixo) na lista de pacotes, e confirmar a ação.</value>
+  </data>
+  <data name="whenEditingAPackageWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Quando se edita um pacote com traduções, mas não as atualiza</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o botão de Permissões ficará disponível no canto superior esquerdo da tela.</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn" xml:space="preserve">
+    <value>Ele irá leva-lo para a página "Gerenciar Permissões", onde é possível gerenciar permissões dos projetos que você possui.</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToBeTheProjectOwner" xml:space="preserve">
+    <value>Para executar essas ações, é necessário ser o dono do projeto.</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
+    <value>Para executar essas ações, deve-se possuir a "Permissão de Editor" no projeto, ou ser o seu dono.</value>
   </data>
 </root>

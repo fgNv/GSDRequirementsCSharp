@@ -70,7 +70,37 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to After submiting the registration data, you will be able to authenticate and manage projects.
+        ///   Looks up a localized string similar to After selecting a project in the context, menu items for managing the project data appear in the header&apos;s left side..
+        /// </summary>
+        public static string afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide {
+            get {
+                return ResourceManager.GetString("afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHe" +
+                        "adersLeftSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After selecting a project in the context, the packages button will be displayed in the header&apos;s left side..
+        /// </summary>
+        public static string afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide {
+            get {
+                return ResourceManager.GetString("afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLef" +
+                        "tSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After selecting a project in the context, the permissions button will be displayed in the header&apos;s left side..
+        /// </summary>
+        public static string afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide {
+            get {
+                return ResourceManager.GetString("afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeaders" +
+                        "LeftSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After submiting the registration data, you will be able to authenticate and manage projects..
         /// </summary>
         public static string afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects {
             get {
@@ -124,7 +154,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to By clicking the &quot;Edit Button&quot; (Pencil) in the project list, you will be able to edit a project.
+        ///   Looks up a localized string similar to By clicking the &quot;Edit Package&quot; button (pencil), in the package list, you will be able to edit a package..
+        /// </summary>
+        public static string byClickingTheEditButtonYouWillBeAbleToEditAPackage {
+            get {
+                return ResourceManager.GetString("byClickingTheEditButtonYouWillBeAbleToEditAPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By clicking the &quot;Edit Button&quot; (Pencil) in the project list, you will be able to edit a project..
         /// </summary>
         public static string byClickingTheEditButtonYouWillBeAbleToEditAProject {
             get {
@@ -138,6 +177,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData {
             get {
                 return ResourceManager.GetString("byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Context project.
+        /// </summary>
+        public static string contextProject {
+            get {
+                return ResourceManager.GetString("contextProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating a new package.
+        /// </summary>
+        public static string creatingANewPackage {
+            get {
+                return ResourceManager.GetString("creatingANewPackage", resourceCulture);
             }
         }
         
@@ -160,11 +217,30 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data inserted at first, will refer to the current language, but it&apos;s possible to add translation before submitting the data..
+        /// </summary>
+        public static string dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData {
+            get {
+                return ResourceManager.GetString("dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBef" +
+                        "oreSubmittingTheData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editing a project.
         /// </summary>
         public static string editingAProject {
             get {
                 return ResourceManager.GetString("editingAProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editing packages.
+        /// </summary>
+        public static string editingPackages {
+            get {
+                return ResourceManager.GetString("editingPackages", resourceCulture);
             }
         }
         
@@ -188,7 +264,17 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to if the current language contains an obsolete translation.
+        ///   Looks up a localized string similar to If no translation is provided for any language, afterwards the button &quot;Add Translation&quot; will be available in the list for providing missing translations..
+        /// </summary>
+        public static string ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations {
+            get {
+                return ResourceManager.GetString("ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAva" +
+                        "ilableForProvidingTheMissingTranslations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the current language contains an obsolete translation.
         /// </summary>
         public static string ifTheCurrentLanguageContainsAnObsoleteTranslation {
             get {
@@ -216,6 +302,26 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It will lead you to the &quot;Manage Packages&quot; page, where it&apos;s possible to create, edit and remove packages..
+        /// </summary>
+        public static string itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages {
+            get {
+                return ResourceManager.GetString("itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It will lead you to the &quot;Manage Permissions Page&quot;, where it&apos;s possible to manage the permissions of the projects that you own..
+        /// </summary>
+        public static string itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn {
+            get {
+                return ResourceManager.GetString("itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTh" +
+                        "eProjectsThatYouOwn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It will provide access to a form where it&apos;s possible to add the missing translations.
         /// </summary>
         public static string itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations {
@@ -225,11 +331,12 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Next to it there&apos;s the project context control, which defines which project data is displayed.
+        ///   Looks up a localized string similar to Next to the &quot;Manage Projects&quot; button, there&apos;s the project context control, which defines which project data is displayed..
         /// </summary>
-        public static string nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed {
+        public static string nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed {
             get {
-                return ResourceManager.GetString("nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed", resourceCulture);
+                return ResourceManager.GetString("nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjec" +
+                        "tDataIsDisplayed", resourceCulture);
             }
         }
         
@@ -239,6 +346,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string PackagesThatContainsArtifacts {
             get {
                 return ResourceManager.GetString("PackagesThatContainsArtifacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pressing the &quot;Create Package&quot; button (plus sign) in the &quot;Manage Package&quot; screen, will lead you to the &quot;Create Package&quot; Form.
+        /// </summary>
+        public static string pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm {
+            get {
+                return ResourceManager.GetString("pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePacka" +
+                        "geForm", resourceCulture);
             }
         }
         
@@ -271,6 +388,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removing packages.
+        /// </summary>
+        public static string removingPackages {
+            get {
+                return ResourceManager.GetString("removingPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to the &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them.
         /// </summary>
         public static string theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem {
@@ -290,7 +416,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to the project management is accessible by the manage projects button at the page header.
+        ///   Looks up a localized string similar to The project management is accessible by the manage projects button at the page header..
         /// </summary>
         public static string theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader {
             get {
@@ -308,7 +434,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to the translations will be considered obsolete and a warning in the row will be displayed.
+        ///   Looks up a localized string similar to the translations will be considered obsolete and a warning in the row will be displayed..
         /// </summary>
         public static string theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed {
             get {
@@ -335,6 +461,43 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To manage a project packages, artifacts and permissions, it must be selected in the context..
+        /// </summary>
+        public static string toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext {
+            get {
+                return ResourceManager.GetString("toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To perform these actions, it&apos;s required to be the project&apos;s owner..
+        /// </summary>
+        public static string toPerformTheseActionsItsRequiredToBeTheProjectOwner {
+            get {
+                return ResourceManager.GetString("toPerformTheseActionsItsRequiredToBeTheProjectOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To perform these actions, it&apos;s required to have an &quot;Editor Permission&quot; in the project, or to be its owner..
+        /// </summary>
+        public static string toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner {
+            get {
+                return ResourceManager.GetString("toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwne" +
+                        "r", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To remove a package, it&apos;s necessary to press the &quot;Remove Package&quot; button (trash) in the package list, and confirm the action..
+        /// </summary>
+        public static string toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction {
+            get {
+                return ResourceManager.GetString("toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To remove a project, it&apos;s necessary to press the &quot;Remove Project&quot; button (trash) in the project list, and confirm the action..
         /// </summary>
         public static string toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction {
@@ -354,7 +517,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When editing a project with translations but not updating them.
+        ///   Looks up a localized string similar to When editing a package with translations, but not updating them.
+        /// </summary>
+        public static string whenEditingAPackageWithTranslationsButNotUpdatingThem {
+            get {
+                return ResourceManager.GetString("whenEditingAPackageWithTranslationsButNotUpdatingThem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When editing a project with translations, but not updating them.
         /// </summary>
         public static string whenEditingAProjectWithTranslationsButNotUpdatingThem {
             get {

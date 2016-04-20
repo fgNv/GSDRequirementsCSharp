@@ -13,10 +13,10 @@
     }
 }
 
-<h2>@Sentences.help</h2>
-
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-9" style="background-color: #FAFAFA">
+
+        <h2>@Sentences.help</h2>
 
         <h3 id="introduction">@Sentences.introduction</h3>
 
@@ -41,15 +41,19 @@
         </p>
 
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams
             @HelpSentences.accessPermissionsForOtherUsersAreGrantedByProject
         </p>
 
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage
             @HelpSentences.byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData
             @HelpSentences.andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected
         </p>
+
+        <hr />
 
         <h3 id="registration">
             @Sentences.registration
@@ -61,32 +65,36 @@
             @HelpSentences.afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects
         </p>
 
+        <hr />
+
         <h3 id="projects">
             @Sentences.managingProjects
         </h3>
 
         <p>
-            @HelpSentences.theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader
-            @HelpSentences.nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed
-            @HelpSentences.allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt            
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader
+            @HelpSentences.allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt
         </p>
 
         <h4>@HelpSentences.creatingANewProject</h4>
 
         <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             @HelpSentences.pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm
-            @HelpSentences.dataInsertedAtFirstWillReferTo @HelpSentences.theCurrentLanguage ,
+            @HelpSentences.dataInsertedAtFirstWillReferTo @HelpSentences.theCurrentLanguage,
             @HelpSentences.butItsPossibleToAddTranslationBeforeSubmittingTheData
+            @HelpSentences.ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations
         </p>
 
         <p>
-            @HelpSentences.whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable
             @HelpSentences.itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations
         </p>
 
         <h4>@HelpSentences.editingAProject</h4>
 
         <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             @HelpSentences.byClickingTheEditButtonYouWillBeAbleToEditAProject
             @HelpSentences.whenEditingAProjectWithTranslationsButNotUpdatingThem
             @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
@@ -97,29 +105,96 @@
         <h4>@HelpSentences.removingAProject</h4>
 
         <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             @HelpSentences.toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction
-
         </p>
 
         <div class="alert alert-danger">
             @HelpSentences.thisActionIsIrreversible
         </div>
 
-        <h3 id="packages">
-            @Sentences.managingPackages
-        </h3>
+        <h4>@HelpSentences.contextProject</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext
+            @HelpSentences.nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed
+            @HelpSentences.afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide
+        </p>
+
+        <hr />
 
         <h3 id="permissions">
             @Sentences.managingPermissions
         </h3>
+        
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide
+            @HelpSentences.itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn
+            @HelpSentences.toPerformTheseActionsItsRequiredToBeTheProjectOwner
+        </p>
 
+        <h4>@HelpSentences.grantingPermissions</h4>
+
+        <h4>@HelpSentences.revokingPermissions</h4>
+
+        <hr />
+
+        <h3 id="packages">
+            @Sentences.managingPackages
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide
+            @HelpSentences.itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages
+            @HelpSentences.toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner
+        </p>
+
+        <h4>@HelpSentences.creatingANewPackage</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm
+            @HelpSentences.dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData
+            @HelpSentences.ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations
+        </p>
+
+        <h4>@HelpSentences.editingPackages</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.byClickingTheEditButtonYouWillBeAbleToEditAPackage
+            @HelpSentences.whenEditingAPackageWithTranslationsButNotUpdatingThem,
+            @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
+            @HelpSentences.ifTheCurrentLanguageContainsAnObsoleteTranslation
+            @HelpSentences.theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem
+        </p>
+
+        <h4>@HelpSentences.removingPackages</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction
+        </p>
+        <div class="alert alert-danger">
+            @HelpSentences.thisActionIsIrreversible
+        </div>
+
+        <hr />
+        
         <h3 id="requirements">
             @Sentences.requirements
         </h3>
 
+        <hr />
+
         <h3 id="classDiagrams">
             @Sentences.classDiagrams
         </h3>
+
+        <hr />
 
         <h3 id="useCaseDiagrams">
             @Sentences.useCaseDiagrams
@@ -139,10 +214,10 @@
                     <a href="#projects">@Sentences.managingProjects</a>
                 </li>
                 <li>
-                    <a href="#packages">@Sentences.managingPackages</a>
+                    <a href="#permissions">@Sentences.managingPermissions</a>
                 </li>
                 <li>
-                    <a href="#permissions">@Sentences.managingPermissions</a>
+                    <a href="#packages">@Sentences.managingPackages</a>
                 </li>
                 <li>
                     <a href="#requirements">@Sentences.requirements</a>

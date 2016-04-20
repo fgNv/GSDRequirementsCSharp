@@ -121,7 +121,7 @@
     <value>Access permissions for other users are granted by project.</value>
   </data>
   <data name="afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects" xml:space="preserve">
-    <value>After submiting the registration data, you will be able to authenticate and manage projects</value>
+    <value>After submiting the registration data, you will be able to authenticate and manage projects.</value>
   </data>
   <data name="andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected" xml:space="preserve">
     <value>and when inserting new data the first language added will be the one selected</value>
@@ -154,7 +154,7 @@
     <value>Project that contains packages</value>
   </data>
   <data name="theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader" xml:space="preserve">
-    <value>the project management is accessible by the manage projects button at the page header</value>
+    <value>The project management is accessible by the manage projects button at the page header.</value>
   </data>
   <data name="theRequirementsManagementInThisToolIsMeantToBeMadeCollaboratively" xml:space="preserve">
     <value>The requirement management in this tool is meant to be made collaboratively.</value>
@@ -169,7 +169,7 @@
     <value>but its possible to add translations before submitting the data</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
-    <value>By clicking the "Edit Button" (Pencil) in the project list, you will be able to edit a project</value>
+    <value>By clicking the "Edit Button" (Pencil) in the project list, you will be able to edit a project.</value>
   </data>
   <data name="creatingANewProject" xml:space="preserve">
     <value>Creating a new project</value>
@@ -181,13 +181,13 @@
     <value>Editing a project</value>
   </data>
   <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
-    <value>if the current language contains an obsolete translation</value>
+    <value>If the current language contains an obsolete translation</value>
   </data>
   <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
     <value>It will provide access to a form where it's possible to add the missing translations</value>
   </data>
-  <data name="nextToItTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
-    <value>Next to it there's the project context control, which defines which project data is displayed</value>
+  <data name="nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
+    <value>Next to the "Manage Projects" button, there's the project context control, which defines which project data is displayed.</value>
   </data>
   <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
     <value>Pressing the button "create project" (plus sign) in the "Manage Project Screen", will lead you to the create project form.</value>
@@ -202,7 +202,7 @@
     <value>the current language</value>
   </data>
   <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
-    <value>the translations will be considered obsolete and a warning in the row will be displayed</value>
+    <value>the translations will be considered obsolete and a warning in the row will be displayed.</value>
   </data>
   <data name="thisActionIsIrreversible" xml:space="preserve">
     <value>This action is irreversible</value>
@@ -214,6 +214,60 @@
     <value>When creating a project and not providing translation for all languages an "Add Translation" Button (globe) will be available in the project list.</value>
   </data>
   <data name="whenEditingAProjectWithTranslationsButNotUpdatingThem" xml:space="preserve">
-    <value>When editing a project with translations but not updating them</value>
+    <value>When editing a project with translations, but not updating them</value>
+  </data>
+  <data name="contextProject" xml:space="preserve">
+    <value>Context project</value>
+  </data>
+  <data name="toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext" xml:space="preserve">
+    <value>To manage a project packages, artifacts and permissions, it must be selected in the context.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide" xml:space="preserve">
+    <value>After selecting a project in the context, menu items for managing the project data appear in the header's left side.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>After selecting a project in the context, the packages button will be displayed in the header's left side.</value>
+  </data>
+  <data name="byClickingTheEditButtonYouWillBeAbleToEditAPackage" xml:space="preserve">
+    <value>By clicking the "Edit Package" button (pencil), in the package list, you will be able to edit a package.</value>
+  </data>
+  <data name="creatingANewPackage" xml:space="preserve">
+    <value>Creating a new package</value>
+  </data>
+  <data name="dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
+    <value>Data inserted at first, will refer to the current language, but it's possible to add translation before submitting the data.</value>
+  </data>
+  <data name="editingPackages" xml:space="preserve">
+    <value>Editing packages</value>
+  </data>
+  <data name="ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations" xml:space="preserve">
+    <value>If no translation is provided for any language, afterwards the button "Add Translation" will be available in the list for providing missing translations.</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages" xml:space="preserve">
+    <value>It will lead you to the "Manage Packages" page, where it's possible to create, edit and remove packages.</value>
+  </data>
+  <data name="pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm" xml:space="preserve">
+    <value>Pressing the "Create Package" button (plus sign) in the "Manage Package" screen, will lead you to the "Create Package" Form</value>
+  </data>
+  <data name="removingPackages" xml:space="preserve">
+    <value>Removing packages</value>
+  </data>
+  <data name="toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction" xml:space="preserve">
+    <value>To remove a package, it's necessary to press the "Remove Package" button (trash) in the package list, and confirm the action.</value>
+  </data>
+  <data name="whenEditingAPackageWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>When editing a package with translations, but not updating them</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>After selecting a project in the context, the permissions button will be displayed in the header's left side.</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn" xml:space="preserve">
+    <value>It will lead you to the "Manage Permissions Page", where it's possible to manage the permissions of the projects that you own.</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToBeTheProjectOwner" xml:space="preserve">
+    <value>To perform these actions, it's required to be the project's owner.</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
+    <value>To perform these actions, it's required to have an "Editor Permission" in the project, or to be its owner.</value>
   </data>
 </root>

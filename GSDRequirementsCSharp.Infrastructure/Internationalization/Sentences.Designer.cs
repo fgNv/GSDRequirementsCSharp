@@ -1042,7 +1042,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Managing packages.
+        ///   Looks up a localized string similar to Managing Packages.
         /// </summary>
         public static string managingPackages {
             get {
@@ -1051,7 +1051,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Managing permissions.
+        ///   Looks up a localized string similar to Managing Permissions.
         /// </summary>
         public static string managingPermissions {
             get {
