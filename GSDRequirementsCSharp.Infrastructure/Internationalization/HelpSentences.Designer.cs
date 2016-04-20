@@ -70,6 +70,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After adding the users and defining their profiles, you must click the &quot;Save&quot; button..
+        /// </summary>
+        public static string afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton {
+            get {
+                return ResourceManager.GetString("afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to After selecting a project in the context, menu items for managing the project data appear in the header&apos;s left side..
         /// </summary>
         public static string afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide {
@@ -181,6 +190,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can add, comment and conclude issues.
+        /// </summary>
+        public static string canAddCommentAndConcludeIssues {
+            get {
+                return ResourceManager.GetString("canAddCommentAndConcludeIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can add, edit, translate and exclude packages and artifacts.
+        /// </summary>
+        public static string canAddEditTranslateAndExcludePackagesAndArtifacts {
+            get {
+                return ResourceManager.GetString("canAddEditTranslateAndExcludePackagesAndArtifacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can see packages and artifacts details.
+        /// </summary>
+        public static string canSeePackagesAndArtifactsDetails {
+            get {
+                return ResourceManager.GetString("canSeePackagesAndArtifactsDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Context project.
         /// </summary>
         public static string contextProject {
@@ -254,6 +290,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Granting permissions.
+        /// </summary>
+        public static string grantingPermissions {
+            get {
+                return ResourceManager.GetString("grantingPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GSD Stands for Global Software Development, in other words, a team with members from different countries..
         /// </summary>
         public static string gsdStandsForGlobalSoftwareDevelopmentInOtherWordsATeamWithMembersFromDifferentCountries {
@@ -298,6 +343,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
             get {
                 return ResourceManager.GetString("itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOf" +
                         "ThePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s possible to grant permissions by clicking the &quot;grant permission&quot; button (plus sign) in the &quot;Manage Project Permissions&quot; page.
+        /// </summary>
+        public static string itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage {
+            get {
+                return ResourceManager.GetString("itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPe" +
+                        "rmissionsPage", resourceCulture);
             }
         }
         
@@ -350,6 +405,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permission Profiles.
+        /// </summary>
+        public static string permissionProfiles {
+            get {
+                return ResourceManager.GetString("permissionProfiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pressing the &quot;Create Package&quot; button (plus sign) in the &quot;Manage Package&quot; screen, will lead you to the &quot;Create Package&quot; Form.
         /// </summary>
         public static string pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm {
@@ -397,6 +461,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Revoking permissions.
+        /// </summary>
+        public static string revokingPermissions {
+            get {
+                return ResourceManager.GetString("revokingPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to the &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them.
         /// </summary>
         public static string theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem {
@@ -412,6 +485,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string theCurrentLanguage {
             get {
                 return ResourceManager.GetString("theCurrentLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to then it&apos;s necessary to search for an user by name or email, and select the profile..
+        /// </summary>
+        public static string thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile {
+            get {
+                return ResourceManager.GetString("thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile", resourceCulture);
             }
         }
         
@@ -439,6 +521,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed {
             get {
                 return ResourceManager.GetString("theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user must be already registered for the permission to be granted..
+        /// </summary>
+        public static string theUserMustBeAlreadyRegisteredForThePermissionToBeGranted {
+            get {
+                return ResourceManager.GetString("theUserMustBeAlreadyRegisteredForThePermissionToBeGranted", resourceCulture);
             }
         }
         
@@ -503,6 +594,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction {
             get {
                 return ResourceManager.GetString("toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To revoke a permission, you must press the &quot;Revoke Permission&quot; button (trash) in the &quot;Manage Project Permissions&quot; screen and then  click the save button..
+        /// </summary>
+        public static string toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton {
+            get {
+                return ResourceManager.GetString("toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsSc" +
+                        "reenAndThenClickTheSaveButton", resourceCulture);
             }
         }
         

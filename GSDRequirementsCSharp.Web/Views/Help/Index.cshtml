@@ -2,6 +2,12 @@
 
 @Html.Partial("_SidebarStyle")
 
+<style type="text/css">
+    .navbar {
+        margin-bottom: 0;
+    }
+</style>
+
 @{
     if (ViewBag.UserContact == null)
     {
@@ -127,7 +133,7 @@
         <h3 id="permissions">
             @Sentences.managingPermissions
         </h3>
-        
+
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;
             @HelpSentences.afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide
@@ -137,7 +143,54 @@
 
         <h4>@HelpSentences.grantingPermissions</h4>
 
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage,
+            @HelpSentences.thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile
+            @HelpSentences.theUserMustBeAlreadyRegisteredForThePermissionToBeGranted
+            @HelpSentences.afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton
+        </p>
+
+        <h4>@HelpSentences.permissionProfiles</h4>
+
+        <dl style="margin-left: 15px;">
+            <dt>@Sentences.editor</dt>
+            <dd>
+                <ul>
+                    <li>
+                        @HelpSentences.canAddEditTranslateAndExcludePackagesAndArtifacts
+                    </li>
+                    <li>
+                        @HelpSentences.canAddCommentAndConcludeIssues
+                    </li>
+                    <li>
+                        @HelpSentences.canSeePackagesAndArtifactsDetails
+                    </li>
+                </ul>
+            </dd>
+            <dt>@Sentences.collaborator</dt>
+            <dd>
+                <ul>
+                    <li>@HelpSentences.canAddCommentAndConcludeIssues</li>
+                    <li>@HelpSentences.canSeePackagesAndArtifactsDetails</li>
+                </ul>
+            </dd>
+            <dt>@Sentences.observer</dt>
+            <dd>
+                <ul>
+                    <li>
+                        @HelpSentences.canSeePackagesAndArtifactsDetails
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
         <h4>@HelpSentences.revokingPermissions</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton
+        </p>
 
         <hr />
 
@@ -183,7 +236,7 @@
         </div>
 
         <hr />
-        
+
         <h3 id="requirements">
             @Sentences.requirements
         </h3>

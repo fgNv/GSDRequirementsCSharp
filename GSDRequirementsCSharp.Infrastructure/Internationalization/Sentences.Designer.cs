@@ -799,6 +799,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grant permission.
+        /// </summary>
+        public static string grantPermission {
+            get {
+                return ResourceManager.GetString("grantPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GSD Requirements.
         /// </summary>
         public static string gsdRequirements {
@@ -1011,6 +1020,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageProfiles {
             get {
                 return ResourceManager.GetString("manageProfiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage project permissions.
+        /// </summary>
+        public static string manageProjectPermissions {
+            get {
+                return ResourceManager.GetString("manageProjectPermissions", resourceCulture);
             }
         }
         
@@ -1524,6 +1542,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string requirementUpdatedSuccessfully {
             get {
                 return ResourceManager.GetString("requirementUpdatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revoke permission.
+        /// </summary>
+        public static string revokePermission {
+            get {
+                return ResourceManager.GetString("revokePermission", resourceCulture);
             }
         }
         

@@ -699,4 +699,13 @@
   <data name="areYouCertainYouWishToRemoveThisItem" xml:space="preserve">
     <value>Você tem certeza que deseja remover esse item? Essa ação é irreversível.</value>
   </data>
+  <data name="grantPermission" xml:space="preserve">
+    <value>Conceder permissão</value>
+  </data>
+  <data name="revokePermission" xml:space="preserve">
+    <value>Revogar permissão</value>
+  </data>
+  <data name="manageProjectPermissions" xml:space="preserve">
+    <value>Gerenciar permissões do projeto</value>
+  </data>
 </root>
