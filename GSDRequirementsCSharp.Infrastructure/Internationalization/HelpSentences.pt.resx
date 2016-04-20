@@ -258,11 +258,20 @@
   <data name="whenEditingAPackageWithTranslationsButNotUpdatingThem" xml:space="preserve">
     <value>Quando se edita um pacote com traduções, mas não as atualiza</value>
   </data>
+  <data name="addingNewVersionToRequirement" xml:space="preserve">
+    <value>Adicionando nova versão do requisito</value>
+  </data>
   <data name="afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton" xml:space="preserve">
     <value>Após adicionar os usuários e definir seus perfis, deve-se clicar no botão "Salvar".</value>
   </data>
+  <data name="afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o item "Artefatos" ficará disponível no menu superior.</value>
+  </data>
   <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
     <value>Após selecionar um projeto no contexto, o botão de Permissões ficará disponível no canto superior esquerdo da tela.</value>
+  </data>
+  <data name="byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement" xml:space="preserve">
+    <value>Ao clicar no botão "Adicionar versão" (sinal de soma em cada linha), você poderá adicionar uma nova versão do requisito.</value>
   </data>
   <data name="canAddCommentAndConcludeIssues" xml:space="preserve">
     <value>Pode adicionar, comentar e concluir observações.</value>
@@ -273,8 +282,14 @@
   <data name="canSeePackagesAndArtifactsDetails" xml:space="preserve">
     <value>Pode ver os detalhes de pacotes e artefatos.</value>
   </data>
+  <data name="creatingANewRequirement" xml:space="preserve">
+    <value>Criando um novo requisito</value>
+  </data>
   <data name="grantingPermissions" xml:space="preserve">
     <value>Concedendo permissões</value>
+  </data>
+  <data name="inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements" xml:space="preserve">
+    <value>Nessa página, também é possível adicionar, comentar e concluir observações relacionadas a requisitos.</value>
   </data>
   <data name="itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage" xml:space="preserve">
     <value>É possível conceder permissões clicando no botão "Conceder permissão" (sinal de mais) na página"Gerenciar permissões do projeto"</value>
@@ -282,14 +297,29 @@
   <data name="itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn" xml:space="preserve">
     <value>Ele irá leva-lo para a página "Gerenciar Permissões", onde é possível gerenciar permissões dos projetos que você possui.</value>
   </data>
+  <data name="manageRequirementsIssues" xml:space="preserve">
+    <value>Gerenciar observações dos requisitos</value>
+  </data>
+  <data name="manageRequirementsLinks" xml:space="preserve">
+    <value>Gerenciar vínculos dos requisitos</value>
+  </data>
   <data name="permissionProfiles" xml:space="preserve">
     <value>Perfis de permissões</value>
+  </data>
+  <data name="pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm" xml:space="preserve">
+    <value>Apertando o botão "Criar requisito", na tela "Gerenciar requisitos", você será direcionado para o formulário "Criar requisito".</value>
+  </data>
+  <data name="removeRequirements" xml:space="preserve">
+    <value>Remover requisitos</value>
   </data>
   <data name="revokingPermissions" xml:space="preserve">
     <value>Revogando permissões</value>
   </data>
   <data name="thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile" xml:space="preserve">
     <value>então é necessário buscar um usuário por nome ou e-mail, e selecionar o perfil.</value>
+  </data>
+  <data name="theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPossibleToCreateEditManageLinksAndRemoveRequirements" xml:space="preserve">
+    <value>O botão "Requisitos", que está abaixo do item "Artefatos" do menu superior, irá direcioná-lo para a página "Gerenciar Requisitos", onde é possível criar, gerencia vínculos, editar e remover requisitos.</value>
   </data>
   <data name="theUserMustBeAlreadyRegisteredForThePermissionToBeGranted" xml:space="preserve">
     <value>O usuário já deve estar registrado para que a permissão seja concedida.</value>
@@ -300,7 +330,13 @@
   <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
     <value>Para executar essas ações, deve-se possuir a "Permissão de Editor" no projeto, ou ser o seu dono.</value>
   </data>
+  <data name="toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um requisito, é necessário pressionar o botão "Remover Requisito" e confirmar a ação.</value>
+  </data>
   <data name="toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton" xml:space="preserve">
     <value>Para revogar uma permissão, você deve pressionar o botão "Revogar permissão" (lixo) na página "Gerenciar permissões do projeto" e então clicar no botão salvar.</value>
+  </data>
+  <data name="whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Ao adicionar uma nova versão de um requisito que possui traduções, mas não atualizá-las</value>
   </data>
 </root>

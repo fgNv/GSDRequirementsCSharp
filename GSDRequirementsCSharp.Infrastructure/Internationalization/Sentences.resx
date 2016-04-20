@@ -708,4 +708,7 @@
   <data name="manageProjectPermissions" xml:space="preserve">
     <value>Manage project permissions</value>
   </data>
+  <data name="underConstruction" xml:space="preserve">
+    <value>Under construction</value>
+  </data>
 </root>

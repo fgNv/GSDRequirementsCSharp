@@ -1699,6 +1699,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Under construction.
+        /// </summary>
+        public static string underConstruction {
+            get {
+                return ResourceManager.GetString("underConstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Undo.
         /// </summary>
         public static string undo {

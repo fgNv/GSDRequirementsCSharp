@@ -258,11 +258,20 @@
   <data name="whenEditingAPackageWithTranslationsButNotUpdatingThem" xml:space="preserve">
     <value>When editing a package with translations, but not updating them</value>
   </data>
+  <data name="addingNewVersionToRequirement" xml:space="preserve">
+    <value>Adding new version to requirement</value>
+  </data>
   <data name="afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton" xml:space="preserve">
     <value>After adding the users and defining their profiles, you must click the "Save" button.</value>
   </data>
+  <data name="afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>After selecting a project in the context, the "Artifacts" button will be displayed in the headers left side.</value>
+  </data>
   <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
     <value>After selecting a project in the context, the permissions button will be displayed in the header's left side.</value>
+  </data>
+  <data name="byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement" xml:space="preserve">
+    <value>By clicking the "Add Version" button (plus sign in each row), you will be able to add a new version of the requirement.</value>
   </data>
   <data name="canAddCommentAndConcludeIssues" xml:space="preserve">
     <value>Can add, comment and conclude issues</value>
@@ -273,8 +282,14 @@
   <data name="canSeePackagesAndArtifactsDetails" xml:space="preserve">
     <value>Can see packages and artifacts details</value>
   </data>
+  <data name="creatingANewRequirement" xml:space="preserve">
+    <value>Creating a new requirement</value>
+  </data>
   <data name="grantingPermissions" xml:space="preserve">
     <value>Granting permissions</value>
+  </data>
+  <data name="inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements" xml:space="preserve">
+    <value>In this page, it's also possible  to add, comment and conclude issues related to requirements.</value>
   </data>
   <data name="itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage" xml:space="preserve">
     <value>It's possible to grant permissions by clicking the "grant permission" button (plus sign) in the "Manage Project Permissions" page</value>
@@ -282,14 +297,29 @@
   <data name="itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn" xml:space="preserve">
     <value>It will lead you to the "Manage Permissions Page", where it's possible to manage the permissions of the projects that you own.</value>
   </data>
+  <data name="manageRequirementsIssues" xml:space="preserve">
+    <value>Manage Requirements Issues</value>
+  </data>
+  <data name="manageRequirementsLinks" xml:space="preserve">
+    <value>Manage Requirements Links</value>
+  </data>
   <data name="permissionProfiles" xml:space="preserve">
     <value>Permission Profiles</value>
+  </data>
+  <data name="pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm" xml:space="preserve">
+    <value>Pressing the "Create Requirement" Button, in the "Manage Requirements" screen, will lead you to the "Create Requirement" form.</value>
+  </data>
+  <data name="removeRequirements" xml:space="preserve">
+    <value>Remove Requirements</value>
   </data>
   <data name="revokingPermissions" xml:space="preserve">
     <value>Revoking permissions</value>
   </data>
   <data name="thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile" xml:space="preserve">
     <value>then it's necessary to search for an user by name or email, and select the profile.</value>
+  </data>
+  <data name="theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPossibleToCreateEditManageLinksAndRemoveRequirements" xml:space="preserve">
+    <value>The "Requirements" button, which is beneath the "Artifacts" Button, will lead you to the "Manage Requirements Page", where it's possible to create, manage its links, edit and remove requirements.</value>
   </data>
   <data name="theUserMustBeAlreadyRegisteredForThePermissionToBeGranted" xml:space="preserve">
     <value>The user must be already registered for the permission to be granted.</value>
@@ -300,7 +330,13 @@
   <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
     <value>To perform these actions, it's required to have an "Editor Permission" in the project, or to be its owner.</value>
   </data>
+  <data name="toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction" xml:space="preserve">
+    <value>To remove a requirement, it's necessary to press the "Remove Requirement" button and confirm the action.</value>
+  </data>
   <data name="toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton" xml:space="preserve">
     <value>To revoke a permission, you must press the "Revoke Permission" button (trash) in the "Manage Project Permissions" screen and then  click the save button.</value>
+  </data>
+  <data name="whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>When adding a new version of a requirement with translations, but not updating them</value>
   </data>
 </root>

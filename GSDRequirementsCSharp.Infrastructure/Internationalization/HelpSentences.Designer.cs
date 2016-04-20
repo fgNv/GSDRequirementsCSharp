@@ -70,6 +70,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding new version to requirement.
+        /// </summary>
+        public static string addingNewVersionToRequirement {
+            get {
+                return ResourceManager.GetString("addingNewVersionToRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to After adding the users and defining their profiles, you must click the &quot;Save&quot; button..
         /// </summary>
         public static string afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton {
@@ -85,6 +94,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
             get {
                 return ResourceManager.GetString("afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHe" +
                         "adersLeftSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After selecting a project in the context, the &quot;Artifacts&quot; button will be displayed in the headers left side..
+        /// </summary>
+        public static string afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLeftSide {
+            get {
+                return ResourceManager.GetString("afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLe" +
+                        "ftSide", resourceCulture);
             }
         }
         
@@ -159,6 +178,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string butItsPossibleToAddTranslationBeforeSubmittingTheData {
             get {
                 return ResourceManager.GetString("butItsPossibleToAddTranslationBeforeSubmittingTheData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By clicking the &quot;Add Version&quot; button (plus sign in each row), you will be able to add a new version of the requirement..
+        /// </summary>
+        public static string byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement {
+            get {
+                return ResourceManager.GetString("byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement", resourceCulture);
             }
         }
         
@@ -240,6 +268,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string creatingANewProject {
             get {
                 return ResourceManager.GetString("creatingANewProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating a new requirement.
+        /// </summary>
+        public static string creatingANewRequirement {
+            get {
+                return ResourceManager.GetString("creatingANewRequirement", resourceCulture);
             }
         }
         
@@ -328,6 +365,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In this page, it&apos;s also possible  to add, comment and conclude issues related to requirements..
+        /// </summary>
+        public static string inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements {
+            get {
+                return ResourceManager.GetString("inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to is a tool for requirement management aimed for global teams..
         /// </summary>
         public static string isAToolForRequirementManagementAimedForGlobalTeams {
@@ -386,6 +432,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage Requirements Issues.
+        /// </summary>
+        public static string manageRequirementsIssues {
+            get {
+                return ResourceManager.GetString("manageRequirementsIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Requirements Links.
+        /// </summary>
+        public static string manageRequirementsLinks {
+            get {
+                return ResourceManager.GetString("manageRequirementsLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next to the &quot;Manage Projects&quot; button, there&apos;s the project context control, which defines which project data is displayed..
         /// </summary>
         public static string nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed {
@@ -434,11 +498,30 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pressing the &quot;Create Requirement&quot; Button, in the &quot;Manage Requirements&quot; screen, will lead you to the &quot;Create Requirement&quot; form..
+        /// </summary>
+        public static string pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm {
+            get {
+                return ResourceManager.GetString("pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCr" +
+                        "eateRequirementForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project that contains packages.
         /// </summary>
         public static string ProjectThatContainsPackages {
             get {
                 return ResourceManager.GetString("ProjectThatContainsPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Requirements.
+        /// </summary>
+        public static string removeRequirements {
+            get {
+                return ResourceManager.GetString("removeRequirements", resourceCulture);
             }
         }
         
@@ -503,6 +586,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader {
             get {
                 return ResourceManager.GetString("theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &quot;Requirements&quot; button, which is beneath the &quot;Artifacts&quot; Button, will lead you to the &quot;Manage Requirements Page&quot;, where it&apos;s possible to create, manage its links, edit and remove requirements..
+        /// </summary>
+        public static string theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPossibleToCreateEditManageLinksAndRemoveRequirements {
+            get {
+                return ResourceManager.GetString("theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPos" +
+                        "sibleToCreateEditManageLinksAndRemoveRequirements", resourceCulture);
             }
         }
         
@@ -598,12 +691,31 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To remove a requirement, it&apos;s necessary to press the &quot;Remove Requirement&quot; button and confirm the action..
+        /// </summary>
+        public static string toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction {
+            get {
+                return ResourceManager.GetString("toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAct" +
+                        "ion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To revoke a permission, you must press the &quot;Revoke Permission&quot; button (trash) in the &quot;Manage Project Permissions&quot; screen and then  click the save button..
         /// </summary>
         public static string toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton {
             get {
                 return ResourceManager.GetString("toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsSc" +
                         "reenAndThenClickTheSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When adding a new version of a requirement with translations, but not updating them.
+        /// </summary>
+        public static string whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem {
+            get {
+                return ResourceManager.GetString("whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem", resourceCulture);
             }
         }
         
