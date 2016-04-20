@@ -7,4 +7,3 @@ var Models;
     })(Models.ArtifactType || (Models.ArtifactType = {}));
     var ArtifactType = Models.ArtifactType;
 })(Models || (Models = {}));
-//# sourceMappingURL=ArtifactTypeEnum.js.map

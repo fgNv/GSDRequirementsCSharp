@@ -18,6 +18,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public string Locale { get; set; }
 
+        public int Version { get; set; }
+
         public static RequirementContentViewModel FromModel(RequirementContent model)
         {
             if (model == null) return null;
@@ -28,7 +30,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Locale = model.Locale,
                 Subject = model.Subject,
                 Action = model.Action,
-                Condition = model.Condition
+                Condition = model.Condition,
+                Version = model.Version
             };
         }
     }

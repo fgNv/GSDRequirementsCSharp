@@ -66,7 +66,10 @@ var Directives;
                 }];
         }
         GsdRequirementTranslation.prototype.defineAvailableLocaleContents = function ($scope, requirement) {
+            var latestVersionContent = _.max(requirement.requirementContents, function (c) { return c.version; });
+            var latestVersion = latestVersionContent.version;
             var requirementLocales = _.chain(requirement.requirementContents)
+                .filter(function (c) { return c.version == latestVersion; })
                 .map(function (c) { return c.locale; })
                 .value();
             $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable, function (l) { return _.any(requirementLocales, function (pl) { return pl == l.name; }); });
@@ -87,4 +90,3 @@ var Directives;
     })();
     app.directive('gsdRequirementTranslation', GsdRequirementTranslation.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdRequirementTranslation.js.map

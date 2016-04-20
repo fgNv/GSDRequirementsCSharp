@@ -29,6 +29,16 @@
             ($scope: any, RequirementResource: any, PackageResource: any) => {
                 $scope.pendingRequests = 0
                 $scope.translations = []
+                var currentLocale = _.find(GSDRequirements.localesAvailable,
+                    (l) => l.name == GSDRequirements.currentLocale)
+                
+                $scope.translationsAlreadyProvided = [
+                    currentLocale,
+                    GSDRequirements.currentLocale
+                ]
+
+                console.log('$scope.translationsAlreadyProvided')
+                console.log($scope.translationsAlreadyProvided)
 
                 this.LoadPackagesOptions(PackageResource, $scope)
 
@@ -68,7 +78,7 @@
                         Sentences.requirementSuccessfullyCreated;
 
                     promise
-                        .then(() :void => {
+                        .then((): void => {
                             Notification.notifySuccess(successMessage);
 
                             if ($scope.afterSave) { $scope.afterSave() }
