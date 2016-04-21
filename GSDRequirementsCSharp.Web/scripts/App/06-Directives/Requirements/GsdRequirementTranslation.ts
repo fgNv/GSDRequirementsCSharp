@@ -47,6 +47,11 @@
                 $scope.originalDescription = ''
                 $scope.originalName = ''
                 $scope.requirement = null;
+                
+                $scope.cancel = (): void => {
+                    $scope.requirement = null
+                    window.location.href = '#'
+                }
 
                 var self = this
                 $scope.$watch('requirement', (newValue, oldValue) => {

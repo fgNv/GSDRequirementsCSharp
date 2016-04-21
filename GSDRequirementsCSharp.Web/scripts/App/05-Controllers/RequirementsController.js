@@ -2,10 +2,7 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var RequirementsController = (function () {
-        function RequirementsController($scope, RequirementResource, SpecificationItemResource) {
-            this.$scope = $scope;
-            this.RequirementResource = RequirementResource;
-            this.SpecificationItemResource = SpecificationItemResource;
+        function RequirementsController($scope, RequirementResource, SpecificationItemResource, $rootScope, $location) {
             $scope.currentPage = 1;
             $scope.maxPages = 1;
             $scope.requirements = [];
@@ -13,6 +10,17 @@ var Controllers;
             $scope.hasEditPermission =
                 GSDRequirements.currentProfile == Models.profile.editor ||
                     GSDRequirements.currentProfile == Models.profile.projectOwner;
+            window.location.href = "#";
+            $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+                var pathValues = $location.path().split('/');
+                var step = pathValues[1];
+                if (!step) {
+                    $scope.currentRequirement = null;
+                    $scope.requirementToTranslate = null;
+                    $scope.requirementToManageLinks = null;
+                    $scope.requirementToShowDetails = null;
+                }
+            });
             var pageSize = 10;
             this.SetScopeMethods($scope, RequirementResource, SpecificationItemResource, pageSize);
             this.LoadRequirements(RequirementResource, $scope, pageSize);
@@ -23,9 +31,26 @@ var Controllers;
                 $scope.currentPage = page;
                 $scope.loadRequirements();
             };
-            $scope.setCurrentRequirement = function (r) { $scope.currentRequirement = r; };
-            $scope.setRequirementToTranslate = function (r) { $scope.requirementToTranslate = r; };
-            $scope.setRequirementToManageLinks = function (r) { $scope.requirementToManageLinks = r; };
+            $scope.addRequirement = function () {
+                window.location.href = "#/form";
+                $scope.currentRequirement = new Models.Requirement({});
+            };
+            $scope.setCurrentRequirement = function (r) {
+                $scope.currentRequirement = r;
+                window.location.href = "#/form";
+            };
+            $scope.setRequirementToTranslate = function (r) {
+                $scope.requirementToTranslate = r;
+                window.location.href = "#/translate";
+            };
+            $scope.setRequirementToManageLinks = function (r) {
+                $scope.requirementToManageLinks = r;
+                window.location.href = "#/links";
+            };
+            $scope.setRequirementToShowDetails = function (r) {
+                $scope.requirementToShowDetails = r;
+                window.location.href = "#/details/" + r.id;
+            };
             $scope.showList = function () {
                 return !$scope.currentRequirement &&
                     !$scope.requirementToTranslate &&
@@ -77,6 +102,7 @@ var Controllers;
         };
         return RequirementsController;
     })();
-    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource",
+        "$rootScope", "$location", RequirementsController]);
 })(Controllers || (Controllers = {}));
 //# sourceMappingURL=RequirementsController.js.map

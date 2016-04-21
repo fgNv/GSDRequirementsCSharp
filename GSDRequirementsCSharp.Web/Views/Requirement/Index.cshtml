@@ -12,7 +12,7 @@
         <button class="btn btn-primary"
                 data-ng-show="hasEditPermission && showList()"
                 title="@Sentences.addRequirement"
-                data-ng-click="currentRequirement = {}">
+                data-ng-click="addRequirement()">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
@@ -32,5 +32,9 @@
              data-after-save="loadRequirements"
              data-requirement="currentRequirement"
              data-ng-show="currentRequirement"></article>
+
+    <article data-gsd-requirement-details=""
+             data-requirement-id="requirementToShowDetails.id"
+             data-ng-show="requirementToShowDetails"></article>
 
 </article>

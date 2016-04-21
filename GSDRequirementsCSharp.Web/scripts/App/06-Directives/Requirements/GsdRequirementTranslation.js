@@ -16,6 +16,10 @@ var Directives;
                     $scope.originalDescription = '';
                     $scope.originalName = '';
                     $scope.requirement = null;
+                    $scope.cancel = function () {
+                        $scope.requirement = null;
+                        window.location.href = '#';
+                    };
                     var self = _this;
                     $scope.$watch('requirement', function (newValue, oldValue) {
                         if (!newValue) {

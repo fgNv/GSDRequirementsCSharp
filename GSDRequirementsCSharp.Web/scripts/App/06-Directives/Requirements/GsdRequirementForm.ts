@@ -36,11 +36,13 @@
                     currentLocale,
                     GSDRequirements.currentLocale
                 ]
-
-                console.log('$scope.translationsAlreadyProvided')
-                console.log($scope.translationsAlreadyProvided)
-
+                
                 this.LoadPackagesOptions(PackageResource, $scope)
+
+                $scope.cancel = () : void => {
+                    $scope.requirement = null
+                    window.location.href = '#'
+                }
 
                 $scope.difficultyOptions = Globals.enumerateEnum(Models.Difficulty)
                 $scope.requirementTypeOptions = Globals.enumerateEnum(Models.RequirementType)

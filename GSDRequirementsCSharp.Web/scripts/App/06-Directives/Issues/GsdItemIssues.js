@@ -11,6 +11,7 @@ var Directives;
             this.controller = ['$scope', "$uibModal", function ($scope, $uibModal) {
                     $scope.pendingRequests = 0;
                     $scope.seeIssues = function () {
+                        window.location.href = "#/issueList";
                         $scope.pendingRequests++;
                         var modal = $uibModal.open({
                             templateUrl: GSDRequirements.baseUrl + "issue/list",

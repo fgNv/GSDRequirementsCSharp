@@ -12,7 +12,8 @@ var Directives;
                     $scope.availableLanguages = [];
                     $scope.requirementType = Models.RequirementType;
                     $scope.difficulty = Models.Difficulty;
-                    _this.loadRequirement($scope, RequirementResource, $scope.requirementId);
+                    if ($scope.requirementId)
+                        _this.loadRequirement($scope, RequirementResource, $scope.requirementId);
                     $scope.$watch("requirementId", function (newValue, oldValue) {
                         if (newValue)
                             _this.loadRequirement($scope, RequirementResource, newValue);

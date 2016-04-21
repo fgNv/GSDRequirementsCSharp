@@ -17,6 +17,7 @@
             $scope.pendingRequests = 0
 
             $scope.seeIssues = (): void=> {
+                window.location.href = "#/issueList"
                 $scope.pendingRequests++
                 var modal = $uibModal.open({
                     templateUrl: `${GSDRequirements.baseUrl}issue/list`,

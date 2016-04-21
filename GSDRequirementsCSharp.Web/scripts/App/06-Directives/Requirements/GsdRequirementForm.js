@@ -15,9 +15,11 @@ var Directives;
                         currentLocale,
                         GSDRequirements.currentLocale
                     ];
-                    console.log('$scope.translationsAlreadyProvided');
-                    console.log($scope.translationsAlreadyProvided);
                     _this.LoadPackagesOptions(PackageResource, $scope);
+                    $scope.cancel = function () {
+                        $scope.requirement = null;
+                        window.location.href = '#';
+                    };
                     $scope.difficultyOptions = Globals.enumerateEnum(Models.Difficulty);
                     $scope.requirementTypeOptions = Globals.enumerateEnum(Models.RequirementType);
                     $scope.$watch("requirement", function (newValue, oldValue) {
