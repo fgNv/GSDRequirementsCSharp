@@ -19,7 +19,6 @@
             $scope.$on(Globals.EventNames.projectListChanged, () => {
                 $scope.$broadcast(Globals.EventNames.updateProjectList)
             })
-            window.location.href = "#"
 
             setTimeout(function () {
                 $('.hidden-pre-load').fadeIn('slow', function () { });

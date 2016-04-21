@@ -714,4 +714,7 @@
   <data name="noComments" xml:space="preserve">
     <value>No comments</value>
   </data>
+  <data name="projectDetails" xml:space="preserve">
+    <value>Project details</value>
+  </data>
 </root>

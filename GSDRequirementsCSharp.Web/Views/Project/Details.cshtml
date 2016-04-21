@@ -1,0 +1,21 @@
+﻿@using GSDRequirementsCSharp.Domain.ViewModels
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@model ProjectViewModel
+
+@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    var content = Model.ProjectContents.GetCurrentLocaleContent();
+}
+
+<h2>@Sentences.projectDetails</h2>
+
+<dl>
+    <dt>@Sentences.name</dt>
+    <dd>@(content?.Name)</dd>
+
+    <dt style="margin-top: 20px">@Sentences.id</dt>
+    <dd>@Model.Identifier</dd>
+
+    <dt style="margin-top: 20px">@Sentences.description</dt>
+    <dd>@(content?.Description)</dd>
+</dl>

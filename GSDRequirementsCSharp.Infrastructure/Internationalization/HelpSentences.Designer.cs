@@ -146,7 +146,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to and when inserting new data the first language added will be the one selected.
+        ///   Looks up a localized string similar to Besides, when inserting new data, the first language added will be the one selected..
         /// </summary>
         public static string andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected {
             get {
@@ -173,7 +173,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to but its possible to add translations before submitting the data.
+        ///   Looks up a localized string similar to but its possible to add translations before submitting the data..
         /// </summary>
         public static string butItsPossibleToAddTranslationBeforeSubmittingTheData {
             get {
@@ -219,7 +219,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to by doing so translations in the selected language will be displayed if available instead of the original data.
+        ///   Looks up a localized string similar to By doing so, translations in the selected language will be displayed if available instead of the original data.
         /// </summary>
         public static string byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData {
             get {
@@ -375,7 +375,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If the current language contains an obsolete translation.
+        ///   Looks up a localized string similar to if the current language contains an obsolete translation..
         /// </summary>
         public static string ifTheCurrentLanguageContainsAnObsoleteTranslation {
             get {
@@ -402,7 +402,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Its possible to change the current language pressing the change language button (globe) in the header of the page.
+        ///   Looks up a localized string similar to Its possible to change the current language pressing the change language button (globe) in the header of the page..
         /// </summary>
         public static string itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage {
             get {
@@ -581,7 +581,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to the &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them..
+        ///   Looks up a localized string similar to The &quot;Add Translation&quot; button will be available when there are obsolete translations, to update them..
         /// </summary>
         public static string theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem {
             get {
@@ -600,7 +600,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The links are always bidirectional.
+        ///   Looks up a localized string similar to The links are always bidirectional..
         /// </summary>
         public static string theLinksAreAlwaysBidirectional {
             get {
@@ -655,7 +655,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to the translations will be considered obsolete and a warning in the row will be displayed..
+        ///   Looks up a localized string similar to the translations will be considered obsolete, and a warning in the row will be displayed.
         /// </summary>
         public static string theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed {
             get {
@@ -785,7 +785,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When creating a project and not providing translation for all languages an &quot;Add Translation&quot; Button (globe) will be available in the project list..
+        ///   Looks up a localized string similar to When creating a project and not providing translation for all languages, an &quot;Add Translation&quot; Button (globe) will be available in the project list..
         /// </summary>
         public static string whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable {
             get {

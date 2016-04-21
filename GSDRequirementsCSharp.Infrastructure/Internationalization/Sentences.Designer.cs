@@ -1384,6 +1384,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project details.
+        /// </summary>
+        public static string projectDetails {
+            get {
+                return ResourceManager.GetString("projectDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project inactivated successfully.
         /// </summary>
         public static string projectInactivatedSuccessfully {

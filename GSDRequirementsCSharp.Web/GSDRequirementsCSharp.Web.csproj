@@ -269,6 +269,7 @@
     <Content Include="Views\Version\_List.cshtml" />
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\Help\_SidebarStyle.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

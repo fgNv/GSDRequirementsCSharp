@@ -124,16 +124,16 @@
     <value>Após submeter os dados de cadastro, você poderá autenticar e gerenciar projetos.</value>
   </data>
   <data name="andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected" xml:space="preserve">
-    <value>e ao inserir novos dados, o primeiro idioma adicionado será o selecionado</value>
+    <value>Além disso, ao inserir novos dados, o primeiro idioma adicionado será o selecionado.</value>
   </data>
   <data name="artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams" xml:space="preserve">
-    <value>Artefatos são requisitos, diagramas de classe e diagramas de caso de uso</value>
+    <value>Artefatos são requisitos, diagramas de classe e diagramas de caso de uso.</value>
   </data>
   <data name="beforeYouCanManageProjectsAndArtifactsYouMustRegister" xml:space="preserve">
     <value>Antes de você poder gerenciar os projetos e artefatos, você deve realizar um cadastro.</value>
   </data>
   <data name="byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData" xml:space="preserve">
-    <value>ao fazer isso traduções das informações no idioma selecionado serão exibidas (caso disponíveis), em vez da informação original.</value>
+    <value>Ao fazer isso, traduções das informações no idioma selecionado serão exibidas (caso disponíveis), em vez da informação original.</value>
   </data>
   <data name="forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion" xml:space="preserve">
     <value>Para esse propósito, praticamente todos os dados inseridos podem ter uma versão traduzida em outro idioma.</value>
@@ -163,7 +163,7 @@
     <value>Isso pode ser feito pressionando o botão \"Realizar Cadastro\", que está abaixo do formulário de autenticação.</value>
   </data>
   <data name="butItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
-    <value>mas é possível adicionar traduções antes de submeter os dados</value>
+    <value>mas é possível adicionar traduções antes de submeter os dados.</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
     <value>Ao clicar o botão de editar (lápis) na listagem de projetos, você poderá editar um projeto.</value>
@@ -175,7 +175,7 @@
     <value>Os primeiros dados inseridos serão references ao</value>
   </data>
   <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
-    <value>Se o idioma atual possui uma tradução obsoleta.</value>
+    <value>se o idioma atual possui uma tradução obsoleta.</value>
   </data>
   <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
     <value>Isso irá disponibilizar um formulário onde é possível adicionar traduções para os idiomas que não a possuem ainda.</value>
@@ -187,13 +187,13 @@
     <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto.</value>
   </data>
   <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
-    <value>o botão "Adicionar tradução" ficará disponível quando houver traduções obsoletas, permitindo atualizá-las.</value>
+    <value>O botão "Adicionar tradução" ficará disponível quando houver traduções obsoletas, permitindo atualizá-las.</value>
   </data>
   <data name="theCurrentLanguage" xml:space="preserve">
     <value>idioma atual</value>
   </data>
   <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
-    <value>As traduções serão consideradas obsoletas e um aviso na linha será exibido.</value>
+    <value>as traduções serão consideradas obsoletas, e um aviso na linha será exibido</value>
   </data>
   <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
     <value>Ao criar um projeto e não disponibilizar traduções para todos os idiomas, o botão "Adicionar tradução" (Globo) será disponbilizado na listagem de projetos.</value>

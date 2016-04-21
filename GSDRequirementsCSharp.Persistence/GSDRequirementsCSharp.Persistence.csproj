@@ -140,6 +140,7 @@
     <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
     <Compile Include="Queries\Projects\CurrentUserProjects\ProjectOption.cs" />
     <Compile Include="Queries\Projects\NextId\ProjectNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Projects\ProjectByIdQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />

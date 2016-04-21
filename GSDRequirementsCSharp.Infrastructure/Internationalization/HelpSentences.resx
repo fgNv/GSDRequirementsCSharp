@@ -124,7 +124,7 @@
     <value>After submiting the registration data, you will be able to authenticate and manage projects.</value>
   </data>
   <data name="andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected" xml:space="preserve">
-    <value>and when inserting new data the first language added will be the one selected</value>
+    <value>Besides, when inserting new data, the first language added will be the one selected.</value>
   </data>
   <data name="artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams" xml:space="preserve">
     <value>Artifacts are requirements, class diagrams and use case diagrams.</value>
@@ -133,7 +133,7 @@
     <value>Before you can manage projects and artifacts, you must register.</value>
   </data>
   <data name="byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData" xml:space="preserve">
-    <value>by doing so translations in the selected language will be displayed if available instead of the original data</value>
+    <value>By doing so, translations in the selected language will be displayed if available instead of the original data</value>
   </data>
   <data name="forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion" xml:space="preserve">
     <value>For this porpose, almost all data inserted can have a translated version.</value>
@@ -145,7 +145,7 @@
     <value>is a tool for requirement management aimed for global teams.</value>
   </data>
   <data name="itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage" xml:space="preserve">
-    <value>Its possible to change the current language pressing the change language button (globe) in the header of the page</value>
+    <value>Its possible to change the current language pressing the change language button (globe) in the header of the page.</value>
   </data>
   <data name="PackagesThatContainsArtifacts" xml:space="preserve">
     <value>Packages that contains artifacts</value>
@@ -166,7 +166,7 @@
     <value>All actions related to projects can be done only by its owner which is the user that created it.</value>
   </data>
   <data name="butItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
-    <value>but its possible to add translations before submitting the data</value>
+    <value>but its possible to add translations before submitting the data.</value>
   </data>
   <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
     <value>By clicking the "Edit Button" (Pencil) in the project list, you will be able to edit a project.</value>
@@ -181,7 +181,7 @@
     <value>Editing a project</value>
   </data>
   <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
-    <value>If the current language contains an obsolete translation</value>
+    <value>if the current language contains an obsolete translation.</value>
   </data>
   <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
     <value>It will provide access to a form where it's possible to add the missing translations.</value>
@@ -196,13 +196,13 @@
     <value>Removing a project</value>
   </data>
   <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
-    <value>the "Add Translation" button will be available when there are obsolete translations, to update them.</value>
+    <value>The "Add Translation" button will be available when there are obsolete translations, to update them.</value>
   </data>
   <data name="theCurrentLanguage" xml:space="preserve">
     <value>the current language</value>
   </data>
   <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
-    <value>the translations will be considered obsolete and a warning in the row will be displayed.</value>
+    <value>the translations will be considered obsolete, and a warning in the row will be displayed</value>
   </data>
   <data name="thisActionIsIrreversible" xml:space="preserve">
     <value>This action is irreversible</value>
@@ -211,7 +211,7 @@
     <value>To remove a project, it's necessary to press the "Remove Project" button (trash) in the project list, and confirm the action.</value>
   </data>
   <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
-    <value>When creating a project and not providing translation for all languages an "Add Translation" Button (globe) will be available in the project list.</value>
+    <value>When creating a project and not providing translation for all languages, an "Add Translation" Button (globe) will be available in the project list.</value>
   </data>
   <data name="whenEditingAProjectWithTranslationsButNotUpdatingThem" xml:space="preserve">
     <value>When editing a project with translations, but not updating them</value>
@@ -325,7 +325,7 @@
     <value>Revoking permissions</value>
   </data>
   <data name="theLinksAreAlwaysBidirectional" xml:space="preserve">
-    <value>The links are always bidirectional</value>
+    <value>The links are always bidirectional.</value>
   </data>
   <data name="theManageLinksButtonWillOpenTheManageArtifactsLinksScreen" xml:space="preserve">
     <value>The "Manage Links" button (two arrows pointing in opposing directions in each row), will open the "Manage Artifacts Links" screen.</value>
