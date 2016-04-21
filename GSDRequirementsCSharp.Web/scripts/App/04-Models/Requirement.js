@@ -5,6 +5,8 @@ var Models;
             for (var prop in data) {
                 this[prop] = data[prop];
             }
+            if (!data['package'])
+                return;
             this.package = new Models.Package(data['package']);
             switch (this.type) {
                 case Models.RequirementType.functional:
@@ -57,3 +59,4 @@ var Models;
     })();
     Models.Requirement = Requirement;
 })(Models || (Models = {}));
+//# sourceMappingURL=Requirement.js.map

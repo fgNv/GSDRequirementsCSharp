@@ -61,7 +61,12 @@
 
         <h4>@Sentences.comments</h4>
 
-        <div data-ng-repeat="comment in issueInDetail.comments">
+        <div class="alert alert-warning"
+             data-ng-show="issueInDetail.comments.length == 0">
+            @Sentences.noComments
+        </div>
+        <div data-ng-repeat="comment in issueInDetail.comments"
+             data-ng-show="issueInDetail.comments.length > 0">
             <b>{{comment.creatorName}}</b>
             <small>({{comment.lastModificationLabel}})</small>
             {{comment.description}}

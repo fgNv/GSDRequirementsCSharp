@@ -165,6 +165,7 @@
     <Compile Include="ViewModels\ItemLinkViewModel.cs" />
     <Compile Include="ViewModels\PackageContentViewModel.cs" />
     <Compile Include="ViewModels\PackageViewModel.cs" />
+    <Compile Include="ViewModels\PermissionViewModel.cs" />
     <Compile Include="ViewModels\ProjectContentViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\RequirementContentViewModel.cs" />

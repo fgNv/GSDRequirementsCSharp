@@ -2,12 +2,12 @@ var Controllers;
 (function (Controllers) {
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalPermissionAddController = (function () {
-        function ModalPermissionAddController($scope, $uibModalInstance, UserResource) {
-            this.UserResource = UserResource;
+        function ModalPermissionAddController($scope, $uibModalInstance, UserResource, permissionsGrantedPreviously) {
             $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile), function (i) { return i.value != Models.profile.projectOwner; });
             $scope.loadingUsers = false;
             $scope.permission = {};
             $scope.permission.profile = Models.profile.editor;
+            var usersWithPermissionsEmails = _.map(permissionsGrantedPreviously, function (p) { return p.user.email; });
             $scope.getUserLabel = function (user) {
                 if (!user)
                     return "";
@@ -18,7 +18,7 @@ var Controllers;
                 return UserResource.query({ 'searchTerm': searchTerm })
                     .$promise
                     .then(function (r) {
-                    return r;
+                    return _.filter(r, function (item) { return !_.any(usersWithPermissionsEmails, function (e) { return item.email == e; }); });
                 })
                     .catch(function (error) {
                     Notification.notifyError(Sentences.errorSearchingUsers, error.messages);
@@ -36,6 +36,7 @@ var Controllers;
         }
         return ModalPermissionAddController;
     })();
-    app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance", "UserResource",
-        ModalPermissionAddController]);
+    app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance",
+        "UserResource", "permissionsGrantedPreviously", ModalPermissionAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalPermissionAddController.js.map

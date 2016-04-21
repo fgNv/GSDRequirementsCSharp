@@ -15,8 +15,10 @@
         public controller = ["$scope", "$uibModal", ($scope: any, $uibModal: any) => {
 
             $scope.translations = []
-            $scope.translationsAlreadyProvided = []
-            
+            if (!$scope.translationsAlreadyProvided) {
+                $scope.translationsAlreadyProvided = []
+            }
+                        
             function openTranslationModal(translationToEdit) {
                 var translationsAlreadyProvided = _.map($scope.translations, (t) => t.locale)
                 translationsAlreadyProvided = _.union(translationsAlreadyProvided, $scope.translationsAlreadyProvided)

@@ -669,4 +669,52 @@
   <data name="errorLoadingRequirement" xml:space="preserve">
     <value>Error loading requirement</value>
   </data>
+  <data name="help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="homePage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="gsdRequirements" xml:space="preserve">
+    <value>GSD Requirements</value>
+  </data>
+  <data name="introduction" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="managingPackages" xml:space="preserve">
+    <value>Managing Packages</value>
+  </data>
+  <data name="managingPermissions" xml:space="preserve">
+    <value>Managing Permissions</value>
+  </data>
+  <data name="managingProjects" xml:space="preserve">
+    <value>Managing Projects</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="theStructureOfDataIs" xml:space="preserve">
+    <value>The structure of data is: </value>
+  </data>
+  <data name="areYouCertainYouWishToRemoveThisItem" xml:space="preserve">
+    <value>Are you certain you wish to remove this item? This action is irreversible</value>
+  </data>
+  <data name="grantPermission" xml:space="preserve">
+    <value>Grant permission</value>
+  </data>
+  <data name="revokePermission" xml:space="preserve">
+    <value>Revoke permission</value>
+  </data>
+  <data name="manageProjectPermissions" xml:space="preserve">
+    <value>Manage project permissions</value>
+  </data>
+  <data name="underConstruction" xml:space="preserve">
+    <value>Under construction</value>
+  </data>
+  <data name="noComments" xml:space="preserve">
+    <value>No comments</value>
+  </data>
+  <data name="projectDetails" xml:space="preserve">
+    <value>Project details</value>
+  </data>
 </root>

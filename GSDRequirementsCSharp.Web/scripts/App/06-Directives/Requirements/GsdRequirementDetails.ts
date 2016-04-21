@@ -40,7 +40,8 @@
             $scope.requirementType = Models.RequirementType
             $scope.difficulty = Models.Difficulty
 
-            this.loadRequirement($scope, RequirementResource, $scope.requirementId)
+            if ($scope.requirementId)
+                this.loadRequirement($scope, RequirementResource, $scope.requirementId)
 
             $scope.$watch("requirementId", (newValue, oldValue): void=> {
                 if (newValue)

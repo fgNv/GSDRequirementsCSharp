@@ -3,10 +3,8 @@ var Controllers;
     var UserData = NewAccount.UserData;
     var app = angular.module(GSDRequirements.angularModuleName);
     var PackageListController = (function () {
-        function PackageListController($scope, PackageResource) {
+        function PackageListController($scope, PackageResource, $rootScope, $location) {
             var _this = this;
-            this.$scope = $scope;
-            this.PackageResource = PackageResource;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
             $scope.packages = [];
@@ -19,8 +17,27 @@ var Controllers;
                 $scope.currentPage = page;
                 $scope.loadPackages();
             };
-            $scope.setCurrentPackage = function (p) { $scope.currentPackage = p; };
-            $scope.setPackageToTranslate = function (p) { $scope.packageToTranslate = p; };
+            $scope.addPackage = function () {
+                $scope.currentPackage = {};
+                window.location.href = "#/form";
+            };
+            $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+                var pathValues = $location.path().split('/');
+                var step = pathValues[1];
+                if (!step) {
+                    $scope.currentPackage = null;
+                    $scope.packageToTranslate = null;
+                }
+            });
+            window.location.href = "#";
+            $scope.setCurrentPackage = function (p) {
+                $scope.currentPackage = p;
+                window.location.href = "#/form";
+            };
+            $scope.setPackageToTranslate = function (p) {
+                $scope.packageToTranslate = p;
+                window.location.href = "#/translate";
+            };
             $scope.loadPackages = function () { return _this.LoadPackages(PackageResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
@@ -29,9 +46,12 @@ var Controllers;
                 _this.InactivatePackage(PackageResource, $scope, p);
             };
             $scope.loadPackages();
-            this.$scope.UserData = new UserData();
+            $scope.UserData = new UserData();
         }
         PackageListController.prototype.InactivatePackage = function (packageResource, $scope, packageEntity) {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
             $scope.pendingRequests++;
             packageResource.remove({ id: packageEntity.id })
                 .$promise
@@ -64,5 +84,6 @@ var Controllers;
         };
         return PackageListController;
     })();
-    app.controller('PackageListController', ["$scope", "PackageResource", PackageListController]);
+    app.controller('PackageListController', ["$scope", "PackageResource", "$rootScope", "$location", PackageListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=PackageListController.js.map

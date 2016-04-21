@@ -169,3 +169,4 @@ var Controllers;
         "IssueCommentResource", "IssueConclusionResource", "onAllIssuesConcluded",
         "$q", ModalItemIssuesController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalItemIssuesController.js.map

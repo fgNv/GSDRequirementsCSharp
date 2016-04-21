@@ -65,6 +65,12 @@
     <Compile Include="Exceptions.cs" />
     <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\PermissionException.cs" />
+    <Compile Include="Internationalization\HelpSentences.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpSentences.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Internationalization\ITranslatable.cs" />
     <Compile Include="Internationalization\Sentences.pt.Designer.cs">
       <DependentUpon>Sentences.pt.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -75,6 +81,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sentences.resx</DependentUpon>
     </Compile>
+    <Compile Include="Internationalization\TranslatableListExtension.cs" />
     <Compile Include="Notifications\NoteType.cs" />
     <Compile Include="Persistence\IEntity.cs" />
     <Compile Include="Persistence\IRepository.cs" />
@@ -87,6 +94,11 @@
     <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Internationalization\HelpSentences.pt.resx" />
+    <EmbeddedResource Include="Internationalization\HelpSentences.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpSentences.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Internationalization\Sentences.pt.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Sentences.pt.Designer.cs</LastGenOutput>

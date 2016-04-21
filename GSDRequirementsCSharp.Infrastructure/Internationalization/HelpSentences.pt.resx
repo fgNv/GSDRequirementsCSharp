@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="accessPermissionsForOtherUsersAreGrantedByProject" xml:space="preserve">
+    <value>Permissão de acesso para outros usuários é concedida por projeto.</value>
+  </data>
+  <data name="afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects" xml:space="preserve">
+    <value>Após submeter os dados de cadastro, você poderá autenticar e gerenciar projetos.</value>
+  </data>
+  <data name="andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected" xml:space="preserve">
+    <value>Além disso, ao inserir novos dados, o primeiro idioma adicionado será o selecionado.</value>
+  </data>
+  <data name="artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams" xml:space="preserve">
+    <value>Artefatos são requisitos, diagramas de classe e diagramas de caso de uso.</value>
+  </data>
+  <data name="beforeYouCanManageProjectsAndArtifactsYouMustRegister" xml:space="preserve">
+    <value>Antes de você poder gerenciar os projetos e artefatos, você deve realizar um cadastro.</value>
+  </data>
+  <data name="byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData" xml:space="preserve">
+    <value>Ao fazer isso, traduções das informações no idioma selecionado serão exibidas (caso disponíveis), em vez da informação original.</value>
+  </data>
+  <data name="forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion" xml:space="preserve">
+    <value>Para esse propósito, praticamente todos os dados inseridos podem ter uma versão traduzida em outro idioma.</value>
+  </data>
+  <data name="gsdStandsForGlobalSoftwareDevelopmentInOtherWordsATeamWithMembersFromDifferentCountries" xml:space="preserve">
+    <value>GSD quer dizer Global Software Development (Desenvolvimento de sofware global), em outras palavras, equipes de desenvolvedores, analistas e demais envolvidos de diferentes países.</value>
+  </data>
+  <data name="isAToolForRequirementManagementAimedForGlobalTeams" xml:space="preserve">
+    <value>é uma ferramenta de gerenciamento de requisitos direcionada para equipes globais.</value>
+  </data>
+  <data name="itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage" xml:space="preserve">
+    <value>É possível alterar o idioma atual pressionando o botão "Alterar idioma" (globo) no topo da página.</value>
+  </data>
+  <data name="PackagesThatContainsArtifacts" xml:space="preserve">
+    <value>Pacotes contém artefatos</value>
+  </data>
+  <data name="ProjectThatContainsPackages" xml:space="preserve">
+    <value>Projetos contém pacotes</value>
+  </data>
+  <data name="theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader" xml:space="preserve">
+    <value>O gerenciamento de projetos é acessível pelo botão "Gerenciar projetos" no topo da página.</value>
+  </data>
+  <data name="theRequirementsManagementInThisToolIsMeantToBeMadeCollaboratively" xml:space="preserve">
+    <value>O gerenciamento de requisitos nessa ferramenta é para ser feito de forma colaborativa.</value>
+  </data>
+  <data name="thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm" xml:space="preserve">
+    <value>Isso pode ser feito pressionando o botão \"Realizar Cadastro\", que está abaixo do formulário de autenticação.</value>
+  </data>
+  <data name="butItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
+    <value>mas é possível adicionar traduções antes de submeter os dados.</value>
+  </data>
+  <data name="byClickingTheEditButtonYouWillBeAbleToEditAProject" xml:space="preserve">
+    <value>Ao clicar o botão de editar (lápis) na listagem de projetos, você poderá editar um projeto.</value>
+  </data>
+  <data name="creatingANewProject" xml:space="preserve">
+    <value>Criando um novo projeto</value>
+  </data>
+  <data name="dataInsertedAtFirstWillReferTo" xml:space="preserve">
+    <value>Os primeiros dados inseridos serão references ao</value>
+  </data>
+  <data name="ifTheCurrentLanguageContainsAnObsoleteTranslation" xml:space="preserve">
+    <value>se o idioma atual possui uma tradução obsoleta.</value>
+  </data>
+  <data name="itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations" xml:space="preserve">
+    <value>Isso irá disponibilizar um formulário onde é possível adicionar traduções para os idiomas que não a possuem ainda.</value>
+  </data>
+  <data name="nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed" xml:space="preserve">
+    <value>Do lado do botão "Gerenciar Projetos", está o controle do projeto do contexto, que define os dados de qual projeto serão exibidos.</value>
+  </data>
+  <data name="pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm" xml:space="preserve">
+    <value>Pressionar o botão "criar projeto" (sinal de soma) na tela de Gerenciamento de projetos, irá disponibilizar o formulário de criação de projeto.</value>
+  </data>
+  <data name="theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem" xml:space="preserve">
+    <value>O botão "Adicionar tradução" ficará disponível quando houver traduções obsoletas, permitindo atualizá-las.</value>
+  </data>
+  <data name="theCurrentLanguage" xml:space="preserve">
+    <value>idioma atual</value>
+  </data>
+  <data name="theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed" xml:space="preserve">
+    <value>as traduções serão consideradas obsoletas, e um aviso na linha será exibido</value>
+  </data>
+  <data name="whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable" xml:space="preserve">
+    <value>Ao criar um projeto e não disponibilizar traduções para todos os idiomas, o botão "Adicionar tradução" (Globo) será disponbilizado na listagem de projetos.</value>
+  </data>
+  <data name="whenEditingAProjectWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Ao editar um projeto com traduções, mas não atualizá-las</value>
+  </data>
+  <data name="allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt" xml:space="preserve">
+    <value>Todas as ações relacionadas a projeto podem ser feitas apenas pelo seu dono, que é o usuário que o criou.</value>
+  </data>
+  <data name="editingAProject" xml:space="preserve">
+    <value>Editando um projeto</value>
+  </data>
+  <data name="removingAProject" xml:space="preserve">
+    <value>Removendo um projeto</value>
+  </data>
+  <data name="thisActionIsIrreversible" xml:space="preserve">
+    <value>Essa ação é irreversível.</value>
+  </data>
+  <data name="toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um projeto, é necessário clicar no botão "Remover Projeto" (lixo) na listagem de projetos, e confirmar a ação.</value>
+  </data>
+  <data name="contextProject" xml:space="preserve">
+    <value>Projeto do contexto</value>
+  </data>
+  <data name="toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext" xml:space="preserve">
+    <value>Para gerenciar os pacotes, artefatos e permissões de um projeto, ele deve estar selecionado no contexto.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, itens de menu para gerenciar os dados do projeto são disponibilizados no topo da página, no lado esquerdo.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o botão "Pacotes" será disponibilizado no lado esquerdo superior da tela.</value>
+  </data>
+  <data name="byClickingTheEditButtonYouWillBeAbleToEditAPackage" xml:space="preserve">
+    <value>Ao clicar no botão "Editar pacote" (lápis, na listagem de pacotes, você poderá editar um pacote.</value>
+  </data>
+  <data name="creatingANewPackage" xml:space="preserve">
+    <value>Criando um novo pacote</value>
+  </data>
+  <data name="dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData" xml:space="preserve">
+    <value>Os primeiros dados inseridos, serão references ao idioma atual, mas é possível adicionar traduções para outros idiomas antes de submeter os dados.</value>
+  </data>
+  <data name="editingPackages" xml:space="preserve">
+    <value>Editando pacotes</value>
+  </data>
+  <data name="ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations" xml:space="preserve">
+    <value>Se a tradução não for fornecida para qualquer idioma, depois o botão "Adicionar Tradução" estará disponível na listagem de pacotes, para fornecer as traduções que estejam faltando.</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages" xml:space="preserve">
+    <value>Clicando nele, a página de gerenciamento de pacotes é exibida, onde é possível criar, editar e remover pacotes.</value>
+  </data>
+  <data name="pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm" xml:space="preserve">
+    <value>Pressionando o botão "Criar pacote" (sinal de soma) na página "Gerenciar Pacotes", o formulário "Criar pacote" será exibido.</value>
+  </data>
+  <data name="removingPackages" xml:space="preserve">
+    <value>Removendo pacotes</value>
+  </data>
+  <data name="toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um pacote, deve-se pressionar o botão "Remover pacote" (lixo) na lista de pacotes, e confirmar a ação.</value>
+  </data>
+  <data name="whenEditingAPackageWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Quando se edita um pacote com traduções, mas não as atualiza</value>
+  </data>
+  <data name="addingNewVersionToRequirement" xml:space="preserve">
+    <value>Adicionando nova versão do requisito</value>
+  </data>
+  <data name="afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton" xml:space="preserve">
+    <value>Após adicionar os usuários e definir seus perfis, deve-se clicar no botão "Salvar".</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o item "Artefatos" ficará disponível no menu superior.</value>
+  </data>
+  <data name="afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide" xml:space="preserve">
+    <value>Após selecionar um projeto no contexto, o botão de Permissões ficará disponível no canto superior esquerdo da tela.</value>
+  </data>
+  <data name="byClickingInTheIssueIdentifierItsDetailsCommentsAndAFormForAddingNewCommentsWillBeDisplayed" xml:space="preserve">
+    <value>Ao clicar no identificador da pendências, os seus detalhes, comentários e um formulário para adicionar novos comentários serão exibidos.</value>
+  </data>
+  <data name="byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement" xml:space="preserve">
+    <value>Ao clicar no botão "Adicionar versão" (sinal de soma em cada linha), você poderá adicionar uma nova versão do requisito.</value>
+  </data>
+  <data name="byPressingTheAddIssueButtonYouCanAddAnIssueToAnArtifact" xml:space="preserve">
+    <value>Ao pressionar o botão "Adicionar observação", você pode adicionar observações ao artefato.</value>
+  </data>
+  <data name="canAddCommentAndConcludeIssues" xml:space="preserve">
+    <value>Pode adicionar, comentar e concluir observações.</value>
+  </data>
+  <data name="canAddEditTranslateAndExcludePackagesAndArtifacts" xml:space="preserve">
+    <value>Pode adicionar, editar, traduzir e excluir pacotes e artefatos.</value>
+  </data>
+  <data name="canSeePackagesAndArtifactsDetails" xml:space="preserve">
+    <value>Pode ver os detalhes de pacotes e artefatos.</value>
+  </data>
+  <data name="creatingANewRequirement" xml:space="preserve">
+    <value>Criando um novo requisito</value>
+  </data>
+  <data name="grantingPermissions" xml:space="preserve">
+    <value>Concedendo permissões</value>
+  </data>
+  <data name="inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements" xml:space="preserve">
+    <value>Nessa página, também é possível adicionar, comentar e concluir observações relacionadas a requisitos.</value>
+  </data>
+  <data name="itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage" xml:space="preserve">
+    <value>É possível conceder permissões clicando no botão "Conceder permissão" (sinal de mais) na página"Gerenciar permissões do projeto"</value>
+  </data>
+  <data name="itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn" xml:space="preserve">
+    <value>Ele irá leva-lo para a página "Gerenciar Permissões", onde é possível gerenciar permissões dos projetos que você possui.</value>
+  </data>
+  <data name="manageRequirementsIssues" xml:space="preserve">
+    <value>Gerenciar observações dos requisitos</value>
+  </data>
+  <data name="manageRequirementsLinks" xml:space="preserve">
+    <value>Gerenciar vínculos dos requisitos</value>
+  </data>
+  <data name="permissionProfiles" xml:space="preserve">
+    <value>Perfis de permissões</value>
+  </data>
+  <data name="pressingItAListWithTheIssuesWillBeDisplayed" xml:space="preserve">
+    <value>Ao pressiona-lo, uma lista com as observações pendentes será exibida.</value>
+  </data>
+  <data name="pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm" xml:space="preserve">
+    <value>Apertando o botão "Criar requisito", na tela "Gerenciar requisitos", você será direcionado para o formulário "Criar requisito".</value>
+  </data>
+  <data name="removeRequirements" xml:space="preserve">
+    <value>Remover requisitos</value>
+  </data>
+  <data name="revokingPermissions" xml:space="preserve">
+    <value>Revogando permissões</value>
+  </data>
+  <data name="theLinksAreAlwaysBidirectional" xml:space="preserve">
+    <value>Vínculos são sempre bidirecionais.</value>
+  </data>
+  <data name="theManageLinksButtonWillOpenTheManageArtifactsLinksScreen" xml:space="preserve">
+    <value>O botão "Gerenciar Vínculos" (duas flechas apontando para direções opostas em cada linha), irá abrir a tela "Gerenciar vínculos de artefatos".</value>
+  </data>
+  <data name="thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile" xml:space="preserve">
+    <value>então é necessário buscar um usuário por nome ou e-mail, e selecionar o perfil.</value>
+  </data>
+  <data name="theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPossibleToCreateEditManageLinksAndRemoveRequirements" xml:space="preserve">
+    <value>O botão "Requisitos", que está abaixo do item "Artefatos" do menu superior, irá direcioná-lo para a página "Gerenciar Requisitos", onde é possível criar, gerencia vínculos, editar e remover requisitos.</value>
+  </data>
+  <data name="theUserMustBeAlreadyRegisteredForThePermissionToBeGranted" xml:space="preserve">
+    <value>O usuário já deve estar registrado para que a permissão seja concedida.</value>
+  </data>
+  <data name="toAddANewLinkPressTheAddLinkButtonSelectOneArtifactItsDetailsWillBeDisplayedAndPressAdd" xml:space="preserve">
+    <value>Para adicionar um novo vínculo, pressione o botão "Adicionar vínculo", selecione um artefato (os seus detalhes serão exibidos) e pressione o botão "Adicionar".</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToBeTheProjectOwner" xml:space="preserve">
+    <value>Para executar essas ações, é necessário ser o dono do projeto.</value>
+  </data>
+  <data name="toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner" xml:space="preserve">
+    <value>Para executar essas ações, deve-se possuir a "Permissão de Editor" no projeto, ou ser o seu dono.</value>
+  </data>
+  <data name="toRemoveALinkPressTheRemoveLinkButtonInTheLinksList" xml:space="preserve">
+    <value>Para remover um vínculo, pressione o botão "Remover Vínculo" na lista de vínculos.</value>
+  </data>
+  <data name="toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction" xml:space="preserve">
+    <value>Para remover um requisito, é necessário pressionar o botão "Remover Requisito" e confirmar a ação.</value>
+  </data>
+  <data name="toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton" xml:space="preserve">
+    <value>Para revogar uma permissão, você deve pressionar o botão "Revogar permissão" (lixo) na página "Gerenciar permissões do projeto" e então clicar no botão salvar.</value>
+  </data>
+  <data name="whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem" xml:space="preserve">
+    <value>Ao adicionar uma nova versão de um requisito que possui traduções, mas não atualizá-las</value>
+  </data>
+  <data name="whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide" xml:space="preserve">
+    <value>Quando há observações pendentes para um artefato, um botão vermelho com um símbolo de aviso em cada linha na listagem de artefatos, do lado esquerdo.</value>
+  </data>
+</root>

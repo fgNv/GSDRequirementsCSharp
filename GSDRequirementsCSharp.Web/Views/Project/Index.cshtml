@@ -8,12 +8,13 @@
 
 <article data-ng-controller="ProjectListController"
          data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
     <h2>
         @Sentences.projects
         <button class="btn btn-primary"
                 data-ng-show="!currentProject && !projectToTranslate"
                 title="@Sentences.addProject"
-                data-ng-click="currentProject = {}">
+                data-ng-click="addProject()">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
@@ -43,6 +44,11 @@
                         </td>
                         <td>{{project.name}}</td>
                         <td>
+                            <a class="btn btn-default"
+                               data-ng-href="@Url.Action("details","project")/{{project.id}}"
+                               title="@Sentences.projectDetails">
+                                <span class="fa fa-search"></span>
+                            </a>
                             <button class="btn btn-default"
                                     title="@Sentences.edit"
                                     data-ng-click="setCurrentProject(project.getCommandModel())">
@@ -50,7 +56,6 @@
                             </button>
                             <button class="btn btn-default"
                                     data-ng-click="inactivateProject(project)"
-                                    data-ng-show="project.isCurrentUserOwner"
                                     title="@Sentences.inactivateProject">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
@@ -77,13 +82,12 @@
             </nav>
         </article>
     </article>
-    
+
     <article data-gsd-project-form=""
              data-after-save="loadProjects"
              data-project="currentProject"
-             data-ng-show="currentProject">        
-    </article>
-    
+             data-ng-show="currentProject"></article>
+
     <article data-gsd-project-translation=""
              data-after-save="loadProjects"
              data-project="projectToTranslate"

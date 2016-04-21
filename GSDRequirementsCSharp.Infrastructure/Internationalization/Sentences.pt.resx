@@ -669,4 +669,52 @@
   <data name="errorLoadingRequirement" xml:space="preserve">
     <value>Erro ao carregar requisito</value>
   </data>
+  <data name="help" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="homePage" xml:space="preserve">
+    <value>Página inicial</value>
+  </data>
+  <data name="gsdRequirements" xml:space="preserve">
+    <value>Requisitos GSD</value>
+  </data>
+  <data name="introduction" xml:space="preserve">
+    <value>Introdução</value>
+  </data>
+  <data name="managingPackages" xml:space="preserve">
+    <value>Gerenciando Pacotes</value>
+  </data>
+  <data name="managingPermissions" xml:space="preserve">
+    <value>Gerenciando Permissões</value>
+  </data>
+  <data name="managingProjects" xml:space="preserve">
+    <value>Gerenciamento dos projetos</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
+  <data name="theStructureOfDataIs" xml:space="preserve">
+    <value>A estrutura de dados é:</value>
+  </data>
+  <data name="areYouCertainYouWishToRemoveThisItem" xml:space="preserve">
+    <value>Você tem certeza que deseja remover esse item? Essa ação é irreversível.</value>
+  </data>
+  <data name="grantPermission" xml:space="preserve">
+    <value>Conceder permissão</value>
+  </data>
+  <data name="revokePermission" xml:space="preserve">
+    <value>Revogar permissão</value>
+  </data>
+  <data name="manageProjectPermissions" xml:space="preserve">
+    <value>Gerenciar permissões do projeto</value>
+  </data>
+  <data name="underConstruction" xml:space="preserve">
+    <value>Em construção</value>
+  </data>
+  <data name="noComments" xml:space="preserve">
+    <value>Nenhum comentário</value>
+  </data>
+  <data name="projectDetails" xml:space="preserve">
+    <value>Detalhes do projeto</value>
+  </data>
 </root>

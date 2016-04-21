@@ -17,9 +17,12 @@
         requirementToManageLinks: Models.Requirement
 
         loadPage(page: number): void
+        addRequirement(): void
         setCurrentRequirement(r: Models.Requirement): void
         setRequirementToTranslate(r: Models.Requirement): void
         setRequirementToManageLinks(r: Models.Requirement): void
+        setRequirementToShowDetails(r: Models.Requirement): void
+
         inactivateRequirement(r: Models.Requirement): void
         showList(): boolean
 
@@ -31,10 +34,7 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class RequirementsController {
-        constructor(
-            private $scope: IRequirementsControllerScope,
-            private RequirementResource: any,
-            private SpecificationItemResource: any
+        constructor($scope: IRequirementsControllerScope, RequirementResource, SpecificationItemResource, $rootScope, $location
         ) {
             $scope.currentPage = 1
             $scope.maxPages = 1
@@ -43,6 +43,20 @@
             $scope.hasEditPermission =
                 GSDRequirements.currentProfile == Models.profile.editor ||
                 GSDRequirements.currentProfile == Models.profile.projectOwner
+            
+            window.location.href = "#"
+
+            $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
+                var pathValues = $location.path().split('/')
+                var step = pathValues[1];
+
+                if (!step) {
+                    $scope.currentRequirement = null
+                    $scope.requirementToTranslate = null
+                    $scope.requirementToManageLinks = null
+                    $scope.requirementToShowDetails = null
+                }
+            });
 
             var pageSize = 10
             this.SetScopeMethods($scope, RequirementResource, SpecificationItemResource, pageSize)
@@ -50,16 +64,34 @@
         }
         private SetScopeMethods($scope: IRequirementsControllerScope,
             RequirementResource: any,
-            SpecificationItemResource : any,
+            SpecificationItemResource: any,
             pageSize: number) {
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
                 $scope.loadRequirements()
             }
             
-            $scope.setCurrentRequirement = (r): void => { $scope.currentRequirement = r }
-            $scope.setRequirementToTranslate = (r): void => { $scope.requirementToTranslate = r }
-            $scope.setRequirementToManageLinks = (r): void => { $scope.requirementToManageLinks = r }
+            $scope.addRequirement = () => {
+                window.location.href = "#/form"
+                $scope.currentRequirement = new Models.Requirement({})
+            }
+
+            $scope.setCurrentRequirement = (r): void => {
+                $scope.currentRequirement = r
+                window.location.href = "#/form"
+            }
+            $scope.setRequirementToTranslate = (r): void => {
+                $scope.requirementToTranslate = r
+                window.location.href = "#/translate"
+            }
+            $scope.setRequirementToManageLinks = (r): void => {
+                $scope.requirementToManageLinks = r
+                window.location.href = "#/links"
+            }
+            $scope.setRequirementToShowDetails = (r): void => {
+                $scope.requirementToShowDetails = r
+                window.location.href = `#/details/${r.id}`
+            }
 
             $scope.showList = () => {
                 return !$scope.currentRequirement &&
@@ -103,6 +135,10 @@
         private InactivateRequirement(specificationItemResource: any,
             $scope: IRequirementsControllerScope,
             requirement: Models.Requirement): void {
+            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                return;
+            }
+
             $scope.pendingRequests++;
             specificationItemResource.remove({ id: requirement.id })
                 .$promise
@@ -120,5 +156,6 @@
         }
     }
 
-    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource", RequirementsController]);
+    app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource",
+        "$rootScope", "$location", RequirementsController]);
 }

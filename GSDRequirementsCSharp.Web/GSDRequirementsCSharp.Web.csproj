@@ -187,6 +187,7 @@
     <Compile Include="Context\ProjectContext.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ClassDiagramController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternationalizationController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
@@ -266,6 +267,9 @@
     <Content Include="Views\Link\_Management.cshtml" />
     <Content Include="Views\Link\_List.cshtml" />
     <Content Include="Views\Version\_List.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Help\_SidebarStyle.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -364,7 +368,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49805</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49806/</IISUrl>
+          <IISUrl>http://localhost:49805/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

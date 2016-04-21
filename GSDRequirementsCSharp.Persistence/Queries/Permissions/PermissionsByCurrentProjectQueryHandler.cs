@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.Permissions;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
