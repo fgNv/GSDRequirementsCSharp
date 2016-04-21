@@ -3,21 +3,38 @@ var Controllers;
     var UserData = NewAccount.UserData;
     var app = angular.module(GSDRequirements.angularModuleName);
     var ProjectListController = (function () {
-        function ProjectListController($scope, ProjectResource) {
+        function ProjectListController($scope, ProjectResource, $rootScope, $location) {
             var _this = this;
-            this.$scope = $scope;
-            this.ProjectResource = ProjectResource;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
             $scope.pendingRequests = 0;
             $scope.projects = [];
             var pageSize = 10;
+            $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+                var pathValues = $location.path().split('/');
+                var step = pathValues[1];
+                if (!step) {
+                    $scope.currentProject = null;
+                    $scope.projectToTranslate = null;
+                }
+            });
+            window.location.href = "#";
+            $scope.addProject = function () {
+                $scope.currentProject = {};
+                window.location.href = "#/form";
+            };
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
                 $scope.loadProjects();
             };
-            $scope.setCurrentProject = function (p) { $scope.currentProject = p; };
-            $scope.setProjectToTranslate = function (p) { $scope.projectToTranslate = p; };
+            $scope.setCurrentProject = function (p) {
+                $scope.currentProject = p;
+                window.location.href = "#/form";
+            };
+            $scope.setProjectToTranslate = function (p) {
+                $scope.projectToTranslate = p;
+                window.location.href = "#/translate";
+            };
             $scope.loadProjects = function () { return _this.LoadProjects(ProjectResource, $scope, pageSize); };
             $scope.inactivateProject = function (p) {
                 _this.InactivateProject(ProjectResource, $scope, p);
@@ -26,7 +43,7 @@ var Controllers;
                 return _.range(1, $scope.maxPages + 1);
             };
             $scope.loadProjects();
-            this.$scope.UserData = new UserData();
+            $scope.UserData = new UserData();
         }
         ProjectListController.prototype.InactivateProject = function (projectResource, $scope, project) {
             if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
@@ -65,6 +82,7 @@ var Controllers;
         };
         return ProjectListController;
     })();
-    app.controller('ProjectListController', ["$scope", "ProjectResource", ProjectListController]);
+    app.controller('ProjectListController', ["$scope", "ProjectResource",
+        "$rootScope", "$location", ProjectListController]);
 })(Controllers || (Controllers = {}));
 //# sourceMappingURL=ProjectListController.js.map

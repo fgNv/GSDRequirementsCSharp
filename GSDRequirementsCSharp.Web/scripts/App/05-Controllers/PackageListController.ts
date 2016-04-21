@@ -12,10 +12,7 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class PackageListController {
-        constructor(
-            private $scope: any,
-            private PackageResource: any
-        ) {
+        constructor($scope, PackageResource, $rootScope, $location) {
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.packages = []
@@ -30,8 +27,31 @@
                 $scope.loadPackages()
             }
 
-            $scope.setCurrentPackage = (p): void => { $scope.currentPackage = p }
-            $scope.setPackageToTranslate = (p): void => { $scope.packageToTranslate = p }
+            $scope.addPackage = () => {
+                $scope.currentPackage = {}
+                window.location.href = "#/form"
+            }
+            
+            $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
+                var pathValues = $location.path().split('/')
+                var step = pathValues[1];
+
+                if (!step) {
+                    $scope.currentPackage = null
+                    $scope.packageToTranslate = null
+                }
+            });
+
+            window.location.href = "#"
+
+            $scope.setCurrentPackage = (p): void => {
+                $scope.currentPackage = p
+                window.location.href = "#/form"
+            }
+            $scope.setPackageToTranslate = (p): void => {
+                $scope.packageToTranslate = p
+                window.location.href = "#/translate"
+            }
 
             $scope.loadPackages = () => this.LoadPackages(PackageResource,
                 $scope,
@@ -46,7 +66,7 @@
             }
 
             $scope.loadPackages()
-            this.$scope.UserData = new UserData()
+            $scope.UserData = new UserData()
         }
         private InactivatePackage(packageResource: any, $scope: any, packageEntity: Models.Package): void {
             if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
@@ -62,7 +82,7 @@
                 })
                 .catch(error => {
                     Notification.notifyError(Sentences.errorInactivatingPackage,
-                                             error.messages)
+                        error.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;
@@ -86,5 +106,5 @@
                 });
         }
     }
-    app.controller('PackageListController', ["$scope", "PackageResource", PackageListController]);
+    app.controller('PackageListController', ["$scope", "PackageResource", "$rootScope", "$location", PackageListController]);
 }
