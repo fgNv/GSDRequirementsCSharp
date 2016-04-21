@@ -3,7 +3,6 @@ var Controllers;
     var app = angular.module(GSDRequirements.angularModuleName);
     var ModalPermissionAddController = (function () {
         function ModalPermissionAddController($scope, $uibModalInstance, UserResource) {
-            this.UserResource = UserResource;
             $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile), function (i) { return i.value != Models.profile.projectOwner; });
             $scope.loadingUsers = false;
             $scope.permission = {};
@@ -39,3 +38,4 @@ var Controllers;
     app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance", "UserResource",
         ModalPermissionAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalPermissionAddController.js.map

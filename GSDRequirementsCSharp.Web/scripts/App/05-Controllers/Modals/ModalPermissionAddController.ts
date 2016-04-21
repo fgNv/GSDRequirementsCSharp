@@ -8,7 +8,7 @@
     class ModalPermissionAddController {
         constructor($scope: any,
             $uibModalInstance: any,
-            private UserResource: any) {
+            UserResource: any) {
             
             $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile),
                 (i) => i.value != Models.profile.projectOwner)

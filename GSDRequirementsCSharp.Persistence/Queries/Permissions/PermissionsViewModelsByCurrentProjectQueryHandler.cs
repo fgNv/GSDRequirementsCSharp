@@ -9,27 +9,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Permissions
 {
-    class PermissionsByCurrentProjectQueryHandler : IQueryHandler<PermissionsByCurrentProjectQuery, IEnumerable<Permission>>
+    class PermissionsViewModelsByCurrentProjectQueryHandler : IQueryHandler<PermissionsByCurrentProjectQuery, IEnumerable<PermissionViewModel>>
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;
 
-        public PermissionsByCurrentProjectQueryHandler(GSDRequirementsContext context,
+        public PermissionsViewModelsByCurrentProjectQueryHandler(GSDRequirementsContext context,
                                                        ICurrentProjectContextId currentProjectContextId)
         {
             _context = context;
             _currentProjectContextId = currentProjectContextId;
         }
 
-        public IEnumerable<Permission> Handle(PermissionsByCurrentProjectQuery query)
+        public IEnumerable<PermissionViewModel> Handle(PermissionsByCurrentProjectQuery query)
         {
             var projectId = _currentProjectContextId.Get();
             var permissions = _context.Permissions
+                                      .Include(p => p.User.Contact)
                                       .Where(p => p.Project.Id == projectId && 
                                                   p.Profile != Profile.ProjectOwner)
+                                      .Select(PermissionViewModel.FromModel)
                                       .ToList();
 
             return permissions;
