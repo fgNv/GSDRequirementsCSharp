@@ -1,0 +1,74 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<div class="row" data-ng-show="showList()">
+    <div class="alert alert-info" data-ng-show="requirements.length == 0">
+        @Sentences.noRequirementRegistered
+    </div>
+
+    <table class="table table-hover" data-ng-show="requirements.length > 0">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Sentences.id</th>
+                <th>@Sentences.description</th>
+                <th>@Sentences.package</th>
+                <th>@Sentences.version</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="r in requirements">
+                <td>
+                    <gsd-item-issues data-specification-item="r"
+                                     data-ng-show="r.issues.length > 0"
+                                     data-on-all-issues-concluded="loadRequirements">
+                    </gsd-item-issues>
+                </td>
+                <td>{{r.prefix}}{{r.identifier}}</td>
+                <td>{{r.description}}</td>
+                <td>PKG{{r.package.identifier}}</td>
+                <td>{{r.version}}</td>
+                <td>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-show="hasEditPermission"
+                            data-ng-click="inactivateRequirement(r)"
+                            title="@Sentences.removeRequirement">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-show="hasEditPermission"
+                            data-ng-click="setCurrentRequirement(r)"
+                            title="@Sentences.addNewVersion">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="setRequirementToShowDetails(r)"
+                            title="@Sentences.showDetailsAndManageVersions">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="setRequirementToManageLinks(r)"
+                            title="@Sentences.manageLinks">
+                        <span class="glyphicon glyphicon-transfer"></span>
+                    </button>
+                    <gsd-issue-create data-specification-item="r"
+                                      data-after-save="loadRequirements">
+                    </gsd-issue-create>
+
+                    <button class="btn btn-default"
+                            type="button"
+                            data-ng-click="setRequirementToTranslate(r)"
+                            title="@Sentences.addTranslation"
+                            data-ng-show="hasEditPermission && r.canAddTranslation()">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

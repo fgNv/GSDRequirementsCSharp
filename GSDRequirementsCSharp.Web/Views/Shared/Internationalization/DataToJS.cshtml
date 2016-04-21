@@ -1,0 +1,53 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using System.Resources
+@using System.Threading
+@using System.Collections
+@using GSDRequirementsCSharp.Web.Models
+
+<script type="text/javascript">
+    @{
+        var culture = Thread.CurrentThread.CurrentCulture;
+
+        var resourceSet = Sentences.ResourceManager.GetResourceSet(culture, false, false);
+
+        Dictionary<string, string> sentences;
+
+        if(resourceSet == null)
+        {
+            sentences = new Dictionary<string, string>();
+        }
+        else
+        {
+            sentences = Sentences.ResourceManager
+                         .GetResourceSet(culture, false, false)
+                         .Cast<DictionaryEntry>()
+                         .Where(entry => entry.Key != null && entry.Value != null)
+                         .ToDictionary(r => r.Key.ToString(), r => r.Value.ToString());
+        }
+    }
+
+    @foreach(var sentence in sentences)
+    {
+        WriteLiteral(String.Format("Sentences.{0} = \"{1}\";", sentence.Key, sentence.Value));
+    }
+
+    var baseUrl = '@(Url.Content("/"))';
+    GSDRequirements.baseUrl = baseUrl;
+    GSDRequirements.currentLocale = '@(Thread.CurrentThread.CurrentCulture.Name)';
+
+    @{
+        var localesAvailable = Locale.GetLocales();
+    }
+
+    GSDRequirements.localesAvailable = [];
+
+    @foreach(var locale in localesAvailable)
+    {
+       @: GSDRequirements.localesAvailable.push({name:'@locale.Name', label:'@Html.Raw(locale.Label)'});
+    }
+
+    @if(ViewBag.Profile != null)
+    {        
+       @: GSDRequirements.currentProfile = @((int)ViewBag.Profile);
+    }
+</script>

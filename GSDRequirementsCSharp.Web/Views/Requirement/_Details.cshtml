@@ -1,0 +1,28 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<div>
+    <h2>
+        @Sentences.requirementDetails {{requirement.getLabel()}} -
+        @Sentences.version {{requirement.version}}
+    </h2>
+    
+    <h3>@Sentences.data</h3>
+
+    <div class="form-group">
+        <label>@Sentences.language</label>
+        <select class="form-control"
+                data-ng-options="language for language in availableLanguages"
+                data-ng-model="displayLanguage"></select>
+    </div>
+
+    <dl>
+        <dt>@Sentences.description</dt>
+        <dd>{{requirement.description}}</dd>
+        <dt class="margin-top">@Sentences.difficulty</dt>
+        <dd>{{getSentence(difficulty[requirement.difficulty])}}</dd>
+        <dt class="margin-top">@Sentences.rank</dt>
+        <dd>{{requirement.rank}}</dd>
+        <dt class="margin-top">@Sentences.type</dt>
+        <dd>{{getSentence(requirementType[requirement.type])}}</dd>
+    </dl>
+</div>

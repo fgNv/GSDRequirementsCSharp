@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-controller="RequirementsController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    
+    <h2>
+        @Sentences.requirements
+        <button class="btn btn-primary"
+                data-ng-show="hasEditPermission && showList()"
+                title="@Sentences.addRequirement"
+                data-ng-click="addRequirement()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    @Html.Partial("List")
+
+    <article data-gsd-links-management=""
+             data-specification-item="requirementToManageLinks"
+             data-ng-show="requirementToManageLinks"></article>
+    
+    <article data-gsd-requirement-translation=""
+             data-after-save="loadRequirements"
+             data-requirement="requirementToTranslate"
+             data-ng-show="requirementToTranslate"></article>
+
+    <article data-gsd-requirement-form=""
+             data-after-save="loadRequirements"
+             data-requirement="currentRequirement"
+             data-ng-show="currentRequirement"></article>
+
+    <article data-gsd-requirement-details=""
+             data-requirement-id="requirementToShowDetails.id"
+             data-ng-show="requirementToShowDetails"></article>
+
+</article>

@@ -1,0 +1,34 @@
+﻿@using GSDRequirementsCSharp.Web.Context
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+@{
+    var currentProjectId = ProjectContext.Current();
+}
+
+<article>
+    <form method="post" action="@Url.Action("SetContext","Project")">
+
+        @if (currentProjectId != null)
+        {
+            <input type="hidden" data-ng-init="projectId = '@(currentProjectId)'" />
+            <input type="hidden" data-ng-init="currentProjectId = '@(currentProjectId)'" />
+        }
+
+        <input type="hidden" name="ReturnUrl" value=""/>
+
+        <div class="form-group">
+            <select class="form-control"
+                    name="projectId"
+                    data-ng-model="projectId"
+                    data-ng-options="project.id as project.name for project in projectsOptions">
+                <option value="">@Sentences.noProjectInContext</option>
+            </select>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" type="submit">
+                @Sentences.changeProjectInContext
+            </button>
+        </div>
+    </form>
+</article>

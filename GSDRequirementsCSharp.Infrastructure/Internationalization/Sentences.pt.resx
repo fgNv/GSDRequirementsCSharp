@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="authenticationFailed" xml:space="preserve">
+    <value>Autenticação falhou</value>
+  </data>
+  <data name="changeLanguage" xml:space="preserve">
+    <value>Alterar idioma</value>
+  </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>Confirmação da senha</value>
+  </data>
+  <data name="createNewAccount" xml:space="preserve">
+    <value>Criar nova conta</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="invalidPassword" xml:space="preserve">
+    <value>Senha inválida</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Autenticar</value>
+  </data>
+  <data name="mobilePhone" xml:space="preserve">
+    <value>Celular</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Realizar cadastro</value>
+  </data>
+  <data name="requirements" xml:space="preserve">
+    <value>Requisitos</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Nome de usuário</value>
+  </data>
+  <data name="userNotFound" xml:space="preserve">
+    <value>Usuário não encontrado</value>
+  </data>
+  <data name="errorSavingUserAccount" xml:space="preserve">
+    <value>Falha ao salvar conta de usuário</value>
+  </data>
+  <data name="userAccountSuccessfullyCreated" xml:space="preserve">
+    <value>Conta de usuário criada com sucesso</value>
+  </data>
+  <data name="passwordAndConfirmationMustMatch" xml:space="preserve">
+    <value>A senha e a confirmação devem coincidir</value>
+  </data>
+  <data name="authentication" xml:space="preserve">
+    <value>Autenticação</value>
+  </data>
+  <data name="authenticate" xml:space="preserve">
+    <value>Autenticar</value>
+  </data>
+  <data name="artifacts" xml:space="preserve">
+    <value>Artefatos</value>
+  </data>
+  <data name="classDiagrams" xml:space="preserve">
+    <value>Diagramas de classe</value>
+  </data>
+  <data name="currentProject" xml:space="preserve">
+    <value>Projeto atual</value>
+  </data>
+  <data name="manageProfiles" xml:space="preserve">
+    <value>Gerenciar perfis</value>
+  </data>
+  <data name="manageProjects" xml:space="preserve">
+    <value>Gerenciar Projetos</value>
+  </data>
+  <data name="manageUsers" xml:space="preserve">
+    <value>Gerenciar usuários</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>Pacotes</value>
+  </data>
+  <data name="permissions" xml:space="preserve">
+    <value>Permissões</value>
+  </data>
+  <data name="traceabilityMatrix" xml:space="preserve">
+    <value>Matriz de rastreabilidade</value>
+  </data>
+  <data name="useCaseDiagrams" xml:space="preserve">
+    <value>Diagramas de caso de uso</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Relatório</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Projetos</value>
+  </data>
+  <data name="errorLoadingProjects" xml:space="preserve">
+    <value>Erro ao carregar projetos</value>
+  </data>
+  <data name="noProjectRegistered" xml:space="preserve">
+    <value>Nenhum projeto cadastrado</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="projectSuccessfullyCreated" xml:space="preserve">
+    <value>Projeto criado com sucesso</value>
+  </data>
+  <data name="errorSavingProject" xml:space="preserve">
+    <value>Erro ao salvar projeto</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="addTranslation" xml:space="preserve">
+    <value>Adicionar tradução</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="addProject" xml:space="preserve">
+    <value>Adicionar projeto</value>
+  </data>
+  <data name="projectUpdatedSuccessfully" xml:space="preserve">
+    <value>Projeto atualizado com sucesso</value>
+  </data>
+  <data name="createProject" xml:space="preserve">
+    <value>Criar projeto</value>
+  </data>
+  <data name="editProject" xml:space="preserve">
+    <value>Editar projeto</value>
+  </data>
+  <data name="addTranslationForProject" xml:space="preserve">
+    <value>Adicionar tradução para projeto</value>
+  </data>
+  <data name="errorAddingTranslation" xml:space="preserve">
+    <value>Erro ao adicionar tradução</value>
+  </data>
+  <data name="translationAddedSuccessfully" xml:space="preserve">
+    <value>Tradução adicionada com sucesso</value>
+  </data>
+  <data name="changeProjectInContext" xml:space="preserve">
+    <value>Alterar projeto do contexto</value>
+  </data>
+  <data name="noProjectInContext" xml:space="preserve">
+    <value>Nenhum projeto definido no contexto</value>
+  </data>
+  <data name="managePackages" xml:space="preserve">
+    <value>Gerenciar pacotes</value>
+  </data>
+  <data name="addPackage" xml:space="preserve">
+    <value>Adicionar pacote</value>
+  </data>
+  <data name="noPackageRegistered" xml:space="preserve">
+    <value>Nenhum pacote cadastrado</value>
+  </data>
+  <data name="createPackage" xml:space="preserve">
+    <value>Criar pacote</value>
+  </data>
+  <data name="editPackage" xml:space="preserve">
+    <value>Editar pacote</value>
+  </data>
+  <data name="addTranslationForPackage" xml:space="preserve">
+    <value>Adicionar tradução para pacote</value>
+  </data>
+  <data name="errorLoadingPackages" xml:space="preserve">
+    <value>Erro ao carregar pacotes</value>
+  </data>
+  <data name="errorSavingPackage" xml:space="preserve">
+    <value>Erro ao salvar pacote</value>
+  </data>
+  <data name="packageSuccessfullyCreated" xml:space="preserve">
+    <value>Pacote criado com sucesso</value>
+  </data>
+  <data name="packageUpdatedSuccessfully" xml:space="preserve">
+    <value>Pacote atualizado com sucesso</value>
+  </data>
+  <data name="nameIsARequiredField" xml:space="preserve">
+    <value>Nome é um campo obrigatório</value>
+  </data>
+  <data name="original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="translation" xml:space="preserve">
+    <value>Tradução</value>
+  </data>
+  <data name="packageNotFound" xml:space="preserve">
+    <value>Pacote não encontrado</value>
+  </data>
+  <data name="youMustBeLoggedIn" xml:space="preserve">
+    <value>Você deve estar autenticado</value>
+  </data>
+  <data name="inactivateProject" xml:space="preserve">
+    <value>Inativar projeto</value>
+  </data>
+  <data name="errorInactivatingProject" xml:space="preserve">
+    <value>Erro ao inativar projetos</value>
+  </data>
+  <data name="projectInactivatedSuccessfully" xml:space="preserve">
+    <value>Projeto inativado com sucesso</value>
+  </data>
+  <data name="inactivatePackage" xml:space="preserve">
+    <value>Inativar pacote</value>
+  </data>
+  <data name="errorInactivatingPackage" xml:space="preserve">
+    <value>Erro ao inativar pacote</value>
+  </data>
+  <data name="packageInactivatedSuccessfully" xml:space="preserve">
+    <value>Pacote inativado com sucesso</value>
+  </data>
+  <data name="errorInactivatingRequirement" xml:space="preserve">
+    <value>Erro ao inativar requisito</value>
+  </data>
+  <data name="errorLoadingRequirements" xml:space="preserve">
+    <value>Erro ao carregar requisitos</value>
+  </data>
+  <data name="requirementInactivatedSuccessfully" xml:space="preserve">
+    <value>Requisitos inativados com sucesso</value>
+  </data>
+  <data name="addIssue" xml:space="preserve">
+    <value>Adicionar observação</value>
+  </data>
+  <data name="addNewVersion" xml:space="preserve">
+    <value>Adicionar nova versão</value>
+  </data>
+  <data name="addRequirement" xml:space="preserve">
+    <value>Adicionar requisito</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="manageLinks" xml:space="preserve">
+    <value>Gerenciar vínculos</value>
+  </data>
+  <data name="package" xml:space="preserve">
+    <value>Pacote</value>
+  </data>
+  <data name="removeRequirement" xml:space="preserve">
+    <value>Remover requisito</value>
+  </data>
+  <data name="showDetailsAndManageVersions" xml:space="preserve">
+    <value>Exibir detalhes e gerenciar versões </value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="addTranslationForRequirement" xml:space="preserve">
+    <value>Adicionar tradução para requisito</value>
+  </data>
+  <data name="condition" xml:space="preserve">
+    <value>Condição</value>
+  </data>
+  <data name="mustAllowAccessPermissionManagement" xml:space="preserve">
+    <value>Deve permitir o gerenciamento de permissão de acesso</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Sujeito</value>
+  </data>
+  <data name="theSystem" xml:space="preserve">
+    <value>O sistema</value>
+  </data>
+  <data name="whenTheUserIsAnAdministrator" xml:space="preserve">
+    <value>Quando o usuário é administrador</value>
+  </data>
+  <data name="errorSavingRequirement" xml:space="preserve">
+    <value>Erro ao salvar requisito</value>
+  </data>
+  <data name="requirementSuccessfullyCreated" xml:space="preserve">
+    <value>Requisito criado com sucesso</value>
+  </data>
+  <data name="requirementUpdatedSuccessfully" xml:space="preserve">
+    <value>Requisito atualizado com sucesso</value>
+  </data>
+  <data name="seePendingIssues" xml:space="preserve">
+    <value>Ver observações pendentes</value>
+  </data>
+  <data name="noRequirementRegistered" xml:space="preserve">
+    <value>Não há requisitos cadastrados</value>
+  </data>
+  <data name="difficulty" xml:space="preserve">
+    <value>Dificuldade</value>
+  </data>
+  <data name="editRequirement" xml:space="preserve">
+    <value>Editar requisito</value>
+  </data>
+  <data name="rank" xml:space="preserve">
+    <value>Prioridade</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="easy" xml:space="preserve">
+    <value>Fácil</value>
+  </data>
+  <data name="hard" xml:space="preserve">
+    <value>Difícil</value>
+  </data>
+  <data name="medium" xml:space="preserve">
+    <value>Médio</value>
+  </data>
+  <data name="functional" xml:space="preserve">
+    <value>Funcional</value>
+  </data>
+  <data name="nonFunction" xml:space="preserve">
+    <value>Não funcional</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="editTranslation" xml:space="preserve">
+    <value>Editar tradução</value>
+  </data>
+  <data name="removeTranslation" xml:space="preserve">
+    <value>Remover tradução</value>
+  </data>
+  <data name="translations" xml:space="preserve">
+    <value>Traduções</value>
+  </data>
+  <data name="noTranslationAdded" xml:space="preserve">
+    <value>Nenhuma tradução adicionada</value>
+  </data>
+  <data name="chooseALanguage" xml:space="preserve">
+    <value>Escolha um idioma</value>
+  </data>
+  <data name="allTranslationsAdded" xml:space="preserve">
+    <value>Todas as traduções foram adicionadas</value>
+  </data>
+  <data name="invalidItems" xml:space="preserve">
+    <value>Itens inválidos</value>
+  </data>
+  <data name="translationsIsOutdated" xml:space="preserve">
+    <value>Tradução está desatualizada</value>
+  </data>
+  <data name="manageProjectUsers" xml:space="preserve">
+    <value>Gerenciar usuários do projeto</value>
+  </data>
+  <data name="filterByName" xml:space="preserve">
+    <value>Filtrar por nome</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="undo" xml:space="preserve">
+    <value>Desfazer</value>
+  </data>
+  <data name="errorGrantingPermissions" xml:space="preserve">
+    <value>Erro ao conceder permissões</value>
+  </data>
+  <data name="permissionsSuccessfullyGranted" xml:space="preserve">
+    <value>Permissões concedidas com sucesso</value>
+  </data>
+  <data name="errorLoadingPermissions" xml:space="preserve">
+    <value>Erro ao carregar permissões</value>
+  </data>
+  <data name="addPermissions" xml:space="preserve">
+    <value>Adicionar permissões</value>
+  </data>
+  <data name="noPermissionRegistered" xml:space="preserve">
+    <value>Nenhuma permissão cadastrada</value>
+  </data>
+  <data name="searchForAnUserByNameOrEmail" xml:space="preserve">
+    <value>Busque um usuário por nome ou e-mail</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="collaborator" xml:space="preserve">
+    <value>Colaborador</value>
+  </data>
+  <data name="editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="observer" xml:space="preserve">
+    <value>Observador</value>
+  </data>
+  <data name="projectOwner" xml:space="preserve">
+    <value>Dono do projeto</value>
+  </data>
+  <data name="noResults" xml:space="preserve">
+    <value>Sem resultados</value>
+  </data>
+  <data name="errorSearchingUsers" xml:space="preserve">
+    <value>Erro ao buscar usuários</value>
+  </data>
+  <data name="youDontHavePermissionToAccessThisProject" xml:space="preserve">
+    <value>Você não tem permissão para acessar esse projeto</value>
+  </data>
+  <data name="youMustHaveEditorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>Você deve ter permissão de editor nesse projeto para executar essa ação</value>
+  </data>
+  <data name="youMustBeTheProjectOwnerToExecuteThisAction" xml:space="preserve">
+    <value>Você deve ser o dono do projeto para executar essa ação</value>
+  </data>
+  <data name="projectNotFound" xml:space="preserve">
+    <value>Projeto não encontrado</value>
+  </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="updateProfileData" xml:space="preserve">
+    <value>Atualizar dados do perfil</value>
+  </data>
+  <data name="dataSuccessfullyUpdated" xml:space="preserve">
+    <value>Dados atualizados com sucesso</value>
+  </data>
+  <data name="errorChangingPassword" xml:space="preserve">
+    <value>Erro ao alterar senha</value>
+  </data>
+  <data name="errorUpdatingData" xml:space="preserve">
+    <value>Erro ao atualizar dados</value>
+  </data>
+  <data name="passwordSuccessfullyChanged" xml:space="preserve">
+    <value>Senha alterada com sucesso</value>
+  </data>
+  <data name="youMustHaveCollaboratorPermissionForThisProjectToExecuteThisAction" xml:space="preserve">
+    <value>Você deve ter permissão de colaborador para esse projeto para executar essa ação</value>
+  </data>
+  <data name="addIssueFor" xml:space="preserve">
+    <value>Adicionar observação para</value>
+  </data>
+  <data name="errorCreatingIssue" xml:space="preserve">
+    <value>Erro ao criar observação</value>
+  </data>
+  <data name="issueCreatedSuccessfully" xml:space="preserve">
+    <value>Observação criada com sucesso</value>
+  </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comentários</value>
+  </data>
+  <data name="lastModificationAt" xml:space="preserve">
+    <value>Última alteração em</value>
+  </data>
+  <data name="issuesForArtifact" xml:space="preserve">
+    <value>Observações para artefato</value>
+  </data>
+  <data name="errorLoadingIssues" xml:space="preserve">
+    <value>Erro ao carregar observações</value>
+  </data>
+  <data name="issueDetails" xml:space="preserve">
+    <value>Detalhes da observação</value>
+  </data>
+  <data name="addComment" xml:space="preserve">
+    <value>Adicionar comentário</value>
+  </data>
+  <data name="goBackToList" xml:space="preserve">
+    <value>Voltar para lista</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="newComment" xml:space="preserve">
+    <value>Novo comentário</value>
+  </data>
+  <data name="newCommentLanguage" xml:space="preserve">
+    <value>Idioma do novo comentário</value>
+  </data>
+  <data name="errorAddingComment" xml:space="preserve">
+    <value>Erro ao adicionar comentário</value>
+  </data>
+  <data name="commentSuccessfullyAdded" xml:space="preserve">
+    <value>Comentário adicionado com sucesso</value>
+  </data>
+  <data name="markAsConcluded" xml:space="preserve">
+    <value>Marcar como concluída</value>
+  </data>
+  <data name="errorConcludingIssue" xml:space="preserve">
+    <value>Erro ao concluir observação</value>
+  </data>
+  <data name="issueSuccessfullyConcluded" xml:space="preserve">
+    <value>Observação concluída com sucesso</value>
+  </data>
+  <data name="allIssuesWereConcluded" xml:space="preserve">
+    <value>Todas as observações foram concluídas</value>
+  </data>
+  <data name="creator" xml:space="preserve">
+    <value>Criador</value>
+  </data>
+  <data name="addLink" xml:space="preserve">
+    <value>Adicionar vínculo</value>
+  </data>
+  <data name="addNewLinkToArtifact" xml:space="preserve">
+    <value>Adicionar vínculo para artefato</value>
+  </data>
+  <data name="goBack" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="manageArtifactsLinks" xml:space="preserve">
+    <value>Gerenciar vínculos do artefato</value>
+  </data>
+  <data name="removeLink" xml:space="preserve">
+    <value>Remover vínculo</value>
+  </data>
+  <data name="errorLoadingLinks" xml:space="preserve">
+    <value>Erro ao carregar vínculos</value>
+  </data>
+  <data name="thisArtifactHasNoLinks" xml:space="preserve">
+    <value>Esse artefato não possui vínculos</value>
+  </data>
+  <data name="errorLoadingSpecificationItems" xml:space="preserve">
+    <value>Erro ao carregar itens de especificação</value>
+  </data>
+  <data name="classDiagram" xml:space="preserve">
+    <value>Diagrama de classe</value>
+  </data>
+  <data name="requirement" xml:space="preserve">
+    <value>Requisito</value>
+  </data>
+  <data name="useCase" xml:space="preserve">
+    <value>Caso de uso</value>
+  </data>
+  <data name="noArtifactsAvailableToLink" xml:space="preserve">
+    <value>Não há artefatos disponíveis para vincular</value>
+  </data>
+  <data name="selectAnArtifactToSeeItsDetails" xml:space="preserve">
+    <value>Selecione um artefato para ver seus detalhes</value>
+  </data>
+  <data name="errorSavingLink" xml:space="preserve">
+    <value>Erro ao salvar vínculo</value>
+  </data>
+  <data name="linkSavedSuccessfully" xml:space="preserve">
+    <value>Vínculo salvo com sucesso</value>
+  </data>
+  <data name="errorRemovingLink" xml:space="preserve">
+    <value>Erro ao remover vínculo</value>
+  </data>
+  <data name="linkRemovedSuccessfully" xml:space="preserve">
+    <value>Vínculo removido com sucesso</value>
+  </data>
+  <data name="data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="requirementDetails" xml:space="preserve">
+    <value>Detalhes do requisito</value>
+  </data>
+  <data name="errorLoadingRequirement" xml:space="preserve">
+    <value>Erro ao carregar requisito</value>
+  </data>
+  <data name="help" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="homePage" xml:space="preserve">
+    <value>Página inicial</value>
+  </data>
+  <data name="gsdRequirements" xml:space="preserve">
+    <value>Requisitos GSD</value>
+  </data>
+  <data name="introduction" xml:space="preserve">
+    <value>Introdução</value>
+  </data>
+  <data name="managingPackages" xml:space="preserve">
+    <value>Gerenciando Pacotes</value>
+  </data>
+  <data name="managingPermissions" xml:space="preserve">
+    <value>Gerenciando Permissões</value>
+  </data>
+  <data name="managingProjects" xml:space="preserve">
+    <value>Gerenciamento dos projetos</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
+  <data name="theStructureOfDataIs" xml:space="preserve">
+    <value>A estrutura de dados é:</value>
+  </data>
+  <data name="areYouCertainYouWishToRemoveThisItem" xml:space="preserve">
+    <value>Você tem certeza que deseja remover esse item? Essa ação é irreversível.</value>
+  </data>
+  <data name="grantPermission" xml:space="preserve">
+    <value>Conceder permissão</value>
+  </data>
+  <data name="revokePermission" xml:space="preserve">
+    <value>Revogar permissão</value>
+  </data>
+  <data name="manageProjectPermissions" xml:space="preserve">
+    <value>Gerenciar permissões do projeto</value>
+  </data>
+  <data name="underConstruction" xml:space="preserve">
+    <value>Em construção</value>
+  </data>
+  <data name="noComments" xml:space="preserve">
+    <value>Nenhum comentário</value>
+  </data>
+  <data name="projectDetails" xml:space="preserve">
+    <value>Detalhes do projeto</value>
+  </data>
+</root>

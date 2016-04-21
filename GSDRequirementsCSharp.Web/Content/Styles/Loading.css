@@ -1,0 +1,20 @@
+﻿.global-loading::before {
+   	content: " ";
+	height: 100%;
+	background-repeat: no-repeat;
+	background-image: url(../Images/loader.gif);
+	position:absolute;
+	background-position: center;
+	background-color: #FFF;
+	opacity: 0.6;
+	z-index: 15;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+    width: 100%;
+}
+
+.global-loading {    
+    position: relative;
+}

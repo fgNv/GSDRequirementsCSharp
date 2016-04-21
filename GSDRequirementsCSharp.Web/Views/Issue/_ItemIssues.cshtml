@@ -1,0 +1,14 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<button class="btn btn-default"
+        style="color: red"
+        data-ng-click="seeIssues()"
+        title="@Sentences.seePendingIssues">
+    <span class="glyphicon glyphicon-alert"
+          data-ng-show="pendingRequests == 0">
+    </span>
+    <span class="fa fa-spinner fa-spin fa-pulse"
+          data-ng-show="pendingRequests > 0">
+    </span>
+</button>
+    

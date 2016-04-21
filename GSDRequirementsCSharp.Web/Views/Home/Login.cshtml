@@ -1,0 +1,43 @@
+﻿
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h2 style="text-align: center">GSD @Sentences.requirements</h2>
+
+<div class="row" style="margin-top: 20px ">
+    <h2>@Sentences.authentication</h2>
+
+    @if(ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+
+    <form action="@Url.Action("Authenticate", "Authentication")"
+          method="post"
+          style="margin-bottom: 15px">
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("login", Sentences.username, true)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.PasswordInput("password", Sentences.password, true)
+            </div>
+        </div>
+        <input type="hidden" 
+               name="ReturnUrl"
+               value="@Request.QueryString["ReturnUrl"]" />
+        <div class="btn-group">            
+            <button class="btn btn-primary"
+                    type="submit">
+                @Sentences.authenticate
+            </button>
+        </div>
+    </form>
+    <a href="@Url.Action("Index", "Registration")">
+        @Sentences.register
+    </a>
+</div>

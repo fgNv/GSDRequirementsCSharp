@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
+
+<article data-ng-controller="ProjectListController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <h2>
+        @Sentences.projects
+        <button class="btn btn-primary"
+                data-ng-show="!currentProject && !projectToTranslate"
+                title="@Sentences.addProject"
+                data-ng-click="addProject()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+    <article data-ng-show="!currentProject && !projectToTranslate">
+        <div class="alert alert-info" data-ng-show="projects.length == 0">
+            @Sentences.noProjectRegistered
+        </div>
+
+        <article data-ng-show="projects.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="project in projects">
+                        <td>
+                            {{project.identifier}}
+                            <span class="glyphicon glyphicon-alert"
+                                  data-ng-show="project.isOutdated"
+                                  style="color: red"
+                                  title="@Sentences.translationsIsOutdated">
+                            </span>
+                        </td>
+                        <td>{{project.name}}</td>
+                        <td>
+                            <a class="btn btn-default"
+                               data-ng-href="@Url.Action("details","project")/{{project.id}}"
+                               title="@Sentences.projectDetails">
+                                <span class="fa fa-search"></span>
+                            </a>
+                            <button class="btn btn-default"
+                                    title="@Sentences.edit"
+                                    data-ng-click="setCurrentProject(project.getCommandModel())">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-click="inactivateProject(project)"
+                                    title="@Sentences.inactivateProject">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-click="setProjectToTranslate(project)"
+                                    data-ng-show="project.canAddTranslation()"
+                                    title="@Sentences.addTranslation">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+
+    <article data-gsd-project-form=""
+             data-after-save="loadProjects"
+             data-project="currentProject"
+             data-ng-show="currentProject"></article>
+
+    <article data-gsd-project-translation=""
+             data-after-save="loadProjects"
+             data-project="projectToTranslate"
+             data-ng-show="projectToTranslate"></article>
+</article>
+

@@ -1,0 +1,52 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+
+<div class="modal-header">
+    <h2>@Sentences.addIssueFor {{specificationItemLabel}}</h2>
+</div>
+<div class="modal-body"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <div class="select-box" data-ng-if="utility">
+        <label>@Sentences.language</label>
+        <ui-select data-ng-model="issueData.locale"
+                   data-theme="bootstrap"
+                   data-search-enabled="false"
+                   append-to-body="false">
+            <ui-select-match>
+                {{$select.selected}}
+                <span class="glyphicon glyphicon-ok"
+                      style="color: #008A21"
+                      data-ng-show="utility.issueContainsLocale($select.selected)">
+                </span>
+            </ui-select-match>
+            <ui-select-choices repeat="locale in locales track by locale">
+                <span ng-bind="locale"></span>
+                <span class="glyphicon glyphicon-ok"
+                      style="color: #008A21"
+                      data-ng-show="utility.issueContainsLocale(locale)">
+                </span>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+    <div class="form-group">
+        <label>
+            @Sentences.description
+        </label>
+        <textarea class="form-control"
+                  placeholder="{{placeholder}}"
+                  data-ng-model="issue[issueData.locale].description"></textarea>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="cancel()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</div>

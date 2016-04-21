@@ -1,0 +1,360 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+@Html.Partial("_SidebarStyle")
+
+<style type="text/css">
+    .navbar {
+        margin-bottom: 0;
+    }
+</style>
+
+@{
+    if (ViewBag.UserContact == null)
+    {
+        Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    }
+}
+
+<div class="row">
+    <div class="col-md-9" style="background-color: #FAFAFA">
+
+        <h2>@Sentences.help</h2>
+
+        <h3 id="introduction">@Sentences.introduction</h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>@Sentences.gsdRequirements</b>
+            @HelpSentences.isAToolForRequirementManagementAimedForGlobalTeams
+            @HelpSentences.gsdStandsForGlobalSoftwareDevelopmentInOtherWordsATeamWithMembersFromDifferentCountries
+            @HelpSentences.forThisPurposeAlmostAllDataInsertedCanHaveATranslatedVersion
+        </p>
+
+        <p style="font-weight: bolder; color: #323232; text-align: center;
+                 margin: 20px 0">
+            @HelpSentences.theRequirementsManagementInThisToolIsMeantToBeMadeCollaboratively
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@Sentences.theStructureOfDataIs
+            <ul>
+                <li>@HelpSentences.ProjectThatContainsPackages</li>
+                <li>@HelpSentences.PackagesThatContainsArtifacts</li>
+            </ul>
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.artifactsAreRequirementsClassDiagramsAndUseCaseDiagrams
+            @HelpSentences.accessPermissionsForOtherUsersAreGrantedByProject
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.itsPossibleToChangeTheCurrentLanguagePressingTheChangeLanguageButtonInTheHeaderOfThePage
+            @HelpSentences.byDoingSoTranslationsOfTheDataWillBeDisplayedIfAvailableInsteadOfTheOriginalData
+            @HelpSentences.andWhenInsertingNewDataTheFirstLanguageAddedWillBeTheOneSelected
+        </p>
+
+        <hr />
+
+        <h3 id="registration">
+            @Sentences.registration
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.beforeYouCanManageProjectsAndArtifactsYouMustRegister
+            @HelpSentences.thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm
+            @HelpSentences.afterSubmitingTheRegistrationDataYouWillBeAbleToAuthenticateAndManageProjects
+        </p>
+
+        <hr />
+
+        <h3 id="projects">
+            @Sentences.managingProjects
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.theProjectManagementIsAccessibleByTheManageProjectsAtThePageHeader
+            @HelpSentences.allActionsRelatedToProjectsCanBeDoneOnlyByItsOwnerWhichIsTheUserThatCreatedIt
+        </p>
+
+        <h4>@HelpSentences.creatingANewProject</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.pressingTheCreateProjectButtonInTheManageProjectScreenWillLeadYouToTheCreateProjectForm
+            @HelpSentences.dataInsertedAtFirstWillReferTo @HelpSentences.theCurrentLanguage,
+            @HelpSentences.butItsPossibleToAddTranslationBeforeSubmittingTheData
+            @HelpSentences.ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;@HelpSentences.whenCreatingAProjectAndNotProvidingTranslationForAllLanguagesAnAddTranslationButtonWillBeAvailable
+            @HelpSentences.itWillProvideAccessToAFormWhereItsPossibleToAddTheMissingTranslations
+        </p>
+
+        <h4>@HelpSentences.editingAProject</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.byClickingTheEditButtonYouWillBeAbleToEditAProject
+            @HelpSentences.whenEditingAProjectWithTranslationsButNotUpdatingThem,
+            @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
+            @HelpSentences.ifTheCurrentLanguageContainsAnObsoleteTranslation
+            @HelpSentences.theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem
+        </p>
+
+        <h4>@HelpSentences.removingAProject</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRemoveAProjectItsNecessaryToPressTheRemoveProjectButtonAndConfirmTheAction
+        </p>
+
+        <div class="alert alert-danger">
+            @HelpSentences.thisActionIsIrreversible
+        </div>
+
+        <h4>@HelpSentences.contextProject</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toManageAProjectPackagesArtifactsAndPermissionsItMustBeSelectedInTheContext
+            @HelpSentences.nextToTheManageProjectButtonTheresTheProjectContextControlWhichDefinesWhichProjectDataIsDisplayed
+            @HelpSentences.afterSelectingAProjectInTheContextMenuItemsForManagingTheProjectDataAppearInTheHeadersLeftSide
+        </p>
+
+        <hr />
+
+        <h3 id="permissions">
+            @Sentences.managingPermissions
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.afterSelectingAProjectInTheContextThePermissionsButtonWillBeDisplayedInTheHeadersLeftSide
+            @HelpSentences.itWillLeadYouToTheManagePermissionsPageWhereItsPossibleToManageThePermissionsOfTheProjectsThatYouOwn
+            @HelpSentences.toPerformTheseActionsItsRequiredToBeTheProjectOwner
+        </p>
+
+        <h4>@HelpSentences.grantingPermissions</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.itsPossibleToGrantPermissionsByClickingTheGrantPermissionButtonTheManageProjectPermissionsPage,
+            @HelpSentences.thenItsNecessaryToSearchAnUserByNameOrEmailAndSelectTheProfile
+            @HelpSentences.theUserMustBeAlreadyRegisteredForThePermissionToBeGranted
+            @HelpSentences.afterAddingTheUsersAndDefiningTheirProfilesYouMustClickTheSaveButton
+        </p>
+
+        <h4>@HelpSentences.permissionProfiles</h4>
+
+        <dl style="margin-left: 15px;">
+            <dt>@Sentences.editor</dt>
+            <dd>
+                <ul>
+                    <li>
+                        @HelpSentences.canAddEditTranslateAndExcludePackagesAndArtifacts
+                    </li>
+                    <li>
+                        @HelpSentences.canAddCommentAndConcludeIssues
+                    </li>
+                    <li>
+                        @HelpSentences.canSeePackagesAndArtifactsDetails
+                    </li>
+                </ul>
+            </dd>
+            <dt>@Sentences.collaborator</dt>
+            <dd>
+                <ul>
+                    <li>@HelpSentences.canAddCommentAndConcludeIssues</li>
+                    <li>@HelpSentences.canSeePackagesAndArtifactsDetails</li>
+                </ul>
+            </dd>
+            <dt>@Sentences.observer</dt>
+            <dd>
+                <ul>
+                    <li>
+                        @HelpSentences.canSeePackagesAndArtifactsDetails
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <h4>@HelpSentences.revokingPermissions</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRevokeAPermissionYouMustPressTheRevokePermissionInTheManageProjectPermissionsScreenAndThenClickTheSaveButton
+        </p>
+
+        <hr />
+
+        <h3 id="packages">
+            @Sentences.managingPackages
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide
+            @HelpSentences.itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages
+            @HelpSentences.toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner
+        </p>
+
+        <h4>@HelpSentences.creatingANewPackage</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.pressingTheCreatePackageButtonInTheManagePackageScreenWillLeadYouToTheCreatePackageForm
+            @HelpSentences.dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData
+            @HelpSentences.ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations
+        </p>
+
+        <h4>@HelpSentences.editingPackages</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.byClickingTheEditButtonYouWillBeAbleToEditAPackage
+            @HelpSentences.whenEditingAPackageWithTranslationsButNotUpdatingThem,
+            @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
+            @HelpSentences.ifTheCurrentLanguageContainsAnObsoleteTranslation
+            @HelpSentences.theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem
+        </p>
+
+        <h4>@HelpSentences.removingPackages</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRemoveAPackageItsNecessaryToPressTheRemovePackageButtonAndConfirmTheAction
+        </p>
+        <div class="alert alert-danger">
+            @HelpSentences.thisActionIsIrreversible
+        </div>
+
+        <hr />
+
+        <h3 id="requirements">
+            @Sentences.requirements
+        </h3>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.afterSelectingAProjectInTheContextTheArtifactsButtonWillBeDisplayedInTheHeadersLeftSide
+            @HelpSentences.theRequirementsButtonIsBeneathItWillLeadYouToTheManageRequirementsPageWhereItsPossibleToCreateEditManageLinksAndRemoveRequirements
+            @HelpSentences.inThisPageItsAlsoPossibleToAddCommentAndConcludeIssuesRelatedToRequirements
+        </p>
+
+        <h4>@HelpSentences.creatingANewRequirement</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.pressingTheCreateRequirementButtonInTheManageRequirementsScreenWillLeadYouToTheCreateRequirementForm
+            @HelpSentences.dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData
+            @HelpSentences.ifNoTranslationIsProvidedForAnyLanguageAfterwardsTheButtonAddTranslationWillBeAvailableForProvidingTheMissingTranslations
+            @HelpSentences.toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner
+        </p>
+
+        <h4>@HelpSentences.addingNewVersionToRequirement</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.byClickingTheAddVersionButtonYouWillBeAbleToAddANewVersionOfTheRequirement
+            @HelpSentences.whenAddingANewVersionOfARequirementWithTranslationsButNotUpdatingThem,
+            @HelpSentences.theTranslationsWillBeConsideredObsoleteAndAWarningInTheRowWillBeDisplayed
+            @HelpSentences.ifTheCurrentLanguageContainsAnObsoleteTranslation
+            @HelpSentences.theAddTranslationButtonWillBeAvailableWhenThereAreObsoleteTranslationsToUpdateThem
+        </p>
+
+        <h4>@HelpSentences.manageRequirementsLinks</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.theManageLinksButtonWillOpenTheManageArtifactsLinksScreen
+            @HelpSentences.toAddANewLinkPressTheAddLinkButtonSelectOneArtifactItsDetailsWillBeDisplayedAndPressAdd
+            @HelpSentences.toRemoveALinkPressTheRemoveLinkButtonInTheLinksList
+            @HelpSentences.theLinksAreAlwaysBidirectional
+        </p>
+
+        <h4>@HelpSentences.manageRequirementsIssues</h4>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.byPressingTheAddIssueButtonYouCanAddAnIssueToAnArtifact
+            @HelpSentences.dataInsertedAtFirstWillReferTotheCurrentLanguagebutItsPossibleToAddTranslationBeforeSubmittingTheData
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide
+            @HelpSentences.pressingItAListWithTheIssuesWillBeDisplayed
+            @HelpSentences.byClickingInTheIssueIdentifierItsDetailsCommentsAndAFormForAddingNewCommentsWillBeDisplayed
+        </p>
+
+        <h4>@HelpSentences.removeRequirements</h4>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.toRemoveARequirementItsNecessaryToPressTheRemoveRequirementButtonAndConfirmTheAction
+        </p>
+        <div class="alert alert-danger">
+            @HelpSentences.thisActionIsIrreversible
+        </div>
+        <hr />
+
+        <h3 id="classDiagrams">
+            @Sentences.classDiagrams
+        </h3>
+
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="fa fa-puzzle-piece"></span>
+            @Sentences.underConstruction
+        </div>
+
+        <hr />
+
+        <h3 id="useCaseDiagrams">
+            @Sentences.useCaseDiagrams
+        </h3>
+
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="fa fa-puzzle-piece"></span>
+            @Sentences.underConstruction
+        </div>
+    </div>
+    <div class="col-md-3">
+        <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix"
+             style="top: 70px">
+            <ul class="nav bs-docs-sidenav">
+                <li>
+                    <a href="#introduction">@Sentences.introduction</a>
+                </li>
+                <li>
+                    <a href="#registration">@Sentences.registration</a>
+                </li>
+                <li>
+                    <a href="#projects">@Sentences.managingProjects</a>
+                </li>
+                <li>
+                    <a href="#permissions">@Sentences.managingPermissions</a>
+                </li>
+                <li>
+                    <a href="#packages">@Sentences.managingPackages</a>
+                </li>
+                <li>
+                    <a href="#requirements">@Sentences.requirements</a>
+                </li>
+                <li>
+                    <a href="#classDiagrams">@Sentences.classDiagrams</a>
+                </li>
+                <li>
+                    <a href="#useCaseDiagrams">@Sentences.useCaseDiagrams</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

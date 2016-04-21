@@ -1,0 +1,131 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <div class="alert alert-success"
+         data-ng-show="issueInDetail == null && issues.length == 0">
+        @Sentences.allIssuesWereConcluded
+    </div>
+    <table class="table"
+           data-ng-show="issueInDetail == null && issues.length > 0">
+        <thead>
+            <tr>
+                <th>@Sentences.id</th>
+                <th>@Sentences.lastModificationAt</th>
+                <th>@Sentences.description</th>
+                <th>@Sentences.comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="issue in issues">
+                <td>
+                    <a data-ng-href="#/issue/{{issue.identifier}}"
+                       data-ng-click="issueInDetail = issue">
+                        #{{issue.identifier}}
+                    </a>
+                </td>
+                <td>{{issue.lastModificationLabel}}</td>
+                <td>{{issue.description}}</td>
+                <td>{{issue.comments.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div data-ng-show="issueInDetail">
+        <h3>
+            #{{issueInDetail.identifier}} @Sentences.issueDetails
+            <button class="btn btn-success"
+                    data-ng-click="markAsConcluded(issueInDetail)">
+                @Sentences.markAsConcluded
+            </button>
+        </h3>
+
+        <div class="form-group">
+            <label>@Sentences.language</label>
+            <select class="form-control"
+                    data-ng-options="locale for locale in availableContentLocales"
+                    data-ng-model="displayLocale"></select>
+        </div>
+        <dl>
+            <dt>@Sentences.description</dt>
+            <dd>
+                {{currentDescription}}
+            </dd>
+            <dt>@Sentences.creator</dt>
+            <dd>
+                {{issueInDetail.creatorName}}
+            </dd>
+            <dt>@Sentences.lastModificationAt</dt>
+            <dd>
+                {{issueInDetail.lastModificationLabel}}
+            </dd>
+        </dl>
+
+        <h4>@Sentences.comments</h4>
+
+        <div class="alert alert-warning"
+             data-ng-show="issueInDetail.comments.length == 0">
+            @Sentences.noComments
+        </div>
+        <div data-ng-repeat="comment in issueInDetail.comments"
+             data-ng-show="issueInDetail.comments.length > 0">
+            <b>{{comment.creatorName}}</b>
+            <small>({{comment.lastModificationLabel}})</small>
+            {{comment.description}}
+        </div>
+
+        <h4 style="cursor: pointer"
+            data-ng-click="showCommentForm = !showCommentForm">
+            @Sentences.newComment
+            <span class="glyphicon glyphicon-chevron-down"
+                  data-ng-show="!showCommentForm"></span>
+            <span class="glyphicon glyphicon-chevron-up"
+                  data-ng-show="showCommentForm"></span>
+        </h4>
+        <div data-ng-show="showCommentForm" style="margin-top: 12px; ">
+            <div class="select-box">
+                <label>@Sentences.newCommentLanguage</label>
+                <ui-select data-ng-model="commentData.locale"
+                           data-theme="bootstrap"
+                           data-search-enabled="false"
+                           append-to-body="false">
+                    <ui-select-match>
+                        {{$select.selected}}
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="utility.newCommentContainsLocale($select.selected)">
+                        </span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="locale in locales track by locale">
+                        <span ng-bind="locale"></span>
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="utility.newCommentContainsLocale(locale)">
+                        </span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div class="form-group" style="margin-top: 12px; ">
+                <label>@Sentences.comment</label>
+                <textarea class="form-control"
+                          placeholder="{{commentPlaceholder}}"
+                          data-ng-model="comments[commentData.locale].description"></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary"
+                        data-ng-click="addComment(issueInDetail)">
+                    @Sentences.addComment
+                </button>
+            </div>
+            <hr />
+        </div>
+
+        <div class="btn-group">
+            <a class="btn btn-default"
+               href="#/"
+               data-ng-click="">
+                @Sentences.goBackToList
+            </a>
+        </div>
+    </div>
+</article>

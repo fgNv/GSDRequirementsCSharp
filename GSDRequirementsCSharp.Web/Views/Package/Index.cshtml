@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+
+<article data-ng-controller="PackageListController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <h2>
+        @Sentences.managePackages
+        <button class="btn btn-primary"
+                data-ng-show="!currentPackage && !packageToTranslate && hasEditPermission"
+                title="@Sentences.addPackage"
+                data-ng-click="addPackage()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <article data-ng-show="!currentPackage && !packageToTranslate">
+        <div class="alert alert-info" data-ng-show="packages.length == 0">
+            @Sentences.noPackageRegistered
+        </div>
+
+        <article data-ng-show="packages.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="package in packages">
+                        <td>
+                            PKG{{package.identifier}}
+                            <span class="glyphicon glyphicon-alert"
+                                  data-ng-show="package.isOutdated"
+                                  style="color: red"
+                                  title="@Sentences.translationsIsOutdated">
+                            </span>
+                        </td>
+                        <td>{{package.description}}</td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.edit"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setCurrentPackage(package)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="inactivatePackage(package)"                                    
+                                    title="@Sentences.inactivatePackage">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-click="setPackageToTranslate(package)"
+                                    data-ng-show="package.canAddTranslation() && hasEditPermission"
+                                    title="@Sentences.addTranslation">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+    
+    <article data-gsd-package-form=""
+             data-after-save="loadPackages"
+             data-package="currentPackage"
+             data-ng-show="currentPackage"></article>
+
+    <article data-gsd-package-translation=""
+             data-after-save="loadPackages"
+             data-package="packageToTranslate"
+             data-ng-show="packageToTranslate"></article>
+</article>

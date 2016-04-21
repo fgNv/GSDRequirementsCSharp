@@ -1,0 +1,29 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
+
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h4 data-ng-hide="project.id">@Sentences.createProject</h4>
+    <h4 data-ng-show="project.id">@Sentences.editProject {{project.name}}</h4>
+
+    <article data-ng-form="" data-name="projectForm">
+        @Html.Partial("_ContentFields")
+    </article>
+    
+    <article data-gsd-project-translation-list=""
+             data-translations="translations"
+             data-translations-already-provided="translationsAlreadyProvided">
+    </article>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="project = null">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                type="button"
+                data-ng-disabled="!projectForm.$valid"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</article>

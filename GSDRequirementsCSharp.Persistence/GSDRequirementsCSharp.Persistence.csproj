@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{400B5026-FBC4-4F9A-AD73-DE5BB84561AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSDRequirementsCSharp.Persistence</RootNamespace>
+    <AssemblyName>GSDRequirementsCSharp.Persistence</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="DependencyInjection\ContainerExtensions.cs" />
+    <Compile Include="GSDRequirementsContext.cs" />
+    <Compile Include="Mappings\ActorMapping.cs" />
+    <Compile Include="Mappings\ClassContentMapping.cs" />
+    <Compile Include="Mappings\ClassDiagramMapping.cs" />
+    <Compile Include="Mappings\ClassMapping.cs" />
+    <Compile Include="Mappings\ClassMethodContentMapping.cs" />
+    <Compile Include="Mappings\ClassMethodMapping.cs" />
+    <Compile Include="Mappings\ClassMethodParameterContentMapping.cs" />
+    <Compile Include="Mappings\ClassMethodParameterMapping.cs" />
+    <Compile Include="Mappings\ClassPropertyContentMapping.cs" />
+    <Compile Include="Mappings\ClassPropertyMapping.cs" />
+    <Compile Include="Mappings\ClassRelationshipMapping.cs" />
+    <Compile Include="Mappings\ContactMapping.cs" />
+    <Compile Include="Mappings\IssueCommentContentMapping.cs" />
+    <Compile Include="Mappings\IssueCommentMapping.cs" />
+    <Compile Include="Mappings\IssueContentMapping.cs" />
+    <Compile Include="Mappings\IssueMapping.cs" />
+    <Compile Include="Mappings\PackageContentMapping.cs" />
+    <Compile Include="Mappings\PackageMapping.cs" />
+    <Compile Include="Mappings\PermissionMapping.cs" />
+    <Compile Include="Mappings\RequirementContentMapping.cs" />
+    <Compile Include="Mappings\RequirementRiskMapping.cs" />
+    <Compile Include="Mappings\SpecificationItemMapping.cs" />
+    <Compile Include="Mappings\ProjectContentMapping.cs" />
+    <Compile Include="Mappings\ProjectMapping.cs" />
+    <Compile Include="Mappings\RequirementMapping.cs" />
+    <Compile Include="Mappings\UserCaseMapping.cs" />
+    <Compile Include="Mappings\UserMapping.cs" />
+    <Compile Include="Migrations\201604051129040_initial-migration.cs" />
+    <Compile Include="Migrations\201604051129040_initial-migration.Designer.cs">
+      <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604081330225_issues-translations.cs" />
+    <Compile Include="Migrations\201604081330225_issues-translations.Designer.cs">
+      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.cs" />
+    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.Designer.cs">
+      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604141203171_specificationItemLinks.cs" />
+    <Compile Include="Migrations\201604141203171_specificationItemLinks.Designer.cs">
+      <DependentUpon>201604141203171_specificationItemLinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604141210196_specification-item-type.cs" />
+    <Compile Include="Migrations\201604141210196_specification-item-type.Designer.cs">
+      <DependentUpon>201604141210196_specification-item-type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604141340046_specification-item-label.cs" />
+    <Compile Include="Migrations\201604141340046_specification-item-label.Designer.cs">
+      <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
+    <Compile Include="Queries\IsssueComments\IssueCommentsQuery.cs" />
+    <Compile Include="Queries\IsssueComments\IssueCommentsQueryHandler.cs" />
+    <Compile Include="Queries\Issues\BySpecificationItem\SpecificationItemIssuesQuery.cs" />
+    <Compile Include="Queries\Issues\BySpecificationItem\SpecificationItemIssuesQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueCommentWithContentsQueryHandler.cs" />
+    <Compile Include="Queries\Issues\IssueWithContentsQueryHandler.cs" />
+    <Compile Include="Queries\Packages\CurrentProject\PackagesCurrentProjectQueryHandler.cs" />
+    <Compile Include="Queries\Packages\NextId\PackageNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Packages\WithContents\PackageWithContentsQueryHandler.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQuery.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\Packages\Paginated\PackagesPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Permissions\PermissionByUserAndProjectQueryHandler.cs" />
+    <Compile Include="Queries\Permissions\PermissionsViewModelsByCurrentProjectQueryHandler.cs" />
+    <Compile Include="Queries\Permissions\PermissionsByCurrentProjectQueryHandler.cs" />
+    <Compile Include="Queries\Projects\CurrentUserProjects\CurrentUserProjectsQueryHandler.cs" />
+    <Compile Include="Queries\Projects\CurrentUserProjects\ProjectOption.cs" />
+    <Compile Include="Queries\Projects\NextId\ProjectNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Projects\ProjectByIdQueryHandler.cs" />
+    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQuery.cs" />
+    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Projects\ProjectWithContents\ProjectWithContentsQueryHandler.cs" />
+    <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\LastVersion\LastVersionRequirementQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\NextId\RequirementNextIdQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
+    <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
+    <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
+    <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQuery.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQueryHandler.cs" />
+    <Compile Include="Queries\Users\BySearchTerm\UserViewModel.cs" />
+    <Compile Include="Repositories\AuthenticationUserRepository.cs" />
+    <Compile Include="Repositories\GenericImplementations.cs" />
+    <Compile Include="Repositories\GenericLocaleRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\VersionKeyRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
+      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
+      <Name>GSDRequirementsCSharp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
+      <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
+      <Name>GSDRequirementsCSharp.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604051129040_initial-migration.resx">
+      <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604081330225_issues-translations.resx">
+      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111346476_issue-paginated-query-indexes.resx">
+      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604141203171_specificationItemLinks.resx">
+      <DependentUpon>201604141203171_specificationItemLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604141210196_specification-item-type.resx">
+      <DependentUpon>201604141210196_specification-item-type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604141340046_specification-item-label.resx">
+      <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

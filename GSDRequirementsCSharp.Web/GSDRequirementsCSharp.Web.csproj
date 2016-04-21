@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{665FE3B0-1EF7-4546-9A7C-60EB88809161}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSDRequirementsCSharp.Web</RootNamespace>
+    <AssemblyName>GSDRequirementsCSharp.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.3.1.2\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\Custom.css" />
+    <Content Include="Content\Styles\Loading.css" />
+    <Content Include="Content\Styles\NavBar.css" />
+    <Content Include="Content\Styles\UnderlinedPills.css" />
+    <Content Include="Content\Styles\UserNavbar.css" />
+    <Content Include="Global.asax" />
+    <Content Include="gruntfile.js" />
+    <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
+    <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
+    <Content Include="Scripts\App\03-Resources\IssueConclusionResource.js" />
+    <Content Include="Scripts\App\03-Resources\IssueResource.js" />
+    <Content Include="Scripts\App\03-Resources\ItemIssuesResource.js" />
+    <Content Include="Scripts\App\03-Resources\ItemLinkResource.js" />
+    <Content Include="Scripts\App\03-Resources\PermissionResource.js" />
+    <Content Include="Scripts\App\03-Resources\ProjectItemResource.js" />
+    <Content Include="Scripts\App\03-Resources\RequirementResource.js" />
+    <Content Include="Scripts\App\03-Resources\ProjectTranslationResource.js" />
+    <Content Include="Scripts\App\03-Resources\PackageResource.js" />
+    <Content Include="Scripts\App\03-Resources\ProjectResource.js" />
+    <Content Include="Scripts\App\03-Resources\SpecificationItemResource.js" />
+    <Content Include="Scripts\App\03-Resources\UserResource.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\IssueController.cs" />
+    <Compile Include="Api\PackageController.cs" />
+    <Compile Include="Api\PermissionController.cs" />
+    <Compile Include="Api\ProjectController.cs" />
+    <Compile Include="Api\RequirementController.cs" />
+    <Compile Include="Api\SpecificationItemController.cs" />
+    <Compile Include="Api\UserController.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Authentication\CurrentUserRetriever.cs" />
+    <Compile Include="Context\CurrentLocaleName.cs" />
+    <Compile Include="Context\ProjectContext.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\ClassDiagramController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InternationalizationController.cs" />
+    <Compile Include="Controllers\IssueController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\RequirementController.cs" />
+    <Compile Include="Controllers\UseCaseDiagramController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Cookies\ResponseExtensions.cs" />
+    <Compile Include="DependencyInjection\ContainerExtensions.cs" />
+    <Compile Include="Exceptions\ApiExceptionHandling.cs" />
+    <Compile Include="Exceptions\ExceptionResponse.cs" />
+    <Compile Include="Exceptions\MvcExceptionHandling.cs" />
+    <Compile Include="Filters\Attributes\SkipUserDataSetterAttribute.cs" />
+    <Compile Include="Filters\CurrentCultureSetterApiFilter.cs" />
+    <Compile Include="Filters\CurrentCultureSetterMvcFilter.cs" />
+    <Compile Include="Filters\HandleApiException.cs" />
+    <Compile Include="Filters\HandleMvcException.cs" />
+    <Compile Include="Filters\UserDataSetterMvcFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Att.cs" />
+    <Compile Include="Models\Internationalization.cs" />
+    <Compile Include="Models\Locale.cs" />
+    <Compile Include="Models\TranslationListViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\Authentication\AuthenticateRequest.cs" />
+    <Compile Include="Requests\Internationalization\SetCurrentCultureRequest.cs" />
+    <Compile Include="Requests\Projects\SetContextProjectRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <Content Include="Views\ClassDiagram\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Package\Index.cshtml" />
+    <Content Include="Views\Permission\UserManagement.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Requirement\Index.cshtml" />
+    <Content Include="Views\Requirement\_Details.cshtml" />
+    <Content Include="Views\Requirement\_Form.cshtml" />
+    <Content Include="Views\Requirement\List.cshtml" />
+    <Content Include="Views\Requirement\_Translation.cshtml" />
+    <Content Include="Views\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Views\UseCaseDiagram\Index.cshtml" />
+    <Content Include="Views\Home\Unauthenticated.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_UnauthenticatedLayout.cshtml" />
+    <Content Include="Views\Shared\Internationalization\CurrentCultureSetterForm.cshtml" />
+    <Content Include="Views\Shared\Internationalization\DataToJS.cshtml" />
+    <Content Include="App_Code\TextInputHelper.cshtml" />
+    <Content Include="Views\Project\_Form.cshtml" />
+    <Content Include="Views\Project\_Translation.cshtml" />
+    <Content Include="Views\Project\_Context.cshtml" />
+    <Content Include="Views\Package\_Form.cshtml" />
+    <Content Include="Views\Package\_Translation.cshtml" />
+    <Content Include="Views\Project\_ContentFields.cshtml" />
+    <Content Include="Views\Project\_TranslationList.cshtml" />
+    <Content Include="Views\Package\_TranslationList.cshtml" />
+    <Content Include="Views\Shared\_TranslationListLayout.cshtml" />
+    <Content Include="Views\Requirement\_ContentFields.cshtml" />
+    <Content Include="Views\Requirement\_TranslationList.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Issue\_Create.cshtml" />
+    <Content Include="Views\Issue\_Form.cshtml" />
+    <Content Include="Views\Issue\_ItemIssues.cshtml" />
+    <Content Include="Views\Issue\_List.cshtml" />
+    <Content Include="Views\Issue\_ListModalContainer.cshtml" />
+    <Content Include="Views\Link\_Management.cshtml" />
+    <Content Include="Views\Link\_List.cshtml" />
+    <Content Include="Views\Version\_List.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Help\_SidebarStyle.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Domain\GSDRequirementsCSharp.Domain.csproj">
+      <Project>{5c3dbb38-40d9-4141-a684-ee7d8c35a7ea}</Project>
+      <Name>GSDRequirementsCSharp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Infrastructure\GSDRequirementsCSharp.Infrastructure.csproj">
+      <Project>{7a11a923-4a74-4293-afc7-7350c2f34b31}</Project>
+      <Name>GSDRequirementsCSharp.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSDRequirementsCSharp.Persistence\GSDRequirementsCSharp.Persistence.csproj">
+      <Project>{400b5026-fbc4-4f9a-ad73-de5bb84561ab}</Project>
+      <Name>GSDRequirementsCSharp.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\App\01-Globals\EnumEnumerator.ts" />
+    <TypeScriptCompile Include="Scripts\App\01-Globals\Interfaces\IScope.ts" />
+    <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
+    <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Issue.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IssueComment.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IssueCommentContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IssueContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ItemLink.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Locale.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\NewAccount\UserData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Package.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\PackageContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Permission.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ProfileEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Project.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ProjectContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\Requirement.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalIssueAddController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalItemIssuesController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPermissionAddController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalRequirementTranslationController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalPackageTranslationController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalProjectTranslationController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\NewAccountController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\PackageListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\PermissionController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdIssueCreate.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdItemIssues.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Links\GsdLinksManagement.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslationList.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectContext.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageForm.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectForm.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Packages\GsdPackageTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Projects\GsdProjectTranslationList.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementDetails.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslationList.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementForm.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\Requirements\GsdRequirementTranslation.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49805</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49805/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
