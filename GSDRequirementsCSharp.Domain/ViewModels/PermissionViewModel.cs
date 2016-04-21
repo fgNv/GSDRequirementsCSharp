@@ -17,11 +17,13 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         {
             public string Name { get; set; }
             public string Email { get; set; }
+            public Guid Id { get; set; }
 
             public static ContactViewModel FromModel(Contact model)
             {
                 return new ContactViewModel
                 {
+                    Id = model.Id,
                     Email = model.Email,
                     Name = model.Name
                 };
@@ -31,7 +33,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public class UserViewModel
         {
             public ContactViewModel Contact { get; set; }
-
+            public int Id { get; set; }
 
             public static UserViewModel FromModel(User model)
             {
@@ -40,6 +42,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
                 return new UserViewModel
                 {
+                    Id = model.Id,
                     Contact = ContactViewModel.FromModel(model.Contact)
                 };
             }

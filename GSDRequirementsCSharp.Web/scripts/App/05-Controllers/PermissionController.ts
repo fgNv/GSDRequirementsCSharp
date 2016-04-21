@@ -11,11 +11,7 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class PermissionController {
-        constructor(
-            private $scope: any,
-            private PermissionResource: any,
-            private $uibModal: any
-        ) {
+        constructor($scope, PermissionResource, $uibModal) {
             $scope.save = () => this.Save(PermissionResource, $scope)
             $scope.pendingRequests = 0
             $scope.permissions = []
@@ -31,7 +27,10 @@
                 var modal = $uibModal.open({
                     templateUrl: 'permissionAddModal.html',
                     controller: 'ModalPermissionAddController',
-                    size: 'md'
+                    size: 'md',
+                    resolve: {
+                        'permissionsGrantedPreviously': () => $scope.permissions
+                    }
                 });
                 modal.result.then((data): void => {
                     $scope.permissions.push(data)

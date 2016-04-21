@@ -10,4 +10,3 @@ var Models;
     })();
     Models.IssueCommentContent = IssueCommentContent;
 })(Models || (Models = {}));
-//# sourceMappingURL=IssueCommentContent.js.map

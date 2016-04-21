@@ -4,9 +4,6 @@ var Controllers;
     var PermissionController = (function () {
         function PermissionController($scope, PermissionResource, $uibModal) {
             var _this = this;
-            this.$scope = $scope;
-            this.PermissionResource = PermissionResource;
-            this.$uibModal = $uibModal;
             $scope.save = function () { return _this.Save(PermissionResource, $scope); };
             $scope.pendingRequests = 0;
             $scope.permissions = [];
@@ -18,7 +15,10 @@ var Controllers;
                 var modal = $uibModal.open({
                     templateUrl: 'permissionAddModal.html',
                     controller: 'ModalPermissionAddController',
-                    size: 'md'
+                    size: 'md',
+                    resolve: {
+                        'permissionsGrantedPreviously': function () { return $scope.permissions; }
+                    }
                 });
                 modal.result.then(function (data) {
                     $scope.permissions.push(data);
@@ -67,4 +67,3 @@ var Controllers;
     app.controller('PermissionController', ["$scope", "PermissionResource", "$uibModal",
         PermissionController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=PermissionController.js.map

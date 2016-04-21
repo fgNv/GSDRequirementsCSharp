@@ -4,19 +4,20 @@
     declare var _: any;
     declare var GSDRequirements: Globals.GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    
+
     class ModalPermissionAddController {
-        constructor($scope: any,
-            $uibModalInstance: any,
-            UserResource: any) {
-            
+        constructor($scope, $uibModalInstance, UserResource, permissionsGrantedPreviously) {
+
             $scope.profileOptions = _.filter(Globals.enumerateEnum(Models.profile),
                 (i) => i.value != Models.profile.projectOwner)
 
             $scope.loadingUsers = false;
             $scope.permission = {}
             $scope.permission.profile = Models.profile.editor
-
+            
+            var usersWithPermissionsEmails = _.map(permissionsGrantedPreviously,
+                (p) => p.user.email)
+            
             $scope.getUserLabel = (user) => {
                 if (!user) return "";
                 return `${user.name} (${user.email})`
@@ -25,17 +26,20 @@
             $scope.getUsers = (searchTerm) => {
                 $scope.loadingUsers = true;
                 return UserResource.query({ 'searchTerm': searchTerm })
-                                   .$promise
-                                   .then((r) => {
-                                       return r;
-                                   })
-                                   .catch((error) => {
-                                        Notification.notifyError(Sentences.errorSearchingUsers,
-                                           error.messages)
-                                   })
-                                   .finally((r) => {
-                                       $scope.loadingUsers = false
-                                   })
+                    .$promise
+                    .then((r) => {
+                        return _.filter(r,
+                            (item) => !_.any(usersWithPermissionsEmails,
+                                e => item.email == e)
+                        );
+                    })
+                    .catch((error) => {
+                        Notification.notifyError(Sentences.errorSearchingUsers,
+                            error.messages)
+                    })
+                    .finally((r) => {
+                        $scope.loadingUsers = false
+                    })
             }
 
             $scope.conclude = () => {
@@ -48,6 +52,6 @@
         }
     }
 
-    app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance", "UserResource",
-        ModalPermissionAddController]);
+    app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance",
+        "UserResource", "permissionsGrantedPreviously", ModalPermissionAddController]);
 }
