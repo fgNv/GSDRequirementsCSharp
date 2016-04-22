@@ -14,7 +14,7 @@
 
             var latestVersionContent = <Models.RequirementContent>
                 _.max(requirement.requirementContents,
-                        (c: Models.RequirementContent) => c.version)
+                    (c: Models.RequirementContent) => c.version)
 
             var latestVersion = latestVersionContent.version
 
@@ -25,7 +25,7 @@
 
             $scope.availableLocaleContents = _.filter(GSDRequirements.localesAvailable,
                 l => _.any(requirementLocales, (pl) => pl == l.name))
-            
+
         }
         private clearScope($scope) {
             $scope.availableLocaleContents = []
@@ -47,7 +47,7 @@
                 $scope.originalDescription = ''
                 $scope.originalName = ''
                 $scope.requirement = null;
-                
+
                 $scope.cancel = (): void => {
                     $scope.requirement = null
                     window.location.href = '#'
@@ -63,11 +63,11 @@
                     $scope.displayLocale = $scope.translationsAlreadyProvided[0]
                     setDisplayLocale(newValue, $scope.displayLocale)
                 })
-                
+
                 function setDisplayLocale(requirement, locale) {
                     var content = <Models.RequirementContent>_.find(requirement.requirementContents,
                         (c: Models.RequirementContent) => c.locale == locale)
-                    
+
                     $scope.originalAction = content.action
                     $scope.originalCondition = content.condition
                     $scope.originalSubject = content.subject
@@ -85,7 +85,7 @@
 
                 $scope.save = () => {
                     $scope.pendingRequests++;
-                    
+
                     var request = { id: $scope.requirement.id, items: $scope.translations }
 
                     RequirementTranslationResource.save(request)
@@ -94,11 +94,10 @@
                             Notification.notifySuccess(Sentences.translationAddedSuccessfully);
                             if ($scope.afterSave) { $scope.afterSave() }
                             $scope.requirement = null
-                        })
-                        .catch(function (error) {
+                            window.location.href = "#"
+                        }).catch(function (error) {
                             Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages)
-                        })
-                        .finally(function () {
+                        }).finally(function () {
                             $scope.pendingRequests--;
                         });
                 }

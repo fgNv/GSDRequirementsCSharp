@@ -47,7 +47,7 @@
                     $scope.translationsAlreadyProvided = _.map($scope.availableLocaleContents, (c: Models.Locale) => c.name)
                     $scope.displayLocale = $scope.translationsAlreadyProvided[0]
 
-                    setDisplayLocale(newValue, $scope.displayLocale) 
+                    setDisplayLocale(newValue, $scope.displayLocale)
                 })
 
                 function setDisplayLocale(packageEntity, locale) {
@@ -74,11 +74,10 @@
                             Notification.notifySuccess(Sentences.translationAddedSuccessfully);
                             if ($scope.afterSave) { $scope.afterSave() }
                             $scope.package = null
-                        })
-                        .catch(function (error) {
+                            window.location.href = "#"
+                        }).catch(function (error) {
                             Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages)
-                        })
-                        .finally(function () {
+                        }).finally(function () {
                             $scope.pendingRequests--;
                         });
                 }
