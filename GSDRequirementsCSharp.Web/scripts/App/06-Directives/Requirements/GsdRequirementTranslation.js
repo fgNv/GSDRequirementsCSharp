@@ -59,11 +59,10 @@ var Directives;
                                 $scope.afterSave();
                             }
                             $scope.requirement = null;
-                        })
-                            .catch(function (error) {
+                            window.location.href = "#";
+                        }).catch(function (error) {
                             Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages);
-                        })
-                            .finally(function () {
+                        }).finally(function () {
                             $scope.pendingRequests--;
                         });
                     };

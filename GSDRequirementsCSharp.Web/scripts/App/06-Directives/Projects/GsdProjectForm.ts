@@ -47,6 +47,7 @@
                     Notification.notifySuccess(successMessage);
                     $scope.$emit(Globals.EventNames.projectListChanged)
                     if ($scope.afterSave) { $scope.afterSave() }
+                    window.location.href = "#"
                     $scope.project = null
                 }).catch((error): void=> {
                     Notification.notifyError(Sentences.errorSavingProject, error.data.messages)

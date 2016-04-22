@@ -72,6 +72,7 @@
                         if ($scope.afterSave) { $scope.afterSave() }
                         $scope.project = null
                         $scope.$emit(Globals.EventNames.projectListChanged)
+                        window.location.href = "#"
                     })
                     .catch(function (error) {
                         Notification.notifyError(Sentences.errorAddingTranslation, error.data.messages)

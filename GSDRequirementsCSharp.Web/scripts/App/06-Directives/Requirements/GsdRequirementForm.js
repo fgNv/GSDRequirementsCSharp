@@ -47,18 +47,16 @@ var Directives;
                         var successMessage = $scope.requirement.id ?
                             Sentences.requirementUpdatedSuccessfully :
                             Sentences.requirementSuccessfullyCreated;
-                        promise
-                            .then(function () {
+                        promise.then(function () {
                             Notification.notifySuccess(successMessage);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
                             }
                             $scope.requirement = null;
-                        })
-                            .catch(function (error) {
+                            window.location.href = "#";
+                        }).catch(function (error) {
                             Notification.notifyError(Sentences.errorSavingRequirement, error.data.messages);
-                        })
-                            .finally(function () {
+                        }).finally(function () {
                             $scope.pendingRequests--;
                         });
                     };

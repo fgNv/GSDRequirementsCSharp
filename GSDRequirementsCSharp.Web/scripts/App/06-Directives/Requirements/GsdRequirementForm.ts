@@ -31,15 +31,15 @@
                 $scope.translations = []
                 var currentLocale = _.find(GSDRequirements.localesAvailable,
                     (l) => l.name == GSDRequirements.currentLocale)
-                
+
                 $scope.translationsAlreadyProvided = [
                     currentLocale,
                     GSDRequirements.currentLocale
                 ]
-                
+
                 this.LoadPackagesOptions(PackageResource, $scope)
 
-                $scope.cancel = () : void => {
+                $scope.cancel = (): void => {
                     $scope.requirement = null
                     window.location.href = '#'
                 }
@@ -79,19 +79,16 @@
                         Sentences.requirementUpdatedSuccessfully :
                         Sentences.requirementSuccessfullyCreated;
 
-                    promise
-                        .then((): void => {
-                            Notification.notifySuccess(successMessage);
-
-                            if ($scope.afterSave) { $scope.afterSave() }
-                            $scope.requirement = null
-                        })
-                        .catch((error) => {
-                            Notification.notifyError(Sentences.errorSavingRequirement, error.data.messages)
-                        })
-                        .finally(() => {
-                            $scope.pendingRequests--;
-                        });
+                    promise.then((): void => {
+                        Notification.notifySuccess(successMessage);
+                        if ($scope.afterSave) { $scope.afterSave() }
+                        $scope.requirement = null
+                        window.location.href = "#"
+                    }).catch((error) => {
+                        Notification.notifyError(Sentences.errorSavingRequirement, error.data.messages)
+                    }).finally(() => {
+                        $scope.pendingRequests--;
+                    });
                 }
             }]
         public static Factory() {
