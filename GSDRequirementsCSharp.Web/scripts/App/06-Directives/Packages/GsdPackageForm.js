@@ -35,11 +35,10 @@ var Directives;
                                 $scope.afterSave();
                             }
                             $scope.package = null;
-                        })
-                            .catch(function (error) {
+                            window.location.href = "#";
+                        }).catch(function (error) {
                             Notification.notifyError(Sentences.errorSavingPackage, error.data.messages);
-                        })
-                            .finally(function () {
+                        }).finally(function () {
                             $scope.pendingRequests--;
                         });
                     };

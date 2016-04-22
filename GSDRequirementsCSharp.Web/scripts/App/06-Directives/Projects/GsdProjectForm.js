@@ -36,6 +36,7 @@ var Directives;
                             if ($scope.afterSave) {
                                 $scope.afterSave();
                             }
+                            window.location.href = "#";
                             $scope.project = null;
                         }).catch(function (error) {
                             Notification.notifyError(Sentences.errorSavingProject, error.data.messages);

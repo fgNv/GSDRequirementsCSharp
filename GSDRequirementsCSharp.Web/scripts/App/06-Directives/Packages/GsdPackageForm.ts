@@ -44,14 +44,13 @@
                 promise.then(function () {
                     Notification.notifySuccess(successMessage);
                     if ($scope.afterSave) { $scope.afterSave() }
-                        $scope.package = null
-                    })
-                    .catch(function (error) {
-                        Notification.notifyError(Sentences.errorSavingPackage, error.data.messages)
-                    })
-                    .finally(function () {
-                        $scope.pendingRequests--;
-                    });
+                    $scope.package = null
+                    window.location.href = "#"
+                }).catch(function (error) {
+                    Notification.notifyError(Sentences.errorSavingPackage, error.data.messages)
+                }).finally(function () {
+                    $scope.pendingRequests--;
+                });
             }
         }]
         public static Factory() {
