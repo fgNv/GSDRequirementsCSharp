@@ -273,6 +273,7 @@
     <Content Include="Views\Project\Details.cshtml" />
     <Content Include="Views\Shared\_DiagramContainerLayout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\ClassDiagram\_Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -303,6 +304,7 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
@@ -338,6 +340,7 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Directives\ClassDiagram\GsdClassDiagramForm.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdIssueCreate.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Issues\GsdItemIssues.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Directives\Links\GsdLinksManagement.ts" />
