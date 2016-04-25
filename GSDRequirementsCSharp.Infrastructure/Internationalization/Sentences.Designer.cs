@@ -331,6 +331,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class diagram inactivated successfully.
+        /// </summary>
+        public static string classDiagramInactivatedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramInactivatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagrams.
         /// </summary>
         public static string classDiagrams {
@@ -592,6 +601,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error inactivating class diagram.
+        /// </summary>
+        public static string errorInactivatingClassDiagram {
+            get {
+                return ResourceManager.GetString("errorInactivatingClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error inactivating package.
         /// </summary>
         public static string errorInactivatingPackage {
@@ -615,6 +633,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorInactivatingRequirement {
             get {
                 return ResourceManager.GetString("errorInactivatingRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading class diagrams.
+        /// </summary>
+        public static string errorLoadingClassDiagrams {
+            get {
+                return ResourceManager.GetString("errorLoadingClassDiagrams", resourceCulture);
             }
         }
         

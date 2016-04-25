@@ -156,6 +156,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\ClassDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueConclusionResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueResource.js" />
@@ -270,6 +271,8 @@
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\Help\_SidebarStyle.cshtml" />
     <Content Include="Views\Project\Details.cshtml" />
+    <Content Include="Views\Shared\_DiagramContainerLayout.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -321,6 +324,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\ClassDiagramListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalIssueAddController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalItemIssuesController.ts" />

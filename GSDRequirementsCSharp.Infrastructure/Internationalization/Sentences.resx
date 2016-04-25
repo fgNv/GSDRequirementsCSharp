@@ -717,4 +717,13 @@
   <data name="projectDetails" xml:space="preserve">
     <value>Project details</value>
   </data>
+  <data name="errorLoadingClassDiagrams" xml:space="preserve">
+    <value>Error loading class diagrams</value>
+  </data>
+  <data name="classDiagramInactivatedSuccessfully" xml:space="preserve">
+    <value>Class diagram inactivated successfully</value>
+  </data>
+  <data name="errorInactivatingClassDiagram" xml:space="preserve">
+    <value>Error inactivating class diagram</value>
+  </data>
 </root>

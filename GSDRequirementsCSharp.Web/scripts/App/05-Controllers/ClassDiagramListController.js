@@ -2,12 +2,12 @@ var Controllers;
 (function (Controllers) {
     var UserData = NewAccount.UserData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    var PackageListController = (function () {
-        function PackageListController($scope, PackageResource, $rootScope, $location) {
+    var ClassDiagramListController = (function () {
+        function ClassDiagramListController($scope, ClassDiagramResource, $rootScope, $location) {
             var _this = this;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
-            $scope.packages = [];
+            $scope.classDiagrams = [];
             var pageSize = 10;
             $scope.pendingRequests = 0;
             $scope.hasEditPermission =
@@ -15,74 +15,71 @@ var Controllers;
                     GSDRequirements.currentProfile == Models.profile.projectOwner;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
-                $scope.loadPackages();
+                $scope.loadClassDiagrams();
             };
-            $scope.addPackage = function () {
-                $scope.currentPackage = {};
+            $scope.addClassDiagram = function () {
+                $scope.currentClassDiagram = {};
                 window.location.href = "#/form";
             };
             $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
                 var pathValues = $location.path().split('/');
                 var step = pathValues[1];
                 if (!step) {
-                    $scope.currentPackage = null;
-                    $scope.packageToTranslate = null;
+                    $scope.currentClassDiagram = null;
+                    $scope.classDiagramToTranslate = null;
                 }
             });
             window.location.href = "#";
-            $scope.setCurrentPackage = function (p) {
-                $scope.currentPackage = p;
+            $scope.setCurrentClassDiagram = function (cd) {
+                $scope.currentClassDiagram = cd;
                 window.location.href = "#/form";
             };
-            $scope.setPackageToTranslate = function (p) {
-                $scope.packageToTranslate = p;
-                window.location.href = "#/translate";
-            };
-            $scope.loadPackages = function () { return _this.LoadPackages(PackageResource, $scope, pageSize); };
+            $scope.loadClassDiagrams = function () { return _this.LoadClassDiagrams(ClassDiagramResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
-            $scope.inactivatePackage = function (p) {
-                _this.InactivatePackage(PackageResource, $scope, p);
+            $scope.inactivateClassDiagrams = function (p) {
+                _this.InactivateClassDiagram(ClassDiagramResource, $scope, p);
             };
-            $scope.loadPackages();
+            $scope.loadClassDiagrams();
             $scope.UserData = new UserData();
         }
-        PackageListController.prototype.InactivatePackage = function (packageResource, $scope, packageEntity) {
+        ClassDiagramListController.prototype.InactivateClassDiagram = function (classDiagramResource, $scope, classDiagram) {
             if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
                 return;
             }
             $scope.pendingRequests++;
-            packageResource.remove({ id: packageEntity.id })
+            classDiagramResource.remove({ id: classDiagram.id })
                 .$promise
                 .then(function (r) {
-                Notification.notifySuccess(Sentences.packageInactivatedSuccessfully);
-                $scope.loadPackages();
+                Notification.notifySuccess(Sentences.classDiagramInactivatedSuccessfully);
+                $scope.loadClassDiagrams();
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorInactivatingPackage, error.messages);
+                Notification.notifyError(Sentences.errorInactivatingClassDiagram, error.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
             });
         };
-        PackageListController.prototype.LoadPackages = function (packageResource, $scope, size) {
+        ClassDiagramListController.prototype.LoadClassDiagrams = function (classDiagramResource, $scope, size) {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size };
-            packageResource.get(request)
+            classDiagramResource.get(request)
                 .$promise
                 .then(function (response) {
-                $scope.packages = _.map(response.packages, function (p) { return new Models.Package(p); });
+                $scope.classDiagrams = _.map(response.classDiagrams, function (p) { return new Models.ClassDiagram(p); });
                 $scope.maxPages = response.maxPages;
             })
                 .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
+                Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
             });
         };
-        return PackageListController;
+        return ClassDiagramListController;
     })();
-    app.controller('PackageListController', ["$scope", "PackageResource", "$rootScope", "$location", PackageListController]);
+    app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
+        "$rootScope", "$location", ClassDiagramListController]);
 })(Controllers || (Controllers = {}));

@@ -1,5 +1,11 @@
 ﻿<!DOCTYPE html>
 
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Context
+@using GSDRequirementsCSharp.Web.Models;
+@using System.Threading
+@using Models = GSDRequirementsCSharp.Domain.Models
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -11,7 +17,7 @@
 
     @Html.Partial("~/Views/Shared/Internationalization/DataToJS.cshtml")
 </head>
-<body data-ng-app="app" data-ng-controller="MainController" class="hidden-pre-load">
+<body data-ng-app="app" data-ng-controller="MainController">
 
     @Html.Partial("_Menu")
 

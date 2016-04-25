@@ -1,12 +1,12 @@
 var Models;
 (function (Models) {
-    var SpecificationItem = (function () {
-        function SpecificationItem(data) {
+    var ClassDiagram = (function () {
+        function ClassDiagram(data) {
             for (var prop in data) {
                 this[prop] = data[prop];
             }
         }
-        return SpecificationItem;
+        return ClassDiagram;
     })();
-    Models.SpecificationItem = SpecificationItem;
+    Models.ClassDiagram = ClassDiagram;
 })(Models || (Models = {}));

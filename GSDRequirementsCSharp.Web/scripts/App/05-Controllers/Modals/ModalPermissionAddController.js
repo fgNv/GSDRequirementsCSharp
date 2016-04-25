@@ -39,4 +39,3 @@ var Controllers;
     app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance",
         "UserResource", "permissionsGrantedPreviously", ModalPermissionAddController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalPermissionAddController.js.map

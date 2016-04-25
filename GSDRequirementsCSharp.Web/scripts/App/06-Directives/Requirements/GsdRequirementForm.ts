@@ -10,8 +10,7 @@
     class GsdRequirementForm {
         public scope = { 'requirement': '=requirement', 'afterSave': '=afterSave' };
         public templateUrl = GSDRequirements.baseUrl + 'requirement/form'
-        private LoadPackagesOptions(packageResource: any,
-            $scope: any): void {
+        private LoadPackagesOptions(packageResource, $scope): void {
             $scope.pendingRequests++
             packageResource.query()
                 .$promise
