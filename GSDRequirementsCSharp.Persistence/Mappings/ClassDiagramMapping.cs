@@ -24,6 +24,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             HasKey(cd => new { cd.Id, cd.Version });
 
+            HasMany(cd => cd.Classes).WithRequired();
+
+            HasMany(cd => cd.Relationships).WithRequired();
+
             HasRequired(cd => cd.Project).WithMany()
                                          .HasForeignKey(cd => cd.ProjectId);
         }

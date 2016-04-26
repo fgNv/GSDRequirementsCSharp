@@ -305,7 +305,15 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
-    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassMethod.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassMethodParameter.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassProperty.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassRelationship.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassType.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\RelationType.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\Visibility.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />

@@ -29,6 +29,9 @@ var Controllers;
                     $scope.classDiagramToTranslate = null;
                 }
             });
+            $scope.getPaginationRange = function () {
+                return _.range(1, $scope.maxPages + 1);
+            };
             window.location.href = "#";
             $scope.setCurrentClassDiagram = function (cd) {
                 $scope.currentClassDiagram = cd;

@@ -1,5 +1,6 @@
 namespace GSDRequirementsCSharp.Domain
 {
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace GSDRequirementsCSharp.Domain
         [StringLength(100)]
         public string ReturnType { get; set; }
 
-        public int Visibility { get; set; }
+        public Visibility Visibility { get; set; }
 
         public Guid ClassId { get; set; }
 

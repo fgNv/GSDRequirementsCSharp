@@ -23,6 +23,10 @@ namespace GSDRequirementsCSharp.Domain
 
         public bool Active { get; set; }
 
+        public ICollection<Class> Classes { get; set; }
+
+        public ICollection<ClassRelationship> Relationships { get; set; }
+
         public virtual ICollection<ClassDiagramContent> Contents
         {
             get; set;

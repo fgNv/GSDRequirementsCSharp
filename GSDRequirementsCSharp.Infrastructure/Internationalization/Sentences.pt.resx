@@ -726,4 +726,13 @@
   <data name="errorInactivatingClassDiagram" xml:space="preserve">
     <value>Erro ao inativar diagrama de classes</value>
   </data>
+  <data name="addClassDiagram" xml:space="preserve">
+    <value>Adicionar diagrama de classe</value>
+  </data>
+  <data name="inactivateClassDiagram" xml:space="preserve">
+    <value>Remover diagrama de classe</value>
+  </data>
+  <data name="noClassDiagramsRegistered" xml:space="preserve">
+    <value>Nenhum diagrama de classe cadastrado</value>
+  </data>
 </root>

@@ -16,7 +16,6 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             Property(c => c.Id).HasColumnName("id");
             Property(c => c.Visibility).HasColumnName("visibility");
-            Property(c => c.ClassDiagramId).HasColumnName("class_diagram_id");
             Property(c => c.Type).HasColumnName("type");
             Property(c => c.Name).HasColumnName("name");
 

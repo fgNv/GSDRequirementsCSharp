@@ -8,14 +8,20 @@
     declare var $: any;
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    
+
     var paperElementId = '#classDiagramPaper'
 
     function startGraph() {
+        var element = $(paperElementId);
+        if (element.length == 0) {
+            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"))
+            var element = $(paperElementId);
+        }
+
         var graph = new joint.dia.Graph();
 
         var paper = new joint.dia.Paper({
-            el: $(paperElementId),
+            el: element,
             width: 800,
             height: 600,
             gridSize: 1,
@@ -201,15 +207,48 @@
         ];
 
         _.each(relations, function (r) { graph.addCell(r); });
+
+        return { graph: graph, paper: paper };
     }
-    
+
     class GsdClassDiagramForm {
         public scope = {
             'classDiagram': '=classDiagram',
             'afterSave': '=afterSave'
         };
-        public controller = ['$timeout', ($timeout) => {
-            $timeout(startGraph)
+        public controller = ['$timeout', '$scope', ($timeout, $scope) => {
+            var graph = null;
+            var paper = null;
+            $scope.classes = []
+            $scope.relations = []
+
+            $scope.$watch('classDiagram', (newValue, oldValue) => {
+                $scope.classes = []
+                $scope.relations = []
+                if (graph) {
+                    graph.clear()
+                    paper.remove()
+                }
+
+                if (newValue) {
+                    $timeout((): void => {
+                        var result = startGraph()
+                        graph = result.graph
+                        paper = result.paper
+                    })
+                } else {
+                    graph = null
+                    paper = null
+                }
+            });
+
+            $scope.removeClass = (classEntity) => {
+                $scope.classes
+            }
+
+            $scope.addClass = (data) => {
+
+            }
         }]
         public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'
         public static Factory() {

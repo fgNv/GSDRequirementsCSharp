@@ -88,6 +88,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add class diagram.
+        /// </summary>
+        public static string addClassDiagram {
+            get {
+                return ResourceManager.GetString("addClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add comment.
         /// </summary>
         public static string addComment {
@@ -880,6 +889,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inactivate class diagram.
+        /// </summary>
+        public static string inactivateClassDiagram {
+            get {
+                return ResourceManager.GetString("inactivateClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inactivate package.
         /// </summary>
         public static string inactivatePackage {
@@ -1191,6 +1209,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string noArtifactsAvailableToLink {
             get {
                 return ResourceManager.GetString("noArtifactsAvailableToLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No class diagrams registered.
+        /// </summary>
+        public static string noClassDiagramsRegistered {
+            get {
+                return ResourceManager.GetString("noClassDiagramsRegistered", resourceCulture);
             }
         }
         

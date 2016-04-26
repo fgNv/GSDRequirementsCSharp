@@ -3,9 +3,14 @@ var Directives;
     var app = angular.module(GSDRequirements.angularModuleName);
     var paperElementId = '#classDiagramPaper';
     function startGraph() {
+        var element = $(paperElementId);
+        if (element.length == 0) {
+            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"));
+            var element = $(paperElementId);
+        }
         var graph = new joint.dia.Graph();
         var paper = new joint.dia.Paper({
-            el: $(paperElementId),
+            el: element,
             width: 800,
             height: 600,
             gridSize: 1,
@@ -180,6 +185,7 @@ var Directives;
             })
         ];
         _.each(relations, function (r) { graph.addCell(r); });
+        return { graph: graph, paper: paper };
     }
     var GsdClassDiagramForm = (function () {
         function GsdClassDiagramForm() {
@@ -187,8 +193,35 @@ var Directives;
                 'classDiagram': '=classDiagram',
                 'afterSave': '=afterSave'
             };
-            this.controller = ['$timeout', function ($timeout) {
-                    $timeout(startGraph);
+            this.controller = ['$timeout', '$scope', function ($timeout, $scope) {
+                    var graph = null;
+                    var paper = null;
+                    $scope.classes = [];
+                    $scope.relations = [];
+                    $scope.$watch('classDiagram', function (newValue, oldValue) {
+                        $scope.classes = [];
+                        $scope.relations = [];
+                        if (graph) {
+                            graph.clear();
+                            paper.remove();
+                        }
+                        if (newValue) {
+                            $timeout(function () {
+                                var result = startGraph();
+                                graph = result.graph;
+                                paper = result.paper;
+                            });
+                        }
+                        else {
+                            graph = null;
+                            paper = null;
+                        }
+                    });
+                    $scope.removeClass = function (classEntity) {
+                        $scope.classes;
+                    };
+                    $scope.addClass = function (data) {
+                    };
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/form';
         }

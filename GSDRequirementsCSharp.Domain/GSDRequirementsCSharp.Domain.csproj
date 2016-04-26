@@ -131,6 +131,7 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectContent.cs" />
+    <Compile Include="Models\RelationType.cs" />
     <Compile Include="Models\Requirement.cs" />
     <Compile Include="Models\RequirementContent.cs" />
     <Compile Include="Models\RequirementRisk.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserCase.cs" />
     <Compile Include="Models\VersionKey.cs" />
+    <Compile Include="Models\Visibility.cs" />
     <Compile Include="Permissions\CommandHandlerPermissionDecorator.cs" />
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,9 +5,78 @@
     Layout = "~/Views/Shared/_DiagramContainerLayout.cshtml";
 }
 
-<h2>@Sentences.classDiagrams</h2>
-
 <div data-ng-controller="ClassDiagramListController">
 
-    <gsd-class-diagram-form></gsd-class-diagram-form>
+    <h2>
+        @Sentences.classDiagrams
+        <button class="btn btn-primary"
+                data-ng-show="!currentClassDiagram && !classDiagramToTranslate && 
+                              hasEditPermission"
+                title="@Sentences.addClassDiagram"
+                data-ng-click="addClassDiagram()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <article data-ng-show="!currentClassDiagram && !classDiagramToTranslate">
+        <div class="alert alert-info" data-ng-show="classDiagrams.length == 0">
+            @Sentences.noClassDiagramsRegistered
+        </div>
+
+        <article data-ng-show="classDiagrams.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="classDiagram in classDiagrams">
+                        <td>
+                            CD{{classDiagram.identifier}}
+                        </td>
+                        <td>{{classDiagram.description}}</td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.edit"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setCurrentClassDiagram(classDiagram)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="inactivateClassDiagram(classDiagram)"
+                                    title="@Sentences.inactivateClassDiagram">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-click="setClassDiagramToTranslate(classDiagram)"
+                                    data-ng-show="classDiagram.canAddTranslation() && hasEditPermission"
+                                    title="@Sentences.addTranslation">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+
+    <gsd-class-diagram-form data-after-save="loadClassDiagrams"
+             data-class-diagram="currentClassDiagram"
+             data-ng-show="currentClassDiagram">
+    </gsd-class-diagram-form>
 </div>
