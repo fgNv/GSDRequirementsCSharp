@@ -111,15 +111,13 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\Class.cs" />
-    <Compile Include="Models\ClassContent.cs" />
     <Compile Include="Models\ClassDiagram.cs" />
+    <Compile Include="Models\ClassDiagramContent.cs" />
     <Compile Include="Models\ClassMethod.cs" />
-    <Compile Include="Models\ClassMethodContent.cs" />
     <Compile Include="Models\ClassMethodParameter.cs" />
-    <Compile Include="Models\ClassMethodParameterContent.cs" />
     <Compile Include="Models\ClassProperty.cs" />
-    <Compile Include="Models\ClassPropertyContent.cs" />
     <Compile Include="Models\ClassRelationship.cs" />
+    <Compile Include="Models\ClassType.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Issue.cs" />
@@ -158,6 +156,7 @@
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
+    <Compile Include="ViewModels\ClassDiagramViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentContentViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentViewModel.cs" />
     <Compile Include="ViewModels\IssueContentViewModel.cs" />

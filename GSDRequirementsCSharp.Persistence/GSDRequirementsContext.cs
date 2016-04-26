@@ -28,14 +28,10 @@ namespace GSDRequirementsCSharp.Persistence
 
         public virtual DbSet<Actor> Actors { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<ClassContent> ClassContents { get; set; }
         public virtual DbSet<ClassDiagram> ClassDiagrams { get; set; }
         public virtual DbSet<ClassMethod> ClassMethods { get; set; }
-        public virtual DbSet<ClassMethodContent> ClassMethodContents { get; set; }
         public virtual DbSet<ClassMethodParameter> ClassMethodParameters { get; set; }
-        public virtual DbSet<ClassMethodParameterContent> ClassMethodParameterContents { get; set; }
         public virtual DbSet<ClassProperty> ClassProperties { get; set; }
-        public virtual DbSet<ClassPropertyContent> ClassPropertyContents { get; set; }
         public virtual DbSet<ClassRelationship> ClassRelationships { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Issue> Issues { get; set; }
@@ -57,14 +53,11 @@ namespace GSDRequirementsCSharp.Persistence
 
             modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new ClassMapping());
-            modelBuilder.Configurations.Add(new ClassContentMapping());
             modelBuilder.Configurations.Add(new ClassDiagramMapping());
+            modelBuilder.Configurations.Add(new ClassDiagramContentMapping());
             modelBuilder.Configurations.Add(new ClassMethodMapping());
-            modelBuilder.Configurations.Add(new ClassMethodContentMapping());
             modelBuilder.Configurations.Add(new ClassMethodParameterMapping());
-            modelBuilder.Configurations.Add(new ClassMethodParameterContentMapping());
             modelBuilder.Configurations.Add(new ClassPropertyMapping());
-            modelBuilder.Configurations.Add(new ClassPropertyContentMapping());
             modelBuilder.Configurations.Add(new ClassRelationshipMapping());
             modelBuilder.Configurations.Add(new ContactMapping());
             modelBuilder.Configurations.Add(new IssueMapping());

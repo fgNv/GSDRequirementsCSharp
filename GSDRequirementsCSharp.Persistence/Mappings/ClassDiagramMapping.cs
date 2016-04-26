@@ -13,15 +13,19 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         public ClassDiagramMapping()
         {
             ToTable("ClassDiagram");
-            HasKey(cd => new { cd.Id, cd.Locale });
             Property(cd => cd.Id).HasColumnName("id");
-            Property(cd => cd.Name).HasColumnName("name");
-            Property(cd => cd.Locale).HasColumnName("locale");
+            HasMany(cd => cd.Contents).WithRequired();
+            Property(c => c.Version).HasColumnName("version");
+            Property(c => c.Identifier).HasColumnName("identifier");
+            Property(c => c.IsLastVersion).HasColumnName("is_last_version");
 
-            Property(e => e.Name)
-                            .IsUnicode(false);
-            Property(e => e.Locale)
-                            .IsUnicode(false);
+            Property(cd => cd.Active).HasColumnName("active");
+            Property(cd => cd.ProjectId).HasColumnName("project_id");
+
+            HasKey(cd => new { cd.Id, cd.Version });
+
+            HasRequired(cd => cd.Project).WithMany()
+                                         .HasForeignKey(cd => cd.ProjectId);
         }
     }
 }

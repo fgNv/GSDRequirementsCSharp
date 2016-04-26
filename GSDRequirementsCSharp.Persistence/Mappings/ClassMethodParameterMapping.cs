@@ -16,12 +16,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.ClassMethodId).HasColumnName("class_method_id");
             Property(e => e.Type).HasColumnName("type");
+            Property(c => c.Name).HasColumnName("name");
 
             Property(e => e.Type)
                             .IsUnicode(false);
-            HasMany(e => e.ClassMethodParameterContents)
-                            .WithRequired(e => e.ClassMethodParameter)
-                            .WillCascadeOnDelete(false);
         }
     }
 }

@@ -68,14 +68,11 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />
-    <Compile Include="Mappings\ClassContentMapping.cs" />
+    <Compile Include="Mappings\ClassDiagramContentMapping.cs" />
     <Compile Include="Mappings\ClassDiagramMapping.cs" />
     <Compile Include="Mappings\ClassMapping.cs" />
-    <Compile Include="Mappings\ClassMethodContentMapping.cs" />
     <Compile Include="Mappings\ClassMethodMapping.cs" />
-    <Compile Include="Mappings\ClassMethodParameterContentMapping.cs" />
     <Compile Include="Mappings\ClassMethodParameterMapping.cs" />
-    <Compile Include="Mappings\ClassPropertyContentMapping.cs" />
     <Compile Include="Mappings\ClassPropertyMapping.cs" />
     <Compile Include="Mappings\ClassRelationshipMapping.cs" />
     <Compile Include="Mappings\ContactMapping.cs" />
@@ -118,8 +115,15 @@
     <Compile Include="Migrations\201604141340046_specification-item-label.Designer.cs">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604261149252_class-diagram.cs" />
+    <Compile Include="Migrations\201604261149252_class-diagram.Designer.cs">
+      <DependentUpon>201604261149252_class-diagram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryResult.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQuery.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQueryHandler.cs" />
@@ -199,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604141340046_specification-item-label.resx">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261149252_class-diagram.resx">
+      <DependentUpon>201604261149252_class-diagram.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

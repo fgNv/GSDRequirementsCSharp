@@ -52,7 +52,6 @@
                         'ref-y': 0.5,
                         'y-alignment': 'middle'
                     }
-
                 }
             }),
 

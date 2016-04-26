@@ -9,3 +9,4 @@ var Globals;
     })();
     Globals.EventNames = EventNames;
 })(Globals || (Globals = {}));
+//# sourceMappingURL=EventNames.js.map

@@ -86,3 +86,4 @@ var Controllers;
     })();
     app.controller('PackageListController', ["$scope", "PackageResource", "$rootScope", "$location", PackageListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=PackageListController.js.map

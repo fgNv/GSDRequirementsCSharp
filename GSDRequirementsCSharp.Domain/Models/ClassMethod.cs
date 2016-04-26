@@ -9,7 +9,6 @@ namespace GSDRequirementsCSharp.Domain
     {
         public ClassMethod()
         {
-            ClassMethodContents = new HashSet<ClassMethodContent>();
             ClassMethodParameters = new HashSet<ClassMethodParameter>();
         }
 
@@ -23,9 +22,11 @@ namespace GSDRequirementsCSharp.Domain
         public Guid ClassId { get; set; }
 
         public virtual Class Class { get; set; }
-        
-        public virtual ICollection<ClassMethodContent> ClassMethodContents { get; set; }
-        
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
         public virtual ICollection<ClassMethodParameter> ClassMethodParameters { get; set; }
     }
 }
