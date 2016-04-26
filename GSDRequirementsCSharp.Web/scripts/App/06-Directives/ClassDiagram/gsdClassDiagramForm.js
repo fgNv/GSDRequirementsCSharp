@@ -29,6 +29,9 @@ var Directives;
     }
     function buildConcrete(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 20;
+        console.log('height');
+        console.log(height);
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
             size: { width: 220, height: height },
@@ -332,7 +335,8 @@ var Directives;
                         }
                         if (!cell)
                             return;
-                        graph.addCell(cell);
+                        $scope.currentClass = null;
+                        $timeout(function () { graph.addCell(cell); });
                     };
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/form';

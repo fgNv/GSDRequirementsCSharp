@@ -1,14 +1,14 @@
 ﻿module Models {
     export class ClassProperty {
         public id: string
-        public returnType: string
+        public type: string
         public name: string
         public Visibility: Visibility
 
         public getDescription() {
             var visibility = this.Visibility == Visibility.Public ? "+" : "-"
 
-            return `${visibility} ${this.name} : ${this.returnType}`
+            return `${visibility} ${this.name} : ${this.type}`
         }
 
         public constructor(data: any = null) {

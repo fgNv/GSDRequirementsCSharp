@@ -11,7 +11,7 @@ var Models;
         }
         ClassProperty.prototype.getDescription = function () {
             var visibility = this.Visibility == Models.Visibility.Public ? "+" : "-";
-            return visibility + " " + this.name + " : " + this.returnType;
+            return visibility + " " + this.name + " : " + this.type;
         };
         return ClassProperty;
     })();

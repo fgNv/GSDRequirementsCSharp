@@ -1,7 +1,7 @@
 ﻿module Directives {
 
     import GSDRequirementsData = Globals.GSDRequirementsData
-    
+
     declare var angular: any;
     declare var _: any;
     declare var joint: any;
@@ -42,6 +42,9 @@
 
     function buildConcrete(classData: Models.ClassData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 20
+        console.log('height')
+        console.log(height)
 
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
@@ -86,7 +89,7 @@
             attributes: _.map(classData.classProperties,
                 (p: Models.ClassProperty): string => p.getDescription()),
             methods: _.map(classData.classMethods,
-                           (p: Models.ClassMethod) => p.getDescription()),
+                (p: Models.ClassMethod) => p.getDescription()),
             attrs: {
                 '.uml-class-name-rect': {
                     fill: '#feb662',
@@ -371,11 +374,13 @@
                     case Models.ClassType.Interface:
                         cell = buildInterface(data)
                         break
-                } 
+                }
 
                 if (!cell) return
 
-                graph.addCell(cell)
+                $scope.currentClass = null
+                $timeout((): void => { graph.addCell(cell) })
+
             }
         }]
         public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'
