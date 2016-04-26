@@ -1,10 +1,14 @@
 var Models;
 (function (Models) {
-    var ClassPropertyData = (function () {
-        function ClassPropertyData() {
+    var ClassProperty = (function () {
+        function ClassProperty() {
         }
-        return ClassPropertyData;
+        ClassProperty.prototype.getDescription = function () {
+            var visibility = this.Visibility == Models.Visibility.Public ? "+" : "-";
+            return visibility + " " + this.name + " : " + this.returnType;
+        };
+        return ClassProperty;
     })();
-    Models.ClassPropertyData = ClassPropertyData;
+    Models.ClassProperty = ClassProperty;
 })(Models || (Models = {}));
 //# sourceMappingURL=ClassProperty.js.map

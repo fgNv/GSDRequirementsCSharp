@@ -3,7 +3,7 @@
         public id : string
         public type: ClassType
         public classMethods: Array<ClassMethod>
-        public classProperties: Array<ClassPropertyData>
+        public classProperties: Array<ClassProperty>
         public name: string
     }
 }

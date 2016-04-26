@@ -1,7 +1,7 @@
 ﻿module Directives {
 
     import GSDRequirementsData = Globals.GSDRequirementsData
-
+    
     declare var angular: any;
     declare var _: any;
     declare var joint: any;
@@ -10,6 +10,107 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     var paperElementId = '#classDiagramPaper'
+
+    function buildAbstract(classData: Models.ClassData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+
+        return new joint.shapes.uml.Abstract({
+            position: { x: 80, y: 80 },
+            size: { width: 260, height: 100 },
+            name: classData.name,
+            attributes: _.map(classData.classProperties,
+                (p: Models.ClassProperty): string => p.getDescription()),
+            methods: _.map(classData.classMethods,
+                (p: Models.ClassMethod) => p.getDescription()),
+            attrs: {
+                '.uml-class-name-rect': {
+                    fill: '#68ddd5',
+                    stroke: '#ffffff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-attrs-rect, .uml-class-methods-rect': {
+                    fill: '#9687fe',
+                    stroke: '#fff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-methods-text, .uml-class-attrs-text': {
+                    fill: '#fff'
+                }
+            }
+        })
+    }
+
+    function buildConcrete(classData: Models.ClassData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+
+        return new joint.shapes.uml.Class({
+            position: { x: 20, y: 20 },
+            size: { width: 220, height: height },
+            name: classData.name,
+            attributes: _.map(classData.classProperties,
+                (p: Models.ClassProperty): string => p.getDescription()),
+            methods: _.map(classData.classMethods,
+                (p: Models.ClassMethod) => p.getDescription()),
+            attrs: {
+                '.uml-class-name-rect': {
+                    fill: '#ff8450',
+                    stroke: '#fff',
+                    'stroke-width': 0.5,
+                },
+                '.uml-class-attrs-rect, .uml-class-methods-rect': {
+                    fill: '#fe976a',
+                    stroke: '#fff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-attrs-text': {
+                    ref: '.uml-class-attrs-rect',
+                    'ref-y': 0.5,
+                    'y-alignment': 'middle'
+                },
+                '.uml-class-methods-text': {
+                    ref: '.uml-class-methods-rect',
+                    'ref-y': 0.5,
+                    'y-alignment': 'middle'
+                }
+            }
+        })
+    }
+
+    function buildInterface(classData: Models.ClassData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+
+        return new joint.shapes.uml.Interface({
+            position: { x: 50, y: 50 },
+            size: { width: 280, height: height },
+            name: classData.name,
+            attributes: _.map(classData.classProperties,
+                (p: Models.ClassProperty): string => p.getDescription()),
+            methods: _.map(classData.classMethods,
+                           (p: Models.ClassMethod) => p.getDescription()),
+            attrs: {
+                '.uml-class-name-rect': {
+                    fill: '#feb662',
+                    stroke: '#ffffff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-attrs-rect, .uml-class-methods-rect': {
+                    fill: '#fdc886',
+                    stroke: '#fff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-attrs-text': {
+                    ref: '.uml-class-attrs-rect',
+                    'ref-y': 0.5,
+                    'y-alignment': 'middle'
+                },
+                '.uml-class-methods-text': {
+                    ref: '.uml-class-methods-rect',
+                    'ref-y': 0.5,
+                    'y-alignment': 'middle'
+                }
+            }
+        })
+    }
 
     function startGraph() {
         var element = $(paperElementId);
@@ -188,7 +289,7 @@
                 source: { id: classes.man.id },
                 target: { id: classes.person.id }
             }),
-            new uml.Generalization({
+            new uml.Composition({
                 source: { id: classes.woman.id },
                 target: { id: classes.person.id }
             }),
@@ -246,8 +347,19 @@
                 $scope.classes
             }
 
-            $scope.addClass = (data) => {
+            $scope.addClass = (data: Models.ClassData) => {
+                var cell = null
+                var uml = joint.shapes.uml;
 
+                switch (data.type) {
+                    case Models.ClassType.Abstract:
+                        break;
+                    case Models.ClassType.Concrete:
+                        cell = buildInterface(data)
+                        break;
+                    case Models.ClassType.Interface:
+                        break;
+                } 
             }
         }]
         public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'
