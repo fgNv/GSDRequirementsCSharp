@@ -285,6 +285,7 @@ var Directives;
             this.controller = ['$timeout', '$scope', function ($timeout, $scope) {
                     var graph = null;
                     var paper = null;
+                    $scope.currentClass = null;
                     $scope.classes = [];
                     $scope.relations = [];
                     $scope.$watch('classDiagram', function (newValue, oldValue) {
@@ -306,21 +307,32 @@ var Directives;
                             paper = null;
                         }
                     });
+                    $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType);
                     $scope.removeClass = function (classEntity) {
-                        $scope.classes;
+                        //$scope.classes
+                    };
+                    $scope.newClass = function () {
+                        $scope.currentClass = new Models.ClassData();
                     };
                     $scope.addClass = function (data) {
                         var cell = null;
                         var uml = joint.shapes.uml;
+                        if (!graph)
+                            return;
                         switch (data.type) {
                             case Models.ClassType.Abstract:
+                                cell = buildAbstract(data);
                                 break;
                             case Models.ClassType.Concrete:
-                                cell = buildInterface(data);
+                                cell = buildConcrete(data);
                                 break;
                             case Models.ClassType.Interface:
+                                cell = buildInterface(data);
                                 break;
                         }
+                        if (!cell)
+                            return;
+                        graph.addCell(cell);
                     };
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/form';

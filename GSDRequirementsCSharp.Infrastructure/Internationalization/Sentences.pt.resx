@@ -735,4 +735,64 @@
   <data name="noClassDiagramsRegistered" xml:space="preserve">
     <value>Nenhum diagrama de classe cadastrado</value>
   </data>
+  <data name="addClass" xml:space="preserve">
+    <value>Adicionar classe</value>
+  </data>
+  <data name="addParameter" xml:space="preserve">
+    <value>Adicionar parâmetro</value>
+  </data>
+  <data name="addProperty" xml:space="preserve">
+    <value>Adicionar propriedade</value>
+  </data>
+  <data name="createClassDiagram" xml:space="preserve">
+    <value>Criar diagrama de classes</value>
+  </data>
+  <data name="metadata" xml:space="preserve">
+    <value>Metadados</value>
+  </data>
+  <data name="methods" xml:space="preserve">
+    <value>Métodos</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>Parâmetros</value>
+  </data>
+  <data name="properties" xml:space="preserve">
+    <value>Propriedades</value>
+  </data>
+  <data name="relations" xml:space="preserve">
+    <value>Relações</value>
+  </data>
+  <data name="removeMethod" xml:space="preserve">
+    <value>Remover método</value>
+  </data>
+  <data name="removeParameter" xml:space="preserve">
+    <value>Remover parâmetro</value>
+  </data>
+  <data name="removeProperty" xml:space="preserve">
+    <value>Remover propriedade</value>
+  </data>
+  <data name="returnType" xml:space="preserve">
+    <value>Tipo do retorno</value>
+  </data>
+  <data name="addMethod" xml:space="preserve">
+    <value>Adicionar método</value>
+  </data>
+  <data name="noMethodRegistered" xml:space="preserve">
+    <value>Nenhum método registrado</value>
+  </data>
+  <data name="noParametersRegistered" xml:space="preserve">
+    <value>Nenhum parâmetro cadastrado</value>
+  </data>
+  <data name="noPropertyRegistered" xml:space="preserve">
+    <value>Nenhuma propriedade cadastrada</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Abstrata</value>
+  </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>Concreta</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
 </root>

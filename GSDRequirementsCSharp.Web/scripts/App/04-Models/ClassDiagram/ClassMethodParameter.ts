@@ -9,5 +9,13 @@
         public getDescription(): string {
             return `${this.name} : ${this.type}`
         }
+
+        public constructor(data: any = null) {
+            if (data) {
+                for (var prop in data) {
+                    this[prop] = data[prop]
+                }
+            } 
+        }
     }
 }

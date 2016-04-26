@@ -320,6 +320,8 @@
         public controller = ['$timeout', '$scope', ($timeout, $scope) => {
             var graph = null;
             var paper = null;
+
+            $scope.currentClass = null
             $scope.classes = []
             $scope.relations = []
 
@@ -343,23 +345,37 @@
                 }
             });
 
+            $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
+
             $scope.removeClass = (classEntity) => {
-                $scope.classes
+                //$scope.classes
+            }
+
+            $scope.newClass = () => {
+                $scope.currentClass = new Models.ClassData()
             }
 
             $scope.addClass = (data: Models.ClassData) => {
                 var cell = null
-                var uml = joint.shapes.uml;
+                var uml = joint.shapes.uml
+
+                if (!graph) return
 
                 switch (data.type) {
                     case Models.ClassType.Abstract:
-                        break;
+                        cell = buildAbstract(data)
+                        break
                     case Models.ClassType.Concrete:
-                        cell = buildInterface(data)
-                        break;
+                        cell = buildConcrete(data)
+                        break
                     case Models.ClassType.Interface:
-                        break;
+                        cell = buildInterface(data)
+                        break
                 } 
+
+                if (!cell) return
+
+                graph.addCell(cell)
             }
         }]
         public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'

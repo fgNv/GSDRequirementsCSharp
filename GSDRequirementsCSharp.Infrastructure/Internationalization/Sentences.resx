@@ -735,4 +735,64 @@
   <data name="noClassDiagramsRegistered" xml:space="preserve">
     <value>No class diagrams registered</value>
   </data>
+  <data name="addClass" xml:space="preserve">
+    <value>Add class</value>
+  </data>
+  <data name="addParameter" xml:space="preserve">
+    <value>Add parameter</value>
+  </data>
+  <data name="addProperty" xml:space="preserve">
+    <value>Add property</value>
+  </data>
+  <data name="createClassDiagram" xml:space="preserve">
+    <value>Create class diagram</value>
+  </data>
+  <data name="metadata" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="methods" xml:space="preserve">
+    <value>Methods</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="relations" xml:space="preserve">
+    <value>Relations</value>
+  </data>
+  <data name="removeMethod" xml:space="preserve">
+    <value>Remove method</value>
+  </data>
+  <data name="removeParameter" xml:space="preserve">
+    <value>Remove parameter</value>
+  </data>
+  <data name="removeProperty" xml:space="preserve">
+    <value>Remove property</value>
+  </data>
+  <data name="returnType" xml:space="preserve">
+    <value>Return type</value>
+  </data>
+  <data name="addMethod" xml:space="preserve">
+    <value>Add method</value>
+  </data>
+  <data name="noMethodRegistered" xml:space="preserve">
+    <value>No method registered</value>
+  </data>
+  <data name="noParametersRegistered" xml:space="preserve">
+    <value>No parameters registered</value>
+  </data>
+  <data name="noPropertyRegistered" xml:space="preserve">
+    <value>No property registered</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>Concrete</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
 </root>
