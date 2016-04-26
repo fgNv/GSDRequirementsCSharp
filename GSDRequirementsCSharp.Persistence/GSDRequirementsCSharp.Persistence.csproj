@@ -115,9 +115,13 @@
     <Compile Include="Migrations\201604141340046_specification-item-label.Designer.cs">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604261149252_class-diagram.cs" />
-    <Compile Include="Migrations\201604261149252_class-diagram.Designer.cs">
-      <DependentUpon>201604261149252_class-diagram.cs</DependentUpon>
+    <Compile Include="Migrations\201604261200327_drop-class-diagram-related.cs" />
+    <Compile Include="Migrations\201604261200327_drop-class-diagram-related.Designer.cs">
+      <DependentUpon>201604261200327_drop-class-diagram-related.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604261208175_class-diagram-related-remodel.cs" />
+    <Compile Include="Migrations\201604261208175_class-diagram-related-remodel.Designer.cs">
+      <DependentUpon>201604261208175_class-diagram-related-remodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,8 +208,11 @@
     <EmbeddedResource Include="Migrations\201604141340046_specification-item-label.resx">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604261149252_class-diagram.resx">
-      <DependentUpon>201604261149252_class-diagram.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604261200327_drop-class-diagram-related.resx">
+      <DependentUpon>201604261200327_drop-class-diagram-related.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261208175_class-diagram-related-remodel.resx">
+      <DependentUpon>201604261208175_class-diagram-related-remodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
