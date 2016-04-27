@@ -14,10 +14,11 @@
 
     function buildAbstract(classData: Models.ClassData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 40
 
         return new joint.shapes.uml.Abstract({
             position: { x: 80, y: 80 },
-            size: { width: 260, height: 100 },
+            size: { width: 260, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties,
                 (p: Models.ClassProperty): string => p.getDescription()),
@@ -43,7 +44,7 @@
 
     function buildConcrete(classData: Models.ClassData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 20
+        height += 30
 
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
@@ -80,6 +81,7 @@
 
     function buildInterface(classData: Models.ClassData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 40
 
         return new joint.shapes.uml.Interface({
             position: { x: 50, y: 50 },
@@ -335,15 +337,29 @@
                     return;
                 $scope.selectedClass = classToBeSelected
                 $scope.$digest()
-                console.log('$scope.selectedClass')
-                console.log($scope.selectedClass)
+            }
+
+            function removeClass(classEntity) {
+                $scope.classes = _.filter($scope.classes,
+                    (c) => c != classEntity)
+                classEntity.cell.remove()
             }
 
             $scope.removeSelectedClass = () => {
-                $scope.classes = _.filter($scope.classes,
-                    (c) => c != $scope.selectedClass)
-                $scope.selectedClass.cell.remove()
+                removeClass($scope.selectedClass)
                 $scope.selectedClass = null
+            }
+
+            $scope.editSelectedClass = () => {
+                $scope.currentClass = $scope.selectedClass
+            }
+
+            $scope.backToDiagram = () => {
+                $scope.currentClass = null
+            }
+
+            $scope.editSelectedClassRelations = () => {
+                //$scope.currentClass = $scope.selectedClass
             }
 
             $scope.$watch('classDiagram', (newValue, oldValue) => {
@@ -381,19 +397,20 @@
 
             $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
 
-            $scope.removeClass = (classEntity) => {
-                //$scope.classes
-            }
-
             $scope.newClass = () => {
+                $scope.selectedClass = null
                 $scope.currentClass = new Models.ClassData()
             }
 
-            $scope.addClass = (data: Models.ClassData) => {
+            $scope.saveClass = (data: Models.ClassData) => {
                 var cell = null
                 var uml = joint.shapes.uml
-
+                
                 if (!graph) return
+                
+                if (data.cell != null) {
+                    removeClass(data)
+                }
 
                 switch (data.type) {
                     case Models.ClassType.Abstract:
@@ -415,6 +432,7 @@
                 $scope.currentClass = null
                 $timeout((): void => { graph.addCell(cell) })
 
+                $scope.selectedClass = null
             }
         }]
         public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'

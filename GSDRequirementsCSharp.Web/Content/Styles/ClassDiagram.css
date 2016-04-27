@@ -2,7 +2,15 @@
     border: solid #BABACA 1px;
 }
 
-.selectedCell rect{
-    stroke: #3ABA3A;
+.selectedCell rect {
+    stroke: #3A9A3A;
     stroke-width: 3;
+}
+
+.link-tools .tool-remove {
+    display: none;
+}
+
+.link-tools .tool-options {
+    display: none;
 }

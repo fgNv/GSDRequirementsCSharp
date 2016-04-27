@@ -4,9 +4,10 @@ var Directives;
     var paperElementId = '#classDiagramPaper';
     function buildAbstract(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 40;
         return new joint.shapes.uml.Abstract({
             position: { x: 80, y: 80 },
-            size: { width: 260, height: 100 },
+            size: { width: 260, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
             methods: _.map(classData.classMethods, function (p) { return p.getDescription(); }),
@@ -29,7 +30,7 @@ var Directives;
     }
     function buildConcrete(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 20;
+        height += 30;
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
             size: { width: 220, height: height },
@@ -62,6 +63,7 @@ var Directives;
     }
     function buildInterface(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 40;
         return new joint.shapes.uml.Interface({
             position: { x: 50, y: 50 },
             size: { width: 280, height: height },
@@ -296,13 +298,23 @@ var Directives;
                             return;
                         $scope.selectedClass = classToBeSelected;
                         $scope.$digest();
-                        console.log('$scope.selectedClass');
-                        console.log($scope.selectedClass);
                     };
+                    function removeClass(classEntity) {
+                        $scope.classes = _.filter($scope.classes, function (c) { return c != classEntity; });
+                        classEntity.cell.remove();
+                    }
                     $scope.removeSelectedClass = function () {
-                        $scope.classes = _.filter($scope.classes, function (c) { return c != $scope.selectedClass; });
-                        $scope.selectedClass.cell.remove();
+                        removeClass($scope.selectedClass);
                         $scope.selectedClass = null;
+                    };
+                    $scope.editSelectedClass = function () {
+                        $scope.currentClass = $scope.selectedClass;
+                    };
+                    $scope.backToDiagram = function () {
+                        $scope.currentClass = null;
+                    };
+                    $scope.editSelectedClassRelations = function () {
+                        //$scope.currentClass = $scope.selectedClass
                     };
                     $scope.$watch('classDiagram', function (newValue, oldValue) {
                         $scope.classes = [];
@@ -333,17 +345,18 @@ var Directives;
                         });
                     });
                     $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType);
-                    $scope.removeClass = function (classEntity) {
-                        //$scope.classes
-                    };
                     $scope.newClass = function () {
+                        $scope.selectedClass = null;
                         $scope.currentClass = new Models.ClassData();
                     };
-                    $scope.addClass = function (data) {
+                    $scope.saveClass = function (data) {
                         var cell = null;
                         var uml = joint.shapes.uml;
                         if (!graph)
                             return;
+                        if (data.cell != null) {
+                            removeClass(data);
+                        }
                         switch (data.type) {
                             case Models.ClassType.Abstract:
                                 cell = buildAbstract(data);
@@ -361,6 +374,7 @@ var Directives;
                         $scope.classes.push($scope.currentClass);
                         $scope.currentClass = null;
                         $timeout(function () { graph.addCell(cell); });
+                        $scope.selectedClass = null;
                     };
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/form';

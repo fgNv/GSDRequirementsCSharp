@@ -194,11 +194,12 @@
         </div>
 
         <div class="btn-group">
-            <button class="btn btn-default">
+            <button class="btn btn-default"
+                    data-ng-click="backToDiagram()">
                 @Sentences.cancel
             </button>
             <button class="btn btn-primary"
-                    data-ng-click="addClass(currentClass)">
+                    data-ng-click="saveClass(currentClass)">
                 @Sentences.add
             </button>
         </div>

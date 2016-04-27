@@ -8,6 +8,7 @@
         public classMethods: Array<ClassMethod>
         public classProperties: Array<ClassProperty>
         public name: string
+        public cell: any
 
         public constructor(data: any = null) {
             if (data) {
