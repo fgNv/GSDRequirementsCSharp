@@ -29,7 +29,7 @@
 
             $scope.addClassDiagram = () => {
                 $scope.currentClassDiagram = {}
-                window.location.href = "#/form"
+                window.location.href = "#/diagram"
             }
 
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {

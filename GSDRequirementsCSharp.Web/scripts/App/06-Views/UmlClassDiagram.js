@@ -1,59 +1,14 @@
-﻿module Directives {
-
-    import GSDRequirementsData = Globals.GSDRequirementsData
-
-    declare var angular: any;
-    declare var _: any;
-    declare var joint: any;
-    declare var $: any;
-    declare var V: any;
-    declare var GSDRequirements: GSDRequirementsData;
-    var app = angular.module(GSDRequirements.angularModuleName);
-
-    var paperElementId = '#classDiagramPaper'
-
-    function buildAbstract(classData: Models.ClassData) {
+var Views;
+(function (Views) {
+    function buildConcreteClass(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40
-
-        return new joint.shapes.uml.Abstract({
-            position: { x: 80, y: 80 },
-            size: { width: 260, height: height },
-            name: classData.name,
-            attributes: _.map(classData.classProperties,
-                (p: Models.ClassProperty): string => p.getDescription()),
-            methods: _.map(classData.classMethods,
-                (p: Models.ClassMethod) => p.getDescription()),
-            attrs: {
-                '.uml-class-name-rect': {
-                    fill: '#68ddd5',
-                    stroke: '#ffffff',
-                    'stroke-width': 0.5
-                },
-                '.uml-class-attrs-rect, .uml-class-methods-rect': {
-                    fill: '#9687fe',
-                    stroke: '#fff',
-                    'stroke-width': 0.5
-                },
-                '.uml-class-methods-text, .uml-class-attrs-text': {
-                    fill: '#fff'
-                }
-            }
-        })
-    }
-
-    function buildConcrete(classData: Models.ClassData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 30
-
+        height += 30;
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
             size: { width: 220, height: height },
             name: classData.name,
-            attributes: _.map(classData.classProperties,
-                (p: Models.ClassProperty): string => p.getDescription()),
-            methods: _.map(classData.classMethods,
-                (p: Models.ClassMethod) => p.getDescription()),
+            attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
+            methods: _.map(classData.classMethods, function (p) { return p.getDescription(); }),
             attrs: {
                 '.uml-class-name-rect': {
                     fill: '#ff8450',
@@ -76,21 +31,18 @@
                     'y-alignment': 'middle'
                 }
             }
-        })
+        });
     }
-
-    function buildInterface(classData: Models.ClassData) {
+    Views.buildConcreteClass = buildConcreteClass;
+    function buildInterface(classData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40
-
+        height += 40;
         return new joint.shapes.uml.Interface({
             position: { x: 50, y: 50 },
             size: { width: 280, height: height },
             name: classData.name,
-            attributes: _.map(classData.classProperties,
-                (p: Models.ClassProperty): string => p.getDescription()),
-            methods: _.map(classData.classMethods,
-                (p: Models.ClassMethod) => p.getDescription()),
+            attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
+            methods: _.map(classData.classMethods, function (p) { return p.getDescription(); }),
             attrs: {
                 '.uml-class-name-rect': {
                     fill: '#feb662',
@@ -113,18 +65,44 @@
                     'y-alignment': 'middle'
                 }
             }
-        })
+        });
     }
-
-    function startGraph() {
+    Views.buildInterface = buildInterface;
+    function buildAbstractClass(classData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
+        height += 40;
+        return new joint.shapes.uml.Abstract({
+            position: { x: 80, y: 80 },
+            size: { width: 260, height: height },
+            name: classData.name,
+            attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
+            methods: _.map(classData.classMethods, function (p) { return p.getDescription(); }),
+            attrs: {
+                '.uml-class-name-rect': {
+                    fill: '#68ddd5',
+                    stroke: '#ffffff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-attrs-rect, .uml-class-methods-rect': {
+                    fill: '#9687fe',
+                    stroke: '#fff',
+                    'stroke-width': 0.5
+                },
+                '.uml-class-methods-text, .uml-class-attrs-text': {
+                    fill: '#fff'
+                }
+            }
+        });
+    }
+    Views.buildAbstractClass = buildAbstractClass;
+    var paperElementId = '#classDiagramPaper';
+    function startClassDiagram() {
         var element = $(paperElementId);
         if (element.length == 0) {
-            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"))
+            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"));
             var element = $(paperElementId);
         }
-
         var graph = new joint.dia.Graph();
-
         var paper = new joint.dia.Paper({
             el: element,
             width: 1200,
@@ -132,9 +110,7 @@
             gridSize: 1,
             model: graph
         });
-
         var uml = joint.shapes.uml;
-
         var classes = {
             mammal: new uml.Interface({
                 position: { x: 300, y: 50 },
@@ -165,7 +141,6 @@
                     }
                 }
             }),
-
             person: new uml.Abstract({
                 position: { x: 300, y: 300 },
                 size: { width: 260, height: 100 },
@@ -188,7 +163,6 @@
                     }
                 }
             }),
-
             bloodgroup: new uml.Class({
                 position: { x: 20, y: 190 },
                 size: { width: 220, height: 100 },
@@ -218,7 +192,6 @@
                     }
                 }
             }),
-
             address: new uml.Class({
                 position: { x: 630, y: 190 },
                 size: { width: 160, height: 100 },
@@ -241,9 +214,7 @@
                         'y-alignment': 'middle'
                     }
                 },
-
             }),
-
             man: new uml.Class({
                 position: { x: 200, y: 500 },
                 size: { width: 180, height: 50 },
@@ -261,7 +232,6 @@
                     }
                 }
             }),
-
             woman: new uml.Class({
                 position: { x: 450, y: 500 },
                 size: { width: 180, height: 50 },
@@ -285,9 +255,7 @@
                 }
             })
         };
-
         _.each(classes, function (c) { graph.addCell(c); });
-
         var relations = [
             new uml.Generalization({
                 source: { id: classes.man.id },
@@ -310,135 +278,9 @@
                 target: { id: classes.bloodgroup.id }
             })
         ];
-
         _.each(relations, function (r) { graph.addCell(r); });
-
         return { graph: graph, paper: paper };
     }
-
-    class GsdClassDiagramForm {
-        public scope = {
-            'classDiagram': '=classDiagram',
-            'afterSave': '=afterSave'
-        };
-        public controller = ['$timeout', '$scope', ($timeout, $scope) => {
-            var graph = null;
-            var paper = null;
-
-            $scope.currentClass = null
-            $scope.selectedClass = null
-            $scope.classes = []
-            $scope.relations = []
-
-            $scope.selectClass = (id) => {
-                var classToBeSelected = _.find($scope.classes,
-                    (c) => c.cell.id == id);
-                if (!classToBeSelected)
-                    return;
-                $scope.selectedClass = classToBeSelected
-                $scope.$digest()
-            }
-
-            function removeClass(classEntity) {
-                $scope.classes = _.filter($scope.classes,
-                    (c) => c != classEntity)
-                classEntity.cell.remove()
-            }
-
-            $scope.removeSelectedClass = () => {
-                removeClass($scope.selectedClass)
-                $scope.selectedClass = null
-            }
-
-            $scope.editSelectedClass = () => {
-                $scope.currentClass = $scope.selectedClass
-            }
-
-            $scope.backToDiagram = () => {
-                $scope.currentClass = null
-            }
-
-            $scope.editSelectedClassRelations = () => {
-                //$scope.currentClass = $scope.selectedClass
-            }
-
-            $scope.$watch('classDiagram', (newValue, oldValue) => {
-                $scope.classes = []
-                $scope.relations = []
-                if (graph) {
-                    graph.clear()
-                    paper.remove()
-                }
-
-                if (!newValue) {
-                    graph = null
-                    paper = null
-                    return;
-                }
-
-                $timeout((): void => {
-                    var result = startGraph()
-                    graph = result.graph
-                    paper = result.paper
-
-                    paper.on('cell:pointerclick', (cellView) => {
-                        _.each(graph.getElements(), function (el) {
-                            var vectorized = V(paper.findViewByModel(el).el);
-                            if (vectorized.hasClass("selectedCell")) {
-                                vectorized.removeClass("selectedCell")
-                            }
-                        })
-
-                        V(cellView.el).addClass('selectedCell')
-                        $scope.selectClass(cellView.model.id)
-                    })
-                })
-            });
-
-            $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
-
-            $scope.newClass = () => {
-                $scope.selectedClass = null
-                $scope.currentClass = new Models.ClassData()
-            }
-
-            $scope.saveClass = (data: Models.ClassData) => {
-                var cell = null
-                var uml = joint.shapes.uml
-                
-                if (!graph) return
-                
-                if (data.cell != null) {
-                    removeClass(data)
-                }
-
-                switch (data.type) {
-                    case Models.ClassType.Abstract:
-                        cell = buildAbstract(data)
-                        break
-                    case Models.ClassType.Concrete:
-                        cell = buildConcrete(data)
-                        break
-                    case Models.ClassType.Interface:
-                        cell = buildInterface(data)
-                        break
-                }
-
-                if (!cell) return
-
-                $scope.currentClass.cell = cell
-                $scope.classes.push($scope.currentClass)
-
-                $scope.currentClass = null
-                $timeout((): void => { graph.addCell(cell) })
-
-                $scope.selectedClass = null
-            }
-        }]
-        public templateUrl = GSDRequirements.baseUrl + 'classDiagram/form'
-        public static Factory() {
-            return new GsdClassDiagramForm();
-        }
-    }
-    app.directive('gsdClassDiagramForm', GsdClassDiagramForm.Factory)
-}
+    Views.startClassDiagram = startClassDiagram;
+})(Views || (Views = {}));
+//# sourceMappingURL=UmlClassDiagram.js.map

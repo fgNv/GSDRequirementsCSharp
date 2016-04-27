@@ -813,4 +813,28 @@
   <data name="removeSelectedClass" xml:space="preserve">
     <value>Remove selected class</value>
   </data>
+  <data name="editRelations" xml:space="preserve">
+    <value>Edit relations</value>
+  </data>
+  <data name="addRelation" xml:space="preserve">
+    <value>Add relation</value>
+  </data>
+  <data name="manageClassDiagram" xml:space="preserve">
+    <value>Manage class diagram</value>
+  </data>
+  <data name="relationType" xml:space="preserve">
+    <value>Relation type</value>
+  </data>
+  <data name="source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="sourceMultiplicity" xml:space="preserve">
+    <value>Source multiplicity</value>
+  </data>
+  <data name="target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="targetMultiplicity" xml:space="preserve">
+    <value>Target multiplicity</value>
+  </data>
 </root>

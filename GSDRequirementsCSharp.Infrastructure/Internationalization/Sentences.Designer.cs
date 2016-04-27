@@ -223,6 +223,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add relation.
+        /// </summary>
+        public static string addRelation {
+            get {
+                return ResourceManager.GetString("addRelation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add requirement.
         /// </summary>
         public static string addRequirement {
@@ -597,6 +606,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string editProject {
             get {
                 return ResourceManager.GetString("editProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit relations.
+        /// </summary>
+        public static string editRelations {
+            get {
+                return ResourceManager.GetString("editRelations", resourceCulture);
             }
         }
         
@@ -1137,6 +1155,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageArtifactsLinks {
             get {
                 return ResourceManager.GetString("manageArtifactsLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage class diagram.
+        /// </summary>
+        public static string manageClassDiagram {
+            get {
+                return ResourceManager.GetString("manageClassDiagram", resourceCulture);
             }
         }
         
@@ -1699,6 +1726,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relation type.
+        /// </summary>
+        public static string relationType {
+            get {
+                return ResourceManager.GetString("relationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
         public static string removeLink {
@@ -1898,6 +1934,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string source {
+            get {
+                return ResourceManager.GetString("source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source multiplicity.
+        /// </summary>
+        public static string sourceMultiplicity {
+            get {
+                return ResourceManager.GetString("sourceMultiplicity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specification item not found.
         /// </summary>
         public static string specificationItemNotFound {
@@ -1912,6 +1966,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string subject {
             get {
                 return ResourceManager.GetString("subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target.
+        /// </summary>
+        public static string target {
+            get {
+                return ResourceManager.GetString("target", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target multiplicity.
+        /// </summary>
+        public static string targetMultiplicity {
+            get {
+                return ResourceManager.GetString("targetMultiplicity", resourceCulture);
             }
         }
         

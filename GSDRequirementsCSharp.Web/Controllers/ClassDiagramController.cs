@@ -16,9 +16,9 @@ namespace GSDRequirements.Web.Controllers
         }
 
         [SkipUserDataSetter]
-        public PartialViewResult Form()
+        public PartialViewResult Management()
         {
-            return PartialView("~/Views/ClassDiagram/_Form.cshtml");
+            return PartialView("~/Views/ClassDiagram/_Management.cshtml");
         }
     }
 }

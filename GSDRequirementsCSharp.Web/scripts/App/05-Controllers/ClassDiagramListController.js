@@ -19,7 +19,7 @@ var Controllers;
             };
             $scope.addClassDiagram = function () {
                 $scope.currentClassDiagram = {};
-                window.location.href = "#/form";
+                window.location.href = "#/diagram";
             };
             $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
                 var pathValues = $location.path().split('/');
