@@ -804,4 +804,13 @@
   <data name="thePageYouReTryingToAccessRequireAProjectDefinedInTheContext" xml:space="preserve">
     <value>The page you're trying to access, requires a project defined in the context.</value>
   </data>
+  <data name="editSelectedClass" xml:space="preserve">
+    <value>Edit selected class</value>
+  </data>
+  <data name="editSelectedClassRelations" xml:space="preserve">
+    <value>Edit selected class relations</value>
+  </data>
+  <data name="removeSelectedClass" xml:space="preserve">
+    <value>Remove selected class</value>
+  </data>
 </root>

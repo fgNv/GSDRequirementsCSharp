@@ -178,6 +178,7 @@
     <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\ClassDiagram.css" />
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />

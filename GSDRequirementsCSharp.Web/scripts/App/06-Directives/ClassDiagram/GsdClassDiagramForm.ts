@@ -6,6 +6,7 @@
     declare var _: any;
     declare var joint: any;
     declare var $: any;
+    declare var V: any;
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
 
@@ -124,8 +125,8 @@
 
         var paper = new joint.dia.Paper({
             el: element,
-            width: 800,
-            height: 600,
+            width: 1200,
+            height: 700,
             gridSize: 1,
             model: graph
         });
@@ -323,8 +324,27 @@
             var paper = null;
 
             $scope.currentClass = null
+            $scope.selectedClass = null
             $scope.classes = []
             $scope.relations = []
+
+            $scope.selectClass = (id) => {
+                var classToBeSelected = _.find($scope.classes,
+                    (c) => c.cell.id == id);
+                if (!classToBeSelected)
+                    return;
+                $scope.selectedClass = classToBeSelected
+                $scope.$digest()
+                console.log('$scope.selectedClass')
+                console.log($scope.selectedClass)
+            }
+
+            $scope.removeSelectedClass = () => {
+                $scope.classes = _.filter($scope.classes,
+                    (c) => c != $scope.selectedClass)
+                $scope.selectedClass.cell.remove()
+                $scope.selectedClass = null
+            }
 
             $scope.$watch('classDiagram', (newValue, oldValue) => {
                 $scope.classes = []
@@ -334,16 +354,29 @@
                     paper.remove()
                 }
 
-                if (newValue) {
-                    $timeout((): void => {
-                        var result = startGraph()
-                        graph = result.graph
-                        paper = result.paper
-                    })
-                } else {
+                if (!newValue) {
                     graph = null
                     paper = null
+                    return;
                 }
+
+                $timeout((): void => {
+                    var result = startGraph()
+                    graph = result.graph
+                    paper = result.paper
+
+                    paper.on('cell:pointerclick', (cellView) => {
+                        _.each(graph.getElements(), function (el) {
+                            var vectorized = V(paper.findViewByModel(el).el);
+                            if (vectorized.hasClass("selectedCell")) {
+                                vectorized.removeClass("selectedCell")
+                            }
+                        })
+
+                        V(cellView.el).addClass('selectedCell')
+                        $scope.selectClass(cellView.model.id)
+                    })
+                })
             });
 
             $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
@@ -375,6 +408,9 @@
                 }
 
                 if (!cell) return
+
+                $scope.currentClass.cell = cell
+                $scope.classes.push($scope.currentClass)
 
                 $scope.currentClass = null
                 $timeout((): void => { graph.addCell(cell) })

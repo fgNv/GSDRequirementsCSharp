@@ -610,6 +610,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit selected class.
+        /// </summary>
+        public static string editSelectedClass {
+            get {
+                return ResourceManager.GetString("editSelectedClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit selected class relations.
+        /// </summary>
+        public static string editSelectedClassRelations {
+            get {
+                return ResourceManager.GetString("editSelectedClassRelations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit translation.
         /// </summary>
         public static string editTranslation {
@@ -1722,6 +1740,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string removeRequirement {
             get {
                 return ResourceManager.GetString("removeRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove selected class.
+        /// </summary>
+        public static string removeSelectedClass {
+            get {
+                return ResourceManager.GetString("removeSelectedClass", resourceCulture);
             }
         }
         

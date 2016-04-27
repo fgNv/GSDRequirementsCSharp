@@ -3,21 +3,36 @@
 <article>
     <h3>
         @Sentences.createClassDiagram
+    </h3>
+    
+    <div class="btn-group" style="margin-bottom: 10px; ">
         <button class="btn btn-primary"
                 data-ng-click="newClass()"
                 data-ng-show="!currentClass">
             @Sentences.addClass
         </button>
-    </h3>
+        <button class="btn btn-default"
+                data-ng-show="selectedClass"
+                data-ng-click="removeSelectedClass()">
+            @Sentences.removeSelectedClass
+        </button>
+        <button class="btn btn-default"
+                data-ng-show="selectedClass"
+                data-ng-click="editSelectedClass()">
+            @Sentences.editSelectedClass
+        </button>
+        <button class="btn btn-default"
+                data-ng-show="selectedClass"
+                data-ng-click="editSelectedClassRelations()">
+            @Sentences.editSelectedClassRelations
+        </button>
+    </div>
 
     <div class="row" data-ng-show="currentClass">
         <div class="col-md-12">
             <ul class="nav nav-pills" style="margin-bottom: 10px; ">
                 <li role="presentation" class="active">
                     <a href="#">@Sentences.metadata</a>
-                </li>
-                <li role="presentation">
-                    <a href="#">@Sentences.relations</a>
                 </li>
             </ul>
 

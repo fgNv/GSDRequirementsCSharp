@@ -1,0 +1,8 @@
+﻿#classDiagramPaper svg {
+    border: solid #BABACA 1px;
+}
+
+.selectedCell rect{
+    stroke: #3ABA3A;
+    stroke-width: 3;
+}
