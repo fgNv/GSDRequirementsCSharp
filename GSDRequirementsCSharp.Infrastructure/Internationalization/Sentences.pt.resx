@@ -795,4 +795,13 @@
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistered" xml:space="preserve">
+    <value>Selecione um projeto acima e o defina como o contexto, ou se não há projetos cadastrados, cadastre um novo.</value>
+  </data>
+  <data name="thePageYouReTryingToAccessRequireAProjectDefinedInTheContext" xml:space="preserve">
+    <value>A página que você está tentando acessar, requer que um projeto esteja definido no contexto.</value>
+  </data>
 </root>

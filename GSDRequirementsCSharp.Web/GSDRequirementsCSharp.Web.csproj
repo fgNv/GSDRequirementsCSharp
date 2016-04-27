@@ -220,6 +220,7 @@
     <Compile Include="Context\ProjectContext.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ClassDiagramController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternationalizationController.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Exceptions\ApiExceptionHandling.cs" />
     <Compile Include="Exceptions\ExceptionResponse.cs" />
     <Compile Include="Exceptions\MvcExceptionHandling.cs" />
+    <Compile Include="Filters\Attributes\ContextProjectRequiredAttribute.cs" />
     <Compile Include="Filters\Attributes\SkipUserDataSetterAttribute.cs" />
     <Compile Include="Filters\CurrentCultureSetterApiFilter.cs" />
     <Compile Include="Filters\CurrentCultureSetterMvcFilter.cs" />
@@ -439,6 +441,7 @@
     <Content Include="bower_components\components-font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="bower_components\components-font-awesome\scss\_stacked.scss" />
     <Content Include="bower_components\components-font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Error\ProjectContextRequired.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

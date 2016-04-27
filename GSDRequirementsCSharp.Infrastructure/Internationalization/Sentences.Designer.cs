@@ -628,6 +628,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error adding translation.
         /// </summary>
         public static string errorAddingTranslation {
@@ -1843,6 +1852,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a project above and define it as the context, or if no project is registered register a new one..
+        /// </summary>
+        public static string selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistered {
+            get {
+                return ResourceManager.GetString("selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistere" +
+                        "d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show details and manage versions.
         /// </summary>
         public static string showDetailsAndManageVersions {
@@ -1866,6 +1885,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string subject {
             get {
                 return ResourceManager.GetString("subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page you&apos;re trying to access, requires a project defined in the context..
+        /// </summary>
+        public static string thePageYouReTryingToAccessRequireAProjectDefinedInTheContext {
+            get {
+                return ResourceManager.GetString("thePageYouReTryingToAccessRequireAProjectDefinedInTheContext", resourceCulture);
             }
         }
         

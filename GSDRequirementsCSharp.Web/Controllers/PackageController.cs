@@ -9,6 +9,7 @@ namespace GSDRequirements.Web.Controllers
 {
     public class PackageController : Controller
     {
+        [ContextProjectRequired]
         public ActionResult Index()
         {
             return View();

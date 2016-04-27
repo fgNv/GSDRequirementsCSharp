@@ -43,8 +43,6 @@
     function buildConcrete(classData: Models.ClassData) {
         var height = (classData.classProperties.length + classData.classMethods.length) * 33;
         height += 20
-        console.log('height')
-        console.log(height)
 
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
