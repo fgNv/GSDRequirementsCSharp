@@ -16,6 +16,9 @@
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.classDiagrams = []
+            $scope.currentClass = null
+            $scope.editingRelations = false
+
             var pageSize = 10
             $scope.pendingRequests = 0
             $scope.hasEditPermission =
@@ -39,6 +42,11 @@
                 if (!step) {
                     $scope.currentClassDiagram = null
                     $scope.classDiagramToTranslate = null
+                }
+
+                if (pathValues.length == 2) {
+                    $scope.currentClass = null
+                    $scope.editingRelations = false
                 }
             });
             

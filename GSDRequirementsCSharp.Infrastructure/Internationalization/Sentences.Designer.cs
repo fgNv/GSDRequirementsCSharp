@@ -277,6 +277,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aggregation.
+        /// </summary>
+        public static string Aggregation {
+            get {
+                return ResourceManager.GetString("Aggregation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All issues were concluded.
         /// </summary>
         public static string allIssuesWereConcluded {
@@ -309,6 +318,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string artifacts {
             get {
                 return ResourceManager.GetString("artifacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Association.
+        /// </summary>
+        public static string Association {
+            get {
+                return ResourceManager.GetString("Association", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one class must be registered to access the relation management.
+        /// </summary>
+        public static string atLeastOneClassMustBeRegisteredToAccessTheRelationManagement {
+            get {
+                return ResourceManager.GetString("atLeastOneClassMustBeRegisteredToAccessTheRelationManagement", resourceCulture);
             }
         }
         
@@ -448,6 +475,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Composition.
+        /// </summary>
+        public static string Composition {
+            get {
+                return ResourceManager.GetString("Composition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Concrete.
         /// </summary>
         public static string Concrete {
@@ -579,6 +615,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit class.
+        /// </summary>
+        public static string editClass {
+            get {
+                return ResourceManager.GetString("editClass", resourceCulture);
             }
         }
         
@@ -1024,6 +1069,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inheritance.
+        /// </summary>
+        public static string Inheritance {
+            get {
+                return ResourceManager.GetString("Inheritance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Interface.
         /// </summary>
         public static string Interface {
@@ -1218,6 +1272,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageProjectUsers {
             get {
                 return ResourceManager.GetString("manageProjectUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage relations.
+        /// </summary>
+        public static string manageRelations {
+            get {
+                return ResourceManager.GetString("manageRelations", resourceCulture);
             }
         }
         
@@ -1609,6 +1672,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        public static string Private {
+            get {
+                return ResourceManager.GetString("Private", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
         public static string profile {
@@ -1690,11 +1762,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Protected.
+        /// </summary>
+        public static string Protected {
+            get {
+                return ResourceManager.GetString("Protected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string Public {
+            get {
+                return ResourceManager.GetString("Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rank.
         /// </summary>
         public static string rank {
             get {
                 return ResourceManager.GetString("rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realization.
+        /// </summary>
+        public static string Realization {
+            get {
+                return ResourceManager.GetString("Realization", resourceCulture);
             }
         }
         
@@ -1997,6 +2096,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no relations registered.
+        /// </summary>
+        public static string thereAreNoRelationsRegistered {
+            get {
+                return ResourceManager.GetString("thereAreNoRelationsRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The structure of data is: .
         /// </summary>
         public static string theStructureOfDataIs {
@@ -2164,6 +2272,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string version {
             get {
                 return ResourceManager.GetString("version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visibility.
+        /// </summary>
+        public static string visibility {
+            get {
+                return ResourceManager.GetString("visibility", resourceCulture);
             }
         }
         

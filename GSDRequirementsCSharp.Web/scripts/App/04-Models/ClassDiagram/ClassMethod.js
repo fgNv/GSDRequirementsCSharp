@@ -20,7 +20,7 @@ var Models;
             this.classMethodParameters = _.filter(this.classMethodParameters, function (p) { return p != parameter; });
         };
         ClassMethod.prototype.getDescription = function () {
-            var visibility = this.Visibility == Models.Visibility.Public ? "+" : "-";
+            var visibility = Models.GetVisibilityUmlRepresentation(this.visibility);
             var parameters = _.map(this.classMethodParameters, function (p) { return p.getDescription(); });
             return visibility + " " + this.name + "(" + parameters.join(', ') + ") : " + this.returnType;
         };

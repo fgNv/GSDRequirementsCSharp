@@ -3,11 +3,10 @@
         public id: string
         public type: string
         public name: string
-        public Visibility: Visibility
+        public visibility: Visibility
 
         public getDescription() {
-            var visibility = this.Visibility == Visibility.Public ? "+" : "-"
-
+            var visibility = GetVisibilityUmlRepresentation(this.visibility)
             return `${visibility} ${this.name} : ${this.type}`
         }
 

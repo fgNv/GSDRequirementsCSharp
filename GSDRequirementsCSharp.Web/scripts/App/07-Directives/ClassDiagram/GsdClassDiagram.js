@@ -5,7 +5,9 @@ var Directives;
         function GsdClassDiagram() {
             this.scope = {
                 'classDiagram': '=classDiagram',
-                'afterSave': '=afterSave'
+                'afterSave': '=afterSave',
+                'currentClass': '=currentClass',
+                'editingRelations': '=editingRelations'
             };
             this.controller = ['$timeout', '$scope', function ($timeout, $scope) {
                     var graph = null;
@@ -16,10 +18,17 @@ var Directives;
                     $scope.classes = [];
                     $scope.relations = [];
                     $scope.editRelations = function () {
+                        window.location.href = "#/diagram/relations";
                         $scope.editingRelations = true;
                     };
-                    $scope.showDiagram = function () {
+                    $scope.getClassOptions = function (relation) {
+                        return $scope.classes;
+                    };
+                    $scope.isDiagramVisible = function () {
                         return !$scope.currentClass && !$scope.editingRelations;
+                    };
+                    $scope.addRelation = function () {
+                        $scope.relations.push({});
                     };
                     $scope.selectClass = function (id) {
                         var classToBeSelected = _.find($scope.classes, function (c) { return c.cell.id == id; });
@@ -42,6 +51,7 @@ var Directives;
                     };
                     $scope.backToDiagram = function () {
                         $scope.currentClass = null;
+                        window.location.href = "#/diagram";
                     };
                     $scope.editSelectedClassRelations = function () {
                         $scope.classToEditRelations = $scope.selectedClass;
@@ -76,6 +86,8 @@ var Directives;
                         });
                     });
                     $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType);
+                    $scope.relationTypeOptions = Globals.enumerateEnum(Models.RelationType);
+                    $scope.visibilityOptions = Globals.enumerateEnum(Models.Visibility);
                     $scope.newClass = function () {
                         window.location.href = "#/diagram/form";
                         $scope.selectedClass = null;
@@ -102,6 +114,8 @@ var Directives;
                         }
                         if (!cell)
                             return;
+                        console.log('$scope.currentClass');
+                        console.log($scope.currentClass);
                         $scope.currentClass.cell = cell;
                         $scope.classes.push($scope.currentClass);
                         $scope.currentClass = null;

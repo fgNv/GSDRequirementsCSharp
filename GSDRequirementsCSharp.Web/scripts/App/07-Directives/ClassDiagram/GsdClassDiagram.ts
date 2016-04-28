@@ -13,7 +13,9 @@
     class GsdClassDiagram {
         public scope = {
             'classDiagram': '=classDiagram',
-            'afterSave': '=afterSave'
+            'afterSave': '=afterSave',
+            'currentClass': '=currentClass',
+            'editingRelations': '=editingRelations'
         };
         public controller = ['$timeout', '$scope', ($timeout, $scope) => {
             var graph = null;
@@ -25,11 +27,20 @@
             $scope.classes = []
             $scope.relations = []
             $scope.editRelations = () => {
+                window.location.href = "#/diagram/relations"
                 $scope.editingRelations = true
             }
 
-            $scope.showDiagram = () => {
+            $scope.getClassOptions = (relation) => {
+                return $scope.classes;
+            }
+
+            $scope.isDiagramVisible = () => {
                 return !$scope.currentClass && !$scope.editingRelations;
+            }
+
+            $scope.addRelation = () => {
+                $scope.relations.push({})
             }
 
             $scope.selectClass = (id) => {
@@ -59,6 +70,7 @@
 
             $scope.backToDiagram = () => {
                 $scope.currentClass = null
+                window.location.href = "#/diagram"
             }
 
             $scope.editSelectedClassRelations = () => {
@@ -97,9 +109,11 @@
                         $scope.selectClass(cellView.model.id)
                     })
                 })
-            });
+            })
 
             $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
+            $scope.relationTypeOptions = Globals.enumerateEnum(Models.RelationType)
+            $scope.visibilityOptions = Globals.enumerateEnum(Models.Visibility)
 
             $scope.newClass = () => {
                 window.location.href = "#/diagram/form"
@@ -131,6 +145,8 @@
 
                 if (!cell) return
 
+                console.log('$scope.currentClass')
+                console.log($scope.currentClass)
                 $scope.currentClass.cell = cell
                 $scope.classes.push($scope.currentClass)
 

@@ -1,23 +1,30 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
 <article>
-    <h3 data-ng-show="showDiagram()">
+    <h3 data-ng-show="isDiagramVisible()">
         @Sentences.manageClassDiagram
     </h3>
 
-    <div class="btn-group" 
+    <div class="btn-group"
          style="margin-bottom: 10px; "
-         data-ng-show="showDiagram()">
+         data-ng-show="isDiagramVisible()">
         <button class="btn btn-primary"
                 data-ng-click="newClass()">
             @Sentences.addClass
         </button>
         <button class="btn btn-default"
+                title="@Sentences.atLeastOneClassMustBeRegisteredToAccessTheRelationManagement"
+                data-ng-show="classes.length == 0"
+                disabled="disabled">
+            @Sentences.manageRelations
+        </button>
+        <button class="btn btn-default"
+                data-ng-show="classes.length > 0"
                 data-ng-click="editRelations()">
-            @Sentences.editRelations
+            @Sentences.manageRelations
         </button>
     </div>
-    <div class="btn-group" 
+    <div class="btn-group"
          style="margin-bottom: 10px; "
          data-ng-show="selectedClass">
         <button class="btn btn-default"
@@ -34,41 +41,11 @@
         @Html.Partial("_Form")
     </article>
 
-    <div class="row" data-ng-show="editingRelations">
-        <h3>
-            @Sentences.relations
-            <button class="btn btn-primary"
-                    title="@Sentences.addRelation">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>@Sentences.source</th>
-                    <th>@Sentences.sourceMultiplicity</th>
-                    <th>@Sentences.relationType</th>
-                    <th>@Sentences.target</th>
-                    <th>@Sentences.targetMultiplicity</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="relation in relations">
-                    <td>{{relation.source}}</td>
-                    <td>{{relation.sourceMultiplicity}}</td>
-                    <td>{{relation.relationType}}</td>
-                    <td>{{relation.target}}</td>
-                    <td>{{relation.targetMultiplicity}}</td>
-                    <td>
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <article data-ng-show="editingRelations">
+        @Html.Partial("_Relations")
+    </article>
 
-    <div id="classDiagramPaperContainer" data-ng-show="showDiagram()">
+    <div id="classDiagramPaperContainer" data-ng-show="isDiagramVisible()">
         <div id="classDiagramPaper">
 
         </div>

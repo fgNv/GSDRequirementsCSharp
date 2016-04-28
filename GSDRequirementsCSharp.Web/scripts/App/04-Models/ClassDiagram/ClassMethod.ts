@@ -7,7 +7,7 @@
         public returnType: string
         public name: string
         public classMethodParameters: Array<ClassMethodParameter>
-        public Visibility: Visibility
+        public visibility: Visibility
 
         public constructor(data: any = null) {
             if (data) {
@@ -31,7 +31,7 @@
         }
 
         public getDescription() {
-            var visibility = this.Visibility == Visibility.Public ? "+" : "-"
+            var visibility = GetVisibilityUmlRepresentation(this.visibility)
             var parameters = _.map(this.classMethodParameters,
                                   (p: ClassMethodParameter): string => p.getDescription())
 

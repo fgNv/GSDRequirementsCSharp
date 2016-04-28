@@ -837,4 +837,43 @@
   <data name="targetMultiplicity" xml:space="preserve">
     <value>Multiplicidade do alvo</value>
   </data>
+  <data name="editClass" xml:space="preserve">
+    <value>Editar classe</value>
+  </data>
+  <data name="thereAreNoRelationsRegistered" xml:space="preserve">
+    <value>Não há relações cadastradas</value>
+  </data>
+  <data name="Aggregation" xml:space="preserve">
+    <value>Agregação</value>
+  </data>
+  <data name="Association" xml:space="preserve">
+    <value>Associação</value>
+  </data>
+  <data name="atLeastOneClassMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>Ao menos uma classe deve estar cadastrada para acessar o gerenciamento de relações</value>
+  </data>
+  <data name="Composition" xml:space="preserve">
+    <value>Composição</value>
+  </data>
+  <data name="Inheritance" xml:space="preserve">
+    <value>Herança</value>
+  </data>
+  <data name="manageRelations" xml:space="preserve">
+    <value>Gerenciar relações</value>
+  </data>
+  <data name="Realization" xml:space="preserve">
+    <value>Implementação</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Protected" xml:space="preserve">
+    <value>Protegido</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="visibility" xml:space="preserve">
+    <value>Visibilidade</value>
+  </data>
 </root>

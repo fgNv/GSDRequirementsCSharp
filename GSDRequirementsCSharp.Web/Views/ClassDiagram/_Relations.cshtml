@@ -1,0 +1,82 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3>
+    @Sentences.relations
+    <button class="btn btn-primary"
+            data-ng-click="addRelation()"
+            title="@Sentences.addRelation">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</h3>
+<div class="alert alert-info" data-ng-show="relations.length == 0">
+    @Sentences.thereAreNoRelationsRegistered
+</div>
+<table class="table" data-ng-show="relations.length > 0">
+    <thead>
+        <tr>
+            <th>@Sentences.source</th>
+            <th>@Sentences.sourceMultiplicity</th>
+            <th>@Sentences.relationType</th>
+            <th>@Sentences.target</th>
+            <th>@Sentences.targetMultiplicity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="relation in relations">
+            <td>
+                <div class="form-group">                    
+                    <select data-ng-options="entity as entity.name for
+                                             entity in getClassOptions(relation)"                            
+                            class="form-control"
+                            data-ng-model="relation.source"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input type="text"
+                           class="form-control"
+                           id="class-name"
+                           data-ng-model="relation.sourceMultiplicity" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <select data-ng-options="type.value as type.label for
+                                             type in relationTypeOptions"
+                            class="form-control"
+                            data-ng-model="relation.relationType"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <select data-ng-options="entity as entity.name for
+                                             entity in getClassOptions(relation)"
+                            class="form-control"
+                            data-ng-model="relation.target"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">                    
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="relation.targertMultiplicity" />
+                </div>
+            </td>
+            <td>
+                <span class="glyphicon glyphicon-trash"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="btn-group">
+    <button class="btn btn-default"
+            data-ng-click="backToDiagram()">
+        @Sentences.goBack
+    </button>
+    <button class="btn btn-primary"
+            data-ng-click="saveRelations()">
+        @Sentences.save
+    </button>
+</div>
+
