@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSDRequirementsCSharp.Domain.Models;
 
 namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
@@ -14,6 +15,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
         public IEnumerable<MethodItem> Methods { get; set; }
 
-        public IEnumerable<PropertyItem> Proprerties { get; set; }
+        public IEnumerable<PropertyItem> Properties { get; set; }
+
+        public Visibility Visibility { get; set; }
+
+        public Cell Cell { get; set; }
     }
 }

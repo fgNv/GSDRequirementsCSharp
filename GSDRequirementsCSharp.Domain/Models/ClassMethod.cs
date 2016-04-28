@@ -1,12 +1,13 @@
 namespace GSDRequirementsCSharp.Domain
 {
+    using Infrastructure.Persistence;
     using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class ClassMethod
+    public class ClassMethod : IEntity<Guid>
     {
         public ClassMethod()
         {

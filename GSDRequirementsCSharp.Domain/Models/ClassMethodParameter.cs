@@ -1,11 +1,12 @@
 namespace GSDRequirementsCSharp.Domain
 {
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class ClassMethodParameter
+    public partial class ClassMethodParameter : IEntity<Guid>
     {
         public Guid Id { get; set; }
 

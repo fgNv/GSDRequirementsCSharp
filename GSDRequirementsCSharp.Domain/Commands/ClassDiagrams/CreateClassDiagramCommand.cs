@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
-    public class CreateClassDiagramCommand : ICommand
+    public class CreateClassDiagramCommand : IProjectCommand
     {
         [Required]
         public Guid? PackageId { get; set; }

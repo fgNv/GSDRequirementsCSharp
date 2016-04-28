@@ -1,11 +1,12 @@
 namespace GSDRequirementsCSharp.Domain
 {
+    using Infrastructure.Persistence;
     using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Class
+    public class Class : IEntity<Guid>
     {
         public Class()
         {

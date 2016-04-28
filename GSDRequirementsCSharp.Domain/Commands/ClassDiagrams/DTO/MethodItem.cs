@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSDRequirementsCSharp.Domain.Models;
 
 namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
@@ -16,5 +17,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         public string ReturnType { get; set; }
 
         public IEnumerable<ParameterItem> Parameters { get; set; }
+
+        [Required]
+        public Visibility? Visibility { get; internal set; }
     }
 }
