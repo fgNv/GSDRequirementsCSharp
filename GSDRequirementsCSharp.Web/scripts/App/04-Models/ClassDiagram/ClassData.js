@@ -31,4 +31,3 @@ var Models;
     })();
     Models.ClassData = ClassData;
 })(Models || (Models = {}));
-//# sourceMappingURL=ClassData.js.map

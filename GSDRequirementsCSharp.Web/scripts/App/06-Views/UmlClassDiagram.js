@@ -12,9 +12,13 @@ var Views;
         return null;
     }
     Views.buildClass = buildClass;
+    function getClassHeight(classData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 22;
+        height += 60;
+        return height;
+    }
     function buildConcreteClass(classData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 30;
+        var height = getClassHeight(classData);
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
             size: { width: 220, height: height },
@@ -46,8 +50,7 @@ var Views;
         });
     }
     function buildInterface(classData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40;
+        var height = getClassHeight(classData);
         return new joint.shapes.uml.Interface({
             position: { x: 50, y: 50 },
             size: { width: 280, height: height },
@@ -79,8 +82,7 @@ var Views;
         });
     }
     function buildAbstractClass(classData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40;
+        var height = getClassHeight(classData);
         return new joint.shapes.uml.Abstract({
             position: { x: 80, y: 80 },
             size: { width: 260, height: height },
@@ -142,6 +144,7 @@ var Views;
                 });
                 break;
         }
+        cell.addVertex = false;
         if (!cell)
             return null;
         if (!isSelfReference)
@@ -161,6 +164,9 @@ var Views;
         var paper = new joint.dia.Paper({
             el: element,
             width: 1200,
+            interactive: function (cellView) {
+                return { vertexAdd: false };
+            },
             height: 700,
             gridSize: 1,
             model: graph
@@ -181,4 +187,3 @@ var Views;
     }
     Views.startClassDiagram = startClassDiagram;
 })(Views || (Views = {}));
-//# sourceMappingURL=UmlClassDiagram.js.map

@@ -4,7 +4,7 @@
     declare var _: any;
     declare var $: any;
     declare var V: any;
-    
+
     export function buildClass(data: Models.ClassData) {
         switch (data.type) {
             case Models.ClassType.Abstract:
@@ -17,9 +17,14 @@
         return null
     }
 
+    function getClassHeight(classData: Models.ClassData) {
+        var height = (classData.classProperties.length + classData.classMethods.length) * 22;
+        height += 60
+        return height
+    }
+
     function buildConcreteClass(classData: Models.ClassData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 30
+        var height = getClassHeight(classData)
 
         return new joint.shapes.uml.Class({
             position: { x: 20, y: 20 },
@@ -55,8 +60,7 @@
     }
 
     function buildInterface(classData: Models.ClassData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40
+        var height = getClassHeight(classData)
 
         return new joint.shapes.uml.Interface({
             position: { x: 50, y: 50 },
@@ -92,8 +96,7 @@
     }
 
     function buildAbstractClass(classData: Models.ClassData) {
-        var height = (classData.classProperties.length + classData.classMethods.length) * 33;
-        height += 40
+        var height = getClassHeight(classData)
 
         return new joint.shapes.uml.Abstract({
             position: { x: 80, y: 80 },
@@ -120,7 +123,7 @@
             }
         })
     }
-    
+
     var paperElementId = '#classDiagramPaper'
 
     export function buildRelation(relationData: Models.ClassRelationship) {
@@ -128,7 +131,7 @@
         var targetId = relationData.target.cell.id
 
         var isSelfReference = sourceId == targetId
-        
+
         var cell = null
 
         switch (relationData.type) {
@@ -164,6 +167,8 @@
                 break;
         }
 
+        cell.addVertex = false
+
         if (!cell) return null
         if (!isSelfReference) return cell
         
@@ -184,11 +189,14 @@
         var paper = new joint.dia.Paper({
             el: element,
             width: 1200,
+            interactive: (cellView) => {
+                return { vertexAdd: false };
+            },
             height: 700,
             gridSize: 1,
             model: graph
         });
-        
+
         paper.on('cell:pointerclick', (cellView) => {
             _.each(graph.getElements(), function (el) {
                 var vectorized = V(paper.findViewByModel(el).el);

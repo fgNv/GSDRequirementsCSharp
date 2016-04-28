@@ -105,4 +105,3 @@ var Controllers;
     app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource",
         "$rootScope", "$location", RequirementsController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=RequirementsController.js.map

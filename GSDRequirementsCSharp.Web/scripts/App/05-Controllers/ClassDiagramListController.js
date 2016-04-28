@@ -92,4 +92,3 @@ var Controllers;
     app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
         "$rootScope", "$location", ClassDiagramListController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ClassDiagramListController.js.map
