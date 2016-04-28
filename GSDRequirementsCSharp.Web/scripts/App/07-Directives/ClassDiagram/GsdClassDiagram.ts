@@ -4,12 +4,10 @@
 
     declare var angular: any;
     declare var _: any;
-    declare var joint: any;
-    declare var $: any;
-    declare var V: any;
+    
     declare var GSDRequirements: GSDRequirementsData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    
+
     class GsdClassDiagram {
         public scope = {
             'classDiagram': '=classDiagram',
@@ -26,9 +24,20 @@
             $scope.selectedClass = null
             $scope.classes = []
             $scope.relations = []
+            $scope.relationsOnEdit = []
+
             $scope.editRelations = () => {
                 window.location.href = "#/diagram/relations"
                 $scope.editingRelations = true
+                $scope.relationsOnEdit = []
+
+                _.each($scope.relations, (relation) => {
+                    var clone = {}
+                    for (var property in relation) {
+                        clone[property] = relation[property]
+                    }
+                    $scope.relationsOnEdit.push(clone)
+                })
             }
 
             $scope.getClassOptions = (relation) => {
@@ -40,7 +49,36 @@
             }
 
             $scope.addRelation = () => {
-                $scope.relations.push({})
+                $scope.relationsOnEdit.push({})
+            }
+
+            $scope.removeRelation = (relation) => {
+                $scope.relationsOnEdit = _.filter($scope.relationsOnEdit,
+                                                  (r) => r != relation)
+            }
+
+            function removeRelationFromDiagram(relation: Models.ClassRelationship) {
+                $scope.relations = _.filter($scope.relations,
+                    (r) => r != relation)
+                relation.cell.remove()
+            }
+
+            $scope.saveRelations = () => {    
+                if (!graph) return
+                            
+                $scope.relations = []
+
+                _.each($scope.relationsOnEdit, (relation: Models.ClassRelationship) => {
+                    if (relation.cell != null) { removeRelationFromDiagram(relation) }
+                    var cell = Views.buildRelation(relation)
+                    if (!cell) return
+                    relation.cell = cell
+                    $scope.relations.push(relation)
+                    $timeout((): void => { graph.addCell(cell) })
+                })
+
+                $scope.relationsOnEdit = []
+                $scope.backToDiagram();
             }
 
             $scope.selectClass = (id) => {
@@ -70,14 +108,10 @@
 
             $scope.backToDiagram = () => {
                 $scope.currentClass = null
+                $scope.editingRelations = false
                 window.location.href = "#/diagram"
             }
-
-            $scope.editSelectedClassRelations = () => {
-                $scope.classToEditRelations = $scope.selectedClass
-                window.location.href = "#/diagram/relations"
-            }
-
+            
             $scope.$watch('classDiagram', (newValue, oldValue) => {
                 $scope.classes = []
                 $scope.relations = []
@@ -93,21 +127,11 @@
                 }
 
                 $timeout((): void => {
-                    var result = Views.startClassDiagram()
-                    graph = result.graph
-                    paper = result.paper
-
-                    paper.on('cell:pointerclick', (cellView) => {
-                        _.each(graph.getElements(), function (el) {
-                            var vectorized = V(paper.findViewByModel(el).el);
-                            if (vectorized.hasClass("selectedCell")) {
-                                vectorized.removeClass("selectedCell")
-                            }
-                        })
-
-                        V(cellView.el).addClass('selectedCell')
+                    var result = Views.startClassDiagram((cellView): void => {
                         $scope.selectClass(cellView.model.id)
                     })
+                    graph = result.graph
+                    paper = result.paper
                 })
             })
 
@@ -121,32 +145,11 @@
                 $scope.currentClass = new Models.ClassData()
             }
 
-            $scope.saveClass = (data: Models.ClassData) => {
-                var cell = null
-                var uml = joint.shapes.uml
-                
+            $scope.saveClass = (data: Models.ClassData) => {                
                 if (!graph) return
-                
-                if (data.cell != null) {
-                    removeClass(data)
-                }
-
-                switch (data.type) {
-                    case Models.ClassType.Abstract:
-                        cell = Views.buildAbstractClass(data)
-                        break
-                    case Models.ClassType.Concrete:
-                        cell = Views.buildConcreteClass(data)
-                        break
-                    case Models.ClassType.Interface:
-                        cell = Views.buildInterface(data)
-                        break
-                }
-
+                if (data.cell != null) { removeClass(data) }
+                var cell = Views.buildClass(data)
                 if (!cell) return
-
-                console.log('$scope.currentClass')
-                console.log($scope.currentClass)
                 $scope.currentClass.cell = cell
                 $scope.classes.push($scope.currentClass)
 

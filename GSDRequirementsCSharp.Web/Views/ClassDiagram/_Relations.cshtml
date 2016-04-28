@@ -8,10 +8,10 @@
         <span class="glyphicon glyphicon-plus"></span>
     </button>
 </h3>
-<div class="alert alert-info" data-ng-show="relations.length == 0">
+<div class="alert alert-info" data-ng-show="relationsOnEdit.length == 0">
     @Sentences.thereAreNoRelationsRegistered
 </div>
-<table class="table" data-ng-show="relations.length > 0">
+<table class="table" data-ng-show="relationsOnEdit.length > 0">
     <thead>
         <tr>
             <th>@Sentences.source</th>
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr data-ng-repeat="relation in relations">
+        <tr data-ng-repeat="relation in relationsOnEdit">
             <td>
                 <div class="form-group">                    
                     <select data-ng-options="entity as entity.name for
@@ -45,7 +45,7 @@
                     <select data-ng-options="type.value as type.label for
                                              type in relationTypeOptions"
                             class="form-control"
-                            data-ng-model="relation.relationType"></select>
+                            data-ng-model="relation.type"></select>
                 </div>
             </td>
             <td>
@@ -64,7 +64,9 @@
                 </div>
             </td>
             <td>
-                <span class="glyphicon glyphicon-trash"></span>
+                <button class="btn btn-default">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
             </td>
         </tr>
     </tbody>

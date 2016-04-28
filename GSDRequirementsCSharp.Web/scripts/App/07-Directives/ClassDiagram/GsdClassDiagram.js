@@ -17,9 +17,18 @@ var Directives;
                     $scope.selectedClass = null;
                     $scope.classes = [];
                     $scope.relations = [];
+                    $scope.relationsOnEdit = [];
                     $scope.editRelations = function () {
                         window.location.href = "#/diagram/relations";
                         $scope.editingRelations = true;
+                        $scope.relationsOnEdit = [];
+                        _.each($scope.relations, function (relation) {
+                            var clone = {};
+                            for (var property in relation) {
+                                clone[property] = relation[property];
+                            }
+                            $scope.relationsOnEdit.push(clone);
+                        });
                     };
                     $scope.getClassOptions = function (relation) {
                         return $scope.classes;
@@ -28,7 +37,32 @@ var Directives;
                         return !$scope.currentClass && !$scope.editingRelations;
                     };
                     $scope.addRelation = function () {
-                        $scope.relations.push({});
+                        $scope.relationsOnEdit.push({});
+                    };
+                    $scope.removeRelation = function (relation) {
+                        $scope.relationsOnEdit = _.filter($scope.relationsOnEdit, function (r) { return r != relation; });
+                    };
+                    function removeRelationFromDiagram(relation) {
+                        $scope.relations = _.filter($scope.relations, function (r) { return r != relation; });
+                        relation.cell.remove();
+                    }
+                    $scope.saveRelations = function () {
+                        if (!graph)
+                            return;
+                        $scope.relations = [];
+                        _.each($scope.relationsOnEdit, function (relation) {
+                            if (relation.cell != null) {
+                                removeRelationFromDiagram(relation);
+                            }
+                            var cell = Views.buildRelation(relation);
+                            if (!cell)
+                                return;
+                            relation.cell = cell;
+                            $scope.relations.push(relation);
+                            $timeout(function () { graph.addCell(cell); });
+                        });
+                        $scope.relationsOnEdit = [];
+                        $scope.backToDiagram();
                     };
                     $scope.selectClass = function (id) {
                         var classToBeSelected = _.find($scope.classes, function (c) { return c.cell.id == id; });
@@ -51,11 +85,8 @@ var Directives;
                     };
                     $scope.backToDiagram = function () {
                         $scope.currentClass = null;
+                        $scope.editingRelations = false;
                         window.location.href = "#/diagram";
-                    };
-                    $scope.editSelectedClassRelations = function () {
-                        $scope.classToEditRelations = $scope.selectedClass;
-                        window.location.href = "#/diagram/relations";
                     };
                     $scope.$watch('classDiagram', function (newValue, oldValue) {
                         $scope.classes = [];
@@ -70,19 +101,11 @@ var Directives;
                             return;
                         }
                         $timeout(function () {
-                            var result = Views.startClassDiagram();
-                            graph = result.graph;
-                            paper = result.paper;
-                            paper.on('cell:pointerclick', function (cellView) {
-                                _.each(graph.getElements(), function (el) {
-                                    var vectorized = V(paper.findViewByModel(el).el);
-                                    if (vectorized.hasClass("selectedCell")) {
-                                        vectorized.removeClass("selectedCell");
-                                    }
-                                });
-                                V(cellView.el).addClass('selectedCell');
+                            var result = Views.startClassDiagram(function (cellView) {
                                 $scope.selectClass(cellView.model.id);
                             });
+                            graph = result.graph;
+                            paper = result.paper;
                         });
                     });
                     $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType);
@@ -94,28 +117,14 @@ var Directives;
                         $scope.currentClass = new Models.ClassData();
                     };
                     $scope.saveClass = function (data) {
-                        var cell = null;
-                        var uml = joint.shapes.uml;
                         if (!graph)
                             return;
                         if (data.cell != null) {
                             removeClass(data);
                         }
-                        switch (data.type) {
-                            case Models.ClassType.Abstract:
-                                cell = Views.buildAbstractClass(data);
-                                break;
-                            case Models.ClassType.Concrete:
-                                cell = Views.buildConcreteClass(data);
-                                break;
-                            case Models.ClassType.Interface:
-                                cell = Views.buildInterface(data);
-                                break;
-                        }
+                        var cell = Views.buildClass(data);
                         if (!cell)
                             return;
-                        console.log('$scope.currentClass');
-                        console.log($scope.currentClass);
                         $scope.currentClass.cell = cell;
                         $scope.classes.push($scope.currentClass);
                         $scope.currentClass = null;
