@@ -33,3 +33,4 @@ var Directives;
     })();
     app.directive('gsdIssueCreate', GsdIssueCreate.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdIssueCreate.js.map

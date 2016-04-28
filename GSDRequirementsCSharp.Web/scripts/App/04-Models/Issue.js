@@ -28,3 +28,4 @@ var Models;
     })();
     Models.Issue = Issue;
 })(Models || (Models = {}));
+//# sourceMappingURL=Issue.js.map

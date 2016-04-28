@@ -47,6 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
+    <Compile Include="Commands\ClassDiagrams\ClassDiagramContentItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\ClassItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommand.cs" />
+    <Compile Include="Commands\ClassDiagrams\MethodItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\ParameterItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\PropertyItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\RelationItem.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
     <Compile Include="Commands\IProjectOwnerCommand.cs" />
     <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommand.cs" />

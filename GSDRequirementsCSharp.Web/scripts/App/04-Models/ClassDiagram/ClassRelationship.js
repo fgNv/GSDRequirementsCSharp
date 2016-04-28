@@ -7,3 +7,4 @@ var Models;
     })();
     Models.ClassRelationship = ClassRelationship;
 })(Models || (Models = {}));
+//# sourceMappingURL=ClassRelationship.js.map
