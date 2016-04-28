@@ -3,21 +3,31 @@ var Directives;
     var app = angular.module(GSDRequirements.angularModuleName);
     var GsdClassDiagram = (function () {
         function GsdClassDiagram() {
+            var _this = this;
             this.scope = {
                 'classDiagram': '=classDiagram',
                 'afterSave': '=afterSave',
                 'currentClass': '=currentClass',
                 'editingRelations': '=editingRelations'
             };
-            this.controller = ['$timeout', '$scope', function ($timeout, $scope) {
+            this.controller = ['$timeout', '$scope', 'PackageResource', 'ClassDiagramResource',
+                function ($timeout, $scope, PackageResource, ClassDiagramResource) {
                     var graph = null;
                     var paper = null;
+                    $scope.pendingRequests = 0;
                     $scope.currentClass = null;
                     $scope.editingRelations = false;
                     $scope.selectedClass = null;
                     $scope.classes = [];
                     $scope.relations = [];
                     $scope.relationsOnEdit = [];
+                    $scope.placeholder = '';
+                    _this.LoadPackagesOptions(PackageResource, $scope);
+                    $scope.utility = {};
+                    $scope.utility.contentContainsLocale =
+                        function (i) { return $scope.content &&
+                            $scope.content[i] &&
+                            $scope.content[i].name; };
                     $scope.editRelations = function () {
                         window.location.href = "#/diagram/relations";
                         $scope.editingRelations = true;
@@ -88,7 +98,31 @@ var Directives;
                         $scope.editingRelations = false;
                         window.location.href = "#/diagram";
                     };
+                    $scope.save = function () {
+                        $scope.pendingRequests++;
+                        var contents = _.chain($scope.contents)
+                            .filter(function (i) { return i.name; })
+                            .value();
+                        $scope.classDiagram.contents = contents;
+                        ClassDiagramResource.save($scope.classDiagram)
+                            .$promise
+                            .then(function () {
+                            Notification.notifySuccess(Sentences.classDiagramSavedSuccessfully);
+                            if ($scope.afterSave) {
+                                $scope.afterSave();
+                            }
+                            window.location.href = "#";
+                            $scope.classDiagram = null;
+                        })
+                            .catch(function (err) {
+                            Notification.notifyError(Sentences.errorSavingClassDiagram, err.data.messages);
+                        })
+                            .finally(function () {
+                            $scope.pendingRequests--;
+                        });
+                    };
                     $scope.$watch('classDiagram', function (newValue, oldValue) {
+                        _this.initializeContentData($scope);
                         $scope.classes = [];
                         $scope.relations = [];
                         if (graph) {
@@ -134,6 +168,46 @@ var Directives;
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/management';
         }
+        GsdClassDiagram.prototype.LoadPackagesOptions = function (packageResource, $scope) {
+            $scope.pendingRequests++;
+            packageResource.query()
+                .$promise
+                .then(function (response) {
+                $scope.packagesOptions = _.map(response, function (r) { return new Models.Package(r); });
+            })
+                .catch(function (err) {
+                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
+            })
+                .finally(function () {
+                $scope.pendingRequests--;
+            });
+        };
+        GsdClassDiagram.prototype.initializeContentData = function ($scope) {
+            $scope.contentData = {};
+            $scope.contentData.locale = GSDRequirements.currentLocale;
+            $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
+            $scope.content = {};
+            _.each(GSDRequirements.localesAvailable, function (l) {
+                $scope.content[l.name] = {};
+                $scope.content[l.name].name = '';
+                $scope.content[l.name].locale = l.name;
+            });
+        };
+        GsdClassDiagram.prototype.definePlaceholder = function ($scope, locale, $q) {
+            var deferred = $q.defer();
+            if ($scope.contentData.locale == locale) {
+                deferred.reject();
+                return deferred.promise;
+            }
+            var content = $scope.content[locale];
+            if (!content.name) {
+                deferred.reject();
+                return deferred.promise;
+            }
+            $scope.placeholder = content.name;
+            deferred.resolve();
+            return deferred.promise;
+        };
         GsdClassDiagram.Factory = function () {
             return new GsdClassDiagram();
         };

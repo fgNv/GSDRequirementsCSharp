@@ -439,6 +439,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class diagram saved successfully.
+        /// </summary>
+        public static string classDiagramSavedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramSavedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Collaborator.
         /// </summary>
         public static string collaborator {
@@ -885,6 +894,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorRemovingLink {
             get {
                 return ResourceManager.GetString("errorRemovingLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving class diagram.
+        /// </summary>
+        public static string errorSavingClassDiagram {
+            get {
+                return ResourceManager.GetString("errorSavingClassDiagram", resourceCulture);
             }
         }
         

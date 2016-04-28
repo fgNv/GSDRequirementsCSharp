@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
-    public class Cell
+    public class Position
     {
-        public Guid Id { get; set; }
-
-        public Position Position { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }

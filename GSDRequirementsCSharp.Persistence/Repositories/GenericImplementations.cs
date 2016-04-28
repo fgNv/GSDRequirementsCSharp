@@ -8,6 +8,41 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
+    internal class ClassDiagramRepository : GenericRepository<ClassDiagram, VersionKey>
+    {
+        public ClassDiagramRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassDiagramContentRepository : GenericRepository<ClassDiagramContent, LocaleKey>
+    {
+        public ClassDiagramContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassRepository : GenericRepository<Class, Guid>
+    {
+        public ClassRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassMethodRepository : GenericRepository<ClassMethod, Guid>
+    {
+        public ClassMethodRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassPropertyRepository : GenericRepository<ClassProperty, Guid>
+    {
+        public ClassPropertyRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassMethodParameterRepository : GenericRepository<ClassMethodParameter, Guid>
+    {
+        public ClassMethodParameterRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class ClassRelationRepository : GenericRepository<ClassRelationship, Guid>
+    {
+        public ClassRelationRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
     internal class ContactRepository : GenericRepository<Contact, Guid>
     {
         public ContactRepository(GSDRequirementsContext context) : base(context) { }
@@ -42,7 +77,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public ProjectContentRepository(GSDRequirementsContext context) : base(context) { }
     }
-    
+
     internal class PackageRepository : GenericRepository<Package, Guid>
     {
         public PackageRepository(GSDRequirementsContext context) : base(context) { }
@@ -67,7 +102,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public SpecificationItemRepository(GSDRequirementsContext context) : base(context) { }
     }
-    
+
     internal class UserRepository : GenericRepository<User, int>
     {
         public UserRepository(GSDRequirementsContext context) : base(context) { }

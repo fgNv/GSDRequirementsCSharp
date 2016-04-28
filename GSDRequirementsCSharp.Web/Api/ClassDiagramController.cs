@@ -1,4 +1,6 @@
-﻿using GSDRequirementsCSharp.Infrastructure.CQS;
+﻿using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
+using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,13 @@ namespace GSDRequirementsCSharp.Web.Api
     public class ClassDiagramController : ApiController
     {
         private readonly IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> _classDiagramsPaginatedQuery;
+        private readonly ICommandHandler<CreateClassDiagramCommand> _createClassDiagramCommandHandler;
 
-        public ClassDiagramController(IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> classDiagramsPaginatedQuery)
+        public ClassDiagramController(IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> classDiagramsPaginatedQuery,
+                                      ICommandHandler<CreateClassDiagramCommand> createClassDiagramCommandHandler)
         {
             _classDiagramsPaginatedQuery = classDiagramsPaginatedQuery;
+            _createClassDiagramCommandHandler = createClassDiagramCommandHandler;
         }
 
         [HttpGet]
@@ -23,6 +28,11 @@ namespace GSDRequirementsCSharp.Web.Api
         {
             var result = _classDiagramsPaginatedQuery.Handle(query);
             return result;
+        }
+
+        public void Post(CreateClassDiagramCommand command)
+        {
+            _createClassDiagramCommandHandler.Handle(command);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿module Sentences {
     export declare var areYouCertainYouWishToRemoveThisItem: string;
     export declare var classDiagramInactivatedSuccessfully: string;
+    export declare var classDiagramSavedSuccessfully: string;
     export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
     export declare var errorAddingComment: string; 
@@ -8,6 +9,7 @@
     export declare var errorLoadingProjects: string;
     export declare var errorSavingUserAccount: string;
     export declare var errorSavingProject: string;
+    export declare var errorSavingClassDiagram: string; 
     export declare var errorAddingTranslation: string;
     export declare var errorConcludingIssue: string;
     export declare var errorInactivatingClassDiagram: string;

@@ -54,6 +54,7 @@
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommand.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\MethodItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ParameterItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\Position.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\PropertyItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\RelationItem.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />

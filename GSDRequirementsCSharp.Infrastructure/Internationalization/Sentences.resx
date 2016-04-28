@@ -876,4 +876,10 @@
   <data name="visibility" xml:space="preserve">
     <value>Visibility</value>
   </data>
+  <data name="classDiagramSavedSuccessfully" xml:space="preserve">
+    <value>Class diagram saved successfully</value>
+  </data>
+  <data name="errorSavingClassDiagram" xml:space="preserve">
+    <value>Error saving class diagram</value>
+  </data>
 </root>
