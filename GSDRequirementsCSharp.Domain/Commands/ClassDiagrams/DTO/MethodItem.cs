@@ -16,9 +16,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         [Required]
         public string ReturnType { get; set; }
 
-        public IEnumerable<ParameterItem> Parameters { get; set; }
+        public IEnumerable<ParameterItem> ClassMethodParameters { get; set; }
 
         [Required]
-        public Visibility? Visibility { get; internal set; }
+        public Visibility? Visibility { get; set; }
     }
 }

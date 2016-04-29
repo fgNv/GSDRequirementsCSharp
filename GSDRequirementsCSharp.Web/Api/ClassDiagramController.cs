@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated;
@@ -14,12 +15,20 @@ namespace GSDRequirementsCSharp.Web.Api
     {
         private readonly IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> _classDiagramsPaginatedQuery;
         private readonly ICommandHandler<CreateClassDiagramCommand> _createClassDiagramCommandHandler;
+        private readonly IQueryHandler<Guid, ClassDiagramDetailedViewModel> _classDiagramDetailQueryHandler;
 
         public ClassDiagramController(IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> classDiagramsPaginatedQuery,
-                                      ICommandHandler<CreateClassDiagramCommand> createClassDiagramCommandHandler)
+                                      ICommandHandler<CreateClassDiagramCommand> createClassDiagramCommandHandler,
+                                      IQueryHandler<Guid, ClassDiagramDetailedViewModel> classDiagramDetailQueryHandler)
         {
             _classDiagramsPaginatedQuery = classDiagramsPaginatedQuery;
             _createClassDiagramCommandHandler = createClassDiagramCommandHandler;
+            _classDiagramDetailQueryHandler = classDiagramDetailQueryHandler;
+        }
+
+        public ClassDiagramDetailedViewModel Get(Guid id)
+        {
+            return _classDiagramDetailQueryHandler.Handle(id);
         }
 
         [HttpGet]

@@ -40,8 +40,19 @@ var Controllers;
             };
             window.location.href = "#";
             $scope.setCurrentClassDiagram = function (cd) {
-                $scope.currentClassDiagram = cd;
-                window.location.href = "#/form";
+                $scope.pendingRequests++;
+                ClassDiagramResource.get({ 'id': cd.id })
+                    .$promise
+                    .then(function (response) {
+                    $scope.currentClassDiagram = new Models.ClassDiagram(response);
+                    window.location.href = "#/diagram";
+                })
+                    .catch(function (err) {
+                    Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages);
+                })
+                    .finally(function () {
+                    $scope.pendingRequests--;
+                });
             };
             $scope.loadClassDiagrams = function () { return _this.LoadClassDiagrams(ClassDiagramResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {

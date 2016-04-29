@@ -169,7 +169,14 @@
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
-    <Compile Include="ViewModels\ClassDiagramViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassMethodViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassPropertyViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassRelationshipViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ParameterViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentContentViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentViewModel.cs" />
     <Compile Include="ViewModels\IssueContentViewModel.cs" />

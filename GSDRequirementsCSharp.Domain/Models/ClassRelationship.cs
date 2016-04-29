@@ -14,8 +14,12 @@ namespace GSDRequirementsCSharp.Domain
 
         [StringLength(10)]
         public string TargetMultiplicity { get; set; }
-        
+
+        public Class Source { get; set; }
+
         public Guid SourceId { get; set; }
+
+        public Class Target { get; set; }
 
         public Guid TargetId { get; set; }
 

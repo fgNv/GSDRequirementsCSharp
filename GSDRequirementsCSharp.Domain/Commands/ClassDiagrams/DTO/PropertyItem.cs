@@ -15,6 +15,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         [Required]
         public string Type { get; set; }
         [Required]
-        public Visibility? Visibility { get; internal set; }
+        public Visibility? Visibility { get; set; }
     }
 }

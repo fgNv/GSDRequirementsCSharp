@@ -21,6 +21,12 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.TargetId).HasColumnName("target_id");
             Property(e => e.Type).HasColumnName("type");
 
+            HasRequired(e => e.Source).WithMany()
+                                      .HasForeignKey(e => e.SourceId);
+
+            HasRequired(e => e.Target).WithMany()
+                                      .HasForeignKey(e => e.TargetId);
+
             Property(e => e.SourceMultiplicity)
                 .IsUnicode(false);
 

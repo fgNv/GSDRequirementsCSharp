@@ -127,8 +127,13 @@
     <Compile Include="Migrations\201604261336132_class-diagram-relatioship-fk.Designer.cs">
       <DependentUpon>201604261336132_class-diagram-relatioship-fk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604291238146_class-diagram-coordinates.cs" />
+    <Compile Include="Migrations\201604291238146_class-diagram-coordinates.Designer.cs">
+      <DependentUpon>201604291238146_class-diagram-coordinates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\NextId\ClassDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryHandler.cs" />
@@ -221,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604261336132_class-diagram-relatioship-fk.resx">
       <DependentUpon>201604261336132_class-diagram-relatioship-fk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604291238146_class-diagram-coordinates.resx">
+      <DependentUpon>201604291238146_class-diagram-coordinates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

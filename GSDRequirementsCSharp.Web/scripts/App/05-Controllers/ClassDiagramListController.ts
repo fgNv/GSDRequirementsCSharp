@@ -57,8 +57,20 @@
             window.location.href = "#"
 
             $scope.setCurrentClassDiagram = (cd): void => {
-                $scope.currentClassDiagram = cd
-                window.location.href = "#/form"
+                $scope.pendingRequests++
+
+                ClassDiagramResource.get({ 'id': cd.id })
+                    .$promise
+                    .then((response) => {
+                        $scope.currentClassDiagram = new Models.ClassDiagram(response)
+                        window.location.href = "#/diagram"
+                    })
+                    .catch((err) => {
+                        Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                    })
+                    .finally(() => {
+                        $scope.pendingRequests--
+                    });                
             }
 
             $scope.loadClassDiagrams = () => this.LoadClassDiagrams(ClassDiagramResource,

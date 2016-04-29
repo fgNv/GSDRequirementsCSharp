@@ -475,6 +475,7 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassDiagramContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassMethod.ts" />
@@ -555,7 +556,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49805</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49805/</IISUrl>
+          <IISUrl>http://localhost:49806/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

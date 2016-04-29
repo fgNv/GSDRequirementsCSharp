@@ -18,6 +18,8 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(c => c.Visibility).HasColumnName("visibility");
             Property(c => c.Type).HasColumnName("type");
             Property(c => c.Name).HasColumnName("name");
+            Property(c => c.X).HasColumnName("coordinates_x");
+            Property(c => c.Y).HasColumnName("coordinates_y");
 
             HasMany(e => e.ClassMethods)
                             .WithRequired(e => e.Class)

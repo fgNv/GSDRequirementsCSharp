@@ -70,7 +70,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             method.Visibility = methodData.Visibility.Value;
             method.ReturnType = methodData.ReturnType;
 
-            foreach (var parameterData in methodData.Parameters)
+            foreach (var parameterData in methodData.ClassMethodParameters)
             {
                 var parameter = new ClassMethodParameter();
                 parameter.Id = Guid.NewGuid();
@@ -92,6 +92,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             classEntity.Name = classData.Name;
             classEntity.Id = classData.Cell.Id;
             classEntity.Visibility = classData.Visibility;
+            classEntity.X = classData.Cell.Position.X;
+            classEntity.Y = classData.Cell.Position.Y;
 
             foreach (var propertyData in classData.ClassProperties)
                 PersistProperty(classEntity, propertyData);

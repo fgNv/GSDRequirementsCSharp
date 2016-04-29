@@ -101,6 +101,11 @@
                     return $scope.classes;
                 }
 
+                $scope.backToList = () => {
+                    $scope.classDiagram = null
+                    window.location.href = "#"
+                }
+
                 $scope.isDiagramVisible = () => {
                     return !$scope.currentClass && !$scope.editingRelations;
                 }

@@ -43,6 +43,10 @@ var Directives;
                     $scope.getClassOptions = function (relation) {
                         return $scope.classes;
                     };
+                    $scope.backToList = function () {
+                        $scope.classDiagram = null;
+                        window.location.href = "#";
+                    };
                     $scope.isDiagramVisible = function () {
                         return !$scope.currentClass && !$scope.editingRelations;
                     };
