@@ -108,8 +108,8 @@ var Views;
     }
     var paperElementId = '#classDiagramPaper';
     function buildRelation(relationData) {
-        var sourceId = relationData.source.cell.id;
-        var targetId = relationData.target.cell.id;
+        var sourceId = relationData.sourceId;
+        var targetId = relationData.targetId;
         var isSelfReference = sourceId == targetId;
         var cell = null;
         switch (relationData.type) {

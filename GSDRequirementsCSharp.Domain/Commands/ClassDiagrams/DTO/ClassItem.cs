@@ -13,9 +13,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
         public ClassType Type { get; set; }
 
-        public IEnumerable<MethodItem> Methods { get; set; }
+        public IEnumerable<MethodItem> ClassMethods { get; set; }
 
-        public IEnumerable<PropertyItem> Properties { get; set; }
+        public IEnumerable<PropertyItem> ClassProperties { get; set; }
 
         public Visibility Visibility { get; set; }
 

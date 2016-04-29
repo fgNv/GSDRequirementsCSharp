@@ -100,10 +100,12 @@ var Directives;
                     };
                     $scope.save = function () {
                         $scope.pendingRequests++;
-                        var contents = _.chain($scope.contents)
+                        var contents = _.chain($scope.content)
                             .filter(function (i) { return i.name; })
                             .value();
                         $scope.classDiagram.contents = contents;
+                        $scope.classDiagram.classes = $scope.classes;
+                        $scope.classDiagram.relations = $scope.relations;
                         ClassDiagramResource.save($scope.classDiagram)
                             .$promise
                             .then(function () {

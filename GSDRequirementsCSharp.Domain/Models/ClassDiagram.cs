@@ -41,5 +41,12 @@ namespace GSDRequirementsCSharp.Domain
                 return new VersionKey { Id = Id, Version = Version };
             }
         }
+
+        public ClassDiagram()
+        {
+            Classes = new HashSet<Class>();
+            Relationships = new HashSet<ClassRelationship>();
+            Contents = new HashSet<ClassDiagramContent>();
+        }
     }
 }

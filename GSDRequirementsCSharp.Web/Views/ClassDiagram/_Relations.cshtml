@@ -26,10 +26,10 @@
         <tr data-ng-repeat="relation in relationsOnEdit">
             <td>
                 <div class="form-group">                    
-                    <select data-ng-options="entity as entity.name for
+                    <select data-ng-options="entity.cell.id as entity.name for
                                              entity in getClassOptions(relation)"                            
                             class="form-control"
-                            data-ng-model="relation.source"></select>
+                            data-ng-model="relation.sourceId"></select>
                 </div>
             </td>
             <td>
@@ -50,17 +50,17 @@
             </td>
             <td>
                 <div class="form-group">
-                    <select data-ng-options="entity as entity.name for
+                    <select data-ng-options="entity.cell.id as entity.name for
                                              entity in getClassOptions(relation)"
                             class="form-control"
-                            data-ng-model="relation.target"></select>
+                            data-ng-model="relation.targetId"></select>
                 </div>
             </td>
             <td>
                 <div class="form-group">                    
                     <input type="text"
                            class="form-control"
-                           data-ng-model="relation.targertMultiplicity" />
+                           data-ng-model="relation.targetMultiplicity" />
                 </div>
             </td>
             <td>

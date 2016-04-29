@@ -1,6 +1,9 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries.ClassDiagrams;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Context;
+using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         private readonly IRepository<ClassProperty, Guid> _classPropertyRepository;
         private readonly IRepository<ClassMethodParameter, Guid> _classMethodParameterRepository;
         private readonly IRepository<ClassRelationship, Guid> _classRelationRepository;
-        
+
+        private readonly IQueryHandler<ClassDiagramNextIdQuery, int> _classDiagramNextIdQueryHandler;
         private readonly IRepository<SpecificationItem, Guid> _specifiationItemRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
 
@@ -30,13 +34,15 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
                                                 IRepository<ClassMethod, Guid> classMethodRepository,
                                                 IRepository<ClassProperty, Guid> classPropertyRepository,
                                                 IRepository<ClassMethodParameter, Guid> classMethodParameterRepository,
-                                                IRepository<ClassRelationship, Guid> classRelationRepository)
+                                                IRepository<ClassRelationship, Guid> classRelationRepository,
+                                                IQueryHandler<ClassDiagramNextIdQuery, int> classDiagramNextIdQueryHandler)
         {
             _classDiagramRepository = classDiagramRepository;
             _specifiationItemRepository = specifiationItemRepository;
             _currentProjectContextId = currentProjectContextId;
             _classDiagramContentRepository = classDiagramContentRepository;
             _classRelationRepository = classRelationRepository;
+            _classDiagramNextIdQueryHandler = classDiagramNextIdQueryHandler;
 
             _classRepository = classRepository;
             _classMethodRepository = classMethodRepository;
@@ -87,10 +93,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             classEntity.Id = classData.Cell.Id;
             classEntity.Visibility = classData.Visibility;
 
-            foreach (var propertyData in classData.Properties)
+            foreach (var propertyData in classData.ClassProperties)
                 PersistProperty(classEntity, propertyData);
 
-            foreach (var methodData in classData.Methods)
+            foreach (var methodData in classData.ClassMethods)
                 PersistMethod(classEntity, methodData);
 
             classDiagram.Classes.Add(classEntity);
@@ -106,9 +112,19 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             specificationItem.Type = SpecificationItemType.ClassDiagram;
             specificationItem.PackageId = command.PackageId.Value;
 
+            var projectId = _currentProjectContextId.Get();
+            if (projectId == null) throw new Exception(Sentences.noProjectInContext);
+
+            var nextId = _classDiagramNextIdQueryHandler.Handle(projectId.Value);
+
             var classDiagram = new ClassDiagram();
             classDiagram.Id = id;
             classDiagram.SpecificationItem = specificationItem;
+            classDiagram.ProjectId = projectId.Value;
+            classDiagram.Active = true;
+            classDiagram.Version = 1;
+            classDiagram.IsLastVersion = true;
+            classDiagram.Identifier = nextId;
 
             foreach (var contentItem in command.Contents)
             {
@@ -116,6 +132,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
                 classDiagramContent.Id = id;
                 classDiagramContent.Locale = contentItem.Locale;
                 classDiagramContent.Name = contentItem.Name;
+                classDiagram.Contents.Add(classDiagramContent);
                 _classDiagramContentRepository.Add(classDiagramContent);
             }
 

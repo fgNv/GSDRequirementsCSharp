@@ -172,11 +172,13 @@
                 $scope.save = () => {
                     $scope.pendingRequests++
                     
-                    var contents = _.chain($scope.contents)
+                    var contents = _.chain($scope.content)
                         .filter(i => i.name)
                         .value()
 
                     $scope.classDiagram.contents = contents
+                    $scope.classDiagram.classes = $scope.classes
+                    $scope.classDiagram.relations = $scope.relations
 
                     ClassDiagramResource.save($scope.classDiagram)
                         .$promise

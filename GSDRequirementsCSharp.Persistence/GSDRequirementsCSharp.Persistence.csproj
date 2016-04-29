@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\NextId\ClassDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryResult.cs" />

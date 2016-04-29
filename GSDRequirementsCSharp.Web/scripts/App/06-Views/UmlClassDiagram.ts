@@ -127,8 +127,8 @@
     var paperElementId = '#classDiagramPaper'
 
     export function buildRelation(relationData: Models.ClassRelationship) {
-        var sourceId = relationData.source.cell.id
-        var targetId = relationData.target.cell.id
+        var sourceId = relationData.sourceId
+        var targetId = relationData.targetId
 
         var isSelfReference = sourceId == targetId
 
