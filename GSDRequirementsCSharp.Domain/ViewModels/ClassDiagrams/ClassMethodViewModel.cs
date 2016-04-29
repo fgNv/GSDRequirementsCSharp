@@ -15,7 +15,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public Visibility Visibility { get; set; }
 
-        public IEnumerable<ParameterViewModel> Parameters { get; set; }
+        public IEnumerable<ParameterViewModel> ClassMethodParameters { get; set; }
 
         public static ClassMethodViewModel FromModel(ClassMethod model)
         {
@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                 Name = model.Name,
                 Visibility = model.Visibility,
                 ReturnType = model.ReturnType,
-                Parameters = model.ClassMethodParameters.Select(ParameterViewModel.FromModel)
+                ClassMethodParameters = model.ClassMethodParameters.Select(ParameterViewModel.FromModel)
             };
         }
     }

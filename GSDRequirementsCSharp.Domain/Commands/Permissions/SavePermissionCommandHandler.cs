@@ -38,7 +38,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
                     _permissionRepository.Remove(permission);
                     continue;
                 }
-                permission.Profile = item.Profile;
+                permission.Profile = item.Profile.Value;
             }
 
             var projectId = _currentProjectContextId.Get();
@@ -53,9 +53,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
 
                 var permission = new Permission();
                 permission.Id = Guid.NewGuid();
-                permission.Profile = item.Profile;
+                permission.Profile = item.Profile.Value;
                 permission.ProjectId = projectId.Value;
-                permission.UserId = item.UserId;
+                permission.UserId = item.UserId.Value;
                 _permissionRepository.Add(permission);
             }
         }

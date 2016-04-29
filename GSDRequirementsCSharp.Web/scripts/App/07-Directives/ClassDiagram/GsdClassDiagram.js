@@ -11,15 +11,14 @@ var Directives;
                 'editingRelations': '=editingRelations'
             };
             this.controller = ['$timeout', '$scope', 'PackageResource', 'ClassDiagramResource',
-                function ($timeout, $scope, PackageResource, ClassDiagramResource) {
+                '$q',
+                function ($timeout, $scope, PackageResource, ClassDiagramResource, $q) {
                     var graph = null;
                     var paper = null;
                     $scope.pendingRequests = 0;
                     $scope.currentClass = null;
                     $scope.editingRelations = false;
                     $scope.selectedClass = null;
-                    $scope.classes = [];
-                    $scope.relations = [];
                     $scope.relationsOnEdit = [];
                     $scope.placeholder = '';
                     _this.LoadPackagesOptions(PackageResource, $scope);
@@ -32,7 +31,7 @@ var Directives;
                         window.location.href = "#/diagram/relations";
                         $scope.editingRelations = true;
                         $scope.relationsOnEdit = [];
-                        _.each($scope.relations, function (relation) {
+                        _.each($scope.classDiagram.relations, function (relation) {
                             var clone = {};
                             for (var property in relation) {
                                 clone[property] = relation[property];
@@ -41,7 +40,7 @@ var Directives;
                         });
                     };
                     $scope.getClassOptions = function (relation) {
-                        return $scope.classes;
+                        return $scope.classDiagram.classes;
                     };
                     $scope.backToList = function () {
                         $scope.classDiagram = null;
@@ -57,36 +56,38 @@ var Directives;
                         $scope.relationsOnEdit = _.filter($scope.relationsOnEdit, function (r) { return r != relation; });
                     };
                     function removeRelationFromDiagram(relation) {
-                        $scope.relations = _.filter($scope.relations, function (r) { return r != relation; });
+                        $scope.classDiagram.relations = _.filter($scope.classDiagram.relations, function (r) { return r != relation; });
                         relation.cell.remove();
                     }
                     $scope.saveRelations = function () {
                         if (!graph)
                             return;
-                        $scope.relations = [];
-                        _.each($scope.relationsOnEdit, function (relation) {
+                        _.each($scope.relations, function (relation) {
                             if (relation.cell != null) {
                                 removeRelationFromDiagram(relation);
                             }
+                        });
+                        $scope.relations = [];
+                        _.each($scope.relationsOnEdit, function (relation) {
                             var cell = Views.buildRelation(relation);
                             if (!cell)
                                 return;
                             relation.cell = cell;
-                            $scope.relations.push(relation);
+                            $scope.classDiagram.relations.push(relation);
                             $timeout(function () { graph.addCell(cell); });
                         });
                         $scope.relationsOnEdit = [];
                         $scope.backToDiagram();
                     };
                     $scope.selectClass = function (id) {
-                        var classToBeSelected = _.find($scope.classes, function (c) { return c.cell.id == id; });
+                        var classToBeSelected = _.find($scope.classDiagram.classes, function (c) { return c.cell.id == id; });
                         if (!classToBeSelected)
                             return;
                         $scope.selectedClass = classToBeSelected;
                         $scope.$digest();
                     };
                     function removeClass(classEntity) {
-                        $scope.classes = _.filter($scope.classes, function (c) { return c != classEntity; });
+                        $scope.classDiagram.classes = _.filter($scope.classDiagram.classes, function (c) { return c != classEntity; });
                         classEntity.cell.remove();
                     }
                     $scope.removeSelectedClass = function () {
@@ -108,8 +109,6 @@ var Directives;
                             .filter(function (i) { return i.name; })
                             .value();
                         $scope.classDiagram.contents = contents;
-                        $scope.classDiagram.classes = $scope.classes;
-                        $scope.classDiagram.relations = $scope.relations;
                         ClassDiagramResource.save($scope.classDiagram)
                             .$promise
                             .then(function () {
@@ -128,9 +127,6 @@ var Directives;
                         });
                     };
                     $scope.$watch('classDiagram', function (newValue, oldValue) {
-                        _this.initializeContentData($scope);
-                        $scope.classes = [];
-                        $scope.relations = [];
                         if (graph) {
                             graph.clear();
                             paper.remove();
@@ -140,13 +136,44 @@ var Directives;
                             paper = null;
                             return;
                         }
-                        $timeout(function () {
-                            var result = Views.startClassDiagram(function (cellView) {
-                                $scope.selectClass(cellView.model.id);
+                        _this.initializeContentData($scope, newValue.contents);
+                        var paperDefer = $q.defer();
+                        var classesDefer = $q.defer();
+                        var drawClasses = function () {
+                            $timeout(function () {
+                                _.each(newValue.classes, function (c) {
+                                    var cell = Views.buildClass(c);
+                                    c.cell = cell;
+                                    graph.addCell(cell);
+                                });
+                                classesDefer.resolve();
                             });
-                            graph = result.graph;
-                            paper = result.paper;
-                        });
+                            return classesDefer.promise;
+                        };
+                        var drawRelations = function () {
+                            $timeout(function () {
+                                _.each(newValue.relations, function (r) {
+                                    var cell = Views.buildRelation(r);
+                                    r.cell = cell;
+                                    graph.addCell(cell);
+                                });
+                            });
+                        };
+                        var drawPaper = function () {
+                            $timeout(function () {
+                                var cellClickCallback = function (cellView) {
+                                    $scope.selectClass(cellView.model.id);
+                                };
+                                var result = Views.startClassDiagram(cellClickCallback);
+                                graph = result.graph;
+                                paper = result.paper;
+                                paperDefer.resolve();
+                            });
+                            return paperDefer.promise;
+                        };
+                        drawPaper()
+                            .then(drawClasses())
+                            .then(drawRelations());
                     });
                     $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType);
                     $scope.relationTypeOptions = Globals.enumerateEnum(Models.RelationType);
@@ -166,7 +193,7 @@ var Directives;
                         if (!cell)
                             return;
                         $scope.currentClass.cell = cell;
-                        $scope.classes.push($scope.currentClass);
+                        $scope.classDiagram.classes.push($scope.currentClass);
                         $scope.currentClass = null;
                         $timeout(function () { graph.addCell(cell); });
                         $scope.selectedClass = null;
@@ -188,14 +215,17 @@ var Directives;
                 $scope.pendingRequests--;
             });
         };
-        GsdClassDiagram.prototype.initializeContentData = function ($scope) {
+        GsdClassDiagram.prototype.initializeContentData = function ($scope, initialData) {
             $scope.contentData = {};
             $scope.contentData.locale = GSDRequirements.currentLocale;
             $scope.locales = _.map(GSDRequirements.localesAvailable, function (l) { return l.name; });
             $scope.content = {};
             _.each(GSDRequirements.localesAvailable, function (l) {
                 $scope.content[l.name] = {};
-                $scope.content[l.name].name = '';
+                var previousContent = null;
+                if (initialData)
+                    previousContent = _.find(initialData, function (d) { return d.locale == l.name; });
+                $scope.content[l.name].name = previousContent ? previousContent.name : '';
                 $scope.content[l.name].locale = l.name;
             });
         };

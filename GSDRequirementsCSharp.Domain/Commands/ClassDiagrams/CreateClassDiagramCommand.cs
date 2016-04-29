@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,10 +14,13 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         [Required]
         public Guid? PackageId { get; set; }
 
+        [ValidateCollection]
         public IEnumerable<ClassDiagramContentItem> Contents { get; set; }
 
+        [ValidateCollection]
         public IEnumerable<ClassItem> Classes { get; set; }
 
+        [ValidateCollection]
         public IEnumerable<RelationItem> Relations { get; set; }
     }
 }

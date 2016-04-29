@@ -8,6 +8,8 @@
         public classMethods: Array<ClassMethod>
         public classProperties: Array<ClassProperty>
         public name: string
+        public x: number
+        public y: number
         public cell: any
 
         public constructor(data: any = null) {
@@ -16,7 +18,7 @@
                     this[prop] = data[prop]
                 }
                 this.classMethods = _.map(data.classMethods, (cm) => new ClassMethod(cm))
-                this.classProperties = _.map(data.classMethods, (cp) => new ClassProperty(cp))
+                this.classProperties = _.map(data.classProperties, (cp) => new ClassProperty(cp))
             } else {
                 this.classMethods = []
                 this.classProperties = []

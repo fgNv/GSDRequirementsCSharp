@@ -1,15 +1,24 @@
 var Views;
 (function (Views) {
     function buildClass(data) {
+        var result = null;
         switch (data.type) {
             case Models.ClassType.Abstract:
-                return buildAbstractClass(data);
+                result = buildAbstractClass(data);
+                break;
             case Models.ClassType.Concrete:
-                return buildConcreteClass(data);
+                result = buildConcreteClass(data);
+                break;
             case Models.ClassType.Interface:
-                return buildInterface(data);
+                result = buildInterface(data);
+                break;
         }
-        return null;
+        if (!result) {
+            return null;
+        }
+        if (data.id)
+            result.set('id', data.id);
+        return result;
     }
     Views.buildClass = buildClass;
     function getClassHeight(classData) {
@@ -20,7 +29,7 @@ var Views;
     function buildConcreteClass(classData) {
         var height = getClassHeight(classData);
         return new joint.shapes.uml.Class({
-            position: { x: 20, y: 20 },
+            position: { x: classData.x, y: classData.y },
             size: { width: 220, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),

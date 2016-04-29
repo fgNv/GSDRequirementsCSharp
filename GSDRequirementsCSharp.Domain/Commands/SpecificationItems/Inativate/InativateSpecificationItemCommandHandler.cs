@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 
         public void Handle(InativateSpecificationItemCommand command)
         {
-            var specificationItem = _specificationItemRepository.Get(command.Id);
+            var specificationItem = _specificationItemRepository.Get(command.Id.Value);
             specificationItem.Active = false;
         }
     }

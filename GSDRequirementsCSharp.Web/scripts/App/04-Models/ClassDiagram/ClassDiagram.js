@@ -2,11 +2,21 @@ var Models;
 (function (Models) {
     var ClassDiagram = (function () {
         function ClassDiagram(data) {
-            for (var prop in data) {
-                this[prop] = data[prop];
+            if (data === void 0) { data = null; }
+            if (data) {
+                for (var prop in data) {
+                    this[prop] = data[prop];
+                }
+                this.contents = _.map(data['contents'], function (c) { return new Models.ClassDiagramContent(c); });
+                this.classes = _.map(data['classes'], function (c) { return new Models.ClassData(c); });
+                this.relations = _.map(data['relations'], function (c) { return new Models.ClassRelationship(c); });
+                this.defineContent();
             }
-            this.contents = _.map(data['contents'], function (c) { return new Models.ClassDiagramContent(c); });
-            this.defineContent();
+            else {
+                this.classes = [];
+                this.contents = [];
+                this.relations = [];
+            }
         }
         ClassDiagram.prototype.defineContent = function () {
             var currentLocale = _.find(this.contents, function (c) { return c.locale == GSDRequirements.currentLocale; });

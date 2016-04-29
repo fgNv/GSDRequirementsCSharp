@@ -6,15 +6,26 @@
     declare var V: any;
 
     export function buildClass(data: Models.ClassData) {
+        var result = null
+
         switch (data.type) {
             case Models.ClassType.Abstract:
-                return buildAbstractClass(data)
+                result = buildAbstractClass(data)
+                break
             case Models.ClassType.Concrete:
-                return buildConcreteClass(data)
+                result = buildConcreteClass(data)
+                break
             case Models.ClassType.Interface:
-                return buildInterface(data)
+                result = buildInterface(data)
+                break
         }
-        return null
+
+        if (!result) { return null }
+        
+        if (data.id)
+            result.set('id', data.id)
+
+        return result
     }
 
     function getClassHeight(classData: Models.ClassData) {
@@ -27,7 +38,7 @@
         var height = getClassHeight(classData)
 
         return new joint.shapes.uml.Class({
-            position: { x: 20, y: 20 },
+            position: { x: classData.x, y: classData.y },
             size: { width: 220, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties,

@@ -8,7 +8,7 @@ var Models;
                     this[prop] = data[prop];
                 }
                 this.classMethods = _.map(data.classMethods, function (cm) { return new Models.ClassMethod(cm); });
-                this.classProperties = _.map(data.classMethods, function (cp) { return new Models.ClassProperty(cp); });
+                this.classProperties = _.map(data.classProperties, function (cp) { return new Models.ClassProperty(cp); });
             }
             else {
                 this.classMethods = [];

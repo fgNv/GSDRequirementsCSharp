@@ -67,7 +67,7 @@ namespace GSDRequirementsCSharp.Domain.Permissions
             var projectRepository = serviceProvider.GetService<IRepository<Project, Guid>>();
             var currentUser = GetCurrentUser(serviceProvider);
 
-            var project = projectRepository.Get(command.ProjectId);
+            var project = projectRepository.Get(command.ProjectId.Value);
 
             if (project == null)
                 throw new Exception(Sentences.projectNotFound);

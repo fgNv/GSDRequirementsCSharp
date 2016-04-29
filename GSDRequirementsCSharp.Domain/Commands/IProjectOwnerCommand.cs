@@ -9,6 +9,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
 {
     public interface IProjectOwnerCommand : ICommand
     {
-        Guid ProjectId { get; }
+        Guid? ProjectId { get; }
     }
 }

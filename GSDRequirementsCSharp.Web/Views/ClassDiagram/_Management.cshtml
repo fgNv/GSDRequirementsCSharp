@@ -71,12 +71,12 @@
         </button>
         <button class="btn btn-default"
                 title="@Sentences.atLeastOneClassMustBeRegisteredToAccessTheRelationManagement"
-                data-ng-show="classes.length == 0"
+                data-ng-show="classDiagram.classes.length == 0"
                 disabled="disabled">
             @Sentences.manageRelations
         </button>
         <button class="btn btn-default"
-                data-ng-show="classes.length > 0"
+                data-ng-show="classDiagram.classes.length > 0"
                 data-ng-click="editRelations()">
             @Sentences.manageRelations
         </button>

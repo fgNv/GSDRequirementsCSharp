@@ -29,7 +29,7 @@
                     $scope.pendingRequests--
                 })
         }
-        private initializeContentData($scope) {
+        private initializeContentData($scope, initialData: Array<Models.ClassDiagramContent>) {
             $scope.contentData = {}
             $scope.contentData.locale = GSDRequirements.currentLocale
             $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
@@ -38,7 +38,12 @@
 
             _.each(GSDRequirements.localesAvailable, (l): void => {
                 $scope.content[l.name] = {}
-                $scope.content[l.name].name = ''
+
+                var previousContent = null
+                if (initialData)
+                    previousContent = _.find(initialData, (d) => d.locale == l.name)
+
+                $scope.content[l.name].name = previousContent ? previousContent.name : ''
                 $scope.content[l.name].locale = l.name
             })
         }
@@ -62,7 +67,8 @@
             return deferred.promise
         }
         public controller = ['$timeout', '$scope', 'PackageResource', 'ClassDiagramResource',
-            ($timeout, $scope, PackageResource, ClassDiagramResource) => {
+            '$q',
+            ($timeout, $scope, PackageResource, ClassDiagramResource, $q) => {
                 var graph = null;
                 var paper = null;
 
@@ -70,8 +76,6 @@
                 $scope.currentClass = null
                 $scope.editingRelations = false
                 $scope.selectedClass = null
-                $scope.classes = []
-                $scope.relations = []
                 $scope.relationsOnEdit = []
                 $scope.placeholder = ''
 
@@ -88,7 +92,7 @@
                     $scope.editingRelations = true
                     $scope.relationsOnEdit = []
 
-                    _.each($scope.relations, (relation) => {
+                    _.each($scope.classDiagram.relations, (relation) => {
                         var clone = {}
                         for (var property in relation) {
                             clone[property] = relation[property]
@@ -98,7 +102,7 @@
                 }
 
                 $scope.getClassOptions = (relation) => {
-                    return $scope.classes;
+                    return $scope.classDiagram.classes;
                 }
 
                 $scope.backToList = () => {
@@ -120,7 +124,7 @@
                 }
 
                 function removeRelationFromDiagram(relation: Models.ClassRelationship) {
-                    $scope.relations = _.filter($scope.relations,
+                    $scope.classDiagram.relations = _.filter($scope.classDiagram.relations,
                         (r) => r != relation)
                     relation.cell.remove()
                 }
@@ -128,14 +132,17 @@
                 $scope.saveRelations = () => {
                     if (!graph) return
 
+                    _.each($scope.relations, (relation: Models.ClassRelationship) => {
+                        if (relation.cell != null) { removeRelationFromDiagram(relation) }
+                    })
+
                     $scope.relations = []
 
                     _.each($scope.relationsOnEdit, (relation: Models.ClassRelationship) => {
-                        if (relation.cell != null) { removeRelationFromDiagram(relation) }
                         var cell = Views.buildRelation(relation)
                         if (!cell) return
                         relation.cell = cell
-                        $scope.relations.push(relation)
+                        $scope.classDiagram.relations.push(relation)
                         $timeout((): void => { graph.addCell(cell) })
                     })
 
@@ -144,7 +151,7 @@
                 }
 
                 $scope.selectClass = (id) => {
-                    var classToBeSelected = _.find($scope.classes,
+                    var classToBeSelected = _.find($scope.classDiagram.classes,
                         (c) => c.cell.id == id);
                     if (!classToBeSelected)
                         return;
@@ -153,7 +160,7 @@
                 }
 
                 function removeClass(classEntity) {
-                    $scope.classes = _.filter($scope.classes,
+                    $scope.classDiagram.classes = _.filter($scope.classDiagram.classes,
                         (c) => c != classEntity)
                     classEntity.cell.remove()
                 }
@@ -176,14 +183,12 @@
 
                 $scope.save = () => {
                     $scope.pendingRequests++
-                    
+
                     var contents = _.chain($scope.content)
                         .filter(i => i.name)
                         .value()
 
                     $scope.classDiagram.contents = contents
-                    $scope.classDiagram.classes = $scope.classes
-                    $scope.classDiagram.relations = $scope.relations
 
                     ClassDiagramResource.save($scope.classDiagram)
                         .$promise
@@ -201,10 +206,8 @@
                         })
                 }
 
-                $scope.$watch('classDiagram', (newValue, oldValue) => {
-                    this.initializeContentData($scope)
-                    $scope.classes = []
-                    $scope.relations = []
+                $scope.$watch('classDiagram', (newValue: Models.ClassDiagram, oldValue) => {
+
                     if (graph) {
                         graph.clear()
                         paper.remove()
@@ -216,13 +219,52 @@
                         return;
                     }
 
-                    $timeout((): void => {
-                        var result = Views.startClassDiagram((cellView): void => {
-                            $scope.selectClass(cellView.model.id)
+                    this.initializeContentData($scope, newValue.contents)
+
+                    var paperDefer = $q.defer()
+                    var classesDefer = $q.defer()
+
+                    var drawClasses = () => {
+                        $timeout((): void => {
+                            _.each(newValue.classes, (c) => {
+                                var cell = Views.buildClass(c)
+                                c.cell = cell
+                                graph.addCell(cell)
+                            })
+                            classesDefer.resolve()
                         })
-                        graph = result.graph
-                        paper = result.paper
-                    })
+                        return classesDefer.promise
+                    }
+
+                    var drawRelations = () => {
+                        $timeout((): void => {
+                            _.each(newValue.relations, (r) => {
+                                var cell = Views.buildRelation(r)
+                                r.cell = cell
+                                graph.addCell(cell)
+                            })
+                        })
+                    }
+
+                    var drawPaper = () => {
+                        $timeout((): void => {
+                            var cellClickCallback = (cellView): void => {
+                                $scope.selectClass(cellView.model.id)
+                            }
+
+                            var result = Views.startClassDiagram(cellClickCallback)
+                            graph = result.graph
+                            paper = result.paper
+
+                            paperDefer.resolve()
+                        })
+
+                        return paperDefer.promise
+                    }
+
+                    drawPaper()
+                        .then(drawClasses())
+                        .then(drawRelations())
                 })
 
                 $scope.classTypeOptions = Globals.enumerateEnum(Models.ClassType)
@@ -241,7 +283,7 @@
                     var cell = Views.buildClass(data)
                     if (!cell) return
                     $scope.currentClass.cell = cell
-                    $scope.classes.push($scope.currentClass)
+                    $scope.classDiagram.classes.push($scope.currentClass)
 
                     $scope.currentClass = null
                     $timeout((): void => { graph.addCell(cell) })

@@ -31,7 +31,7 @@
             }
 
             $scope.addClassDiagram = () => {
-                $scope.currentClassDiagram = {}
+                $scope.currentClassDiagram = new Models.ClassDiagram()
                 window.location.href = "#/diagram"
             }
 

@@ -20,7 +20,7 @@ var Controllers;
                 $scope.loadClassDiagrams();
             };
             $scope.addClassDiagram = function () {
-                $scope.currentClassDiagram = {};
+                $scope.currentClassDiagram = new Models.ClassDiagram();
                 window.location.href = "#/diagram";
             };
             $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {

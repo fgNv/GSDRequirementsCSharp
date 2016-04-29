@@ -20,7 +20,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 
         public void Handle(InactivatePackageCommand command)
         {
-            var package = _packagesRepository.Get(command.Id);
+            var package = _packagesRepository.Get(command.Id.Value);
             package.Active = false;
         }
     }
