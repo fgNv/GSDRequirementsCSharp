@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
 {
     public class PermissionItem
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.userIdIsARequiredField))]
         public int? UserId { get; set; }
 
         [Required]

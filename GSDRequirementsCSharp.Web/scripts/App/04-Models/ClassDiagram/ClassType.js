@@ -7,4 +7,3 @@ var Models;
     })(Models.ClassType || (Models.ClassType = {}));
     var ClassType = Models.ClassType;
 })(Models || (Models = {}));
-//# sourceMappingURL=ClassType.js.map

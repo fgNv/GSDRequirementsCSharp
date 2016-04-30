@@ -15,9 +15,7 @@ namespace GSDRequirementsCSharp.Domain
         }
 
         public Guid Id { get; set; }
-
-        public Visibility Visibility { get; set; }
-        
+                
         public ClassType Type { get; set; }
 
         public int X { get; set; }

@@ -39,4 +39,3 @@ var Models;
     })();
     Models.ClassDiagram = ClassDiagram;
 })(Models || (Models = {}));
-//# sourceMappingURL=ClassDiagram.js.map

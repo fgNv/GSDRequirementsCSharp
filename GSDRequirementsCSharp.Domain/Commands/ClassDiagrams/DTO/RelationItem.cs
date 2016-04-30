@@ -18,11 +18,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
         [Required]
         public RelationType? Type { get; set; }
-
-        [Required]
+        
         public string TargetMultiplicity { get; set; }
-
-        [Required]
+        
         public string SourceMultiplicity { get; set; }
     }
 }

@@ -25,11 +25,10 @@ var Controllers;
             })
                 .catch(function (error) {
                 $scope.pendingRequests--;
-                Notification.notifyError(Sentences.errorSavingUserAccount, error.data.errors);
+                Notification.notifyError(Sentences.errorSavingUserAccount, error.data.messages);
             });
         };
         return NewAccountController;
     })();
     app.controller('NewAccountController', ["$scope", "UserResource", NewAccountController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=NewAccountController.js.map

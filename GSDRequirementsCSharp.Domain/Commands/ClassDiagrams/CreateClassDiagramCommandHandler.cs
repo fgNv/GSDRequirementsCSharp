@@ -91,10 +91,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
             classEntity.Name = classData.Name;
             classEntity.Id = classData.Cell.Id;
-            classEntity.Visibility = classData.Visibility;
             classEntity.X = classData.Cell.Position.X;
             classEntity.Y = classData.Cell.Position.Y;
-            classEntity.Type = classData.Type;
+            classEntity.Type = classData.Type.Value;
 
             foreach (var propertyData in classData.ClassProperties)
                 PersistProperty(classEntity, propertyData);

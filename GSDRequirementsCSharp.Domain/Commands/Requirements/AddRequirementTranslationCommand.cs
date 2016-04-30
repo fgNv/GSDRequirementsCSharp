@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
     public class AddRequirementTranslationCommand : IProjectCommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.requirementIsARequiredField))]
         public Guid? Id { get; set; }
 
         [ValidateCollection]

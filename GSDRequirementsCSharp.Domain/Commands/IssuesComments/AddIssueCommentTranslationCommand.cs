@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
+﻿using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.IssuesComments
 {
     public class AddIssueCommentTranslationCommand : IProjectCollaboratorCommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.issueIdIsARequiredField))]
         public Guid? IssueCommentId { get; set; }
 
         [ValidateCollection]

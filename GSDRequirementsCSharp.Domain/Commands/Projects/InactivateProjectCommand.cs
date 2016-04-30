@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
     public class InactivateProjectCommand : IProjectOwnerCommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.projectIdIsARequiredField))]
         public Guid? Id { get; set; }
 
         [Required]

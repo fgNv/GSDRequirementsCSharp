@@ -10,17 +10,21 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
     public class ProjectContentItem
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.localeIsARequiredField))]
         public string Locale { get; set; }
 
         [Required(
-         ErrorMessageResourceType = typeof(Sentences),
-         ErrorMessageResourceName = "nameIsARequiredField")]
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
         [StringLength(100)]
         public string Name { get; set; }
 
         [StringLength(65535)]
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.descriptionIsARequiredField))]
         public string Description { get; set; }
     }
 }

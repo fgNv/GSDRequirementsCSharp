@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using GSDRequirementsCSharp.Persistence.Commands.Projects;
 using System;
@@ -12,7 +13,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
     public class UpdateProjectCommand : IProjectOwnerCommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.projectIdIsARequiredField))]
         public Guid? Id { get; set; }
 
         [Required]

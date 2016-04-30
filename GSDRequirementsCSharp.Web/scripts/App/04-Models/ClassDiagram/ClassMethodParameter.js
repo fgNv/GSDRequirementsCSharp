@@ -16,4 +16,3 @@ var Models;
     })();
     Models.ClassMethodParameter = ClassMethodParameter;
 })(Models || (Models = {}));
-//# sourceMappingURL=ClassMethodParameter.js.map

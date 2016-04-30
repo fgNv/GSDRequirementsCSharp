@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,11 +10,15 @@ namespace GSDRequirementsCSharp.Domain.Commands.Issues
 {
     public class IssueContentItem
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.localeIsARequiredField))]
         [MaxLength(10)]
         public string Locale { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.descriptionIsARequiredField))]
         public string Description { get; set; }
     }
 }

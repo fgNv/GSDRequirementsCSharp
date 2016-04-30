@@ -1402,15 +1402,6 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name is a required field.
-        /// </summary>
-        public static string nameIsARequiredField {
-            get {
-                return ResourceManager.GetString("nameIsARequiredField", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New comment.
         /// </summary>
         public static string newComment {

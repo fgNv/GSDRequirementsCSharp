@@ -37,7 +37,7 @@
                 .catch((error) => {
                     $scope.pendingRequests--;
                     Notification.notifyError(Sentences.errorSavingUserAccount,
-                                             error.data.errors)
+                                             error.data.messages)
                 });
         }
     }

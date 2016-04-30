@@ -5,20 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 
 namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
     public class MethodItem
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
         public string Name { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.returnTypeIsARequiredField))]
         public string ReturnType { get; set; }
 
+        [ValidateCollection]
         public IEnumerable<ParameterItem> ClassMethodParameters { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.methodVisibilityIsARequiredField))]
         public Visibility? Visibility { get; set; }
     }
 }
