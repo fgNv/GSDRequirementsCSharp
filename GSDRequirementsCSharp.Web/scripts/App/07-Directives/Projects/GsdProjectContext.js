@@ -19,7 +19,7 @@ var Directives;
                     _this.setCurrentProjectName($scope.currentProjectId, $scope);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorLoadingProjects, error.data.errors);
+                    Notification.notifyError(Sentences.errorLoadingProjects, error.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -61,3 +61,4 @@ var Directives;
     })();
     app.directive('gsdProjectContext', GsdProjectContext.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdProjectContext.js.map

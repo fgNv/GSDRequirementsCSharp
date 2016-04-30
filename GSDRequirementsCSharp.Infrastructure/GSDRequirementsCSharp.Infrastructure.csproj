@@ -101,6 +101,7 @@
     <Compile Include="Validation\CommandHandlerValidationDecorator.cs" />
     <Compile Include="Validation\CommandValidationException.cs" />
     <Compile Include="Validation\DataAnnotationValidator.cs" />
+    <Compile Include="Validation\InvalidCollectionValidationResult.cs" />
     <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>

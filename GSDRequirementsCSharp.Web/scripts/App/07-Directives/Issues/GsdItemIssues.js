@@ -34,3 +34,4 @@ var Directives;
     })();
     app.directive('gsdItemIssues', GsdItemIssues.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdItemIssues.js.map

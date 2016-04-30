@@ -21,7 +21,7 @@
         }
         private definePlaceholder($scope, locale, $q) {
             var deferred = $q.defer()
-            
+
             if ($scope.issueData.locale == locale) {
                 deferred.reject()
                 return deferred.promise;
@@ -89,8 +89,7 @@
                         $uibModalInstance.close()
                     })
                     .catch((error): void=> {
-                        Notification.notifyError(Sentences.errorCreatingIssue,
-                            error.messages)
+                        Notification.notifyError(Sentences.errorCreatingIssue, error.data.messages)
                     })
                     .finally((): void=> {
                         $scope.pendingRequests--

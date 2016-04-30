@@ -37,7 +37,7 @@ var Controllers;
                 $scope.permissions = _.map(response, function (d) { return new Models.Permission(d); });
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorLoadingPermissions, error.messages);
+                Notification.notifyError(Sentences.errorLoadingPermissions, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -56,7 +56,7 @@ var Controllers;
                 Notification.notifySuccess(Sentences.permissionsSuccessfullyGranted);
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorGrantingPermissions, error.messages);
+                Notification.notifyError(Sentences.errorGrantingPermissions, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -67,3 +67,4 @@ var Controllers;
     app.controller('PermissionController', ["$scope", "PermissionResource", "$uibModal",
         PermissionController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=PermissionController.js.map

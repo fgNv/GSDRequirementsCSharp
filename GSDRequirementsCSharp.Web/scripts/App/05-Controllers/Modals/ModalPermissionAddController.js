@@ -21,7 +21,7 @@ var Controllers;
                     return _.filter(r, function (item) { return !_.any(usersWithPermissionsEmails, function (e) { return item.email == e; }); });
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorSearchingUsers, error.messages);
+                    Notification.notifyError(Sentences.errorSearchingUsers, error.data.messages);
                 })
                     .finally(function (r) {
                     $scope.loadingUsers = false;
@@ -39,3 +39,4 @@ var Controllers;
     app.controller('ModalPermissionAddController', ["$scope", "$uibModalInstance",
         "UserResource", "permissionsGrantedPreviously", ModalPermissionAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalPermissionAddController.js.map

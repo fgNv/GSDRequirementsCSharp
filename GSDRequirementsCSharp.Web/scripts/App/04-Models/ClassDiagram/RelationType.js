@@ -9,3 +9,4 @@ var Models;
     })(Models.RelationType || (Models.RelationType = {}));
     var RelationType = Models.RelationType;
 })(Models || (Models = {}));
+//# sourceMappingURL=RelationType.js.map

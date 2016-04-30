@@ -16,7 +16,7 @@ var Controllers;
                     }, 2500);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorUpdatingData, error.messages);
+                    Notification.notifyError(Sentences.errorUpdatingData, error.data.messages);
                     $scope.pendingRequests--;
                 });
             };
@@ -25,3 +25,4 @@ var Controllers;
     })();
     app.controller('UpdateUserDataController', ["$scope", "UserResource", UpdateUserDataController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=UpdateUserDataController.js.map

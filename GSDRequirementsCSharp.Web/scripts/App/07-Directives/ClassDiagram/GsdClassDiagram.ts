@@ -23,7 +23,7 @@
                     $scope.packagesOptions = _.map(response, (r) => new Models.Package(r))
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingPackages, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingPackages, err.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--

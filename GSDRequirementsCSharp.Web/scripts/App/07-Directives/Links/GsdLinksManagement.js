@@ -31,7 +31,8 @@ var Directives;
                             id: link.origin.id,
                             targetItemId: link.target.id
                         };
-                        ItemLinkResource.remove(request)
+                        ItemLinkResource
+                            .remove(request)
                             .$promise
                             .then(function () {
                             Notification.notifySuccess(Sentences.linkRemovedSuccessfully);
@@ -126,3 +127,4 @@ var Directives;
     })();
     app.directive('gsdLinksManagement', GsdLinksManagement.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdLinksManagement.js.map

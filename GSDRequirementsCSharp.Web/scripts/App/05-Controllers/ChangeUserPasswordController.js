@@ -16,7 +16,7 @@ var Controllers;
                     Notification.notifySuccess(Sentences.passwordSuccessfullyChanged);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorChangingPassword, error.messages);
+                    Notification.notifyError(Sentences.errorChangingPassword, error.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -27,3 +27,4 @@ var Controllers;
     })();
     app.controller('ChangeUserPasswordController', ["$scope", "UserPasswordResource", ChangeUserPasswordController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ChangeUserPasswordController.js.map

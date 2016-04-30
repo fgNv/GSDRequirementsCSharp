@@ -17,7 +17,7 @@
                     }
                 })
                 .catch((error): void => {
-                    Notification.notifyError(Sentences.errorLoadingIssues, error.messages)
+                    Notification.notifyError(Sentences.errorLoadingIssues, error.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--;
@@ -63,7 +63,7 @@
             var deferred = $q.defer()
 
             if (!$scope.commentData)
-                return deferred.promise; 
+                return deferred.promise;
 
             if ($scope.commentData.locale == locale) {
                 deferred.reject()
@@ -113,8 +113,7 @@
                         this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded)
                     })
                     .catch((error) => {
-                        Notification.notifyError(Sentences.errorConcludingIssue,
-                            error.messages)
+                        Notification.notifyError(Sentences.errorConcludingIssue, error.data.messages)
                     })
                     .finally((): void=> {
                         $scope.pendingRequests--
@@ -140,8 +139,7 @@
                         this.initializeCommentData($scope)
                     })
                     .catch((error) => {
-                        Notification.notifyError(Sentences.errorAddingComment,
-                            error.messages)
+                        Notification.notifyError(Sentences.errorAddingComment, error.data.messages)
                     })
                     .finally(() => {
                         $scope.pendingRequests--;

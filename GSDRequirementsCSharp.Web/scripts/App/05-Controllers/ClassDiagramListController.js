@@ -76,7 +76,7 @@ var Controllers;
                 $scope.loadClassDiagrams();
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorInactivatingClassDiagram, error.messages);
+                Notification.notifyError(Sentences.errorInactivatingClassDiagram, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -103,3 +103,4 @@ var Controllers;
     app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
         "$rootScope", "$location", ClassDiagramListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ClassDiagramListController.js.map

@@ -29,8 +29,7 @@
                         .value();
                 })
                 .catch((error): void=> {
-                    Notification.notifyError(Sentences.errorLoadingLinks,
-                        error.data.messages)
+                    Notification.notifyError(Sentences.errorLoadingLinks, error.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--
@@ -72,7 +71,7 @@
                 $scope.selectItem = (item): void => {
                     $scope.selected = item
                 }
-                
+
                 $scope.artifactTypes = Models.ArtifactType
 
                 $scope.originalSpecificationItems = []
@@ -92,16 +91,16 @@
                         id: link.origin.id,
                         targetItemId: link.target.id
                     }
-                    
-                    ItemLinkResource.remove(request)
+
+                    ItemLinkResource
+                        .remove(request)
                         .$promise
                         .then((): void => {
                             Notification.notifySuccess(Sentences.linkRemovedSuccessfully);
                             this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id)
                         })
                         .catch((error): void => {
-                            Notification.notifyError(Sentences.errorRemovingLink,
-                                error.data.messages)
+                            Notification.notifyError(Sentences.errorRemovingLink, error.data.messages)
                         })
                         .finally((): void=> {
                             $scope.pendingRequests--
@@ -127,8 +126,7 @@
                             this.loadLinks($scope, ItemLinkResource, $scope.specificationItem.id)
                         })
                         .catch((error): void => {
-                            Notification.notifyError(Sentences.errorSavingLink,
-                                error.data.messages)
+                            Notification.notifyError(Sentences.errorSavingLink, error.data.messages)
                         })
                         .finally((): void=> {
                             $scope.pendingRequests--

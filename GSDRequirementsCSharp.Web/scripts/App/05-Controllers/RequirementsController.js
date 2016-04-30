@@ -76,7 +76,7 @@ var Controllers;
                 $scope.maxPages = response.maxPages;
             })
                 .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingRequirements, err.messages);
+                Notification.notifyError(Sentences.errorLoadingRequirements, err.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -105,3 +105,4 @@ var Controllers;
     app.controller('RequirementsController', ["$scope", "RequirementResource", "SpecificationItemResource",
         "$rootScope", "$location", RequirementsController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=RequirementsController.js.map

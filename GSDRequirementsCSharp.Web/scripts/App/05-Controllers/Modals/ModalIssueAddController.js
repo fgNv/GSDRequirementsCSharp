@@ -45,7 +45,7 @@ var Controllers;
                     $uibModalInstance.close();
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorCreatingIssue, error.messages);
+                    Notification.notifyError(Sentences.errorCreatingIssue, error.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -83,3 +83,4 @@ var Controllers;
     app.controller('ModalIssueAddController', ["$scope", "$uibModalInstance",
         "IssueResource", 'specificationItem', '$q', ModalIssueAddController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ModalIssueAddController.js.map

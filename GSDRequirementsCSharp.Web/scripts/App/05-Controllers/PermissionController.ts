@@ -52,8 +52,7 @@
                     $scope.permissions = _.map(response, (d) => new Models.Permission(d))
                 })
                 .catch((error: any): void => {
-                    Notification.notifyError(Sentences.errorLoadingPermissions,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorLoadingPermissions, error.data.messages)
                 })
                 .finally((): void=> {
                     $scope.pendingRequests--
@@ -75,8 +74,7 @@
                     Notification.notifySuccess(Sentences.permissionsSuccessfullyGranted);
                 })
                 .catch((error): void => {
-                    Notification.notifyError(Sentences.errorGrantingPermissions,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorGrantingPermissions, error.data.messages)
                 })
                 .finally((): void=> {
                     $scope.pendingRequests--;

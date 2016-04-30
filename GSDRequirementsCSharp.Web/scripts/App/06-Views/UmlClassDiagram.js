@@ -196,3 +196,4 @@ var Views;
     }
     Views.startClassDiagram = startClassDiagram;
 })(Views || (Views = {}));
+//# sourceMappingURL=UmlClassDiagram.js.map

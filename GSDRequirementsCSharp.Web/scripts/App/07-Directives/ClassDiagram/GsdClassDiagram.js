@@ -209,7 +209,7 @@ var Directives;
                 $scope.packagesOptions = _.map(response, function (r) { return new Models.Package(r); });
             })
                 .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingPackages, err.messages);
+                Notification.notifyError(Sentences.errorLoadingPackages, err.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -251,3 +251,4 @@ var Directives;
     })();
     app.directive('gsdClassDiagram', GsdClassDiagram.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdClassDiagram.js.map

@@ -16,7 +16,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Validation
             var items = Validator.TryValidateObject(
                 model, context, results, true
             );
-            return results.Select(item => item.ErrorMessage);
+
+            var invalidCollectionErrors = results.Where(item => item is InvalidCollectionValidationResult)
+                                                 .Select(item => item as InvalidCollectionValidationResult)
+                                                 .SelectMany(item => item.Errors.Select(e => e.ErrorMessage));
+
+            var invalidItemErrors = results.Where(item => !(item is InvalidCollectionValidationResult))
+                                                 .Select(item => item.ErrorMessage);
+
+            return invalidItemErrors.Union(invalidCollectionErrors);
         }
     }
 }

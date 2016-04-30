@@ -7,3 +7,4 @@ var Globals;
     })();
     Globals.GSDRequirementsData = GSDRequirementsData;
 })(Globals || (Globals = {}));
+//# sourceMappingURL=GSDRequirementsData.js.map

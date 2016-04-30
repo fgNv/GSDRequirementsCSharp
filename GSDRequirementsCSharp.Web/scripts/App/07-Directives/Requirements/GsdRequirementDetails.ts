@@ -27,7 +27,7 @@
                             .value();
                 })
                 .catch((err): void=> {
-                    Notification.notifyError(Sentences.errorLoadingRequirement, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingRequirement, err.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--

@@ -24,7 +24,7 @@
                         Notification.notifySuccess(Sentences.passwordSuccessfullyChanged);
                     })
                     .catch((error): void => {
-                        Notification.notifyError(Sentences.errorChangingPassword, error.messages);
+                        Notification.notifyError(Sentences.errorChangingPassword, error.data.messages);
                     })
                     .finally((): void=> {
                         $scope.pendingRequests--

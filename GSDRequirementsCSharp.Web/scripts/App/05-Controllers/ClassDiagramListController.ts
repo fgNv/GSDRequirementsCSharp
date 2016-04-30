@@ -49,7 +49,7 @@
                     $scope.editingRelations = false
                 }
             });
-            
+
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
@@ -70,7 +70,7 @@
                     })
                     .finally(() => {
                         $scope.pendingRequests--
-                    });                
+                    });
             }
 
             $scope.loadClassDiagrams = () => this.LoadClassDiagrams(ClassDiagramResource,
@@ -102,8 +102,7 @@
                     $scope.loadClassDiagrams()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingClassDiagram,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingClassDiagram, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

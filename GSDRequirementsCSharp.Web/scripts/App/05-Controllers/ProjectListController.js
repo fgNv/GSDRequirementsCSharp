@@ -58,7 +58,7 @@ var Controllers;
                 $scope.loadProjects();
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorInactivatingProject, error.messages);
+                Notification.notifyError(Sentences.errorInactivatingProject, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -85,3 +85,4 @@ var Controllers;
     app.controller('ProjectListController', ["$scope", "ProjectResource",
         "$rootScope", "$location", ProjectListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ProjectListController.js.map

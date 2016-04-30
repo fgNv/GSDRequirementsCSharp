@@ -41,7 +41,7 @@ var Directives;
                         .value();
             })
                 .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingRequirement, err.messages);
+                Notification.notifyError(Sentences.errorLoadingRequirement, err.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;
@@ -54,3 +54,4 @@ var Directives;
     })();
     app.directive('gsdRequirementDetails', GsdRequirementDetails.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdRequirementDetails.js.map
