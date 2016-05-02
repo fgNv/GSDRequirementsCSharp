@@ -60,7 +60,7 @@ var Controllers;
                 $scope.loadPackages();
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorInactivatingPackage, error.messages);
+                Notification.notifyError(Sentences.errorInactivatingPackage, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;

@@ -65,17 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="DataHydrators\IssueHydration.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />
-    <Compile Include="Mappings\ClassContentMapping.cs" />
+    <Compile Include="Mappings\ClassDiagramContentMapping.cs" />
     <Compile Include="Mappings\ClassDiagramMapping.cs" />
     <Compile Include="Mappings\ClassMapping.cs" />
-    <Compile Include="Mappings\ClassMethodContentMapping.cs" />
     <Compile Include="Mappings\ClassMethodMapping.cs" />
-    <Compile Include="Mappings\ClassMethodParameterContentMapping.cs" />
     <Compile Include="Mappings\ClassMethodParameterMapping.cs" />
-    <Compile Include="Mappings\ClassPropertyContentMapping.cs" />
     <Compile Include="Mappings\ClassPropertyMapping.cs" />
     <Compile Include="Mappings\ClassRelationshipMapping.cs" />
     <Compile Include="Mappings\ContactMapping.cs" />
@@ -118,8 +116,37 @@
     <Compile Include="Migrations\201604141340046_specification-item-label.Designer.cs">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604261200327_drop-class-diagram-related.cs" />
+    <Compile Include="Migrations\201604261200327_drop-class-diagram-related.Designer.cs">
+      <DependentUpon>201604261200327_drop-class-diagram-related.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604261208175_class-diagram-related-remodel.cs" />
+    <Compile Include="Migrations\201604261208175_class-diagram-related-remodel.Designer.cs">
+      <DependentUpon>201604261208175_class-diagram-related-remodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604261336132_class-diagram-relatioship-fk.cs" />
+    <Compile Include="Migrations\201604261336132_class-diagram-relatioship-fk.Designer.cs">
+      <DependentUpon>201604261336132_class-diagram-relatioship-fk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604291238146_class-diagram-coordinates.cs" />
+    <Compile Include="Migrations\201604291238146_class-diagram-coordinates.Designer.cs">
+      <DependentUpon>201604291238146_class-diagram-coordinates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604301424595_remove-class-visibility.cs" />
+    <Compile Include="Migrations\201604301424595_remove-class-visibility.Designer.cs">
+      <DependentUpon>201604301424595_remove-class-visibility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.cs" />
+    <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.Designer.cs">
+      <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\NextId\ClassDiagramNextIdQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryResult.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQuery.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQueryHandler.cs" />
@@ -151,10 +178,12 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\ByPackage\SpecificationItemsByPackageQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
@@ -199,6 +228,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604141340046_specification-item-label.resx">
       <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261200327_drop-class-diagram-related.resx">
+      <DependentUpon>201604261200327_drop-class-diagram-related.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261208175_class-diagram-related-remodel.resx">
+      <DependentUpon>201604261208175_class-diagram-related-remodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261336132_class-diagram-relatioship-fk.resx">
+      <DependentUpon>201604261336132_class-diagram-relatioship-fk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604291238146_class-diagram-coordinates.resx">
+      <DependentUpon>201604291238146_class-diagram-coordinates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604301424595_remove-class-visibility.resx">
+      <DependentUpon>201604301424595_remove-class-visibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605021214094_remove-active-duplicated-flag.resx">
+      <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

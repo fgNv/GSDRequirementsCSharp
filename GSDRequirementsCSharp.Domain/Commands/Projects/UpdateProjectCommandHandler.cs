@@ -26,7 +26,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 
         public void Handle(UpdateProjectCommand command)
         {
-            var project = _projectWithContentsQueryHandler.Handle(command.Id);
+            var project = _projectWithContentsQueryHandler.Handle(command.Id.Value);
             foreach (var content in project.ProjectContents)
             {
                 if(command.Items.Any(i => content.Locale == i.Locale))

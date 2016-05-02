@@ -17,13 +17,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(c => c.ClassId).HasColumnName("class_id");
             Property(c => c.Visibility).HasColumnName("visibility");
             Property(c => c.Type).HasColumnName("type");
+            Property(c => c.Name).HasColumnName("name");
 
             Property(e => e.Type)
                .IsUnicode(false);
-
-            HasMany(e => e.ClassPropertyContents)
-                .WithRequired(e => e.ClassProperty)
-                .WillCascadeOnDelete(false);
+            
         }
     }
 }

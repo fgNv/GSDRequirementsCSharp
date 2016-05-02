@@ -17,12 +17,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(cm => cm.ReturnType).HasColumnName("return_type");
             Property(cm => cm.Visibility).HasColumnName("visibility");
             Property(cm => cm.ClassId).HasColumnName("class_id");
+            Property(c => c.Name).HasColumnName("name");
 
             Property(e => e.ReturnType)
                             .IsUnicode(false);
-            HasMany(e => e.ClassMethodContents)
-                            .WithRequired(e => e.ClassMethod)
-                            .WillCascadeOnDelete(false);
             HasMany(e => e.ClassMethodParameters)
                             .WithRequired(e => e.ClassMethod)
                             .HasForeignKey(e => e.ClassMethodId)

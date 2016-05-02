@@ -61,6 +61,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abstract.
+        /// </summary>
+        public static string Abstract {
+            get {
+                return ResourceManager.GetString("Abstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string action {
@@ -84,6 +93,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string add {
             get {
                 return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add class.
+        /// </summary>
+        public static string addClass {
+            get {
+                return ResourceManager.GetString("addClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add class diagram.
+        /// </summary>
+        public static string addClassDiagram {
+            get {
+                return ResourceManager.GetString("addClassDiagram", resourceCulture);
             }
         }
         
@@ -124,6 +151,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add method.
+        /// </summary>
+        public static string addMethod {
+            get {
+                return ResourceManager.GetString("addMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new link to artifact.
         /// </summary>
         public static string addNewLinkToArtifact {
@@ -151,6 +187,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add parameter.
+        /// </summary>
+        public static string addParameter {
+            get {
+                return ResourceManager.GetString("addParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add permissions.
         /// </summary>
         public static string addPermissions {
@@ -165,6 +210,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string addProject {
             get {
                 return ResourceManager.GetString("addProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add property.
+        /// </summary>
+        public static string addProperty {
+            get {
+                return ResourceManager.GetString("addProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add relation.
+        /// </summary>
+        public static string addRelation {
+            get {
+                return ResourceManager.GetString("addRelation", resourceCulture);
             }
         }
         
@@ -214,6 +277,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aggregation.
+        /// </summary>
+        public static string Aggregation {
+            get {
+                return ResourceManager.GetString("Aggregation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All issues were concluded.
         /// </summary>
         public static string allIssuesWereConcluded {
@@ -246,6 +318,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string artifacts {
             get {
                 return ResourceManager.GetString("artifacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Association.
+        /// </summary>
+        public static string Association {
+            get {
+                return ResourceManager.GetString("Association", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one class must be registered to access the relation management.
+        /// </summary>
+        public static string atLeastOneClassMustBeRegisteredToAccessTheRelationManagement {
+            get {
+                return ResourceManager.GetString("atLeastOneClassMustBeRegisteredToAccessTheRelationManagement", resourceCulture);
             }
         }
         
@@ -331,11 +421,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class diagram inactivated successfully.
+        /// </summary>
+        public static string classDiagramInactivatedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramInactivatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class diagram removed successfully.
+        /// </summary>
+        public static string classDiagramRemovedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramRemovedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagrams.
         /// </summary>
         public static string classDiagrams {
             get {
                 return ResourceManager.GetString("classDiagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class diagram saved successfully.
+        /// </summary>
+        public static string classDiagramSavedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramSavedSuccessfully", resourceCulture);
             }
         }
         
@@ -376,6 +493,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Composition.
+        /// </summary>
+        public static string Composition {
+            get {
+                return ResourceManager.GetString("Composition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Concrete.
+        /// </summary>
+        public static string Concrete {
+            get {
+                return ResourceManager.GetString("Concrete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Condition.
         /// </summary>
         public static string condition {
@@ -390,6 +525,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string confirmPassword {
             get {
                 return ResourceManager.GetString("confirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create class diagram.
+        /// </summary>
+        public static string createClassDiagram {
+            get {
+                return ResourceManager.GetString("createClassDiagram", resourceCulture);
             }
         }
         
@@ -493,6 +637,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit class.
+        /// </summary>
+        public static string editClass {
+            get {
+                return ResourceManager.GetString("editClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editor.
         /// </summary>
         public static string editor {
@@ -520,11 +673,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit relations.
+        /// </summary>
+        public static string editRelations {
+            get {
+                return ResourceManager.GetString("editRelations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit requirement.
         /// </summary>
         public static string editRequirement {
             get {
                 return ResourceManager.GetString("editRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit selected class.
+        /// </summary>
+        public static string editSelectedClass {
+            get {
+                return ResourceManager.GetString("editSelectedClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit selected class relations.
+        /// </summary>
+        public static string editSelectedClassRelations {
+            get {
+                return ResourceManager.GetString("editSelectedClassRelations", resourceCulture);
             }
         }
         
@@ -543,6 +723,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string email {
             get {
                 return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
             }
         }
         
@@ -592,6 +781,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error inactivating class diagram.
+        /// </summary>
+        public static string errorInactivatingClassDiagram {
+            get {
+                return ResourceManager.GetString("errorInactivatingClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error inactivating package.
         /// </summary>
         public static string errorInactivatingPackage {
@@ -615,6 +813,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorInactivatingRequirement {
             get {
                 return ResourceManager.GetString("errorInactivatingRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading class diagrams.
+        /// </summary>
+        public static string errorLoadingClassDiagrams {
+            get {
+                return ResourceManager.GetString("errorLoadingClassDiagrams", resourceCulture);
             }
         }
         
@@ -696,6 +903,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorRemovingLink {
             get {
                 return ResourceManager.GetString("errorRemovingLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving class diagram.
+        /// </summary>
+        public static string errorSavingClassDiagram {
+            get {
+                return ResourceManager.GetString("errorSavingClassDiagram", resourceCulture);
             }
         }
         
@@ -853,6 +1069,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inactivate class diagram.
+        /// </summary>
+        public static string inactivateClassDiagram {
+            get {
+                return ResourceManager.GetString("inactivateClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inactivate package.
         /// </summary>
         public static string inactivatePackage {
@@ -867,6 +1092,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string inactivateProject {
             get {
                 return ResourceManager.GetString("inactivateProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inheritance.
+        /// </summary>
+        public static string Inheritance {
+            get {
+                return ResourceManager.GetString("Inheritance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interface.
+        /// </summary>
+        public static string Interface {
+            get {
+                return ResourceManager.GetString("Interface", resourceCulture);
             }
         }
         
@@ -997,6 +1240,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage class diagram.
+        /// </summary>
+        public static string manageClassDiagram {
+            get {
+                return ResourceManager.GetString("manageClassDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage links.
         /// </summary>
         public static string manageLinks {
@@ -1047,6 +1299,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageProjectUsers {
             get {
                 return ResourceManager.GetString("manageProjectUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage relations.
+        /// </summary>
+        public static string manageRelations {
+            get {
+                return ResourceManager.GetString("manageRelations", resourceCulture);
             }
         }
         
@@ -1105,6 +1366,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Metadata.
+        /// </summary>
+        public static string metadata {
+            get {
+                return ResourceManager.GetString("metadata", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Methods.
+        /// </summary>
+        public static string methods {
+            get {
+                return ResourceManager.GetString("methods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile phone.
         /// </summary>
         public static string mobilePhone {
@@ -1128,15 +1407,6 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name is a required field.
-        /// </summary>
-        public static string nameIsARequiredField {
-            get {
-                return ResourceManager.GetString("nameIsARequiredField", resourceCulture);
             }
         }
         
@@ -1168,11 +1438,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No class diagrams registered.
+        /// </summary>
+        public static string noClassDiagramsRegistered {
+            get {
+                return ResourceManager.GetString("noClassDiagramsRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No comments.
         /// </summary>
         public static string noComments {
             get {
                 return ResourceManager.GetString("noComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No method registered.
+        /// </summary>
+        public static string noMethodRegistered {
+            get {
+                return ResourceManager.GetString("noMethodRegistered", resourceCulture);
             }
         }
         
@@ -1191,6 +1479,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string noPackageRegistered {
             get {
                 return ResourceManager.GetString("noPackageRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No parameters registered.
+        /// </summary>
+        public static string noParametersRegistered {
+            get {
+                return ResourceManager.GetString("noParametersRegistered", resourceCulture);
             }
         }
         
@@ -1218,6 +1515,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string noProjectRegistered {
             get {
                 return ResourceManager.GetString("noProjectRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No property registered.
+        /// </summary>
+        public static string noPropertyRegistered {
+            get {
+                return ResourceManager.GetString("noPropertyRegistered", resourceCulture);
             }
         }
         
@@ -1321,6 +1627,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameters.
+        /// </summary>
+        public static string parameters {
+            get {
+                return ResourceManager.GetString("parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string password {
@@ -1371,6 +1686,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string phone {
             get {
                 return ResourceManager.GetString("phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        public static string Private {
+            get {
+                return ResourceManager.GetString("Private", resourceCulture);
             }
         }
         
@@ -1447,11 +1771,47 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string properties {
+            get {
+                return ResourceManager.GetString("properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protected.
+        /// </summary>
+        public static string Protected {
+            get {
+                return ResourceManager.GetString("Protected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string Public {
+            get {
+                return ResourceManager.GetString("Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rank.
         /// </summary>
         public static string rank {
             get {
                 return ResourceManager.GetString("rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realization.
+        /// </summary>
+        public static string Realization {
+            get {
+                return ResourceManager.GetString("Realization", resourceCulture);
             }
         }
         
@@ -1474,6 +1834,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relations.
+        /// </summary>
+        public static string relations {
+            get {
+                return ResourceManager.GetString("relations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relation type.
+        /// </summary>
+        public static string relationType {
+            get {
+                return ResourceManager.GetString("relationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
         public static string removeLink {
@@ -1483,11 +1861,47 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove method.
+        /// </summary>
+        public static string removeMethod {
+            get {
+                return ResourceManager.GetString("removeMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove parameter.
+        /// </summary>
+        public static string removeParameter {
+            get {
+                return ResourceManager.GetString("removeParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove property.
+        /// </summary>
+        public static string removeProperty {
+            get {
+                return ResourceManager.GetString("removeProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove requirement.
         /// </summary>
         public static string removeRequirement {
             get {
                 return ResourceManager.GetString("removeRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove selected class.
+        /// </summary>
+        public static string removeSelectedClass {
+            get {
+                return ResourceManager.GetString("removeSelectedClass", resourceCulture);
             }
         }
         
@@ -1564,6 +1978,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return type.
+        /// </summary>
+        public static string returnType {
+            get {
+                return ResourceManager.GetString("returnType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Revoke permission.
         /// </summary>
         public static string revokePermission {
@@ -1609,11 +2032,39 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a project above and define it as the context, or if no project is registered register a new one..
+        /// </summary>
+        public static string selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistered {
+            get {
+                return ResourceManager.GetString("selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistere" +
+                        "d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show details and manage versions.
         /// </summary>
         public static string showDetailsAndManageVersions {
             get {
                 return ResourceManager.GetString("showDetailsAndManageVersions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string source {
+            get {
+                return ResourceManager.GetString("source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source multiplicity.
+        /// </summary>
+        public static string sourceMultiplicity {
+            get {
+                return ResourceManager.GetString("sourceMultiplicity", resourceCulture);
             }
         }
         
@@ -1632,6 +2083,42 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string subject {
             get {
                 return ResourceManager.GetString("subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target.
+        /// </summary>
+        public static string target {
+            get {
+                return ResourceManager.GetString("target", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target multiplicity.
+        /// </summary>
+        public static string targetMultiplicity {
+            get {
+                return ResourceManager.GetString("targetMultiplicity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page you&apos;re trying to access, requires a project defined in the context..
+        /// </summary>
+        public static string thePageYouReTryingToAccessRequireAProjectDefinedInTheContext {
+            get {
+                return ResourceManager.GetString("thePageYouReTryingToAccessRequireAProjectDefinedInTheContext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no relations registered.
+        /// </summary>
+        public static string thereAreNoRelationsRegistered {
+            get {
+                return ResourceManager.GetString("thereAreNoRelationsRegistered", resourceCulture);
             }
         }
         
@@ -1659,6 +2146,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string thisArtifactHasNoLinks {
             get {
                 return ResourceManager.GetString("thisArtifactHasNoLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This package was removed.
+        /// </summary>
+        public static string thisPackageWasRemoved {
+            get {
+                return ResourceManager.GetString("thisPackageWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To edit or remove a class, click on it and the class action menu will appear.
+        /// </summary>
+        public static string toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear {
+            get {
+                return ResourceManager.GetString("toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear", resourceCulture);
             }
         }
         
@@ -1803,6 +2308,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string version {
             get {
                 return ResourceManager.GetString("version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visibility.
+        /// </summary>
+        public static string visibility {
+            get {
+                return ResourceManager.GetString("visibility", resourceCulture);
             }
         }
         

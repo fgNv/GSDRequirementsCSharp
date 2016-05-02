@@ -62,7 +62,17 @@
     <Compile Include="Cryptography\ICryptographer.cs" />
     <Compile Include="Cryptography\Sha256Cryptographer.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
-    <Compile Include="Exceptions.cs" />
+    <Compile Include="Internationalization\ValidationMessages.pt.Designer.cs">
+      <DependentUpon>ValidationMessages.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Internationalization\ValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationExceptions.cs" />
     <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\PermissionException.cs" />
     <Compile Include="Internationalization\HelpSentences.Designer.cs">
@@ -87,10 +97,12 @@
     <Compile Include="Persistence\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProviders\ServiceProviderExtensions.cs" />
+    <Compile Include="Validation\Attributes\AtLeastOneElementAttribute.cs" />
     <Compile Include="Validation\Attributes\ValidateCollectionAttribute.cs" />
     <Compile Include="Validation\CommandHandlerValidationDecorator.cs" />
     <Compile Include="Validation\CommandValidationException.cs" />
     <Compile Include="Validation\DataAnnotationValidator.cs" />
+    <Compile Include="Validation\InvalidCollectionValidationResult.cs" />
     <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +118,14 @@
     <EmbeddedResource Include="Internationalization\Sentences.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Sentences.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internationalization\ValidationMessages.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internationalization\ValidationMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

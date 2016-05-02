@@ -1,15 +1,22 @@
 ﻿module Sentences {
     export declare var areYouCertainYouWishToRemoveThisItem: string;
+    export declare var classDiagramInactivatedSuccessfully: string;
+    export declare var classDiagramSavedSuccessfully: string;
+    export declare var classDiagramRemovedSuccessfully: string;
     export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
     export declare var errorAddingComment: string; 
     export declare var errorCreatingIssue: string;
+    export declare var errorRemovingClassDiagram: string;
     export declare var errorLoadingProjects: string;
     export declare var errorSavingUserAccount: string;
     export declare var errorSavingProject: string;
+    export declare var errorSavingClassDiagram: string; 
     export declare var errorAddingTranslation: string;
     export declare var errorConcludingIssue: string;
+    export declare var errorInactivatingClassDiagram: string;
     export declare var errorInactivatingProject: string;
+    export declare var errorLoadingClassDiagrams: string;
     export declare var errorLoadingLinks: string;
     export declare var errorLoadingRequirement: string; 
     export declare var errorLoadingIssues: string;

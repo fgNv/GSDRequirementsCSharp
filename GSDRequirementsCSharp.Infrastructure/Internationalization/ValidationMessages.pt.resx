@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="actionMaxLengthIs150" xml:space="preserve">
+    <value>O tamanho máximo do campo "Ação" são 150 caracteres</value>
+  </data>
+  <data name="classDiagramIdIsRequiredField" xml:space="preserve">
+    <value>"Id do Diagrama de Classes" é um campo obrigatório</value>
+  </data>
+  <data name="classTypeIsARequiredField" xml:space="preserve">
+    <value>"Tipo de Classe" é um campo obrigatório</value>
+  </data>
+  <data name="conditionMaxLengthIs150" xml:space="preserve">
+    <value>O tamanho máximo do campo "Condição" são 150 caracteres</value>
+  </data>
+  <data name="descriptionIsARequiredField" xml:space="preserve">
+    <value>"Descrição" é um campo obrigatório</value>
+  </data>
+  <data name="difficultyIsARequiredField" xml:space="preserve">
+    <value>"Dificuldade" é um campo obrigatório</value>
+  </data>
+  <data name="emailFieldMustHaveAValidEmailAddress" xml:space="preserve">
+    <value>O campo "E-mail" deve conter um e-mail válido</value>
+  </data>
+  <data name="emailIsARequiredField" xml:space="preserve">
+    <value>"E-mail" é um campo obrigatório</value>
+  </data>
+  <data name="issueCommentIdIsARequiredField" xml:space="preserve">
+    <value>"Id do comentário da obsevação" é um campo obrigatório</value>
+  </data>
+  <data name="issueIdIsARequiredField" xml:space="preserve">
+    <value>"Id da observação" é um campo obrigatório</value>
+  </data>
+  <data name="localeIsARequiredField" xml:space="preserve">
+    <value>"Idioma" é um campo obrigatório</value>
+  </data>
+  <data name="loginIsARequiredField" xml:space="preserve">
+    <value>"Login" é um campo obrigatório</value>
+  </data>
+  <data name="maxEmailLengthIs50" xml:space="preserve">
+    <value>O tamanho máximo do campo "E-mail" são 50 caracteres</value>
+  </data>
+  <data name="maxLoginLengthIs50" xml:space="preserve">
+    <value>O tamanho máximo do campo "Login" são 50 caracteres</value>
+  </data>
+  <data name="maxMobilePhoneLengthIs50" xml:space="preserve">
+    <value>O tamanho máximo do campo "Celular" são 50 caracteres</value>
+  </data>
+  <data name="maxNameLengthIs100" xml:space="preserve">
+    <value>O tamanho máximo do campo "Nome" são 100 caracteres</value>
+  </data>
+  <data name="maxPasswordLengthIs50" xml:space="preserve">
+    <value>O tamanho máximo do campo "Senha" são 50 caracteres</value>
+  </data>
+  <data name="maxPhoneLengthIs20" xml:space="preserve">
+    <value>O tamanho máximo do campo "Telefone" são 20 caracteres</value>
+  </data>
+  <data name="methodVisibilityIsARequiredField" xml:space="preserve">
+    <value>"Visibilidade do método" é um campo obrigatório</value>
+  </data>
+  <data name="mobilePhoneMustContainOnlyNumbers" xml:space="preserve">
+    <value>O celular deve conter apenas números</value>
+  </data>
+  <data name="nameIsARequiredField" xml:space="preserve">
+    <value>"Nome" é um campo obrigatório</value>
+  </data>
+  <data name="originIsARequiredField" xml:space="preserve">
+    <value>"Origem" é um campo obrigatório</value>
+  </data>
+  <data name="packageIdIsARequiredField" xml:space="preserve">
+    <value>"Id do pacote" é um campo obrigatório</value>
+  </data>
+  <data name="packageIsARequiredField" xml:space="preserve">
+    <value>"Pacote" é um campo obrigatório</value>
+  </data>
+  <data name="parameterNameIsARequiredField" xml:space="preserve">
+    <value>"Nome do parâmetro" é um campo obrigatório</value>
+  </data>
+  <data name="parameterTypeIsARequiredField" xml:space="preserve">
+    <value>"Tipo do parâmetro" é um campo obrigatório</value>
+  </data>
+  <data name="passwordIsARequiredField" xml:space="preserve">
+    <value>"Senha" é um campo obrigatório</value>
+  </data>
+  <data name="phoneMustContainOnlyNumbers" xml:space="preserve">
+    <value>O telefone deve conter apenas números</value>
+  </data>
+  <data name="projectIdIsARequiredField" xml:space="preserve">
+    <value>"Id do projeto" é um campo obrigatório</value>
+  </data>
+  <data name="propertyNameIsARequiredField" xml:space="preserve">
+    <value>"Nome da propriedade" é um campo obrigatório</value>
+  </data>
+  <data name="propertyTypeIsARequiredField" xml:space="preserve">
+    <value>"Tipo da propriedade" é um campo obrigatório</value>
+  </data>
+  <data name="propertyVisibilityIsARequiredField" xml:space="preserve">
+    <value>"Visibilidade da propriedade" é um campo obrigatório</value>
+  </data>
+  <data name="rankIsARequiredField" xml:space="preserve">
+    <value>"Prioridade" é um campo obrigatório</value>
+  </data>
+  <data name="requirementIdIsARequiredField" xml:space="preserve">
+    <value>"Id do requisito" é um campo obrigatório</value>
+  </data>
+  <data name="requirementIsARequiredField" xml:space="preserve">
+    <value>"Requisito" é um campo obrigatório</value>
+  </data>
+  <data name="requirementTypeIsARequiredField" xml:space="preserve">
+    <value>"Tipo do Requisito" é um campo obrigatório</value>
+  </data>
+  <data name="returnTypeIsARequiredField" xml:space="preserve">
+    <value>"Tipo do retorno" é um campo obrigatório</value>
+  </data>
+  <data name="sourceIsARequiredField" xml:space="preserve">
+    <value>"Fonte" é um campo obrigatório</value>
+  </data>
+  <data name="specificationItemIdIsARequiredField" xml:space="preserve">
+    <value>"Id do item de especificação" é um campo obrigatório</value>
+  </data>
+  <data name="specificationItemIsARequiredField" xml:space="preserve">
+    <value>"Item de especificação" é um campo obrigatório</value>
+  </data>
+  <data name="subjectMaxLengthIs150" xml:space="preserve">
+    <value>O tamanho máximo do campo "Sujeito" são 150 caracteres</value>
+  </data>
+  <data name="targetIsARequiredField" xml:space="preserve">
+    <value>"Alvo" é um campo obrigatório</value>
+  </data>
+  <data name="userIdIsARequiredField" xml:space="preserve">
+    <value>"Id do usuário" é um campo obrigatório</value>
+  </data>
+</root>

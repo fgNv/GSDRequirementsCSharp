@@ -9,7 +9,8 @@ using System.Web.Mvc;
 namespace GSDRequirements.Web.Controllers
 {
     public class RequirementController : Controller
-    { 
+    {
+        [ContextProjectRequired]
         // GET: /<controller>/
         public ActionResult Index()
         {

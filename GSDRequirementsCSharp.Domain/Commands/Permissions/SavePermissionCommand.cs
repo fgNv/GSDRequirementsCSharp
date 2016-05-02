@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Permissions
 {
     public class SavePermissionCommand : IProjectCommand
     {
+        [ValidateCollection]
         public IEnumerable<PermissionItem> Items { get; set; }
     }
 }

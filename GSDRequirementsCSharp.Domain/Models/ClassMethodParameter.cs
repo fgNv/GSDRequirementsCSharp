@@ -1,17 +1,13 @@
 namespace GSDRequirementsCSharp.Domain
 {
+    using Infrastructure.Persistence;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class ClassMethodParameter
+    public partial class ClassMethodParameter : IEntity<Guid>
     {
-        public ClassMethodParameter()
-        {
-            ClassMethodParameterContents = new HashSet<ClassMethodParameterContent>();
-        }
-
         public Guid Id { get; set; }
 
         public Guid ClassMethodId { get; set; }
@@ -21,7 +17,9 @@ namespace GSDRequirementsCSharp.Domain
         public string Type { get; set; }
 
         public virtual ClassMethod ClassMethod { get; set; }
-        
-        public virtual ICollection<ClassMethodParameterContent> ClassMethodParameterContents { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
     }
 }

@@ -116,7 +116,8 @@
         private LoadRequirements(requirementResource: any,
             $scope: IRequirementsControllerScope,
             pageSize: number): void {
-            $scope.pendingRequests++;
+            $scope.pendingRequests++
+
             var request = { page: $scope.currentPage, pageSize: pageSize }
             requirementResource.get(request)
                 .$promise
@@ -126,7 +127,7 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingRequirements, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingRequirements, err.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

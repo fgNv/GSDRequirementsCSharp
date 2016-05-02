@@ -16,7 +16,7 @@ var Controllers;
                     }, 2500);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorUpdatingData, error.messages);
+                    Notification.notifyError(Sentences.errorUpdatingData, error.data.messages);
                     $scope.pendingRequests--;
                 });
             };

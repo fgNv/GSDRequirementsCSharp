@@ -27,7 +27,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 
         public void Handle(UpdatePackageCommand command)
         {
-            var package = _packageWithContentsQueryHandler.Handle(command.Id);
+            var package = _packageWithContentsQueryHandler.Handle(command.Id.Value);
             foreach (var content in package.Contents)
             {
                 if (command.Items.Any(i => content.Locale == i.Locale))

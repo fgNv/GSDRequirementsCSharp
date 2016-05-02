@@ -76,7 +76,7 @@ var Controllers;
                 $scope.maxPages = response.maxPages;
             })
                 .catch(function (err) {
-                Notification.notifyError(Sentences.errorLoadingRequirements, err.messages);
+                Notification.notifyError(Sentences.errorLoadingRequirements, err.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;

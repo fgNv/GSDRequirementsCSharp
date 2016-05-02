@@ -297,9 +297,6 @@
   <data name="packageUpdatedSuccessfully" xml:space="preserve">
     <value>Package updated successfully</value>
   </data>
-  <data name="nameIsARequiredField" xml:space="preserve">
-    <value>Name is a required field</value>
-  </data>
   <data name="original" xml:space="preserve">
     <value>Original</value>
   </data>
@@ -716,5 +713,179 @@
   </data>
   <data name="projectDetails" xml:space="preserve">
     <value>Project details</value>
+  </data>
+  <data name="errorLoadingClassDiagrams" xml:space="preserve">
+    <value>Error loading class diagrams</value>
+  </data>
+  <data name="classDiagramInactivatedSuccessfully" xml:space="preserve">
+    <value>Class diagram inactivated successfully</value>
+  </data>
+  <data name="errorInactivatingClassDiagram" xml:space="preserve">
+    <value>Error inactivating class diagram</value>
+  </data>
+  <data name="addClassDiagram" xml:space="preserve">
+    <value>Add class diagram</value>
+  </data>
+  <data name="inactivateClassDiagram" xml:space="preserve">
+    <value>Inactivate class diagram</value>
+  </data>
+  <data name="noClassDiagramsRegistered" xml:space="preserve">
+    <value>No class diagrams registered</value>
+  </data>
+  <data name="addClass" xml:space="preserve">
+    <value>Add class</value>
+  </data>
+  <data name="addParameter" xml:space="preserve">
+    <value>Add parameter</value>
+  </data>
+  <data name="addProperty" xml:space="preserve">
+    <value>Add property</value>
+  </data>
+  <data name="createClassDiagram" xml:space="preserve">
+    <value>Create class diagram</value>
+  </data>
+  <data name="metadata" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="methods" xml:space="preserve">
+    <value>Methods</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="relations" xml:space="preserve">
+    <value>Relations</value>
+  </data>
+  <data name="removeMethod" xml:space="preserve">
+    <value>Remove method</value>
+  </data>
+  <data name="removeParameter" xml:space="preserve">
+    <value>Remove parameter</value>
+  </data>
+  <data name="removeProperty" xml:space="preserve">
+    <value>Remove property</value>
+  </data>
+  <data name="returnType" xml:space="preserve">
+    <value>Return type</value>
+  </data>
+  <data name="addMethod" xml:space="preserve">
+    <value>Add method</value>
+  </data>
+  <data name="noMethodRegistered" xml:space="preserve">
+    <value>No method registered</value>
+  </data>
+  <data name="noParametersRegistered" xml:space="preserve">
+    <value>No parameters registered</value>
+  </data>
+  <data name="noPropertyRegistered" xml:space="preserve">
+    <value>No property registered</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>Concrete</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistered" xml:space="preserve">
+    <value>Select a project above and define it as the context, or if no project is registered register a new one.</value>
+  </data>
+  <data name="thePageYouReTryingToAccessRequireAProjectDefinedInTheContext" xml:space="preserve">
+    <value>The page you're trying to access, requires a project defined in the context.</value>
+  </data>
+  <data name="editSelectedClass" xml:space="preserve">
+    <value>Edit selected class</value>
+  </data>
+  <data name="editSelectedClassRelations" xml:space="preserve">
+    <value>Edit selected class relations</value>
+  </data>
+  <data name="removeSelectedClass" xml:space="preserve">
+    <value>Remove selected class</value>
+  </data>
+  <data name="editRelations" xml:space="preserve">
+    <value>Edit relations</value>
+  </data>
+  <data name="addRelation" xml:space="preserve">
+    <value>Add relation</value>
+  </data>
+  <data name="manageClassDiagram" xml:space="preserve">
+    <value>Manage class diagram</value>
+  </data>
+  <data name="relationType" xml:space="preserve">
+    <value>Relation type</value>
+  </data>
+  <data name="source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="sourceMultiplicity" xml:space="preserve">
+    <value>Source multiplicity</value>
+  </data>
+  <data name="target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="targetMultiplicity" xml:space="preserve">
+    <value>Target multiplicity</value>
+  </data>
+  <data name="editClass" xml:space="preserve">
+    <value>Edit class</value>
+  </data>
+  <data name="thereAreNoRelationsRegistered" xml:space="preserve">
+    <value>There are no relations registered</value>
+  </data>
+  <data name="Aggregation" xml:space="preserve">
+    <value>Aggregation</value>
+  </data>
+  <data name="Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="atLeastOneClassMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>At least one class must be registered to access the relation management</value>
+  </data>
+  <data name="Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="Inheritance" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+  <data name="manageRelations" xml:space="preserve">
+    <value>Manage relations</value>
+  </data>
+  <data name="Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Protected" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="classDiagramSavedSuccessfully" xml:space="preserve">
+    <value>Class diagram saved successfully</value>
+  </data>
+  <data name="errorSavingClassDiagram" xml:space="preserve">
+    <value>Error saving class diagram</value>
+  </data>
+  <data name="toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear" xml:space="preserve">
+    <value>To edit or remove a class, click on it and the class action menu will appear</value>
+  </data>
+  <data name="thisPackageWasRemoved" xml:space="preserve">
+    <value>This package was removed</value>
+  </data>
+  <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Class diagram removed successfully</value>
   </data>
 </root>

@@ -1,0 +1,193 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3 data-ng-hide="currentClass.cell">
+    @Sentences.addClass
+</h3>
+<h3 data-ng-show="currentClass.cell">
+    @Sentences.editClass
+</h3>
+
+<div class="row">    
+    <div class="col-md-12">
+        <div data-ng-form="classMetadataForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="class-name">@Sentences.name *</label>
+                        <input type="text"
+                               class="form-control"
+                               id="class-name"
+                               data-ng-model="currentClass.name" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="class-type">@Sentences.type *</label>
+                        <select data-ng-options="type.value as type.label for
+                                                 type in classTypeOptions"
+                                id="class-type"
+                                class="form-control"
+                                data-ng-model="currentClass.type"></select>
+                    </div>
+                </div>
+            </div>
+            <h3>
+                @Sentences.properties
+                <button class="btn btn-default"
+                        data-ng-click="currentClass.addProperty()"
+                        title="@Sentences.addProperty">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </h3>
+            <div class="alert alert-info"
+                 data-ng-show="currentClass.classProperties.length == 0">
+                @Sentences.noPropertyRegistered
+            </div>
+            <table class="table" data-ng-show="currentClass.classProperties.length > 0">
+                <thead>
+                    <tr>
+                        <th>@Sentences.name *</th>
+                        <th>@Sentences.type *</th>
+                        <th>@Sentences.visibility *</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="property in currentClass.classProperties">
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   data-ng-model="property.name" />
+                        </td>
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   data-ng-model="property.type" />
+                        </td>
+                        <td>
+                            <select data-ng-options="visibility.value as visibility.label for
+                                             visibility in visibilityOptions"
+                                    class="form-control"
+                                    data-ng-model="property.visibility"></select>
+                        </td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.removeProperty"
+                                    data-ng-click="currentClass.removeProperty(property)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>
+                @Sentences.methods
+                <button class="btn btn-default"
+                        data-ng-click="currentClass.addMethod()"
+                        title="@Sentences.addMethod">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </h3>
+            <div class="alert alert-info"
+                 data-ng-show="currentClass.classMethods.length == 0">
+                @Sentences.noMethodRegistered
+            </div>
+            <table class="table"
+                   data-ng-show="currentClass.classMethods.length > 0">
+                <thead>
+                    <tr>
+                        <th>@Sentences.name *</th>
+                        <th>@Sentences.returnType *</th>
+                        <th>@Sentences.visibility *</th>
+                        <th>@Sentences.parameters</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="method in currentClass.classMethods">
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   data-ng-model="method.name" />
+                        </td>
+                        <td>
+                            <input type="text"
+                                   class="form-control"
+                                   data-ng-model="method.returnType" />
+                        </td>
+                        <td>
+                            <select data-ng-options="visibility.value as visibility.label for
+                                             visibility in visibilityOptions"
+                                    class="form-control"
+                                    data-ng-model="method.visibility"></select>
+                        </td>
+                        <td>
+                            <div class="alert alert-info"
+                                 data-ng-show="method.classMethodParameters.length == 0">
+                                @Sentences.noParametersRegistered
+                            </div>
+                            <table class="table" data-ng-show="method.classMethodParameters.length > 0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Sentences.name *
+                                        </th>
+                                        <th>
+                                            @Sentences.type *
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="parameter in method.classMethodParameters">
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   data-ng-model="parameter.name" />
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   data-ng-model="parameter.type" />
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default"
+                                                    title="@Sentences.removeParameter"
+                                                    data-ng-click="method.removeParameter(parameter)">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.addParameter"
+                                    data-ng-click="method.addParameter()">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    title="@Sentences.removeMethod"
+                                    data-ng-click="currentClass.removeMethod(method)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="backToDiagram()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="saveClass(currentClass)">
+            @Sentences.add
+        </button>
+    </div>
+</div>

@@ -15,12 +15,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             ToTable("Class");
 
             Property(c => c.Id).HasColumnName("id");
-            Property(c => c.Visibility).HasColumnName("visibility");
-            Property(c => c.ClassDiagramId).HasColumnName("class_diagram_id");
+            Property(c => c.Type).HasColumnName("type");
+            Property(c => c.Name).HasColumnName("name");
+            Property(c => c.X).HasColumnName("coordinates_x");
+            Property(c => c.Y).HasColumnName("coordinates_y");
 
-            HasMany(e => e.ClassContents)
-                            .WithRequired(e => e.Class)
-                            .WillCascadeOnDelete(false);
             HasMany(e => e.ClassMethods)
                             .WithRequired(e => e.Class)
                             .HasForeignKey(e => e.ClassId)

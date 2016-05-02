@@ -79,7 +79,7 @@
                     $scope.loadProjects()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingProject, error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingProject, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

@@ -1,7 +1,10 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using GSDRequirementsCSharp.Persistence.Commands.Projects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +13,15 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 {
     public class UpdateProjectCommand : IProjectOwnerCommand
     {
-        public Guid Id { get; set; }
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.projectIdIsARequiredField))]
+        public Guid? Id { get; set; }
 
-        public Guid ProjectId { get { return Id; } }
+        [Required]
+        public Guid? ProjectId { get { return Id.Value; } }
 
+        [ValidateCollection]
         public IEnumerable<ProjectContentItem> Items { get; set; }        
     }
 }

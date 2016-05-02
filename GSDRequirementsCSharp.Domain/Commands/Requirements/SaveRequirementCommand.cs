@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,27 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
     public class SaveRequirementCommand : IProjectCommand
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.packageIsARequiredField))]
         public Guid? PackageId { get; set; }
 
         [ValidateCollection]
         public IEnumerable<RequirementContentItem> Items { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.difficultyIsARequiredField))]
         public Difficulty? Difficulty { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.rankIsARequiredField))]
         public int? Rank { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.requirementTypeIsARequiredField))]
         public RequirementType? RequirementType { get; set; }
     }
 }

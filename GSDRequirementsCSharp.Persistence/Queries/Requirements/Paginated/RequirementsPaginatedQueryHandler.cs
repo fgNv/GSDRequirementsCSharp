@@ -2,6 +2,7 @@
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Persistence.DataHydrators;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,12 +18,15 @@ namespace GSDRequirementsCSharp.Persistence.Queries
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IssueHydration _issueHydration;
 
         public RequirementsPaginatedQueryHandler(GSDRequirementsContext context,
-                                                 ICurrentProjectContextId currentProjectContextId)
+                                                 ICurrentProjectContextId currentProjectContextId,
+                                                 IssueHydration issueHydration)
         {
             _context = context;
             _currentProjectContextId = currentProjectContextId;
+            _issueHydration = issueHydration;
         }
 
         public RequirementsPaginatedQueryResult Handle(RequirementsPaginatedQuery query)
@@ -47,18 +51,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries
             var requirements = paginatedQuery.Select(RequirementViewModel.FromModel)
                                              .ToList();
 
-            var itemsIds = requirements.Select(r => r.Id)
-                                       .ToList();
-            var issues = _context.Issues
-                                 .Include(i => i.Contents)
-                                 .Include(i => i.Creator.Contact)
-                                 .Include(i => i.IssueComments.Select(ic => ic.Contents))
-                                 .Where(i => !i.Concluded && itemsIds.Contains(i.SpecificationItemId))
-                                 .Select(IssueViewModel.FromModel)
-                                 .ToList();
-
-            foreach(var r in requirements)
-                r.Issues = issues.Where(i => i.SpecificationItemId == r.Id);
+            _issueHydration.Hydrate(requirements);
 
             var result = new RequirementsPaginatedQueryResult(requirements, maxPages);
             return result;

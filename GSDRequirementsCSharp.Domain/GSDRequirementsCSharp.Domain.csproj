@@ -47,6 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
+    <Compile Include="Commands\ClassDiagrams\ClassDiagramItemsPersister.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommandHandler.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommand.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommandHandler.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\Cell.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\ClassDiagramContentItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\ClassItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommand.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\MethodItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\ParameterItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\Position.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\PropertyItem.cs" />
+    <Compile Include="Commands\ClassDiagrams\DTO\RelationItem.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
     <Compile Include="Commands\IProjectOwnerCommand.cs" />
     <Compile Include="Commands\IssuesComments\DeleteIssueCommentCommand.cs" />
@@ -97,8 +110,8 @@
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommandHandler.cs" />
-    <Compile Include="Commands\SpecificationItems\Inativate\InativateSpecificationItemCommand.cs" />
-    <Compile Include="Commands\SpecificationItems\Inativate\InativateSpecificationItemCommandHandler.cs" />
+    <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommand.cs" />
+    <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommandHandler.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommand.cs" />
@@ -111,15 +124,13 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\Class.cs" />
-    <Compile Include="Models\ClassContent.cs" />
     <Compile Include="Models\ClassDiagram.cs" />
+    <Compile Include="Models\ClassDiagramContent.cs" />
     <Compile Include="Models\ClassMethod.cs" />
-    <Compile Include="Models\ClassMethodContent.cs" />
     <Compile Include="Models\ClassMethodParameter.cs" />
-    <Compile Include="Models\ClassMethodParameterContent.cs" />
     <Compile Include="Models\ClassProperty.cs" />
-    <Compile Include="Models\ClassPropertyContent.cs" />
     <Compile Include="Models\ClassRelationship.cs" />
+    <Compile Include="Models\ClassType.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Issue.cs" />
@@ -133,6 +144,7 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectContent.cs" />
+    <Compile Include="Models\RelationType.cs" />
     <Compile Include="Models\Requirement.cs" />
     <Compile Include="Models\RequirementContent.cs" />
     <Compile Include="Models\RequirementRisk.cs" />
@@ -142,9 +154,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserCase.cs" />
     <Compile Include="Models\VersionKey.cs" />
+    <Compile Include="Models\Visibility.cs" />
     <Compile Include="Permissions\CommandHandlerPermissionDecorator.cs" />
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\ClassDiagramNextIdQuery.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQuery.cs" />
     <Compile Include="Queries\Issue\IssueCommentWithContentsQuery.cs" />
     <Compile Include="Queries\Issue\IssueNextIdQuery.cs" />
@@ -157,7 +171,18 @@
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassMethodViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassPropertyViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassRelationshipViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ClassViewModel.cs" />
+    <Compile Include="ViewModels\ClassDiagrams\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\IIssueable.cs" />
     <Compile Include="ViewModels\IssueCommentContentViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentViewModel.cs" />
     <Compile Include="ViewModels\IssueContentViewModel.cs" />

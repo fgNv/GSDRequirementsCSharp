@@ -20,7 +20,7 @@ var Controllers;
                     _this.loadIssues($scope, itemIssuesResource, specificationItem, onAllIssuesConcluded);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorConcludingIssue, error.messages);
+                    Notification.notifyError(Sentences.errorConcludingIssue, error.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -43,7 +43,7 @@ var Controllers;
                     _this.initializeCommentData($scope);
                 })
                     .catch(function (error) {
-                    Notification.notifyError(Sentences.errorAddingComment, error.messages);
+                    Notification.notifyError(Sentences.errorAddingComment, error.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -98,7 +98,7 @@ var Controllers;
                 }
             })
                 .catch(function (error) {
-                Notification.notifyError(Sentences.errorLoadingIssues, error.messages);
+                Notification.notifyError(Sentences.errorLoadingIssues, error.data.messages);
             })
                 .finally(function () {
                 $scope.pendingRequests--;

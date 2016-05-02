@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,13 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
 {
     public class ChangeUserPasswordCommand : ICommand
     {
-        [Required]
-        [StringLength(50)]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.passwordIsARequiredField))]
+        [StringLength(50,
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.maxPasswordLengthIs50))]
+        [MinLength(4)]
         public string Password { get; set; }
     }
 }
