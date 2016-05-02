@@ -36,6 +36,11 @@
                 window.location.href = "#/diagram"
             }
 
+            $scope.setClassDiagramToManageLinks = (classDiagram) => {
+                $scope.classDiagramToManageLinks = classDiagram
+                window.location.href = "#/links"
+            }
+
             $scope.inactivateClassDiagram = (classDiagram) => {
                 if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
                     return;

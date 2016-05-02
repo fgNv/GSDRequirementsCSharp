@@ -23,6 +23,10 @@ var Controllers;
                 $scope.currentClassDiagram = new Models.ClassDiagram();
                 window.location.href = "#/diagram";
             };
+            $scope.setClassDiagramToManageLinks = function (classDiagram) {
+                $scope.classDiagramToManageLinks = classDiagram;
+                window.location.href = "#/links";
+            };
             $scope.inactivateClassDiagram = function (classDiagram) {
                 if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
                     return;

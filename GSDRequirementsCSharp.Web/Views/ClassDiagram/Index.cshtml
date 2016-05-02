@@ -8,7 +8,7 @@
 <div data-ng-controller="ClassDiagramListController"
      data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     
-    <h2>
+    <h2 data-ng-show="!classDiagramToManageLinks">
         @Sentences.classDiagrams
         <button class="btn btn-primary"
                 data-ng-show="!currentClassDiagram && !classDiagramToTranslate && 
@@ -19,7 +19,8 @@
         </button>
     </h2>
 
-    <article data-ng-show="!currentClassDiagram && !classDiagramToTranslate">
+    <article data-ng-show="!currentClassDiagram && !classDiagramToTranslate && 
+                           !classDiagramToManageLinks">
         <div class="alert alert-info" data-ng-show="classDiagrams.length == 0">
             @Sentences.noClassDiagramsRegistered
         </div>
@@ -63,6 +64,12 @@
                                     title="@Sentences.inactivateClassDiagram">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
+                            <button class="btn btn-default"
+                                    type="button"
+                                    data-ng-click="setClassDiagramToManageLinks(classDiagram)"
+                                    title="@Sentences.manageLinks">
+                                <span class="glyphicon glyphicon-transfer"></span>
+                            </button>
                             <gsd-issue-create data-specification-item="classDiagram"
                                               data-after-save="loadClassDiagrams">
                             </gsd-issue-create>
@@ -96,4 +103,9 @@
              data-editing-relations="editingRelations"
              data-ng-show="currentClassDiagram">
     </gsd-class-diagram>
+
+
+    <article data-gsd-links-management=""
+             data-specification-item="classDiagramToManageLinks"
+             data-ng-show="classDiagramToManageLinks"></article>
 </div>

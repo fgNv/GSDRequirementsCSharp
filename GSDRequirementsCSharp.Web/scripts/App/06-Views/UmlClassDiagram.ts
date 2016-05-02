@@ -146,7 +146,8 @@
         })
     }
 
-    var paperElementId = '#classDiagramPaper'
+    var paperElementId = ''
+    var paperElementContainerId = ''
 
     export function buildRelation(relationData: Models.ClassRelationship) {
         var sourceId = relationData.sourceId
@@ -199,11 +200,26 @@
         return cell
     }
 
-    export function startClassDiagram(cellClickCallback = null) {
-        var element = $(paperElementId);
+    export function startClassDiagram(
+        cellClickCallback = null,
+        paperElementIdArg = null,
+        paperElementContainerIdArg = null) {
+
+        if (paperElementIdArg) {
+            paperElementId = paperElementIdArg
+        } else {
+            paperElementId = 'classDiagramPaper'
+        }
+        if (paperElementContainerIdArg) {
+            paperElementContainerId = paperElementContainerIdArg
+        } else {
+            var paperElementContainerId = 'classDiagramPaperContainer'
+        }
+
+        var element = $(`#${paperElementId}`);
         if (element.length == 0) {
-            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"))
-            var element = $(paperElementId);
+            $(`#${paperElementContainerId}`).append($(`<div id='${paperElementId}' />`))
+            element = $(`#${paperElementId}`);
         }
 
         var graph = new joint.dia.Graph();

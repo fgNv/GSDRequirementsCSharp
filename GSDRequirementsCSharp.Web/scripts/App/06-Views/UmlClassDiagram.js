@@ -126,7 +126,8 @@ var Views;
             }
         });
     }
-    var paperElementId = '#classDiagramPaper';
+    var paperElementId = '';
+    var paperElementContainerId = '';
     function buildRelation(relationData) {
         var sourceId = relationData.sourceId;
         var targetId = relationData.targetId;
@@ -173,12 +174,26 @@ var Views;
         return cell;
     }
     Views.buildRelation = buildRelation;
-    function startClassDiagram(cellClickCallback) {
+    function startClassDiagram(cellClickCallback, paperElementIdArg, paperElementContainerIdArg) {
         if (cellClickCallback === void 0) { cellClickCallback = null; }
-        var element = $(paperElementId);
+        if (paperElementIdArg === void 0) { paperElementIdArg = null; }
+        if (paperElementContainerIdArg === void 0) { paperElementContainerIdArg = null; }
+        if (paperElementIdArg) {
+            paperElementId = paperElementIdArg;
+        }
+        else {
+            paperElementId = 'classDiagramPaper';
+        }
+        if (paperElementContainerIdArg) {
+            paperElementContainerId = paperElementContainerIdArg;
+        }
+        else {
+            var paperElementContainerId = 'classDiagramPaperContainer';
+        }
+        var element = $("#" + paperElementId);
         if (element.length == 0) {
-            $("#classDiagramPaperContainer").append($("<div id='classDiagramPaper' />"));
-            var element = $(paperElementId);
+            $("#" + paperElementContainerId).append($("<div id='" + paperElementId + "' />"));
+            element = $("#" + paperElementId);
         }
         var graph = new joint.dia.Graph();
         var paper = new joint.dia.Paper({
