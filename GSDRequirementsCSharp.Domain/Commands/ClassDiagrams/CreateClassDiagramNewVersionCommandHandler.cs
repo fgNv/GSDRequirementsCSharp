@@ -32,8 +32,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         public void Handle(CreateClassDiagramNewVersionCommand command)
         {
             var specificationItem = _specificationItemWithClassDiagramsQueryHandler.Handle(command.Id.Value);
-            var latestVersion = specificationItem.Requirements.FirstOrDefault(s => s.IsLastVersion);
-            foreach (var oldRequirementVersion in specificationItem.Requirements)
+            var latestVersion = specificationItem.ClassDiagrams.FirstOrDefault(s => s.IsLastVersion);
+            foreach (var oldRequirementVersion in specificationItem.ClassDiagrams)
             {
                 oldRequirementVersion.IsLastVersion = false;
             }
@@ -50,6 +50,22 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             classDiagram.Identifier = latestVersion.Identifier;
 
             _classDiagramItemsPersister.Persist(classDiagram, command);
+
+            var oldToNewClassesIds = new Dictionary<Guid, Guid>();
+
+            foreach (var classEntity in classDiagram.Classes)
+            {
+                var oldId = classEntity.Id;
+                var newId = Guid.NewGuid();
+                classEntity.Id = newId;
+                oldToNewClassesIds[oldId] = newId;
+            }
+
+            foreach (var relation in classDiagram.Relationships)
+            {
+                relation.SourceId = oldToNewClassesIds[relation.SourceId];
+                relation.TargetId = oldToNewClassesIds[relation.TargetId];
+            }
 
             _classDiagramRepository.Add(classDiagram);
         }

@@ -97,6 +97,7 @@
     <Compile Include="Persistence\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProviders\ServiceProviderExtensions.cs" />
+    <Compile Include="Validation\Attributes\AtLeastOneElementAttribute.cs" />
     <Compile Include="Validation\Attributes\ValidateCollectionAttribute.cs" />
     <Compile Include="Validation\CommandHandlerValidationDecorator.cs" />
     <Compile Include="Validation\CommandValidationException.cs" />

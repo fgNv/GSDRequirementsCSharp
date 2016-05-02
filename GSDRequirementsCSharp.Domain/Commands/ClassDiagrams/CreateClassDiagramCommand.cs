@@ -18,6 +18,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         public Guid? PackageId { get; set; }
 
         [ValidateCollection]
+        [AtLeastOneElement(
+            ErrorMessageResourceType = typeof(ValidationMessages),
+            ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
         public IEnumerable<ClassDiagramContentItem> Contents { get; set; }
 
         [ValidateCollection]

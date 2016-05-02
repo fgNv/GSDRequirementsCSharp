@@ -5,7 +5,9 @@
         @Sentences.manageClassDiagram
     </h3>
 
-    <article data-ng-show="isDiagramVisible()">
+    <article data-ng-show="isDiagramVisible()" 
+             data-ng-form=""
+             data-name="classDiagramForm">
         <div class="row">
             <div class="col-md-6">
                 <div class="select-box" data-ng-if="utility">
@@ -34,7 +36,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>
-                        @Sentences.name
+                        @Sentences.name *
                     </label>
                     <input type="text" class="form-control"
                            placeholder="{{placeholder}}"
@@ -47,7 +49,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>
-                        @Sentences.package
+                        @Sentences.package *
                     </label>
 
                     <div>

@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                        .Include(cd => cd.Relationships)
                                        .Include(cd => cd.Classes.Select(c => c.ClassMethods))
                                        .Include(cd => cd.Contents)
-                                       .FirstOrDefault(c => c.Id == id);
+                                       .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
 
             if (classDiagram == null)
                 return null;

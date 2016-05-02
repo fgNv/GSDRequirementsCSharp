@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_DiagramContainerLayout.cshtml";
 }
 
-<div data-ng-controller="ClassDiagramListController">
+<div data-ng-controller="ClassDiagramListController"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     
     <h2>
         @Sentences.classDiagrams
@@ -51,10 +52,10 @@
                         </td>
                         <td>
                             <button class="btn btn-default"
-                                    title="@Sentences.edit"
+                                    title="@Sentences.addNewVersion"
                                     data-ng-show="hasEditPermission"
                                     data-ng-click="setCurrentClassDiagram(classDiagram)">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon glyphicon-plus"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-show="hasEditPermission"
