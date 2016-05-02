@@ -183,6 +183,7 @@
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />

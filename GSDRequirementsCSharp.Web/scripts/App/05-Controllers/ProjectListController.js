@@ -85,3 +85,4 @@ var Controllers;
     app.controller('ProjectListController', ["$scope", "ProjectResource",
         "$rootScope", "$location", ProjectListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=ProjectListController.js.map

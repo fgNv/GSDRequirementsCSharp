@@ -199,9 +199,11 @@
 
                     $scope.classDiagram.contents = contents
 
-                    ClassDiagramResource.save($scope.classDiagram)
-                        .$promise
-                        .then((): void => {
+                    var promise = $scope.classDiagram.id ?
+                        ClassDiagramResource.update($scope.classDiagram).$promise :
+                        ClassDiagramResource.save($scope.classDiagram).$promise
+
+                    promise.then((): void => {
                             Notification.notifySuccess(Sentences.classDiagramSavedSuccessfully);
                             if ($scope.afterSave) { $scope.afterSave() }
                             window.location.href = "#"

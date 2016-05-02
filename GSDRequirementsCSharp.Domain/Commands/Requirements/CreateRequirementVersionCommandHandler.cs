@@ -1,6 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
@@ -17,18 +18,21 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
         private readonly IQueryHandler<SpecificationItemWithRequirementsQuery,SpecificationItem> _specificationItemWithRequirementsQueryHandler;
         private readonly IRepository<Package, Guid> _packageRepository;
+        private readonly ICurrentUserRetriever<User> _currentUserRetriever;
 
         public CreateRequirementVersionCommandHandler(
             IRepository<Requirement, VersionKey> requirementRepository,
             IRepository<RequirementContent, LocaleKey> requirementContentRepository,
             IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItem> specificationItemWithRequirementsQueryHandler,
-            IRepository<Package, Guid> packageRepository
+            IRepository<Package, Guid> packageRepository,
+            ICurrentUserRetriever<User> currentUserRetriever
             )
         {
             _requirementRepository = requirementRepository;
             _requirementContentRepository = requirementContentRepository;
             _specificationItemWithRequirementsQueryHandler = specificationItemWithRequirementsQueryHandler;
             _packageRepository = packageRepository;
+            _currentUserRetriever = currentUserRetriever;
         }
 
         public void Handle(CreateRequirementVersionCommand command)
@@ -44,9 +48,11 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
             specificationItem.Package = package;
 
+            var currentUser = _currentUserRetriever.Get();
+
             var requirement = new Requirement();
             requirement.Id = command.Id.Value;
-            requirement.CreatorId = latestVersion.CreatorId;
+            requirement.CreatorId = currentUser.Id;
             requirement.Difficulty = command.Difficulty.Value;
             requirement.Identifier = latestVersion.Identifier;
             requirement.IsLastVersion = true; ;

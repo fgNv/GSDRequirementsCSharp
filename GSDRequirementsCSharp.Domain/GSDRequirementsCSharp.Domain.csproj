@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
+    <Compile Include="Commands\ClassDiagrams\ClassDiagramItemsPersister.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommandHandler.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommand.cs" />
+    <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommandHandler.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\Cell.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassDiagramContentItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassItem.cs" />
@@ -169,6 +172,7 @@
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />

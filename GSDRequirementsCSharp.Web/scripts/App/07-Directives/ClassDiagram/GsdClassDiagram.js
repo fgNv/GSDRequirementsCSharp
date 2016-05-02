@@ -118,9 +118,10 @@ var Directives;
                             .filter(function (i) { return i.name; })
                             .value();
                         $scope.classDiagram.contents = contents;
-                        ClassDiagramResource.save($scope.classDiagram)
-                            .$promise
-                            .then(function () {
+                        var promise = $scope.classDiagram.id ?
+                            ClassDiagramResource.update($scope.classDiagram).$promise :
+                            ClassDiagramResource.save($scope.classDiagram).$promise;
+                        promise.then(function () {
                             Notification.notifySuccess(Sentences.classDiagramSavedSuccessfully);
                             if ($scope.afterSave) {
                                 $scope.afterSave();
@@ -263,3 +264,4 @@ var Directives;
     })();
     app.directive('gsdClassDiagram', GsdClassDiagram.Factory);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=GsdClassDiagram.js.map
