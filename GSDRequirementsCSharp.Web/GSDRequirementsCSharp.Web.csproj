@@ -445,6 +445,7 @@
     <Content Include="Views\Error\ProjectContextRequired.cshtml" />
     <Content Include="Views\ClassDiagram\_Form.cshtml" />
     <Content Include="Views\ClassDiagram\_Relations.cshtml" />
+    <Content Include="Views\ClassDiagram\_Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

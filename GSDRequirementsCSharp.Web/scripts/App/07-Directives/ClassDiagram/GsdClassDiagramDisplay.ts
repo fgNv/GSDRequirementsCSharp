@@ -10,7 +10,7 @@
 
     class GsdClassDiagram {
         public scope = {
-            'classDiagram': '=classDiagram'
+            'specificationItem': '=specificationItem'
         }
         public controller = ['$timeout', '$scope', 'ClassDiagramResource', '$q',
             ($timeout, $scope, ClassDiagramResource, $q) => {
@@ -26,25 +26,25 @@
                     })
                 }
 
-                $scope.$watch('classDiagram', (newValue: Models.ClassDiagram, oldValue) => {
+                function drawDiagram(classDiagram) {
 
                     if (graph) {
                         graph.clear()
                         paper.remove()
                     }
 
-                    if (!newValue) {
+                    if (!classDiagram) {
                         graph = null
                         paper = null
                         return;
                     }
-                    
+
                     var paperDefer = $q.defer()
                     var classesDefer = $q.defer()
 
                     var drawClasses = () => {
                         $timeout((): void => {
-                            _.each(newValue.classes, (c) => {
+                            _.each(classDiagram.classes, (c) => {
                                 var cell = Views.buildClass(c)
                                 c.cell = cell
                                 graph.addCell(cell)
@@ -56,7 +56,7 @@
 
                     var drawRelations = () => {
                         $timeout((): void => {
-                            _.each(newValue.relations, (r) => {
+                            _.each(classDiagram.relations, (r) => {
                                 var cell = Views.buildRelation(r)
                                 r.cell = cell
                                 graph.addCell(cell)
@@ -70,7 +70,8 @@
                                 $scope.selectClass(cellView.model.id)
                             }
 
-                            var result = Views.startClassDiagram(cellClickCallback)
+                            var result = Views.startClassDiagram(cellClickCallback,
+                                "classDiagramDisplayPaper", "classDiagramDisplayPaperContainer")
                             graph = result.graph
                             paper = result.paper
 
@@ -80,9 +81,26 @@
                         return paperDefer.promise
                     }
 
-                    drawPaper()
-                        .then(drawClasses())
-                        .then(drawRelations())
+                    drawPaper().then(drawClasses()).then(drawRelations())
+                }
+
+                $scope.$watch('specificationItem', (newValue: Models.ClassDiagram, oldValue) => {
+                    if (!newValue || !newValue.id) {
+                        return
+                    }
+
+                    ClassDiagramResource.get({ 'id': newValue.id })
+                        .$promise
+                        .then((response) => {
+                            var classDiagram = new Models.ClassDiagram(response)
+                            drawDiagram(classDiagram)
+                        })
+                        .catch((err) => {
+                            Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                        })
+                        .finally(() => {
+                            $scope.pendingRequests--
+                        });
                 })
                 
             }]

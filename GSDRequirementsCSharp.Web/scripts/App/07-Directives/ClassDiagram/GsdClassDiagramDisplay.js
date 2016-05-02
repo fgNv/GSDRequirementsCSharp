@@ -4,7 +4,7 @@ var Directives;
     var GsdClassDiagram = (function () {
         function GsdClassDiagram() {
             this.scope = {
-                'classDiagram': '=classDiagram'
+                'specificationItem': '=specificationItem'
             };
             this.controller = ['$timeout', '$scope', 'ClassDiagramResource', '$q',
                 function ($timeout, $scope, ClassDiagramResource, $q) {
@@ -19,12 +19,12 @@ var Directives;
                             $timeout(function () { graph.addCell(cell); });
                         });
                     }
-                    $scope.$watch('classDiagram', function (newValue, oldValue) {
+                    function drawDiagram(classDiagram) {
                         if (graph) {
                             graph.clear();
                             paper.remove();
                         }
-                        if (!newValue) {
+                        if (!classDiagram) {
                             graph = null;
                             paper = null;
                             return;
@@ -33,7 +33,7 @@ var Directives;
                         var classesDefer = $q.defer();
                         var drawClasses = function () {
                             $timeout(function () {
-                                _.each(newValue.classes, function (c) {
+                                _.each(classDiagram.classes, function (c) {
                                     var cell = Views.buildClass(c);
                                     c.cell = cell;
                                     graph.addCell(cell);
@@ -44,7 +44,7 @@ var Directives;
                         };
                         var drawRelations = function () {
                             $timeout(function () {
-                                _.each(newValue.relations, function (r) {
+                                _.each(classDiagram.relations, function (r) {
                                     var cell = Views.buildRelation(r);
                                     r.cell = cell;
                                     graph.addCell(cell);
@@ -56,16 +56,31 @@ var Directives;
                                 var cellClickCallback = function (cellView) {
                                     $scope.selectClass(cellView.model.id);
                                 };
-                                var result = Views.startClassDiagram(cellClickCallback);
+                                var result = Views.startClassDiagram(cellClickCallback, "classDiagramDisplayPaper", "classDiagramDisplayPaperContainer");
                                 graph = result.graph;
                                 paper = result.paper;
                                 paperDefer.resolve();
                             });
                             return paperDefer.promise;
                         };
-                        drawPaper()
-                            .then(drawClasses())
-                            .then(drawRelations());
+                        drawPaper().then(drawClasses()).then(drawRelations());
+                    }
+                    $scope.$watch('specificationItem', function (newValue, oldValue) {
+                        if (!newValue || !newValue.id) {
+                            return;
+                        }
+                        ClassDiagramResource.get({ 'id': newValue.id })
+                            .$promise
+                            .then(function (response) {
+                            var classDiagram = new Models.ClassDiagram(response);
+                            drawDiagram(classDiagram);
+                        })
+                            .catch(function (err) {
+                            Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages);
+                        })
+                            .finally(function () {
+                            $scope.pendingRequests--;
+                        });
                     });
                 }];
             this.templateUrl = GSDRequirements.baseUrl + 'classDiagram/display';
