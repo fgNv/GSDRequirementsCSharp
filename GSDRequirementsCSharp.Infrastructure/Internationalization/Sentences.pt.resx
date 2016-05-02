@@ -885,4 +885,7 @@
   <data name="thisPackageWasRemoved" xml:space="preserve">
     <value>Esse pacote foi removido</value>
   </data>
+  <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Diagrama de classes removido com sucesso</value>
+  </data>
 </root>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using GSDRequirementsCSharp.Domain.ViewModels;
+using GSDRequirementsCSharp.Persistence.DataHydrators;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated
 {
@@ -14,12 +15,15 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated
     {
         private readonly GSDRequirementsContext _context;
         private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IssueHydration _issueHydration;
 
         public ClassDiagramsPaginatedQueryHandler(GSDRequirementsContext context,
-                                                  ICurrentProjectContextId currentProjectContextId)
+                                                  ICurrentProjectContextId currentProjectContextId,
+                                                  IssueHydration issueHydration)
         {
             _context = context;
             _currentProjectContextId = currentProjectContextId;
+            _issueHydration = issueHydration;
         }
 
         public ClassDiagramsPaginatedQueryResult Handle(ClassDiagramsPaginatedQuery query)
@@ -41,6 +45,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated
                                         .Select(ClassDiagramViewModel.FromModel)
                                         .ToList();
 
+            _issueHydration.Hydrate(classDiagrams);
+            
             var result = new ClassDiagramsPaginatedQueryResult(classDiagrams, maxPages);
             return result;
         }

@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="DataHydrators\IssueHydration.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\ActorMapping.cs" />

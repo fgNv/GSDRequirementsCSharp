@@ -12,7 +12,8 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class ClassDiagramListController {
-        constructor($scope, ClassDiagramResource, $rootScope, $location) {
+        constructor($scope, ClassDiagramResource, $rootScope, $location,
+            SpecificationItemResource) {
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.classDiagrams = []
@@ -33,6 +34,28 @@
             $scope.addClassDiagram = () => {
                 $scope.currentClassDiagram = new Models.ClassDiagram()
                 window.location.href = "#/diagram"
+            }
+
+            $scope.inactivateClassDiagram = (classDiagram) => {
+                if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                    return;
+                }
+
+                $scope.pendingRequests++
+
+                SpecificationItemResource
+                    .remove({ id: classDiagram.id })
+                    .$promise
+                    .then((): void => {
+                        Notification.notifySuccess(Sentences.classDiagramRemovedSuccessfully);
+                        $scope.loadClassDiagrams()
+                    })
+                    .catch((err) : void => {
+                        Notification.notifyError(Sentences.errorRemovingClassDiagram, err.data.messages)
+                    })
+                    .finally((): void=> {
+                        $scope.pendingRequests--
+                    })
             }
 
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
@@ -122,10 +145,10 @@
                     Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
                 })
                 .finally(() => {
-                    $scope.pendingRequests--;
+                    $scope.pendingRequests--
                 });
         }
     }
     app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
-        "$rootScope", "$location", ClassDiagramListController]);
+        "$rootScope", "$location", "SpecificationItemResource", ClassDiagramListController]);
 }

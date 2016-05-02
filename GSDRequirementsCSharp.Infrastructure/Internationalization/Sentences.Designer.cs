@@ -430,6 +430,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class diagram removed successfully.
+        /// </summary>
+        public static string classDiagramRemovedSuccessfully {
+            get {
+                return ResourceManager.GetString("classDiagramRemovedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagrams.
         /// </summary>
         public static string classDiagrams {

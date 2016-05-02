@@ -70,6 +70,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Class Diagram Id&quot; is a required field.
+        /// </summary>
+        public static string classDiagramIdIsRequiredField {
+            get {
+                return ResourceManager.GetString("classDiagramIdIsRequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Class Type&quot; is a required field.
         /// </summary>
         public static string classTypeIsARequiredField {

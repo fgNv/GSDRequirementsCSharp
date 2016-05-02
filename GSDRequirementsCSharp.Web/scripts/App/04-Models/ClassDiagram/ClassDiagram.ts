@@ -32,6 +32,9 @@
             this.name = content.name
             this.locale = content.locale
         }
+        public getLabel() {
+            return `CD${this.identifier}`
+        }
         constructor(data: Object = null) {
             if (data) {
                 for (var prop in data) {

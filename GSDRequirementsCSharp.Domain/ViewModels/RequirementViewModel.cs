@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace GSDRequirementsCSharp.Domain.ViewModels
 {
-    public class RequirementViewModel
+    public class RequirementViewModel : IIssueable
     {
         public static string GetPrefixFromType(RequirementType type)
         {

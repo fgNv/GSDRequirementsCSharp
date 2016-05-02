@@ -6,7 +6,7 @@
 }
 
 <div data-ng-controller="ClassDiagramListController">
-
+    
     <h2>
         @Sentences.classDiagrams
         <button class="btn btn-primary"
@@ -27,6 +27,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>@Sentences.id</th>
                         <th>@Sentences.name</th>
                         <th>@Sentences.package</th>
@@ -35,6 +36,12 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="classDiagram in classDiagrams">
+                        <td>
+                            <gsd-item-issues data-specification-item="classDiagram"
+                                             data-ng-show="classDiagram.issues.length > 0"
+                                             data-on-all-issues-concluded="loadClassDiagrams">
+                            </gsd-item-issues>
+                        </td>
                         <td>
                             CD{{classDiagram.identifier}}
                         </td>
@@ -55,6 +62,9 @@
                                     title="@Sentences.inactivateClassDiagram">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
+                            <gsd-issue-create data-specification-item="classDiagram"
+                                              data-after-save="loadClassDiagrams">
+                            </gsd-issue-create>
                             <button class="btn btn-default"
                                     data-ng-click="setClassDiagramToTranslate(classDiagram)"
                                     data-ng-show="classDiagram.canAddTranslation() && hasEditPermission"

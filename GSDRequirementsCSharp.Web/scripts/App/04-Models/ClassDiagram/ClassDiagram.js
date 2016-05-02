@@ -35,8 +35,10 @@ var Models;
             this.name = content.name;
             this.locale = content.locale;
         };
+        ClassDiagram.prototype.getLabel = function () {
+            return "CD" + this.identifier;
+        };
         return ClassDiagram;
     })();
     Models.ClassDiagram = ClassDiagram;
 })(Models || (Models = {}));
-//# sourceMappingURL=ClassDiagram.js.map

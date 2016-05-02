@@ -178,6 +178,7 @@
     <Compile Include="ViewModels\ClassDiagrams\ClassRelationshipViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\IIssueable.cs" />
     <Compile Include="ViewModels\IssueCommentContentViewModel.cs" />
     <Compile Include="ViewModels\IssueCommentViewModel.cs" />
     <Compile Include="ViewModels\IssueContentViewModel.cs" />

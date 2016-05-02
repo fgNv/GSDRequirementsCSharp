@@ -3,6 +3,7 @@ using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Context;
+using GSDRequirementsCSharp.Persistence.DataHydrators;
 using GSDRequirementsCSharp.Persistence.Repositories;
 using SimpleInjector;
 
@@ -25,6 +26,7 @@ namespace GSDRequirementsCSharp.Persistence.DependencyInjection
                                          new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
             container.Register<GSDRequirementsContext, GSDRequirementsContext>(lifestyle);
             container.Register<IUserRepository<User>, AuthenticationUserRepository>(lifestyle);
+            container.Register<IssueHydration, IssueHydration>(lifestyle);
         }
     }
 }

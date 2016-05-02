@@ -120,6 +120,9 @@
   <data name="actionMaxLengthIs150" xml:space="preserve">
     <value>O tamanho máximo do campo "Ação" são 150 caracteres</value>
   </data>
+  <data name="classDiagramIdIsRequiredField" xml:space="preserve">
+    <value>"Id do Diagrama de Classes" é um campo obrigatório</value>
+  </data>
   <data name="classTypeIsARequiredField" xml:space="preserve">
     <value>"Tipo de Classe" é um campo obrigatório</value>
   </data>

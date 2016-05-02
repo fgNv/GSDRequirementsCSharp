@@ -67,4 +67,3 @@ var Controllers;
     app.controller('PermissionController', ["$scope", "PermissionResource", "$uibModal",
         PermissionController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=PermissionController.js.map

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.ViewModels
 {
-    public class ClassDiagramViewModel
+    public class ClassDiagramViewModel : IIssueable
     {
         public Guid Id { get; set; }
 
@@ -17,6 +17,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
         public int Version { get; set; }
 
         public int PackageIdentifier { get; set; }
+
+        public IEnumerable<IssueViewModel> Issues { get; set; }
 
         public static ClassDiagramViewModel FromModel(ClassDiagram model)
         {

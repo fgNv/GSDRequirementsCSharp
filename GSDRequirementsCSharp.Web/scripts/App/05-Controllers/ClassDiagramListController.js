@@ -3,7 +3,7 @@ var Controllers;
     var UserData = NewAccount.UserData;
     var app = angular.module(GSDRequirements.angularModuleName);
     var ClassDiagramListController = (function () {
-        function ClassDiagramListController($scope, ClassDiagramResource, $rootScope, $location) {
+        function ClassDiagramListController($scope, ClassDiagramResource, $rootScope, $location, SpecificationItemResource) {
             var _this = this;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
@@ -22,6 +22,25 @@ var Controllers;
             $scope.addClassDiagram = function () {
                 $scope.currentClassDiagram = new Models.ClassDiagram();
                 window.location.href = "#/diagram";
+            };
+            $scope.inactivateClassDiagram = function (classDiagram) {
+                if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                    return;
+                }
+                $scope.pendingRequests++;
+                SpecificationItemResource
+                    .remove({ id: classDiagram.id })
+                    .$promise
+                    .then(function () {
+                    Notification.notifySuccess(Sentences.classDiagramRemovedSuccessfully);
+                    $scope.loadClassDiagrams();
+                })
+                    .catch(function (err) {
+                    Notification.notifyError(Sentences.errorRemovingClassDiagram, err.data.messages);
+                })
+                    .finally(function () {
+                    $scope.pendingRequests--;
+                });
             };
             $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
                 var pathValues = $location.path().split('/');
@@ -101,6 +120,5 @@ var Controllers;
         return ClassDiagramListController;
     })();
     app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
-        "$rootScope", "$location", ClassDiagramListController]);
+        "$rootScope", "$location", "SpecificationItemResource", ClassDiagramListController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ClassDiagramListController.js.map

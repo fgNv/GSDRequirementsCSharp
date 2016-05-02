@@ -2,10 +2,12 @@
     export declare var areYouCertainYouWishToRemoveThisItem: string;
     export declare var classDiagramInactivatedSuccessfully: string;
     export declare var classDiagramSavedSuccessfully: string;
+    export declare var classDiagramRemovedSuccessfully: string;
     export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
     export declare var errorAddingComment: string; 
     export declare var errorCreatingIssue: string;
+    export declare var errorRemovingClassDiagram: string;
     export declare var errorLoadingProjects: string;
     export declare var errorSavingUserAccount: string;
     export declare var errorSavingProject: string;

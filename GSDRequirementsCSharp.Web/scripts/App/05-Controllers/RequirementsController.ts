@@ -116,7 +116,8 @@
         private LoadRequirements(requirementResource: any,
             $scope: IRequirementsControllerScope,
             pageSize: number): void {
-            $scope.pendingRequests++;
+            $scope.pendingRequests++
+
             var request = { page: $scope.currentPage, pageSize: pageSize }
             requirementResource.get(request)
                 .$promise

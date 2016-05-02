@@ -120,6 +120,9 @@
   <data name="actionMaxLengthIs150" xml:space="preserve">
     <value>Max "Action" length is 150</value>
   </data>
+  <data name="classDiagramIdIsRequiredField" xml:space="preserve">
+    <value>"Class Diagram Id" is a required field</value>
+  </data>
   <data name="classTypeIsARequiredField" xml:space="preserve">
     <value>"Class Type" is a required field</value>
   </data>
