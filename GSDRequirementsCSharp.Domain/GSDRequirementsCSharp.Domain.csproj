@@ -107,8 +107,8 @@
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommandHandler.cs" />
-    <Compile Include="Commands\SpecificationItems\Inativate\InativateSpecificationItemCommand.cs" />
-    <Compile Include="Commands\SpecificationItems\Inativate\InativateSpecificationItemCommandHandler.cs" />
+    <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommand.cs" />
+    <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommandHandler.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommand.cs" />
@@ -168,6 +168,7 @@
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />

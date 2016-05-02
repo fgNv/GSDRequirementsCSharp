@@ -16,12 +16,15 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
 
         public int Version { get; set; }
 
+        public int PackageIdentifier { get; set; }
+
         public static ClassDiagramViewModel FromModel(ClassDiagram model)
         {
             return new ClassDiagramViewModel
             {
                 Id = model.Id,
                 Identifier = model.Identifier,
+                PackageIdentifier = model.SpecificationItem.Package.Identifier,
                 Version = model.Version,
                 Contents = model.Contents.Select(ClassDiagramContentViewModel.FromModel)
             };

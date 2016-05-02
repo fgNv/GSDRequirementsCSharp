@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
 {
-    public class InativateSpecificationItemCommand : IProjectCommand
+    public class InactivateSpecificationItemCommand : IProjectCommand
     {
         [Required(
          ErrorMessageResourceType = typeof(ValidationMessages),

@@ -129,6 +129,15 @@
                     relation.cell.remove()
                 }
 
+                function redrawRelations() {                    
+                    _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
+                        var cell = Views.buildRelation(relation)
+                        if (!cell) return
+                        relation.cell = cell
+                        $timeout((): void => { graph.addCell(cell) })
+                    })
+                }
+
                 $scope.saveRelations = () => {
                     if (!graph) return
 
@@ -286,7 +295,10 @@
                     $scope.classDiagram.classes.push($scope.currentClass)
 
                     $scope.currentClass = null
-                    $timeout((): void => { graph.addCell(cell) })
+                    $timeout((): void => {
+                        graph.addCell(cell)
+                        redrawRelations()
+                    })
 
                     $scope.selectedClass = null
                 }

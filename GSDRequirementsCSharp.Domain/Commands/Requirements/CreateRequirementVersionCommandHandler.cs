@@ -2,6 +2,7 @@
 using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             {
                 oldRequirementVersion.IsLastVersion = false;
             }
+
+            var package = _packageRepository.Get(command.PackageId.Value);
+            if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
+            specificationItem.Package = package;
 
             var requirement = new Requirement();
             requirement.Id = command.Id.Value;

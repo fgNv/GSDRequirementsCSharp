@@ -2141,6 +2141,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This package was removed.
+        /// </summary>
+        public static string thisPackageWasRemoved {
+            get {
+                return ResourceManager.GetString("thisPackageWasRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To edit or remove a class, click on it and the class action menu will appear.
+        /// </summary>
+        public static string toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear {
+            get {
+                return ResourceManager.GetString("toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Traceability matrix.
         /// </summary>
         public static string traceabilityMatrix {

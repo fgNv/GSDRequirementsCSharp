@@ -879,4 +879,10 @@
   <data name="errorSavingClassDiagram" xml:space="preserve">
     <value>Erro ao salvar diagrama de classes</value>
   </data>
+  <data name="toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear" xml:space="preserve">
+    <value>Para editar ou remover uma classe, clique nela e o menu de ações da classe será exibido</value>
+  </data>
+  <data name="thisPackageWasRemoved" xml:space="preserve">
+    <value>Esse pacote foi removido</value>
+  </data>
 </root>

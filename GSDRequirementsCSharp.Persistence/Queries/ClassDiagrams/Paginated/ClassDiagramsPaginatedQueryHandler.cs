@@ -29,12 +29,13 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated
 
             var classDiagramsQuery = _context.ClassDiagrams
                                              .Where(cd => cd.Project.Id == currentProjectId && 
-                                                          cd.Active);
+                                                          cd.SpecificationItem.Active);
 
             var maxPages = (int)Math.Ceiling(classDiagramsQuery.Count() / (double)query.PageSize);
 
-            var classDiagrams = classDiagramsQuery.OrderBy(p => p.Identifier)
-                                        .Include(p => p.Contents)
+            var classDiagrams = classDiagramsQuery.OrderBy(cd => cd.Identifier)
+                                        .Include(cd => cd.Contents)
+                                        .Include(cd => cd.SpecificationItem.Package)
                                         .Skip(skip)
                                         .Take(query.PageSize)
                                         .Select(ClassDiagramViewModel.FromModel)

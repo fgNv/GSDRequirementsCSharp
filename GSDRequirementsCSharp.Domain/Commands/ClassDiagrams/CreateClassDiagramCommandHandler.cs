@@ -25,6 +25,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         private readonly IQueryHandler<ClassDiagramNextIdQuery, int> _classDiagramNextIdQueryHandler;
         private readonly IRepository<SpecificationItem, Guid> _specifiationItemRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IRepository<Package, Guid> _packageRepository;
 
         public CreateClassDiagramCommandHandler(IRepository<ClassDiagram, VersionKey> classDiagramRepository,
                                                 IRepository<SpecificationItem, Guid> specifiationItemRepository,
@@ -35,7 +36,8 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
                                                 IRepository<ClassProperty, Guid> classPropertyRepository,
                                                 IRepository<ClassMethodParameter, Guid> classMethodParameterRepository,
                                                 IRepository<ClassRelationship, Guid> classRelationRepository,
-                                                IQueryHandler<ClassDiagramNextIdQuery, int> classDiagramNextIdQueryHandler)
+                                                IQueryHandler<ClassDiagramNextIdQuery, int> classDiagramNextIdQueryHandler,
+                                                IRepository<Package, Guid> packageRepository)
         {
             _classDiagramRepository = classDiagramRepository;
             _specifiationItemRepository = specifiationItemRepository;
@@ -48,6 +50,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
             _classMethodRepository = classMethodRepository;
             _classPropertyRepository = classPropertyRepository;
             _classMethodParameterRepository = classMethodParameterRepository;
+            _packageRepository = packageRepository;
         }
 
         private void PersistProperty(Class classEntity, PropertyItem propertyData)
@@ -108,22 +111,26 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         public void Handle(CreateClassDiagramCommand command)
         {
             var id = Guid.NewGuid();
-
-            var specificationItem = new SpecificationItem();
-            specificationItem.Id = id;
-            specificationItem.Type = SpecificationItemType.ClassDiagram;
-            specificationItem.PackageId = command.PackageId.Value;
-
+            
             var projectId = _currentProjectContextId.Get();
             if (projectId == null) throw new Exception(Sentences.noProjectInContext);
 
+            var package = _packageRepository.Get(command.PackageId.Value);
+            if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
+
             var nextId = _classDiagramNextIdQueryHandler.Handle(projectId.Value);
+
+            var specificationItem = new SpecificationItem();
+            specificationItem.Id = id;
+            specificationItem.Active = true;
+            specificationItem.Type = SpecificationItemType.ClassDiagram;
+            specificationItem.PackageId = command.PackageId.Value;
+            specificationItem.Label = $"CD{nextId}";
 
             var classDiagram = new ClassDiagram();
             classDiagram.Id = id;
             classDiagram.SpecificationItem = specificationItem;
             classDiagram.ProjectId = projectId.Value;
-            classDiagram.Active = true;
             classDiagram.Version = 1;
             classDiagram.IsLastVersion = true;
             classDiagram.Identifier = nextId;

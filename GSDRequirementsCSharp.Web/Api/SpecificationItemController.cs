@@ -13,13 +13,13 @@ namespace GSDRequirementsCSharp.Web.Api
 {
     public class SpecificationItemController : ApiController
     {
-        private readonly ICommandHandler<InativateSpecificationItemCommand> _inativateSpecificationItemCommandHandler;
+        private readonly ICommandHandler<InactivateSpecificationItemCommand> _inativateSpecificationItemCommandHandler;
         private readonly IQueryHandler<SpecificationItemIssuesQuery, IEnumerable<IssueViewModel>> _specificationItemIssuesQueryHandler;
         private readonly ICommandHandler<AddSpecificationItemLinkCommand> _addSpecificationItemLinkCommand;
         private readonly ICommandHandler<RemoveSpecificationItemLinkCommand> _removeSpecificationItemLinkCommand;
         private readonly IQueryHandler<LinksFromSpecificationItemQuery, IEnumerable<ItemLinkViewModel>> _linksFromSpecificationItemQueryHandler;
 
-        public SpecificationItemController(ICommandHandler<InativateSpecificationItemCommand> inativateSpecificationItemCommandHandler,
+        public SpecificationItemController(ICommandHandler<InactivateSpecificationItemCommand> inativateSpecificationItemCommandHandler,
                                            IQueryHandler<SpecificationItemIssuesQuery, IEnumerable<IssueViewModel>> specificationItemIssuesQueryHandler,
                                            ICommandHandler<AddSpecificationItemLinkCommand> addSpecificationItemLinkCommand,
                                            ICommandHandler<RemoveSpecificationItemLinkCommand> removeSpecificationItemLinkCommand,
@@ -60,7 +60,7 @@ namespace GSDRequirementsCSharp.Web.Api
         }
 
         // DELETE api/<controller>/5
-        public void Delete([FromUri]InativateSpecificationItemCommand command)
+        public void Delete([FromUri]InactivateSpecificationItemCommand command)
         {
             _inativateSpecificationItemCommandHandler.Handle(command);
         }

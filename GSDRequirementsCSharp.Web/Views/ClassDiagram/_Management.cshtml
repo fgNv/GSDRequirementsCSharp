@@ -4,7 +4,7 @@
     <h3 data-ng-show="isDiagramVisible()">
         @Sentences.manageClassDiagram
     </h3>
-    
+
     <article data-ng-show="isDiagramVisible()">
         <div class="row">
             <div class="col-md-6">
@@ -102,6 +102,10 @@
         @Html.Partial("_Relations")
     </article>
 
+    <div data-ng-show="isDiagramVisible()" style="font-size: 12px;">
+        <i class="fa fa-question-circle"></i>
+        @Sentences.toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear
+    </div>
     <div id="classDiagramPaperContainer" data-ng-show="isDiagramVisible()">
         <div id="classDiagramPaper"> </div>
     </div>

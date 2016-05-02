@@ -33,7 +33,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject
             var projectId = _currentProjectContextId.Get();
             var packages = _context.Packages
                                    .Include(p => p.Contents)
-                                   .Where(p => p.Project.Id == projectId)
+                                   .Where(p => p.Project.Id == projectId && p.Active)
                                    .Select(PackageViewModel.FromModel)
                                    .ToList();
             return packages;

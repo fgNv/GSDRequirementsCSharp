@@ -59,6 +59,15 @@ var Directives;
                         $scope.classDiagram.relations = _.filter($scope.classDiagram.relations, function (r) { return r != relation; });
                         relation.cell.remove();
                     }
+                    function redrawRelations() {
+                        _.each($scope.classDiagram.relations, function (relation) {
+                            var cell = Views.buildRelation(relation);
+                            if (!cell)
+                                return;
+                            relation.cell = cell;
+                            $timeout(function () { graph.addCell(cell); });
+                        });
+                    }
                     $scope.saveRelations = function () {
                         if (!graph)
                             return;
@@ -195,7 +204,10 @@ var Directives;
                         $scope.currentClass.cell = cell;
                         $scope.classDiagram.classes.push($scope.currentClass);
                         $scope.currentClass = null;
-                        $timeout(function () { graph.addCell(cell); });
+                        $timeout(function () {
+                            graph.addCell(cell);
+                            redrawRelations();
+                        });
                         $scope.selectedClass = null;
                     };
                 }];

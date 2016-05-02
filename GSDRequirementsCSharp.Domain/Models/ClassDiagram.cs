@@ -20,9 +20,7 @@ namespace GSDRequirementsCSharp.Domain
         public Project Project { get; set; }
 
         public Guid ProjectId { get; set; }
-
-        public bool Active { get; set; }
-
+        
         public ICollection<Class> Classes { get; set; }
 
         public ICollection<ClassRelationship> Relationships { get; set; }

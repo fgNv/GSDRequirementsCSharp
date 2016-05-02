@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201604301424595_remove-class-visibility.Designer.cs">
       <DependentUpon>201604301424595_remove-class-visibility.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.cs" />
+    <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.Designer.cs">
+      <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
@@ -173,6 +177,7 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\ByPackage\SpecificationItemsByPackageQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
@@ -236,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604301424595_remove-class-visibility.resx">
       <DependentUpon>201604301424595_remove-class-visibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605021214094_remove-active-duplicated-flag.resx">
+      <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,8 +18,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(c => c.Version).HasColumnName("version");
             Property(c => c.Identifier).HasColumnName("identifier");
             Property(c => c.IsLastVersion).HasColumnName("is_last_version");
-
-            Property(cd => cd.Active).HasColumnName("active");
+            
             Property(cd => cd.ProjectId).HasColumnName("project_id");
 
             HasKey(cd => new { cd.Id, cd.Version });

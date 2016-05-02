@@ -16,8 +16,12 @@ var Views;
         if (!result) {
             return null;
         }
-        if (data.id)
+        if (data.cell && data.cell.id) {
+            result.set('id', data.cell.id);
+        }
+        else if (data.id) {
             result.set('id', data.id);
+        }
         return result;
     }
     Views.buildClass = buildClass;
@@ -26,10 +30,17 @@ var Views;
         height += 60;
         return height;
     }
+    function getPosition(classData) {
+        var position = { x: classData.x || 10, y: classData.y || 10 };
+        if (classData.cell) {
+            position = classData.cell.attributes.position;
+        }
+        return position;
+    }
     function buildConcreteClass(classData) {
         var height = getClassHeight(classData);
         return new joint.shapes.uml.Class({
-            position: { x: classData.x, y: classData.y },
+            position: getPosition(classData),
             size: { width: 220, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
@@ -61,7 +72,7 @@ var Views;
     function buildInterface(classData) {
         var height = getClassHeight(classData);
         return new joint.shapes.uml.Interface({
-            position: { x: 50, y: 50 },
+            position: getPosition(classData),
             size: { width: 280, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
@@ -93,7 +104,7 @@ var Views;
     function buildAbstractClass(classData) {
         var height = getClassHeight(classData);
         return new joint.shapes.uml.Abstract({
-            position: { x: 80, y: 80 },
+            position: getPosition(classData),
             size: { width: 260, height: height },
             name: classData.name,
             attributes: _.map(classData.classProperties, function (p) { return p.getDescription(); }),
