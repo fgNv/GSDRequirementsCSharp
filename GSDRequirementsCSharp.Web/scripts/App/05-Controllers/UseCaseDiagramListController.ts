@@ -50,7 +50,7 @@
             }
 
             $scope.addUseCaseDiagram = () => {
-                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram()
+                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram
                 window.location.href = "#/diagram"
             }
 
@@ -84,14 +84,10 @@
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
                 var pathValues = $location.path().split('/')
                 var step = pathValues[1];
-
+                
                 if (!step) {
                     $scope.currentUseCaseDiagram = null
                     $scope.useCaseDiagramToTranslate = null
-                }
-
-                if (pathValues.length == 2) {
-                    $scope.currentUseCaseDiagram = null
                 }
             });
 

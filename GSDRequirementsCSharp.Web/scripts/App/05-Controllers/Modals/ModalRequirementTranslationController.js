@@ -41,4 +41,3 @@ var Controllers;
     app.controller('ModalRequirementTranslationController', ["$scope", "$uibModalInstance", "translationsAlreadyProvided",
         "translationToEdit", "originalData", ModalRequirementTranslationController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ModalRequirementTranslationController.js.map

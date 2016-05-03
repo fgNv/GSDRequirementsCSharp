@@ -6,7 +6,7 @@
 
 <div data-ng-controller="UseCaseDiagramListController"
      data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-
+    
     <h2 data-ng-show="!classDiagramToManageLinks">
         @Sentences.useCaseDiagrams
         <button class="btn btn-primary"
@@ -17,14 +17,14 @@
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
-
+    
     <article data-ng-show="!currentUseCaseDiagram && !useCaseToTranslate &&
                            !useCaseToManageLinks">
-        <div class="alert alert-info" data-ng-show="useCases.length == 0">
+        <div class="alert alert-info" data-ng-show="useCasesDiagrams.length == 0">
             @Sentences.noUseCaseDiagramsRegistered
         </div>
 
-        <article data-ng-show="useCases.length > 0">
+        <article data-ng-show="useCasesDiagrams.length > 0">
             <table class="table">
                 <thead>
                     <tr>
@@ -36,11 +36,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="uc in useCases">
+                    <tr data-ng-repeat="uc in useCasesDiagrams">
                         <td>
                             <gsd-item-issues data-specification-item="uc"
                                              data-ng-show="uc.issues.length > 0"
-                                             data-on-all-issues-concluded="loadUseCases">
+                                             data-on-all-issues-concluded="loadUseCaseDiagrams">
                             </gsd-item-issues>
                         </td>
                         <td>
@@ -70,7 +70,7 @@
                                 <span class="glyphicon glyphicon-transfer"></span>
                             </button>
                             <gsd-issue-create data-specification-item="uc"
-                                              data-after-save="loadUseCases">
+                                              data-after-save="loadUseCaseDiagrams">
                             </gsd-issue-create>
                             <button class="btn btn-default"
                                     data-ng-click="setUserCaseToTranslate(uc)"
@@ -98,9 +98,9 @@
 
     <gsd-use-case-diagram data-after-save="loadUseCaseDiagrams"
                        data-class-diagram="currentUseCaseDiagram"
-                          data-current-use-case="currentUseCase"
-                          data-current-actor="currentActor"
-                          data-editing-relations="editingRelations"
+                       data-current-use-case="currentUseCase"
+                       data-current-actor="currentActor"
+                       data-editing-relations="editingRelations"
                        data-ng-show="currentUseCaseDiagram">
     </gsd-use-case-diagram>
 

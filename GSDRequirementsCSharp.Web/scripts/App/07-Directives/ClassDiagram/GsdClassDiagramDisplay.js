@@ -92,4 +92,3 @@ var Directives;
     })();
     app.directive('gsdClassDiagramDisplay', GsdClassDiagram.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdClassDiagramDisplay.js.map

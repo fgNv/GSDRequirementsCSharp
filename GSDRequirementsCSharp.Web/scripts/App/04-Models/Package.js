@@ -35,4 +35,3 @@ var Models;
     })();
     Models.Package = Package;
 })(Models || (Models = {}));
-//# sourceMappingURL=Package.js.map

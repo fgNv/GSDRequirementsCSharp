@@ -303,4 +303,3 @@ var Directives;
     })();
     app.directive('gsdUseCaseDiagram', GsdUseCaseDiagram.Factory);
 })(Directives || (Directives = {}));
-//# sourceMappingURL=GsdUseCaseDiagram.js.map

@@ -32,4 +32,3 @@ var Controllers;
     })();
     app.controller('NewAccountController', ["$scope", "UserResource", NewAccountController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=NewAccountController.js.map

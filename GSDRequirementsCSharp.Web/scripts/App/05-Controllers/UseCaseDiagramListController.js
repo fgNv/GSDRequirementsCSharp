@@ -18,7 +18,7 @@ var Controllers;
                 $scope.loadUseCaseDiagrams();
             };
             $scope.addUseCaseDiagram = function () {
-                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram();
+                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram;
                 window.location.href = "#/diagram";
             };
             $scope.setUseCaseToManageLinks = function (uc) {
@@ -50,9 +50,6 @@ var Controllers;
                 if (!step) {
                     $scope.currentUseCaseDiagram = null;
                     $scope.useCaseDiagramToTranslate = null;
-                }
-                if (pathValues.length == 2) {
-                    $scope.currentUseCaseDiagram = null;
                 }
             });
             $scope.getPaginationRange = function () {
@@ -102,4 +99,3 @@ var Controllers;
     app.controller('UseCaseDiagramListController', ["$scope", "UseCaseDiagramResource",
         "$rootScope", "$location", "SpecificationItemResource", UseCaseDiagramListController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=UseCaseDiagramListController.js.map

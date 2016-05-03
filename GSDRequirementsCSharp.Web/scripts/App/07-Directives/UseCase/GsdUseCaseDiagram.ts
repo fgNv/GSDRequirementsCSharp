@@ -279,7 +279,7 @@
                 }
                 
                 $scope.$watch('useCaseDiagram', (newValue: Models.UseCaseDiagram) => {
-
+                    
                     if (graph) {
                         graph.clear()
                         paper.remove()
