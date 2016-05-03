@@ -1,4 +1,4 @@
-﻿using GSDRequirementsCSharp.Domain;
+﻿using GSDRequirementsCSharp.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -6,21 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Persistence.Mappings
+namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
 {
-    public class UserCaseMapping : EntityTypeConfiguration<UserCase>
+    class UseCaseContentMapping : EntityTypeConfiguration<UseCaseContent>
     {
-        public UserCaseMapping()
+        public UseCaseContentMapping()
         {
-            ToTable("UserCase");
+            ToTable("UseCaseContent");
 
-            HasKey(u => u.Id);
+            HasKey(u => new { u.Id, u.Locale });
 
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.Name).HasColumnName("name");
             Property(e => e.Description).HasColumnName("description")
                                         .HasColumnType("text");
-            Property(e => e.ActorId).HasColumnName("actor_id");
 
             Property(e => e.Name)
                 .IsUnicode(false);

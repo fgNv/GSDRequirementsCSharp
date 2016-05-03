@@ -40,7 +40,7 @@ namespace GSDRequirementsCSharp.Domain
             Targets mulitple use cases to address multiple versions of the artifacts.
          </summary>
          */
-        public virtual ICollection<UserCase> UserCases { get; set; }
+        public virtual ICollection<UseCaseDiagram> UseCaseDiagrams { get; set; }
 
         /**
          <summary>

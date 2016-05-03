@@ -99,3 +99,4 @@ var Controllers;
     app.controller('UseCaseDiagramListController', ["$scope", "UseCaseDiagramResource",
         "$rootScope", "$location", "SpecificationItemResource", UseCaseDiagramListController]);
 })(Controllers || (Controllers = {}));
+//# sourceMappingURL=UseCaseDiagramListController.js.map

@@ -45,7 +45,7 @@ namespace GSDRequirementsCSharp.Persistence
         public virtual DbSet<RequirementRisk> RequirementRisks { get; set; }
         public virtual DbSet<SpecificationItem> SpecificationItems { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserCase> UserCases { get; set; }
+        public virtual DbSet<UseCase> UserCases { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -78,7 +78,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new SpecificationItemMapping());
             modelBuilder.Configurations.Add(new UserMapping());
 
-            modelBuilder.Configurations.Add(new UserCaseMapping());
+            modelBuilder.Configurations.Add(new UseCaseMapping());
         }
     }
 }

@@ -28,3 +28,4 @@ var Models;
     })();
     Models.ClassMethod = ClassMethod;
 })(Models || (Models = {}));
+//# sourceMappingURL=ClassMethod.js.map

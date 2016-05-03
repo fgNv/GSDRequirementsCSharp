@@ -19,3 +19,4 @@ var Models;
     }
     Models.GetVisibilityUmlRepresentation = GetVisibilityUmlRepresentation;
 })(Models || (Models = {}));
+//# sourceMappingURL=Visibility.js.map

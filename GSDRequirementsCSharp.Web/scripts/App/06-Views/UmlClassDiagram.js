@@ -225,3 +225,4 @@ var Views;
         ClassDiagram.startClassDiagram = startClassDiagram;
     })(ClassDiagram = Views.ClassDiagram || (Views.ClassDiagram = {}));
 })(Views || (Views = {}));
+//# sourceMappingURL=UmlClassDiagram.js.map

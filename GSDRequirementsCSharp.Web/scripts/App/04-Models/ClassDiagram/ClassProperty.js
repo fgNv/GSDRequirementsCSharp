@@ -17,3 +17,4 @@ var Models;
     })();
     Models.ClassProperty = ClassProperty;
 })(Models || (Models = {}));
+//# sourceMappingURL=ClassProperty.js.map
