@@ -157,6 +157,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\UseCaseDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\ClassDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueConclusionResource.js" />
@@ -342,6 +343,10 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\Actor.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCase.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseRelationship.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ClassDiagramListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
@@ -357,7 +362,9 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\UseCaseDiagramListController.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Views\UmlClassDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Views\UmlUseCaseDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\ClassDiagram\GsdClassDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\ClassDiagram\GsdClassDiagramDisplay.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Issues\GsdIssueCreate.ts" />
@@ -374,6 +381,7 @@
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementForm.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagram.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

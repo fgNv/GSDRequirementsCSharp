@@ -888,4 +888,16 @@
   <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
     <value>Class diagram removed successfully</value>
   </data>
+  <data name="noUseCaseDiagramsRegistered" xml:space="preserve">
+    <value>No Use Case Diagrams registered</value>
+  </data>
+  <data name="removeUseCaseDiagram" xml:space="preserve">
+    <value>Remove Use Case Diagram</value>
+  </data>
+  <data name="errorRemovingUseCaseDiagram" xml:space="preserve">
+    <value>Error removing Use Case Diagram</value>
+  </data>
+  <data name="useCaseDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Use Case Diagram removed successfully</value>
+  </data>
 </root>

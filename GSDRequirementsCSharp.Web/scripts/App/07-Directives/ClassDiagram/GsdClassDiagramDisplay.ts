@@ -19,7 +19,7 @@
 
                 function redrawRelations() {
                     _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
-                        var cell = Views.buildRelation(relation)
+                        var cell = Views.ClassDiagram.buildRelation(relation)
                         if (!cell) return
                         relation.cell = cell
                         $timeout((): void => { graph.addCell(cell) })
@@ -45,7 +45,7 @@
                     var drawClasses = () => {
                         $timeout((): void => {
                             _.each(classDiagram.classes, (c) => {
-                                var cell = Views.buildClass(c)
+                                var cell = Views.ClassDiagram.buildClass(c)
                                 c.cell = cell
                                 graph.addCell(cell)
                             })
@@ -57,7 +57,7 @@
                     var drawRelations = () => {
                         $timeout((): void => {
                             _.each(classDiagram.relations, (r) => {
-                                var cell = Views.buildRelation(r)
+                                var cell = Views.ClassDiagram.buildRelation(r)
                                 r.cell = cell
                                 graph.addCell(cell)
                             })
@@ -70,7 +70,7 @@
                                 $scope.selectClass(cellView.model.id)
                             }
 
-                            var result = Views.startClassDiagram(cellClickCallback,
+                            var result = Views.ClassDiagram.startClassDiagram(cellClickCallback,
                                 "classDiagramDisplayPaper", "classDiagramDisplayPaperContainer")
                             graph = result.graph
                             paper = result.paper

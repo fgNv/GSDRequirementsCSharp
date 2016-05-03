@@ -9,16 +9,34 @@
     declare var baseUrl: string;
     declare var _: any;
 
+    interface UseCaseListControllerScope {
+        addUseCaseDiagram: () => void
+        currentPage: number
+        currentUseCaseDiagram: Models.UseCaseDiagram
+        getPaginationRange: () => any
+        hasEditPermission: boolean
+        inactivateUseCaseDiagram: (uc) => void
+        inactivateClassDiagrams: (cd) => void
+        loadPage: (page: number) => void
+        loadUseCaseDiagrams: () => void
+        maxPages: number
+        pendingRequests: number
+        setUseCaseToManageLinks: (uc) => void 
+        useCaseDiagramToManageLinks: Models.UseCaseDiagram
+        useCaseDiagramToTranslate: Models.UseCaseDiagram
+        useCasesDiagrams: Array<Models.UseCaseDiagram>
+        setCurrentUseCaseDiagram: (cd) => void
+        UserData: UserData
+    }
+
     var app = angular.module(GSDRequirements.angularModuleName);
 
-    class ClassDiagramListController {
-        constructor($scope, ClassDiagramResource, $rootScope, $location,
+    class UseCaseDiagramListController {
+        constructor($scope: UseCaseListControllerScope, UseCaseDiagramResource, $rootScope, $location,
             SpecificationItemResource) {
             $scope.currentPage = 1
             $scope.maxPages = 1
-            $scope.classDiagrams = []
-            $scope.currentClass = null
-            $scope.editingRelations = false
+            $scope.useCasesDiagrams = []
 
             var pageSize = 10
             $scope.pendingRequests = 0
@@ -28,20 +46,20 @@
 
             $scope.loadPage = (page) => {
                 $scope.currentPage = page
-                $scope.loadClassDiagrams()
+                $scope.loadUseCaseDiagrams()
             }
 
-            $scope.addClassDiagram = () => {
-                $scope.currentClassDiagram = new Models.ClassDiagram()
+            $scope.addUseCaseDiagram = () => {
+                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram()
                 window.location.href = "#/diagram"
             }
 
-            $scope.setClassDiagramToManageLinks = (classDiagram) => {
-                $scope.classDiagramToManageLinks = classDiagram
+            $scope.setUseCaseToManageLinks = (uc) => {
+                $scope.useCaseDiagramToManageLinks = uc
                 window.location.href = "#/links"
             }
 
-            $scope.inactivateClassDiagram = (classDiagram) => {
+            $scope.inactivateUseCaseDiagram = (useCaseDiagram) => {
                 if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
                     return;
                 }
@@ -49,14 +67,14 @@
                 $scope.pendingRequests++
 
                 SpecificationItemResource
-                    .remove({ id: classDiagram.id })
+                    .remove({ id: useCaseDiagram.id })
                     .$promise
                     .then((): void => {
-                        Notification.notifySuccess(Sentences.classDiagramRemovedSuccessfully);
-                        $scope.loadClassDiagrams()
+                        Notification.notifySuccess(Sentences.useCaseDiagramRemovedSuccessfully);
+                        $scope.loadUseCaseDiagrams()
                     })
-                    .catch((err) : void => {
-                        Notification.notifyError(Sentences.errorRemovingClassDiagram, err.data.messages)
+                    .catch((err): void => {
+                        Notification.notifyError(Sentences.errorRemovingUseCaseDiagram, err.data.messages)
                     })
                     .finally((): void=> {
                         $scope.pendingRequests--
@@ -68,13 +86,12 @@
                 var step = pathValues[1];
 
                 if (!step) {
-                    $scope.currentClassDiagram = null
-                    $scope.classDiagramToTranslate = null
+                    $scope.currentUseCaseDiagram = null
+                    $scope.useCaseDiagramToTranslate = null
                 }
 
                 if (pathValues.length == 2) {
-                    $scope.currentClass = null
-                    $scope.editingRelations = false
+                    $scope.currentUseCaseDiagram = null
                 }
             });
 
@@ -84,13 +101,13 @@
 
             window.location.href = "#"
 
-            $scope.setCurrentClassDiagram = (cd): void => {
+            $scope.setCurrentUseCaseDiagram = (cd): void => {
                 $scope.pendingRequests++
 
-                ClassDiagramResource.get({ 'id': cd.id })
+                UseCaseDiagramResource.get({ 'id': cd.id })
                     .$promise
                     .then((response) => {
-                        $scope.currentClassDiagram = new Models.ClassDiagram(response)
+                        $scope.currentUseCaseDiagram = new Models.UseCaseDiagram(response)
                         window.location.href = "#/diagram"
                     })
                     .catch((err) => {
@@ -101,7 +118,7 @@
                     });
             }
 
-            $scope.loadClassDiagrams = () => this.LoadClassDiagrams(ClassDiagramResource,
+            $scope.loadUseCaseDiagrams = () => this.LoadUseCaseDiagrams(UseCaseDiagramResource,
                 $scope,
                 pageSize)
 
@@ -109,17 +126,17 @@
                 return _.range(1, $scope.maxPages + 1);
             };
             
-            $scope.loadClassDiagrams()
+            $scope.loadUseCaseDiagrams()
             $scope.UserData = new UserData()
         }
-        private LoadClassDiagrams(classDiagramResource: any, $scope: any, size: number): void {
+        private LoadUseCaseDiagrams(useCaseDiagramResource: any, $scope: any, size: number): void {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size }
-            classDiagramResource.get(request)
+            useCaseDiagramResource.get(request)
                 .$promise
                 .then((response) => {
-                    $scope.classDiagrams = _.map(response.classDiagrams,
-                        (p) => new Models.ClassDiagram(p))
+                    $scope.useCaseDiagrams = _.map(response.useCaseDiagrams,
+                        (p) => new Models.UseCaseDiagram(p))
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
@@ -130,6 +147,6 @@
                 });
         }
     }
-    app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
-        "$rootScope", "$location", "SpecificationItemResource", ClassDiagramListController]);
+    app.controller('UseCaseDiagramListController', ["$scope", "UseCaseDiagramResource",
+        "$rootScope", "$location", "SpecificationItemResource", UseCaseDiagramListController]);
 }

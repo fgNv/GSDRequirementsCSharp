@@ -12,7 +12,7 @@ var Directives;
                     var paper = null;
                     function redrawRelations() {
                         _.each($scope.classDiagram.relations, function (relation) {
-                            var cell = Views.buildRelation(relation);
+                            var cell = Views.ClassDiagram.buildRelation(relation);
                             if (!cell)
                                 return;
                             relation.cell = cell;
@@ -34,7 +34,7 @@ var Directives;
                         var drawClasses = function () {
                             $timeout(function () {
                                 _.each(classDiagram.classes, function (c) {
-                                    var cell = Views.buildClass(c);
+                                    var cell = Views.ClassDiagram.buildClass(c);
                                     c.cell = cell;
                                     graph.addCell(cell);
                                 });
@@ -45,7 +45,7 @@ var Directives;
                         var drawRelations = function () {
                             $timeout(function () {
                                 _.each(classDiagram.relations, function (r) {
-                                    var cell = Views.buildRelation(r);
+                                    var cell = Views.ClassDiagram.buildRelation(r);
                                     r.cell = cell;
                                     graph.addCell(cell);
                                 });
@@ -56,7 +56,7 @@ var Directives;
                                 var cellClickCallback = function (cellView) {
                                     $scope.selectClass(cellView.model.id);
                                 };
-                                var result = Views.startClassDiagram(cellClickCallback, "classDiagramDisplayPaper", "classDiagramDisplayPaperContainer");
+                                var result = Views.ClassDiagram.startClassDiagram(cellClickCallback, "classDiagramDisplayPaper", "classDiagramDisplayPaperContainer");
                                 graph = result.graph;
                                 paper = result.paper;
                                 paperDefer.resolve();

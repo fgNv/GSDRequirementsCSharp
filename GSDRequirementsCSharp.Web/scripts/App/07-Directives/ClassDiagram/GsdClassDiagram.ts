@@ -124,14 +124,15 @@
                 }
 
                 function removeRelationFromDiagram(relation: Models.ClassRelationship) {
-                    $scope.classDiagram.relations = _.filter($scope.classDiagram.relations,
+                    $scope.classDiagram.relations = _.filter(
+                        $scope.classDiagram.relations,
                         (r) => r != relation)
                     relation.cell.remove()
                 }
 
                 function redrawRelations() {                    
                     _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
-                        var cell = Views.buildRelation(relation)
+                        var cell = Views.ClassDiagram.buildRelation(relation)
                         if (!cell) return
                         relation.cell = cell
                         $timeout((): void => { graph.addCell(cell) })
@@ -148,7 +149,7 @@
                     $scope.relations = []
 
                     _.each($scope.relationsOnEdit, (relation: Models.ClassRelationship) => {
-                        var cell = Views.buildRelation(relation)
+                        var cell = Views.ClassDiagram.buildRelation(relation)
                         if (!cell) return
                         relation.cell = cell
                         $scope.classDiagram.relations.push(relation)
@@ -169,7 +170,8 @@
                 }
 
                 function removeClass(classEntity) {
-                    $scope.classDiagram.classes = _.filter($scope.classDiagram.classes,
+                    $scope.classDiagram.classes = _.filter(
+                        $scope.classDiagram.classes,
                         (c) => c != classEntity)
                     classEntity.cell.remove()
                 }
@@ -238,7 +240,7 @@
                     var drawClasses = () => {
                         $timeout((): void => {
                             _.each(newValue.classes, (c) => {
-                                var cell = Views.buildClass(c)
+                                var cell = Views.ClassDiagram.buildClass(c)
                                 c.cell = cell
                                 graph.addCell(cell)
                             })
@@ -250,7 +252,7 @@
                     var drawRelations = () => {
                         $timeout((): void => {
                             _.each(newValue.relations, (r) => {
-                                var cell = Views.buildRelation(r)
+                                var cell = Views.ClassDiagram.buildRelation(r)
                                 r.cell = cell
                                 graph.addCell(cell)
                             })
@@ -263,7 +265,7 @@
                                 $scope.selectClass(cellView.model.id)
                             }
 
-                            var result = Views.startClassDiagram(cellClickCallback)
+                            var result = Views.ClassDiagram.startClassDiagram(cellClickCallback)
                             graph = result.graph
                             paper = result.paper
 
@@ -291,7 +293,7 @@
                 $scope.saveClass = (data: Models.ClassData) => {
                     if (!graph) return
                     if (data.cell != null) { removeClass(data) }
-                    var cell = Views.buildClass(data)
+                    var cell = Views.ClassDiagram.buildClass(data)
                     if (!cell) return
                     $scope.currentClass.cell = cell
                     $scope.classDiagram.classes.push($scope.currentClass)

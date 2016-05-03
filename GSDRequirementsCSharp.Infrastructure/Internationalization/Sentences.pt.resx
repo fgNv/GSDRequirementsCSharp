@@ -888,4 +888,16 @@
   <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
     <value>Diagrama de classes removido com sucesso</value>
   </data>
+  <data name="noUseCaseDiagramsRegistered" xml:space="preserve">
+    <value>Nenhum diagrama de casos de uso cadastrado</value>
+  </data>
+  <data name="removeUseCaseDiagram" xml:space="preserve">
+    <value>Remover diagrama de casos de uso</value>
+  </data>
+  <data name="errorRemovingUseCaseDiagram" xml:space="preserve">
+    <value>Erro ao remover Diagrama de Casos de Uso</value>
+  </data>
+  <data name="useCaseDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Diagrama de Casos de Uso removido com sucesso</value>
+  </data>
 </root>

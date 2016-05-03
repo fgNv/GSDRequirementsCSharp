@@ -2,14 +2,12 @@ var Controllers;
 (function (Controllers) {
     var UserData = NewAccount.UserData;
     var app = angular.module(GSDRequirements.angularModuleName);
-    var ClassDiagramListController = (function () {
-        function ClassDiagramListController($scope, ClassDiagramResource, $rootScope, $location, SpecificationItemResource) {
+    var UseCaseDiagramListController = (function () {
+        function UseCaseDiagramListController($scope, UseCaseDiagramResource, $rootScope, $location, SpecificationItemResource) {
             var _this = this;
             $scope.currentPage = 1;
             $scope.maxPages = 1;
-            $scope.classDiagrams = [];
-            $scope.currentClass = null;
-            $scope.editingRelations = false;
+            $scope.useCasesDiagrams = [];
             var pageSize = 10;
             $scope.pendingRequests = 0;
             $scope.hasEditPermission =
@@ -17,30 +15,30 @@ var Controllers;
                     GSDRequirements.currentProfile == Models.profile.projectOwner;
             $scope.loadPage = function (page) {
                 $scope.currentPage = page;
-                $scope.loadClassDiagrams();
+                $scope.loadUseCaseDiagrams();
             };
-            $scope.addClassDiagram = function () {
-                $scope.currentClassDiagram = new Models.ClassDiagram();
+            $scope.addUseCaseDiagram = function () {
+                $scope.currentUseCaseDiagram = new Models.UseCaseDiagram();
                 window.location.href = "#/diagram";
             };
-            $scope.setClassDiagramToManageLinks = function (classDiagram) {
-                $scope.classDiagramToManageLinks = classDiagram;
+            $scope.setUseCaseToManageLinks = function (uc) {
+                $scope.useCaseDiagramToManageLinks = uc;
                 window.location.href = "#/links";
             };
-            $scope.inactivateClassDiagram = function (classDiagram) {
+            $scope.inactivateUseCaseDiagram = function (useCaseDiagram) {
                 if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
                     return;
                 }
                 $scope.pendingRequests++;
                 SpecificationItemResource
-                    .remove({ id: classDiagram.id })
+                    .remove({ id: useCaseDiagram.id })
                     .$promise
                     .then(function () {
-                    Notification.notifySuccess(Sentences.classDiagramRemovedSuccessfully);
-                    $scope.loadClassDiagrams();
+                    Notification.notifySuccess(Sentences.useCaseDiagramRemovedSuccessfully);
+                    $scope.loadUseCaseDiagrams();
                 })
                     .catch(function (err) {
-                    Notification.notifyError(Sentences.errorRemovingClassDiagram, err.data.messages);
+                    Notification.notifyError(Sentences.errorRemovingUseCaseDiagram, err.data.messages);
                 })
                     .finally(function () {
                     $scope.pendingRequests--;
@@ -50,24 +48,23 @@ var Controllers;
                 var pathValues = $location.path().split('/');
                 var step = pathValues[1];
                 if (!step) {
-                    $scope.currentClassDiagram = null;
-                    $scope.classDiagramToTranslate = null;
+                    $scope.currentUseCaseDiagram = null;
+                    $scope.useCaseDiagramToTranslate = null;
                 }
                 if (pathValues.length == 2) {
-                    $scope.currentClass = null;
-                    $scope.editingRelations = false;
+                    $scope.currentUseCaseDiagram = null;
                 }
             });
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
             window.location.href = "#";
-            $scope.setCurrentClassDiagram = function (cd) {
+            $scope.setCurrentUseCaseDiagram = function (cd) {
                 $scope.pendingRequests++;
-                ClassDiagramResource.get({ 'id': cd.id })
+                UseCaseDiagramResource.get({ 'id': cd.id })
                     .$promise
                     .then(function (response) {
-                    $scope.currentClassDiagram = new Models.ClassDiagram(response);
+                    $scope.currentUseCaseDiagram = new Models.UseCaseDiagram(response);
                     window.location.href = "#/diagram";
                 })
                     .catch(function (err) {
@@ -77,20 +74,20 @@ var Controllers;
                     $scope.pendingRequests--;
                 });
             };
-            $scope.loadClassDiagrams = function () { return _this.LoadClassDiagrams(ClassDiagramResource, $scope, pageSize); };
+            $scope.loadUseCaseDiagrams = function () { return _this.LoadUseCaseDiagrams(UseCaseDiagramResource, $scope, pageSize); };
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
-            $scope.loadClassDiagrams();
+            $scope.loadUseCaseDiagrams();
             $scope.UserData = new UserData();
         }
-        ClassDiagramListController.prototype.LoadClassDiagrams = function (classDiagramResource, $scope, size) {
+        UseCaseDiagramListController.prototype.LoadUseCaseDiagrams = function (useCaseDiagramResource, $scope, size) {
             $scope.pendingRequests++;
             var request = { page: $scope.currentPage, pageSize: size };
-            classDiagramResource.get(request)
+            useCaseDiagramResource.get(request)
                 .$promise
                 .then(function (response) {
-                $scope.classDiagrams = _.map(response.classDiagrams, function (p) { return new Models.ClassDiagram(p); });
+                $scope.useCaseDiagrams = _.map(response.useCaseDiagrams, function (p) { return new Models.UseCaseDiagram(p); });
                 $scope.maxPages = response.maxPages;
             })
                 .catch(function (err) {
@@ -100,9 +97,9 @@ var Controllers;
                 $scope.pendingRequests--;
             });
         };
-        return ClassDiagramListController;
+        return UseCaseDiagramListController;
     })();
-    app.controller('ClassDiagramListController', ["$scope", "ClassDiagramResource",
-        "$rootScope", "$location", "SpecificationItemResource", ClassDiagramListController]);
+    app.controller('UseCaseDiagramListController', ["$scope", "UseCaseDiagramResource",
+        "$rootScope", "$location", "SpecificationItemResource", UseCaseDiagramListController]);
 })(Controllers || (Controllers = {}));
-//# sourceMappingURL=ClassDiagramListController.js.map
+//# sourceMappingURL=UseCaseDiagramListController.js.map

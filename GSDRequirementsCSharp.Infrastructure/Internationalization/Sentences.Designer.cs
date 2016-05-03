@@ -907,6 +907,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error removing Use Case Diagram.
+        /// </summary>
+        public static string errorRemovingUseCaseDiagram {
+            get {
+                return ResourceManager.GetString("errorRemovingUseCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error saving class diagram.
         /// </summary>
         public static string errorSavingClassDiagram {
@@ -1555,6 +1564,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Use Case Diagrams registered.
+        /// </summary>
+        public static string noUseCaseDiagramsRegistered {
+            get {
+                return ResourceManager.GetString("noUseCaseDiagramsRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Observer.
         /// </summary>
         public static string observer {
@@ -1915,6 +1933,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Use Case Diagram.
+        /// </summary>
+        public static string removeUseCaseDiagram {
+            get {
+                return ResourceManager.GetString("removeUseCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report.
         /// </summary>
         public static string report {
@@ -2254,6 +2281,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string useCase {
             get {
                 return ResourceManager.GetString("useCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Case Diagram removed successfully.
+        /// </summary>
+        public static string useCaseDiagramRemovedSuccessfully {
+            get {
+                return ResourceManager.GetString("useCaseDiagramRemovedSuccessfully", resourceCulture);
             }
         }
         
