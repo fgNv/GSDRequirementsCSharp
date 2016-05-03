@@ -9,7 +9,7 @@ namespace GSDRequirementsCSharp.Persistence
     using Mappings;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using MySql.Data.Entity;
-
+    using Mappings.UseCases;
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     internal class GSDRequirementsContext : DbContext
     {
@@ -52,6 +52,8 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new ActorMapping());
+            modelBuilder.Configurations.Add(new ActorContentMapping());
+
             modelBuilder.Configurations.Add(new ClassMapping());
             modelBuilder.Configurations.Add(new ClassDiagramMapping());
             modelBuilder.Configurations.Add(new ClassDiagramContentMapping());
@@ -63,22 +65,29 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new IssueMapping());
             modelBuilder.Configurations.Add(new IssueCommentMapping());
 
-            modelBuilder.Configurations.Add(new PermissionMapping());
 
             modelBuilder.Configurations.Add(new IssueCommentContentMapping());
             modelBuilder.Configurations.Add(new IssueContentMapping());
 
             modelBuilder.Configurations.Add(new PackageMapping());
             modelBuilder.Configurations.Add(new PackageContentMapping());
+            modelBuilder.Configurations.Add(new PermissionMapping());
             modelBuilder.Configurations.Add(new ProjectMapping());
             modelBuilder.Configurations.Add(new ProjectContentMapping());
             modelBuilder.Configurations.Add(new RequirementMapping());
             modelBuilder.Configurations.Add(new RequirementContentMapping());
             modelBuilder.Configurations.Add(new RequirementRiskMapping());
             modelBuilder.Configurations.Add(new SpecificationItemMapping());
+
             modelBuilder.Configurations.Add(new UserMapping());
 
+            modelBuilder.Configurations.Add(new UseCaseContentMapping());
+            modelBuilder.Configurations.Add(new UseCaseDiagramContentMapping());
+            modelBuilder.Configurations.Add(new UseCaseDiagramMapping());
+            modelBuilder.Configurations.Add(new UseCaseEntityMapping());
+            modelBuilder.Configurations.Add(new UseCaseEntityRelationMapping());
             modelBuilder.Configurations.Add(new UseCaseMapping());
+            modelBuilder.Configurations.Add(new UseCasesRelationMapping());
         }
     }
 }

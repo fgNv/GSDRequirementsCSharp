@@ -12,7 +12,7 @@ namespace GSDRequirementsCSharp.Domain.Models.UseCases
     {
         public Guid Id { get; set; }
 
-        public UseCaseEntityType Type { get; set; }
+        public UseCaseEntityType Type { get; protected set; }
         
         [Required]
         public UseCaseDiagram UseCaseDiagram { get; set; }

@@ -16,6 +16,14 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             ToTable("ActorContent");
             HasKey(a => new { a.Id, a.Locale });
 
+            Property(e => e.Id).HasColumnName("id");
+            Property(e => e.Name).HasColumnName("name");
+            Property(e => e.ActorId).HasColumnName("actor_id");            
+            Property(e => e.Locale).HasColumnName("locale");
+
+            HasRequired(e => e.Actor).WithMany(a => a.Contents)
+                                     .HasForeignKey(e => e.ActorId);
+
             Property(e => e.Name)
                .IsUnicode(false);
 

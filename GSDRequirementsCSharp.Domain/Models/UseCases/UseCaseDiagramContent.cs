@@ -21,9 +21,7 @@ namespace GSDRequirementsCSharp.Domain.Models
         public string Name { get; set; }
 
         public UseCaseDiagram UseCaseDiagram { get; set; }
-
-        public Guid UseCaseDiagramId { get; set; }
-
+        
         LocaleKey IEntity<LocaleKey>.Id
         {
             get

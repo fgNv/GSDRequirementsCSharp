@@ -13,6 +13,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public Actor()
         {
+            Type = UseCaseEntityType.Actor;
             Contents = new HashSet<ActorContent>();
         }
     }

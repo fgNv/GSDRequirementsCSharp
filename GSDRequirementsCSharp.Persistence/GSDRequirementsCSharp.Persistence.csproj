@@ -92,8 +92,12 @@
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseDiagramContentMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseDiagramMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityRelationMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasesRelationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Migrations\201604051129040_initial-migration.cs" />
     <Compile Include="Migrations\201604051129040_initial-migration.Designer.cs">
@@ -142,6 +146,10 @@
     <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.cs" />
     <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.Designer.cs">
       <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605032251385_remodelling-use-case-related-entities.cs" />
+    <Compile Include="Migrations\201605032251385_remodelling-use-case-related-entities.Designer.cs">
+      <DependentUpon>201605032251385_remodelling-use-case-related-entities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -249,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605021214094_remove-active-duplicated-flag.resx">
       <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605032251385_remodelling-use-case-related-entities.resx">
+      <DependentUpon>201605032251385_remodelling-use-case-related-entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

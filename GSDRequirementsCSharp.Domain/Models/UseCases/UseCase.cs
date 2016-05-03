@@ -10,9 +10,10 @@ namespace GSDRequirementsCSharp.Domain
     public class UseCase : UseCaseEntity
     {
         public ICollection<UseCaseContent> Contents { get; set; }
-
+        
         public UseCase()
         {
+            Type = UseCaseEntityType.UseCase;
             Contents = new HashSet<UseCaseContent>();
         }
     }

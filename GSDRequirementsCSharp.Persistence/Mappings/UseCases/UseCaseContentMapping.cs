@@ -21,6 +21,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
             Property(e => e.Description).HasColumnName("description")
                                         .HasColumnType("text");
 
+            Property(e => e.Locale).HasColumnName("locale");
+            HasRequired(e => e.UseCase).WithMany(uc => uc.Contents)
+                                       .HasForeignKey(c => c.UseCaseId);
+            Property(e => e.UseCaseId).HasColumnName("use_case_id");
+
             Property(e => e.Name)
                 .IsUnicode(false);
 

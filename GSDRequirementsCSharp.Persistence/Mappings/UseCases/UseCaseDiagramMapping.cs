@@ -14,6 +14,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
         {
             ToTable("UseCaseDiagram");
             HasKey(u => new { u.Id, u.Version });
+            Property(e => e.Id).HasColumnName("id");
+            Property(e => e.Version).HasColumnName("version");
+            Property(e => e.SpecificationItemId).HasColumnName("specification_item_id");
+            HasRequired(e => e.SpecificationItem).WithMany(si => si.UseCaseDiagrams)
+                                                 .HasForeignKey(ucd => ucd.SpecificationItemId);
         }
     }
 }
