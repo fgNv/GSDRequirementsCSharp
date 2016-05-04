@@ -93,7 +93,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('minification', ['uglify', 'cssmin', 'copy']);
-    grunt.registerTask('default', ['minification']);
+    grunt.registerTask('default', ['typescript', 'minification']);
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');

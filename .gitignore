@@ -227,3 +227,4 @@ a.pub
 artifacts
 .vagrant
 generatedJs
+GSDRequirementsCSharp.Web/scripts/App/Interpreted/
