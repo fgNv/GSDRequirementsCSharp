@@ -11,12 +11,11 @@ namespace GSDRequirementsCSharp.Domain.Models.UseCases
     public abstract class UseCaseEntity : IEntity<Guid>
     {
         public Guid Id { get; set; }
-
-        public UseCaseEntityType Type { get; protected set; }
         
+        abstract public UseCaseEntityType Type { get; }
+
         [Required]
         public UseCaseDiagram UseCaseDiagram { get; set; }
-
-        public Guid UseCaseDiagramId { get; set; }
+        
     }
 }

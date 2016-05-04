@@ -20,9 +20,15 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public Guid SpecificationItemId { get; set; }
 
-        public ICollection<Actor> Actors { get; set; }
+        public Project Project { get; set; }
 
-        public ICollection<UseCase> UseCases { get; set; }
+        public Guid ProjectId { get; set; }
+
+        public bool IsLastVersion { get; set; }
+
+        public int Identifier { get; set; }
+
+        public ICollection<UseCases.UseCaseEntity> Entities { get; set; }
 
         public ICollection<UseCaseEntityRelation> Relations { get; set; }
 
@@ -40,8 +46,7 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public UseCaseDiagram()
         {
-            Actors = new HashSet<Actor>();
-            UseCases = new HashSet<UseCase>();
+            Entities = new HashSet<UseCases.UseCaseEntity>();
             Relations = new HashSet<UseCaseEntityRelation>();
             Contents = new HashSet<UseCaseDiagramContent>();
             UseCaseRelations = new HashSet<UseCasesRelation>();

@@ -232,6 +232,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimun &quot;Password&quot; length is 4.
+        /// </summary>
+        public static string minPasswordLengthIs4 {
+            get {
+                return ResourceManager.GetString("minPasswordLengthIs4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Mobile Phone&quot; must contain only numbers.
         /// </summary>
         public static string mobilePhoneMustContainOnlyNumbers {

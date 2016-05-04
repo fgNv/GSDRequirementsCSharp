@@ -9,11 +9,14 @@ namespace GSDRequirementsCSharp.Domain
 
     public class Actor : UseCaseEntity
     {
+        //public Guid Id { get; set; }
         public ICollection<ActorContent> Contents { get; set; }
+        public override UseCaseEntityType Type { get { return UseCaseEntityType.Actor; } }
+        public UseCaseEntity UseCaseEntity { get; set; }
+       // public Guid UseCaseEntityId { get; set; }
 
         public Actor()
         {
-            Type = UseCaseEntityType.Actor;
             Contents = new HashSet<ActorContent>();
         }
     }

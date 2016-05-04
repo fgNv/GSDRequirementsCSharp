@@ -15,10 +15,8 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             ToTable("Actor");
             HasKey(a => a.Id);
             Property(e => e.Id).HasColumnName("id");
-            Property(e => e.Type).HasColumnName("type");            
-            Property(e => e.UseCaseDiagramId).HasColumnName("use_case_diagram_id");
-            HasRequired(a => a.UseCaseDiagram).WithMany(cd => cd.Actors)
-                                              .HasForeignKey(a => a.UseCaseDiagramId);
+
+            HasRequired(e => e.UseCaseEntity).WithOptional();
         }
     }
 }

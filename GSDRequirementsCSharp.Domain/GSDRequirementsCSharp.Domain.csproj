@@ -205,6 +205,7 @@
     <Compile Include="ViewModels\RequirementContentViewModel.cs" />
     <Compile Include="ViewModels\RequirementViewModel.cs" />
     <Compile Include="ViewModels\SpecificationItemViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseDiagramViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

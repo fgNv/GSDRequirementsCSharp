@@ -16,12 +16,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
             ToTable("UseCaseEntity");
             HasKey(a => a.Id);
             Property(e => e.Id).HasColumnName("id");
-            Property(e => e.Type).HasColumnName("type");
+            HasRequired(a => a.UseCaseDiagram).WithMany(cd => cd.Entities);
 
-            Map<UseCase>(uc => uc.Requires(nameof(UseCaseEntity.Type))
-                                 .HasValue((int)UseCaseEntityType.UseCase));
-            Map<Actor>(uc => uc.Requires(nameof(UseCaseEntity.Type))
-                                 .HasValue((int)UseCaseEntityType.Actor));
+            //HasOptional(uc => uc.Actor).WithRequired(a => a.UseCaseEntity);
+            //HasOptional(uc => uc.UseCase).WithRequired(a => a.UseCaseEntity);
         }
     }
 }

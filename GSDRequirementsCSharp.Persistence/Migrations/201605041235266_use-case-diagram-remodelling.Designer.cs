@@ -7,13 +7,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class remodellingusecaserelatedentities : IMigrationMetadata
+    public sealed partial class usecasediagramremodelling : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(remodellingusecaserelatedentities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(usecasediagramremodelling));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605032251385_remodelling-use-case-related-entities"; }
+            get { return "201605041235266_use-case-diagram-remodelling"; }
         }
         
         string IMigrationMetadata.Source

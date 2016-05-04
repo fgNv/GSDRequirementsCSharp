@@ -147,9 +147,9 @@
     <Compile Include="Migrations\201605021214094_remove-active-duplicated-flag.Designer.cs">
       <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605032251385_remodelling-use-case-related-entities.cs" />
-    <Compile Include="Migrations\201605032251385_remodelling-use-case-related-entities.Designer.cs">
-      <DependentUpon>201605032251385_remodelling-use-case-related-entities.cs</DependentUpon>
+    <Compile Include="Migrations\201605041235266_use-case-diagram-remodelling.cs" />
+    <Compile Include="Migrations\201605041235266_use-case-diagram-remodelling.Designer.cs">
+      <DependentUpon>201605041235266_use-case-diagram-remodelling.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +196,9 @@
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryResult.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
     <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQuery.cs" />
@@ -258,8 +261,8 @@
     <EmbeddedResource Include="Migrations\201605021214094_remove-active-duplicated-flag.resx">
       <DependentUpon>201605021214094_remove-active-duplicated-flag.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605032251385_remodelling-use-case-related-entities.resx">
-      <DependentUpon>201605032251385_remodelling-use-case-related-entities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605041235266_use-case-diagram-remodelling.resx">
+      <DependentUpon>201605041235266_use-case-diagram-remodelling.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

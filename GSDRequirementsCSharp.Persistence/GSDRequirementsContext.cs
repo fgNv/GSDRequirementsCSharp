@@ -10,6 +10,7 @@ namespace GSDRequirementsCSharp.Persistence
     using System.Data.Entity.ModelConfiguration.Conventions;
     using MySql.Data.Entity;
     using Mappings.UseCases;
+    using Domain.Models;
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     internal class GSDRequirementsContext : DbContext
     {
@@ -45,7 +46,8 @@ namespace GSDRequirementsCSharp.Persistence
         public virtual DbSet<RequirementRisk> RequirementRisks { get; set; }
         public virtual DbSet<SpecificationItem> SpecificationItems { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UseCase> UserCases { get; set; }
+        public virtual DbSet<UseCase> UseCases { get; set; }
+        public virtual DbSet<UseCaseDiagram> UseCaseDiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
