@@ -114,6 +114,11 @@
     <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommandHandler.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\UseCaseDiagramItemsPersister.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommand.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommandHandler.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramNewVersionCommand.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramNewVersionCommandHandler.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommand.cs" />
     <Compile Include="Commands\Users\ChangeUserPasswordCommandHandler.cs" />
     <Compile Include="Commands\IProjectCollaboratorCommand.cs" />
@@ -183,6 +188,7 @@
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />
@@ -217,9 +223,7 @@
       <Name>GSDRequirementsCSharp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\UseCaseDiagrams\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

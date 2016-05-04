@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
+using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
