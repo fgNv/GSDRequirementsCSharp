@@ -177,7 +177,6 @@
                         source: { id: sourceId },
                         target: { id: targetId }
                     })
-                    break;
                 case Models.RelationType.Inheritance:
                     cell = new joint.shapes.uml.Generalization({
                         source: { id: sourceId },

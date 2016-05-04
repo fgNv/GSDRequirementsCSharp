@@ -330,8 +330,8 @@
                             }
 
                             var result = Views.UseCaseDiagram.startDiagram(cellClickCallback)
-                            graph = result.graph
-                            paper = result.paper
+                            //graph = result.graph
+                            //paper = result.paper
 
                             paperDefer.resolve()
                         })

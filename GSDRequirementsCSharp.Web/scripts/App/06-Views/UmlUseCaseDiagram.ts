@@ -25,7 +25,7 @@
 
         export function startDiagram(cellClickCallback) {
             throw "UseCaseDiagram.startDiagram not implemented yet"
-            return { graph : null, paper : null}
+            //return { graph : null, paper : null}
         }
 
         export function buildRelation(relationData: Models.UseCaseRelationship) {
@@ -54,7 +54,6 @@
                         source: { id: sourceId },
                         target: { id: targetId }
                     })
-                    break;
                 case Models.RelationType.Inheritance:
                     cell = new joint.shapes.uml.Generalization({
                         source: { id: sourceId },
