@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models.UseCases;
+using GSDRequirementsCSharp.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +12,7 @@ namespace GSDRequirementsCSharp.Domain.Models
     /// <summary>
     /// Used to describe relations between two Actors or one Actor and one Use Case
     /// </summary>
-    public class UseCaseEntityRelation
+    public class UseCaseEntityRelation : IEntity<Guid>
     {
         public Guid Id { get; set; }
 
