@@ -5,7 +5,7 @@
     "removeComments": false,
     "sourceMap": true,
     "target": "es5",
-    "outDir": "../../generatedJavascripts"
+    "outDir": "../../generatedJs"
   },
   "exclude": [
     "node_modules",
