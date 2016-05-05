@@ -1,0 +1,61 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3 data-ng-hide="currentActor.cell">
+    @Sentences.addUseCase
+</h3>
+<h3 data-ng-show="currentActor.cell">
+    @Sentences.editUseCase
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div data-ng-form="actorMetadataForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="select-box" data-ng-if="utility">
+                        <label>@Sentences.language</label>
+                        <ui-select data-ng-model="contentData.locale"
+                                   data-theme="bootstrap"
+                                   data-search-enabled="false"
+                                   append-to-body="false">
+                            <ui-select-match>
+                                {{$select.selected}}
+                                <span class="glyphicon glyphicon-ok"
+                                      style="color: #008A21"
+                                      data-ng-show="utility.contentContainsLocale($select.selected)">
+                                </span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="locale in locales track by locale">
+                                <span ng-bind="locale"></span>
+                                <span class="glyphicon glyphicon-ok"
+                                      style="color: #008A21"
+                                      data-ng-show="utility.contentContainsLocale(locale)">
+                                </span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usecase-name">@Sentences.name *</label>
+                        <input type="text"
+                               class="form-control"
+                               id="usecase-name"
+                               data-ng-model="currentUseCase.name" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-default"
+                data-ng-click="backToDiagram()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="saveUseCase(currentUseCase)">
+            @Sentences.add
+        </button>
+    </div>
+</div>

@@ -900,4 +900,31 @@
   <data name="useCaseDiagramRemovedSuccessfully" xml:space="preserve">
     <value>Diagrama de Casos de Uso removido com sucesso</value>
   </data>
+  <data name="addActor" xml:space="preserve">
+    <value>Adicionar ator</value>
+  </data>
+  <data name="addUseCase" xml:space="preserve">
+    <value>Adicionar caso de uso</value>
+  </data>
+  <data name="atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>Ao menos um ator ou um caso de uso deve estar cadastrado para gerenciar as relações</value>
+  </data>
+  <data name="editActor" xml:space="preserve">
+    <value>Editar ator</value>
+  </data>
+  <data name="editSelected" xml:space="preserve">
+    <value>Editar selecionado</value>
+  </data>
+  <data name="editUseCase" xml:space="preserve">
+    <value>Editar caso de uso</value>
+  </data>
+  <data name="manageUseCaseDiagram" xml:space="preserve">
+    <value>Gerenciar Diagrama de Casos de Uso</value>
+  </data>
+  <data name="removeSelected" xml:space="preserve">
+    <value>Remover selecionado</value>
+  </data>
+  <data name="toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear" xml:space="preserve">
+    <value>Para editar ou remover um caso de uso ou ator, clique em cima dele e o menu de ações será exibido</value>
+  </data>
 </root>

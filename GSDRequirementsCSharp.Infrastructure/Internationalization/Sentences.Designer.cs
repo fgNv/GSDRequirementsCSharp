@@ -97,6 +97,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Actor.
+        /// </summary>
+        public static string addActor {
+            get {
+                return ResourceManager.GetString("addActor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add class.
         /// </summary>
         public static string addClass {
@@ -277,6 +286,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Use Case.
+        /// </summary>
+        public static string addUseCase {
+            get {
+                return ResourceManager.GetString("addUseCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aggregation.
         /// </summary>
         public static string Aggregation {
@@ -327,6 +345,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string Association {
             get {
                 return ResourceManager.GetString("Association", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one actor or use case must be registered to access the relation management.
+        /// </summary>
+        public static string atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement {
+            get {
+                return ResourceManager.GetString("atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement", resourceCulture);
             }
         }
         
@@ -637,6 +664,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Actor.
+        /// </summary>
+        public static string editActor {
+            get {
+                return ResourceManager.GetString("editActor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit class.
         /// </summary>
         public static string editClass {
@@ -691,6 +727,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Selected.
+        /// </summary>
+        public static string editSelected {
+            get {
+                return ResourceManager.GetString("editSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit selected class.
         /// </summary>
         public static string editSelectedClass {
@@ -714,6 +759,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string editTranslation {
             get {
                 return ResourceManager.GetString("editTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Use Case.
+        /// </summary>
+        public static string editUseCase {
+            get {
+                return ResourceManager.GetString("editUseCase", resourceCulture);
             }
         }
         
@@ -1321,6 +1375,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage Use Case Diagram.
+        /// </summary>
+        public static string manageUseCaseDiagram {
+            get {
+                return ResourceManager.GetString("manageUseCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage users.
         /// </summary>
         public static string manageUsers {
@@ -1915,6 +1978,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Selected.
+        /// </summary>
+        public static string removeSelected {
+            get {
+                return ResourceManager.GetString("removeSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove selected class.
         /// </summary>
         public static string removeSelectedClass {
@@ -2191,6 +2263,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear {
             get {
                 return ResourceManager.GetString("toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To edit or remove an use case or actor click above it and the action menu will appear.
+        /// </summary>
+        public static string toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear {
+            get {
+                return ResourceManager.GetString("toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear", resourceCulture);
             }
         }
         

@@ -136,7 +136,7 @@
 
                 $scope.isDiagramVisible = () => {
                     return !$scope.currentUseCase &&
-                        !!$scope.currentActor && !$scope.editingRelations;
+                           !$scope.currentActor && !$scope.editingRelations;
                 }
 
                 $scope.addRelation = () => {
@@ -390,7 +390,7 @@
                     $scope.selectedActor = null
                 }
             }]
-        public templateUrl = GSDRequirements.baseUrl + 'classDiagram/management'
+        public templateUrl = GSDRequirements.baseUrl + 'useCaseDiagram/management'
         public static Factory() {
             return new GsdUseCaseDiagram();
         }

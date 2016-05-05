@@ -285,6 +285,10 @@
     <Content Include="Views\ClassDiagram\_Relations.cshtml" />
     <Content Include="Views\ClassDiagram\_Display.cshtml" />
     <Content Include="Scripts\App\tsconfig.json" />
+    <Content Include="Views\UseCaseDiagram\_Management.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_ActorForm.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_UseCaseForm.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_Relations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
