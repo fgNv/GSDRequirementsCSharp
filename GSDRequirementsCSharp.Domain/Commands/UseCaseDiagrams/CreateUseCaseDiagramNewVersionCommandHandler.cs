@@ -16,23 +16,23 @@ namespace GSDRequirementsCSharp.Domain.Commands
     {
         private readonly IRepository<UseCaseDiagram, VersionKey> _useCaseDiagramRepository;
         private readonly UseCaseDiagramItemsPersister _useCaseDiagramItemsPersister;
-        private readonly IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItem> _specificationItemWithClassDiagramsQueryHandler;
+        private readonly IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItem> _specificationItemWithUseCaseDiagramsQueryHandler;
         private readonly IRepository<Package, Guid> _packageRepository;
 
         public CreateUseCaseDiagramNewVersionCommandHandler(IRepository<UseCaseDiagram, VersionKey> useCaseDiagramRepository,
-                                                IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItem> specificationItemWithClassDiagramsQueryHandler,
+                                                IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItem> specificationItemWithUseCaseDiagramsQueryHandler,
                                                 IRepository<Package, Guid> packageRepository,
                                                 UseCaseDiagramItemsPersister useCaseDiagramItemsPersister)
         {
             _useCaseDiagramRepository = useCaseDiagramRepository;
             _useCaseDiagramItemsPersister = useCaseDiagramItemsPersister;
             _packageRepository = packageRepository;
-            _specificationItemWithClassDiagramsQueryHandler = specificationItemWithClassDiagramsQueryHandler;
+            _specificationItemWithUseCaseDiagramsQueryHandler = specificationItemWithUseCaseDiagramsQueryHandler;
         }
 
         public void Handle(CreateUseCaseDiagramNewVersionCommand command)
         {
-            var specificationItem = _specificationItemWithClassDiagramsQueryHandler.Handle(command.Id.Value);
+            var specificationItem = _specificationItemWithUseCaseDiagramsQueryHandler.Handle(command.Id.Value);
             var latestVersion = specificationItem.UseCaseDiagrams.FirstOrDefault(s => s.IsLastVersion);
             foreach (var oldRequirementVersion in specificationItem.UseCaseDiagrams)
             {

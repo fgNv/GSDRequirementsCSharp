@@ -51,13 +51,13 @@
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommandHandler.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommand.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommandHandler.cs" />
-    <Compile Include="Commands\ClassDiagrams\DTO\Cell.cs" />
+    <Compile Include="Commands\DTO\Cell.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassDiagramContentItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassItem.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommand.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\MethodItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ParameterItem.cs" />
-    <Compile Include="Commands\ClassDiagrams\DTO\Position.cs" />
+    <Compile Include="Commands\DTO\Position.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\PropertyItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\RelationItem.cs" />
     <Compile Include="Commands\IProjectCommand.cs" />
@@ -114,6 +114,13 @@
     <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\RemoveLink\RemoveSpecificationItemLinkCommandHandler.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\ActorContentItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\ActorItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseContentItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseDiagramContentItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseEntitiesRelationItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCasesRelationItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\UseCaseDiagramItemsPersister.cs" />
     <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommand.cs" />
     <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommandHandler.cs" />
@@ -189,6 +196,7 @@
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />

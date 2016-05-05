@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
-    public class RelationItem
+    public class UseCasesRelationItem
     {
         [Required(
-         ErrorMessageResourceType =typeof(ValidationMessages),
-         ErrorMessageResourceName = nameof(ValidationMessages.sourceIsARequiredField))]
+        ErrorMessageResourceType = typeof(ValidationMessages),
+        ErrorMessageResourceName = nameof(ValidationMessages.sourceIsARequiredField))]
         public Guid? SourceId { get; set; }
 
         [Required(
@@ -24,10 +24,6 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         [Required(
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.typeIsARequiredField))]
-        public RelationType? Type { get; set; }
-        
-        public string TargetMultiplicity { get; set; }
-        
-        public string SourceMultiplicity { get; set; }
+        public UseCasesRelationType? Type { get; set; }
     }
 }

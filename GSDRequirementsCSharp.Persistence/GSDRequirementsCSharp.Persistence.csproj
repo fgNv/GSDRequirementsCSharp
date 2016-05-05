@@ -151,6 +151,10 @@
     <Compile Include="Migrations\201605041235266_use-case-diagram-remodelling.Designer.cs">
       <DependentUpon>201605041235266_use-case-diagram-remodelling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605052228421_use-case-diagram-position.cs" />
+    <Compile Include="Migrations\201605052228421_use-case-diagram-position.Designer.cs">
+      <DependentUpon>201605052228421_use-case-diagram-position.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
@@ -196,6 +200,8 @@
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithUseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\NextId\UseCaseDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryResult.cs" />
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605041235266_use-case-diagram-remodelling.resx">
       <DependentUpon>201605041235266_use-case-diagram-remodelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605052228421_use-case-diagram-position.resx">
+      <DependentUpon>201605052228421_use-case-diagram-position.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

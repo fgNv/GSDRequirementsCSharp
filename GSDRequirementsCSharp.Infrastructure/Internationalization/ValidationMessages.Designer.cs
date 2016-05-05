@@ -448,6 +448,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Type&quot; is a required field.
+        /// </summary>
+        public static string typeIsARequiredField {
+            get {
+                return ResourceManager.GetString("typeIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;User Id&quot; is a required field.
         /// </summary>
         public static string userIdIsARequiredField {

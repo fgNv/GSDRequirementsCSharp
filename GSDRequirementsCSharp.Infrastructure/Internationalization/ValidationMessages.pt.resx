@@ -246,6 +246,9 @@
   <data name="targetIsARequiredField" xml:space="preserve">
     <value>"Alvo" é um campo obrigatório</value>
   </data>
+  <data name="typeIsARequiredField" xml:space="preserve">
+    <value>"Tipo" é um campo obrigatório</value>
+  </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"Id do usuário" é um campo obrigatório</value>
   </data>

@@ -9,5 +9,10 @@ namespace GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams
     public class SpecificationItemWithUseCaseDiagramsQuery
     {
         public Guid Id { get; set; }
+
+        public static implicit operator SpecificationItemWithUseCaseDiagramsQuery(Guid id)
+        {
+            return new SpecificationItemWithUseCaseDiagramsQuery { Id = id };
+        }
     }
 }

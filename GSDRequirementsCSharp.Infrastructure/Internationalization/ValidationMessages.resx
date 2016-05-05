@@ -246,6 +246,9 @@
   <data name="targetIsARequiredField" xml:space="preserve">
     <value>"Target" is a required field</value>
   </data>
+  <data name="typeIsARequiredField" xml:space="preserve">
+    <value>"Type" is a required field</value>
+  </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"User Id" is a required field</value>
   </data>

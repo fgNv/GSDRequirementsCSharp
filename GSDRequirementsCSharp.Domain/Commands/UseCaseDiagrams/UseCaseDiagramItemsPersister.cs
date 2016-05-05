@@ -35,61 +35,51 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _useCasesRelationRepository = useCasesRelationRepository;
             _useCaseEntityRelationRepository = useCaseEntityRelationRepository;
         }
+        
+        private void PersistActor(UseCaseDiagram useCaseEntity, ActorItem actorData)
+        {
+            var actor = new Actor();
+            actor.Id = actorData.Cell.Id;
+            actor.X = actorData.Cell.Position.X;
+            actor.Y = actorData.Cell.Position.Y;
 
-        //private void PersistProperty(Class classEntity, PropertyItem propertyData)
-        //{
-        //    var property = new ClassProperty();
-        //    property.Id = Guid.NewGuid();
-        //    property.Name = propertyData.Name;
-        //    property.Visibility = propertyData.Visibility.Value;
-        //    property.Type = propertyData.Type;
+            foreach (var contentData in actorData.Contents)
+            {
+                var actorContent = new ActorContent();
+                actorContent.Id = Guid.NewGuid();
+                actorContent.Name = contentData.Name;
+                actorContent.Locale = contentData.Locale;
 
-        //    classEntity.ClassProperties.Add(property);
-        //    _actorRepository.Add(property);
-        //}
+                actor.Contents.Add(actorContent);
+                _actorContentRepository.Add(actorContent);
+            }
 
-        //private void PersistMethod(Class classEntity, MethodItem methodData)
-        //{
-        //    var method = new ClassMethod();
-        //    method.Id = Guid.NewGuid();
-        //    method.Name = methodData.Name;
-        //    method.Visibility = methodData.Visibility.Value;
-        //    method.ReturnType = methodData.ReturnType;
+            useCaseEntity.Entities.Add(actor);
+            _actorRepository.Add(actor);
+        }
 
-        //    foreach (var parameterData in methodData.ClassMethodParameters)
-        //    {
-        //        var parameter = new ClassMethodParameter();
-        //        parameter.Id = Guid.NewGuid();
-        //        parameter.Name = parameterData.Name;
-        //        parameter.Type = parameterData.Type;
+        private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData)
+        {
+            var useCaseEntity = new UseCase();
+            
+            useCaseEntity.Id = useCaseData.Cell.Id;
+            useCaseEntity.X = useCaseData.Cell.Position.X;
+            useCaseEntity.Y = useCaseData.Cell.Position.Y;
 
-        //        method.ClassMethodParameters.Add(parameter);
-        //        _useCasesRelationRepository.Add(parameter);
-        //    }
+            foreach (var contentData in useCaseData.Contents)
+            {
+                var useCaseContent = new UseCaseContent();
+                useCaseContent.Id = Guid.NewGuid();
+                useCaseContent.Name = contentData.Name;
+                useCaseContent.Locale = contentData.Locale;
 
-        //    classEntity.ClassMethods.Add(method);
-        //    _useCaseContentRepository.Add(method);
-        //}
+                useCaseEntity.Contents.Add(useCaseContent);
+                _useCaseContentRepository.Add(useCaseContent);
+            }
 
-        //private void PersistClass(ClassDiagram classDiagram, ClassItem classData)
-        //{
-        //    var classEntity = new Class();
-
-        //    classEntity.Name = classData.Name;
-        //    classEntity.Id = classData.Cell.Id;
-        //    classEntity.X = classData.Cell.Position.X;
-        //    classEntity.Y = classData.Cell.Position.Y;
-        //    classEntity.Type = classData.Type.Value;
-
-        //    foreach (var propertyData in classData.ClassProperties)
-        //        PersistProperty(classEntity, propertyData);
-
-        //    foreach (var methodData in classData.ClassMethods)
-        //        PersistMethod(classEntity, methodData);
-
-        //    classDiagram.Classes.Add(classEntity);
-        //    _useCaseRepository.Add(classEntity);
-        //}
+            useCaseDiagram.Entities.Add(useCaseEntity);
+            _useCaseRepository.Add(useCaseEntity);
+        }
 
         public void Persist(UseCaseDiagram useCaseDiagram, CreateUseCaseDiagramCommand command)
         {
@@ -103,22 +93,34 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 _classDiagramContentRepository.Add(useCaseDiagramContent);
             }
 
-            //foreach (var classData in command.Classes)
-            //    PersistClass(useCaseDiagram, classData);
+            foreach (var useCaseData in command.UseCases)
+                PersistUseCase(useCaseDiagram, useCaseData);
 
-            //foreach (var relationData in command.Relations)
-            //{
-            //    var classRelation = new ClassRelationship();
-            //    classRelation.Id = Guid.NewGuid();
-            //    classRelation.SourceId = relationData.SourceId.Value;
-            //    classRelation.SourceMultiplicity = relationData.SourceMultiplicity;
-            //    classRelation.TargetId = relationData.TargetId.Value;
-            //    classRelation.TargetMultiplicity = relationData.TargetMultiplicity;
-            //    classRelation.Type = relationData.Type.Value;
+            foreach (var actorData in command.Actors)
+                PersistActor(useCaseDiagram, actorData);
 
-            //    useCaseDiagram.Relationships.Add(classRelation);
-            //    _useCaseEntityRelationRepository.Add(classRelation);
-            //}
+            foreach (var relationData in command.UseCaseEntitiesRelations)
+            {
+                var useCasesRelation = new UseCaseEntityRelation();
+                useCasesRelation.Id = Guid.NewGuid();
+                useCasesRelation.SourceId = relationData.SourceId.Value;
+                useCasesRelation.TargetId = relationData.TargetId.Value;
+
+                useCaseDiagram.Relations.Add(useCasesRelation);
+                _useCaseEntityRelationRepository.Add(useCasesRelation);
+            }
+
+            foreach (var relationData in command.UseCasesRelations)
+            {
+                var useCasesRelation = new UseCasesRelation();
+                useCasesRelation.Id = Guid.NewGuid();
+                useCasesRelation.SourceId = relationData.SourceId.Value;                
+                useCasesRelation.TargetId = relationData.TargetId.Value;                
+                useCasesRelation.Type = relationData.Type.Value;
+
+                useCaseDiagram.UseCaseRelations.Add(useCasesRelation);
+                _useCasesRelationRepository.Add(useCasesRelation);
+            }
         }
     }
 }
