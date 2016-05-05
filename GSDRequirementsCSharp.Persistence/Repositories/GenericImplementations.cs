@@ -1,5 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Models.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
+    internal class ActorRepository : GenericRepository<Actor, Guid>
+    {
+        public ActorRepository(GSDRequirementsContext context) : base(context) { }
+    }
+    internal class ActorContentRepository : GenericRepository<ActorContent, LocaleKey>
+    {
+        public ActorContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
     internal class ClassDiagramRepository : GenericRepository<ClassDiagram, VersionKey>
     {
         public ClassDiagramRepository(GSDRequirementsContext context) : base(context) { }
@@ -106,5 +115,40 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     internal class UserRepository : GenericRepository<User, int>
     {
         public UserRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseRepository : GenericRepository<UseCase, Guid>
+    {
+        public UseCaseRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseContentRepository : GenericRepository<UseCaseContent, LocaleKey>
+    {
+        public UseCaseContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseDiagramRepository : GenericRepository<UseCaseDiagram, VersionKey>
+    {
+        public UseCaseDiagramRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseDiagramCotentRepository : GenericRepository<UseCaseDiagramContent, LocaleKey>
+    {
+        public UseCaseDiagramCotentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseEntityRelationRepository : GenericRepository<UseCaseEntityRelation, Guid>
+    {
+        public UseCaseEntityRelationRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCaseEntityRepository : GenericRepository<UseCaseEntity, Guid>
+    {
+        public UseCaseEntityRepository(GSDRequirementsContext context) : base(context) { }
+    }
+    
+    internal class UseCasesRelationRepository : GenericRepository<UseCasesRelation, Guid>
+    {
+        public UseCasesRelationRepository(GSDRequirementsContext context) : base(context) { }
     }
 }

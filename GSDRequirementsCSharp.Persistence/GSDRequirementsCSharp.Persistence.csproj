@@ -201,6 +201,7 @@
     <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithUseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Detailed\UseCaseDiagramDetailQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\NextId\UseCaseDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
