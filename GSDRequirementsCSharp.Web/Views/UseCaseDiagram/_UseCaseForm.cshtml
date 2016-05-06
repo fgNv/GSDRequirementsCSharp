@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div data-ng-form="actorMetadataForm">
+        <div data-ng-form="useCaseMetadataForm">
             <div class="row">
                 <div class="col-md-6">
                     <div class="select-box" data-ng-if="utility">
@@ -40,6 +40,7 @@
                         <label for="usecase-name">@Sentences.name *</label>
                         <input type="text"
                                class="form-control"
+                               required=""
                                id="usecase-name"
                                data-ng-model="currentUseCase.name" />
                     </div>
@@ -54,6 +55,7 @@
             @Sentences.cancel
         </button>
         <button class="btn btn-primary"
+                data-ng-disabled="useCaseMetadataForm.$invalid"
                 data-ng-click="saveUseCase(currentUseCase)">
             @Sentences.add
         </button>

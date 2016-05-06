@@ -79,8 +79,8 @@ module.exports = function (grunt) {
                 options: {
                     interrupt: true
                 },
-                files: ['Scripts/App/*/**.js'],
-                tasks: ['uglify']
+                files: ['Scripts/App/*/**.js', 'Scripts/App/*/**.ts'],
+                tasks: ['default']
             },
             css: {
                 options: {

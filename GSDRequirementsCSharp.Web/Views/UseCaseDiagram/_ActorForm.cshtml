@@ -39,6 +39,7 @@
                     <div class="form-group">
                         <label for="usecase-name">@Sentences.name *</label>
                         <input type="text"
+                               required=""
                                class="form-control"
                                id="usecase-name"
                                data-ng-model="currentActor.name" />
@@ -54,6 +55,7 @@
             @Sentences.cancel
         </button>
         <button class="btn btn-primary"
+                data-ng-disabled="actorMetadataForm.$invalid"
                 data-ng-click="saveActor(currentActor)">
             @Sentences.add
         </button>

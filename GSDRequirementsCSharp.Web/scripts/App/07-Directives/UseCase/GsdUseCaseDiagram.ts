@@ -15,7 +15,7 @@
     interface GsdUseCaseDiagramScope {
         addRelation: () => void
         afterSave: () => void
-        backToDiagram : () => void
+        backToDiagram: () => void
         removeRelation: (i) => void
         backToList: () => void
         content: Object
@@ -36,16 +36,16 @@
         save: () => void
         saveActor: (data: Models.Actor) => void
         saveUseCase: (data: Models.UseCase) => void
-        saveRelations : () => void
+        saveRelations: () => void
         selectedActor: any
-        selectEntity : any
+        selectEntity: any
         selectedUseCase: any
         selectUseCase: (id) => void
         selectActor: (id) => void
         utility: utility
         useCaseDiagram: Models.UseCaseDiagram
         $digest: any
-        $watch : any
+        $watch: any
     }
 
     class GsdUseCaseDiagram {
@@ -136,7 +136,7 @@
 
                 $scope.isDiagramVisible = () => {
                     return !$scope.currentUseCase &&
-                           !$scope.currentActor && !$scope.editingRelations;
+                        !$scope.currentActor && !$scope.editingRelations;
                 }
 
                 $scope.addRelation = () => {
@@ -277,9 +277,9 @@
                             $scope.pendingRequests--
                         })
                 }
-                
+
                 $scope.$watch('useCaseDiagram', (newValue: Models.UseCaseDiagram) => {
-                    
+
                     if (graph) {
                         graph.clear()
                         paper.remove()
@@ -330,8 +330,8 @@
                             }
 
                             var result = Views.UseCaseDiagram.startDiagram(cellClickCallback)
-                            //graph = result.graph
-                            //paper = result.paper
+                            graph = result.graph
+                            paper = result.paper
 
                             paperDefer.resolve()
                         })
@@ -343,7 +343,7 @@
                         .then(drawEntities())
                         .then(drawRelations())
                 })
-                                
+
                 $scope.newUseCase = () => {
                     window.location.href = "#/diagram/formUseCase"
                     $scope.selectedUseCase = null
@@ -378,6 +378,7 @@
                     if (data.cell != null) { removeActor(data) }
                     var cell = Views.UseCaseDiagram.buildActor(data)
                     if (!cell) return
+                    
                     $scope.currentActor.cell = cell
                     $scope.useCaseDiagram.actors.push($scope.currentActor)
 
@@ -387,7 +388,7 @@
                         redrawRelations()
                     })
 
-                    $scope.selectedActor = null
+                    $scope.backToDiagram()
                 }
             }]
         public templateUrl = GSDRequirements.baseUrl + 'useCaseDiagram/management'

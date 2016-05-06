@@ -10,6 +10,11 @@
                 for (var prop in data) {
                     this[prop] = data[prop]
                 }
+            } else {
+                this.actors = []
+                this.relations = []
+                this.useCases = []
+                this.contents = []
             }
         }
     }

@@ -147,7 +147,7 @@
   <ItemGroup>
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\Styles\ClassDiagram.css" />
+    <Content Include="Content\Styles\Diagrams.css" />
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />
@@ -332,6 +332,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IDiagramElement.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Issue.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueComment.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueCommentContent.ts" />
