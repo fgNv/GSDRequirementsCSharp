@@ -927,4 +927,13 @@
   <data name="toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear" xml:space="preserve">
     <value>To edit or remove an use case or actor click above it and the action menu will appear</value>
   </data>
+  <data name="extend" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="generalization" xml:space="preserve">
+    <value>Generalization</value>
+  </data>
+  <data name="include" xml:space="preserve">
+    <value>Include</value>
+  </data>
 </root>

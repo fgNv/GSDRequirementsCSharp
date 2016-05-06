@@ -1042,6 +1042,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Extend.
+        /// </summary>
+        public static string extend {
+            get {
+                return ResourceManager.GetString("extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter by name.
         /// </summary>
         public static string filterByName {
@@ -1056,6 +1065,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string functional {
             get {
                 return ResourceManager.GetString("functional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generalization.
+        /// </summary>
+        public static string generalization {
+            get {
+                return ResourceManager.GetString("generalization", resourceCulture);
             }
         }
         
@@ -1155,6 +1173,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string inactivateProject {
             get {
                 return ResourceManager.GetString("inactivateProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include.
+        /// </summary>
+        public static string include {
+            get {
+                return ResourceManager.GetString("include", resourceCulture);
             }
         }
         

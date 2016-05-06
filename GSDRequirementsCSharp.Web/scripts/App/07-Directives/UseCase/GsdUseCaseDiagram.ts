@@ -21,6 +21,7 @@
         content: Object
         currentActor: any
         currentUseCase: any
+        relationTypeOptions: Array<Object>
         editSelectedActor: (uc) => void
         editSelectedUseCase: (uc) => void
         editingRelations: boolean
@@ -29,6 +30,7 @@
         newActor: () => void
         newUseCase: () => void
         isDiagramVisible: () => boolean
+        isUseCasesRelation: (r: Models.UseCaseRelationship) => boolean
         pendingRequests: number
         relationsOnEdit: Array<Object>
         removeSelectedActor: (actor) => void
@@ -104,6 +106,7 @@
 
                 this.LoadPackagesOptions(PackageResource, $scope)
 
+                $scope.relationTypeOptions = Globals.enumerateEnum(Models.UseCasesRelationType)
                 $scope.utility = <utility>{}
                 $scope.utility.contentContainsLocale =
                     (i) => $scope.content &&
@@ -163,12 +166,31 @@
                     })
                 }
 
+                $scope.isUseCasesRelation = (r) => {
+                  
+                    if (!r) {
+                        return false
+                    }
+                    var source = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities,
+                        (e) => e.cell.id == r.sourceId)
+                    var target = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities,
+                        (e) => e.cell.id == r.targetId)
+
+                    if (!source || !target) {
+                        return false;
+                    }
+
+                    return source.getType() == Models.UseCaseEntityType.useCase &&
+                           target.getType() == Models.UseCaseEntityType.useCase
+                }
+
                 $scope.saveRelations = () => {
                     if (!graph) return
 
                     _.each($scope.useCaseDiagram.relations, (relation: Models.UseCaseRelationship) => {
                         if (relation.cell != null) { removeRelationFromDiagram(relation) }
                     })
+
 
                     $scope.useCaseDiagram.relations = []
 

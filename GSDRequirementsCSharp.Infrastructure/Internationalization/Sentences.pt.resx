@@ -927,4 +927,13 @@
   <data name="toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear" xml:space="preserve">
     <value>Para editar ou remover um caso de uso ou ator, clique em cima dele e o menu de ações será exibido</value>
   </data>
+  <data name="extend" xml:space="preserve">
+    <value>Extender</value>
+  </data>
+  <data name="generalization" xml:space="preserve">
+    <value>Generalizar</value>
+  </data>
+  <data name="include" xml:space="preserve">
+    <value>Incluir</value>
+  </data>
 </root>
