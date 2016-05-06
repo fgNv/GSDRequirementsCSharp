@@ -9,7 +9,6 @@ namespace GSDRequirementsCSharp.Domain.Models.UseCases
     public enum UseCaseEntityType
     {
         Actor = 66,
-        UseCase = 699,
-        Abstract = 999
+        UseCase = 699
     }
 }

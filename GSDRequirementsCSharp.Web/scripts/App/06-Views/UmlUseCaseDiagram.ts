@@ -2,6 +2,7 @@
 
     var actorSvg =
         `<g>
+          <rect />
           <circle cx="45" cy="25" r="15" style="fill:none;stroke:black;stroke-width:2;" />
           <line x1="45" y1="40" x2="45" y2="80" style="stroke:black;stroke-width:2;" />
           <line x1="15" y1="55" x2="75" y2="55" style="stroke:black;stroke-width:2;" />
@@ -29,9 +30,9 @@
             attrs: {
                 'rect': {
                     fill: '#FFFFFF',
-                    stroke: 'black',
-                    width: 100,
-                    height: 60
+                    stroke: 'white',
+                    width: 90,
+                    height: 145
                 },
                 'text': {
                     'font-size': 14,

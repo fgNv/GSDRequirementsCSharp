@@ -2,8 +2,7 @@
     export class UseCaseDiagram {
         public id: string
         public relations: any
-        public actors: any
-        public useCases: any
+        public entities: any
         public contents: any
         constructor(data = null) {
             if (data) {
@@ -11,9 +10,8 @@
                     this[prop] = data[prop]
                 }
             } else {
-                this.actors = []
+                this.entities = []
                 this.relations = []
-                this.useCases = []
                 this.contents = []
             }
         }

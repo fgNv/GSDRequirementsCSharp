@@ -125,8 +125,7 @@
                 }
 
                 $scope.getRelationEntityOptions = (relation) => {
-                    return _.union($scope.useCaseDiagram.useCases,
-                        $scope.useCaseDiagram.actors);
+                    return $scope.useCaseDiagram.entities;
                 }
 
                 $scope.backToList = () => {
@@ -187,14 +186,15 @@
 
                 $scope.selectEntity = (id) => {
                     if (_.any($scope.useCaseDiagram, (uc) => uc.id == id))
-                        $scope.selectedUseCase(id)
+                        $scope.selectUseCase(id)
                     else
-                        $scope.selectedActor(id)
+                        $scope.selectActor(id)
                 }
 
                 $scope.selectActor = (id) => {
-                    var actorToBeSelected = _.find($scope.useCaseDiagram.actors,
+                    var actorToBeSelected = _.find($scope.useCaseDiagram.entities,
                         (c) => c.cell.id == id);
+                    
                     if (!actorToBeSelected)
                         return;
                     $scope.selectedActor = actorToBeSelected
@@ -202,8 +202,9 @@
                 }
 
                 $scope.selectUseCase = (id) => {
-                    var useCaseToBeSelected = _.find($scope.useCaseDiagram.useCases,
+                    var useCaseToBeSelected = _.find($scope.useCaseDiagram.entities,
                         (c) => c.cell.id == id);
+                    
                     if (!useCaseToBeSelected)
                         return;
                     $scope.selectedUseCase = useCaseToBeSelected
@@ -211,15 +212,15 @@
                 }
 
                 function removeUseCase(useCase) {
-                    $scope.useCaseDiagram.useCases = _.filter(
-                        $scope.useCaseDiagram.useCases,
+                    $scope.useCaseDiagram.entities = _.filter(
+                        $scope.useCaseDiagram.entities,
                         (c) => c != useCase)
                     useCase.cell.remove()
                 }
 
                 function removeActor(actor) {
-                    $scope.useCaseDiagram.actors = _.filter(
-                        $scope.useCaseDiagram.actors,
+                    $scope.useCaseDiagram.entities = _.filter(
+                        $scope.useCaseDiagram.entities,
                         (c) => c != actor)
                     actor.cell.remove()
                 }
@@ -298,14 +299,12 @@
 
                     var drawEntities = () => {
                         $timeout((): void => {
-                            _.each(newValue.actors, (a) => {
-                                var cell = Views.UseCaseDiagram.buildActor(a)
+                            _.each(newValue.entities, (a) => {
+                                var cell = a.type == Models.UseCaseEntityType.actor ?
+                                    Views.UseCaseDiagram.buildActor(a) :
+                                    Views.UseCaseDiagram.buildUseCase(a) 
+
                                 a.cell = cell
-                                graph.addCell(cell)
-                            })
-                            _.each(newValue.useCases, (uc) => {
-                                var cell = Views.UseCaseDiagram.buildUseCase(uc)
-                                uc.cell = cell
                                 graph.addCell(cell)
                             })
                             entitiesDefer.resolve()
@@ -362,7 +361,7 @@
                     var cell = Views.UseCaseDiagram.buildUseCase(data)
                     if (!cell) return
                     $scope.currentUseCase.cell = cell
-                    $scope.useCaseDiagram.useCases.push($scope.currentUseCase)
+                    $scope.useCaseDiagram.entities.push($scope.currentUseCase)
 
                     $scope.currentUseCase = null
                     $timeout((): void => {
@@ -380,7 +379,7 @@
                     if (!cell) return
                     
                     $scope.currentActor.cell = cell
-                    $scope.useCaseDiagram.actors.push($scope.currentActor)
+                    $scope.useCaseDiagram.entities.push($scope.currentActor)
 
                     $scope.currentActor = null
                     $timeout((): void => {
