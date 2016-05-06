@@ -11,7 +11,7 @@ using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems
 {
-    class SpecificationItemWithUseCaseDiagramsQueryHandler : IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItem>
+    class SpecificationItemWithUseCaseDiagramsQueryHandler : IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItemWithUseCaseDiagramsQueryResult>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -20,11 +20,26 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems
             _context = context;
         }
 
-        public SpecificationItem Handle(SpecificationItemWithUseCaseDiagramsQuery query)
+        public SpecificationItemWithUseCaseDiagramsQueryResult Handle(SpecificationItemWithUseCaseDiagramsQuery query)
         {
+
             return _context.SpecificationItems
-                           .Include(si => si.UseCaseDiagrams)
-                           .FirstOrDefault(si => si.Id == query.Id);
+                           .Where(si => si.Id == query.Id)
+                           .Join(_context.UseCaseDiagrams,
+                                 si => si.Id,
+                                 cd => cd.Id,
+                                 (si, ucd) => new
+                                 {
+                                     UseCaseDiagram = ucd,
+                                     SpecificationItem = si
+                                 })
+                           .GroupBy(r => r.SpecificationItem.Id)
+                           .Select(r => new SpecificationItemWithUseCaseDiagramsQueryResult
+                           {
+                               SpecificationItem = r.FirstOrDefault().SpecificationItem,
+                               UseCaseDiagrams = r.Select(i => i.UseCaseDiagram)
+                           })
+                           .FirstOrDefault();
         }
     }
 }

@@ -194,8 +194,11 @@
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQueryResult.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQuery.cs" />
-    <Compile Include="Queries\UseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQueryResult.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQuery.cs" />
+    <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQueryResult.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />

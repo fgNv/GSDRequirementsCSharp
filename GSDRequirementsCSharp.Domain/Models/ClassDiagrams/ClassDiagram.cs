@@ -31,7 +31,7 @@ namespace GSDRequirementsCSharp.Domain
         }
 
         public virtual SpecificationItem SpecificationItem { get; set; }
-
+        
         VersionKey IEntity<VersionKey>.Id
         {
             get

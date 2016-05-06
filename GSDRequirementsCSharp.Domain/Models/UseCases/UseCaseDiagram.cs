@@ -18,8 +18,6 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public virtual SpecificationItem SpecificationItem { get; set; }
 
-        public Guid SpecificationItemId { get; set; }
-
         public Project Project { get; set; }
 
         public Guid ProjectId { get; set; }

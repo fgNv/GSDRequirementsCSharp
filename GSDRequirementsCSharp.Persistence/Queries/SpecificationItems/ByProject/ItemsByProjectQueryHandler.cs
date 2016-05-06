@@ -22,7 +22,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.ByProject
         {
             var items = _context.SpecificationItems
                                 .Include(s => s.Package.Contents)
-                                .Include(s => s.ClassDiagrams.Select(cd => cd.Contents))
                                 .Where(s => s.Package.ProjectId == query.ProjectId &&
                                             s.Active)
                                 .Select(SpecificationItemViewModel.FromModel)

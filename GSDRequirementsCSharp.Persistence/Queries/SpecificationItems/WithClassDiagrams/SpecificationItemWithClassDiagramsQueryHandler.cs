@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithClassDiagrams
 {
-    class SpecificationItemWithClassDiagramsQueryHandler : IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItem>
+    class SpecificationItemWithClassDiagramsQueryHandler : IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItemWithClassDiagramsQueryResult>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -19,11 +19,25 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithClass
             _context = context;
         }
 
-        public SpecificationItem Handle(SpecificationItemWithClassDiagramsQuery query)
+        public SpecificationItemWithClassDiagramsQueryResult Handle(SpecificationItemWithClassDiagramsQuery query)
         {
             return _context.SpecificationItems
-                           .Include(si => si.ClassDiagrams)
-                           .FirstOrDefault(si => si.Id == query.Id);
+                           .Where(si => si.Id == query.Id)
+                           .Join(_context.ClassDiagrams,
+                                 si => si.Id,
+                                 cd => cd.Id,
+                                 (si, cd) => new
+                                 {
+                                     ClassDiagram = cd,
+                                     SpecificationItem = si
+                                 })
+                           .GroupBy(r => r.SpecificationItem.Id)
+                           .Select(r => new SpecificationItemWithClassDiagramsQueryResult
+                           {
+                               SpecificationItem = r.FirstOrDefault().SpecificationItem,
+                               ClassDiagrams = r.Select(i => i.ClassDiagram)
+                           })
+                           .FirstOrDefault();
         }
     }
 }

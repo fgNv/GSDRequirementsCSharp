@@ -155,6 +155,14 @@
     <Compile Include="Migrations\201605052228421_use-case-diagram-position.Designer.cs">
       <DependentUpon>201605052228421_use-case-diagram-position.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605061255424_remove-use-case-specification-item-relation.cs" />
+    <Compile Include="Migrations\201605061255424_remove-use-case-specification-item-relation.Designer.cs">
+      <DependentUpon>201605061255424_remove-use-case-specification-item-relation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605061257071_refactoring-specification-item-relations.cs" />
+    <Compile Include="Migrations\201605061257071_refactoring-specification-item-relations.Designer.cs">
+      <DependentUpon>201605061257071_refactoring-specification-item-relations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
@@ -273,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605052228421_use-case-diagram-position.resx">
       <DependentUpon>201605052228421_use-case-diagram-position.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605061255424_remove-use-case-specification-item-relation.resx">
+      <DependentUpon>201605061255424_remove-use-case-specification-item-relation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605061257071_refactoring-specification-item-relations.resx">
+      <DependentUpon>201605061257071_refactoring-specification-item-relations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

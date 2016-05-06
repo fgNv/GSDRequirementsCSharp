@@ -58,6 +58,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
 
             var useCaseDiagram = new UseCaseDiagram();
             useCaseDiagram.Id = id;
+            
             useCaseDiagram.SpecificationItem = specificationItem;
             useCaseDiagram.ProjectId = projectId.Value;
             useCaseDiagram.Version = 1;

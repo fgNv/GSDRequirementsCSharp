@@ -16,14 +16,14 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
     {
         private readonly IRepository<Requirement, VersionKey> _requirementRepository;
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
-        private readonly IQueryHandler<SpecificationItemWithRequirementsQuery,SpecificationItem> _specificationItemWithRequirementsQueryHandler;
+        private readonly IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItemWithRequirementsQueryResult> _specificationItemWithRequirementsQueryHandler;
         private readonly IRepository<Package, Guid> _packageRepository;
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
 
         public CreateRequirementVersionCommandHandler(
             IRepository<Requirement, VersionKey> requirementRepository,
             IRepository<RequirementContent, LocaleKey> requirementContentRepository,
-            IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItem> specificationItemWithRequirementsQueryHandler,
+            IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItemWithRequirementsQueryResult> specificationItemWithRequirementsQueryHandler,
             IRepository<Package, Guid> packageRepository,
             ICurrentUserRetriever<User> currentUserRetriever
             )
@@ -37,16 +37,16 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 
         public void Handle(CreateRequirementVersionCommand command)
         {
-            var specificationItem = _specificationItemWithRequirementsQueryHandler.Handle(command.Id);
-            var latestVersion = specificationItem.Requirements.FirstOrDefault(s => s.IsLastVersion);
-            foreach(var oldRequirementVersion in specificationItem.Requirements)
+            var queryResult = _specificationItemWithRequirementsQueryHandler.Handle(command.Id);
+            var latestVersion = queryResult.Requirements.FirstOrDefault(s => s.IsLastVersion);
+            foreach(var oldRequirementVersion in queryResult.Requirements)
             {
                 oldRequirementVersion.IsLastVersion = false;
             }
 
             var package = _packageRepository.Get(command.PackageId.Value);
             if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
-            specificationItem.Package = package;
+            queryResult.SpecificationItem.Package = package;
 
             var currentUser = _currentUserRetriever.Get();
 
@@ -59,7 +59,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             requirement.ProjectId = latestVersion.ProjectId;
             requirement.Rank = command.Rank.Value;
             
-            requirement.SpecificationItem = specificationItem;
+            requirement.SpecificationItem = queryResult.SpecificationItem;
             requirement.CreatorId = latestVersion.CreatorId;
             requirement.Version = latestVersion.Version + 1;
             requirement.Type = latestVersion.Type;
