@@ -4,5 +4,6 @@
         public sourceId: any
         public targetId: any
         public type: any
+        public label: string 
     }
 }

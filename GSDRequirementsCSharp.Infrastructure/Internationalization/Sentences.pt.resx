@@ -936,4 +936,7 @@
   <data name="include" xml:space="preserve">
     <value>Incluir</value>
   </data>
+  <data name="label" xml:space="preserve">
+    <value>Rótulo</value>
+  </data>
 </root>

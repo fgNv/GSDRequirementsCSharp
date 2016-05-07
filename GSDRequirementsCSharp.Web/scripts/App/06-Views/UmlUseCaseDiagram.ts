@@ -156,14 +156,19 @@
             });
 
             paper.on('cell:pointerclick', (cellView) => {
+                var cellViewVectorized = V(cellView.el);
+                if (cellViewVectorized.hasClass('link')) {
+                    return;
+                }
+
                 _.each(graph.getElements(), function (el) {
                     var vectorized = V(paper.findViewByModel(el).el);
                     if (vectorized.hasClass("selectedCell")) {
                         vectorized.removeClass("selectedCell")
                     }
                 })
-
-                V(cellView.el).addClass('selectedCell')
+                
+                cellViewVectorized.addClass('selectedCell')
                 if (cellClickCallback) {
                     cellClickCallback(cellView)
                 }
@@ -179,35 +184,38 @@
             var isSelfReference = sourceId == targetId
 
             var cell = null
-
+            
             switch (relationData.type) {
-                case Models.RelationType.Aggregation:
-                    cell = new joint.shapes.uml.Aggregation({
-                        source: { id: sourceId },
-                        target: { id: targetId }
-                    })
-                    break;
-                case Models.RelationType.Association:
+                case Models.UseCasesRelationType.association:
                     cell = new joint.shapes.uml.Association({
                         source: { id: sourceId },
-                        target: { id: targetId }
+                        target: { id: targetId },
+                        labels: [
+                            { position: 0.5, attrs: { text: { text: relationData.label } } }
+                        ]
                     })
                     break;
-                case Models.RelationType.Composition:
-                    return new joint.shapes.uml.Composition({
-                        source: { id: sourceId },
-                        target: { id: targetId }
-                    })
-                case Models.RelationType.Inheritance:
-                    cell = new joint.shapes.uml.Generalization({
-                        source: { id: sourceId },
-                        target: { id: targetId }
-                    })
-                    break;
-                case Models.RelationType.Realization:
+                case Models.UseCasesRelationType.extend:
                     cell = new joint.shapes.uml.Implementation({
                         source: { id: sourceId },
+                        target: { id: targetId },
+                        labels: [
+                            { position: 0.5, attrs: { text: { text: "<<extend>>" } } }
+                        ]
+                    })
+                    break;
+                case Models.UseCasesRelationType.generalization:
+                    return new joint.shapes.uml.Generalization({
+                        source: { id: sourceId },
                         target: { id: targetId }
+                    })
+                case Models.UseCasesRelationType.include:
+                    cell = new joint.shapes.uml.Implementation({
+                        source: { id: sourceId },
+                        target: { id: targetId },
+                        labels: [
+                            { position: 0.5, attrs: { text: { text: "<<include>>" } } }
+                        ]
                     })
                     break;
             }

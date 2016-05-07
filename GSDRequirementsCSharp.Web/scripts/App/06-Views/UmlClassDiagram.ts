@@ -163,19 +163,31 @@
                 case Models.RelationType.Aggregation:
                     cell = new joint.shapes.uml.Aggregation({
                         source: { id: sourceId },
-                        target: { id: targetId }
+                        target: { id: targetId },
+                        labels: [
+                            { position: 25, attrs: { text: { text: relationData.sourceMultiplicity } } },
+                            { position: -25, attrs: { text: { text: relationData.targetMultiplicity } } }
+                        ]
                     })
                     break;
                 case Models.RelationType.Association:
                     cell = new joint.shapes.uml.Association({
                         source: { id: sourceId },
-                        target: { id: targetId }
+                        target: { id: targetId },
+                        labels: [
+                            { position: 25, attrs: { text: { text: relationData.sourceMultiplicity } } },
+                            { position: -25, attrs: { text: { text: relationData.targetMultiplicity } } }
+                        ]
                     })
                     break;
                 case Models.RelationType.Composition:
                     return new joint.shapes.uml.Composition({
                         source: { id: sourceId },
-                        target: { id: targetId }
+                        target: { id: targetId },
+                        labels: [
+                            { position: 25, attrs: { text: { text: relationData.sourceMultiplicity } } },
+                            { position: -25, attrs: { text: { text: relationData.targetMultiplicity } } }
+                        ]
                     })
                 case Models.RelationType.Inheritance:
                     cell = new joint.shapes.uml.Generalization({
@@ -237,6 +249,11 @@
             });
 
             paper.on('cell:pointerclick', (cellView) => {
+                var cellViewVectorized = V(cellView.el);
+                if (cellViewVectorized.hasClass('link')) {
+                    return;
+                }
+
                 _.each(graph.getElements(), function (el) {
                     var vectorized = V(paper.findViewByModel(el).el);
                     if (vectorized.hasClass("selectedCell")) {

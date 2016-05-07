@@ -16,6 +16,7 @@
         <tr>
             <th>@Sentences.source</th>
             <th>@Sentences.target</th>
+            <th>@Sentences.label</th>
             <th>@Sentences.relationType</th>
             <th></th>
         </tr>
@@ -23,9 +24,9 @@
     <tbody>
         <tr data-ng-repeat="relation in relationsOnEdit">
             <td>
-                <div class="form-group">                    
+                <div class="form-group">
                     <select data-ng-options="entity.cell.id as entity.name for
-                                             entity in getRelationEntityOptions(relation)"                            
+                                             entity in getRelationEntityOptions(relation)"
                             class="form-control"
                             data-ng-model="relation.sourceId"></select>
                 </div>
@@ -36,6 +37,13 @@
                                              entity in getRelationEntityOptions(relation)"
                             class="form-control"
                             data-ng-model="relation.targetId"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group" data-ng-if="isUseCaseActorRelation(relation)">
+                    <input type="text" 
+                           class="form-control"  
+                           data-ng-model="relation.label"/>
                 </div>
             </td>
             <td>

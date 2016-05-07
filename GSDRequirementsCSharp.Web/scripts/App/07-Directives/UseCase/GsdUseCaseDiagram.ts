@@ -31,6 +31,7 @@
         newUseCase: () => void
         isDiagramVisible: () => boolean
         isUseCasesRelation: (r: Models.UseCaseRelationship) => boolean
+        isUseCaseActorRelation: (r: Models.UseCaseRelationship) => boolean
         pendingRequests: number
         relationsOnEdit: Array<Object>
         removeSelectedActor: (actor) => void
@@ -106,7 +107,10 @@
 
                 this.LoadPackagesOptions(PackageResource, $scope)
 
-                $scope.relationTypeOptions = Globals.enumerateEnum(Models.UseCasesRelationType)
+                $scope.relationTypeOptions =
+                    _.filter(Globals.enumerateEnum(Models.UseCasesRelationType),
+                        (o) => o.value != Models.UseCasesRelationType.association)
+
                 $scope.utility = <utility>{}
                 $scope.utility.contentContainsLocale =
                     (i) => $scope.content &&
@@ -165,9 +169,9 @@
                         $timeout((): void => { graph.addCell(cell) })
                     })
                 }
+                
+                $scope.isUseCaseActorRelation = (r) => {
 
-                $scope.isUseCasesRelation = (r) => {
-                  
                     if (!r) {
                         return false
                     }
@@ -181,7 +185,27 @@
                     }
 
                     return source.getType() == Models.UseCaseEntityType.useCase &&
-                           target.getType() == Models.UseCaseEntityType.useCase
+                        target.getType() == Models.UseCaseEntityType.actor ||
+                        source.getType() == Models.UseCaseEntityType.actor &&
+                        target.getType() == Models.UseCaseEntityType.useCase
+                }
+
+                $scope.isUseCasesRelation = (r) => {
+
+                    if (!r) {
+                        return false
+                    }
+                    var source = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities,
+                        (e) => e.cell.id == r.sourceId)
+                    var target = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities,
+                        (e) => e.cell.id == r.targetId)
+
+                    if (!source || !target) {
+                        return false;
+                    }
+
+                    return source.getType() == Models.UseCaseEntityType.useCase &&
+                        target.getType() == Models.UseCaseEntityType.useCase
                 }
 
                 $scope.saveRelations = () => {
@@ -195,6 +219,15 @@
                     $scope.useCaseDiagram.relations = []
 
                     _.each($scope.relationsOnEdit, (relation: Models.UseCaseRelationship) => {
+                        var source = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities, e => e.cell.id == relation.sourceId)
+                        var target = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities, e => e.cell.id == relation.targetId)
+
+                        if (source.getType() == Models.UseCaseEntityType.actor && target.getType() == Models.UseCaseEntityType.actor) {
+                            relation.type = Models.UseCasesRelationType.generalization
+                        } else if (source.getType() != Models.UseCaseEntityType.useCase || target.getType() != Models.UseCaseEntityType.useCase) {
+                            relation.type = Models.UseCasesRelationType.association
+                        }
+
                         var cell = Views.UseCaseDiagram.buildRelation(relation)
                         if (!cell) return
                         relation.cell = cell
@@ -216,7 +249,7 @@
                 $scope.selectActor = (id) => {
                     var actorToBeSelected = _.find($scope.useCaseDiagram.entities,
                         (c) => c.cell.id == id);
-                    
+
                     if (!actorToBeSelected)
                         return;
                     $scope.selectedActor = actorToBeSelected
@@ -226,7 +259,7 @@
                 $scope.selectUseCase = (id) => {
                     var useCaseToBeSelected = _.find($scope.useCaseDiagram.entities,
                         (c) => c.cell.id == id);
-                    
+
                     if (!useCaseToBeSelected)
                         return;
                     $scope.selectedUseCase = useCaseToBeSelected
@@ -324,7 +357,7 @@
                             _.each(newValue.entities, (a) => {
                                 var cell = a.type == Models.UseCaseEntityType.actor ?
                                     Views.UseCaseDiagram.buildActor(a) :
-                                    Views.UseCaseDiagram.buildUseCase(a) 
+                                    Views.UseCaseDiagram.buildUseCase(a)
 
                                 a.cell = cell
                                 graph.addCell(cell)
@@ -399,7 +432,7 @@
                     if (data.cell != null) { removeActor(data) }
                     var cell = Views.UseCaseDiagram.buildActor(data)
                     if (!cell) return
-                    
+
                     $scope.currentActor.cell = cell
                     $scope.useCaseDiagram.entities.push($scope.currentActor)
 
