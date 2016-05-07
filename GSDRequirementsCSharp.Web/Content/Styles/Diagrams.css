@@ -2,7 +2,7 @@
     border: solid #BABACA 1px;
 }
 
-.selectedCell rect {
+svg .selectedCell rect, svg .selectedCell ellipse {
     stroke: #3A9A3A;
     stroke-width: 3;
 }

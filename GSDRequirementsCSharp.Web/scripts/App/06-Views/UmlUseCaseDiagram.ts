@@ -13,8 +13,7 @@
 
     var useCaseSvg =
         `<g>
-          <ellipse cx="0" cy="0" rx="100" ry="60" 
-                   style="fill='white';stroke:black;stroke-width:2;" />          
+          <ellipse />          
           <text class="name" />
         </g>`;
 
@@ -58,6 +57,15 @@
                     stroke: 'black',
                     width: 100,
                     height: 60
+                },
+                'ellipse': {
+                    cx: 0,
+                    cy: 0,
+                    rx: 100,
+                    ry: 60,
+                    fill: '#FFFFFF',
+                    stroke: 'black',
+                    'stroke-width' : 2
                 },
                 'text': {
                     'font-size': 12,

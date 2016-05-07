@@ -142,7 +142,8 @@
             @if (@ViewBag.UserContact != null)
             {
                 <li style="margin-right: 19px; ">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown"
+                       role="button">
                         <span class="glyphicon glyphicon-user"></span>
                         <strong>@HttpContext.Current.User.Identity.Name</strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
