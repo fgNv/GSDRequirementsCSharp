@@ -313,6 +313,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Path&quot; is a required field.
+        /// </summary>
+        public static string pathIsARequiredField {
+            get {
+                return ResourceManager.GetString("pathIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Phone&quot; must contain only numbers.
         /// </summary>
         public static string phoneMustContainOnlyNumbers {

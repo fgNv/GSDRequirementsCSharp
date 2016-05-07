@@ -22,6 +22,10 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         [Required]
         [StringLength(65535)]
+        public string Path { get; set; }
+
+        [Required]
+        [StringLength(65535)]
         public string Description { get; set; }
 
         public UseCase UseCase { get; set; }

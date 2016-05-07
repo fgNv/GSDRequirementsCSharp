@@ -77,6 +77,16 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 _useCaseContentRepository.Add(useCaseContent);
             }
 
+            foreach(var postCondition in useCaseData.PostConditions)
+            {
+
+            }
+
+            foreach (var preCondition in useCaseData.PreConditions)
+            {
+
+            }
+
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
         }

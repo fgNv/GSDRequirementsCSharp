@@ -201,6 +201,9 @@
   <data name="passwordIsARequiredField" xml:space="preserve">
     <value>"Password" is a required field</value>
   </data>
+  <data name="pathIsARequiredField" xml:space="preserve">
+    <value>"Path" is a required field</value>
+  </data>
   <data name="phoneMustContainOnlyNumbers" xml:space="preserve">
     <value>"Phone" must contain only numbers</value>
   </data>

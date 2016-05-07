@@ -97,6 +97,10 @@
     <Compile Include="Mappings\UseCases\UseCaseEntityMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseEntityRelationMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePostConditionContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePostConditionMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePreConditionContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePreConditionMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCasesRelationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Migrations\201604051129040_initial-migration.cs" />
@@ -162,6 +166,10 @@
     <Compile Include="Migrations\201605061257071_refactoring-specification-item-relations.cs" />
     <Compile Include="Migrations\201605061257071_refactoring-specification-item-relations.Designer.cs">
       <DependentUpon>201605061257071_refactoring-specification-item-relations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605071322378_use-case-pre-post-conditions.cs" />
+    <Compile Include="Migrations\201605071322378_use-case-pre-post-conditions.Designer.cs">
+      <DependentUpon>201605071322378_use-case-pre-post-conditions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605061257071_refactoring-specification-item-relations.resx">
       <DependentUpon>201605061257071_refactoring-specification-item-relations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605071322378_use-case-pre-post-conditions.resx">
+      <DependentUpon>201605071322378_use-case-pre-post-conditions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

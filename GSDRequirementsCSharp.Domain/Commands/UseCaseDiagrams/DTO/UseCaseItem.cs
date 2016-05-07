@@ -13,5 +13,9 @@ namespace GSDRequirementsCSharp.Domain.Commands
         public Cell Cell { get; set; }
         [ValidateCollection]
         public IEnumerable<UseCaseContentItem> Contents { get; set; }
+        [ValidateCollection]
+        public IEnumerable<PostConditionData> PostConditions { get; set; }
+        [ValidateCollection]
+        public IEnumerable<PreConditionData> PreConditions { get; set; }
     }
 }

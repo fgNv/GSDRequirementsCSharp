@@ -8,6 +8,9 @@ using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.DataHydrators
 {
+    /// <summary>
+    /// Service used to set the unclosed issues of a collection of specification items
+    /// </summary>
     class IssueHydration
     {
         private readonly GSDRequirementsContext _context;

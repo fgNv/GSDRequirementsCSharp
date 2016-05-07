@@ -14,10 +14,14 @@ namespace GSDRequirementsCSharp.Domain
         public UseCaseEntity UseCaseEntity { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public ICollection<UseCasePreCondition> PreConditions { get; set; }
+        public ICollection<UseCasePostCondition> PostConditions { get; set; }
 
         public UseCase()
         {
             Contents = new HashSet<UseCaseContent>();
+            PreConditions = new HashSet<UseCasePreCondition>();
+            PostConditions = new HashSet<UseCasePostCondition>();
         }
     }
 }

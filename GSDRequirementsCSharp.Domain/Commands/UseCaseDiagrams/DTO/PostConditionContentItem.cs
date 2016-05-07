@@ -8,23 +8,16 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO
 {
-    public class UseCaseContentItem
+    public class PostConditionContentItem
     {
-        [Required(
-           ErrorMessageResourceType = typeof(ValidationMessages),
-           ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
-        public string Name { get; set; }
-
-        [Required(
-           ErrorMessageResourceType = typeof(ValidationMessages),
-           ErrorMessageResourceName = nameof(ValidationMessages.descriptionIsARequiredField))]
-        public string Description { get; set; }
-        
-        public string Path { get; set; }
-
         [Required(
             ErrorMessageResourceType = typeof(ValidationMessages),
             ErrorMessageResourceName = nameof(ValidationMessages.localeIsARequiredField))]
         public string Locale { get; set; }
+
+        [Required(
+            ErrorMessageResourceType = typeof(ValidationMessages),
+            ErrorMessageResourceName = nameof(ValidationMessages.descriptionIsARequiredField))]
+        public string Description { get; set; }
     }
 }
