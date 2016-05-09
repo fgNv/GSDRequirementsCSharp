@@ -63,8 +63,10 @@
             this.preConditions = []
             this.postConditions = []
 
-            _.each(GSDRequirements.localesAvailable, (locale) => {
-                this.contentDictionary[locale.name] = {}
+            _.each(GSDRequirements.localesAvailable, (locale: Models.Locale) => {
+                var content = new UseCaseContent()
+                content.locale = locale.name
+                this.contentDictionary[locale.name] = content
             })
 
             if (data) {

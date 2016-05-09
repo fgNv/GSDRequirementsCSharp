@@ -71,13 +71,13 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 oldToNewEntitiesIds[oldId] = newId;
             }
 
-            foreach (var relation in useCaseDiagram.UseCaseRelations)
+            foreach (var relation in useCaseDiagram.UseCasesRelations)
             {
                 relation.SourceId = oldToNewEntitiesIds[relation.SourceId];
                 relation.TargetId = oldToNewEntitiesIds[relation.TargetId];
             }
 
-            foreach (var relation in useCaseDiagram.Relations)
+            foreach (var relation in useCaseDiagram.EntitiesRelations)
             {
                 relation.SourceId = oldToNewEntitiesIds[relation.SourceId];
                 relation.TargetId = oldToNewEntitiesIds[relation.TargetId];

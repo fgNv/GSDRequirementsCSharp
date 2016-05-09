@@ -24,8 +24,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             var useCaseDiagram = _context.UseCaseDiagrams
                                        .Include(cd => cd.Contents)
                                        .Include(cd => cd.Entities)
-                                       .Include(cd => cd.Relations)
-                                       .Include(cd => cd.UseCaseRelations)
+                                       .Include(cd => cd.EntitiesRelations)
+                                       .Include(cd => cd.UseCasesRelations)
                                        .Include(cd => cd.Contents)
                                        .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
 

@@ -146,7 +146,7 @@
                 }
 
                 $scope.addRelation = () => {
-                    $scope.relationsOnEdit.push({})
+                    $scope.relationsOnEdit.push(new Models.UseCaseRelationship())
                 }
 
                 $scope.removeRelation = (relation) => {
@@ -169,7 +169,7 @@
                         $timeout((): void => { graph.addCell(cell) })
                     })
                 }
-                
+
                 $scope.isUseCaseActorRelation = (r) => {
 
                     if (!r) {
@@ -191,7 +191,6 @@
                 }
 
                 $scope.isUseCasesRelation = (r) => {
-
                     if (!r) {
                         return false
                     }
@@ -254,7 +253,7 @@
                         $scope.selectActor(id)
                     } else if (entity.getType() == Models.UseCaseEntityType.useCase) {
                         $scope.selectUseCase(id)
-                    }                    
+                    }
                 }
 
                 $scope.selectActor = (id) => {
@@ -327,6 +326,39 @@
 
                     $scope.useCaseDiagram.contents = contents
 
+                    $scope.useCaseDiagram.actors = _.chain($scope.useCaseDiagram.entities)
+                        .filter((e: Models.IUseCaseEntity) =>
+                            e.getType() == Models.UseCaseEntityType.actor)
+                        .map((e: Models.Actor) => {
+                            e.contents = _.chain(e.contentDictionary)
+                                .filter((c: Models.ActorContent) => c.name)
+                                .map((c, k) => c)
+                                .value()
+                            return e
+                        })
+                        .value()
+
+                    $scope.useCaseDiagram.useCases = _.chain($scope.useCaseDiagram.entities)
+                        .filter((e: Models.IUseCaseEntity) =>
+                            e.getType() == Models.UseCaseEntityType.useCase)
+                        .map((e: Models.UseCase) => {
+                            e.contents = _.chain(e.contentDictionary)
+                                .filter((c: Models.UseCaseContent) => c.name)
+                                .map((c, k) => c)
+                                .value()
+
+                            return e
+                        })
+                        .value()
+
+                    $scope.useCaseDiagram.useCasesRelations = _.filter(
+                        $scope.useCaseDiagram.relations,
+                        (e: Models.UseCaseRelationship) => e.isUseCasesRelation($scope.useCaseDiagram))
+
+                    $scope.useCaseDiagram.entitiesRelations = _.filter(
+                        $scope.useCaseDiagram.relations,
+                        (e: Models.UseCaseRelationship) => !e.isUseCasesRelation($scope.useCaseDiagram))
+
                     var promise = $scope.useCaseDiagram.id ?
                         UseCaseDiagramResource.update($scope.useCaseDiagram).$promise :
                         UseCaseDiagramResource.save($scope.useCaseDiagram).$promise
@@ -336,13 +368,11 @@
                         if ($scope.afterSave) { $scope.afterSave() }
                         window.location.href = "#"
                         $scope.useCaseDiagram = null
+                    }).catch((err): void => {
+                        Notification.notifyError(Sentences.errorSavingClassDiagram, err.data.messages)
+                    }).finally((): void => {
+                        $scope.pendingRequests--
                     })
-                        .catch((err): void => {
-                            Notification.notifyError(Sentences.errorSavingClassDiagram, err.data.messages)
-                        })
-                        .finally((): void => {
-                            $scope.pendingRequests--
-                        })
                 }
 
                 $scope.$watch('useCaseDiagram', (newValue: Models.UseCaseDiagram) => {

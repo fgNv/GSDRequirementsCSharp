@@ -33,6 +33,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
         public IEnumerable<UseCasesRelationItem> UseCasesRelations { get; set; }
 
         [ValidateCollection]
-        public IEnumerable<UseCaseEntitiesRelationItem> UseCaseEntitiesRelations { get; set; }
+        public IEnumerable<UseCaseEntitiesRelationItem> EntitiesRelations { get; set; }
     }
 }

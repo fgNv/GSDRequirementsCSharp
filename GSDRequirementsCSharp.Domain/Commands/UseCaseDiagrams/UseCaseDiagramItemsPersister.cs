@@ -15,6 +15,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
         private readonly IRepository<UseCase, Guid> _useCaseRepository;
         private readonly IRepository<UseCaseContent, LocaleKey> _useCaseContentRepository;
         private readonly IRepository<Actor, Guid> _actorRepository;
+        private readonly IRepository<UseCaseEntity, Guid> _useCaseEntityRepository;
         private readonly IRepository<ActorContent, LocaleKey> _actorContentRepository;
         private readonly IRepository<UseCasesRelation, Guid> _useCasesRelationRepository;
         private readonly IRepository<UseCaseEntityRelation, Guid> _useCaseEntityRelationRepository;
@@ -23,6 +24,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                                             IRepository<UseCase, Guid> useCaseRepository,
                                             IRepository<UseCaseContent, LocaleKey> useCaseContentRepository,
                                             IRepository<Actor, Guid> actorRepository,
+                                            IRepository<UseCaseEntity, Guid> useCaseEntityRepository,
                                             IRepository<ActorContent, LocaleKey> actorContentRepository,
                                             IRepository<UseCasesRelation, Guid> useCasesRelationRepository,
                                             IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository)
@@ -34,9 +36,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _actorContentRepository = actorContentRepository;
             _useCasesRelationRepository = useCasesRelationRepository;
             _useCaseEntityRelationRepository = useCaseEntityRelationRepository;
+            _useCaseEntityRepository = useCaseEntityRepository;
         }
-        
-        private void PersistActor(UseCaseDiagram useCaseEntity, ActorItem actorData)
+
+        private void PersistActor(UseCaseDiagram useCaseDiagram, ActorItem actorData)
         {
             var actor = new Actor();
             actor.Id = actorData.Cell.Id;
@@ -54,14 +57,17 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 _actorContentRepository.Add(actorContent);
             }
 
-            useCaseEntity.Entities.Add(actor);
+            actor.UseCaseDiagram = useCaseDiagram;
+            useCaseDiagram.Entities.Add(actor);
             _actorRepository.Add(actor);
+            actor.UseCaseEntity = actor;
+            _useCaseEntityRepository.Add(actor);
         }
 
         private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData)
         {
             var useCaseEntity = new UseCase();
-            
+
             useCaseEntity.Id = useCaseData.Cell.Id;
             useCaseEntity.X = useCaseData.Cell.Position.X;
             useCaseEntity.Y = useCaseData.Cell.Position.Y;
@@ -77,7 +83,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 _useCaseContentRepository.Add(useCaseContent);
             }
 
-            foreach(var postCondition in useCaseData.PostConditions)
+            foreach (var postCondition in useCaseData.PostConditions)
             {
 
             }
@@ -87,8 +93,11 @@ namespace GSDRequirementsCSharp.Domain.Commands
 
             }
 
+            useCaseEntity.UseCaseDiagram = useCaseDiagram;
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
+            useCaseEntity.UseCaseEntity = useCaseEntity;
+            _useCaseEntityRepository.Add(useCaseEntity);
         }
 
         public void Persist(UseCaseDiagram useCaseDiagram, CreateUseCaseDiagramCommand command)
@@ -109,14 +118,18 @@ namespace GSDRequirementsCSharp.Domain.Commands
             foreach (var actorData in command.Actors)
                 PersistActor(useCaseDiagram, actorData);
 
-            foreach (var relationData in command.UseCaseEntitiesRelations)
+            foreach (var relationData in command.EntitiesRelations)
             {
                 var useCasesRelation = new UseCaseEntityRelation();
                 useCasesRelation.Id = Guid.NewGuid();
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
+                useCasesRelation.Source = useCaseDiagram.Entities
+                                                        .FirstOrDefault(e => e.Id == relationData.SourceId.Value);
+                useCasesRelation.Target = useCaseDiagram.Entities
+                                                        .FirstOrDefault(e => e.Id == relationData.TargetId.Value);
 
-                useCaseDiagram.Relations.Add(useCasesRelation);
+                useCaseDiagram.EntitiesRelations.Add(useCasesRelation);
                 _useCaseEntityRelationRepository.Add(useCasesRelation);
             }
 
@@ -124,11 +137,16 @@ namespace GSDRequirementsCSharp.Domain.Commands
             {
                 var useCasesRelation = new UseCasesRelation();
                 useCasesRelation.Id = Guid.NewGuid();
-                useCasesRelation.SourceId = relationData.SourceId.Value;                
-                useCasesRelation.TargetId = relationData.TargetId.Value;                
+                useCasesRelation.SourceId = relationData.SourceId.Value;
+                useCasesRelation.TargetId = relationData.TargetId.Value;
                 useCasesRelation.Type = relationData.Type.Value;
 
-                useCaseDiagram.UseCaseRelations.Add(useCasesRelation);
+                useCasesRelation.Source = useCaseDiagram.Entities
+                                                        .FirstOrDefault(e => e.Id == relationData.SourceId.Value) as UseCase;
+                useCasesRelation.Target = useCaseDiagram.Entities
+                                                        .FirstOrDefault(e => e.Id == relationData.TargetId.Value) as UseCase;
+
+                useCaseDiagram.UseCasesRelations.Add(useCasesRelation);
                 _useCasesRelationRepository.Add(useCasesRelation);
             }
         }

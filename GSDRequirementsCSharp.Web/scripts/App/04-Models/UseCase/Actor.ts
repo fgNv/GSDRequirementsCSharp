@@ -60,8 +60,10 @@
         public constructor(data: Object = null) {
             this.contentDictionary = {}
 
-            _.each(GSDRequirements.localesAvailable, (locale) => {
-                this.contentDictionary[locale.name] = {}
+            _.each(GSDRequirements.localesAvailable, (locale: Models.Locale) => {
+                var c = new ActorContent()
+                c.locale = locale.name
+                this.contentDictionary[locale.name] = c
             })
 
             if (data) {

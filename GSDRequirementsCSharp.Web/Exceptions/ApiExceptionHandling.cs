@@ -5,6 +5,7 @@ using GSDRequirementsCSharp.Infrastructure.Validation;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,6 +25,17 @@ namespace GSDRequirementsCSharp.Web.Exceptions
                      .ContractResolver = new CamelCasePropertyNamesContractResolver();
             var content = new ObjectContent<ExceptionResponse>(exceptionMessage, formatter, "application/json");
             return new HttpResponseMessage { Content = content };
+        }
+
+        public static void Handle(this DbEntityValidationException e, HttpActionExecutedContext context)
+        {
+            var errors = e.EntityValidationErrors;
+            var messages = errors.Where(i => !i.IsValid)
+                                 .SelectMany(i => i.ValidationErrors.Select(err => err.ErrorMessage));
+
+            var response = BuildContent(messages);
+            response.StatusCode = HttpStatusCode.InternalServerError;
+            context.Response = response;
         }
 
         public static void Handle(this Exception e, HttpActionExecutedContext context)

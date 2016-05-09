@@ -28,9 +28,9 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public ICollection<UseCases.UseCaseEntity> Entities { get; set; }
 
-        public ICollection<UseCaseEntityRelation> Relations { get; set; }
+        public ICollection<UseCaseEntityRelation> EntitiesRelations { get; set; }
 
-        public ICollection<UseCasesRelation> UseCaseRelations { get; set; }
+        public ICollection<UseCasesRelation> UseCasesRelations { get; set; }
 
         public ICollection<UseCaseDiagramContent> Contents { get; set; }
 
@@ -45,9 +45,9 @@ namespace GSDRequirementsCSharp.Domain.Models
         public UseCaseDiagram()
         {
             Entities = new HashSet<UseCases.UseCaseEntity>();
-            Relations = new HashSet<UseCaseEntityRelation>();
+            EntitiesRelations = new HashSet<UseCaseEntityRelation>();
             Contents = new HashSet<UseCaseDiagramContent>();
-            UseCaseRelations = new HashSet<UseCasesRelation>();
+            UseCasesRelations = new HashSet<UseCasesRelation>();
         }
     }
 }
