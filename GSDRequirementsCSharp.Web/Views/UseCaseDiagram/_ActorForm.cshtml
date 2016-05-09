@@ -22,14 +22,14 @@
                                 {{$select.selected}}
                                 <span class="glyphicon glyphicon-ok"
                                       style="color: #008A21"
-                                      data-ng-show="utility.contentContainsLocale($select.selected)">
+                                      data-ng-show="currentActor.containsLocale($select.selected)">
                                 </span>
                             </ui-select-match>
                             <ui-select-choices repeat="locale in locales track by locale">
                                 <span ng-bind="locale"></span>
                                 <span class="glyphicon glyphicon-ok"
                                       style="color: #008A21"
-                                      data-ng-show="utility.contentContainsLocale(locale)">
+                                      data-ng-show="currentActor.containsLocale(locale)">
                                 </span>
                             </ui-select-choices>
                         </ui-select>
@@ -42,7 +42,8 @@
                                required=""
                                class="form-control"
                                id="usecase-name"
-                               data-ng-model="currentActor.name" />
+                               placeholder="{{currentActor.getName()}}"
+                               data-ng-model="currentActor.contentDictionary[contentData.locale].name" />
                     </div>
                 </div>
             </div>

@@ -351,8 +351,14 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\Actor.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\ActorContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\IUseCaseEntity.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PostCondition.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PostConditionContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PreCondition.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PreConditionContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCase.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseEntityType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseRelationship.ts" />
@@ -412,7 +418,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49805</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49805/</IISUrl>
+          <IISUrl>http://localhost:49806/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

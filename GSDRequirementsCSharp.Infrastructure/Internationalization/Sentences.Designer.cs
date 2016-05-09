@@ -214,6 +214,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add post condition.
+        /// </summary>
+        public static string addPostCondition {
+            get {
+                return ResourceManager.GetString("addPostCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add pre condition.
+        /// </summary>
+        public static string addPreCondition {
+            get {
+                return ResourceManager.GetString("addPreCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add project.
         /// </summary>
         public static string addProject {
@@ -1609,6 +1627,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No post conditions registered.
+        /// </summary>
+        public static string noPostConditionsRegistered {
+            get {
+                return ResourceManager.GetString("noPostConditionsRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No pre conditions registered.
+        /// </summary>
+        public static string noPreConditionsRegistered {
+            get {
+                return ResourceManager.GetString("noPreConditionsRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No project in context.
         /// </summary>
         public static string noProjectInContext {
@@ -1780,6 +1816,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        public static string path {
+            get {
+                return ResourceManager.GetString("path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Permissions.
         /// </summary>
         public static string permissions {
@@ -1803,6 +1848,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string phone {
             get {
                 return ResourceManager.GetString("phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post Condition.
+        /// </summary>
+        public static string postCondition {
+            get {
+                return ResourceManager.GetString("postCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre Conditions.
+        /// </summary>
+        public static string preConditions {
+            get {
+                return ResourceManager.GetString("preConditions", resourceCulture);
             }
         }
         

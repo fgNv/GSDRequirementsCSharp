@@ -89,26 +89,26 @@
             return position;
         }
 
-        export function buildActor(actor) {
+        export function buildActor(actor: Models.Actor) {
             return new joint.shapes.uml.Actor({
                 position: getPosition(actor),
-                name: actor.name,
+                name: actor.getName(),
                 attrs: {
                     '.name': {
-                        text: actor.name
+                        text: actor.getName()
                     }
                 }
             });
         }
 
         export function buildUseCase(useCase: Models.UseCase) {
-            var name = joint.util.breakText(useCase.name, {
+            var name = joint.util.breakText(useCase.getName(), {
                 width: 190
             });
 
             return new joint.shapes.uml.UseCase({
                 position: getPosition(useCase),
-                name: useCase.name,
+                name: useCase.getName(),
                 attrs: {
                     '.name': {
                         text: name

@@ -939,4 +939,25 @@
   <data name="label" xml:space="preserve">
     <value>Label</value>
   </data>
+  <data name="path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="addPostCondition" xml:space="preserve">
+    <value>Add post condition</value>
+  </data>
+  <data name="addPreCondition" xml:space="preserve">
+    <value>Add pre condition</value>
+  </data>
+  <data name="noPostConditionsRegistered" xml:space="preserve">
+    <value>No post conditions registered</value>
+  </data>
+  <data name="noPreConditionsRegistered" xml:space="preserve">
+    <value>No pre conditions registered</value>
+  </data>
+  <data name="postCondition" xml:space="preserve">
+    <value>Post Condition</value>
+  </data>
+  <data name="preConditions" xml:space="preserve">
+    <value>Pre Conditions</value>
+  </data>
 </root>

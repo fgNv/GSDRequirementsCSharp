@@ -939,4 +939,25 @@
   <data name="label" xml:space="preserve">
     <value>Rótulo</value>
   </data>
+  <data name="path" xml:space="preserve">
+    <value>Narrativa</value>
+  </data>
+  <data name="addPostCondition" xml:space="preserve">
+    <value>Adicionar pós condição</value>
+  </data>
+  <data name="addPreCondition" xml:space="preserve">
+    <value>Adicionar pré condição</value>
+  </data>
+  <data name="noPostConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pós condição cadastrada</value>
+  </data>
+  <data name="noPreConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pré condição cadastrada</value>
+  </data>
+  <data name="postCondition" xml:space="preserve">
+    <value>Pós Condição</value>
+  </data>
+  <data name="preConditions" xml:space="preserve">
+    <value>Pré Condições</value>
+  </data>
 </root>

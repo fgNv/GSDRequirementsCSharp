@@ -19,12 +19,10 @@ namespace GSDRequirementsCSharp.Domain.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-
-        [Required]
+        
         [StringLength(65535)]
         public string Path { get; set; }
-
-        [Required]
+        
         [StringLength(65535)]
         public string Description { get; set; }
 
