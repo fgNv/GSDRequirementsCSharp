@@ -25,7 +25,7 @@
         <tr data-ng-repeat="relation in relationsOnEdit">
             <td>
                 <div class="form-group">
-                    <select data-ng-options="entity.cell.id as entity.name for
+                    <select data-ng-options="entity.cell.id as entity.getName() for
                                              entity in getRelationEntityOptions(relation)"
                             class="form-control"
                             data-ng-model="relation.sourceId"></select>
@@ -33,7 +33,7 @@
             </td>
             <td>
                 <div class="form-group">
-                    <select data-ng-options="entity.cell.id as entity.name for
+                    <select data-ng-options="entity.cell.id as entity.getName() for
                                              entity in getRelationEntityOptions(relation)"
                             class="form-control"
                             data-ng-model="relation.targetId"></select>

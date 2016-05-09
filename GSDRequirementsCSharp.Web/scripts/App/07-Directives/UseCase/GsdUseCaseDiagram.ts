@@ -240,10 +240,21 @@
                 }
 
                 $scope.selectEntity = (id) => {
-                    if (_.any($scope.useCaseDiagram, (uc) => uc.id == id))
-                        $scope.selectUseCase(id)
-                    else
+                    var entity = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities,
+                        (e) => e.cell.id == id)
+
+                    if (!entity) {
+                        return
+                    }
+
+                    $scope.selectedActor = null
+                    $scope.selectedUseCase = null
+
+                    if (entity.getType() == Models.UseCaseEntityType.actor) {
                         $scope.selectActor(id)
+                    } else if (entity.getType() == Models.UseCaseEntityType.useCase) {
+                        $scope.selectUseCase(id)
+                    }                    
                 }
 
                 $scope.selectActor = (id) => {

@@ -90,7 +90,7 @@
         }
 
         export function buildActor(actor: Models.Actor) {
-            return new joint.shapes.uml.Actor({
+            var newActor = new joint.shapes.uml.Actor({
                 position: getPosition(actor),
                 name: actor.getName(),
                 attrs: {
@@ -99,6 +99,14 @@
                     }
                 }
             });
+
+            if (actor.cell && actor.cell.id) {
+                newActor.set('id', actor.cell.id)
+            } else if (actor.id){
+                newActor.set('id', actor.id)
+            }
+
+            return newActor;
         }
 
         export function buildUseCase(useCase: Models.UseCase) {
@@ -106,7 +114,7 @@
                 width: 190
             });
 
-            return new joint.shapes.uml.UseCase({
+            var newUseCase = new joint.shapes.uml.UseCase({
                 position: getPosition(useCase),
                 name: useCase.getName(),
                 attrs: {
@@ -115,6 +123,14 @@
                     }
                 }
             });
+
+            if (useCase.cell && useCase.cell.id) {
+                newUseCase.set('id', useCase.cell.id)
+            } else if (useCase.id) {
+                newUseCase.set('id', useCase.id)
+            }
+
+            return newUseCase;
         }
 
         var paperElementId = ''

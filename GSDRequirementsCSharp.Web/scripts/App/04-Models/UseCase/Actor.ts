@@ -7,6 +7,7 @@
         public cell: any
         public x: number
         public y: number
+        public id: string
         public contents: Array<ActorContent>
         public contentDictionary: Object
         public currentContentLocale: string

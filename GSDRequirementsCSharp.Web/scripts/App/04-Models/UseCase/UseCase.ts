@@ -7,6 +7,7 @@
         public cell: any
         public x: number
         public y: number
+        public id: string
         public contents: Array<UseCaseContent>
         public preConditions: Array<PreCondition>
         public postConditions: Array<PostCondition>
