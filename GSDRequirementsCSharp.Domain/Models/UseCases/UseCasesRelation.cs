@@ -14,11 +14,9 @@ namespace GSDRequirementsCSharp.Domain.Models
     public class UseCasesRelation : IEntity<Guid>
     {
         public Guid Id { get; set; }
-
-        [Required]
+        
         public UseCase Target { get; set; }
-
-        [Required]
+        
         public UseCase Source { get; set; }
 
         public UseCasesRelationType Type { get; set; }

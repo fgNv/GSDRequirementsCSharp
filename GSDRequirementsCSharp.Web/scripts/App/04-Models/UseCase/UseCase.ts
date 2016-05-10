@@ -56,7 +56,11 @@
                 return
             }
 
-            this.currentContentLocale = this.contents[0].locale
+            if (this.contents.length > 0)
+                this.currentContentLocale = this.contents[0].locale
+            else
+                this.currentContentLocale = GSDRequirements.currentLocale
+
         }
         public constructor(data: Object = null) {
             this.contentDictionary = {}
@@ -71,15 +75,14 @@
 
             if (data) {
                 for (var p in data)
-                    this[p] = data
-
-                _.each(this.contents, (c) => {
+                    this[p] = data[p]
+                
+                _.each(this.contents, (c) : void => {
                     this.contentDictionary[c.locale] = c
                 })
             }
 
             this.setInitialLocale()
-
         }
         public containsLocale(locale: string) {
             var content = <UseCaseContent>this.contentDictionary[locale]

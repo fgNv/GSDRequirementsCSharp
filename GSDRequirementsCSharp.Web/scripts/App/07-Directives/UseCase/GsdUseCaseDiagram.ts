@@ -207,6 +207,19 @@
                         target.getType() == Models.UseCaseEntityType.useCase
                 }
 
+                function determineRelationType(relation: Models.UseCaseRelationship, useCaseDiagram: Models.UseCaseDiagram) {
+                    var source = <Models.IUseCaseEntity>_.find(useCaseDiagram.entities,
+                        e => e.cell.id == relation.sourceId)
+                    var target = <Models.IUseCaseEntity>_.find(useCaseDiagram.entities,
+                        e => e.cell.id == relation.targetId)
+
+                    if (source.getType() == Models.UseCaseEntityType.actor && target.getType() == Models.UseCaseEntityType.actor) {
+                        relation.type = Models.UseCasesRelationType.generalization
+                    } else if (source.getType() != Models.UseCaseEntityType.useCase || target.getType() != Models.UseCaseEntityType.useCase) {
+                        relation.type = Models.UseCasesRelationType.association
+                    }
+                }
+
                 $scope.saveRelations = () => {
                     if (!graph) return
 
@@ -218,14 +231,7 @@
                     $scope.useCaseDiagram.relations = []
 
                     _.each($scope.relationsOnEdit, (relation: Models.UseCaseRelationship) => {
-                        var source = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities, e => e.cell.id == relation.sourceId)
-                        var target = <Models.IUseCaseEntity>_.find($scope.useCaseDiagram.entities, e => e.cell.id == relation.targetId)
-
-                        if (source.getType() == Models.UseCaseEntityType.actor && target.getType() == Models.UseCaseEntityType.actor) {
-                            relation.type = Models.UseCasesRelationType.generalization
-                        } else if (source.getType() != Models.UseCaseEntityType.useCase || target.getType() != Models.UseCaseEntityType.useCase) {
-                            relation.type = Models.UseCasesRelationType.association
-                        }
+                        determineRelationType(relation, $scope.useCaseDiagram)
 
                         var cell = Views.UseCaseDiagram.buildRelation(relation)
                         if (!cell) return
@@ -382,10 +388,19 @@
 
                     var drawEntities = () => {
                         $timeout((): void => {
-                            _.each(newValue.entities, (a) => {
-                                var cell = a.type == Models.UseCaseEntityType.actor ?
-                                    Views.UseCaseDiagram.buildActor(a) :
-                                    Views.UseCaseDiagram.buildUseCase(a)
+                            _.each(newValue.entities, (a: Models.IUseCaseEntity) => {
+                                var cell = null
+
+                                switch (a.getType()) {
+                                    case Models.UseCaseEntityType.actor:
+                                        cell = Views.UseCaseDiagram.buildActor(a as Models.Actor)
+                                        break
+                                    case Models.UseCaseEntityType.useCase:
+                                        cell = Views.UseCaseDiagram.buildUseCase(a as Models.UseCase)
+                                        break
+                                    default:
+                                        return
+                                }
 
                                 a.cell = cell
                                 graph.addCell(cell)
@@ -398,6 +413,7 @@
                     var drawRelations = () => {
                         $timeout((): void => {
                             _.each(newValue.relations, (r) => {
+                                determineRelationType(r, $scope.useCaseDiagram)
                                 var cell = Views.UseCaseDiagram.buildRelation(r)
                                 r.cell = cell
                                 graph.addCell(cell)

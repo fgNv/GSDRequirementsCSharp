@@ -68,7 +68,7 @@
 
             if (data) {
                 for (var p in data)
-                    this[p] = data
+                    this[p] = data[p]
 
                 _.each(this.contents, (c) => {
                     this.contentDictionary[c.locale] = c

@@ -34,6 +34,10 @@
                 for (var prop in data) {
                     this[prop] = data[prop]
                 }
+                this.useCases = _.map(this.useCases, uc => new UseCase(uc))
+                this.actors = _.map(this.actors, a => new Actor(a))
+                this.entities = _.union(this.useCases, this.actors)
+                this.relations = _.union(this.useCasesRelations, this.entitiesRelations)
             } else {
                 this.entities = []
                 this.relations = []

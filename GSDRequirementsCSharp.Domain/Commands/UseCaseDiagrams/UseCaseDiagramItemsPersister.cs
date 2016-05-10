@@ -176,10 +176,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCasesRelation.Id = Guid.NewGuid();
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
-                useCasesRelation.Source = useCaseDiagram.Entities
-                                                        .FirstOrDefault(e => e.Id == relationData.SourceId.Value);
-                useCasesRelation.Target = useCaseDiagram.Entities
-                                                        .FirstOrDefault(e => e.Id == relationData.TargetId.Value);
 
                 useCaseDiagram.EntitiesRelations.Add(useCasesRelation);
                 _useCaseEntityRelationRepository.Add(useCasesRelation);
