@@ -10,7 +10,8 @@
     <h2 data-ng-show="!classDiagramToManageLinks">
         @Sentences.useCaseDiagrams
         <button class="btn btn-primary"
-                data-ng-show="!currentUseCaseDiagram && !useCaseDiagramToTranslate &&
+                data-ng-show="!currentUseCaseDiagram && 
+                              !useCaseDiagramToTranslate &&
                               hasEditPermission"
                 title="@Sentences.addClassDiagram"
                 data-ng-click="addUseCaseDiagram()">
@@ -18,13 +19,14 @@
         </button>
     </h2>
     
-    <article data-ng-show="!currentUseCaseDiagram && !useCaseToTranslate &&
+    <article data-ng-show="!currentUseCaseDiagram && 
+                           !useCaseToTranslate &&
                            !useCaseToManageLinks">
-        <div class="alert alert-info" data-ng-show="useCasesDiagrams.length == 0">
+        <div class="alert alert-info" data-ng-show="useCaseDiagrams.length == 0">
             @Sentences.noUseCaseDiagramsRegistered
         </div>
 
-        <article data-ng-show="useCasesDiagrams.length > 0">
+        <article data-ng-show="useCaseDiagrams.length > 0">
             <table class="table">
                 <thead>
                     <tr>
@@ -36,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="uc in useCasesDiagrams">
+                    <tr data-ng-repeat="uc in useCaseDiagrams">
                         <td>
                             <gsd-item-issues data-specification-item="uc"
                                              data-ng-show="uc.issues.length > 0"
@@ -46,7 +48,7 @@
                         <td>
                             UC{{uc.identifier}}
                         </td>
-                        <td>{{uc.name}}</td>
+                        <td>{{uc.getName()}}</td>
                         <td>
                             PKG{{uc.packageIdentifier}}
                         </td>
@@ -54,12 +56,12 @@
                             <button class="btn btn-default"
                                     title="@Sentences.addNewVersion"
                                     data-ng-show="hasEditPermission"
-                                    data-ng-click="setCurrentUseCase(uc)">
+                                    data-ng-click="setCurrentUseCaseDiagram(uc)">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-show="hasEditPermission"
-                                    data-ng-click="inactivateUseCase(uc)"
+                                    data-ng-click="inactivateUseCaseDiagram(uc)"
                                     title="@Sentences.removeUseCaseDiagram">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>

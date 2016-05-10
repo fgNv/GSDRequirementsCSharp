@@ -15,8 +15,7 @@
         currentUseCaseDiagram: Models.UseCaseDiagram
         getPaginationRange: () => any
         hasEditPermission: boolean
-        inactivateUseCaseDiagram: (uc) => void
-        inactivateClassDiagrams: (cd) => void
+        inactivateUseCaseDiagram: (uc) => void       
         loadPage: (page: number) => void
         loadUseCaseDiagrams: () => void
         maxPages: number
@@ -99,7 +98,7 @@
 
             $scope.setCurrentUseCaseDiagram = (cd): void => {
                 $scope.pendingRequests++
-
+                
                 UseCaseDiagramResource.get({ 'id': cd.id })
                     .$promise
                     .then((response) => {

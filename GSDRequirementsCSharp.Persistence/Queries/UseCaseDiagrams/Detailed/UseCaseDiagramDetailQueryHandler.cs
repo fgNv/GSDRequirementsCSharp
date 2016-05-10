@@ -23,7 +23,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
         {
             var useCaseDiagram = _context.UseCaseDiagrams
                                        .Include(cd => cd.Contents)
-                                       .Include(cd => cd.Entities)
                                        .Include(cd => cd.EntitiesRelations)
                                        .Include(cd => cd.UseCasesRelations)
                                        .Include(cd => cd.Contents)
@@ -32,7 +31,20 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             if (useCaseDiagram == null)
                 return null;
 
-            return UseCaseDiagramDetailedViewModel.FromModel(useCaseDiagram);
+
+            var actors = _context.Actors
+                                 .Include(u => u.Contents)
+                                 .Where(u => u.UseCaseDiagram.Id == id)
+                                 .Select(ActorViewModel.FromModel)
+                                 .ToList();
+
+            var useCases = _context.UseCases
+                                   .Include(u => u.Contents)
+                                   .Where(u => u.UseCaseDiagram.Id == id)
+                                   .Select(UseCaseViewModel.FromModel)
+                                   .ToList();
+
+            return UseCaseDiagramDetailedViewModel.FromModel(useCaseDiagram, useCases, actors);
         }
     }
 }

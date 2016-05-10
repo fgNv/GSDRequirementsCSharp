@@ -230,8 +230,15 @@
     <Compile Include="ViewModels\RequirementContentViewModel.cs" />
     <Compile Include="ViewModels\RequirementViewModel.cs" />
     <Compile Include="ViewModels\SpecificationItemViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\ActorContentViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\ActorViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseContentViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseEntityRelationViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCasesRelationViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

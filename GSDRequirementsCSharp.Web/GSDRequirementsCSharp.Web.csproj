@@ -360,6 +360,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCase.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagramContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseEntityType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseRelationship.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCasesRelationType.ts" />

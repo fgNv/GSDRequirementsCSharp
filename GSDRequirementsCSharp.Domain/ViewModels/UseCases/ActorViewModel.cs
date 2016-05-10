@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
+{
+    public class ActorViewModel
+    {
+        public Guid Id { get; set; }
+        public IEnumerable<ActorContentViewModel> Contents { get; set; }
+
+        public static ActorViewModel FromModel(Actor model)
+        {
+            return new ActorViewModel
+            {
+                Id = model.Id,
+                Contents = model.Contents.Select(ActorContentViewModel.FromModel)
+            };
+        }
+    }
+}

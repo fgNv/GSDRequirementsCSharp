@@ -13,9 +13,21 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
 
         public IEnumerable<IssueViewModel> Issues { get; set; }
 
+        public int? PackageIdentifier { get; set; }
+
+        public int Identifier { get; set; }
+
+        public IEnumerable<UseCaseDiagramContentViewModel> Contents { get; set; }
+
         public static UseCaseDiagramViewModel FromModel(UseCaseDiagram model)
         {
-            throw new NotImplementedException();
+            return new UseCaseDiagramViewModel
+            {
+                Id = model.Id,
+                Identifier = model.Identifier,
+                PackageIdentifier = model.SpecificationItem?.Package?.Identifier,
+                Contents = model.Contents.Select(UseCaseDiagramContentViewModel.FromModel)
+            };
         }
     }
 }

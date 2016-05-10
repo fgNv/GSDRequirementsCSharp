@@ -140,12 +140,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
                 useCasesRelation.Type = relationData.Type.Value;
-
-                useCasesRelation.Source = useCaseDiagram.Entities
-                                                        .FirstOrDefault(e => e.Id == relationData.SourceId.Value) as UseCase;
-                useCasesRelation.Target = useCaseDiagram.Entities
-                                                        .FirstOrDefault(e => e.Id == relationData.TargetId.Value) as UseCase;
-
+                
                 useCaseDiagram.UseCasesRelations.Add(useCasesRelation);
                 _useCasesRelationRepository.Add(useCasesRelation);
             }
