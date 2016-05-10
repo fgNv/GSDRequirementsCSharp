@@ -26,8 +26,10 @@
         public constructor(data: Object = null) {
             this.contentDictionary = {}
 
-            _.each(GSDRequirements.localesAvailable, (locale) => {
-                this.contentDictionary[locale.name] = new PostConditionContent()
+            _.each(GSDRequirements.localesAvailable, (locale: Models.Locale) => {
+                var c = new PostConditionContent()
+                c.locale = locale.name
+                this.contentDictionary[locale.name] = c
             })
 
             if (data) {
@@ -38,6 +40,12 @@
                     this.contentDictionary[c.locale] = c
                 })
             }
+        }
+        public populateContents() {
+            this.contents = _.chain(this.contentDictionary)
+                .filter((c: Models.PostConditionContent) => c.description)
+                .map((c, k) => c)
+                .value()
         }
     }
 }

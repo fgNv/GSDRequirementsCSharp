@@ -13,7 +13,7 @@
         public postConditions: Array<PostCondition>
         public contentDictionary: Object
         public currentContentLocale: string
-        public getContentProperty(property : string) {
+        public getContentProperty(property: string) {
             var currentLocale = this.contentDictionary[this.currentContentLocale]
             if (currentLocale && currentLocale[property])
                 return currentLocale[property]
@@ -96,6 +96,15 @@
         }
         public removePreCondition(preCondition) {
             this.preConditions = _.filter(this.preConditions, pc => pc != preCondition)
+        }
+        public populateContents() {
+            this.contents = _.chain(this.contentDictionary)
+                .filter((c: Models.UseCaseContent) => c.name)
+                .map((c, k) => c)
+                .value()
+
+            _.each(this.preConditions, (p: PreCondition): void => { p.populateContents() })
+            _.each(this.postConditions, (p: PostCondition): void => { p.populateContents() })
         }
     }
 }

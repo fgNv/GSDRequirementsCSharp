@@ -83,5 +83,12 @@
 
             return content && content.name
         }
+
+        public populateContents() {
+            this.contents = _.chain(this.contentDictionary)
+                .filter((c: Models.ActorContent) => c.name)
+                .map((c, k) => c)
+                .value()
+        }
     }
 }

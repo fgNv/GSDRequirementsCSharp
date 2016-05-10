@@ -40,6 +40,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 
             var useCases = _context.UseCases
                                    .Include(u => u.Contents)
+                                   .Include(u => u.PreConditions.Select(pc => pc.Contents))
+                                   .Include(u => u.PostConditions.Select(pc => pc.Contents))
                                    .Where(u => u.UseCaseDiagram.Id == id)
                                    .Select(UseCaseViewModel.FromModel)
                                    .ToList();

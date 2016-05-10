@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Domain.Models;
+﻿using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO;
+using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Models.UseCases;
 using GSDRequirementsCSharp.Infrastructure;
 using System;
@@ -19,6 +20,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
         private readonly IRepository<ActorContent, LocaleKey> _actorContentRepository;
         private readonly IRepository<UseCasesRelation, Guid> _useCasesRelationRepository;
         private readonly IRepository<UseCaseEntityRelation, Guid> _useCaseEntityRelationRepository;
+        private readonly IRepository<UseCasePreCondition, Guid> _preConditionRepository;
+        private readonly IRepository<UseCasePreConditionContent, LocaleKey> _preConditionContentRepository;
+        private readonly IRepository<UseCasePostCondition, Guid> _postConditionRepository;
+        private readonly IRepository<UseCasePostConditionContent, LocaleKey> _postConditionContentRepository;
 
         public UseCaseDiagramItemsPersister(IRepository<UseCaseDiagramContent, LocaleKey> classDiagramContentRepository,
                                             IRepository<UseCase, Guid> useCaseRepository,
@@ -27,7 +32,11 @@ namespace GSDRequirementsCSharp.Domain.Commands
                                             IRepository<UseCaseEntity, Guid> useCaseEntityRepository,
                                             IRepository<ActorContent, LocaleKey> actorContentRepository,
                                             IRepository<UseCasesRelation, Guid> useCasesRelationRepository,
-                                            IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository)
+                                            IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository,
+                                            IRepository<UseCasePreCondition, Guid> preConditionRepository,
+                                            IRepository<UseCasePreConditionContent, LocaleKey> preConditionContentRepository,
+                                            IRepository<UseCasePostCondition, Guid> postConditionRepository,
+                                            IRepository<UseCasePostConditionContent, LocaleKey> postConditionContentRepository)
         {
             _classDiagramContentRepository = classDiagramContentRepository;
             _useCaseRepository = useCaseRepository;
@@ -37,6 +46,11 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _useCasesRelationRepository = useCasesRelationRepository;
             _useCaseEntityRelationRepository = useCaseEntityRelationRepository;
             _useCaseEntityRepository = useCaseEntityRepository;
+
+            _preConditionRepository = preConditionRepository;
+            _preConditionContentRepository = preConditionContentRepository;
+            _postConditionRepository = postConditionRepository;
+            _postConditionContentRepository = postConditionContentRepository;
         }
 
         private void PersistActor(UseCaseDiagram useCaseDiagram, ActorItem actorData)
@@ -64,6 +78,46 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _useCaseEntityRepository.Add(actor);
         }
 
+        private void PersistPostCondition(UseCase useCaseEntity, PostConditionData postCondition)
+        {
+            var postConditionEntity = new UseCasePostCondition();
+            postConditionEntity.Id = Guid.NewGuid();
+            postConditionEntity.UseCase = useCaseEntity;
+
+            foreach (var postConditionContent in postCondition.Contents)
+            {
+                var postConditionContentEntity = new UseCasePostConditionContent();
+                postConditionContentEntity.Locale = postConditionContent.Locale;
+                postConditionContentEntity.Description = postConditionContent.Description;
+                postConditionContentEntity.Id = Guid.NewGuid();
+                postConditionContentEntity.UseCasePostCondition = postConditionEntity;
+
+                _postConditionContentRepository.Add(postConditionContentEntity);
+            }
+
+            _postConditionRepository.Add(postConditionEntity);
+        }
+
+        private void PersistPreCondition(UseCase useCaseEntity, PreConditionData preCondition)
+        {
+            var preConditionEntity = new UseCasePreCondition();
+            preConditionEntity.Id = Guid.NewGuid();
+            preConditionEntity.UseCase = useCaseEntity;
+
+            foreach (var preConditionContent in preCondition.Contents)
+            {
+                var preConditionContentEntity = new UseCasePreConditionContent();
+                preConditionContentEntity.Locale = preConditionContent.Locale;
+                preConditionContentEntity.Description = preConditionContent.Description;
+                preConditionContentEntity.Id = Guid.NewGuid();
+                preConditionContentEntity.UseCasePreCondition = preConditionEntity;
+
+                _preConditionContentRepository.Add(preConditionContentEntity);
+            }
+
+            _preConditionRepository.Add(preConditionEntity);
+        }
+
         private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData)
         {
             var useCaseEntity = new UseCase();
@@ -77,6 +131,8 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 var useCaseContent = new UseCaseContent();
                 useCaseContent.Id = Guid.NewGuid();
                 useCaseContent.Name = contentData.Name;
+                useCaseContent.Description = contentData.Description;
+                useCaseContent.Path = contentData.Path;
                 useCaseContent.Locale = contentData.Locale;
 
                 useCaseEntity.Contents.Add(useCaseContent);
@@ -84,14 +140,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
             }
 
             foreach (var postCondition in useCaseData.PostConditions)
-            {
-
-            }
+                PersistPostCondition(useCaseEntity, postCondition);
 
             foreach (var preCondition in useCaseData.PreConditions)
-            {
-
-            }
+                PersistPreCondition(useCaseEntity, preCondition);
 
             useCaseEntity.UseCaseDiagram = useCaseDiagram;
             useCaseDiagram.Entities.Add(useCaseEntity);
@@ -140,7 +192,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
                 useCasesRelation.Type = relationData.Type.Value;
-                
+
                 useCaseDiagram.UseCasesRelations.Add(useCasesRelation);
                 _useCasesRelationRepository.Add(useCasesRelation);
             }

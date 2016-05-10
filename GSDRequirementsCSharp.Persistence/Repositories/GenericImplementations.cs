@@ -73,20 +73,18 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public IssueCommentContentRepository(GSDRequirementsContext context) : base(context) { }
     }
-    internal class ProjectRepository : GenericRepository<Project, Guid>
-    {
-        public ProjectRepository(GSDRequirementsContext context) : base(context) { }
-    }
     internal class PermissionRepository : GenericRepository<Permission, Guid>
     {
         public PermissionRepository(GSDRequirementsContext context) : base(context) { }
     }
-
+    internal class ProjectRepository : GenericRepository<Project, Guid>
+    {
+        public ProjectRepository(GSDRequirementsContext context) : base(context) { }
+    }
     internal class ProjectContentRepository : GenericLocaleRepository<ProjectContent>
     {
         public ProjectContentRepository(GSDRequirementsContext context) : base(context) { }
     }
-
     internal class PackageRepository : GenericRepository<Package, Guid>
     {
         public PackageRepository(GSDRequirementsContext context) : base(context) { }
@@ -146,7 +144,28 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
     {
         public UseCaseEntityRepository(GSDRequirementsContext context) : base(context) { }
     }
-    
+
+
+    internal class UseCasePreConditionRepository : GenericRepository<UseCasePreCondition, Guid>
+    {
+        public UseCasePreConditionRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCasePreConditionContentRepository : GenericRepository<UseCasePreConditionContent, LocaleKey>
+    {
+        public UseCasePreConditionContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCasePostConditionRepository : GenericRepository<UseCasePostCondition, Guid>
+    {
+        public UseCasePostConditionRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class UseCasePostConditionContentRepository : GenericRepository<UseCasePostConditionContent, LocaleKey>
+    {
+        public UseCasePostConditionContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
     internal class UseCasesRelationRepository : GenericRepository<UseCasesRelation, Guid>
     {
         public UseCasesRelationRepository(GSDRequirementsContext context) : base(context) { }

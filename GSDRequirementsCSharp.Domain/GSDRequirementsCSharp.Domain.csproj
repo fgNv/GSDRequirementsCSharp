@@ -232,6 +232,10 @@
     <Compile Include="ViewModels\SpecificationItemViewModel.cs" />
     <Compile Include="ViewModels\UseCases\ActorContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\ActorViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\PostConditionContentViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\PostConditionViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\PreConditionViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\PreConditionContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramDetailedViewModel.cs" />

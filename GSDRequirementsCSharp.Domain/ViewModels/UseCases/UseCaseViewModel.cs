@@ -10,13 +10,17 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
     {
         public Guid Id { get; set; }
         public IEnumerable<UseCaseContentViewModel> Contents { get; set; }
+        public IEnumerable<PostConditionViewModel> PostConditions { get; set; }
+        public IEnumerable<PreConditionViewModel> PreConditions { get; set; }
 
         public static UseCaseViewModel FromModel(UseCase model)
         {
             return new UseCaseViewModel
             {
                 Id = model.Id,
-                Contents = model.Contents.Select(UseCaseContentViewModel.FromModel)
+                Contents = model.Contents.Select(UseCaseContentViewModel.FromModel),
+                PreConditions = model.PreConditions.Select(PreConditionViewModel.FromModel),
+                PostConditions = model.PostConditions.Select(PostConditionViewModel.FromModel)
             };
         }
     }

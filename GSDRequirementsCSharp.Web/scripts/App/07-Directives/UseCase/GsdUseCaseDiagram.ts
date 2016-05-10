@@ -329,26 +329,13 @@
                     $scope.useCaseDiagram.actors = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.actor)
-                        .map((e: Models.Actor) => {
-                            e.contents = _.chain(e.contentDictionary)
-                                .filter((c: Models.ActorContent) => c.name)
-                                .map((c, k) => c)
-                                .value()
-                            return e
-                        })
+                        .each((e: Models.Actor): void => { e.populateContents() })
                         .value()
 
                     $scope.useCaseDiagram.useCases = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.useCase)
-                        .map((e: Models.UseCase) => {
-                            e.contents = _.chain(e.contentDictionary)
-                                .filter((c: Models.UseCaseContent) => c.name)
-                                .map((c, k) => c)
-                                .value()
-
-                            return e
-                        })
+                        .each((e: Models.UseCase): void => { e.populateContents() })
                         .value()
 
                     $scope.useCaseDiagram.useCasesRelations = _.filter(
