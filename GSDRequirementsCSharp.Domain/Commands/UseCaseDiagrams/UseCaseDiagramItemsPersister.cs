@@ -178,13 +178,16 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
 
-                foreach(var content in relationData.Contents)
+                if (relationData.Contents != null)
                 {
-                    var relationContent = new UseCaseEntityRelationContent();
-                    relationContent.Description = content.Description;
-                    relationContent.Locale = content.Locale;
-                    relationContent.Id = useCasesRelation.Id;
-                    _useCaseEntityRelationContentRepository.Add(relationContent);
+                    foreach (var content in relationData.Contents)
+                    {
+                        var relationContent = new UseCaseEntityRelationContent();
+                        relationContent.Description = content.Description;
+                        relationContent.Locale = content.Locale;
+                        relationContent.Id = useCasesRelation.Id;
+                        _useCaseEntityRelationContentRepository.Add(relationContent);
+                    }
                 }
 
                 useCaseDiagram.EntitiesRelations.Add(useCasesRelation);

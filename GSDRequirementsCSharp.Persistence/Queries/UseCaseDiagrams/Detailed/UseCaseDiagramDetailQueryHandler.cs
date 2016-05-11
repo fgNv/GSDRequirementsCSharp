@@ -25,15 +25,18 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                        .Include(cd => cd.Contents)
                                        .Include(cd => cd.EntitiesRelations.Select(er => er.Contents))
                                        .Include(cd => cd.UseCasesRelations)
+                                       .Include(cd => cd.Entities)
                                        .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
 
             if (useCaseDiagram == null)
                 return null;
 
+            var entitiesIds = useCaseDiagram.Entities.Select(e => e.Id).ToList();
 
             var actors = _context.Actors
                                  .Include(u => u.Contents)
-                                 .Where(u => u.UseCaseDiagram.Id == id)
+                                 .Where(u => u.UseCaseDiagram.Id == id &&
+                                             entitiesIds.Contains(u.Id))
                                  .Select(ActorViewModel.FromModel)
                                  .ToList();
 
@@ -41,7 +44,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                    .Include(u => u.Contents)
                                    .Include(u => u.PreConditions.Select(pc => pc.Contents))
                                    .Include(u => u.PostConditions.Select(pc => pc.Contents))
-                                   .Where(u => u.UseCaseDiagram.Id == id)
+                                   .Where(u => u.UseCaseDiagram.Id == id &&
+                                               entitiesIds.Contains(u.Id))
                                    .Select(UseCaseViewModel.FromModel)
                                    .ToList();
 
