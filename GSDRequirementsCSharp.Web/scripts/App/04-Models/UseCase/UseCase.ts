@@ -80,6 +80,14 @@
                 _.each(this.contents, (c) : void => {
                     this.contentDictionary[c.locale] = c
                 })
+
+                this.postConditions = _.map(this.postConditions, (pc) => {
+                    return new PostCondition(pc)
+                })
+
+                this.preConditions = _.map(this.preConditions, (pc) => {
+                    return new PreCondition(pc)
+                })
             }
 
             this.setInitialLocale()

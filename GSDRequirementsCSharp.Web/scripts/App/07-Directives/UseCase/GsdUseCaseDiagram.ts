@@ -324,33 +324,39 @@
                 }
 
                 $scope.save = () => {
-                    $scope.pendingRequests++
 
                     var contents = _.chain($scope.content)
                         .filter(i => i.name)
                         .value()
 
                     $scope.useCaseDiagram.contents = contents
-
+                    
                     $scope.useCaseDiagram.actors = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.actor)
                         .each((e: Models.Actor): void => { e.populateContents() })
                         .value()
-
+                    
                     $scope.useCaseDiagram.useCases = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.useCase)
                         .each((e: Models.UseCase): void => { e.populateContents() })
                         .value()
 
+
+                    console.log('before useCasesRelations')
+
                     $scope.useCaseDiagram.useCasesRelations = _.filter(
                         $scope.useCaseDiagram.relations,
                         (e: Models.UseCaseRelationship) => e.isUseCasesRelation($scope.useCaseDiagram))
 
+                    console.log('before entitiesRelations')
+
                     $scope.useCaseDiagram.entitiesRelations = _.filter(
                         $scope.useCaseDiagram.relations,
                         (e: Models.UseCaseRelationship) => !e.isUseCasesRelation($scope.useCaseDiagram))
+
+                    $scope.pendingRequests++
 
                     var promise = $scope.useCaseDiagram.id ?
                         UseCaseDiagramResource.update($scope.useCaseDiagram).$promise :

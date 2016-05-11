@@ -37,7 +37,8 @@
                 this.useCases = _.map(this.useCases, uc => new UseCase(uc))
                 this.actors = _.map(this.actors, a => new Actor(a))
                 this.entities = _.union(this.useCases, this.actors)
-                this.relations = _.union(this.useCasesRelations, this.entitiesRelations)
+                this.relations = _.map(_.union(this.useCasesRelations, this.entitiesRelations),
+                                      (r) => new Models.UseCaseRelationship(r))
             } else {
                 this.entities = []
                 this.relations = []

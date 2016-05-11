@@ -9,9 +9,9 @@ namespace GSDRequirementsCSharp.Domain
 
     public class UseCase : UseCaseEntity
     {
+        public override Guid Id { get; set; }
         public ICollection<UseCaseContent> Contents { get; set; }
         public override UseCaseEntityType Type { get { return UseCaseEntityType.UseCase; } }
-        public UseCaseEntity UseCaseEntity { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public ICollection<UseCasePreCondition> PreConditions { get; set; }

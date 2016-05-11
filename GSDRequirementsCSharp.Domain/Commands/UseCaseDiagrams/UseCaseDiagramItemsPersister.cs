@@ -12,7 +12,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class UseCaseDiagramItemsPersister
     {
-        private readonly IRepository<UseCaseDiagramContent, LocaleKey> _classDiagramContentRepository;
+        private readonly IRepository<UseCaseDiagramContent, LocaleKey> _useCaseDiagramContentRepository;
         private readonly IRepository<UseCase, Guid> _useCaseRepository;
         private readonly IRepository<UseCaseContent, LocaleKey> _useCaseContentRepository;
         private readonly IRepository<Actor, Guid> _actorRepository;
@@ -38,7 +38,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                                             IRepository<UseCasePostCondition, Guid> postConditionRepository,
                                             IRepository<UseCasePostConditionContent, LocaleKey> postConditionContentRepository)
         {
-            _classDiagramContentRepository = classDiagramContentRepository;
+            _useCaseDiagramContentRepository = classDiagramContentRepository;
             _useCaseRepository = useCaseRepository;
             _useCaseContentRepository = useCaseContentRepository;
             _actorRepository = actorRepository;
@@ -74,7 +74,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
             actor.UseCaseDiagram = useCaseDiagram;
             useCaseDiagram.Entities.Add(actor);
             _actorRepository.Add(actor);
-            actor.UseCaseEntity = actor;
             _useCaseEntityRepository.Add(actor);
         }
 
@@ -148,7 +147,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseEntity.UseCaseDiagram = useCaseDiagram;
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
-            useCaseEntity.UseCaseEntity = useCaseEntity;
             _useCaseEntityRepository.Add(useCaseEntity);
         }
 
@@ -161,7 +159,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCaseDiagramContent.Locale = contentItem.Locale;
                 useCaseDiagramContent.Name = contentItem.Name;
                 useCaseDiagram.Contents.Add(useCaseDiagramContent);
-                _classDiagramContentRepository.Add(useCaseDiagramContent);
+                _useCaseDiagramContentRepository.Add(useCaseDiagramContent);
             }
 
             foreach (var useCaseData in command.UseCases)

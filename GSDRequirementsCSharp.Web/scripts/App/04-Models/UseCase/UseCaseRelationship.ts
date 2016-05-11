@@ -19,5 +19,11 @@
             return source.getType() == UseCaseEntityType.useCase &&
                    target.getType() == UseCaseEntityType.useCase
         }
+        public constructor(data: Object = null) {
+            if (data) {
+                for (var p in data)
+                    this[p] = data[p]
+            }
+        }
     }
 }

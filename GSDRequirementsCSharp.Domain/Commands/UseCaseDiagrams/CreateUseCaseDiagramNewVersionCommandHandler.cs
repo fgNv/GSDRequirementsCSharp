@@ -59,15 +59,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             {
                 var oldId = useCaseEntity.Id;
                 var newId = Guid.NewGuid();
-                useCaseEntity.Id = newId;
-                oldToNewEntitiesIds[oldId] = newId;
-            }
-
-            foreach (var classEntity in useCaseDiagram.Entities)
-            {
-                var oldId = classEntity.Id;
-                var newId = Guid.NewGuid();
-                classEntity.Id = newId;
+                useCaseEntity.Id = newId;                
                 oldToNewEntitiesIds[oldId] = newId;
             }
 
