@@ -11,13 +11,15 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
     {
         public Guid SourceId { get; set; }
         public Guid TargetId { get; set; }
-        
+        public IEnumerable<UseCaseEntityRelationContentViewModel> Contents { get; set; }
+
         public static UseCaseEntityRelationViewModel FromModel(UseCaseEntityRelation model)
         {
             return new UseCaseEntityRelationViewModel
             {
                 SourceId = model.SourceId,
-                TargetId = model.TargetId
+                TargetId = model.TargetId,
+                Contents = model.Contents.Select(UseCaseEntityRelationContentViewModel.FromModel)
             };
         }
     }

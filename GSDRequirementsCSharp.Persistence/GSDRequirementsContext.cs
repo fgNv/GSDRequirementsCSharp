@@ -89,6 +89,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new UseCaseEntityMapping());
             modelBuilder.Configurations.Add(new UseCaseEntityRelationMapping());
             modelBuilder.Configurations.Add(new UseCaseMapping());
+            modelBuilder.Configurations.Add(new UseCaseEntityRelationContentMapping());
             
             modelBuilder.Configurations.Add(new UseCasePreConditionMapping());
             modelBuilder.Configurations.Add(new UseCasePreConditionContentMapping());

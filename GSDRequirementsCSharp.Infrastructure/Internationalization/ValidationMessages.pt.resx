@@ -222,6 +222,12 @@
   <data name="rankIsARequiredField" xml:space="preserve">
     <value>"Prioridade" é um campo obrigatório</value>
   </data>
+  <data name="relationDescriptionIsARequiredField" xml:space="preserve">
+    <value>"Descrição da relação" é um campo obrigatório</value>
+  </data>
+  <data name="relationLocaleIsARequiredField" xml:space="preserve">
+    <value>"Idioma da relação" é um campo obrigatório</value>
+  </data>
   <data name="requirementIdIsARequiredField" xml:space="preserve">
     <value>"Id do requisito" é um campo obrigatório</value>
   </data>
@@ -251,6 +257,15 @@
   </data>
   <data name="typeIsARequiredField" xml:space="preserve">
     <value>"Tipo" é um campo obrigatório</value>
+  </data>
+  <data name="useCaseDescriptionIsARequiredField" xml:space="preserve">
+    <value>"Descrição do caso de uso" é um campo obrigatório</value>
+  </data>
+  <data name="useCaseLocaleIsARequiredField" xml:space="preserve">
+    <value>"Idioma do caso de uso" é um campo obrigatório</value>
+  </data>
+  <data name="useCaseNameIsARequiredField" xml:space="preserve">
+    <value>"Nome do caso de uso" é um campo obrigatório</value>
   </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"Id do usuário" é um campo obrigatório</value>

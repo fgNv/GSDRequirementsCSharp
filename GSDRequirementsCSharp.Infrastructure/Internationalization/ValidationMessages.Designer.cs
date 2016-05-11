@@ -376,6 +376,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Relation Description&quot; is a required field.
+        /// </summary>
+        public static string relationDescriptionIsARequiredField {
+            get {
+                return ResourceManager.GetString("relationDescriptionIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Relation Locale&quot; is a required field.
+        /// </summary>
+        public static string relationLocaleIsARequiredField {
+            get {
+                return ResourceManager.GetString("relationLocaleIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Requirement id&quot; is a required field.
         /// </summary>
         public static string requirementIdIsARequiredField {
@@ -462,6 +480,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string typeIsARequiredField {
             get {
                 return ResourceManager.GetString("typeIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Description&quot; is a required field.
+        /// </summary>
+        public static string useCaseDescriptionIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseDescriptionIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Locale&quot; is a required field.
+        /// </summary>
+        public static string useCaseLocaleIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseLocaleIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Name&quot; is a required field.
+        /// </summary>
+        public static string useCaseNameIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseNameIsARequiredField", resourceCulture);
             }
         }
         

@@ -20,6 +20,8 @@ namespace GSDRequirementsCSharp.Domain.Models
         
         public UseCaseEntity Source { get; set; }
 
+        public ICollection<UseCaseEntityRelationContent> Contents { get; set; }
+
         [Required]
         public UseCaseDiagram UseCaseDiagram { get; set; }
 
@@ -28,5 +30,10 @@ namespace GSDRequirementsCSharp.Domain.Models
         public Guid SourceId { get; set; }
 
         public Guid TargetId { get; set; }
+
+        public UseCaseEntityRelation()
+        {
+            Contents = new HashSet<UseCaseEntityRelationContent>();
+        }
     }
 }

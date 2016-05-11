@@ -207,7 +207,13 @@
                         source: { id: sourceId },
                         target: { id: targetId },
                         labels: [
-                            { position: 0.5, attrs: { text: { text: relationData.label } } }
+                            {
+                                position: 0.5, attrs: {
+                                    text: {
+                                        text: relationData.getDescription()
+                                    }
+                                }
+                            }
                         ]
                     })
                     break;

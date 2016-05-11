@@ -34,12 +34,10 @@
             return UseCaseEntityType.useCase
         }
         private setInitialLocale() {
-
             if (!this.contents) {
                 this.currentContentLocale = GSDRequirements.currentLocale
                 return
             }
-
             var currentLocaleAvailable = _.any(this.contents,
                 (c: UseCaseContent) => c.locale == GSDRequirements.currentLocale)
 

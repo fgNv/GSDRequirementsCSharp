@@ -17,9 +17,6 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
             HasKey(a => a.Id);
             Property(e => e.Id).HasColumnName("id");
             HasRequired(a => a.UseCaseDiagram).WithMany(cd => cd.Entities);
-
-            //HasOptional(uc => uc.Actor).WithRequired(a => a.UseCaseEntity);
-            //HasOptional(uc => uc.UseCase).WithRequired(a => a.UseCaseEntity);
         }
     }
 }

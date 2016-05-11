@@ -122,6 +122,7 @@
     <Compile Include="Commands\UseCaseDiagrams\DTO\PreConditionData.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseContentItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseDiagramContentItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseEntitiesRelationContent.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseEntitiesRelationItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCasesRelationItem.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Models\UseCases\UseCaseDiagram.cs" />
     <Compile Include="Models\UseCases\UseCaseDiagramContent.cs" />
     <Compile Include="Models\UseCases\UseCaseEntity.cs" />
+    <Compile Include="Models\UseCases\UseCaseEntityRelationContent.cs" />
     <Compile Include="Models\UseCases\UseCaseEntityType.cs" />
     <Compile Include="Models\UseCases\UseCaseEntityRelation.cs" />
     <Compile Include="Models\UseCases\UseCasePostCondition.cs" />
@@ -241,6 +243,7 @@
     <Compile Include="ViewModels\UseCases\UseCaseDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseEntityRelationViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseEntityRelationContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCasesRelationViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseViewModel.cs" />
   </ItemGroup>

@@ -20,6 +20,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
         private readonly IRepository<ActorContent, LocaleKey> _actorContentRepository;
         private readonly IRepository<UseCasesRelation, Guid> _useCasesRelationRepository;
         private readonly IRepository<UseCaseEntityRelation, Guid> _useCaseEntityRelationRepository;
+        private readonly IRepository<UseCaseEntityRelationContent, LocaleKey> _useCaseEntityRelationContentRepository;
         private readonly IRepository<UseCasePreCondition, Guid> _preConditionRepository;
         private readonly IRepository<UseCasePreConditionContent, LocaleKey> _preConditionContentRepository;
         private readonly IRepository<UseCasePostCondition, Guid> _postConditionRepository;
@@ -33,6 +34,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                                             IRepository<ActorContent, LocaleKey> actorContentRepository,
                                             IRepository<UseCasesRelation, Guid> useCasesRelationRepository,
                                             IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository,
+                                            IRepository<UseCaseEntityRelationContent, LocaleKey> useCaseEntityRelationContentRepository,
                                             IRepository<UseCasePreCondition, Guid> preConditionRepository,
                                             IRepository<UseCasePreConditionContent, LocaleKey> preConditionContentRepository,
                                             IRepository<UseCasePostCondition, Guid> postConditionRepository,
@@ -45,6 +47,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _actorContentRepository = actorContentRepository;
             _useCasesRelationRepository = useCasesRelationRepository;
             _useCaseEntityRelationRepository = useCaseEntityRelationRepository;
+            _useCaseEntityRelationContentRepository = useCaseEntityRelationContentRepository;
             _useCaseEntityRepository = useCaseEntityRepository;
 
             _preConditionRepository = preConditionRepository;
@@ -174,6 +177,15 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 useCasesRelation.Id = Guid.NewGuid();
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
+
+                foreach(var content in relationData.Contents)
+                {
+                    var relationContent = new UseCaseEntityRelationContent();
+                    relationContent.Description = content.Description;
+                    relationContent.Locale = content.Locale;
+                    relationContent.Id = useCasesRelation.Id;
+                    _useCaseEntityRelationContentRepository.Add(relationContent);
+                }
 
                 useCaseDiagram.EntitiesRelations.Add(useCasesRelation);
                 _useCaseEntityRelationRepository.Add(useCasesRelation);

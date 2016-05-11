@@ -222,6 +222,12 @@
   <data name="rankIsARequiredField" xml:space="preserve">
     <value>"Rank" is a required field</value>
   </data>
+  <data name="relationDescriptionIsARequiredField" xml:space="preserve">
+    <value>"Relation Description" is a required field</value>
+  </data>
+  <data name="relationLocaleIsARequiredField" xml:space="preserve">
+    <value>"Relation Locale" is a required field</value>
+  </data>
   <data name="requirementIdIsARequiredField" xml:space="preserve">
     <value>"Requirement id" is a required field</value>
   </data>
@@ -251,6 +257,15 @@
   </data>
   <data name="typeIsARequiredField" xml:space="preserve">
     <value>"Type" is a required field</value>
+  </data>
+  <data name="useCaseDescriptionIsARequiredField" xml:space="preserve">
+    <value>"Use Case Description" is a required field</value>
+  </data>
+  <data name="useCaseLocaleIsARequiredField" xml:space="preserve">
+    <value>"Use Case Locale" is a required field</value>
+  </data>
+  <data name="useCaseNameIsARequiredField" xml:space="preserve">
+    <value>"Use Case Name" is a required field</value>
   </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"User Id" is a required field</value>

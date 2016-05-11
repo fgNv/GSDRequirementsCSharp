@@ -12,19 +12,19 @@ namespace GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO
     {
         [Required(
            ErrorMessageResourceType = typeof(ValidationMessages),
-           ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
+           ErrorMessageResourceName = nameof(ValidationMessages.useCaseNameIsARequiredField))]
         public string Name { get; set; }
 
         [Required(
            ErrorMessageResourceType = typeof(ValidationMessages),
-           ErrorMessageResourceName = nameof(ValidationMessages.descriptionIsARequiredField))]
+           ErrorMessageResourceName = nameof(ValidationMessages.useCaseDescriptionIsARequiredField))]
         public string Description { get; set; }
         
         public string Path { get; set; }
 
         [Required(
             ErrorMessageResourceType = typeof(ValidationMessages),
-            ErrorMessageResourceName = nameof(ValidationMessages.localeIsARequiredField))]
+            ErrorMessageResourceName = nameof(ValidationMessages.useCaseLocaleIsARequiredField))]
         public string Locale { get; set; }
     }
 }

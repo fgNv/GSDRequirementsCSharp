@@ -1,4 +1,6 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Internationalization;
+﻿using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,6 +21,9 @@ namespace GSDRequirementsCSharp.Domain.Commands
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.targetIsARequiredField))]
         public Guid? TargetId { get; set; }
-        
+
+        [ValidateCollection]
+        public IEnumerable<UseCaseEntitiesRelationContent> Contents { get; set; }
+
     }
 }

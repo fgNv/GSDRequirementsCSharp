@@ -103,7 +103,7 @@
                 $scope.editingRelations = false
                 $scope.selectedActor = null
                 $scope.selectedUseCase = null
-                $scope.relationsOnEdit = []
+                $scope.relationsOnEdit = new Models.UseCaseRelationsOnEdit()
 
                 this.LoadPackagesOptions(PackageResource, $scope)
 
@@ -120,7 +120,7 @@
                 $scope.editRelations = () => {
                     window.location.href = "#/diagram/relations"
                     $scope.editingRelations = true
-                    $scope.relationsOnEdit = []
+                    $scope.relationsOnEdit = new Models.UseCaseRelationsOnEdit()
 
                     _.each($scope.useCaseDiagram.relations, (relation) => {
                         var clone = {}
@@ -150,8 +150,9 @@
                 }
 
                 $scope.removeRelation = (relation) => {
-                    $scope.relationsOnEdit = _.filter($scope.relationsOnEdit,
+                    var entities = _.filter($scope.relationsOnEdit,
                         (r) => r != relation)
+                    $scope.relationsOnEdit = new Models.UseCaseRelationsOnEdit(entities)
                 }
 
                 function removeRelationFromDiagram(relation: Models.UseCaseRelationship) {
@@ -184,10 +185,16 @@
                         return false;
                     }
 
-                    return source.getType() == Models.UseCaseEntityType.useCase &&
+                    var isUseCaseActorRelation = source.getType() == Models.UseCaseEntityType.useCase &&
                         target.getType() == Models.UseCaseEntityType.actor ||
                         source.getType() == Models.UseCaseEntityType.actor &&
                         target.getType() == Models.UseCaseEntityType.useCase
+
+                    if (isUseCaseActorRelation) {
+                        r.type = Models.UseCasesRelationType.association
+                    }
+
+                    return isUseCaseActorRelation
                 }
 
                 $scope.isUseCasesRelation = (r) => {
@@ -240,7 +247,7 @@
                         $timeout((): void => { graph.addCell(cell) })
                     })
 
-                    $scope.relationsOnEdit = []
+                    $scope.relationsOnEdit = new Models.UseCaseRelationsOnEdit()
                     $scope.backToDiagram();
                 }
 
@@ -330,27 +337,25 @@
                         .value()
 
                     $scope.useCaseDiagram.contents = contents
-                    
+
                     $scope.useCaseDiagram.actors = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.actor)
                         .each((e: Models.Actor): void => { e.populateContents() })
                         .value()
-                    
+
                     $scope.useCaseDiagram.useCases = _.chain($scope.useCaseDiagram.entities)
                         .filter((e: Models.IUseCaseEntity) =>
                             e.getType() == Models.UseCaseEntityType.useCase)
                         .each((e: Models.UseCase): void => { e.populateContents() })
                         .value()
 
-
-                    console.log('before useCasesRelations')
+                    _.each($scope.useCaseDiagram.relations,
+                        (r: Models.UseCaseRelationship): void => { r.populateContents() })
 
                     $scope.useCaseDiagram.useCasesRelations = _.filter(
                         $scope.useCaseDiagram.relations,
                         (e: Models.UseCaseRelationship) => e.isUseCasesRelation($scope.useCaseDiagram))
-
-                    console.log('before entitiesRelations')
 
                     $scope.useCaseDiagram.entitiesRelations = _.filter(
                         $scope.useCaseDiagram.relations,

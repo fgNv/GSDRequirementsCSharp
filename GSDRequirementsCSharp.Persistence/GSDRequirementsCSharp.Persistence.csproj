@@ -95,6 +95,7 @@
     <Compile Include="Mappings\UseCases\UseCaseDiagramContentMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseDiagramMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseEntityMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityRelationContentMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseEntityRelationMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCaseMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCasePostConditionContentMapping.cs" />
@@ -178,6 +179,10 @@
     <Compile Include="Migrations\201605111213062_use-case-entity-inheritance-adjust.cs" />
     <Compile Include="Migrations\201605111213062_use-case-entity-inheritance-adjust.Designer.cs">
       <DependentUpon>201605111213062_use-case-entity-inheritance-adjust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605111243350_use-case-relation-content.cs" />
+    <Compile Include="Migrations\201605111243350_use-case-relation-content.Designer.cs">
+      <DependentUpon>201605111243350_use-case-relation-content.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605111213062_use-case-entity-inheritance-adjust.resx">
       <DependentUpon>201605111213062_use-case-entity-inheritance-adjust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605111243350_use-case-relation-content.resx">
+      <DependentUpon>201605111243350_use-case-relation-content.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

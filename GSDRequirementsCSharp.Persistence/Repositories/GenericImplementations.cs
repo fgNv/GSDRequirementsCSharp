@@ -135,6 +135,11 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
         public UseCaseDiagramCotentRepository(GSDRequirementsContext context) : base(context) { }
     }
 
+    internal class UseCaseEntityRelationContentRepository : GenericRepository<UseCaseEntityRelationContent, LocaleKey>
+    {
+        public UseCaseEntityRelationContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
     internal class UseCaseEntityRelationRepository : GenericRepository<UseCaseEntityRelation, Guid>
     {
         public UseCaseEntityRelationRepository(GSDRequirementsContext context) : base(context) { }
