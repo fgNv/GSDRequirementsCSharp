@@ -316,11 +316,15 @@
                 $scope.editSelectedUseCase = () => {
                     window.location.href = "#/diagram/useCaseForm"
                     $scope.currentUseCase = $scope.selectedUseCase
+                    $scope.selectedUseCase = null
+                    Views.UseCaseDiagram.removeSelections(graph, paper)
                 }
 
                 $scope.editSelectedActor = () => {
                     window.location.href = "#/diagram/actorForm"
                     $scope.currentActor = $scope.selectedActor
+                    $scope.selectedActor = null
+                    Views.UseCaseDiagram.removeSelections(graph, paper)
                 }
 
                 $scope.backToDiagram = () => {

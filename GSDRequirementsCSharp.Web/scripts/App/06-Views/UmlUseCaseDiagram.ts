@@ -136,6 +136,15 @@
         var paperElementId = ''
         var paperElementContainerId = ''
 
+        export function removeSelections(graph, paper) {
+            _.each(graph.getElements(), function (el) {
+                var vectorized = V(paper.findViewByModel(el).el);
+                if (vectorized.hasClass("selectedCell")) {
+                    vectorized.removeClass("selectedCell")
+                }
+            })
+        }
+
         export function startDiagram(
             cellClickCallback = null,
             paperElementIdArg = null,
@@ -177,12 +186,7 @@
                     return;
                 }
 
-                _.each(graph.getElements(), function (el) {
-                    var vectorized = V(paper.findViewByModel(el).el);
-                    if (vectorized.hasClass("selectedCell")) {
-                        vectorized.removeClass("selectedCell")
-                    }
-                })
+                removeSelections(graph, paper)
                 
                 cellViewVectorized.addClass('selectedCell')
                 if (cellClickCallback) {
