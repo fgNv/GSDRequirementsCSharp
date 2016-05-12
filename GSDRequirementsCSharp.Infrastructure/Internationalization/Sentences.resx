@@ -960,4 +960,16 @@
   <data name="preConditions" xml:space="preserve">
     <value>Pre Conditions</value>
   </data>
+  <data name="useCaseDiagram" xml:space="preserve">
+    <value>Use Case Diagram</value>
+  </data>
+  <data name="useCaseDiagramNotFound" xml:space="preserve">
+    <value>Use Case Diagram not found</value>
+  </data>
+  <data name="anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved" xml:space="preserve">
+    <value>An identifier will be assigned to this use case, after the diagram is saved.</value>
+  </data>
+  <data name="identifier" xml:space="preserve">
+    <value>Identifier</value>
+  </data>
 </root>

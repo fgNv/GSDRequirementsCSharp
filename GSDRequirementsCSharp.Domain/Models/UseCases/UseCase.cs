@@ -14,8 +14,13 @@ namespace GSDRequirementsCSharp.Domain
         public override UseCaseEntityType Type { get { return UseCaseEntityType.UseCase; } }
         public int X { get; set; }
         public int Y { get; set; }
+        public int Identifier { get; set; }
         public ICollection<UseCasePreCondition> PreConditions { get; set; }
         public ICollection<UseCasePostCondition> PostConditions { get; set; }
+        public SpecificationItem SpecificationItem { get; set; }
+        public Guid SpecificationItemId { get; set; }
+        public Project Project { get; set; }
+        public Guid ProjectId { get; set; }
 
         public UseCase()
         {

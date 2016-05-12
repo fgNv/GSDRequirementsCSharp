@@ -1,7 +1,10 @@
 ﻿using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO;
 using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Models.UseCases;
+using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Context;
+using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +28,9 @@ namespace GSDRequirementsCSharp.Domain.Commands
         private readonly IRepository<UseCasePreConditionContent, LocaleKey> _preConditionContentRepository;
         private readonly IRepository<UseCasePostCondition, Guid> _postConditionRepository;
         private readonly IRepository<UseCasePostConditionContent, LocaleKey> _postConditionContentRepository;
+        private readonly IQueryHandler<UseCaseNextIdQuery, int> _useCaseNextIdQueryHandler;
+        private readonly ICurrentProjectContextId _currentProjectContextId;
+        private readonly IRepository<SpecificationItem, Guid> _specificationItemRepository;
 
         public UseCaseDiagramItemsPersister(IRepository<UseCaseDiagramContent, LocaleKey> classDiagramContentRepository,
                                             IRepository<UseCase, Guid> useCaseRepository,
@@ -35,10 +41,13 @@ namespace GSDRequirementsCSharp.Domain.Commands
                                             IRepository<UseCasesRelation, Guid> useCasesRelationRepository,
                                             IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository,
                                             IRepository<UseCaseEntityRelationContent, LocaleKey> useCaseEntityRelationContentRepository,
+                                            ICurrentProjectContextId currentProjectContextId,
                                             IRepository<UseCasePreCondition, Guid> preConditionRepository,
                                             IRepository<UseCasePreConditionContent, LocaleKey> preConditionContentRepository,
                                             IRepository<UseCasePostCondition, Guid> postConditionRepository,
-                                            IRepository<UseCasePostConditionContent, LocaleKey> postConditionContentRepository)
+                                            IRepository<UseCasePostConditionContent, LocaleKey> postConditionContentRepository,
+                                            IQueryHandler<UseCaseNextIdQuery, int> useCaseNextIdQueryHandler,
+                                            IRepository<SpecificationItem, Guid> specificationItemRepository)
         {
             _useCaseDiagramContentRepository = classDiagramContentRepository;
             _useCaseRepository = useCaseRepository;
@@ -47,13 +56,18 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _actorContentRepository = actorContentRepository;
             _useCasesRelationRepository = useCasesRelationRepository;
             _useCaseEntityRelationRepository = useCaseEntityRelationRepository;
+            _specificationItemRepository = specificationItemRepository;
             _useCaseEntityRelationContentRepository = useCaseEntityRelationContentRepository;
             _useCaseEntityRepository = useCaseEntityRepository;
+
+            _currentProjectContextId = currentProjectContextId;
 
             _preConditionRepository = preConditionRepository;
             _preConditionContentRepository = preConditionContentRepository;
             _postConditionRepository = postConditionRepository;
             _postConditionContentRepository = postConditionContentRepository;
+
+            _useCaseNextIdQueryHandler = useCaseNextIdQueryHandler;
         }
 
         private void PersistActor(UseCaseDiagram useCaseDiagram, ActorItem actorData)
@@ -120,13 +134,14 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _preConditionRepository.Add(preConditionEntity);
         }
 
-        private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData)
+        private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData, int identifier)
         {
             var useCaseEntity = new UseCase();
 
             useCaseEntity.Id = useCaseData.Cell.Id;
             useCaseEntity.X = useCaseData.Cell.Position.X;
             useCaseEntity.Y = useCaseData.Cell.Position.Y;
+            useCaseEntity.Identifier = identifier;
 
             foreach (var contentData in useCaseData.Contents)
             {
@@ -147,10 +162,20 @@ namespace GSDRequirementsCSharp.Domain.Commands
             foreach (var preCondition in useCaseData.PreConditions)
                 PersistPreCondition(useCaseEntity, preCondition);
 
+            var specificationItem = new SpecificationItem();
+            specificationItem.Id = Guid.NewGuid();
+            specificationItem.Label = $"UC{useCaseEntity.Identifier}";
+            specificationItem.Active = true;
+            specificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
+
+            useCaseEntity.SpecificationItem = specificationItem;
             useCaseEntity.UseCaseDiagram = useCaseDiagram;
+
+            useCaseEntity.ProjectId = useCaseDiagram.ProjectId;
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
             _useCaseEntityRepository.Add(useCaseEntity);
+            _specificationItemRepository.Add(specificationItem);
         }
 
         public void Persist(UseCaseDiagram useCaseDiagram, CreateUseCaseDiagramCommand command)
@@ -165,8 +190,11 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 _useCaseDiagramContentRepository.Add(useCaseDiagramContent);
             }
 
+            var projectId = _currentProjectContextId.Get();
+            var useCaseId = _useCaseNextIdQueryHandler.Handle(projectId);
+
             foreach (var useCaseData in command.UseCases)
-                PersistUseCase(useCaseDiagram, useCaseData);
+                PersistUseCase(useCaseDiagram, useCaseData, useCaseId++);
 
             foreach (var actorData in command.Actors)
                 PersistActor(useCaseDiagram, actorData);

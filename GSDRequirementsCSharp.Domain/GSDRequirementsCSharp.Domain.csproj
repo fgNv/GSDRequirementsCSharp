@@ -126,6 +126,8 @@
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseEntitiesRelationItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCaseItem.cs" />
     <Compile Include="Commands\UseCaseDiagrams\DTO\UseCasesRelationItem.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\RemoveUseCaseDiagramCommand.cs" />
+    <Compile Include="Commands\UseCaseDiagrams\RemoveUseCaseDiagramCommandHandler.cs" />
     <Compile Include="Commands\UseCaseDiagrams\UseCaseDiagramItemsPersister.cs" />
     <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommand.cs" />
     <Compile Include="Commands\UseCaseDiagrams\CreateUseCaseDiagramCommandHandler.cs" />
@@ -210,6 +212,8 @@
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQueryResult.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCaseNextIdQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagramQuery.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />

@@ -1,6 +1,8 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -18,8 +20,14 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(c => c.Version).HasColumnName("version");
             Property(c => c.Identifier).HasColumnName("identifier");
             Property(c => c.IsLastVersion).HasColumnName("is_last_version");
-            
-            Property(cd => cd.ProjectId).HasColumnName("project_id");
+
+            Property(cd => cd.ProjectId).HasColumnName("project_id")
+                .HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("class_diagram_identifier", 2)
+                {
+                    IsUnique = true
+                })); ;
 
             HasKey(cd => new { cd.Id, cd.Version });
 
@@ -27,7 +35,22 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
 
             HasMany(cd => cd.Relationships).WithRequired();
 
-            HasRequired(si => si.SpecificationItem).WithMany().HasForeignKey(cd => cd.Id);
+            HasRequired(si => si.SpecificationItem).WithMany()
+                                                   .HasForeignKey(cd => cd.Id);
+
+            Property(p => p.Identifier).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("class_diagram_identifier", 1)
+                {
+                    IsUnique = true
+                }));
+
+            Property(p => p.Version).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("class_diagram_identifier", 3)
+                {
+                    IsUnique = true
+                }));
 
             HasRequired(cd => cd.Project).WithMany()
                                          .HasForeignKey(cd => cd.ProjectId);

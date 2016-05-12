@@ -11,6 +11,7 @@
 
     interface UseCaseListControllerScope {
         addUseCaseDiagram: () => void
+        currentUseCase : any
         currentPage: number
         currentUseCaseDiagram: Models.UseCaseDiagram
         getPaginationRange: () => any
@@ -20,6 +21,7 @@
         loadUseCaseDiagrams: () => void
         maxPages: number
         pendingRequests: number
+        removeUseCaseDiagram(useCaseDiagram) : void
         setUseCaseToManageLinks: (uc) => void 
         useCaseDiagramToManageLinks: Models.UseCaseDiagram
         useCaseDiagramToTranslate: Models.UseCaseDiagram
@@ -36,6 +38,7 @@
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.useCasesDiagrams = []
+            $scope.currentUseCase = null
 
             var pageSize = 10
             $scope.pendingRequests = 0
@@ -50,6 +53,7 @@
 
             $scope.addUseCaseDiagram = () => {
                 $scope.currentUseCaseDiagram = new Models.UseCaseDiagram
+                $scope.currentUseCase = null
                 window.location.href = "#/diagram"
             }
 
@@ -98,7 +102,7 @@
 
             $scope.setCurrentUseCaseDiagram = (cd): void => {
                 $scope.pendingRequests++
-                
+                $scope.currentUseCase = null
                 UseCaseDiagramResource.get({ 'id': cd.id })
                     .$promise
                     .then((response) => {
@@ -120,7 +124,26 @@
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
-            
+
+            $scope.removeUseCaseDiagram = (ucd) => {
+                if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
+                    return;
+                }
+
+                $scope.pendingRequests++
+
+                UseCaseDiagramResource.remove({ id: ucd.id })
+                    .$promise
+                    .then((): void => {
+                        Notification.notifySuccess(Sentences.useCaseDiagramRemovedSuccessfully)
+                        $scope.loadUseCaseDiagrams()
+                    })
+                    .catch((err) => {
+                        Notification.notifyError(Sentences.errorRemovingUseCaseDiagram, err.data.messages)
+                    })
+                    .finally((): void => { $scope.pendingRequests-- })
+            }
+
             $scope.loadUseCaseDiagrams()
             $scope.UserData = new UserData()
         }

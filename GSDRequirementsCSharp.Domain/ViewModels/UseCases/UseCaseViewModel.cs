@@ -14,6 +14,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
         public IEnumerable<PreConditionViewModel> PreConditions { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public int Identifier { get; set; }
 
         public static UseCaseViewModel FromModel(UseCase model)
         {
@@ -24,7 +25,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
                 PreConditions = model.PreConditions.Select(PreConditionViewModel.FromModel),
                 PostConditions = model.PostConditions.Select(PostConditionViewModel.FromModel),
                 X = model.X,
-                Y = model.Y
+                Y = model.Y,
+                Identifier = model.Identifier
             };
         }
     }

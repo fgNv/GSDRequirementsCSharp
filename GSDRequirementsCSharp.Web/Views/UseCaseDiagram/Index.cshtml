@@ -61,7 +61,7 @@
                             </button>
                             <button class="btn btn-default"
                                     data-ng-show="hasEditPermission"
-                                    data-ng-click="inactivateUseCaseDiagram(uc)"
+                                    data-ng-click="removeUseCaseDiagram(uc)"
                                     title="@Sentences.removeUseCaseDiagram">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
@@ -97,7 +97,7 @@
             </nav>
         </article>
     </article>
-
+    
     <gsd-use-case-diagram data-after-save="loadUseCaseDiagrams"
                        data-use-case-diagram="currentUseCaseDiagram"
                        data-current-use-case="currentUseCase"

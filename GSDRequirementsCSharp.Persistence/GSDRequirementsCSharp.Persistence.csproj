@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201605111243350_use-case-relation-content.Designer.cs">
       <DependentUpon>201605111243350_use-case-relation-content.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605120001015_use-case-specification-item.cs" />
+    <Compile Include="Migrations\201605120001015_use-case-specification-item.Designer.cs">
+      <DependentUpon>201605120001015_use-case-specification-item.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
@@ -232,9 +236,11 @@
     <Compile Include="Queries\SpecificationItems\WithUseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Detailed\UseCaseDiagramDetailQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\NextId\UseCaseDiagramNextIdQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\NextUcId\NextUseCaseIdQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagram\UseCasesByDiagramQueryHandler.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
     <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQuery.cs" />
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605111243350_use-case-relation-content.resx">
       <DependentUpon>201605111243350_use-case-relation-content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605120001015_use-case-specification-item.resx">
+      <DependentUpon>201605120001015_use-case-specification-item.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

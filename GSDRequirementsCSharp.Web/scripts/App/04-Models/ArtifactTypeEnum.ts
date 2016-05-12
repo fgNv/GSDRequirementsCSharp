@@ -2,6 +2,7 @@
     export enum ArtifactType {
         Requirement = 1,
         ClassDiagram = 55,
-        UseCase = 541
+        UseCaseDiagram = 541,
+        UseCase = 841
     }
 }

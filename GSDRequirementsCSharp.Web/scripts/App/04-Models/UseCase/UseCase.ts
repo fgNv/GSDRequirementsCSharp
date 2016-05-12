@@ -8,6 +8,7 @@
         public x: number
         public y: number
         public id: string
+        public identifier: string
         public contents: Array<UseCaseContent>
         public preConditions: Array<PreCondition>
         public postConditions: Array<PostCondition>
@@ -74,8 +75,8 @@
             if (data) {
                 for (var p in data)
                     this[p] = data[p]
-                
-                _.each(this.contents, (c) : void => {
+
+                _.each(this.contents, (c): void => {
                     this.contentDictionary[c.locale] = c
                 })
 
@@ -86,8 +87,10 @@
                 this.preConditions = _.map(this.preConditions, (pc) => {
                     return new PreCondition(pc)
                 })
+            } else {
+                this.identifier = "?"
             }
-
+            
             this.setInitialLocale()
         }
         public containsLocale(locale: string) {

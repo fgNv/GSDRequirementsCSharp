@@ -96,7 +96,7 @@
             ($timeout, $scope: GsdUseCaseDiagramScope, PackageResource, UseCaseDiagramResource, $q) => {
                 var graph = null;
                 var paper = null;
-
+ 
                 $scope.pendingRequests = 0
                 $scope.currentActor = null
                 $scope.currentUseCase = null
@@ -384,7 +384,7 @@
                 }
 
                 $scope.$watch('useCaseDiagram', (newValue: Models.UseCaseDiagram) => {
-
+                    $scope.currentUseCase = null
                     if (graph) {
                         graph.clear()
                         paper.remove()
@@ -458,9 +458,12 @@
                 })
 
                 $scope.newUseCase = () => {
+
                     window.location.href = "#/diagram/formUseCase"
                     $scope.selectedUseCase = null
-                    $scope.currentUseCase = new Models.UseCase()
+                    if ($scope.useCaseDiagram) {
+                        $scope.currentUseCase = new Models.UseCase()
+                    }
                 }
 
                 $scope.newActor = () => {

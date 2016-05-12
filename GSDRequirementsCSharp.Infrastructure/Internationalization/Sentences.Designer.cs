@@ -340,6 +340,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An identifier will be assigned to this use case, after the diagram is saved..
+        /// </summary>
+        public static string anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved {
+            get {
+                return ResourceManager.GetString("anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you certain you wish to remove this item? This action is irreversible.
         /// </summary>
         public static string areYouCertainYouWishToRemoveThisItem {
@@ -1164,6 +1173,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string id {
             get {
                 return ResourceManager.GetString("id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        public static string identifier {
+            get {
+                return ResourceManager.GetString("identifier", resourceCulture);
             }
         }
         
@@ -2461,6 +2479,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string useCase {
             get {
                 return ResourceManager.GetString("useCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Case Diagram.
+        /// </summary>
+        public static string useCaseDiagram {
+            get {
+                return ResourceManager.GetString("useCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Case Diagram not found.
+        /// </summary>
+        public static string useCaseDiagramNotFound {
+            get {
+                return ResourceManager.GetString("useCaseDiagramNotFound", resourceCulture);
             }
         }
         

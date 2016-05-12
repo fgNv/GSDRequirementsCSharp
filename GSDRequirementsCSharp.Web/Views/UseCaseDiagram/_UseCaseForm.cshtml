@@ -70,6 +70,16 @@
     </div>
 </div>
 
+<div class="panel panel-default">
+    <div class="panel-body">
+        @Sentences.identifier: <b>{{currentUseCase.identifier}}</b>
+    </div>
+</div>
+
+<p data-ng-show="currentUseCase.identifier == '?'">
+    @Sentences.anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved
+</p>
+
 <h4>
     @Sentences.preConditions
     <button class="btn btn-primary"
@@ -82,7 +92,6 @@
 <div class="alert alert-info" data-ng-show="currentUseCase.preConditions.length == 0">
     @Sentences.noPreConditionsRegistered
 </div>
-
 <table class="table" data-ng-show="currentUseCase.preConditions.length > 0">
     <thead>
         <tr>
@@ -93,8 +102,8 @@
     <tbody>
         <tr data-ng-repeat="preCondition in currentUseCase.preConditions">
             <td>
-                <input required="" 
-                       class="form-control" 
+                <input required=""
+                       class="form-control"
                        placeholder="{{preCondition.getContentProperty('description')}}"
                        data-ng-model="preCondition.contentDictionary[contentData.locale].description" />
             </td>
@@ -130,8 +139,8 @@
     <tbody>
         <tr data-ng-repeat="postCondition in currentUseCase.postConditions">
             <td>
-                <input required="" 
-                       class="form-control" 
+                <input required=""
+                       class="form-control"
                        placeholder="{{postCondition.getContentProperty('description')}}"
                        data-ng-model="postCondition.contentDictionary[contentData.locale].description" />
             </td>

@@ -1,6 +1,8 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,27 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             ToTable("UseCase");
             HasKey(u => u.Id);
             Property(e => e.Id).HasColumnName("id");
+            Property(e => e.Identifier).HasColumnName("identifier");
+            Property(e => e.SpecificationItemId).HasColumnName("specification_item_id");
+            Property(e => e.ProjectId).HasColumnName("project_id").HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("use_case_identifier", 2)
+                {
+                    IsUnique = true
+                })); ;
+
+            HasRequired(uc => uc.SpecificationItem).WithMany()
+                                                   .HasForeignKey(uc => uc.SpecificationItemId);
+            HasRequired(uc => uc.Project).WithMany()
+                                         .HasForeignKey(uc => uc.ProjectId);
+
+
+            Property(p => p.Identifier).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("use_case_identifier", 1)
+                {
+                    IsUnique = true
+                }));                        
         }
     }
 }

@@ -54,7 +54,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             specificationItem.Active = true;
             specificationItem.Type = SpecificationItemType.ClassDiagram;
             specificationItem.PackageId = command.PackageId.Value;
-            specificationItem.Label = $"UC{nextId}";
+            specificationItem.Label = $"UCD{nextId}";
 
             var useCaseDiagram = new UseCaseDiagram();
             useCaseDiagram.Id = id;
