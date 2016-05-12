@@ -171,6 +171,7 @@
     <Content Include="Scripts\App\03-Resources\PackageResource.js" />
     <Content Include="Scripts\App\03-Resources\ProjectResource.js" />
     <Content Include="Scripts\App\03-Resources\SpecificationItemResource.js" />
+    <Content Include="Scripts\App\03-Resources\UseCaseResource.js" />
     <Content Include="Scripts\App\03-Resources\UserResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -182,6 +183,7 @@
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\RequirementController.cs" />
     <Compile Include="Api\SpecificationItemController.cs" />
+    <Compile Include="Api\UseCaseController.cs" />
     <Compile Include="Api\UseCaseDiagramController.cs" />
     <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequirementController.cs" />
+    <Compile Include="Controllers\UseCaseController.cs" />
     <Compile Include="Controllers\UseCaseDiagramController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Cookies\ResponseExtensions.cs" />
@@ -290,6 +293,7 @@
     <Content Include="Views\UseCaseDiagram\_UseCaseForm.cshtml" />
     <Content Include="Views\UseCaseDiagram\_Relations.cshtml" />
     <Content Include="Views\UseCaseDiagram\_Display.cshtml" />
+    <Content Include="Views\UseCase\_Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -403,6 +407,7 @@
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagramDisplay.ts" />
+    <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDisplay.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

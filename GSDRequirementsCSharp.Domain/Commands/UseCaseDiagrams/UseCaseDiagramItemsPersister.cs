@@ -164,7 +164,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 PersistPreCondition(useCaseEntity, preCondition);
 
             var specificationItem = new SpecificationItem();
-            specificationItem.Id = Guid.NewGuid();
+            specificationItem.Id = useCaseEntity.Id;
             specificationItem.Label = $"UC{useCaseEntity.Identifier}";
             specificationItem.Active = true;
             specificationItem.Type = SpecificationItemType.UseCase;

@@ -975,4 +975,16 @@
   <data name="artifactToEditLinks" xml:space="preserve">
     <value>Artifact To Edit Links</value>
   </data>
+  <data name="errorLoadingUseCase" xml:space="preserve">
+    <value>Error Loading Use Case</value>
+  </data>
+  <data name="errorLoadingUseCaseDiagram" xml:space="preserve">
+    <value>Error Loading Use Case Diagram</value>
+  </data>
+  <data name="postConditions" xml:space="preserve">
+    <value>Post Conditions</value>
+  </data>
+  <data name="useCaseDetails" xml:space="preserve">
+    <value>Use Case Details</value>
+  </data>
 </root>

@@ -22,6 +22,19 @@ namespace GSDRequirementsCSharp.Domain
         public Project Project { get; set; }
         public Guid ProjectId { get; set; }
         public int Version { get; set; }
+        
+        public string IsLastVersionChar { get; set; }
+        public bool IsLastVersion
+        {
+            get
+            {
+                return IsLastVersionChar == "True";
+            }
+            set
+            {
+                IsLastVersionChar = value ? "True" : "False";
+            }
+        }
 
         public UseCase()
         {

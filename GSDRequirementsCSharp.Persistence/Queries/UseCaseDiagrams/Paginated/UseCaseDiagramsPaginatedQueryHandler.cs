@@ -32,7 +32,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
             var currentProjectId = _currentProjectContextId.Get();
 
             var useCaseDiagramsQuery = _context.UseCaseDiagrams
-                                             .Where(cd => cd.Project.Id == currentProjectId &&
+                                               .Where(cd => cd.Project.Id == currentProjectId &&
                                                           cd.SpecificationItem.Active && cd.IsLastVersion);
 
             var maxPages = (int)Math.Ceiling(useCaseDiagramsQuery.Count() / (double)query.PageSize);

@@ -21,10 +21,10 @@ namespace GSDRequirementsCSharp.Domain.Models
         public Project Project { get; set; }
 
         public Guid ProjectId { get; set; }
+                
+        public int Identifier { get; set; }
 
         public bool IsLastVersion { get; set; }
-
-        public int Identifier { get; set; }
 
         public ICollection<UseCases.UseCaseEntity> Entities { get; set; }
 

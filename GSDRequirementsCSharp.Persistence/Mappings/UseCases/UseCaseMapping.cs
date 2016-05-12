@@ -19,6 +19,10 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.Identifier).HasColumnName("identifier");
             Property(e => e.Version).HasColumnName("version");
+
+            Property(e => e.IsLastVersionChar).HasColumnName("is_last_version");
+            Ignore(e => e.IsLastVersion);
+
             Property(e => e.SpecificationItemId).HasColumnName("specification_item_id");
             Property(e => e.ProjectId).HasColumnName("project_id").HasColumnAnnotation(
                 IndexAnnotation.AnnotationName,
