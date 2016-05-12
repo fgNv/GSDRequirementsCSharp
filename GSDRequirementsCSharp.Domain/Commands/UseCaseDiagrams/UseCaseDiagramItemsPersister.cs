@@ -177,7 +177,8 @@ namespace GSDRequirementsCSharp.Domain.Commands
             else
             {
                 var oldUseCase = oldVersionUseCases.FirstOrDefault(o => o.Id == useCaseEntity.Id);
-                oldUseCase.SpecificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
+                useCaseEntity.SpecificationItem = oldUseCase.SpecificationItem;
+                useCaseEntity.SpecificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
                 useCaseEntity.SpecificationItemId = oldUseCase.SpecificationItemId;
             }
 

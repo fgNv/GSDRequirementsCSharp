@@ -58,6 +58,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseDiagram.ProjectId = latestVersion.ProjectId;
             useCaseDiagram.Version = latestVersion.Version + 1;
             useCaseDiagram.Identifier = latestVersion.Identifier;
+            useCaseDiagram.IsLastVersion = true;
 
             _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command, oldUseCasesVersions);
 
