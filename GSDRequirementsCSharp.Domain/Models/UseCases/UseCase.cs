@@ -21,6 +21,7 @@ namespace GSDRequirementsCSharp.Domain
         public Guid SpecificationItemId { get; set; }
         public Project Project { get; set; }
         public Guid ProjectId { get; set; }
+        public int Version { get; set; }
 
         public UseCase()
         {

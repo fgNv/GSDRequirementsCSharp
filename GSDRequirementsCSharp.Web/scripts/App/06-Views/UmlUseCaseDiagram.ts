@@ -119,7 +119,7 @@
                 name: useCase.getName(),
                 attrs: {
                     '.name': {
-                        text: name
+                        text: `UC${useCase.identifier}. ${name}`
                     }
                 }
             });

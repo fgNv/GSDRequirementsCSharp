@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201605120001015_use-case-specification-item.Designer.cs">
       <DependentUpon>201605120001015_use-case-specification-item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605120218506_use-case-evrsion.cs" />
+    <Compile Include="Migrations\201605120218506_use-case-evrsion.Designer.cs">
+      <DependentUpon>201605120218506_use-case-evrsion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
@@ -329,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605120001015_use-case-specification-item.resx">
       <DependentUpon>201605120001015_use-case-specification-item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605120218506_use-case-evrsion.resx">
+      <DependentUpon>201605120218506_use-case-evrsion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

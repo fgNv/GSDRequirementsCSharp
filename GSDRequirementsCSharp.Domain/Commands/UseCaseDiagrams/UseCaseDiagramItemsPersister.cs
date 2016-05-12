@@ -142,6 +142,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseEntity.X = useCaseData.Cell.Position.X;
             useCaseEntity.Y = useCaseData.Cell.Position.Y;
             useCaseEntity.Identifier = identifier;
+            useCaseEntity.Version = useCaseDiagram.Version;
 
             foreach (var contentData in useCaseData.Contents)
             {
@@ -194,7 +195,12 @@ namespace GSDRequirementsCSharp.Domain.Commands
             var useCaseId = _useCaseNextIdQueryHandler.Handle(projectId);
 
             foreach (var useCaseData in command.UseCases)
-                PersistUseCase(useCaseDiagram, useCaseData, useCaseId++);
+            {
+                var currentUseCaseId = useCaseData.Identifier == null ?
+                    useCaseId++ :
+                    useCaseData.Identifier.Value;
+                PersistUseCase(useCaseDiagram, useCaseData, currentUseCaseId);
+            }
 
             foreach (var actorData in command.Actors)
                 PersistActor(useCaseDiagram, actorData);

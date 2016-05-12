@@ -17,5 +17,6 @@ namespace GSDRequirementsCSharp.Domain.Commands
         public IEnumerable<PostConditionData> PostConditions { get; set; }
         [ValidateCollection]
         public IEnumerable<PreConditionData> PreConditions { get; set; }
+        public int? Identifier { get; set; }
     }
 }

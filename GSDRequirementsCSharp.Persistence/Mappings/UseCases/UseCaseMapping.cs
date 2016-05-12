@@ -18,6 +18,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             HasKey(u => u.Id);
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.Identifier).HasColumnName("identifier");
+            Property(e => e.Version).HasColumnName("version");
             Property(e => e.SpecificationItemId).HasColumnName("specification_item_id");
             Property(e => e.ProjectId).HasColumnName("project_id").HasColumnAnnotation(
                 IndexAnnotation.AnnotationName,
@@ -30,14 +31,20 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
                                                    .HasForeignKey(uc => uc.SpecificationItemId);
             HasRequired(uc => uc.Project).WithMany()
                                          .HasForeignKey(uc => uc.ProjectId);
-
-
+            
             Property(p => p.Identifier).HasColumnAnnotation(
                 IndexAnnotation.AnnotationName,
                 new IndexAnnotation(new IndexAttribute("use_case_identifier", 1)
                 {
                     IsUnique = true
-                }));                        
+                }));
+
+            Property(p => p.Version).HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("use_case_identifier", 3)
+                {
+                    IsUnique = true
+                }));
         }
     }
 }
