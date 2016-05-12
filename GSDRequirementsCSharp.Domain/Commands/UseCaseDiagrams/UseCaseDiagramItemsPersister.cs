@@ -134,7 +134,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _preConditionRepository.Add(preConditionEntity);
         }
 
-        private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData, int identifier)
+        private void PersistUseCase(UseCaseDiagram useCaseDiagram, UseCaseItem useCaseData, int identifier, IEnumerable<UseCase> oldVersionUseCases = null)
         {
             var useCaseEntity = new UseCase();
 
@@ -163,24 +163,33 @@ namespace GSDRequirementsCSharp.Domain.Commands
             foreach (var preCondition in useCaseData.PreConditions)
                 PersistPreCondition(useCaseEntity, preCondition);
 
-            var specificationItem = new SpecificationItem();
-            specificationItem.Id = useCaseEntity.Id;
-            specificationItem.Label = $"UC{useCaseEntity.Identifier}";
-            specificationItem.Active = true;
-            specificationItem.Type = SpecificationItemType.UseCase;
-            specificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
+            if (oldVersionUseCases == null || !oldVersionUseCases.Any(o => o.Id == useCaseEntity.Id))
+            {
+                var specificationItem = new SpecificationItem();
+                specificationItem.Id = useCaseEntity.Id;
+                specificationItem.Label = $"UC{useCaseEntity.Identifier}";
+                specificationItem.Active = true;
+                specificationItem.Type = SpecificationItemType.UseCase;
+                specificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
+                _specificationItemRepository.Add(specificationItem);
+                useCaseEntity.SpecificationItem = specificationItem;
+            }
+            else
+            {
+                var oldUseCase = oldVersionUseCases.FirstOrDefault(o => o.Id == useCaseEntity.Id);
+                oldUseCase.SpecificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
+                useCaseEntity.SpecificationItemId = oldUseCase.SpecificationItemId;
+            }
 
-            useCaseEntity.SpecificationItem = specificationItem;
             useCaseEntity.UseCaseDiagram = useCaseDiagram;
 
             useCaseEntity.ProjectId = useCaseDiagram.ProjectId;
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
             _useCaseEntityRepository.Add(useCaseEntity);
-            _specificationItemRepository.Add(specificationItem);
         }
 
-        public void Persist(UseCaseDiagram useCaseDiagram, CreateUseCaseDiagramCommand command)
+        public void Persist(UseCaseDiagram useCaseDiagram, CreateUseCaseDiagramCommand command, IEnumerable<UseCase> oldVersionUseCases = null)
         {
             foreach (var contentItem in command.Contents)
             {
@@ -200,7 +209,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 var currentUseCaseId = useCaseData.Identifier == null ?
                     useCaseId++ :
                     useCaseData.Identifier.Value;
-                PersistUseCase(useCaseDiagram, useCaseData, currentUseCaseId);
+                PersistUseCase(useCaseDiagram, useCaseData, currentUseCaseId, oldVersionUseCases);
             }
 
             foreach (var actorData in command.Actors)

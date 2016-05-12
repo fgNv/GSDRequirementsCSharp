@@ -59,7 +59,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseDiagram.Version = latestVersion.Version + 1;
             useCaseDiagram.Identifier = latestVersion.Identifier;
 
-            _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command);
+            _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command, oldUseCasesVersions);
 
             var oldToNewEntitiesIds = new Dictionary<Guid, Guid>();
 
