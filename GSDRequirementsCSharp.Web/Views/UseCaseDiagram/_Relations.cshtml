@@ -1,0 +1,110 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3>
+    @Sentences.relations
+    <button class="btn btn-primary"
+            data-ng-click="addRelation()"
+            title="@Sentences.addRelation">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</h3>
+
+<div class="row" style="margin-bottom: 10px; ">
+    <div class="col-md-6">
+        <div class="select-box" data-ng-if="utility">
+            <label>@Sentences.language</label>
+            <ui-select data-ng-model="contentData.locale"
+                       data-theme="bootstrap"
+                       data-search-enabled="false"
+                       append-to-body="false">
+                <ui-select-match>
+                    {{$select.selected}}
+                    <span class="glyphicon glyphicon-ok"
+                          style="color: #008A21"
+                          data-ng-show="relationsOnEdit.containsLocale($select.selected)">
+                    </span>
+                </ui-select-match>
+                <ui-select-choices repeat="locale in locales track by locale">
+                    <span ng-bind="locale"></span>
+                    <span class="glyphicon glyphicon-ok"
+                          style="color: #008A21"
+                          data-ng-show="relationsOnEdit.containsLocale(locale)">
+                    </span>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info" data-ng-show="relationsOnEdit.length == 0" >
+    @Sentences.thereAreNoRelationsRegistered
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table" data-ng-show="relationsOnEdit.length > 0">
+            <thead>
+                <tr>
+                    <th>@Sentences.source</th>
+                    <th>@Sentences.target</th>
+                    <th>@Sentences.label</th>
+                    <th>@Sentences.relationType</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="relation in relationsOnEdit">
+                    <td>
+                        <div class="form-group">
+                            <select data-ng-options="entity.cell.id as entity.getName() for
+                            entity in getRelationEntityOptions(relation)"
+                            class="form-control"
+                            data-ng-model="relation.sourceId"></select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <select data-ng-options="entity.cell.id as entity.getName() for
+                                             entity in getRelationEntityOptions(relation)"
+                                    class="form-control"
+                                    data-ng-model="relation.targetId"></select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group" data-ng-if="isUseCaseActorRelation(relation)">
+                            <input type="text"
+                            class="form-control"
+                            data-ng-model="relation.contentDictionary[contentData.locale].description" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group" data-ng-if="isUseCasesRelation(relation)">
+                            <select data-ng-options="type.value as type.label for
+                                             type in relationTypeOptions"
+                                    class="form-control"
+                                    data-ng-model="relation.type"></select>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-default"
+                                data-ng-click="removeRelation(relation)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="btn-group">
+    <button class="btn btn-default"
+            data-ng-click="backToDiagram()">
+        @Sentences.goBack
+    </button>
+    <button class="btn btn-primary"
+            data-ng-click="saveRelations()">
+        @Sentences.save
+    </button>
+</div>
+

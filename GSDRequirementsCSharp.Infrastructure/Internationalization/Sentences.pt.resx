@@ -888,4 +888,88 @@
   <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
     <value>Diagrama de classes removido com sucesso</value>
   </data>
+  <data name="noUseCaseDiagramsRegistered" xml:space="preserve">
+    <value>Nenhum diagrama de casos de uso cadastrado</value>
+  </data>
+  <data name="removeUseCaseDiagram" xml:space="preserve">
+    <value>Remover diagrama de casos de uso</value>
+  </data>
+  <data name="errorRemovingUseCaseDiagram" xml:space="preserve">
+    <value>Erro ao remover Diagrama de Casos de Uso</value>
+  </data>
+  <data name="useCaseDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Diagrama de Casos de Uso removido com sucesso</value>
+  </data>
+  <data name="addActor" xml:space="preserve">
+    <value>Adicionar ator</value>
+  </data>
+  <data name="addUseCase" xml:space="preserve">
+    <value>Adicionar caso de uso</value>
+  </data>
+  <data name="atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>Ao menos um ator ou um caso de uso deve estar cadastrado para gerenciar as relações</value>
+  </data>
+  <data name="editActor" xml:space="preserve">
+    <value>Editar ator</value>
+  </data>
+  <data name="editSelected" xml:space="preserve">
+    <value>Editar selecionado</value>
+  </data>
+  <data name="editUseCase" xml:space="preserve">
+    <value>Editar caso de uso</value>
+  </data>
+  <data name="manageUseCaseDiagram" xml:space="preserve">
+    <value>Gerenciar Diagrama de Casos de Uso</value>
+  </data>
+  <data name="removeSelected" xml:space="preserve">
+    <value>Remover selecionado</value>
+  </data>
+  <data name="toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear" xml:space="preserve">
+    <value>Para editar ou remover um caso de uso ou ator, clique em cima dele e o menu de ações será exibido</value>
+  </data>
+  <data name="extend" xml:space="preserve">
+    <value>Extender</value>
+  </data>
+  <data name="generalization" xml:space="preserve">
+    <value>Generalizar</value>
+  </data>
+  <data name="include" xml:space="preserve">
+    <value>Incluir</value>
+  </data>
+  <data name="label" xml:space="preserve">
+    <value>Rótulo</value>
+  </data>
+  <data name="path" xml:space="preserve">
+    <value>Narrativa</value>
+  </data>
+  <data name="addPostCondition" xml:space="preserve">
+    <value>Adicionar pós condição</value>
+  </data>
+  <data name="addPreCondition" xml:space="preserve">
+    <value>Adicionar pré condição</value>
+  </data>
+  <data name="noPostConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pós condição cadastrada</value>
+  </data>
+  <data name="noPreConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pré condição cadastrada</value>
+  </data>
+  <data name="postCondition" xml:space="preserve">
+    <value>Pós Condição</value>
+  </data>
+  <data name="preConditions" xml:space="preserve">
+    <value>Pré Condições</value>
+  </data>
+  <data name="useCaseDiagram" xml:space="preserve">
+    <value>Diagrama de casos de uso</value>
+  </data>
+  <data name="useCaseDiagramNotFound" xml:space="preserve">
+    <value>Diagrama de casos de uso não encontrado</value>
+  </data>
+  <data name="anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved" xml:space="preserve">
+    <value>Um identificador será atribuído para esse caso de uso, após o diagrama ser salvo.</value>
+  </data>
+  <data name="identifier" xml:space="preserve">
+    <value>Identificador</value>
+  </data>
 </root>

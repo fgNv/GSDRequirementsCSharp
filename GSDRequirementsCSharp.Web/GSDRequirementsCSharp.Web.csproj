@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -147,7 +147,7 @@
   <ItemGroup>
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\Styles\ClassDiagram.css" />
+    <Content Include="Content\Styles\Diagrams.css" />
     <Content Include="Content\Styles\Custom.css" />
     <Content Include="Content\Styles\Loading.css" />
     <Content Include="Content\Styles\NavBar.css" />
@@ -157,6 +157,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\UseCaseDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\ClassDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueConclusionResource.js" />
@@ -181,6 +182,7 @@
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\RequirementController.cs" />
     <Compile Include="Api\SpecificationItemController.cs" />
+    <Compile Include="Api\UseCaseDiagramController.cs" />
     <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -282,6 +284,11 @@
     <Content Include="Views\ClassDiagram\_Form.cshtml" />
     <Content Include="Views\ClassDiagram\_Relations.cshtml" />
     <Content Include="Views\ClassDiagram\_Display.cshtml" />
+    <Content Include="Scripts\App\tsconfig.json" />
+    <Content Include="Views\UseCaseDiagram\_Management.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_ActorForm.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_UseCaseForm.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_Relations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,6 +332,7 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\DifficultyEnum.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\EventNames.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\GSDRequirementsData.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\IDiagramElement.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\Issue.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueComment.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\IssueCommentContent.ts" />
@@ -342,6 +350,22 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\RequirementType.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\SpecificationItem.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\Actor.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\ActorContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\IUseCaseEntity.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PostCondition.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PostConditionContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PreCondition.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\PreConditionContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseRelationsOnEdit.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCase.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseDiagramContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseEntityRelationContent.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseEntityType.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCaseRelationship.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCasesRelationType.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ClassDiagramListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
@@ -357,7 +381,9 @@
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ProjectListController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\RequirementsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\UpdateUserDataController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\UseCaseDiagramListController.ts" />
     <TypeScriptCompile Include="Scripts\App\06-Views\UmlClassDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\06-Views\UmlUseCaseDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\ClassDiagram\GsdClassDiagram.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\ClassDiagram\GsdClassDiagramDisplay.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Issues\GsdIssueCreate.ts" />
@@ -374,6 +400,7 @@
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslationList.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementForm.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslation.ts" />
+    <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagram.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

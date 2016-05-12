@@ -108,33 +108,9 @@
             $scope.getPaginationRange = function () {
                 return _.range(1, $scope.maxPages + 1);
             };
-
-            $scope.inactivateClassDiagrams = (p): void => {
-                this.InactivateClassDiagram(ClassDiagramResource, $scope, p)
-            }
-
+            
             $scope.loadClassDiagrams()
             $scope.UserData = new UserData()
-        }
-        private InactivateClassDiagram(classDiagramResource: any, $scope: any,
-            classDiagram: Models.ClassDiagram): void {
-            if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
-                return;
-            }
-
-            $scope.pendingRequests++;
-            classDiagramResource.remove({ id: classDiagram.id })
-                .$promise
-                .then(r => {
-                    Notification.notifySuccess(Sentences.classDiagramInactivatedSuccessfully)
-                    $scope.loadClassDiagrams()
-                })
-                .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingClassDiagram, error.data.messages)
-                })
-                .finally(() => {
-                    $scope.pendingRequests--;
-                });
         }
         private LoadClassDiagrams(classDiagramResource: any, $scope: any, size: number): void {
             $scope.pendingRequests++;

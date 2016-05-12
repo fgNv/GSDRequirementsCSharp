@@ -15,11 +15,11 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
     {
         private readonly IRepository<ClassDiagram, VersionKey> _classDiagramRepository;
         private readonly ClassDiagramItemsPersister _classDiagramItemsPersister;
-        private readonly IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItem> _specificationItemWithClassDiagramsQueryHandler;
+        private readonly IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItemWithClassDiagramsQueryResult> _specificationItemWithClassDiagramsQueryHandler;
         private readonly IRepository<Package, Guid> _packageRepository;
 
         public CreateClassDiagramNewVersionCommandHandler(IRepository<ClassDiagram, VersionKey> classDiagramRepository,
-                                                IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItem> specificationItemWithClassDiagramsQueryHandler,
+                                                IQueryHandler<SpecificationItemWithClassDiagramsQuery, SpecificationItemWithClassDiagramsQueryResult> specificationItemWithClassDiagramsQueryHandler,
                                                 IRepository<Package, Guid> packageRepository,
                                                 ClassDiagramItemsPersister classDiagramItemsPersister)
         {
@@ -31,9 +31,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
         public void Handle(CreateClassDiagramNewVersionCommand command)
         {
-            var specificationItem = _specificationItemWithClassDiagramsQueryHandler.Handle(command.Id.Value);
-            var latestVersion = specificationItem.ClassDiagrams.FirstOrDefault(s => s.IsLastVersion);
-            foreach (var oldRequirementVersion in specificationItem.ClassDiagrams)
+            var queryResult = _specificationItemWithClassDiagramsQueryHandler.Handle(command.Id.Value);
+            var latestVersion = queryResult.ClassDiagrams.FirstOrDefault(s => s.IsLastVersion);
+            foreach (var oldRequirementVersion in queryResult.ClassDiagrams)
             {
                 oldRequirementVersion.IsLastVersion = false;
             }
@@ -43,7 +43,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 
             var classDiagram = new ClassDiagram();
             classDiagram.Id = command.Id.Value;
-            classDiagram.SpecificationItem = specificationItem;
+            classDiagram.SpecificationItem = queryResult.SpecificationItem;
             classDiagram.ProjectId = latestVersion.ProjectId;
             classDiagram.Version = latestVersion.Version + 1;
             classDiagram.IsLastVersion = true;

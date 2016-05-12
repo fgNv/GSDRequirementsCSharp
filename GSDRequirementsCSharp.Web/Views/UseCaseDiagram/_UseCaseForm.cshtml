@@ -1,0 +1,166 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3 data-ng-hide="currentUseCase.cell">
+    @Sentences.addUseCase
+</h3>
+
+<h3 data-ng-show="currentUseCase.cell">
+    @Sentences.editUseCase
+</h3>
+
+<div data-ng-form="useCaseMetadataForm">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="select-box">
+                <label>@Sentences.language</label>
+                <ui-select data-ng-model="contentData.locale"
+                           data-theme="bootstrap"
+                           data-search-enabled="false"
+                           append-to-body="false">
+                    <ui-select-match>
+                        {{$select.selected}}
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="currentUseCase.containsLocale($select.selected)">
+                        </span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="locale in locales track by locale">
+                        <span ng-bind="locale"></span>
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="currentUseCase.containsLocale(locale)">
+                        </span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="usecase-name">@Sentences.name *</label>
+                <input type="text"
+                       class="form-control"
+                       required=""
+                       id="usecase-name"
+                       placeholder="{{currentUseCase.getContentProperty('name')}}"
+                       data-ng-model="currentUseCase.contentDictionary[contentData.locale].name" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="usecase-description">@Sentences.description *</label>
+                <textarea type="text"
+                          class="form-control"
+                          placeholder="{{currentUseCase.getContentProperty('description')}}"
+                          id="usecase-description"
+                          data-ng-model="currentUseCase.contentDictionary[contentData.locale].description"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="usecase-path">@Sentences.path</label>
+                <textarea type="text"
+                          class="form-control"
+                          id="usecase-path"
+                          placeholder="{{currentUseCase.getContentProperty('path')}}"
+                          data-ng-model="currentUseCase.contentDictionary[contentData.locale].path"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @Sentences.identifier: <b>{{currentUseCase.identifier}}</b>
+    </div>
+</div>
+
+<p data-ng-show="currentUseCase.identifier == '?'">
+    @Sentences.anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved
+</p>
+
+<h4>
+    @Sentences.preConditions
+    <button class="btn btn-primary"
+            data-ng-click="currentUseCase.addPreCondition()"
+            title="@Sentences.addPreCondition">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</h4>
+
+<div class="alert alert-info" data-ng-show="currentUseCase.preConditions.length == 0">
+    @Sentences.noPreConditionsRegistered
+</div>
+<table class="table" data-ng-show="currentUseCase.preConditions.length > 0">
+    <thead>
+        <tr>
+            <th>Description *</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="preCondition in currentUseCase.preConditions">
+            <td>
+                <input required=""
+                       class="form-control"
+                       placeholder="{{preCondition.getContentProperty('description')}}"
+                       data-ng-model="preCondition.contentDictionary[contentData.locale].description" />
+            </td>
+            <td>
+                <button class="btn btn-default" data-ng-click="currentUseCase.removePreCondition(preCondition)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>
+    @Sentences.postCondition
+    <button class="btn btn-primary"
+            data-ng-click="currentUseCase.addPostCondition()"
+            title="@Sentences.addPostCondition">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</h4>
+
+<div class="alert alert-info" data-ng-show="currentUseCase.postConditions.length == 0">
+    @Sentences.noPostConditionsRegistered
+</div>
+
+<table class="table" data-ng-show="currentUseCase.postConditions.length > 0">
+    <thead>
+        <tr>
+            <th>@Sentences.description *</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="postCondition in currentUseCase.postConditions">
+            <td>
+                <input required=""
+                       class="form-control"
+                       placeholder="{{postCondition.getContentProperty('description')}}"
+                       data-ng-model="postCondition.contentDictionary[contentData.locale].description" />
+            </td>
+            <td>
+                <button class="btn btn-default" data-ng-click="currentUseCase.removePostCondition(postCondition)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="btn-group">
+    <button class="btn btn-default"
+            data-ng-click="backToDiagram()">
+        @Sentences.cancel
+    </button>
+    <button class="btn btn-primary"
+            data-ng-disabled="useCaseMetadataForm.$invalid"
+            data-ng-click="saveUseCase(currentUseCase)">
+        @Sentences.save
+    </button>
+</div>

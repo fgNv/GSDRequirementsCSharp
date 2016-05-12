@@ -25,7 +25,9 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
         [StringLength(50,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.maxPasswordLengthIs50))]
-        [MinLength(4)]
+        [MinLength(4,
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.minPasswordLengthIs4))]
         public string Password { get; set; }
 
         [Required(

@@ -1,0 +1,146 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h3 data-ng-show="isDiagramVisible()">
+        @Sentences.manageUseCaseDiagram
+    </h3>
+
+    <article data-ng-show="isDiagramVisible()"
+             data-ng-form=""
+             data-name="useCaseDiagramForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="select-box" data-ng-if="utility">
+                    <label>@Sentences.language</label>
+                    <ui-select data-ng-model="contentData.locale"
+                               data-theme="bootstrap"
+                               data-search-enabled="false"
+                               append-to-body="false">
+                        <ui-select-match>
+                            {{$select.selected}}
+                            <span class="glyphicon glyphicon-ok"
+                                  style="color: #008A21"
+                                  data-ng-show="utility.contentContainsLocale($select.selected)">
+                            </span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="locale in locales track by locale">
+                            <span ng-bind="locale"></span>
+                            <span class="glyphicon glyphicon-ok"
+                                  style="color: #008A21"
+                                  data-ng-show="utility.contentContainsLocale(locale)">
+                            </span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>
+                        @Sentences.name *
+                    </label>
+                    <input type="text" class="form-control"
+                           placeholder="{{placeholder}}"
+                           data-ng-model="content[contentData.locale].name" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>
+                        @Sentences.package *
+                    </label>
+
+                    <div>
+                        <select type="text"
+                                class="form-control"
+                                data-ng-model="useCaseDiagram.packageId"
+                                data-ng-options="package.id as package.description for
+                                         package in packagesOptions"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div class="btn-group"
+         style="margin-bottom: 10px; "
+         data-ng-show="isDiagramVisible()">
+        <button class="btn btn-primary"
+                data-ng-click="newUseCase()">
+            @Sentences.addUseCase
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="newActor()">
+            @Sentences.addActor
+        </button>
+        <button class="btn btn-default"
+                title="@Sentences.atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement"
+                data-ng-show="useCaseDiagram.entities.length == 0"
+                disabled="disabled">
+            @Sentences.manageRelations
+        </button>
+        <button class="btn btn-default"
+                data-ng-show="useCaseDiagram.entities.length > 0"
+                data-ng-click="editRelations()">
+            @Sentences.manageRelations
+        </button>
+    </div>
+    <div class="btn-group"
+         style="margin-bottom: 10px; "
+         data-ng-show="selectedActor">
+        <button class="btn btn-default"
+                data-ng-click="removeSelectedActor()">
+            @Sentences.removeSelected
+        </button>
+        <button class="btn btn-default"
+                data-ng-click="editSelectedActor()">
+            @Sentences.editSelected
+        </button>
+    </div>
+    <div class="btn-group"
+         style="margin-bottom: 10px; "
+         data-ng-show="selectedUseCase">
+        <button class="btn btn-default"
+                data-ng-click="removeSelectedUseCase()">
+            @Sentences.removeSelected
+        </button>
+        <button class="btn btn-default"
+                data-ng-click="editSelectedUseCase()">
+            @Sentences.editSelected
+        </button>
+    </div>
+
+    <article data-ng-show="currentActor">
+        @Html.Partial("_ActorForm")
+    </article>
+
+    <article data-ng-show="currentUseCase">
+        @Html.Partial("_UseCaseForm")
+    </article>
+
+    <article data-ng-show="editingRelations">
+        @Html.Partial("_Relations")
+    </article>
+
+    <div data-ng-show="isDiagramVisible()" style="font-size: 12px;">
+        <i class="fa fa-question-circle"></i>
+        @Sentences.toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear
+    </div>
+    <div id="useCaseDiagramPaperContainer" data-ng-show="isDiagramVisible()">
+        <div id="useCaseDiagramPaper"> </div>
+    </div>
+
+    <div class="btn-group" style="margin-bottom: 20px; "
+         data-ng-show="isDiagramVisible()">
+        <button class="btn btn-default"
+                data-ng-click="backToList()">
+            @Sentences.cancel
+        </button>
+        <button class="btn btn-primary"
+                data-ng-click="save()">
+            @Sentences.save
+        </button>
+    </div>
+</article>

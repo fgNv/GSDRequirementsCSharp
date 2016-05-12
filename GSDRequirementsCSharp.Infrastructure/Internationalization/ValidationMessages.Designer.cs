@@ -232,6 +232,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimun &quot;Password&quot; length is 4.
+        /// </summary>
+        public static string minPasswordLengthIs4 {
+            get {
+                return ResourceManager.GetString("minPasswordLengthIs4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Mobile Phone&quot; must contain only numbers.
         /// </summary>
         public static string mobilePhoneMustContainOnlyNumbers {
@@ -304,6 +313,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Path&quot; is a required field.
+        /// </summary>
+        public static string pathIsARequiredField {
+            get {
+                return ResourceManager.GetString("pathIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Phone&quot; must contain only numbers.
         /// </summary>
         public static string phoneMustContainOnlyNumbers {
@@ -354,6 +372,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string rankIsARequiredField {
             get {
                 return ResourceManager.GetString("rankIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Relation Description&quot; is a required field.
+        /// </summary>
+        public static string relationDescriptionIsARequiredField {
+            get {
+                return ResourceManager.GetString("relationDescriptionIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Relation Locale&quot; is a required field.
+        /// </summary>
+        public static string relationLocaleIsARequiredField {
+            get {
+                return ResourceManager.GetString("relationLocaleIsARequiredField", resourceCulture);
             }
         }
         
@@ -435,6 +471,42 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string targetIsARequiredField {
             get {
                 return ResourceManager.GetString("targetIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Type&quot; is a required field.
+        /// </summary>
+        public static string typeIsARequiredField {
+            get {
+                return ResourceManager.GetString("typeIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Description&quot; is a required field.
+        /// </summary>
+        public static string useCaseDescriptionIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseDescriptionIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Locale&quot; is a required field.
+        /// </summary>
+        public static string useCaseLocaleIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseLocaleIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Name&quot; is a required field.
+        /// </summary>
+        public static string useCaseNameIsARequiredField {
+            get {
+                return ResourceManager.GetString("useCaseNameIsARequiredField", resourceCulture);
             }
         }
         

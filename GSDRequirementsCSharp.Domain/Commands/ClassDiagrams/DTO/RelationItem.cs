@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,13 +11,19 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
 {
     public class RelationItem
     {
-        [Required]
+        [Required(
+         ErrorMessageResourceType =typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.sourceIsARequiredField))]
         public Guid? SourceId { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.targetIsARequiredField))]
         public Guid? TargetId { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.typeIsARequiredField))]
         public RelationType? Type { get; set; }
         
         public string TargetMultiplicity { get; set; }

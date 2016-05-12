@@ -32,6 +32,7 @@
     export declare var errorLoadingPermissions: string;
     export declare var errorSearchingUsers: string;
     export declare var errorChangingPassword: string;
+    export declare var errorRemovingUseCaseDiagram: string; 
     export declare var errorRemovingLink: string;
     export declare var issueCreatedSuccessfully: string;
     export declare var issueSuccessfullyConcluded: string;
@@ -53,4 +54,5 @@
     export declare var requirementSuccessfullyCreated: string;
     export declare var translationAddedSuccessfully: string;
     export declare var userAccountSuccessfullyCreated: string;
+    export declare var useCaseDiagramRemovedSuccessfully: string;
 }
