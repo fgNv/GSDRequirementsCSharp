@@ -289,6 +289,7 @@
     <Content Include="Views\UseCaseDiagram\_ActorForm.cshtml" />
     <Content Include="Views\UseCaseDiagram\_UseCaseForm.cshtml" />
     <Content Include="Views\UseCaseDiagram\_Relations.cshtml" />
+    <Content Include="Views\UseCaseDiagram\_Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -401,6 +402,7 @@
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementForm.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\Requirements\GsdRequirementTranslation.ts" />
     <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagram.ts" />
+    <TypeScriptCompile Include="Scripts\App\07-Directives\UseCase\GsdUseCaseDiagramDisplay.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
