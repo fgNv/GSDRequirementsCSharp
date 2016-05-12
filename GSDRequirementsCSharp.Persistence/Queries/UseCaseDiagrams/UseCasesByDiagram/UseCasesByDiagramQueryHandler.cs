@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams.UseCasesByDiagram
 {
@@ -21,6 +22,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams.UseCasesByDi
         public IEnumerable<UseCase> Handle(UseCasesByDiagramQuery query)
         {
             var useCases = _context.UseCases
+                                   .Include(uc => uc.SpecificationItem)
                                    .Where(uc => uc.UseCaseDiagram.Id == query.DiagramId)
                                    .ToList();
 

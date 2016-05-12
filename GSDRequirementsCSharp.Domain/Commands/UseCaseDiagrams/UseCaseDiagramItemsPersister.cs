@@ -167,6 +167,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             specificationItem.Id = Guid.NewGuid();
             specificationItem.Label = $"UC{useCaseEntity.Identifier}";
             specificationItem.Active = true;
+            specificationItem.Type = SpecificationItemType.UseCase;
             specificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
 
             useCaseEntity.SpecificationItem = specificationItem;

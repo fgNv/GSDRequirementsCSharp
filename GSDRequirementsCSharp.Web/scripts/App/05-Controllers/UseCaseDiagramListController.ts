@@ -11,6 +11,7 @@
 
     interface UseCaseListControllerScope {
         addUseCaseDiagram: () => void
+        artifactsToManageLinks : any
         currentUseCase : any
         currentPage: number
         currentUseCaseDiagram: Models.UseCaseDiagram
@@ -20,21 +21,22 @@
         loadPage: (page: number) => void
         loadUseCaseDiagrams: () => void
         maxPages: number
+        modelToEditLinks : any
         pendingRequests: number
         removeUseCaseDiagram(useCaseDiagram) : void
         setUseCaseToManageLinks: (uc) => void 
         useCaseDiagramToManageLinks: Models.UseCaseDiagram
-        useCaseDiagramToTranslate: Models.UseCaseDiagram
         useCasesDiagrams: Array<Models.UseCaseDiagram>
         setCurrentUseCaseDiagram: (cd) => void
-        UserData: UserData
+        UserData: UserData,
+        $watch : any
     }
 
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class UseCaseDiagramListController {
         constructor($scope: UseCaseListControllerScope, UseCaseDiagramResource, $rootScope, $location,
-            SpecificationItemResource) {
+            SpecificationItemResource, UseCasesByDiagramResource) {
             $scope.currentPage = 1
             $scope.maxPages = 1
             $scope.useCasesDiagrams = []
@@ -56,6 +58,31 @@
                 $scope.currentUseCase = null
                 window.location.href = "#/diagram"
             }
+
+            function loadArtifactsToManageLinks(useCaseDiagram) {
+                $scope.pendingRequests++
+
+                UseCasesByDiagramResource
+                    .query({ id: useCaseDiagram.id })
+                    .$promise
+                    .then((items): void => {
+                        items = _.map(items, i => new Models.SpecificationItem(i.specificationItem))
+                        items.push(useCaseDiagram)
+                        $scope.artifactsToManageLinks = items
+                        $scope.modelToEditLinks = useCaseDiagram
+                    })
+                    .catch((err): void => {
+
+                    })
+                    .finally(() => {
+                        $scope.pendingRequests--
+                    })
+            }
+
+            $scope.$watch('useCaseDiagramToManageLinks', (newValue, oldValue) => {
+                if (newValue)
+                    loadArtifactsToManageLinks(newValue)
+            })
 
             $scope.setUseCaseToManageLinks = (uc) => {
                 $scope.useCaseDiagramToManageLinks = uc
@@ -90,7 +117,7 @@
                 
                 if (!step) {
                     $scope.currentUseCaseDiagram = null
-                    $scope.useCaseDiagramToTranslate = null
+                    $scope.useCaseDiagramToManageLinks = null
                 }
             });
 
@@ -166,5 +193,6 @@
         }
     }
     app.controller('UseCaseDiagramListController', ["$scope", "UseCaseDiagramResource",
-        "$rootScope", "$location", "SpecificationItemResource", UseCaseDiagramListController]);
+        "$rootScope", "$location", "SpecificationItemResource", "UseCasesByDiagramResource",
+        UseCaseDiagramListController]);
 }

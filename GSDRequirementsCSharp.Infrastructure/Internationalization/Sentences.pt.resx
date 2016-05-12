@@ -972,4 +972,7 @@
   <data name="identifier" xml:space="preserve">
     <value>Identificador</value>
   </data>
+  <data name="artifactToEditLinks" xml:space="preserve">
+    <value>Artefato para gerenciar vínculos</value>
+  </data>
 </root>

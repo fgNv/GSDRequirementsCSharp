@@ -242,6 +242,7 @@
     <Compile Include="ViewModels\UseCases\PostConditionViewModel.cs" />
     <Compile Include="ViewModels\UseCases\PreConditionViewModel.cs" />
     <Compile Include="ViewModels\UseCases\PreConditionContentViewModel.cs" />
+    <Compile Include="ViewModels\UseCases\UseCaseArtifactViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseDiagramDetailedViewModel.cs" />

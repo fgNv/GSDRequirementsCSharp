@@ -1,27 +1,26 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-@{ 
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
 <div data-ng-controller="UseCaseDiagramListController"
      data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-    
+
     <h2 data-ng-show="!classDiagramToManageLinks">
         @Sentences.useCaseDiagrams
         <button class="btn btn-primary"
-                data-ng-show="!currentUseCaseDiagram && 
-                              !useCaseDiagramToTranslate &&
+                data-ng-show="!currentUseCaseDiagram &&
+                              !useCaseDiagramToManageLinks &&
                               hasEditPermission"
                 title="@Sentences.addClassDiagram"
                 data-ng-click="addUseCaseDiagram()">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
-    
-    <article data-ng-show="!currentUseCaseDiagram && 
-                           !useCaseToTranslate &&
-                           !useCaseToManageLinks">
+
+    <article data-ng-show="!currentUseCaseDiagram &&
+                           !useCaseDiagramToManageLinks">
         <div class="alert alert-info" data-ng-show="useCaseDiagrams.length == 0">
             @Sentences.noUseCaseDiagramsRegistered
         </div>
@@ -74,12 +73,6 @@
                             <gsd-issue-create data-specification-item="uc"
                                               data-after-save="loadUseCaseDiagrams">
                             </gsd-issue-create>
-                            <button class="btn btn-default"
-                                    data-ng-click="setUserCaseToTranslate(uc)"
-                                    data-ng-show="uc.canAddTranslation() && hasEditPermission"
-                                    title="@Sentences.addTranslation">
-                                <span class="glyphicon glyphicon-globe"></span>
-                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -97,16 +90,25 @@
             </nav>
         </article>
     </article>
-    
+
     <gsd-use-case-diagram data-after-save="loadUseCaseDiagrams"
-                       data-use-case-diagram="currentUseCaseDiagram"
-                       data-current-use-case="currentUseCase"
-                       data-current-actor="currentActor"
-                       data-editing-relations="editingRelations"
-                       data-ng-show="currentUseCaseDiagram">
+                          data-use-case-diagram="currentUseCaseDiagram"
+                          data-current-use-case="currentUseCase"
+                          data-current-actor="currentActor"
+                          data-editing-relations="editingRelations"
+                          data-ng-show="currentUseCaseDiagram">
     </gsd-use-case-diagram>
 
+    <div class="form-group" data-ng-show="useCaseDiagramToManageLinks">
+        <label>
+            @Sentences.artifactToEditLinks
+        </label>
+        <select data-ng-model="modelToEditLinks"
+                class="form-control"
+                data-ng-options="artifact as artifact.getLabel() for artifact in artifactsToManageLinks"></select>
+    </div>
+
     <article data-gsd-links-management=""
-             data-specification-item="useCaseDiagramToManageLinks"
+             data-specification-item="modelToEditLinks"
              data-ng-show="useCaseDiagramToManageLinks"></article>
 </div>

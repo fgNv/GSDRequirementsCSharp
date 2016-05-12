@@ -367,6 +367,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Artifact To Edit Links.
+        /// </summary>
+        public static string artifactToEditLinks {
+            get {
+                return ResourceManager.GetString("artifactToEditLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Association.
         /// </summary>
         public static string Association {

@@ -28,6 +28,9 @@
 
             return ""
         }
+        public getLabel() {
+            return `UC. ${this.identifier}` 
+        }
         public getName() {
             return this.getContentProperty("name")
         }

@@ -52,7 +52,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             var specificationItem = new SpecificationItem();
             specificationItem.Id = id;
             specificationItem.Active = true;
-            specificationItem.Type = SpecificationItemType.ClassDiagram;
+            specificationItem.Type = SpecificationItemType.UseCaseDiagram;
             specificationItem.PackageId = command.PackageId.Value;
             specificationItem.Label = $"UCD{nextId}";
 

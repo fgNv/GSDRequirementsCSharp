@@ -11,4 +11,13 @@
                              'remove': { method: 'DELETE' }
                          });
     }]);
+
+
+    app.service('UseCasesByDiagramResource', ['$resource', function ($resource) {
+        return $resource('/api/useCaseDiagram/:id/useCases',
+                         {
+                             'id': '@id'
+                         });
+    }]);
+
 })(angular.module(GSDRequirements.angularModuleName));

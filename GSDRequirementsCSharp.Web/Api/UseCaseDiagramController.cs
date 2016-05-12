@@ -1,5 +1,7 @@
-﻿using GSDRequirementsCSharp.Domain.Commands;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams;
+using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -19,19 +21,22 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly IQueryHandler<Guid, UseCaseDiagramDetailedViewModel> _useCaseDiagramDetailQueryHandler;
         private readonly ICommandHandler<CreateUseCaseDiagramNewVersionCommand> _createUseCaseDiagramNewVersionCommandHandler;
         private readonly ICommandHandler<RemoveUseCaseDiagramCommand> _removeUseCaseDiagramCommandHandler;
+        private readonly IQueryHandler<UseCasesByDiagramQuery, IEnumerable<UseCase>> _useCasesByDiagramQueryHandler;
 
         public UseCaseDiagramController(
             IQueryHandler<UseCaseDiagramsPaginatedQuery, UseCaseDiagramsPaginatedQueryResult> useCaseDiagramsPaginatedQueryHandler,
             ICommandHandler<CreateUseCaseDiagramCommand> createUseCaseDiagramCommandHandler,
             IQueryHandler<Guid, UseCaseDiagramDetailedViewModel> useCaseDiagramDetailQueryHandler,
             ICommandHandler<CreateUseCaseDiagramNewVersionCommand> createUseCaseDiagramNewVersionCommandHandler,
-            ICommandHandler<RemoveUseCaseDiagramCommand> removeUseCaseDiagramCommandHandler)
+            ICommandHandler<RemoveUseCaseDiagramCommand> removeUseCaseDiagramCommandHandler,
+            IQueryHandler<UseCasesByDiagramQuery, IEnumerable<UseCase>> useCasesByDiagramQueryHandler)
         {
             _useCaseDiagramsPaginatedQueryHandler = useCaseDiagramsPaginatedQueryHandler;
             _createUseCaseDiagramCommandHandler = createUseCaseDiagramCommandHandler;
             _useCaseDiagramDetailQueryHandler = useCaseDiagramDetailQueryHandler;
             _createUseCaseDiagramNewVersionCommandHandler = createUseCaseDiagramNewVersionCommandHandler;
             _removeUseCaseDiagramCommandHandler = removeUseCaseDiagramCommandHandler;
+            _useCasesByDiagramQueryHandler = useCasesByDiagramQueryHandler;
         }
 
         public UseCaseDiagramDetailedViewModel Get(Guid id)
@@ -47,6 +52,17 @@ namespace GSDRequirementsCSharp.Web.Api
             return result;
         }
 
+
+        [HttpGet]
+        [Route("api/useCaseDiagram/{diagramId}/useCases")]
+        public IEnumerable<UseCaseArtifactViewModel> Get([FromUri]UseCasesByDiagramQuery query)
+        {
+            var result = _useCasesByDiagramQueryHandler.Handle(query);
+
+            return result.Select(i => UseCaseArtifactViewModel.FromModel(i, i.SpecificationItem))
+                         .ToList();
+        }
+
         public void Post(CreateUseCaseDiagramCommand command)
         {
             _createUseCaseDiagramCommandHandler.Handle(command);
@@ -57,9 +73,9 @@ namespace GSDRequirementsCSharp.Web.Api
             _createUseCaseDiagramNewVersionCommandHandler.Handle(command);
         }
 
-        public void Delete(RemoveUseCaseDiagramCommand command)
+        public void Delete([FromUri]RemoveUseCaseDiagramCommand command)
         {
-
+            _removeUseCaseDiagramCommandHandler.Handle(command);
         }
     }
 }

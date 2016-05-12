@@ -9,9 +9,13 @@
         public entitiesRelations: any //input / output
         public entities: Array<IUseCaseEntity>
         public id: string
+        public identifier: string
         public relations: any
         public useCasesRelations: any //input / output
         public useCases: any //output / input
+        public getLabel() {
+            return `UCD${this.identifier}`
+        }
         public getName() {
             var currentLocale = <UseCaseDiagramContent>_.find(this.contents,
                 (c: UseCaseDiagramContent) => c.locale == GSDRequirements.currentLocale)
