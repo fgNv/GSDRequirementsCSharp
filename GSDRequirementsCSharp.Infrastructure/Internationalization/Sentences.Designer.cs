@@ -2564,6 +2564,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use Case Not Found.
+        /// </summary>
+        public static string useCaseNotFound {
+            get {
+                return ResourceManager.GetString("useCaseNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string user {

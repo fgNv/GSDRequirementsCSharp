@@ -67,7 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in specificationItems"
+                    <tr data-ng-repeat="item in specificationItems | orderBy:'label'"
                         data-ng-class="{'selected': selected == item}"
                         style="cursor: pointer"
                         data-ng-click="selectItem(item)">

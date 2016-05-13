@@ -268,7 +268,7 @@
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryResult.cs" />
-    <Compile Include="Queries\UseCaseDiagrams\UseCaseById\UseCaseByIdQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCaseBySpecificationItemId\UseCaseBySpecificationItemIdQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagram\UseCasesByDiagramQueryHandler.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />

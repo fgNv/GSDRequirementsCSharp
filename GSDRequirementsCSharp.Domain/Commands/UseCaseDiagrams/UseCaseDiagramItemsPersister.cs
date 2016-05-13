@@ -143,6 +143,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseEntity.Y = useCaseData.Cell.Position.Y;
             useCaseEntity.Identifier = identifier;
             useCaseEntity.Version = useCaseDiagram.Version;
+            useCaseEntity.IsLastVersion = true;
 
             foreach (var contentData in useCaseData.Contents)
             {
@@ -167,7 +168,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             {
                 var specificationItem = new SpecificationItem();
                 specificationItem.Id = useCaseEntity.Id;
-                specificationItem.Label = $"UC{useCaseEntity.Identifier}";
+                specificationItem.Label = $"{UseCase.PREFIX}{useCaseEntity.Identifier}";
                 specificationItem.Active = true;
                 specificationItem.Type = SpecificationItemType.UseCase;
                 specificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;

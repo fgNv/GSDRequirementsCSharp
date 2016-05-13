@@ -10,6 +10,8 @@ namespace GSDRequirementsCSharp.Domain.Models
 {
     public class UseCaseDiagram : IEntity<VersionKey>
     {
+        public const string PREFIX = "UCD";
+         
         [Required]
         public Guid Id { get; set; }
 

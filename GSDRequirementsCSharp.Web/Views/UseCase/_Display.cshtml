@@ -11,7 +11,7 @@
     <div class="form-group">
         <label>@Sentences.language</label>
         <select class="form-control"
-                data-ng-options="language for language in availableLanguages"
+                data-ng-options="language for language in availableLocales"
                 data-ng-model="useCase.currentContentLocale"></select>
     </div>
 
@@ -32,7 +32,7 @@
 
     <ul data-ng-show="useCase.preConditions.length > 0">
         <li data-ng-repeat="preCondition in useCase.preConditions">
-            {{preCondition.getDescription(useCase.currentContentLocale)}}
+            {{preCondition.getContentProperty('description', useCase.currentContentLocale)}}
         </li>
     </ul>
 
@@ -40,7 +40,7 @@
 
     <ul data-ng-show="useCase.postConditions.length > 0">
         <li data-ng-repeat="postCondition in useCase.postConditions">
-            {{postCondition.getDescription(useCase.currentContentLocale)}}
+            {{postCondition.getContentProperty('description', useCase.currentContentLocale)}}
         </li>
     </ul>
 

@@ -987,4 +987,7 @@
   <data name="useCaseDetails" xml:space="preserve">
     <value>Detalhes do caso de uso</value>
   </data>
+  <data name="useCaseNotFound" xml:space="preserve">
+    <value>Caso de uso não encontrado</value>
+  </data>
 </root>
