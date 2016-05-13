@@ -25,7 +25,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
                                   .Include(uc => uc.Contents)
                                   .Include(uc => uc.PreConditions.Select(pc => pc.Contents))
                                   .Include(uc => uc.PostConditions.Select(pc => pc.Contents))
-                                  .SingleOrDefault(uc => uc.SpecificationItemId == query &&
+                                  .SingleOrDefault(uc => uc.Id == query &&
                                                          uc.IsLastVersionChar == "True");
 
             if (useCase == null)

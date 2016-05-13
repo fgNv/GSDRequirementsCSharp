@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
-    internal class ActorRepository : GenericRepository<Actor, Guid>
+    internal class ActorRepository : GenericRepository<Actor, VersionKey>
     {
         public ActorRepository(GSDRequirementsContext context) : base(context) { }
     }
@@ -115,7 +115,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
         public UserRepository(GSDRequirementsContext context) : base(context) { }
     }
 
-    internal class UseCaseRepository : GenericRepository<UseCase, Guid>
+    internal class UseCaseRepository : GenericRepository<UseCase, VersionKey>
     {
         public UseCaseRepository(GSDRequirementsContext context) : base(context) { }
     }
@@ -145,7 +145,7 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
         public UseCaseEntityRelationRepository(GSDRequirementsContext context) : base(context) { }
     }
 
-    internal class UseCaseEntityRepository : GenericRepository<UseCaseEntity, Guid>
+    internal class UseCaseEntityRepository : GenericRepository<UseCaseEntity, VersionKey>
     {
         public UseCaseEntityRepository(GSDRequirementsContext context) : base(context) { }
     }

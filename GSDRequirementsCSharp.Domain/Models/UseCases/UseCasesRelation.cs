@@ -18,16 +18,17 @@ namespace GSDRequirementsCSharp.Domain.Models
         public UseCase Target { get; set; }
         
         public UseCase Source { get; set; }
-
-        public UseCasesRelationType Type { get; set; }
-
-        [Required]
-        public UseCaseDiagram UseCaseDiagram { get; set; }
-
-        public Guid UseCaseDiagramId { get; set; }
+        
+        public Guid TargetId { get; set; }
 
         public Guid SourceId { get; set; }
 
-        public Guid TargetId { get; set; }
+        public int Version { get; set; }
+
+        public Guid UseCaseDiagramId { get; set; }
+
+        public UseCasesRelationType Type { get; set; }
+        
+        public UseCaseDiagram UseCaseDiagram { get; set; }        
     }
 }

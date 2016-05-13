@@ -26,11 +26,7 @@ namespace GSDRequirementsCSharp.Domain.Models
         public UseCaseDiagram UseCaseDiagram { get; set; }
 
         public Guid UseCaseDiagramId { get; set; }
-
-        public Guid SourceId { get; set; }
-
-        public Guid TargetId { get; set; }
-
+        
         public UseCaseEntityRelation()
         {
             Contents = new HashSet<UseCaseEntityRelationContent>();

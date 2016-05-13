@@ -22,9 +22,7 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
                                         .HasColumnType("text");
 
             Property(e => e.Locale).HasColumnName("locale");
-            HasRequired(e => e.UseCase).WithMany(uc => uc.Contents)
-                                       .HasForeignKey(c => c.UseCaseId);
-            Property(e => e.UseCaseId).HasColumnName("use_case_id");
+            HasRequired(e => e.UseCase).WithMany(uc => uc.Contents);
 
             Property(e => e.Name)
                 .IsUnicode(false);

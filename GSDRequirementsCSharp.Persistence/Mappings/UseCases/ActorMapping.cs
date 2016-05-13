@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Persistence.Mappings.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -13,8 +14,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         public ActorMapping()
         {
             ToTable("Actor");
-            HasKey(a => a.Id);
-            Property(e => e.Id).HasColumnName("id");
+            HasKey(u => new { u.Id, u.Version });
+            Property(e => e.Version).HasColumnName("version");
+            Property(e => e.Id).HasColumnName("id");          
         }
     }
 }

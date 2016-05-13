@@ -22,6 +22,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
 
         public int Identifier { get; set; }
 
+        public int Version { get; set; }
+
         public IEnumerable<UseCasesRelationViewModel> UseCasesRelations { get; set; }
 
         public IEnumerable<UseCaseEntityRelationViewModel> EntitiesRelations { get; set; }
@@ -41,7 +43,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
                 EntitiesRelations = model.EntitiesRelations
                                          .Select(UseCaseEntityRelationViewModel.FromModel),
                 Contents = model.Contents
-                                .Select(UseCaseDiagramContentViewModel.FromModel)
+                                .Select(UseCaseDiagramContentViewModel.FromModel),
+                Version = model.Version
             };
         }
     }

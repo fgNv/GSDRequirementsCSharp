@@ -11,12 +11,15 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
 {
     class UseCaseEntityMapping : EntityTypeConfiguration<UseCaseEntity>
     {
+        public const string TABLE_NAME = "UseCaseEntity";
+
         public UseCaseEntityMapping()
-        {
-            ToTable("UseCaseEntity");
-            HasKey(a => a.Id);
+        {            
+            ToTable(TABLE_NAME);
+            HasKey(u => new { u.Id, u.Version });
             Property(e => e.Id).HasColumnName("id");
-            HasRequired(a => a.UseCaseDiagram).WithMany(cd => cd.Entities);
+            Property(e => e.Version).HasColumnName("version");
+            HasRequired(a => a.UseCaseDiagram).WithMany(cd => cd.Entities);            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Models.UseCases;
 using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
 using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 using GSDRequirementsCSharp.Infrastructure;
@@ -33,26 +34,60 @@ namespace GSDRequirementsCSharp.Domain.Commands
             _useCasesByDiagramQueryHandler = useCasesByDiagramQueryHandler;
         }
 
+        /// <summary>
+        ///     Set the former use cases cell id, to match the specification item id
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="oldUseCasesVersions"></param>
+        private void RetrieveSpecificationItemIdsForCommandUseCases
+            (CreateUseCaseDiagramNewVersionCommand command, IEnumerable<UseCase> oldUseCasesVersions)
+        {
+            foreach (var useCaseItem in command.UseCases)
+            {
+                if (!useCaseItem.Identifier.HasValue) continue;
+                var oldUseCase = oldUseCasesVersions
+                    .FirstOrDefault(uc => uc.Identifier == useCaseItem.Identifier.Value);
+
+                foreach (var relation in command.EntitiesRelations)
+                {
+                    if (relation.SourceId == useCaseItem.Cell.Id)
+                        relation.SourceId = oldUseCase.Id;
+
+                    if (relation.TargetId == useCaseItem.Cell.Id)
+                        relation.TargetId = oldUseCase.Id;
+                }
+
+                foreach (var relation in command.UseCasesRelations)
+                {
+                    if (relation.SourceId == useCaseItem.Cell.Id)
+                        relation.SourceId = oldUseCase.Id;
+
+                    if (relation.TargetId == useCaseItem.Cell.Id)
+                        relation.TargetId = oldUseCase.Id;
+                }
+                useCaseItem.Cell.Id = oldUseCase.Id;
+            }
+        }
+
         public void Handle(CreateUseCaseDiagramNewVersionCommand command)
         {
             var queryResult = _specificationItemWithUseCaseDiagramsQueryHandler.Handle(command.Id.Value);
-            
+
             var latestVersion = queryResult.UseCaseDiagrams.FirstOrDefault(s => s.IsLastVersion);
             foreach (var oldUseCaseDiagramsVersion in queryResult.UseCaseDiagrams)
                 oldUseCaseDiagramsVersion.IsLastVersion = false;
 
             var oldUseCasesVersions = _useCasesByDiagramQueryHandler.Handle(command.Id);
-            
-            foreach (var oldUseCasesVersion in oldUseCasesVersions) {
-                oldUseCasesVersion.IsLastVersion = false;
-            }
+
+            foreach (var oldUseCaseVersion in oldUseCasesVersions)
+                oldUseCaseVersion.IsLastVersion = false;
 
             var package = _packageRepository.Get(command.PackageId.Value);
             if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
 
             var useCaseDiagram = new UseCaseDiagram();
             useCaseDiagram.Id = command.Id.Value;
-             
+
             useCaseDiagram.SpecificationItem = queryResult.SpecificationItem;
             useCaseDiagram.SpecificationItem.PackageId = package.Id;
             useCaseDiagram.ProjectId = latestVersion.ProjectId;
@@ -60,30 +95,9 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseDiagram.Identifier = latestVersion.Identifier;
             useCaseDiagram.IsLastVersion = true;
 
+            RetrieveSpecificationItemIdsForCommandUseCases(command, oldUseCasesVersions);
             _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command, oldUseCasesVersions);
-
-            var oldToNewEntitiesIds = new Dictionary<Guid, Guid>();
-
-            foreach (var useCaseEntity in useCaseDiagram.Entities)
-            {
-                var oldId = useCaseEntity.Id;
-                var newId = Guid.NewGuid();
-                useCaseEntity.Id = newId;             
-                oldToNewEntitiesIds[oldId] = newId;
-            }
-
-            foreach (var relation in useCaseDiagram.UseCasesRelations)
-            {
-                relation.SourceId = oldToNewEntitiesIds[relation.SourceId];
-                relation.TargetId = oldToNewEntitiesIds[relation.TargetId];
-            }
-
-            foreach (var relation in useCaseDiagram.EntitiesRelations)
-            {
-                relation.SourceId = oldToNewEntitiesIds[relation.SourceId];
-                relation.TargetId = oldToNewEntitiesIds[relation.TargetId];
-            }
-
+                        
             _useCaseDiagramRepository.Add(useCaseDiagram);
         }
     }

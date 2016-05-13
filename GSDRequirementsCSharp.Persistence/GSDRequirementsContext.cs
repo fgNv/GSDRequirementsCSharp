@@ -54,6 +54,9 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new ActorMapping());
+            modelBuilder.Configurations.Add(new UseCaseMapping());
+            modelBuilder.Configurations.Add(new UseCaseEntityMapping());
+            
             modelBuilder.Configurations.Add(new ActorContentMapping());
 
             modelBuilder.Configurations.Add(new ClassMapping());
@@ -85,9 +88,9 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new UseCaseContentMapping());
             modelBuilder.Configurations.Add(new UseCaseDiagramContentMapping());
             modelBuilder.Configurations.Add(new UseCaseDiagramMapping());
-            modelBuilder.Configurations.Add(new UseCaseEntityMapping());
+            
             modelBuilder.Configurations.Add(new UseCaseEntityRelationMapping());
-            modelBuilder.Configurations.Add(new UseCaseMapping());
+            
             modelBuilder.Configurations.Add(new UseCaseEntityRelationContentMapping());
             
             modelBuilder.Configurations.Add(new UseCasePreConditionMapping());

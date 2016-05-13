@@ -16,11 +16,11 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
             HasKey(a => a.Id);
             Property(e => e.Id).HasColumnName("id");
             Property(e => e.UseCaseDiagramId).HasColumnName("use_case_diagram_id");
-            Property(e => e.SourceId).HasColumnName("source_id");
-            Property(e => e.TargetId).HasColumnName("target_id");
 
-            HasRequired(e => e.Source).WithMany().HasForeignKey(e => e.SourceId);
-            HasRequired(e => e.Target).WithMany().HasForeignKey(e => e.TargetId);
+            HasRequired(r => r.UseCaseDiagram).WithMany(ucd => ucd.EntitiesRelations);
+
+            HasRequired(e => e.Source).WithMany();
+            HasRequired(e => e.Target).WithMany();
         }
     }
 }

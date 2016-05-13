@@ -17,8 +17,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
         {
             return new UseCaseEntityRelationViewModel
             {
-                SourceId = model.SourceId,
-                TargetId = model.TargetId,
+                SourceId = model.Source.Id,
+                TargetId = model.Target.Id,
                 Contents = model.Contents.Select(UseCaseEntityRelationContentViewModel.FromModel)
             };
         }

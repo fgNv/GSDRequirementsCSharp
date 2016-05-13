@@ -16,10 +16,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
     public class UseCaseDiagramItemsPersister
     {
         private readonly IRepository<UseCaseDiagramContent, LocaleKey> _useCaseDiagramContentRepository;
-        private readonly IRepository<UseCase, Guid> _useCaseRepository;
+        private readonly IRepository<UseCase, VersionKey> _useCaseRepository;
         private readonly IRepository<UseCaseContent, LocaleKey> _useCaseContentRepository;
-        private readonly IRepository<Actor, Guid> _actorRepository;
-        private readonly IRepository<UseCaseEntity, Guid> _useCaseEntityRepository;
+        private readonly IRepository<Actor, VersionKey> _actorRepository;
+        private readonly IRepository<UseCaseEntity, VersionKey> _useCaseEntityRepository;
         private readonly IRepository<ActorContent, LocaleKey> _actorContentRepository;
         private readonly IRepository<UseCasesRelation, Guid> _useCasesRelationRepository;
         private readonly IRepository<UseCaseEntityRelation, Guid> _useCaseEntityRelationRepository;
@@ -33,10 +33,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
         private readonly IRepository<SpecificationItem, Guid> _specificationItemRepository;
 
         public UseCaseDiagramItemsPersister(IRepository<UseCaseDiagramContent, LocaleKey> classDiagramContentRepository,
-                                            IRepository<UseCase, Guid> useCaseRepository,
+                                            IRepository<UseCase, VersionKey> useCaseRepository,
                                             IRepository<UseCaseContent, LocaleKey> useCaseContentRepository,
-                                            IRepository<Actor, Guid> actorRepository,
-                                            IRepository<UseCaseEntity, Guid> useCaseEntityRepository,
+                                            IRepository<Actor, VersionKey> actorRepository,
+                                            IRepository<UseCaseEntity, VersionKey> useCaseEntityRepository,
                                             IRepository<ActorContent, LocaleKey> actorContentRepository,
                                             IRepository<UseCasesRelation, Guid> useCasesRelationRepository,
                                             IRepository<UseCaseEntityRelation, Guid> useCaseEntityRelationRepository,
@@ -76,6 +76,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             actor.Id = actorData.Cell.Id;
             actor.X = actorData.Cell.Position.X;
             actor.Y = actorData.Cell.Position.Y;
+            actor.Version = useCaseDiagram.Version;
 
             foreach (var contentData in actorData.Contents)
             {
@@ -180,14 +181,14 @@ namespace GSDRequirementsCSharp.Domain.Commands
                 var oldUseCase = oldVersionUseCases.FirstOrDefault(o => o.Id == useCaseEntity.Id);
                 useCaseEntity.SpecificationItem = oldUseCase.SpecificationItem;
                 useCaseEntity.SpecificationItem.PackageId = useCaseDiagram.SpecificationItem.PackageId;
-                useCaseEntity.SpecificationItemId = oldUseCase.SpecificationItemId;
             }
-
+            
             useCaseEntity.UseCaseDiagram = useCaseDiagram;
-
             useCaseEntity.ProjectId = useCaseDiagram.ProjectId;
+            
             useCaseDiagram.Entities.Add(useCaseEntity);
             _useCaseRepository.Add(useCaseEntity);
+            
             _useCaseEntityRepository.Add(useCaseEntity);
         }
 
@@ -219,10 +220,16 @@ namespace GSDRequirementsCSharp.Domain.Commands
 
             foreach (var relationData in command.EntitiesRelations)
             {
-                var useCasesRelation = new UseCaseEntityRelation();
-                useCasesRelation.Id = Guid.NewGuid();
-                useCasesRelation.SourceId = relationData.SourceId.Value;
-                useCasesRelation.TargetId = relationData.TargetId.Value;
+                var entitiesRelation = new UseCaseEntityRelation();
+                entitiesRelation.Id = Guid.NewGuid();
+
+                var source = useCaseDiagram.Entities
+                                           .FirstOrDefault(e => e.Id == relationData.SourceId.Value);
+                var target = useCaseDiagram.Entities
+                                           .FirstOrDefault(e => e.Id == relationData.TargetId.Value);
+
+                entitiesRelation.Source = source;
+                entitiesRelation.Target = target;
 
                 if (relationData.Contents != null)
                 {
@@ -231,25 +238,28 @@ namespace GSDRequirementsCSharp.Domain.Commands
                         var relationContent = new UseCaseEntityRelationContent();
                         relationContent.Description = content.Description;
                         relationContent.Locale = content.Locale;
-                        relationContent.Id = useCasesRelation.Id;
+                        relationContent.Id = entitiesRelation.Id;
                         _useCaseEntityRelationContentRepository.Add(relationContent);
                     }
                 }
 
-                useCaseDiagram.EntitiesRelations.Add(useCasesRelation);
-                _useCaseEntityRelationRepository.Add(useCasesRelation);
+                useCaseDiagram.EntitiesRelations.Add(entitiesRelation);
+                _useCaseEntityRelationRepository.Add(entitiesRelation);
             }
 
             foreach (var relationData in command.UseCasesRelations)
             {
                 var useCasesRelation = new UseCasesRelation();
-                useCasesRelation.Id = Guid.NewGuid();
+
+                useCasesRelation.Version = useCaseDiagram.Version;
                 useCasesRelation.SourceId = relationData.SourceId.Value;
                 useCasesRelation.TargetId = relationData.TargetId.Value;
                 useCasesRelation.Type = relationData.Type.Value;
+                useCasesRelation.UseCaseDiagram = useCaseDiagram;
 
                 useCaseDiagram.UseCasesRelations.Add(useCasesRelation);
                 _useCasesRelationRepository.Add(useCasesRelation);
+                useCasesRelation.Id = Guid.NewGuid();
             }
         }
     }

@@ -20,9 +20,7 @@ namespace GSDRequirementsCSharp.Domain.Models.UseCases
         public string Locale { get; set; }
 
         public Actor Actor { get; set; }
-
-        public Guid ActorId { get; set; }
-
+        
         LocaleKey IEntity<LocaleKey>.Id
         {
             get

@@ -17,6 +17,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
 
         public int Identifier { get; set; }
 
+        public int Version { get; set; }
+
         public IEnumerable<UseCaseDiagramContentViewModel> Contents { get; set; }
 
         public static UseCaseDiagramViewModel FromModel(UseCaseDiagram model)
@@ -26,7 +28,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
                 Id = model.Id,
                 Identifier = model.Identifier,
                 PackageIdentifier = model.SpecificationItem?.Package?.Identifier,
-                Contents = model.Contents.Select(UseCaseDiagramContentViewModel.FromModel)
+                Contents = model.Contents.Select(UseCaseDiagramContentViewModel.FromModel),
+                Version = model.Version
             };
         }
     }

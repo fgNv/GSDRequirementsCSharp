@@ -7,13 +7,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class removeusecasespecificationitemrelation : IMigrationMetadata
+    public sealed partial class schema : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removeusecasespecificationitemrelation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(schema));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605061255424_remove-use-case-specification-item-relation"; }
+            get { return "201605131418306_schema"; }
         }
         
         string IMigrationMetadata.Source
