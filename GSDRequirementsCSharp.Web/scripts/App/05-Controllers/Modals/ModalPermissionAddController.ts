@@ -42,6 +42,10 @@
             }
 
             $scope.conclude = () => {
+                if (!$scope.permission || !$scope.permission.user || !$scope.permission.user.id) {
+                    Notification.notifyError(Sentences.errorAddingPermission, [Sentences.youMustClickInTheUserToSelectItBeforeAddingThePermission])
+                    return;
+                }
                 $uibModalInstance.close($scope.permission);
             };
 

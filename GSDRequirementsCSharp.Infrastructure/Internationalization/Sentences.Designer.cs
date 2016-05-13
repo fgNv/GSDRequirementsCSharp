@@ -826,6 +826,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Adding Permission.
+        /// </summary>
+        public static string errorAddingPermission {
+            get {
+                return ResourceManager.GetString("errorAddingPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error adding translation.
         /// </summary>
         public static string errorAddingTranslation {
@@ -2659,6 +2668,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string youMustBeTheProjectOwnerToExecuteThisAction {
             get {
                 return ResourceManager.GetString("youMustBeTheProjectOwnerToExecuteThisAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must click in the user to select it, before adding the permission.
+        /// </summary>
+        public static string youMustClickInTheUserToSelectItBeforeAddingThePermission {
+            get {
+                return ResourceManager.GetString("youMustClickInTheUserToSelectItBeforeAddingThePermission", resourceCulture);
             }
         }
         

@@ -990,4 +990,10 @@
   <data name="useCaseNotFound" xml:space="preserve">
     <value>Caso de uso não encontrado</value>
   </data>
+  <data name="errorAddingPermission" xml:space="preserve">
+    <value>Erro ao adicionar permissão</value>
+  </data>
+  <data name="youMustClickInTheUserToSelectItBeforeAddingThePermission" xml:space="preserve">
+    <value>Você deve clicar no usuário para selecioná-lo, antes de adicionar a permissão</value>
+  </data>
 </root>

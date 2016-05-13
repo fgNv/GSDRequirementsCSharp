@@ -5,6 +5,7 @@
     export declare var classDiagramRemovedSuccessfully: string;
     export declare var commentSuccessfullyAdded: string;
     export declare var dataSuccessfullyUpdated: string;
+    export declare var errorAddingPermission: string;
     export declare var errorAddingComment: string; 
     export declare var errorCreatingIssue: string;
     export declare var errorRemovingClassDiagram: string;
@@ -57,4 +58,5 @@
     export declare var translationAddedSuccessfully: string;
     export declare var userAccountSuccessfullyCreated: string;
     export declare var useCaseDiagramRemovedSuccessfully: string;
+    export declare var youMustClickInTheUserToSelectItBeforeAddingThePermission: string;
 }

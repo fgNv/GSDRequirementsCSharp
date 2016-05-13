@@ -9,6 +9,7 @@ namespace GSDRequirements.Web.Controllers
 {
     public class UseCaseDiagramController : Controller
     {
+        [ContextProjectRequired]
         // GET: /<controller>/
         public ActionResult Index()
         {
