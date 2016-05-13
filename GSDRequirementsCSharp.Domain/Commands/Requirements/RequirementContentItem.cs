@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Internationalization;
+﻿using GSDRequirementsCSharp.Domain.Validation;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
+    [RequirementDescriptionRequired(
+     ErrorMessageResourceType = typeof(ValidationMessages),
+     ErrorMessageResourceName = nameof(ValidationMessages.requirementDescriptionRequired))]
     public class RequirementContentItem
     {
         [StringLength(150,

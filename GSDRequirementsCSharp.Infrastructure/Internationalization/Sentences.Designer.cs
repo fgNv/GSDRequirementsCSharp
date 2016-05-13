@@ -988,6 +988,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Loading Use Case.
+        /// </summary>
+        public static string errorLoadingUseCase {
+            get {
+                return ResourceManager.GetString("errorLoadingUseCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Loading Use Case Diagram.
+        /// </summary>
+        public static string errorLoadingUseCaseDiagram {
+            get {
+                return ResourceManager.GetString("errorLoadingUseCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error removing link.
         /// </summary>
         public static string errorRemovingLink {
@@ -1888,6 +1906,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Post Conditions.
+        /// </summary>
+        public static string postConditions {
+            get {
+                return ResourceManager.GetString("postConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pre Conditions.
         /// </summary>
         public static string preConditions {
@@ -2492,6 +2519,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use Case Details.
+        /// </summary>
+        public static string useCaseDetails {
+            get {
+                return ResourceManager.GetString("useCaseDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use Case Diagram.
         /// </summary>
         public static string useCaseDiagram {
@@ -2524,6 +2560,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string useCaseDiagrams {
             get {
                 return ResourceManager.GetString("useCaseDiagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Case Not Found.
+        /// </summary>
+        public static string useCaseNotFound {
+            get {
+                return ResourceManager.GetString("useCaseNotFound", resourceCulture);
             }
         }
         

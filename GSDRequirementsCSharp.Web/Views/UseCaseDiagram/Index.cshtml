@@ -1,4 +1,6 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Domain.Models
+@using GSDRequirementsCSharp.Domain
 
 @{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
@@ -45,11 +47,11 @@
                             </gsd-item-issues>
                         </td>
                         <td>
-                            UC{{uc.identifier}}
+                            @UseCaseDiagram.PREFIX {{uc.identifier}}
                         </td>
                         <td>{{uc.getName()}}</td>
                         <td>
-                            PKG{{uc.packageIdentifier}}
+                            @Package.PREFIX {{uc.packageIdentifier}}
                         </td>
                         <td>
                             <button class="btn btn-default"

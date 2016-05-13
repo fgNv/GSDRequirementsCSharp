@@ -20,9 +20,11 @@
     export declare var errorLoadingLinks: string;
     export declare var errorLoadingRequirement: string; 
     export declare var errorLoadingIssues: string;
+    export declare var errorLoadingUseCase: string;
     export declare var errorLoadingPackages: string;
     export declare var errorLoadingSpecificationItems: string;
     export declare var errorSavingPackage: string;
+    export declare var errorLoadingUseCaseDiagram: string;
     export declare var errorInactivatingRequirement: string;
     export declare var errorUpdatingData: string;
     export declare var errorInactivatingPackage: string;

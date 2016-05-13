@@ -975,4 +975,19 @@
   <data name="artifactToEditLinks" xml:space="preserve">
     <value>Artefato para gerenciar vínculos</value>
   </data>
+  <data name="errorLoadingUseCase" xml:space="preserve">
+    <value>Erro ao carregar caso de uso</value>
+  </data>
+  <data name="errorLoadingUseCaseDiagram" xml:space="preserve">
+    <value>Erro ao carregar diagrama de casos de uso</value>
+  </data>
+  <data name="postConditions" xml:space="preserve">
+    <value>Pós condições</value>
+  </data>
+  <data name="useCaseDetails" xml:space="preserve">
+    <value>Detalhes do caso de uso</value>
+  </data>
+  <data name="useCaseNotFound" xml:space="preserve">
+    <value>Caso de uso não encontrado</value>
+  </data>
 </root>

@@ -66,8 +66,7 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new ContactMapping());
             modelBuilder.Configurations.Add(new IssueMapping());
             modelBuilder.Configurations.Add(new IssueCommentMapping());
-
-
+            
             modelBuilder.Configurations.Add(new IssueCommentContentMapping());
             modelBuilder.Configurations.Add(new IssueContentMapping());
 

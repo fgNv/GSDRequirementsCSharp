@@ -1,5 +1,5 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
-
+@using GSDRequirementsCSharp.Domain
 
 @{ 
     Layout = "~/Views/Shared/_DiagramContainerLayout.cshtml";
@@ -45,11 +45,11 @@
                             </gsd-item-issues>
                         </td>
                         <td>
-                            CD{{classDiagram.identifier}}
+                            @ClassDiagram.PREFIX{{classDiagram.identifier}}
                         </td>
                         <td>{{classDiagram.name}}</td>
                         <td>
-                            PKG{{classDiagram.packageIdentifier}}
+                            @Package.PREFIX{{classDiagram.packageIdentifier}}
                         </td>
                         <td>
                             <button class="btn btn-default"

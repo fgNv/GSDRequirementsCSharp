@@ -15,6 +15,7 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
         public int X { get; set; }
         public int Y { get; set; }
         public int Identifier { get; set; }
+        public int Version { get; set; }
 
         public static UseCaseViewModel FromModel(UseCase model)
         {
@@ -26,7 +27,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
                 PostConditions = model.PostConditions.Select(PostConditionViewModel.FromModel),
                 X = model.X,
                 Y = model.Y,
-                Identifier = model.Identifier
+                Identifier = model.Identifier,
+                Version = model.Version
             };
         }
     }

@@ -9,6 +9,8 @@ namespace GSDRequirementsCSharp.Domain
 
     public class ClassDiagram : IEntity<VersionKey>
     {
+        public const string PREFIX = "CD";
+
         public Guid Id { get; set; }
 
         public int Version { get; set; }

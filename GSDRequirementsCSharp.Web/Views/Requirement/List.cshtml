@@ -1,4 +1,5 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Domain
 
 <div class="row" data-ng-show="showList()">
     <div class="alert alert-info" data-ng-show="requirements.length == 0">
@@ -26,7 +27,7 @@
                 </td>
                 <td>{{r.prefix}}{{r.identifier}}</td>
                 <td>{{r.description}}</td>
-                <td>PKG{{r.package.identifier}}</td>
+                <td>@Package.PREFIX{{r.package.identifier}}</td>
                 <td>{{r.version}}</td>
                 <td>
                     <button class="btn btn-default"

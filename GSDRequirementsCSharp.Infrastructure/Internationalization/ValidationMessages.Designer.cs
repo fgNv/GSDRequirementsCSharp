@@ -394,6 +394,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A requirement with an empty description is not allowed.
+        /// </summary>
+        public static string requirementDescriptionRequired {
+            get {
+                return ResourceManager.GetString("requirementDescriptionRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Requirement id&quot; is a required field.
         /// </summary>
         public static string requirementIdIsARequiredField {

@@ -9,6 +9,7 @@ namespace GSDRequirementsCSharp.Domain
 
     public class UseCase : UseCaseEntity
     {
+        public const string PREFIX = "UC";
         public override Guid Id { get; set; }
         public ICollection<UseCaseContent> Contents { get; set; }
         public override UseCaseEntityType Type { get { return UseCaseEntityType.UseCase; } }
@@ -22,6 +23,19 @@ namespace GSDRequirementsCSharp.Domain
         public Project Project { get; set; }
         public Guid ProjectId { get; set; }
         public int Version { get; set; }
+        
+        public string IsLastVersionChar { get; set; }
+        public bool IsLastVersion
+        {
+            get
+            {
+                return IsLastVersionChar == "True";
+            }
+            set
+            {
+                IsLastVersionChar = value ? "True" : "False";
+            }
+        }
 
         public UseCase()
         {

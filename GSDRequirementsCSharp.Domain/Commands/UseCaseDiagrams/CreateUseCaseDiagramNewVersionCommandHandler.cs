@@ -16,27 +16,35 @@ namespace GSDRequirementsCSharp.Domain.Commands
     {
         private readonly IRepository<UseCaseDiagram, VersionKey> _useCaseDiagramRepository;
         private readonly UseCaseDiagramItemsPersister _useCaseDiagramItemsPersister;
+        private readonly IQueryHandler<UseCasesByDiagramQuery, IEnumerable<UseCase>> _useCasesByDiagramQueryHandler;
         private readonly IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItemWithUseCaseDiagramsQueryResult> _specificationItemWithUseCaseDiagramsQueryHandler;
         private readonly IRepository<Package, Guid> _packageRepository;
 
         public CreateUseCaseDiagramNewVersionCommandHandler(IRepository<UseCaseDiagram, VersionKey> useCaseDiagramRepository,
                                                 IQueryHandler<SpecificationItemWithUseCaseDiagramsQuery, SpecificationItemWithUseCaseDiagramsQueryResult> specificationItemWithUseCaseDiagramsQueryHandler,
                                                 IRepository<Package, Guid> packageRepository,
-                                                UseCaseDiagramItemsPersister useCaseDiagramItemsPersister)
+                                                UseCaseDiagramItemsPersister useCaseDiagramItemsPersister,
+                                                IQueryHandler<UseCasesByDiagramQuery, IEnumerable<UseCase>> useCasesByDiagramQueryHandler)
         {
             _useCaseDiagramRepository = useCaseDiagramRepository;
             _useCaseDiagramItemsPersister = useCaseDiagramItemsPersister;
             _packageRepository = packageRepository;
             _specificationItemWithUseCaseDiagramsQueryHandler = specificationItemWithUseCaseDiagramsQueryHandler;
+            _useCasesByDiagramQueryHandler = useCasesByDiagramQueryHandler;
         }
 
         public void Handle(CreateUseCaseDiagramNewVersionCommand command)
         {
             var queryResult = _specificationItemWithUseCaseDiagramsQueryHandler.Handle(command.Id.Value);
+            
             var latestVersion = queryResult.UseCaseDiagrams.FirstOrDefault(s => s.IsLastVersion);
-            foreach (var oldRequirementVersion in queryResult.UseCaseDiagrams)
-            {
-                oldRequirementVersion.IsLastVersion = false;
+            foreach (var oldUseCaseDiagramsVersion in queryResult.UseCaseDiagrams)
+                oldUseCaseDiagramsVersion.IsLastVersion = false;
+
+            var oldUseCasesVersions = _useCasesByDiagramQueryHandler.Handle(command.Id);
+            
+            foreach (var oldUseCasesVersion in oldUseCasesVersions) {
+                oldUseCasesVersion.IsLastVersion = false;
             }
 
             var package = _packageRepository.Get(command.PackageId.Value);
@@ -49,10 +57,10 @@ namespace GSDRequirementsCSharp.Domain.Commands
             useCaseDiagram.SpecificationItem.PackageId = package.Id;
             useCaseDiagram.ProjectId = latestVersion.ProjectId;
             useCaseDiagram.Version = latestVersion.Version + 1;
-            useCaseDiagram.IsLastVersion = true;
             useCaseDiagram.Identifier = latestVersion.Identifier;
+            useCaseDiagram.IsLastVersion = true;
 
-            _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command);
+            _useCaseDiagramItemsPersister.Persist(useCaseDiagram, command, oldUseCasesVersions);
 
             var oldToNewEntitiesIds = new Dictionary<Guid, Guid>();
 
@@ -60,7 +68,7 @@ namespace GSDRequirementsCSharp.Domain.Commands
             {
                 var oldId = useCaseEntity.Id;
                 var newId = Guid.NewGuid();
-                useCaseEntity.Id = newId;                
+                useCaseEntity.Id = newId;             
                 oldToNewEntitiesIds[oldId] = newId;
             }
 

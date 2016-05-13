@@ -31,15 +31,6 @@
                     }
                 }
 
-                function redrawRelations() {
-                    _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
-                        var cell = Views.ClassDiagram.buildRelation(relation)
-                        if (!cell) return
-                        relation.cell = cell
-                        $timeout((): void => { graph.addCell(cell) })
-                    })
-                }
-
                 function drawDiagram(useCaseDiagram) {
                     if (graph) {
                         graph.clear()
@@ -123,11 +114,11 @@
                     UseCaseDiagramResource.get({ 'id': newValue.id })
                         .$promise
                         .then((response) => {
-                            var classDiagram = new Models.UseCaseDiagram(response)
-                            drawDiagram(classDiagram)
+                            var useCaseDiagram = new Models.UseCaseDiagram(response)
+                            drawDiagram(useCaseDiagram)
                         })
                         .catch((err) => {
-                            Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                            Notification.notifyError(Sentences.errorLoadingUseCaseDiagram, err.messages)
                         })
                         .finally(() => {
                             $scope.pendingRequests--
@@ -141,5 +132,4 @@
         }
     }
     app.directive('gsdUseCaseDiagramDisplay', GsdUseCaseDiagramDisplay.Factory)
-
 }

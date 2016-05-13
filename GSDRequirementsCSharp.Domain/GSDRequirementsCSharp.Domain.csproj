@@ -214,6 +214,7 @@
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagramQuery.cs" />
+    <Compile Include="Validation\RequirementDescriptionRequiredAttribute.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramViewModel.cs" />

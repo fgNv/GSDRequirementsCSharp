@@ -9,6 +9,8 @@ namespace GSDRequirementsCSharp.Domain
 
     public class Package : IEntity<Guid>
     {
+        public const string PREFIX = "PKG";
+
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
         public ICollection<PackageContent> Contents { get; set; }

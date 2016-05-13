@@ -228,6 +228,9 @@
   <data name="relationLocaleIsARequiredField" xml:space="preserve">
     <value>"Idioma da relação" é um campo obrigatório</value>
   </data>
+  <data name="requirementDescriptionRequired" xml:space="preserve">
+    <value>Um requisito com a descrição vazia não é permitido</value>
+  </data>
   <data name="requirementIdIsARequiredField" xml:space="preserve">
     <value>"Id do requisito" é um campo obrigatório</value>
   </data>

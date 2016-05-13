@@ -228,6 +228,9 @@
   <data name="relationLocaleIsARequiredField" xml:space="preserve">
     <value>"Relation Locale" is a required field</value>
   </data>
+  <data name="requirementDescriptionRequired" xml:space="preserve">
+    <value>A requirement with an empty description is not allowed</value>
+  </data>
   <data name="requirementIdIsARequiredField" xml:space="preserve">
     <value>"Requirement id" is a required field</value>
   </data>

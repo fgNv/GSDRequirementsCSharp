@@ -28,7 +28,7 @@
                         })
                         .value();
                 })
-                .catch((error): void=> {
+                .catch((error): void => {
                     Notification.notifyError(Sentences.errorLoadingLinks, error.data.messages)
                 })
                 .finally((): void => {
@@ -45,7 +45,7 @@
                     $scope.originalSpecificationItems = items
                     deferred.resolve(items);
                 })
-                .catch((error): void=> {
+                .catch((error): void => {
                     Notification.notifyError(Sentences.errorLoadingSpecificationItems,
                         error.data.messages)
                     deferred.reject(error);
@@ -67,7 +67,7 @@
                 $scope.links = []
 
                 $scope.selected = null
-
+                
                 $scope.selectItem = (item): void => {
                     $scope.selected = item
                 }
@@ -80,7 +80,7 @@
 
                 this.loadSpecificationItems($scope, CurrentProjectItemResource)
 
-                $scope.addNewLink = (): void=> {
+                $scope.addNewLink = (): void => {
                     $scope.addingNewLink = true
                 }
 
@@ -102,12 +102,12 @@
                         .catch((error): void => {
                             Notification.notifyError(Sentences.errorRemovingLink, error.data.messages)
                         })
-                        .finally((): void=> {
+                        .finally((): void => {
                             $scope.pendingRequests--
                         });
                 }
 
-                $scope.saveLink = (): void=> {
+                $scope.saveLink = (): void => {
                     if (!$scope.selected || !$scope.specificationItem)
                         return;
 
@@ -128,7 +128,7 @@
                         .catch((error): void => {
                             Notification.notifyError(Sentences.errorSavingLink, error.data.messages)
                         })
-                        .finally((): void=> {
+                        .finally((): void => {
                             $scope.pendingRequests--
                         });
                 }
