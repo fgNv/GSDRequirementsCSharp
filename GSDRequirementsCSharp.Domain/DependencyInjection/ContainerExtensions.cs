@@ -2,6 +2,7 @@
 using GSDRequirementsCSharp.Domain.Permissions;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
+using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using SimpleInjector;
 using SimpleInjector.Extensions;
@@ -22,6 +23,9 @@ namespace GSDRequirementsCSharp.Domain.DependencyInjection
                                          new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
             container.Register(typeof(IQueryHandler<,>),
                                          new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
+            container.Register(typeof(IConverter<,>),
+                                         new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
+
             container.Register<ICredentialsValidator, LocalCredentialsValidator>(lifestyle);
 
             container.RegisterDecorator(typeof(ICommandHandler<>), typeof(CommandHandlerPermissionDecorator<>), lifestyle);

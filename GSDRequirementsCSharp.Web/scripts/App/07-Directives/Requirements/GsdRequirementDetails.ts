@@ -8,13 +8,16 @@
     var app = angular.module(GSDRequirements.angularModuleName);
 
     class GsdRequirementDetails {
-        public scope = { 'requirementId': '=requirementId' };
+        public scope = {
+            'requirementLink': '=requirementLink',
+            'version': '=?'
+        };
         public templateUrl = GSDRequirements.baseUrl + 'requirement/details';
         private loadRequirement($scope, RequirementResource, requirementId) {
             $scope.pendingRequests++
             $scope.availableLanguages = []
 
-            RequirementResource.get({ 'id': requirementId })
+            RequirementResource.get({ 'id': requirementId, version: $scope.version })
                 .$promise
                 .then((r): void => {
                     var requirement = new Models.Requirement(r)
@@ -26,35 +29,33 @@
                             .uniq()
                             .value();
                 })
-                .catch((err): void=> {
+                .catch((err): void => {
                     Notification.notifyError(Sentences.errorLoadingRequirement, err.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--
                 })
         }
-        public controller = ['$scope', 'RequirementResource', ($scope, RequirementResource) => {
-            $scope.requirement = null
-            $scope.pendingRequests = 0
-            $scope.availableLanguages = []
-            $scope.requirementType = Models.RequirementType
-            $scope.difficulty = Models.Difficulty
+        public controller = ['$scope', 'RequirementResource',
+            ($scope, RequirementResource) => {
+                $scope.requirement = null
+                $scope.pendingRequests = 0
+                $scope.availableLanguages = []
+                $scope.requirementType = Models.RequirementType
+                $scope.difficulty = Models.Difficulty
 
-            if ($scope.requirementId)
-                this.loadRequirement($scope, RequirementResource, $scope.requirementId)
+                $scope.$watch("requirementLink", (newValue, oldValue) => {
+                    if (newValue && newValue.id)
+                        this.loadRequirement($scope, RequirementResource, newValue.id)
+                });
+                
+                $scope.$watch("displayLanguage", (newValue, oldValue) => {
+                    if (newValue)
+                        $scope.requirement.setLocale(newValue)
+                });
 
-            $scope.$watch("requirementId", (newValue, oldValue): void=> {
-                if (newValue)
-                    this.loadRequirement($scope, RequirementResource, newValue)
-            });
-
-            $scope.$watch("displayLanguage", (newValue, oldValue): void=> {
-                if (newValue)
-                    $scope.requirement.setLocale(newValue)
-            });
-
-            $scope.getSentence = (k) => Sentences[k]
-        }]
+                $scope.getSentence = (k) => Sentences[k]
+            }]
         public static Factory() {
             return new GsdRequirementDetails();
         }

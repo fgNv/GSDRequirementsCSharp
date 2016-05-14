@@ -6,10 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSDRequirementsCSharp.Domain.Queries;
+using GSDRequirementsCSharp.Domain;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 {
-    internal class ClassDiagramDetailQueryHandler : IQueryHandler<Guid, ClassDiagramDetailedViewModel>
+    internal class ClassDiagramDetailQueryHandler : IQueryHandler<ClassDiagramDetailQuery, ClassDiagramDetailedViewModel>,
+                                                    IQueryHandler<ClassDiagramDetailQuery, ClassDiagram>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -18,17 +21,29 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             _context = context;
         }
 
-        public ClassDiagramDetailedViewModel Handle(Guid id)
+        private ClassDiagram Retrieve(ClassDiagramDetailQuery query)
         {
-            var classDiagram = _context.ClassDiagrams
+            return _context.ClassDiagrams
                                        .Include(cd => cd.Relationships)
                                        .Include(cd => cd.Classes.Select(c => c.ClassMethods))
                                        .Include(cd => cd.Contents)
-                                       .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
+                                       .SingleOrDefault(c => c.Id == query.Id &&
+                                                             (c.IsLastVersion && !query.Version.HasValue ||
+                                                             c.Version == query.Version.Value));
+        }
+
+        public ClassDiagramDetailedViewModel Handle(ClassDiagramDetailQuery query)
+        {
+            var classDiagram = Retrieve(query);
 
             if (classDiagram == null)
                 return null;
             return ClassDiagramDetailedViewModel.FromModel(classDiagram);
+        }
+
+        ClassDiagram IQueryHandler<ClassDiagramDetailQuery, ClassDiagram>.Handle(ClassDiagramDetailQuery query)
+        {
+            return Retrieve(query);
         }
     }
 }

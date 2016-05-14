@@ -108,6 +108,7 @@
     <Compile Include="Commands\Requirements\RequirementContentItem.cs" />
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
+    <Compile Include="Commands\RestoreVersionCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommand.cs" />
@@ -140,6 +141,9 @@
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="Commands\Users\UpdateUserCommand.cs" />
     <Compile Include="Commands\Users\UpdateUserCommandHandler.cs" />
+    <Compile Include="Converter\ClassDiagramToNewVersionConverter.cs" />
+    <Compile Include="Converter\UseCaseDiagramToNewVersionCommandConverter.cs" />
+    <Compile Include="Converter\RequirementToNewVersionCommandConverter.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Models\UseCases\Actor.cs" />
     <Compile Include="Models\ClassDiagrams\Class.cs" />
@@ -191,6 +195,7 @@
     <Compile Include="Permissions\CommandHandlerPermissionDecorator.cs" />
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\ClassDiagramDetailQuery.cs" />
     <Compile Include="Queries\ClassDiagrams\ClassDiagramNextIdQuery.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQuery.cs" />
     <Compile Include="Queries\Issue\IssueCommentWithContentsQuery.cs" />
@@ -202,7 +207,7 @@
     <Compile Include="Queries\Permissions\PermissionsByCurrentProject.cs" />
     <Compile Include="Queries\Projects\ProjectNextIdQuery.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
-    <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
+    <Compile Include="Queries\Requirements\DetailedRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
@@ -211,6 +216,8 @@
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQueryResult.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQueryResult.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\ActorsByDiagramQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramDetailQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagramQuery.cs" />
@@ -252,6 +259,7 @@
     <Compile Include="ViewModels\UseCases\UseCaseEntityRelationContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCasesRelationViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseViewModel.cs" />
+    <Compile Include="ViewModels\VersionItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

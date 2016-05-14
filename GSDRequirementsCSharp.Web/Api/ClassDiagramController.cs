@@ -1,12 +1,15 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
+﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Commands;
+using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Validation;
+using GSDRequirementsCSharp.Persistence.Queries;
 using GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api
@@ -15,23 +18,35 @@ namespace GSDRequirementsCSharp.Web.Api
     {
         private readonly IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> _classDiagramsPaginatedQuery;
         private readonly ICommandHandler<CreateClassDiagramCommand> _createClassDiagramCommandHandler;
-        private readonly IQueryHandler<Guid, ClassDiagramDetailedViewModel> _classDiagramDetailQueryHandler;
+        private readonly IQueryHandler<ClassDiagramDetailQuery, ClassDiagramDetailedViewModel> _classDiagramDetailQueryHandler;
+        private readonly IQueryHandler<ClassDiagramDetailQuery, ClassDiagram> _classDiagramEntityQueryHandler;
         private readonly ICommandHandler<CreateClassDiagramNewVersionCommand> _createClassDiagramNewVersionCommandHandler;
+        private readonly IQueryHandler<ClassDiagramVersionsQuery, IEnumerable<VersionItem>> _classDiagramVersionsQuery;
+        private readonly IConverter<ClassDiagram, CreateClassDiagramNewVersionCommand> _classDiagramToNewVersionCommand;
+        private readonly IValidator _validator;
 
         public ClassDiagramController(IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> classDiagramsPaginatedQuery,
                                       ICommandHandler<CreateClassDiagramCommand> createClassDiagramCommandHandler,
-                                      IQueryHandler<Guid, ClassDiagramDetailedViewModel> classDiagramDetailQueryHandler,
-                                      ICommandHandler<CreateClassDiagramNewVersionCommand> createClassDiagramNewVersionCommandHandler)
+                                      IQueryHandler<ClassDiagramDetailQuery, ClassDiagramDetailedViewModel> classDiagramDetailQueryHandler,
+                                      ICommandHandler<CreateClassDiagramNewVersionCommand> createClassDiagramNewVersionCommandHandler,
+                                      IQueryHandler<ClassDiagramVersionsQuery, IEnumerable<VersionItem>> classDiagramVersionsQuery,
+                                      IQueryHandler<ClassDiagramDetailQuery, ClassDiagram> classDiagramEntityQueryHandler,
+                                      IConverter<ClassDiagram, CreateClassDiagramNewVersionCommand> classDiagramToNewVersionCommand,
+                                      IValidator validator)
         {
             _classDiagramsPaginatedQuery = classDiagramsPaginatedQuery;
             _createClassDiagramCommandHandler = createClassDiagramCommandHandler;
             _classDiagramDetailQueryHandler = classDiagramDetailQueryHandler;
             _createClassDiagramNewVersionCommandHandler = createClassDiagramNewVersionCommandHandler;
+            _classDiagramVersionsQuery = classDiagramVersionsQuery;
+            _classDiagramToNewVersionCommand = classDiagramToNewVersionCommand;
+            _validator = validator;
+            _classDiagramEntityQueryHandler = classDiagramEntityQueryHandler;
         }
 
-        public ClassDiagramDetailedViewModel Get(Guid id)
+        public ClassDiagramDetailedViewModel Get([FromUri]ClassDiagramDetailQuery query)
         {
-            return _classDiagramDetailQueryHandler.Handle(id);
+            return _classDiagramDetailQueryHandler.Handle(query);
         }
 
         [HttpGet]
@@ -40,6 +55,24 @@ namespace GSDRequirementsCSharp.Web.Api
         {
             var result = _classDiagramsPaginatedQuery.Handle(query);
             return result;
+        }
+
+        [HttpGet]
+        [Route("api/classDiagram/{id}/versions")]
+        public IEnumerable<VersionItem> Versions([FromUri]ClassDiagramVersionsQuery query)
+        {
+            var result = _classDiagramVersionsQuery.Handle(query);
+            return result;
+        }
+
+        [HttpPost]
+        [Route("api/classDiagram/{id}/versions")]
+        public void Versions(RestoreVersionCommand command)
+        {
+            _validator.Validate(command);
+            var useCaseDiagram = _classDiagramEntityQueryHandler.Handle(command);
+            var newVersionCommand = _classDiagramToNewVersionCommand.Convert(useCaseDiagram);
+            _createClassDiagramNewVersionCommandHandler.Handle(newVersionCommand);
         }
 
         public void Post(CreateClassDiagramCommand command)

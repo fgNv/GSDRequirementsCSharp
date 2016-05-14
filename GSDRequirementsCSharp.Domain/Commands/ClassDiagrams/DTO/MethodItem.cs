@@ -14,7 +14,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
     {
         [Required(
          ErrorMessageResourceType = typeof(ValidationMessages),
-         ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
+         ErrorMessageResourceName = nameof(ValidationMessages.methodNameIsARequiredField))]
         public string Name { get; set; }
 
         [Required(

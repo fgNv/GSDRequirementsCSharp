@@ -1,6 +1,6 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
 
-<div>
+<div data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
     <h2>
         @Sentences.requirementDetails {{requirement.getLabel()}} -
         @Sentences.version {{requirement.version}}

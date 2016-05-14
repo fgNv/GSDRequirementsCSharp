@@ -21,6 +21,7 @@
     export declare var errorLoadingLinks: string;
     export declare var errorLoadingRequirement: string; 
     export declare var errorLoadingIssues: string;
+    export declare var errorLoadingVersions: string; 
     export declare var errorLoadingUseCase: string;
     export declare var errorLoadingPackages: string;
     export declare var errorLoadingSpecificationItems: string;
@@ -37,6 +38,7 @@
     export declare var errorChangingPassword: string;
     export declare var errorRemovingUseCaseDiagram: string; 
     export declare var errorRemovingLink: string;
+    export declare var errorRestoringVersion: string;
     export declare var issueCreatedSuccessfully: string;
     export declare var issueSuccessfullyConcluded: string;
     export declare var linkSavedSuccessfully: string;
@@ -58,5 +60,6 @@
     export declare var translationAddedSuccessfully: string;
     export declare var userAccountSuccessfullyCreated: string;
     export declare var useCaseDiagramRemovedSuccessfully: string;
+    export declare var versionRestoredSuccessfully: string;
     export declare var youMustClickInTheUserToSelectItBeforeAddingThePermission: string;
 }

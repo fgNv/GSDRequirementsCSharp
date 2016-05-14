@@ -15,7 +15,11 @@ namespace GSDRequirementsCSharp.Infrastructure.Validation.Attributes
             var list = value as IList;
             if (list != null)
                 return list.Count > 0;
-            
+
+            var enumerable = value as IEnumerable;
+            foreach (var item in enumerable)
+                return true; //if at least one item, return true
+
             return false;
         }
     }

@@ -79,6 +79,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Class Diagram Name&quot; is a required field.
+        /// </summary>
+        public static string classDiagramNameIsARequiredField {
+            get {
+                return ResourceManager.GetString("classDiagramNameIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Class Type&quot; is a required field.
         /// </summary>
         public static string classTypeIsARequiredField {
@@ -129,6 +138,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string emailIsARequiredField {
             get {
                 return ResourceManager.GetString("emailIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Id&quot; is a required field.
+        /// </summary>
+        public static string idIsARequiredField {
+            get {
+                return ResourceManager.GetString("idIsARequiredField", resourceCulture);
             }
         }
         
@@ -219,6 +237,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string maxPhoneLengthIs20 {
             get {
                 return ResourceManager.GetString("maxPhoneLengthIs20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Method Name&quot; is a required field.
+        /// </summary>
+        public static string methodNameIsARequiredField {
+            get {
+                return ResourceManager.GetString("methodNameIsARequiredField", resourceCulture);
             }
         }
         
@@ -502,6 +529,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Use Case Diagram Id&quot; is a required field.
+        /// </summary>
+        public static string useCaseDiagramIdIsRequiredField {
+            get {
+                return ResourceManager.GetString("useCaseDiagramIdIsRequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Use Case Locale&quot; is a required field.
         /// </summary>
         public static string useCaseLocaleIsARequiredField {
@@ -525,6 +561,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string userIdIsARequiredField {
             get {
                 return ResourceManager.GetString("userIdIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Version&quot; is a required field.
+        /// </summary>
+        public static string versionIsARequiredField {
+            get {
+                return ResourceManager.GetString("versionIsARequiredField", resourceCulture);
             }
         }
     }

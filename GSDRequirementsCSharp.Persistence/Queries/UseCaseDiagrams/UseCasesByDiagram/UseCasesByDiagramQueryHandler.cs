@@ -22,10 +22,14 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams.UseCasesByDi
         public IEnumerable<UseCase> Handle(UseCasesByDiagramQuery query)
         {
             var useCases = _context.UseCases
-                                   .Include(uc => uc.SpecificationItem)                                   
-                                   .Where(uc => uc.UseCaseDiagram.Id == query.DiagramId)
+                                   .Include(uc => uc.SpecificationItem)
+                                   .Include(uc => uc.Contents)
+                                   .Include(uc => uc.PreConditions.Select(pc => pc.Contents))
+                                   .Include(uc => uc.PostConditions.Select(pc => pc.Contents))
+                                   .Where(uc => uc.UseCaseDiagram.Id == query.DiagramId &&
+                                                (!query.Version.HasValue || 
+                                                  uc.Version == query.Version.Value))
                                    .ToList();
-
             return useCases;
         }
     }

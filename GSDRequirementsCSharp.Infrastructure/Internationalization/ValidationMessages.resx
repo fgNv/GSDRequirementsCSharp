@@ -123,6 +123,9 @@
   <data name="classDiagramIdIsRequiredField" xml:space="preserve">
     <value>"Class Diagram Id" is a required field</value>
   </data>
+  <data name="classDiagramNameIsARequiredField" xml:space="preserve">
+    <value>"Class Diagram Name" is a required field</value>
+  </data>
   <data name="classTypeIsARequiredField" xml:space="preserve">
     <value>"Class Type" is a required field</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="emailIsARequiredField" xml:space="preserve">
     <value>"Email" is a required field</value>
+  </data>
+  <data name="idIsARequiredField" xml:space="preserve">
+    <value>"Id" is a required field</value>
   </data>
   <data name="issueCommentIdIsARequiredField" xml:space="preserve">
     <value>"Issue comment id" is a required field</value>
@@ -170,6 +176,9 @@
   </data>
   <data name="maxPhoneLengthIs20" xml:space="preserve">
     <value>Max "Phone" length is 50</value>
+  </data>
+  <data name="methodNameIsARequiredField" xml:space="preserve">
+    <value>"Method Name" is a required field</value>
   </data>
   <data name="methodVisibilityIsARequiredField" xml:space="preserve">
     <value>"Method visibility" is a required field</value>
@@ -264,6 +273,9 @@
   <data name="useCaseDescriptionIsARequiredField" xml:space="preserve">
     <value>"Use Case Description" is a required field</value>
   </data>
+  <data name="useCaseDiagramIdIsRequiredField" xml:space="preserve">
+    <value>"Use Case Diagram Id" is a required field</value>
+  </data>
   <data name="useCaseLocaleIsARequiredField" xml:space="preserve">
     <value>"Use Case Locale" is a required field</value>
   </data>
@@ -272,5 +284,8 @@
   </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"User Id" is a required field</value>
+  </data>
+  <data name="versionIsARequiredField" xml:space="preserve">
+    <value>"Version" is a required field</value>
   </data>
 </root>

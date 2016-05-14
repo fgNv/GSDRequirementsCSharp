@@ -20,7 +20,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
         [ValidateCollection]
         [AtLeastOneElement(
             ErrorMessageResourceType = typeof(ValidationMessages),
-            ErrorMessageResourceName = nameof(ValidationMessages.nameIsARequiredField))]
+            ErrorMessageResourceName = nameof(ValidationMessages.classDiagramNameIsARequiredField))]
         public IEnumerable<ClassDiagramContentItem> Contents { get; set; }
 
         [ValidateCollection]

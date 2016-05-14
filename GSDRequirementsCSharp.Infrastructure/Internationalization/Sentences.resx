@@ -996,4 +996,19 @@
   <data name="youMustClickInTheUserToSelectItBeforeAddingThePermission" xml:space="preserve">
     <value>You must click in the user to select it, before adding the permission</value>
   </data>
+  <data name="errorLoadingVersions" xml:space="preserve">
+    <value>Error Loading Versions</value>
+  </data>
+  <data name="manageVersions" xml:space="preserve">
+    <value>Manage Versions</value>
+  </data>
+  <data name="restoreVersion" xml:space="preserve">
+    <value>Restore Version</value>
+  </data>
+  <data name="errorRestoringVersion" xml:space="preserve">
+    <value>Error Restoring Version</value>
+  </data>
+  <data name="versionRestoredSuccessfully" xml:space="preserve">
+    <value>Version Restored Successfully</value>
+  </data>
 </root>

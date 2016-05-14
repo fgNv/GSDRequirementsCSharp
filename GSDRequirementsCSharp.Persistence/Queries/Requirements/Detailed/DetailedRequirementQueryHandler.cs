@@ -8,9 +8,9 @@ using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.LastVersion
+namespace GSDRequirementsCSharp.Persistence.Queries.Requirements
 {
-    internal class LastVersionRequirementQueryHandler : IQueryHandler<LastVersionRequirementQuery, Requirement>
+    internal class LastVersionRequirementQueryHandler : IQueryHandler<DetailedRequirementQuery, Requirement>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -19,12 +19,14 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.LastVersion
             _context = context;
         }
 
-        public Requirement Handle(LastVersionRequirementQuery query)
+        public Requirement Handle(DetailedRequirementQuery query)
         {
             return _context.Requirements
                            .Include(r => r.RequirementContents)
                            .Include(r => r.SpecificationItem.Package.Contents)
-                           .FirstOrDefault(r => r.IsLastVersion && r.Id == query.Id);
+                           .FirstOrDefault(r => r.Id == query.Id && 
+                                                (r.IsLastVersion && !query.Version.HasValue ||
+                                                 r.Version == query.Version.Value));
         }
     }
 }

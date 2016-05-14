@@ -1015,6 +1015,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Loading Versions.
+        /// </summary>
+        public static string errorLoadingVersions {
+            get {
+                return ResourceManager.GetString("errorLoadingVersions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error removing link.
         /// </summary>
         public static string errorRemovingLink {
@@ -1029,6 +1038,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string errorRemovingUseCaseDiagram {
             get {
                 return ResourceManager.GetString("errorRemovingUseCaseDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Restoring Version.
+        /// </summary>
+        public static string errorRestoringVersion {
+            get {
+                return ResourceManager.GetString("errorRestoringVersion", resourceCulture);
             }
         }
         
@@ -1497,6 +1515,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageUsers {
             get {
                 return ResourceManager.GetString("manageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Versions.
+        /// </summary>
+        public static string manageVersions {
+            get {
+                return ResourceManager.GetString("manageVersions", resourceCulture);
             }
         }
         
@@ -2239,6 +2266,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restore Version.
+        /// </summary>
+        public static string restoreVersion {
+            get {
+                return ResourceManager.GetString("restoreVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return type.
         /// </summary>
         public static string returnType {
@@ -2623,6 +2659,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string version {
             get {
                 return ResourceManager.GetString("version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version Restored Successfully.
+        /// </summary>
+        public static string versionRestoredSuccessfully {
+            get {
+                return ResourceManager.GetString("versionRestoredSuccessfully", resourceCulture);
             }
         }
         

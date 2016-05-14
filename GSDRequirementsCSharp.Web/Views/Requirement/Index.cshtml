@@ -34,7 +34,12 @@
              data-ng-show="currentRequirement"></article>
 
     <article data-gsd-requirement-details=""
-             data-requirement-id="requirementToShowDetails.id"
+             data-requirement-link="requirementToShowDetails"
              data-ng-show="requirementToShowDetails"></article>
+
+    <gsd-requirement-versions data-artifact-id="requirementToManageVersions.id"       
+                              data-after-restore="loadRequirements"                       
+                              data-ng-show="requirementToManageVersions">
+    </gsd-requirement-versions>
 
 </article>

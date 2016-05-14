@@ -11,12 +11,15 @@
 
     class GsdUseCaseDiagramDisplay {
         public scope = {
-            'specificationItem': '=specificationItem'
+            'specificationItem': '=specificationItem',
+            'version': '=?'
         }
         public controller = ['$timeout', '$scope', 'UseCaseDiagramResource', '$q',
             ($timeout, $scope, UseCaseDiagramResource, $q) => {
                 var graph = null;
                 var paper = null;
+
+                $scope.pendingRequests = 0
 
                 function determineRelationType(relation: Models.UseCaseRelationship, useCaseDiagram: Models.UseCaseDiagram) {
                     var source = <Models.IUseCaseEntity>_.find(useCaseDiagram.entities,
@@ -111,14 +114,15 @@
                         return
                     }
 
-                    UseCaseDiagramResource.get({ 'id': newValue.id })
+                    $scope.pendingRequests++
+                    UseCaseDiagramResource.get({ 'id': newValue.id, version: $scope.version })
                         .$promise
                         .then((response) => {
                             var useCaseDiagram = new Models.UseCaseDiagram(response)
                             drawDiagram(useCaseDiagram)
                         })
                         .catch((err) => {
-                            Notification.notifyError(Sentences.errorLoadingUseCaseDiagram, err.messages)
+                            Notification.notifyError(Sentences.errorLoadingUseCaseDiagram, err.data.messages)
                         })
                         .finally(() => {
                             $scope.pendingRequests--
