@@ -202,7 +202,7 @@
     <Compile Include="Queries\Permissions\PermissionsByCurrentProject.cs" />
     <Compile Include="Queries\Projects\ProjectNextIdQuery.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
-    <Compile Include="Queries\Requirements\LastVersionRequirementQuery.cs" />
+    <Compile Include="Queries\Requirements\DetailedRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
@@ -252,6 +252,7 @@
     <Compile Include="ViewModels\UseCases\UseCaseEntityRelationContentViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCasesRelationViewModel.cs" />
     <Compile Include="ViewModels\UseCases\UseCaseViewModel.cs" />
+    <Compile Include="ViewModels\VersionItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

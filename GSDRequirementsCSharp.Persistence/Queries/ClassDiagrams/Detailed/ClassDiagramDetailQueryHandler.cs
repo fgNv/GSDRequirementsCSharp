@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 {
-    internal class ClassDiagramDetailQueryHandler : IQueryHandler<Guid, ClassDiagramDetailedViewModel>
+    internal class ClassDiagramDetailQueryHandler : IQueryHandler<ClassDiagramDetailQuery, ClassDiagramDetailedViewModel>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -18,13 +18,15 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             _context = context;
         }
 
-        public ClassDiagramDetailedViewModel Handle(Guid id)
+        public ClassDiagramDetailedViewModel Handle(ClassDiagramDetailQuery query)
         {
             var classDiagram = _context.ClassDiagrams
                                        .Include(cd => cd.Relationships)
                                        .Include(cd => cd.Classes.Select(c => c.ClassMethods))
                                        .Include(cd => cd.Contents)
-                                       .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
+                                       .SingleOrDefault(c => c.Id == query.Id && 
+                                                             (c.IsLastVersion && !query.Version.HasValue ||
+                                                             c.Version == query.Version.Value));
 
             if (classDiagram == null)
                 return null;

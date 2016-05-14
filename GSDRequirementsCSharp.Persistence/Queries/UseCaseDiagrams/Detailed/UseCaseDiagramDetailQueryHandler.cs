@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
 using System.Data.Entity.SqlServer;
+using GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams.Detailed;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 {
-    internal class UseCaseDiagramDetailQueryHandler : IQueryHandler<Guid, UseCaseDiagramDetailedViewModel>
+    internal class UseCaseDiagramDetailQueryHandler : IQueryHandler<UseCaseDiagramDetailQuery, UseCaseDiagramDetailedViewModel>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -20,14 +21,16 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             _context = context;
         }
 
-        public UseCaseDiagramDetailedViewModel Handle(Guid id)
+        public UseCaseDiagramDetailedViewModel Handle(UseCaseDiagramDetailQuery query)
         {
             var useCaseDiagram = _context.UseCaseDiagrams
                                        .Include(cd => cd.Contents)
                                        .Include(cd => cd.EntitiesRelations.Select(er => er.Contents))
                                        .Include(cd => cd.UseCasesRelations)
                                        .Include(cd => cd.Entities)
-                                       .SingleOrDefault(c => c.Id == id && c.IsLastVersion);
+                                       .SingleOrDefault(c => c.Id == query.Id && (
+                                       c.IsLastVersion && !query.Version.HasValue || 
+                                       c.Version == query.Version.Value));
 
             if (useCaseDiagram == null)
                 return null;
@@ -38,7 +41,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 
             var actors = _context.Actors
                                  .Include(u => u.Contents)
-                                 .Where(u => u.UseCaseDiagram.Id == id &&
+                                 .Where(u => u.UseCaseDiagram.Id == query.Id &&
                                              entitiesIds.Contains(u.Id) && u.Version == useCaseDiagram.Version)
                                  .Select(ActorViewModel.FromModel)
                                  .ToList();
@@ -47,7 +50,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                    .Include(u => u.Contents)
                                    .Include(u => u.PreConditions.Select(pc => pc.Contents))
                                    .Include(u => u.PostConditions.Select(pc => pc.Contents))
-                                   .Where(u => u.UseCaseDiagram.Id == id && entitiesIds.Contains(u.Id) && 
+                                   .Where(u => u.UseCaseDiagram.Id == query.Id && entitiesIds.Contains(u.Id) && 
                                                u.Version == useCaseDiagram.Version)
                                    .Select(UseCaseViewModel.FromModel)
                                    .ToList();

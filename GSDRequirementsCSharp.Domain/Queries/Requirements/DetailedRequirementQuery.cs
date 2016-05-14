@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Queries.Requirements
 {
-    public class LastVersionRequirementQuery
+    public class DetailedRequirementQuery
     {
         public Guid Id { get; set; }
+        public int? Version { get; set; }
 
-        public static implicit operator LastVersionRequirementQuery(Guid id)
+        public static implicit operator DetailedRequirementQuery(Guid id)
         {
-            return new LastVersionRequirementQuery { Id = id };
+            return new DetailedRequirementQuery { Id = id };
         }
     }
 }

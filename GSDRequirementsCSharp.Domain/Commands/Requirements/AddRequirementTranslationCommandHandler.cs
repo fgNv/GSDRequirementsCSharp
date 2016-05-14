@@ -12,10 +12,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
     public class AddRequirementTranslationCommandHandler : ICommandHandler<AddRequirementTranslationCommand>
     {
-        private readonly IQueryHandler<LastVersionRequirementQuery, Requirement> _lastVersionRequirementQueryHandler;
+        private readonly IQueryHandler<DetailedRequirementQuery, Requirement> _lastVersionRequirementQueryHandler;
         private readonly IRepository<RequirementContent, LocaleKey> _requirementContentRepository;
 
-        public AddRequirementTranslationCommandHandler(IQueryHandler<LastVersionRequirementQuery, Requirement> lastVersionRequirementQuery,
+        public AddRequirementTranslationCommandHandler(IQueryHandler<DetailedRequirementQuery, Requirement> lastVersionRequirementQuery,
                             IRepository<RequirementContent, LocaleKey> requirementContentRepository)
         {
             _lastVersionRequirementQueryHandler = lastVersionRequirementQuery;
