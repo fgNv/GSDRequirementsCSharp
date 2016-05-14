@@ -1,0 +1,38 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3 data-ng-show="currentClass.cell">
+    @Sentences.manageVersions
+</h3>
+
+<div class="row" data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <div class="col-md-3">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>@Sentences.label</th>
+                    <th>@Sentences.version</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="version in versions"
+                    role="button"
+                    data-ng-click="select(version)">
+                    <td>{{version.label}}</td>
+                    <td>{{version.version}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-9">
+        <button class="btn btn-default"
+                data-ng-click="restoreVersion()">
+            @Sentences.restoreVersion
+        </button>
+        <div class="diagram-display-box">
+            <gsd-class-diagram-display data-ng-if="selected"
+                                       data-specification-item="selected"
+                                       data-version="selected.version">
+            </gsd-class-diagram-display>
+        </div>
+    </div>
+</div>

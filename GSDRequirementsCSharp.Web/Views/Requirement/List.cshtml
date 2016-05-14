@@ -45,6 +45,12 @@
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                     <button class="btn btn-default"
+                            title="@Sentences.manageVersions"
+                            data-ng-show="hasEditPermission"
+                            data-ng-click="setRequirementToManageVersions(r)">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-default"
                             type="button"
                             data-ng-click="setRequirementToShowDetails(r)"
                             title="@Sentences.showDetailsAndManageVersions">

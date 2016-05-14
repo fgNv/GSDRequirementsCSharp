@@ -26,5 +26,11 @@ namespace GSDRequirements.Web.Controllers
         {
             return PartialView("~/Views/ClassDiagram/_Display.cshtml");
         }
+
+        [SkipUserDataSetter]
+        public PartialViewResult Versions()
+        {
+            return PartialView("~/Views/ClassDiagram/_Versions.cshtml");
+        }
     }
 }

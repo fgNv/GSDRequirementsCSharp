@@ -11,7 +11,7 @@
     <h2 data-ng-show="!classDiagramToManageLinks">
         @Sentences.classDiagrams
         <button class="btn btn-primary"
-                data-ng-show="!currentClassDiagram && !classDiagramToTranslate && 
+                data-ng-show="!currentClassDiagram && !classDiagramToManageVersions && 
                               hasEditPermission"
                 title="@Sentences.addClassDiagram"
                 data-ng-click="addClassDiagram()">
@@ -19,7 +19,7 @@
         </button>
     </h2>
 
-    <article data-ng-show="!currentClassDiagram && !classDiagramToTranslate && 
+    <article data-ng-show="!currentClassDiagram && !classDiagramToManageVersions && 
                            !classDiagramToManageLinks">
         <div class="alert alert-info" data-ng-show="classDiagrams.length == 0">
             @Sentences.noClassDiagramsRegistered
@@ -59,6 +59,12 @@
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
                             <button class="btn btn-default"
+                                    title="@Sentences.manageVersions"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setClassDiagramToManageVersions(classDiagram)">
+                                <i class="fa fa-history" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-default"
                                     data-ng-show="hasEditPermission"
                                     data-ng-click="inactivateClassDiagram(classDiagram)"
                                     title="@Sentences.inactivateClassDiagram">
@@ -73,12 +79,6 @@
                             <gsd-issue-create data-specification-item="classDiagram"
                                               data-after-save="loadClassDiagrams">
                             </gsd-issue-create>
-                            <button class="btn btn-default"
-                                    data-ng-click="setClassDiagramToTranslate(classDiagram)"
-                                    data-ng-show="classDiagram.canAddTranslation() && hasEditPermission"
-                                    title="@Sentences.addTranslation">
-                                <span class="glyphicon glyphicon-globe"></span>
-                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -103,6 +103,10 @@
              data-editing-relations="editingRelations"
              data-ng-show="currentClassDiagram">
     </gsd-class-diagram>
+
+    <gsd-class-diagram-versions data-ng-show="classDiagramToManageVersions"
+                                 data-artifact-id="classDiagramToManageVersions.id">
+    </gsd-class-diagram-versions>
 
     <article data-gsd-links-management=""
              data-specification-item="classDiagramToManageLinks"

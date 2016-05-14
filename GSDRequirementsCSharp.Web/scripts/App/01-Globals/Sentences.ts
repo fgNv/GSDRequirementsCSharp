@@ -21,6 +21,7 @@
     export declare var errorLoadingLinks: string;
     export declare var errorLoadingRequirement: string; 
     export declare var errorLoadingIssues: string;
+    export declare var errorLoadingVersions: string; 
     export declare var errorLoadingUseCase: string;
     export declare var errorLoadingPackages: string;
     export declare var errorLoadingSpecificationItems: string;

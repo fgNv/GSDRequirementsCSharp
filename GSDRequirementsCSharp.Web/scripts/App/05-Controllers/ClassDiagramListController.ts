@@ -19,6 +19,7 @@
             $scope.classDiagrams = []
             $scope.currentClass = null
             $scope.editingRelations = false
+            $scope.classDiagramToManageVersions = null
 
             var pageSize = 10
             $scope.pendingRequests = 0
@@ -34,6 +35,11 @@
             $scope.addClassDiagram = () => {
                 $scope.currentClassDiagram = new Models.ClassDiagram()
                 window.location.href = "#/diagram"
+            }
+
+            $scope.setClassDiagramToManageVersions = (classDiagram) => {
+                $scope.classDiagramToManageVersions = classDiagram
+                window.location.href = "#/versions"
             }
 
             $scope.setClassDiagramToManageLinks = (classDiagram) => {
@@ -69,7 +75,7 @@
 
                 if (!step) {
                     $scope.currentClassDiagram = null
-                    $scope.classDiagramToTranslate = null
+                    $scope.classDiagramToManageVersions = null
                 }
 
                 if (pathValues.length == 2) {

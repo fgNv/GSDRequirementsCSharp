@@ -24,8 +24,10 @@
         modelToEditLinks : any
         pendingRequests: number
         removeUseCaseDiagram(useCaseDiagram) : void
-        setUseCaseToManageLinks: (uc) => void 
+        setUseCaseDiagramToManageLinks: (uc) => void
+        setUseCaseDiagramToManageVersions: (uc) => void 
         useCaseDiagramToManageLinks: Models.UseCaseDiagram
+        useCaseDiagramToManageVersions: Models.UseCaseDiagram
         useCasesDiagrams: Array<Models.UseCaseDiagram>
         setCurrentUseCaseDiagram: (cd) => void
         UserData: UserData,
@@ -41,6 +43,7 @@
             $scope.maxPages = 1
             $scope.useCasesDiagrams = []
             $scope.currentUseCase = null
+            $scope.useCaseDiagramToManageVersions = null
 
             var pageSize = 10
             $scope.pendingRequests = 0
@@ -84,7 +87,11 @@
                     loadArtifactsToManageLinks(newValue)
             })
 
-            $scope.setUseCaseToManageLinks = (uc) => {
+            $scope.setUseCaseDiagramToManageVersions = (uc) => {
+                $scope.useCaseDiagramToManageVersions = uc
+            }
+
+            $scope.setUseCaseDiagramToManageLinks = (uc) => {
                 $scope.useCaseDiagramToManageLinks = uc
                 window.location.href = "#/links"
             }

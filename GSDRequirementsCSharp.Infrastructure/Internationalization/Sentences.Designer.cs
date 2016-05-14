@@ -1015,6 +1015,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Loading Versions.
+        /// </summary>
+        public static string errorLoadingVersions {
+            get {
+                return ResourceManager.GetString("errorLoadingVersions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error removing link.
         /// </summary>
         public static string errorRemovingLink {
@@ -1497,6 +1506,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string manageUsers {
             get {
                 return ResourceManager.GetString("manageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Versions.
+        /// </summary>
+        public static string manageVersions {
+            get {
+                return ResourceManager.GetString("manageVersions", resourceCulture);
             }
         }
         
@@ -2235,6 +2253,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string requirementUpdatedSuccessfully {
             get {
                 return ResourceManager.GetString("requirementUpdatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore Version.
+        /// </summary>
+        public static string restoreVersion {
+            get {
+                return ResourceManager.GetString("restoreVersion", resourceCulture);
             }
         }
         

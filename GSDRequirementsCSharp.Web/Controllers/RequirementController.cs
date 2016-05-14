@@ -36,6 +36,12 @@ namespace GSDRequirements.Web.Controllers
         }
 
         [SkipUserDataSetter]
+        public PartialViewResult Versions()
+        {
+            return PartialView("_Versions");
+        }
+
+        [SkipUserDataSetter]
         public PartialViewResult TranslationList()
         {
             var model = new TranslationListViewModel { NgModelEntityReference = "requirement" };

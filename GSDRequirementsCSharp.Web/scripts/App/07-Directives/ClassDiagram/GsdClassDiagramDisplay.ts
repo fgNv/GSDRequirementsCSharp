@@ -10,12 +10,15 @@
 
     class GsdClassDiagram {
         public scope = {
-            'specificationItem': '=specificationItem'
+            'specificationItem': '=specificationItem',
+            'version': '=?'
         }
         public controller = ['$timeout', '$scope', 'ClassDiagramResource', '$q',
             ($timeout, $scope, ClassDiagramResource, $q) => {
                 var graph = null;
                 var paper = null;
+
+                $scope.pendingRequests = 0
 
                 function redrawRelations() {
                     _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
@@ -89,7 +92,9 @@
                         return
                     }
 
-                    ClassDiagramResource.get({ 'id': newValue.id })
+                    $scope.pendingRequests++
+
+                    ClassDiagramResource.get({ 'id': newValue.id, version: $scope.version })
                         .$promise
                         .then((response) => {
                             var classDiagram = new Models.ClassDiagram(response)

@@ -14,3 +14,9 @@
 tr.selected {
     background-color: #D5ffE0;
 }
+
+.diagram-display-box{
+    overflow-x: auto; 
+    overflow-y:auto; 
+    max-height: 400px; 
+}
