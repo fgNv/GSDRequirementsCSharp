@@ -123,6 +123,9 @@
   <data name="classDiagramIdIsRequiredField" xml:space="preserve">
     <value>"Id do Diagrama de Classes" é um campo obrigatório</value>
   </data>
+  <data name="classDiagramNameIsARequiredField" xml:space="preserve">
+    <value>"Nome do Diagrama de Classes" é um campo obrigatório</value>
+  </data>
   <data name="classTypeIsARequiredField" xml:space="preserve">
     <value>"Tipo de Classe" é um campo obrigatório</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="maxPhoneLengthIs20" xml:space="preserve">
     <value>O tamanho máximo do campo "Telefone" são 20 caracteres</value>
+  </data>
+  <data name="methodNameIsARequiredField" xml:space="preserve">
+    <value>"Nome do Método" é um campo obrigatório</value>
   </data>
   <data name="methodVisibilityIsARequiredField" xml:space="preserve">
     <value>"Visibilidade do método" é um campo obrigatório</value>
@@ -266,6 +272,9 @@
   </data>
   <data name="useCaseDescriptionIsARequiredField" xml:space="preserve">
     <value>"Descrição do caso de uso" é um campo obrigatório</value>
+  </data>
+  <data name="useCaseDiagramIdIsRequiredField" xml:space="preserve">
+    <value>"Id do Diagrama de Casos de Uso" é um campo obrigatório</value>
   </data>
   <data name="useCaseLocaleIsARequiredField" xml:space="preserve">
     <value>"Idioma do caso de uso" é um campo obrigatório</value>

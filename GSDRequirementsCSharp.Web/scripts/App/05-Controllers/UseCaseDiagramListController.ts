@@ -89,6 +89,7 @@
 
             $scope.setUseCaseDiagramToManageVersions = (uc) => {
                 $scope.useCaseDiagramToManageVersions = uc
+                window.location.href = "#/versions"
             }
 
             $scope.setUseCaseDiagramToManageLinks = (uc) => {
@@ -125,6 +126,7 @@
                 if (!step) {
                     $scope.currentUseCaseDiagram = null
                     $scope.useCaseDiagramToManageLinks = null
+                    $scope.useCaseDiagramToManageVersions = null
                 }
             });
 
@@ -144,7 +146,7 @@
                         window.location.href = "#/diagram"
                     })
                     .catch((err) => {
-                        Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                        Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.data.messages)
                     })
                     .finally(() => {
                         $scope.pendingRequests--
@@ -192,7 +194,7 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--

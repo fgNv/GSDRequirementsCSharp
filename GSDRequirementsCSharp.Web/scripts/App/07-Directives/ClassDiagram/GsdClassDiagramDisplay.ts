@@ -101,7 +101,7 @@
                             drawDiagram(classDiagram)
                         })
                         .catch((err) => {
-                            Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                            Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.data.messages)
                         })
                         .finally(() => {
                             $scope.pendingRequests--

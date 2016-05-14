@@ -10,7 +10,8 @@
 
     class GsdRequirementVersions {
         public scope = {
-            'artifactId': '=artifactId'
+            'artifactId': '=artifactId',
+            'afterRestore': '=?'
         }
         private loadVersions($scope, VersionResource, artifactId) {
             $scope.pendingRequests++
@@ -23,7 +24,7 @@
                     $scope.versions = items
                 })
                 .catch((err): void => {
-                    Notification.notifyError(Sentences.errorLoadingVersions, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingVersions, err.data.messages)
                 })
                 .finally((): void => {
                     $scope.pendingRequests--
@@ -37,10 +38,30 @@
                 $scope.selected = null
 
                 $scope.select = (version): void => {
-                    console.log('version')
-                    console.log(version)
-                    $scope.selected = null
                     $scope.selected = version
+                }
+
+                $scope.restoreVersion = (): void => {
+                    $scope.pendingRequests++
+
+                    VersionResource.save({
+                        id: $scope.selected.id,
+                        version: $scope.selected.version,
+                        artifact: 'requirement'
+                    }).$promise
+                        .then((items): void => {
+                            Notification.notifySuccess(Sentences.versionRestoredSuccessfully)
+                            if ($scope.afterRestore) {
+                                $scope.afterRestore()
+                            }
+                            window.location.href = "#"
+                        })
+                        .catch((err): void => {
+                            Notification.notifyError(Sentences.errorRestoringVersion, err.messages)
+                        })
+                        .finally((): void => {
+                            $scope.pendingRequests--
+                        })
                 }
 
                 $scope.$watch('artifactId', (newValue: Models.Requirement, oldValue) => {

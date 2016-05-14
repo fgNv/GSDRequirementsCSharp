@@ -1005,4 +1005,10 @@
   <data name="restoreVersion" xml:space="preserve">
     <value>Restore Version</value>
   </data>
+  <data name="errorRestoringVersion" xml:space="preserve">
+    <value>Error Restoring Version</value>
+  </data>
+  <data name="versionRestoredSuccessfully" xml:space="preserve">
+    <value>Version Restored Successfully</value>
+  </data>
 </root>

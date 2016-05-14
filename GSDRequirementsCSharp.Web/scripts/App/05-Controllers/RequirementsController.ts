@@ -158,8 +158,7 @@
                     $scope.loadRequirements()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingRequirement,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingRequirement, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

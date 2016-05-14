@@ -46,7 +46,7 @@
                             $scope.currentLocale = $scope.availableLocales[0]
                         })
                         .catch((err) => {
-                            Notification.notifyError(Sentences.errorLoadingUseCase, err.messages)
+                            Notification.notifyError(Sentences.errorLoadingUseCase, err.data.messages)
                         })
                         .finally(() => {
                             $scope.pendingRequests--

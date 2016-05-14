@@ -125,7 +125,7 @@ namespace GSDRequirementsCSharp.Domain.Converter
                 SourceId = r.SourceId,
                 TargetId = r.TargetId
             });
-
+            result.Id = input.Id;
             result.UseCasesRelations = input.UseCasesRelations.Select(r => new UseCasesRelationItem
             {
                 SourceId = r.SourceId,

@@ -195,6 +195,7 @@
     <Compile Include="Permissions\CommandHandlerPermissionDecorator.cs" />
     <Compile Include="Permissions\ICommandExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ClassDiagrams\ClassDiagramDetailQuery.cs" />
     <Compile Include="Queries\ClassDiagrams\ClassDiagramNextIdQuery.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQuery.cs" />
     <Compile Include="Queries\Issue\IssueCommentWithContentsQuery.cs" />

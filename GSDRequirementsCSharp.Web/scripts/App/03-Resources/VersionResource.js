@@ -3,7 +3,7 @@
         return $resource('/api/:artifact/:id/versions',
                          {
                              'id': '@id',
-                             'artifact': '@id',
+                             'artifact': '@artifact',
                          });
     }]);
 

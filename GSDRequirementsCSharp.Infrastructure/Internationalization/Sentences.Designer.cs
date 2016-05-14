@@ -1042,6 +1042,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Restoring Version.
+        /// </summary>
+        public static string errorRestoringVersion {
+            get {
+                return ResourceManager.GetString("errorRestoringVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error saving class diagram.
         /// </summary>
         public static string errorSavingClassDiagram {
@@ -2650,6 +2659,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string version {
             get {
                 return ResourceManager.GetString("version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version Restored Successfully.
+        /// </summary>
+        public static string versionRestoredSuccessfully {
+            get {
+                return ResourceManager.GetString("versionRestoredSuccessfully", resourceCulture);
             }
         }
         

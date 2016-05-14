@@ -122,7 +122,7 @@
                             drawDiagram(useCaseDiagram)
                         })
                         .catch((err) => {
-                            Notification.notifyError(Sentences.errorLoadingUseCaseDiagram, err.messages)
+                            Notification.notifyError(Sentences.errorLoadingUseCaseDiagram, err.data.messages)
                         })
                         .finally(() => {
                             $scope.pendingRequests--

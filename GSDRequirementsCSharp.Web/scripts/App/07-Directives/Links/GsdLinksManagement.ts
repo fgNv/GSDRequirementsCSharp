@@ -46,8 +46,7 @@
                     deferred.resolve(items);
                 })
                 .catch((error): void => {
-                    Notification.notifyError(Sentences.errorLoadingSpecificationItems,
-                        error.data.messages)
+                    Notification.notifyError(Sentences.errorLoadingSpecificationItems, error.data.messages)
                     deferred.reject(error);
                 })
                 .finally((): void => {
@@ -67,7 +66,7 @@
                 $scope.links = []
 
                 $scope.selected = null
-                
+
                 $scope.selectItem = (item): void => {
                     $scope.selected = item
                 }

@@ -100,7 +100,7 @@
                         window.location.href = "#/diagram"
                     })
                     .catch((err) => {
-                        Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                        Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.data.messages)
                     })
                     .finally(() => {
                         $scope.pendingRequests--
@@ -129,7 +129,7 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingClassDiagrams, err.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--
