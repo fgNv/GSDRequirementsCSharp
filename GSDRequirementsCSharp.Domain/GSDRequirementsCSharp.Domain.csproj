@@ -140,6 +140,8 @@
     <Compile Include="Commands\Users\SaveUserCommand\CreateUserCommandHandler.cs" />
     <Compile Include="Commands\Users\UpdateUserCommand.cs" />
     <Compile Include="Commands\Users\UpdateUserCommandHandler.cs" />
+    <Compile Include="Converter\UseCaseDiagramToNewVersionCommandConverter.cs" />
+    <Compile Include="Converter\RequirementToNewVersionCommandConverter.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Models\UseCases\Actor.cs" />
     <Compile Include="Models\ClassDiagrams\Class.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithRequirementsQueryResult.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithUseCaseDiagramsQueryResult.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\ActorsByDiagramQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagramQuery.cs" />

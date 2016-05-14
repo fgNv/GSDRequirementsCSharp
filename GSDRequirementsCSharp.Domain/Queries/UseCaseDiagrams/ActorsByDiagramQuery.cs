@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams
 {
-    public  class UseCasesByDiagramQuery
+    public class ActorsByDiagramQuery
     {
         public Guid DiagramId { get; set; }
         public int? Version { get; set; }
-
-        public static implicit operator UseCasesByDiagramQuery (Guid id)
-        {
-            return new UseCasesByDiagramQuery { DiagramId = id };
-        }
     }
 }

@@ -20,6 +20,11 @@ namespace GSDRequirementsCSharp.Domain.Models
         
         public UseCaseEntity Source { get; set; }
 
+        public int SourceVersion { get; set; }
+        public int TargetVersion { get; set; }
+        public Guid SourceId { get; set; }
+        public Guid TargetId { get; set; }
+
         public ICollection<UseCaseEntityRelationContent> Contents { get; set; }
 
         [Required]
