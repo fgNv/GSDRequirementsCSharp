@@ -133,6 +133,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Id&quot; is a required field.
+        /// </summary>
+        public static string idIsARequiredField {
+            get {
+                return ResourceManager.GetString("idIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Issue comment id&quot; is a required field.
         /// </summary>
         public static string issueCommentIdIsARequiredField {
@@ -525,6 +534,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string userIdIsARequiredField {
             get {
                 return ResourceManager.GetString("userIdIsARequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Version&quot; is a required field.
+        /// </summary>
+        public static string versionIsARequiredField {
+            get {
+                return ResourceManager.GetString("versionIsARequiredField", resourceCulture);
             }
         }
     }

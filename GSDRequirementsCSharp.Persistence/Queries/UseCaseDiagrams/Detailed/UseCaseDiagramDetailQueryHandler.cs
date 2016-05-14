@@ -1,18 +1,14 @@
-﻿using GSDRequirementsCSharp.Domain.ViewModels;
-using GSDRequirementsCSharp.Infrastructure.CQS;
-using System;
+﻿using GSDRequirementsCSharp.Infrastructure.CQS;
 using System.Data.Entity;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
-using System.Data.Entity.SqlServer;
-using GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams.Detailed;
+using GSDRequirementsCSharp.Domain.Queries;
+using GSDRequirementsCSharp.Domain.Models;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 {
-    internal class UseCaseDiagramDetailQueryHandler : IQueryHandler<UseCaseDiagramDetailQuery, UseCaseDiagramDetailedViewModel>
+    internal class UseCaseDiagramDetailQueryHandler : IQueryHandler<UseCaseDiagramDetailQuery, UseCaseDiagramDetailedViewModel>,
+                                                      IQueryHandler<UseCaseDiagramDetailQuery, UseCaseDiagram>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -21,7 +17,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
             _context = context;
         }
 
-        public UseCaseDiagramDetailedViewModel Handle(UseCaseDiagramDetailQuery query)
+        private UseCaseDiagram RetrieveUseCaseDiagram(UseCaseDiagramDetailQuery query)
         {
             var useCaseDiagram = _context.UseCaseDiagrams
                                        .Include(cd => cd.Contents)
@@ -31,8 +27,15 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                        .Include(cd => cd.UseCasesRelations)
                                        .Include(cd => cd.Entities)
                                        .SingleOrDefault(c => c.Id == query.Id && (
-                                       c.IsLastVersion && !query.Version.HasValue || 
+                                       c.IsLastVersion && !query.Version.HasValue ||
                                        c.Version == query.Version.Value));
+
+            return useCaseDiagram;
+        }
+
+        public UseCaseDiagramDetailedViewModel Handle(UseCaseDiagramDetailQuery query)
+        {
+            var useCaseDiagram = RetrieveUseCaseDiagram(query);
 
             if (useCaseDiagram == null)
                 return null;
@@ -58,6 +61,11 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
                                    .ToList();
 
             return UseCaseDiagramDetailedViewModel.FromModel(useCaseDiagram, useCases, actors);
+        }
+
+        UseCaseDiagram IQueryHandler<UseCaseDiagramDetailQuery, UseCaseDiagram>.Handle(UseCaseDiagramDetailQuery query)
+        {
+            return RetrieveUseCaseDiagram(query);
         }
     }
 }

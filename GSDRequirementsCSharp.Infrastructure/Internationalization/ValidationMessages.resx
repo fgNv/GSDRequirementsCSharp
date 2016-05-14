@@ -141,6 +141,9 @@
   <data name="emailIsARequiredField" xml:space="preserve">
     <value>"Email" is a required field</value>
   </data>
+  <data name="idIsARequiredField" xml:space="preserve">
+    <value>"Id" is a required field</value>
+  </data>
   <data name="issueCommentIdIsARequiredField" xml:space="preserve">
     <value>"Issue comment id" is a required field</value>
   </data>
@@ -272,5 +275,8 @@
   </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"User Id" is a required field</value>
+  </data>
+  <data name="versionIsARequiredField" xml:space="preserve">
+    <value>"Version" is a required field</value>
   </data>
 </root>

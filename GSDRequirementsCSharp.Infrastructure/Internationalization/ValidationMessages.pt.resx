@@ -141,6 +141,9 @@
   <data name="emailIsARequiredField" xml:space="preserve">
     <value>"E-mail" é um campo obrigatório</value>
   </data>
+  <data name="idIsARequiredField" xml:space="preserve">
+    <value>"Id" é um campo obrigatório</value>
+  </data>
   <data name="issueCommentIdIsARequiredField" xml:space="preserve">
     <value>"Id do comentário da obsevação" é um campo obrigatório</value>
   </data>
@@ -272,5 +275,8 @@
   </data>
   <data name="userIdIsARequiredField" xml:space="preserve">
     <value>"Id do usuário" é um campo obrigatório</value>
+  </data>
+  <data name="versionIsARequiredField" xml:space="preserve">
+    <value>"Versão" é um campo obrigatório</value>
   </data>
 </root>

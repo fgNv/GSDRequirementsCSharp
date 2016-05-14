@@ -160,7 +160,6 @@
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithUseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\ActorsByDiagram\ActorsByDiagramQueryHandler.cs" />
-    <Compile Include="Queries\UseCaseDiagrams\Detailed\UseCaseDiagramDetailQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\Detailed\UseCaseDiagramDetailQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\NextId\UseCaseDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\UseCaseDiagrams\NextUcId\NextUseCaseIdQueryHandler.cs" />

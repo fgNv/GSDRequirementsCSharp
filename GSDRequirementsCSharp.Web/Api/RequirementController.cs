@@ -1,9 +1,12 @@
 ﻿using GSDRequirementsCSharp.Domain;
+using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.Commands.Requirements;
 using GSDRequirementsCSharp.Domain.Queries.Requirements;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
+using GSDRequirementsCSharp.Infrastructure.Validation;
 using GSDRequirementsCSharp.Persistence.Queries;
 using System;
 using System.Collections.Generic;
@@ -19,13 +22,17 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly ICommandHandler<AddRequirementTranslationCommand> _addRequirementTranslationCommandHandler;
         private readonly IQueryHandler<DetailedRequirementQuery, Requirement> _detailedRequirementQueryHandler;
         private readonly IQueryHandler<RequirementVersionsQuery, IEnumerable<VersionItem>> _requirementVersionsQuery;
+        private readonly IConverter<Requirement, CreateRequirementVersionCommand> _requirementToNewVersionCommand;
+        private readonly IValidator _validator;
 
         public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler,
                                      ICommandHandler<SaveRequirementCommand> createRequirementCommandHandler,
                                      ICommandHandler<CreateRequirementVersionCommand> createRequirementVersionCommandHandler,
                                      ICommandHandler<AddRequirementTranslationCommand> addRequirementTranslationCommandHandler,
                                      IQueryHandler<DetailedRequirementQuery, Requirement> detailedRequirementQueryHandler,
-                                     IQueryHandler<RequirementVersionsQuery, IEnumerable<VersionItem>> requirementVersionsQuery)
+                                     IQueryHandler<RequirementVersionsQuery, IEnumerable<VersionItem>> requirementVersionsQuery,
+                                     IConverter<Requirement, CreateRequirementVersionCommand> requirementToNewVersionCommand,
+                                     IValidator validator)
         {
             _requirementsPaginatedQueryHandler = requirementsPaginatedQueryHandler;
             _createRequirementCommand = createRequirementCommandHandler;
@@ -33,6 +40,8 @@ namespace GSDRequirementsCSharp.Web.Api
             _addRequirementTranslationCommandHandler = addRequirementTranslationCommandHandler;
             _detailedRequirementQueryHandler = detailedRequirementQueryHandler;
             _requirementVersionsQuery = requirementVersionsQuery;
+            _requirementToNewVersionCommand = requirementToNewVersionCommand;
+            _validator = validator;
         }
 
         public RequirementViewModel Get([FromUri] DetailedRequirementQuery query)
@@ -53,6 +62,16 @@ namespace GSDRequirementsCSharp.Web.Api
         {
             var result = _requirementVersionsQuery.Handle(query);
             return result;
+        }
+
+        [HttpPost]
+        [Route("api/requirement/{id}/versions")]
+        public void Versions(RestoreVersionCommand command)
+        {
+            _validator.Validate(command);
+            var useCaseDiagram = _detailedRequirementQueryHandler.Handle(command);
+            var newVersionCommand = _requirementToNewVersionCommand.Convert(useCaseDiagram);
+            _createRequirementVersionCommandHandler.Handle(newVersionCommand);
         }
 
         // POST api/<controller>
