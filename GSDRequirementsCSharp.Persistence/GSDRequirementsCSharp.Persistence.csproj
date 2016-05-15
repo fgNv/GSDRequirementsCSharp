@@ -64,10 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="Decorators\CommandHandlerSaveChangesDecorator.cs" />
     <Compile Include="DataHydrators\IssueHydration.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
+    <Compile Include="Mappings\AuditingMapping.cs" />
     <Compile Include="Mappings\UseCases\ActorContentMapping.cs" />
     <Compile Include="Mappings\UseCases\ActorMapping.cs" />
     <Compile Include="Mappings\ClassDiagrams\ClassDiagramContentMapping.cs" />
@@ -107,6 +108,10 @@
     <Compile Include="Migrations\201605131418306_schema.cs" />
     <Compile Include="Migrations\201605131418306_schema.Designer.cs">
       <DependentUpon>201605131418306_schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605150152242_auditing.cs" />
+    <Compile Include="Migrations\201605150152242_auditing.Designer.cs">
+      <DependentUpon>201605150152242_auditing.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -197,6 +202,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605131418306_schema.resx">
       <DependentUpon>201605131418306_schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605150152242_auditing.resx">
+      <DependentUpon>201605150152242_auditing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

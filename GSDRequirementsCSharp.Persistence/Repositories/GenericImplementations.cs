@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Repositories
 {
+    internal class AuditingRepository : GenericRepository<Auditing, Guid>
+    {
+        public AuditingRepository(GSDRequirementsContext context) : base(context) { }
+    }
     internal class ActorRepository : GenericRepository<Actor, VersionKey>
     {
         public ActorRepository(GSDRequirementsContext context) : base(context) { }

@@ -24,6 +24,7 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly IQueryHandler<RequirementVersionsQuery, IEnumerable<VersionItem>> _requirementVersionsQuery;
         private readonly IConverter<Requirement, CreateRequirementVersionCommand> _requirementToNewVersionCommand;
         private readonly IValidator _validator;
+        private readonly ICommandHandler<RemoveRequirementCommand> _removeRequirementCommandHandler;
 
         public RequirementController(IQueryHandler<RequirementsPaginatedQuery, RequirementsPaginatedQueryResult> requirementsPaginatedQueryHandler,
                                      ICommandHandler<SaveRequirementCommand> createRequirementCommandHandler,
@@ -32,7 +33,8 @@ namespace GSDRequirementsCSharp.Web.Api
                                      IQueryHandler<DetailedRequirementQuery, Requirement> detailedRequirementQueryHandler,
                                      IQueryHandler<RequirementVersionsQuery, IEnumerable<VersionItem>> requirementVersionsQuery,
                                      IConverter<Requirement, CreateRequirementVersionCommand> requirementToNewVersionCommand,
-                                     IValidator validator)
+                                     IValidator validator,
+                                     ICommandHandler<RemoveRequirementCommand> removeRequirementCommandHandler)
         {
             _requirementsPaginatedQueryHandler = requirementsPaginatedQueryHandler;
             _createRequirementCommand = createRequirementCommandHandler;
@@ -41,6 +43,7 @@ namespace GSDRequirementsCSharp.Web.Api
             _detailedRequirementQueryHandler = detailedRequirementQueryHandler;
             _requirementVersionsQuery = requirementVersionsQuery;
             _requirementToNewVersionCommand = requirementToNewVersionCommand;
+            _removeRequirementCommandHandler = removeRequirementCommandHandler;
             _validator = validator;
         }
 
@@ -90,6 +93,11 @@ namespace GSDRequirementsCSharp.Web.Api
         public void Post(AddRequirementTranslationCommand command)
         {
             _addRequirementTranslationCommandHandler.Handle(command);
+        }
+
+        public void Delete(RemoveRequirementCommand command)
+        {
+            _removeRequirementCommandHandler.Handle(command);
         }
     }
 }

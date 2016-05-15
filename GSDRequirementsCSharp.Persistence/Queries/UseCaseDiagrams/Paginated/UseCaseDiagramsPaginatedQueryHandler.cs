@@ -38,8 +38,9 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
             var maxPages = (int)Math.Ceiling(useCaseDiagramsQuery.Count() / (double)query.PageSize);
 
             var useCaseDiagrams = useCaseDiagramsQuery.OrderBy(cd => cd.Identifier)
-                                        .Include(cd => cd.Contents)
-                                        .Include(cd => cd.SpecificationItem.Package)
+                                        .Include(ucd => ucd.Contents)
+                                        .Include(ucd => ucd.SpecificationItem.Package)
+                                        .Where(ucd => ucd.SpecificationItem.Active)
                                         .Skip(skip)
                                         .Take(query.PageSize)
                                         .Select(UseCaseDiagramViewModel.FromModel)

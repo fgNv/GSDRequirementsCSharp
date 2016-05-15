@@ -24,6 +24,7 @@ namespace GSDRequirementsCSharp.Web.Api
         private readonly IQueryHandler<ClassDiagramVersionsQuery, IEnumerable<VersionItem>> _classDiagramVersionsQuery;
         private readonly IConverter<ClassDiagram, CreateClassDiagramNewVersionCommand> _classDiagramToNewVersionCommand;
         private readonly IValidator _validator;
+        private readonly ICommandHandler<RemoveClassDiagramCommand> _removeClassDiagramCommandHandler;
 
         public ClassDiagramController(IQueryHandler<ClassDiagramsPaginatedQuery, ClassDiagramsPaginatedQueryResult> classDiagramsPaginatedQuery,
                                       ICommandHandler<CreateClassDiagramCommand> createClassDiagramCommandHandler,
@@ -32,7 +33,8 @@ namespace GSDRequirementsCSharp.Web.Api
                                       IQueryHandler<ClassDiagramVersionsQuery, IEnumerable<VersionItem>> classDiagramVersionsQuery,
                                       IQueryHandler<ClassDiagramDetailQuery, ClassDiagram> classDiagramEntityQueryHandler,
                                       IConverter<ClassDiagram, CreateClassDiagramNewVersionCommand> classDiagramToNewVersionCommand,
-                                      IValidator validator)
+                                      IValidator validator,
+                                      ICommandHandler<RemoveClassDiagramCommand> removeClassDiagramCommandHandler)
         {
             _classDiagramsPaginatedQuery = classDiagramsPaginatedQuery;
             _createClassDiagramCommandHandler = createClassDiagramCommandHandler;
@@ -42,6 +44,7 @@ namespace GSDRequirementsCSharp.Web.Api
             _classDiagramToNewVersionCommand = classDiagramToNewVersionCommand;
             _validator = validator;
             _classDiagramEntityQueryHandler = classDiagramEntityQueryHandler;
+            _removeClassDiagramCommandHandler = removeClassDiagramCommandHandler;
         }
 
         public ClassDiagramDetailedViewModel Get([FromUri]ClassDiagramDetailQuery query)
@@ -83,6 +86,11 @@ namespace GSDRequirementsCSharp.Web.Api
         public void Put(CreateClassDiagramNewVersionCommand command)
         {
             _createClassDiagramNewVersionCommandHandler.Handle(command);
+        }
+
+        public void Delete([FromUri]RemoveClassDiagramCommand command)
+        {
+            _removeClassDiagramCommandHandler.Handle(command);
         }
     }
 }

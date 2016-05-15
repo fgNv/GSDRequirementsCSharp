@@ -484,6 +484,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class Diagram Created.
+        /// </summary>
+        public static string classDiagramCreated {
+            get {
+                return ResourceManager.GetString("classDiagramCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class diagram inactivated successfully.
         /// </summary>
         public static string classDiagramInactivatedSuccessfully {
@@ -1618,6 +1627,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Class Diagram Version Added.
+        /// </summary>
+        public static string newClassDiagramVersionAdded {
+            get {
+                return ResourceManager.GetString("newClassDiagramVersionAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New comment.
         /// </summary>
         public static string newComment {
@@ -1632,6 +1650,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string newCommentLanguage {
             get {
                 return ResourceManager.GetString("newCommentLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Package Added.
+        /// </summary>
+        public static string newPackageAdded {
+            get {
+                return ResourceManager.GetString("newPackageAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Requirement Version Created.
+        /// </summary>
+        public static string newRequirementVersionCreated {
+            get {
+                return ResourceManager.GetString("newRequirementVersionCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Use Case Diagram Version Created.
+        /// </summary>
+        public static string newUseCaseDiagramVersionCreated {
+            get {
+                return ResourceManager.GetString("newUseCaseDiagramVersionCreated", resourceCulture);
             }
         }
         
@@ -1816,6 +1861,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Package Edited.
+        /// </summary>
+        public static string packageEdited {
+            get {
+                return ResourceManager.GetString("packageEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Package inactivated successfully.
         /// </summary>
         public static string packageInactivatedSuccessfully {
@@ -1830,6 +1884,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string packageNotFound {
             get {
                 return ResourceManager.GetString("packageNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package Removed.
+        /// </summary>
+        public static string packageRemoved {
+            get {
+                return ResourceManager.GetString("packageRemoved", resourceCulture);
             }
         }
         
@@ -2221,6 +2284,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Requirement Created.
+        /// </summary>
+        public static string requirementCreated {
+            get {
+                return ResourceManager.GetString("requirementCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requirement details.
         /// </summary>
         public static string requirementDetails {
@@ -2230,11 +2302,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Requirement Edited.
+        /// </summary>
+        public static string requirementEdited {
+            get {
+                return ResourceManager.GetString("requirementEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requirement inactivated successfully.
         /// </summary>
         public static string requirementInactivatedSuccessfully {
             get {
                 return ResourceManager.GetString("requirementInactivatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requirement Removed.
+        /// </summary>
+        public static string requirementRemoved {
+            get {
+                return ResourceManager.GetString("requirementRemoved", resourceCulture);
             }
         }
         
@@ -2582,11 +2672,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use Case Diagram Created.
+        /// </summary>
+        public static string useCaseDiagramCreated {
+            get {
+                return ResourceManager.GetString("useCaseDiagramCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use Case Diagram not found.
         /// </summary>
         public static string useCaseDiagramNotFound {
             get {
                 return ResourceManager.GetString("useCaseDiagramNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Case Diagram Removed.
+        /// </summary>
+        public static string useCaseDiagramRemoved {
+            get {
+                return ResourceManager.GetString("useCaseDiagramRemoved", resourceCulture);
             }
         }
         

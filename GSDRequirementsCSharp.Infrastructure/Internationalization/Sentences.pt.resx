@@ -1011,4 +1011,37 @@
   <data name="versionRestoredSuccessfully" xml:space="preserve">
     <value>Versão restaurada com sucesso</value>
   </data>
+  <data name="classDiagramCreated" xml:space="preserve">
+    <value>Diagrama de classes criado</value>
+  </data>
+  <data name="newClassDiagramVersionAdded" xml:space="preserve">
+    <value>Nova versão de diagrama de classes de uso adicionada</value>
+  </data>
+  <data name="newPackageAdded" xml:space="preserve">
+    <value>Novo pacote adicionado</value>
+  </data>
+  <data name="newUseCaseDiagramVersionCreated" xml:space="preserve">
+    <value>Nova versão de diagrama de casos de uso criada</value>
+  </data>
+  <data name="packageEdited" xml:space="preserve">
+    <value>Pacote editado</value>
+  </data>
+  <data name="packageRemoved" xml:space="preserve">
+    <value>Pacote removido</value>
+  </data>
+  <data name="requirementCreated" xml:space="preserve">
+    <value>Requisito criado</value>
+  </data>
+  <data name="requirementEdited" xml:space="preserve">
+    <value>Requisito removido</value>
+  </data>
+  <data name="useCaseDiagramCreated" xml:space="preserve">
+    <value>Diagrama de casos de uso criado</value>
+  </data>
+  <data name="useCaseDiagramRemoved" xml:space="preserve">
+    <value>Diagrama de casos de uso removido</value>
+  </data>
+  <data name="requirementRemoved" xml:space="preserve">
+    <value>Requisito removido</value>
+  </data>
 </root>

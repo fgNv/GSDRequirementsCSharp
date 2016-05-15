@@ -120,7 +120,7 @@
             };
 
             $scope.inactivateRequirement = (r): void => {
-                this.InactivateRequirement(SpecificationItemResource, $scope, r)
+                this.InactivateRequirement(RequirementResource, $scope, r)
             }
         }
         private LoadRequirements(requirementResource: any,
@@ -143,7 +143,7 @@
                     $scope.pendingRequests--;
                 });
         }
-        private InactivateRequirement(specificationItemResource: any,
+        private InactivateRequirement(requirementResource: any,
             $scope: IRequirementsControllerScope,
             requirement: Models.Requirement): void {
             if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
@@ -151,7 +151,7 @@
             }
 
             $scope.pendingRequests++;
-            specificationItemResource.remove({ id: requirement.id })
+            requirementResource.remove({ id: requirement.id })
                 .$promise
                 .then(r => {
                     Notification.notifySuccess(Sentences.requirementInactivatedSuccessfully)

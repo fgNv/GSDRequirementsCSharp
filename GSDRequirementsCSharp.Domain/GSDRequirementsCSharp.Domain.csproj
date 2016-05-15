@@ -47,10 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\LocalCredentialsValidator.cs" />
+    <Compile Include="Commands\Auditings\AddAuditingCommand.cs" />
+    <Compile Include="Commands\Auditings\AddAuditingCommandHandler.cs" />
     <Compile Include="Commands\ClassDiagrams\ClassDiagramItemsPersister.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramCommandHandler.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommand.cs" />
     <Compile Include="Commands\ClassDiagrams\CreateClassDiagramNewVersionCommandHandler.cs" />
+    <Compile Include="Commands\ClassDiagrams\RemoveClassDiagramCommand.cs" />
+    <Compile Include="Commands\ClassDiagrams\RemoveClassDiagramCommandHandler.cs" />
     <Compile Include="Commands\DTO\Cell.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassDiagramContentItem.cs" />
     <Compile Include="Commands\ClassDiagrams\DTO\ClassItem.cs" />
@@ -105,6 +109,8 @@
     <Compile Include="Commands\Requirements\AddRequirementTranslationCommandHandler.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementVersionCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementVersionCommandHandler.cs" />
+    <Compile Include="Commands\Requirements\RemoveRequirementCommand.cs" />
+    <Compile Include="Commands\Requirements\RemoveRequirementCommandHandler.cs" />
     <Compile Include="Commands\Requirements\RequirementContentItem.cs" />
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
@@ -144,7 +150,9 @@
     <Compile Include="Converter\ClassDiagramToNewVersionConverter.cs" />
     <Compile Include="Converter\UseCaseDiagramToNewVersionCommandConverter.cs" />
     <Compile Include="Converter\RequirementToNewVersionCommandConverter.cs" />
+    <Compile Include="Decorators\AuditingDecorator.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
+    <Compile Include="Models\Auditing.cs" />
     <Compile Include="Models\UseCases\Actor.cs" />
     <Compile Include="Models\ClassDiagrams\Class.cs" />
     <Compile Include="Models\ClassDiagrams\ClassDiagram.cs" />
@@ -221,6 +229,7 @@
     <Compile Include="Queries\UseCaseDiagrams\UseCaseDiagramNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCaseNextIdQuery.cs" />
     <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagramQuery.cs" />
+    <Compile Include="Metada\CommandDescriptionAttribute.cs" />
     <Compile Include="Validation\RequirementDescriptionRequiredAttribute.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramContentViewModel.cs" />
     <Compile Include="ViewModels\ClassDiagrams\ClassDiagramDetailedViewModel.cs" />

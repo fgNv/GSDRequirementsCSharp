@@ -28,6 +28,7 @@ namespace GSDRequirementsCSharp.Persistence
         }
 
         public virtual DbSet<Actor> Actors { get; set; }
+        public virtual DbSet<Auditing> Auditings { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<ClassDiagram> ClassDiagrams { get; set; }
         public virtual DbSet<ClassMethod> ClassMethods { get; set; }
@@ -56,7 +57,8 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new ActorMapping());
             modelBuilder.Configurations.Add(new UseCaseMapping());
             modelBuilder.Configurations.Add(new UseCaseEntityMapping());
-            
+            modelBuilder.Configurations.Add(new AuditingMapping());
+
             modelBuilder.Configurations.Add(new ActorContentMapping());
 
             modelBuilder.Configurations.Add(new ClassMapping());

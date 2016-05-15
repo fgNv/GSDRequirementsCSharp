@@ -1,4 +1,7 @@
 ﻿using GSDRequirementsCSharp.Domain.Authentication;
+using GSDRequirementsCSharp.Domain.Commands.Auditings;
+using GSDRequirementsCSharp.Domain.Decorators;
+using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Permissions;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
@@ -19,6 +22,8 @@ namespace GSDRequirementsCSharp.Domain.DependencyInjection
         public static void RegisterDomainDependencies(this Container container,
                                                            Lifestyle lifestyle)
         {
+
+
             container.Register(typeof(ICommandHandler<>),
                                          new[] { typeof(ContainerExtensions).Assembly }, lifestyle);
             container.Register(typeof(IQueryHandler<,>),
@@ -28,8 +33,13 @@ namespace GSDRequirementsCSharp.Domain.DependencyInjection
 
             container.Register<ICredentialsValidator, LocalCredentialsValidator>(lifestyle);
 
-            container.RegisterDecorator(typeof(ICommandHandler<>), typeof(CommandHandlerPermissionDecorator<>), lifestyle);
-
+            container.RegisterDecorator(typeof(ICommandHandler<>),
+                typeof(CommandHandlerPermissionDecorator<>),
+                lifestyle);
+            container.RegisterDecorator(typeof(ICommandHandler<>),
+                                        typeof(AuditingDecorator<>),
+                                        lifestyle,
+                                        p => p.ServiceType != typeof(ICommandHandler<AddAuditingCommand>));
         }
     }
 }
