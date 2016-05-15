@@ -1011,4 +1011,121 @@
   <data name="versionRestoredSuccessfully" xml:space="preserve">
     <value>Version Restored Successfully</value>
   </data>
+  <data name="classDiagramCreated" xml:space="preserve">
+    <value>Class Diagram Created</value>
+  </data>
+  <data name="newClassDiagramVersionAdded" xml:space="preserve">
+    <value>New Class Diagram Version Added</value>
+  </data>
+  <data name="newPackageAdded" xml:space="preserve">
+    <value>New Package Added</value>
+  </data>
+  <data name="newRequirementVersionCreated" xml:space="preserve">
+    <value>New Requirement Version Created</value>
+  </data>
+  <data name="newUseCaseDiagramVersionCreated" xml:space="preserve">
+    <value>New Use Case Diagram Version Created</value>
+  </data>
+  <data name="packageEdited" xml:space="preserve">
+    <value>Package Edited</value>
+  </data>
+  <data name="packageRemoved" xml:space="preserve">
+    <value>Package Removed</value>
+  </data>
+  <data name="requirementCreated" xml:space="preserve">
+    <value>Requirement Created</value>
+  </data>
+  <data name="requirementEdited" xml:space="preserve">
+    <value>Requirement Edited</value>
+  </data>
+  <data name="useCaseDiagramCreated" xml:space="preserve">
+    <value>Use Case Diagram Created</value>
+  </data>
+  <data name="useCaseDiagramRemoved" xml:space="preserve">
+    <value>Use Case Diagram Removed</value>
+  </data>
+  <data name="requirementRemoved" xml:space="preserve">
+    <value>Requirement Removed</value>
+  </data>
+  <data name="aMinuteAgo" xml:space="preserve">
+    <value>aminute ago</value>
+  </data>
+  <data name="anHourAgo" xml:space="preserve">
+    <value>an hour ago</value>
+  </data>
+  <data name="daysAgo" xml:space="preserve">
+    <value>days ago</value>
+  </data>
+  <data name="hoursAgo" xml:space="preserve">
+    <value>hours ago</value>
+  </data>
+  <data name="minutesAgo" xml:space="preserve">
+    <value>minutes ago</value>
+  </data>
+  <data name="monthsAgo" xml:space="preserve">
+    <value>months ago</value>
+  </data>
+  <data name="oneMonthAgo" xml:space="preserve">
+    <value>one month ago</value>
+  </data>
+  <data name="oneSecondAgo" xml:space="preserve">
+    <value>one second ago</value>
+  </data>
+  <data name="oneYearAgo" xml:space="preserve">
+    <value>one year ago</value>
+  </data>
+  <data name="secondsAgo" xml:space="preserve">
+    <value>seconds ago</value>
+  </data>
+  <data name="yearsAgo" xml:space="preserve">
+    <value>years ago</value>
+  </data>
+  <data name="yesterday" xml:space="preserve">
+    <value>yesterday</value>
+  </data>
+  <data name="auditingPeriodNotDefined" xml:space="preserve">
+    <value>Auditing Period Not Defined</value>
+  </data>
+  <data name="activitiesInTheCurrentProject" xml:space="preserve">
+    <value>Current project's activities </value>
+  </data>
+  <data name="firstSteps" xml:space="preserve">
+    <value>First steps</value>
+  </data>
+  <data name="lastActivitiesInProjects" xml:space="preserve">
+    <value>Last activities in projects</value>
+  </data>
+  <data name="errorRetrievingActivities" xml:space="preserve">
+    <value>Error retrieving activities</value>
+  </data>
+  <data name="activity" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="executedAt" xml:space="preserve">
+    <value>Executed at</value>
+  </data>
+  <data name="noActivityRegistered" xml:space="preserve">
+    <value>No activity registered</value>
+  </data>
+  <data name="creatingAProject" xml:space="preserve">
+    <value>Creating a project</value>
+  </data>
+  <data name="creatingPackages" xml:space="preserve">
+    <value>Creating packages</value>
+  </data>
+  <data name="invitingUsersToJoinAProject" xml:space="preserve">
+    <value>Adding users to a project</value>
+  </data>
+  <data name="authenticationData" xml:space="preserve">
+    <value>Authentication data</value>
+  </data>
+  <data name="wasAlreadyTaken" xml:space="preserve">
+    <value>The {0} was already taken, please choose another one</value>
+  </data>
+  <data name="email_unique" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="login_unique" xml:space="preserve">
+    <value>Username</value>
+  </data>
 </root>

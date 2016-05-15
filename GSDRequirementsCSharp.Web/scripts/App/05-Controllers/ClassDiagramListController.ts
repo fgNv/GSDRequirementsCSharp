@@ -54,7 +54,7 @@
 
                 $scope.pendingRequests++
 
-                SpecificationItemResource
+                ClassDiagramResource
                     .remove({ id: classDiagram.id })
                     .$promise
                     .then((): void => {

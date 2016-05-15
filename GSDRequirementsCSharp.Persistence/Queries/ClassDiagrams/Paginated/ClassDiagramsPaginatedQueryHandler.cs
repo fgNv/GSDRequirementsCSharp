@@ -40,6 +40,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Paginated
             var classDiagrams = classDiagramsQuery.OrderBy(cd => cd.Identifier)
                                         .Include(cd => cd.Contents)
                                         .Include(cd => cd.SpecificationItem.Package)
+                                        .Where(cd => cd.SpecificationItem.Active)
                                         .Skip(skip)
                                         .Take(query.PageSize)
                                         .Select(ClassDiagramViewModel.FromModel)

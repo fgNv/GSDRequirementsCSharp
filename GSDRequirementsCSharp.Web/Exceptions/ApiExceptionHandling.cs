@@ -1,10 +1,12 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Exceptions;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
@@ -46,6 +48,26 @@ namespace GSDRequirementsCSharp.Web.Exceptions
             context.Response = response;
         }
 
+        public static void Handle(this DbUpdateException e, HttpActionExecutedContext context)
+        {
+            var messages = e.GetMessages();
+            HttpResponseMessage response = null;
+            if (messages.Any(m => m.Contains("Duplicate entry")))
+            {
+                var duplicatedEntryMessage = messages.FirstOrDefault(m => m.Contains("Duplicate entry"));
+                var splitted = duplicatedEntryMessage.Split('\'');
+                var key = splitted[3];
+                var property = Sentences.ResourceManager.GetString(key);
+                var message = String.Format(Sentences.wasAlreadyTaken, property);
+                response = BuildContent(new[] { message });
+            }
+            else
+                response = BuildContent(messages);
+            
+            response.StatusCode = HttpStatusCode.PreconditionFailed;
+            context.Response = response;
+        }
+
         public static void Handle(this AuthenticationFailedException e, HttpActionExecutedContext context)
         {
             var response = new HttpResponseMessage();
@@ -59,11 +81,11 @@ namespace GSDRequirementsCSharp.Web.Exceptions
             response.StatusCode = HttpStatusCode.BadRequest;
             context.Response = response;
         }
-        
+
         public static void Handle(this CommandValidationException e, HttpActionExecutedContext context)
         {
             var response = BuildContent(e.Messages);
-            response.StatusCode = HttpStatusCode.BadRequest;            
+            response.StatusCode = HttpStatusCode.BadRequest;
             context.Response = response;
         }
 

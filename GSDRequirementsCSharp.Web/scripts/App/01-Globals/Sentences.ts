@@ -31,6 +31,7 @@
     export declare var errorUpdatingData: string;
     export declare var errorInactivatingPackage: string;
     export declare var errorGrantingPermissions: string;
+    export declare var errorRetrievingActivities: string;
     export declare var errorSavingLink: string;
     export declare var errorSavingRequirement: string;
     export declare var errorLoadingPermissions: string;

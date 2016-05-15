@@ -1,6 +1,95 @@
-﻿
-@{ 
+﻿@using GSDRequirementsCSharp.Web.Context
+@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using Models = GSDRequirementsCSharp.Domain.Models
+@using GSDRequirementsCSharp.Web.Models;
+@using System.Threading
+
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    var currentProjectId = ProjectContext.Current();
 }
 
-<h2>Home</h2>
+<div data-ng-controller="FirstStepsController">
+    <h3>@Sentences.firstSteps</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Help")/#projects">@Sentences.creatingAProject</a>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Help")/#permissions">@Sentences.invitingUsersToJoinAProject</a>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Help")/#packages">@Sentences.creatingPackages</a>
+        </div>
+    </div>
+</div>
+
+@if (!currentProjectId.HasValue)
+{
+    <div data-ng-controller="LastActivitiesInProjectsController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+        <h3>@Sentences.lastActivitiesInProjects</h3>
+        <div class="alert alert-info" data-ng-show="projects.length == 0">
+            @Sentences.noActivityRegistered
+        </div>
+        <div class="row" data-ng-show="projects.length > 0">
+            <div class="col-md-4"
+                 data-ng-repeat="project in projects">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4>{{project.name}}</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <div style="height: 250px; overflow-y: auto;">
+                            <ul class="list-group">
+                                <li data-ng-repeat="activity in project.activities"
+                                    class="list-group-item">
+                                    <div>
+                                        <i class="fa fa-circle"></i> {{activity.description}}
+                                    </div>
+                                    <div>
+                                        <small> <i class="fa fa-clock-o"></i> {{activity.relativeTime}}</small>
+                                    </div>
+                                    <div>
+                                        <small><i class="fa fa-user"></i> @Sentences.user: {{activity.userName}}</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h2>@Sentences.activitiesInTheCurrentProject</h2>
+
+    <div data-ng-controller="ActivitiesInCurrentProjectController"
+         data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+        <input type="hidden" data-ng-init="projectId = '@currentProjectId.Value'" />
+
+        <div class="alert alert-info" data-ng-show="activities.length == 0">
+            @Sentences.noActivityRegistered
+        </div>
+
+        <table class="table table-striped" data-ng-show="activities.length > 0">
+            <thead>
+                <tr>
+                    <th>@Sentences.activity</th>
+                    <th>@Sentences.user</th>
+                    <th>@Sentences.executedAt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="activity in activities">
+                    <td>{{activity.description}}</td>
+                    <td>{{activity.userName}}</td>
+                    <td>{{activity.dateExecuted}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

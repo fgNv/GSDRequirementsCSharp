@@ -157,6 +157,7 @@
     <Content Include="gruntfile.js" />
     <Content Include="Scripts\App\01-GSDRequirementsNamespace.js" />
     <Content Include="Scripts\App\02-AngularApplication.js" />
+    <Content Include="Scripts\App\03-Resources\AuditingResource.js" />
     <Content Include="Scripts\App\03-Resources\UseCaseDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\ClassDiagramResource.js" />
     <Content Include="Scripts\App\03-Resources\IssueCommentResource.js" />
@@ -177,6 +178,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AuditingController.cs" />
     <Compile Include="Api\ClassDiagramController.cs" />
     <Compile Include="Api\IssueController.cs" />
     <Compile Include="Api\PackageController.cs" />
@@ -298,6 +300,7 @@
     <Content Include="Views\ClassDiagram\_Versions.cshtml" />
     <Content Include="Views\Requirement\_Versions.cshtml" />
     <Content Include="Views\UseCaseDiagram\_Versions.cshtml" />
+    <Content Include="Views\Shared\_InstantLoadLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -328,6 +331,7 @@
     <TypeScriptCompile Include="Scripts\App\01-Globals\Sentences.ts" />
     <TypeScriptCompile Include="Scripts\App\01-Globals\Toaster.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ArtifactTypeEnum.ts" />
+    <TypeScriptCompile Include="Scripts\App\04-Models\AuditingPeriod.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassDiagramContent.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassData.ts" />
     <TypeScriptCompile Include="Scripts\App\04-Models\ClassDiagram\ClassDiagram.ts" />
@@ -377,6 +381,9 @@
     <TypeScriptCompile Include="Scripts\App\04-Models\UseCase\UseCasesRelationType.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ChangeUserPasswordController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\ClassDiagramListController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\ActivitiesInCurrentProjectController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\LastActivitiesInProjectsController.ts" />
+    <TypeScriptCompile Include="Scripts\App\05-Controllers\FirstStepsController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalIssueAddController.ts" />
     <TypeScriptCompile Include="Scripts\App\05-Controllers\Modals\ModalItemIssuesController.ts" />

@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain.Metadata;
+using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands
 {
+    [CommandDescription(nameof(Sentences.useCaseDiagramCreated))]
     public class CreateUseCaseDiagramCommand : IProjectCommand
     {
         [Required(

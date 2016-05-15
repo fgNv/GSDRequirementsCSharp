@@ -1,16 +1,14 @@
-﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Infrastructure;
+﻿using GSDRequirementsCSharp.Domain.Metadata;
+using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Requirements
 {
+    [CommandDescription(nameof(Sentences.requirementCreated))]
     public class SaveRequirementCommand : IProjectCommand
     {
         [Required(
