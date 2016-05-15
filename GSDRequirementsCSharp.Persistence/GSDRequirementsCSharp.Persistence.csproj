@@ -113,8 +113,19 @@
     <Compile Include="Migrations\201605150152242_auditing.Designer.cs">
       <DependentUpon>201605150152242_auditing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605151558303_user-login-unique.cs" />
+    <Compile Include="Migrations\201605151558303_user-login-unique.Designer.cs">
+      <DependentUpon>201605151558303_user-login-unique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605151606093_contact-email-unique.cs" />
+    <Compile Include="Migrations\201605151606093_contact-email-unique.Designer.cs">
+      <DependentUpon>201605151606093_contact-email-unique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Auditings\ByPeriod\AuditingsByPeriodQueryHandler.cs" />
+    <Compile Include="Queries\Auditings\ByProject\AuditingsByProjectQuery.cs" />
+    <Compile Include="Queries\Auditings\ByProject\AuditingsByProjectQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\NextId\ClassDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
@@ -205,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605150152242_auditing.resx">
       <DependentUpon>201605150152242_auditing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151558303_user-login-unique.resx">
+      <DependentUpon>201605151558303_user-login-unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151606093_contact-email-unique.resx">
+      <DependentUpon>201605151606093_contact-email-unique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

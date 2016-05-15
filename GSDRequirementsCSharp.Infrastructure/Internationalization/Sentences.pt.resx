@@ -1044,4 +1044,85 @@
   <data name="requirementRemoved" xml:space="preserve">
     <value>Requisito removido</value>
   </data>
+  <data name="aMinuteAgo" xml:space="preserve">
+    <value>um minuto atrás</value>
+  </data>
+  <data name="anHourAgo" xml:space="preserve">
+    <value>uma hora atrás</value>
+  </data>
+  <data name="daysAgo" xml:space="preserve">
+    <value>dias atrás</value>
+  </data>
+  <data name="hoursAgo" xml:space="preserve">
+    <value>horas atrás</value>
+  </data>
+  <data name="minutesAgo" xml:space="preserve">
+    <value>minutos atrás</value>
+  </data>
+  <data name="monthsAgo" xml:space="preserve">
+    <value>meses atrás</value>
+  </data>
+  <data name="oneMonthAgo" xml:space="preserve">
+    <value>um mês atrás</value>
+  </data>
+  <data name="oneSecondAgo" xml:space="preserve">
+    <value>um segundo atrás</value>
+  </data>
+  <data name="oneYearAgo" xml:space="preserve">
+    <value>um ano atrás</value>
+  </data>
+  <data name="secondsAgo" xml:space="preserve">
+    <value>segundos atrás</value>
+  </data>
+  <data name="yearsAgo" xml:space="preserve">
+    <value>anos atrás</value>
+  </data>
+  <data name="yesterday" xml:space="preserve">
+    <value>ontem</value>
+  </data>
+  <data name="auditingPeriodNotDefined" xml:space="preserve">
+    <value>Periodo de auditoria não definido</value>
+  </data>
+  <data name="activitiesInTheCurrentProject" xml:space="preserve">
+    <value>Atividades do projeto atual</value>
+  </data>
+  <data name="firstSteps" xml:space="preserve">
+    <value>Primeiros passos</value>
+  </data>
+  <data name="lastActivitiesInProjects" xml:space="preserve">
+    <value>Últimas atividades em projetos</value>
+  </data>
+  <data name="errorRetrievingActivities" xml:space="preserve">
+    <value>Erro ao obter as atividades</value>
+  </data>
+  <data name="activity" xml:space="preserve">
+    <value>Atividade</value>
+  </data>
+  <data name="executedAt" xml:space="preserve">
+    <value>Executada em</value>
+  </data>
+  <data name="noActivityRegistered" xml:space="preserve">
+    <value>Nenhuma atividade registrada</value>
+  </data>
+  <data name="creatingAProject" xml:space="preserve">
+    <value>Criando um projeto</value>
+  </data>
+  <data name="creatingPackages" xml:space="preserve">
+    <value>Criando pacotes</value>
+  </data>
+  <data name="invitingUsersToJoinAProject" xml:space="preserve">
+    <value>Adicionando usuários a um projeto</value>
+  </data>
+  <data name="authenticationData" xml:space="preserve">
+    <value>Dados de autenticação</value>
+  </data>
+  <data name="wasAlreadyTaken" xml:space="preserve">
+    <value>O {0} já está em uso, por favor escolha outro</value>
+  </data>
+  <data name="email_unique" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="login_unique" xml:space="preserve">
+    <value>Nome de usuário</value>
+  </data>
 </root>

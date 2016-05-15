@@ -54,7 +54,7 @@
                     @Sentences.cancel
                 </button>
                 <button class="btn btn-primary"
-                        data-ng-disabled="!permissionForm.$valid"
+                        data-ng-disabled="!permissionForm.$valid || !permission.user.id"
                         data-ng-click="conclude()">
                     @Sentences.add
                 </button>

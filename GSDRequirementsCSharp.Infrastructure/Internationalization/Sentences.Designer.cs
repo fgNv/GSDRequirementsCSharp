@@ -88,6 +88,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current project&apos;s activities .
+        /// </summary>
+        public static string activitiesInTheCurrentProject {
+            get {
+                return ResourceManager.GetString("activitiesInTheCurrentProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activity.
+        /// </summary>
+        public static string activity {
+            get {
+                return ResourceManager.GetString("activity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string add {
@@ -340,6 +358,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to aminute ago.
+        /// </summary>
+        public static string aMinuteAgo {
+            get {
+                return ResourceManager.GetString("aMinuteAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to an hour ago.
+        /// </summary>
+        public static string anHourAgo {
+            get {
+                return ResourceManager.GetString("anHourAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An identifier will be assigned to this use case, after the diagram is saved..
         /// </summary>
         public static string anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved {
@@ -403,6 +439,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auditing Period Not Defined.
+        /// </summary>
+        public static string auditingPeriodNotDefined {
+            get {
+                return ResourceManager.GetString("auditingPeriodNotDefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authenticate.
         /// </summary>
         public static string authenticate {
@@ -417,6 +462,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string authentication {
             get {
                 return ResourceManager.GetString("authentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication data.
+        /// </summary>
+        public static string authenticationData {
+            get {
+                return ResourceManager.GetString("authenticationData", resourceCulture);
             }
         }
         
@@ -637,6 +691,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating a project.
+        /// </summary>
+        public static string creatingAProject {
+            get {
+                return ResourceManager.GetString("creatingAProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating packages.
+        /// </summary>
+        public static string creatingPackages {
+            get {
+                return ResourceManager.GetString("creatingPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creator.
         /// </summary>
         public static string creator {
@@ -669,6 +741,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string dataSuccessfullyUpdated {
             get {
                 return ResourceManager.GetString("dataSuccessfullyUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to days ago.
+        /// </summary>
+        public static string daysAgo {
+            get {
+                return ResourceManager.GetString("daysAgo", resourceCulture);
             }
         }
         
@@ -822,6 +903,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string email {
             get {
                 return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string email_unique {
+            get {
+                return ResourceManager.GetString("email_unique", resourceCulture);
             }
         }
         
@@ -1060,6 +1150,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error retrieving activities.
+        /// </summary>
+        public static string errorRetrievingActivities {
+            get {
+                return ResourceManager.GetString("errorRetrievingActivities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error saving class diagram.
         /// </summary>
         public static string errorSavingClassDiagram {
@@ -1132,6 +1231,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Executed at.
+        /// </summary>
+        public static string executedAt {
+            get {
+                return ResourceManager.GetString("executedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extend.
         /// </summary>
         public static string extend {
@@ -1146,6 +1254,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string filterByName {
             get {
                 return ResourceManager.GetString("filterByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First steps.
+        /// </summary>
+        public static string firstSteps {
+            get {
+                return ResourceManager.GetString("firstSteps", resourceCulture);
             }
         }
         
@@ -1227,6 +1344,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string homePage {
             get {
                 return ResourceManager.GetString("homePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hours ago.
+        /// </summary>
+        public static string hoursAgo {
+            get {
+                return ResourceManager.GetString("hoursAgo", resourceCulture);
             }
         }
         
@@ -1330,6 +1456,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding users to a project.
+        /// </summary>
+        public static string invitingUsersToJoinAProject {
+            get {
+                return ResourceManager.GetString("invitingUsersToJoinAProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Issue created successfully.
         /// </summary>
         public static string issueCreatedSuccessfully {
@@ -1384,6 +1519,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last activities in projects.
+        /// </summary>
+        public static string lastActivitiesInProjects {
+            get {
+                return ResourceManager.GetString("lastActivitiesInProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last modification at.
         /// </summary>
         public static string lastModificationAt {
@@ -1416,6 +1560,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string login {
             get {
                 return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string login_unique {
+            get {
+                return ResourceManager.GetString("login_unique", resourceCulture);
             }
         }
         
@@ -1600,11 +1753,29 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to minutes ago.
+        /// </summary>
+        public static string minutesAgo {
+            get {
+                return ResourceManager.GetString("minutesAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile phone.
         /// </summary>
         public static string mobilePhone {
             get {
                 return ResourceManager.GetString("mobilePhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to months ago.
+        /// </summary>
+        public static string monthsAgo {
+            get {
+                return ResourceManager.GetString("monthsAgo", resourceCulture);
             }
         }
         
@@ -1677,6 +1848,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string newUseCaseDiagramVersionCreated {
             get {
                 return ResourceManager.GetString("newUseCaseDiagramVersionCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No activity registered.
+        /// </summary>
+        public static string noActivityRegistered {
+            get {
+                return ResourceManager.GetString("noActivityRegistered", resourceCulture);
             }
         }
         
@@ -1839,6 +2019,33 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string observer {
             get {
                 return ResourceManager.GetString("observer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to one month ago.
+        /// </summary>
+        public static string oneMonthAgo {
+            get {
+                return ResourceManager.GetString("oneMonthAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to one second ago.
+        /// </summary>
+        public static string oneSecondAgo {
+            get {
+                return ResourceManager.GetString("oneSecondAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to one year ago.
+        /// </summary>
+        public static string oneYearAgo {
+            get {
+                return ResourceManager.GetString("oneYearAgo", resourceCulture);
             }
         }
         
@@ -2401,6 +2608,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to seconds ago.
+        /// </summary>
+        public static string secondsAgo {
+            get {
+                return ResourceManager.GetString("secondsAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to See pending Issues.
         /// </summary>
         public static string seePendingIssues {
@@ -2789,11 +3005,38 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} was already taken, please choose another one.
+        /// </summary>
+        public static string wasAlreadyTaken {
+            get {
+                return ResourceManager.GetString("wasAlreadyTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When the user is an administrator.
         /// </summary>
         public static string whenTheUserIsAnAdministrator {
             get {
                 return ResourceManager.GetString("whenTheUserIsAnAdministrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to years ago.
+        /// </summary>
+        public static string yearsAgo {
+            get {
+                return ResourceManager.GetString("yearsAgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yesterday.
+        /// </summary>
+        public static string yesterday {
+            get {
+                return ResourceManager.GetString("yesterday", resourceCulture);
             }
         }
         

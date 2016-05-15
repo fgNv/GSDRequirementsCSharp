@@ -1,6 +1,8 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,12 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
         public ContactMapping()
         {
             ToTable("Contact");
-            Property(e => e.Email).HasColumnName("email");
+            Property(e => e.Email).HasColumnName("email")
+                                  .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                                    new IndexAnnotation(new IndexAttribute("email_unique", 1)
+                                    {
+                                        IsUnique = true
+                                    }));
             Property(e => e.MobilePhone).HasColumnName("mobilePhone");
             Property(e => e.Name).HasColumnName("name");
             Property(e => e.Phone).HasColumnName("phone");
