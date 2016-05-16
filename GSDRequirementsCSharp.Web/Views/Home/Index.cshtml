@@ -7,27 +7,34 @@
 @{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
     var currentProjectId = ProjectContext.Current();
+    ViewBag.Title = "GSD-R: " + Sentences.homePage;
 }
-
-<div data-ng-controller="FirstStepsController">
-    <h3>@Sentences.firstSteps</h3>
-    <div class="row">
-        <div class="col-md-4">
-            <a href="@Url.Action("Index", "Help")/#projects">@Sentences.creatingAProject</a>
-        </div>
-        <div class="col-md-4">
-            <a href="@Url.Action("Index", "Help")/#permissions">@Sentences.invitingUsersToJoinAProject</a>
-        </div>
-        <div class="col-md-4">
-            <a href="@Url.Action("Index", "Help")/#packages">@Sentences.creatingPackages</a>
-        </div>
-    </div>
-</div>
 
 @if (!currentProjectId.HasValue)
 {
+    <a href="@Url.Action("Index","Project")/#form"
+       class="btn btn-large btn-success">
+        <span class="glyphicon glyphicon-plus"></span> @Sentences.addProject
+    </a>
+
+    <div data-ng-controller="FirstStepsController">
+        <h3>@Sentences.firstSteps</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="@Url.Action("Index", "Help")/#projects">@Sentences.creatingAProject</a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Index", "Help")/#permissions">@Sentences.invitingUsersToJoinAProject</a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Index", "Help")/#packages">@Sentences.creatingPackages</a>
+            </div>
+        </div>
+    </div>
+
     <div data-ng-controller="LastActivitiesInProjectsController"
          data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
         <h3>@Sentences.lastActivitiesInProjects</h3>
         <div class="alert alert-info" data-ng-show="projects.length == 0">
             @Sentences.noActivityRegistered

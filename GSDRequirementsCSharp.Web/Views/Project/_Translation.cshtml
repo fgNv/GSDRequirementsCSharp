@@ -2,20 +2,18 @@
 @using GSDRequirementsCSharp.Web.Models
 
 <article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
-    <h3>
-        @Sentences.addTranslationForProject
-    </h3>
-
-    <h4>
-        @Sentences.original
-    </h4>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <select class="form-control"
-                        data-ng-model="displayLocale"
-                        data-ng-options="locale.name as locale.label for locale in availableLocaleContents"></select>
-            </div>
+        
+    <div class="row" style="margin-bottom: 25px; ">
+        <div class="col-md-12">
+            <ul class="nav nav-pills underlined">
+                <li data-ng-repeat="locale in availableLocaleContents"
+                    role="button"
+                    data-ng-class="{'active': displayLocale == locale.name}">
+                    <a data-ng-click="setDisplayLocale(locale.name)">
+                        {{locale.label}}
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 

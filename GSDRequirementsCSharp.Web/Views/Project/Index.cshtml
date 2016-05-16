@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    ViewBag.Title = "GSD-R: " + Sentences.projects;
 }
 
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
@@ -18,11 +19,29 @@
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </h2>
+    
+    <ol class="breadcrumb"
+        data-ng-show="currentProject || projectToTranslate">
+        <li><a href="#">@Sentences.projects</a></li>
+        <li class="active"
+            data-ng-show="currentProject && !currentProjectEditionName">
+            @Sentences.creatingAProject
+        </li>
+        <li class="active"
+            data-ng-show="currentProject && currentProjectEditionName">
+            @Sentences.editingProject {{currentProjectEditionName}}
+        </li>
+        <li class="active"
+            data-ng-show="projectToTranslate">
+            @Sentences.addingTranslationForProject {{currentProjectEditionName}}
+        </li>
+    </ol>
+
     <article data-ng-show="!currentProject && !projectToTranslate">
         <div class="alert alert-info" data-ng-show="projects.length == 0">
             @Sentences.noProjectRegistered
         </div>
-
+        
         <article data-ng-show="projects.length > 0">
             <table class="table">
                 <thead>
@@ -35,7 +54,9 @@
                 <tbody>
                     <tr data-ng-repeat="project in projects">
                         <td>
-                            {{project.identifier}}
+                            <a data-ng-href="@Url.Action("SetContext","Project")?ProjectId={{project.id}}">
+                                {{project.identifier}}
+                            </a>
                             <span class="glyphicon glyphicon-alert"
                                   data-ng-show="project.isOutdated"
                                   style="color: red"

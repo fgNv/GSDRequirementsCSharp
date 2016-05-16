@@ -5,7 +5,7 @@
 
     GSDRequirements.angularModuleName = "app";
     GSDRequirements.angularDependencies = ['ngDialog', 'ngResource', 'ngMask', 'ui.bootstrap',
-                                           'ui.select', 'ngSanitize'];
+                                           'ui.select', 'ngSanitize', 'ngCookies'];
     angular.module(GSDRequirements.angularModuleName, GSDRequirements.angularDependencies);
 
 })(window.GSDRequirements, angular);

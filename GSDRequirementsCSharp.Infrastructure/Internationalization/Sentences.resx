@@ -1149,4 +1149,19 @@
   <data name="toManageArtifactsAtLeastOnePackageMustBeRegistered" xml:space="preserve">
     <value>To manage artifacts, at least one package must be registered</value>
   </data>
+  <data name="projectDefinedInTheContextRequired" xml:space="preserve">
+    <value>Project defined in the context required</value>
+  </data>
+  <data name="registerOrLogin" xml:space="preserve">
+    <value>Register Or Login</value>
+  </data>
+  <data name="userDataManagement" xml:space="preserve">
+    <value>User Data Management</value>
+  </data>
+  <data name="addingTranslationForProject" xml:space="preserve">
+    <value>Adding translation for project</value>
+  </data>
+  <data name="editingProject" xml:space="preserve">
+    <value>Editing Project</value>
+  </data>
 </root>

@@ -180,6 +180,7 @@
   <ItemGroup>
     <Compile Include="Api\AuditingController.cs" />
     <Compile Include="Api\ClassDiagramController.cs" />
+    <Compile Include="Api\Globals\CookieRemoval.cs" />
     <Compile Include="Api\IssueController.cs" />
     <Compile Include="Api\PackageController.cs" />
     <Compile Include="Api\PermissionController.cs" />

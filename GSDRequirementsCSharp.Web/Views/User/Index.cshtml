@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    ViewBag.Title = "GSD-R: " + Sentences.userDataManagement;
 }
 
 @using GSDRequirementsCSharp.Infrastructure.Internationalization
@@ -50,13 +51,13 @@
             <div class="col-md-6">
                 @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false,
                                        Att.NgModel("userData.mobilePhone"),
-                                       Att.NgMaskNumber(),
+                                       Att.NgMaskPhone(),
                                        Att.Length(10))
             </div>
             <div class="col-md-6">
                 @TextInputHelper.TextInput("phone", Sentences.phone, false,
                                        Att.NgModel("userData.phone"),
-                                       Att.NgMaskNumber(), Att.Length(10))
+                                       Att.NgMaskPhone(), Att.Length(10))
             </div>
         </div>
 

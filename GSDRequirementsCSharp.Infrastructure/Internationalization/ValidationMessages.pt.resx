@@ -165,8 +165,8 @@
   <data name="maxLoginLengthIs50" xml:space="preserve">
     <value>O tamanho máximo do campo "Login" são 50 caracteres</value>
   </data>
-  <data name="maxMobilePhoneLengthIs50" xml:space="preserve">
-    <value>O tamanho máximo do campo "Celular" são 50 caracteres</value>
+  <data name="maxMobilePhoneLengthIs20" xml:space="preserve">
+    <value>O tamanho máximo do campo "Celular" são 20 caracteres</value>
   </data>
   <data name="maxNameLengthIs100" xml:space="preserve">
     <value>O tamanho máximo do campo "Nome" são 100 caracteres</value>

@@ -35,6 +35,10 @@
             $scope.originalName = ''
             $scope.project = null;
 
+            $scope.setDisplayLocale = (locale) :void => {
+                $scope.displayLocale = locale
+            }
+
             var self = this
             $scope.$watch('project', (newValue, oldValue) => {
                 if (!newValue) { return }

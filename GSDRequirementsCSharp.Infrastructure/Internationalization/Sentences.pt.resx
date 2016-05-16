@@ -1146,4 +1146,19 @@
   <data name="toManageArtifactsAtLeastOnePackageMustBeRegistered" xml:space="preserve">
     <value>Para gerenciar artefatos, ao menos um pacote deve estar cadastrado</value>
   </data>
+  <data name="projectDefinedInTheContextRequired" xml:space="preserve">
+    <value>Projeto definido no contexto é obrigatório</value>
+  </data>
+  <data name="registerOrLogin" xml:space="preserve">
+    <value>Realizar cadastro ou autenticar</value>
+  </data>
+  <data name="userDataManagement" xml:space="preserve">
+    <value>Gerenciamento dos dados do usuário</value>
+  </data>
+  <data name="addingTranslationForProject" xml:space="preserve">
+    <value>Adicionando tradução para o projeto</value>
+  </data>
+  <data name="editingProject" xml:space="preserve">
+    <value>Editando projeto</value>
+  </data>
 </root>

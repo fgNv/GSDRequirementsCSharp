@@ -30,14 +30,14 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
             var user = new User();
             user.Login = command.Login;
             user.Password = _cryptographer.Encrypt(command.Password);
-            
+
             var contact = new Contact();
             contact.Email = command.Email;
             contact.Id = Guid.NewGuid();
-            contact.MobilePhone = command.MobilePhone;
+            contact.MobilePhone = command.MobilePhone.Replace(" ", "").Replace("+", "");
             contact.Name = command.Name;
-            contact.Phone = command.Phone;
-            
+            contact.Phone = command.Phone.Replace(" ", "").Replace("+", "");
+
             user.Contact = contact;
 
             _contactRepository.Add(contact);

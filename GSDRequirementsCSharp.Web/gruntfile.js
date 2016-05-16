@@ -44,6 +44,7 @@ module.exports = function (grunt) {
                     'Scripts/vendor.js': [bowerPath + 'jquery/jquery.js',
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
+                                          bowerPath + 'angular-cookies/angular-cookies.js',
                                           bowerPath + 'toastr/toastr.js',
                                           bowerPath + 'angular-mask/dist/ngMask.js',
                                           bowerPath + 'lodash/lodash.js',

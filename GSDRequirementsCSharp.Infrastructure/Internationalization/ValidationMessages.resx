@@ -165,7 +165,7 @@
   <data name="maxLoginLengthIs50" xml:space="preserve">
     <value>Max "Login" length is 50</value>
   </data>
-  <data name="maxMobilePhoneLengthIs50" xml:space="preserve">
+  <data name="maxMobilePhoneLengthIs20" xml:space="preserve">
     <value>Max "Mobile Phone" length is 20</value>
   </data>
   <data name="maxNameLengthIs100" xml:space="preserve">
@@ -175,7 +175,7 @@
     <value>Max "Password" length is 50</value>
   </data>
   <data name="maxPhoneLengthIs20" xml:space="preserve">
-    <value>Max "Phone" length is 50</value>
+    <value>Max "Phone" length is 20</value>
   </data>
   <data name="methodNameIsARequiredField" xml:space="preserve">
     <value>"Method Name" is a required field</value>

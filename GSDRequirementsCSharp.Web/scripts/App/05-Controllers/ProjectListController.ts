@@ -22,17 +22,26 @@
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
                 var pathValues = $location.path().split('/')
                 var step = pathValues[1];
+                
+                if (step == "form" && !$scope.currentProject) {
+                    $scope.currentProject = {}
+                }
 
                 if (!step) {
                     $scope.currentProject = null
                     $scope.projectToTranslate = null
                 }
             });
-
-            window.location.href = "#"
+            
+            if (window.location.href.indexOf("#/form") == -1) {
+                window.location.href = "#"
+            } else {
+                $scope.currentProject = {}
+            }
 
             $scope.addProject = () => {
                 $scope.currentProject = {}
+                $scope.currentProjectEditionName = ''
                 window.location.href = "#/form"
             }
 
@@ -43,11 +52,13 @@
 
             $scope.setCurrentProject = (p): void => {
                 $scope.currentProject = p
+                $scope.currentProjectEditionName = p.name
                 window.location.href = "#/form"
             }
             $scope.setProjectToTranslate = (p): void => {
                 $scope.projectToTranslate = p
                 window.location.href = "#/translate"
+                $scope.currentProjectEditionName = p.name
             }
 
             $scope.loadProjects = () => this.LoadProjects(ProjectResource,
