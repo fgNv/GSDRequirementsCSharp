@@ -91,6 +91,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Requirements
             specificationItem.Label = $"{prefix}{identifier}";
 
             var package = _packageRepository.Get(command.PackageId.Value);
+            if (!package.Active) throw new Exception(Sentences.thisPackageWasRemoved);
             specificationItem.Package = package;
             
             requirement.SpecificationItem = specificationItem;

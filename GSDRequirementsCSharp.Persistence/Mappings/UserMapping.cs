@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,12 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
             HasKey(u => u.Id);
             Property(u => u.Id).HasColumnName("id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(u => u.ContactId).HasColumnName("contactId");
-            Property(u => u.Login).HasColumnName("login");
+            Property(u => u.Login).HasColumnName("login")
+                                  .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                                    new IndexAnnotation(new IndexAttribute("login_unique", 1)
+                                    {
+                                        IsUnique = true
+                                    }));
             Property(u => u.Password).HasColumnName("password");
             ToTable("User");
 

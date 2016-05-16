@@ -28,6 +28,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                     return Sentences.classDiagram;
                 case SpecificationItemType.Requirement:
                     return Sentences.requirement;
+                case SpecificationItemType.UseCaseDiagram:
+                    return Sentences.useCaseDiagram;
                 case SpecificationItemType.UseCase:
                     return Sentences.useCase;
             }

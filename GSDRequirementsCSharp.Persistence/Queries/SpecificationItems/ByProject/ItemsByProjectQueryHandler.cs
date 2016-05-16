@@ -26,7 +26,6 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.ByProject
                                             s.Active)
                                 .Select(SpecificationItemViewModel.FromModel)
                                 .ToList();
-
             return items;
         }
     }

@@ -21,7 +21,7 @@
                         }, 2500)
                     })
                     .catch((error): void => {
-                        Notification.notifyError(Sentences.errorUpdatingData, error.messages);
+                        Notification.notifyError(Sentences.errorUpdatingData, error.data.messages);
                         $scope.pendingRequests--
                     })
             }

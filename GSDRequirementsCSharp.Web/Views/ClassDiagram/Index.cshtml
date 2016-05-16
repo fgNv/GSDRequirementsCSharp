@@ -1,6 +1,115 @@
-﻿
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Domain
+
 @{ 
-    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    Layout = "~/Views/Shared/_DiagramContainerLayout.cshtml";
 }
 
-<h2>Diagramas de classe</h2>
+<div data-ng-controller="ClassDiagramListController"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    
+    <h2 data-ng-show="!classDiagramToManageLinks">
+        @Sentences.classDiagrams
+        <button class="btn btn-primary"
+                data-ng-show="!currentClassDiagram && !classDiagramToManageVersions && 
+                              hasEditPermission"
+                title="@Sentences.addClassDiagram"
+                data-ng-click="addClassDiagram()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <article data-ng-show="!currentClassDiagram && !classDiagramToManageVersions && 
+                           !classDiagramToManageLinks">
+        <div class="alert alert-info" data-ng-show="classDiagrams.length == 0">
+            @Sentences.noClassDiagramsRegistered
+        </div>
+
+        <article data-ng-show="classDiagrams.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.name</th>
+                        <th>@Sentences.package</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="classDiagram in classDiagrams">
+                        <td>
+                            <gsd-item-issues data-specification-item="classDiagram"
+                                             data-ng-show="classDiagram.issues.length > 0"
+                                             data-on-all-issues-concluded="loadClassDiagrams">
+                            </gsd-item-issues>
+                        </td>
+                        <td>
+                            @ClassDiagram.PREFIX{{classDiagram.identifier}}
+                        </td>
+                        <td>{{classDiagram.name}}</td>
+                        <td>
+                            @Package.PREFIX{{classDiagram.packageIdentifier}}
+                        </td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.addNewVersion"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setCurrentClassDiagram(classDiagram)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    title="@Sentences.manageVersions"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setClassDiagramToManageVersions(classDiagram)">
+                                <i class="fa fa-history" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="inactivateClassDiagram(classDiagram)"
+                                    title="@Sentences.inactivateClassDiagram">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    type="button"
+                                    data-ng-click="setClassDiagramToManageLinks(classDiagram)"
+                                    title="@Sentences.manageLinks">
+                                <span class="glyphicon glyphicon-transfer"></span>
+                            </button>
+                            <gsd-issue-create data-specification-item="classDiagram"
+                                              data-after-save="loadClassDiagrams">
+                            </gsd-issue-create>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+
+    <gsd-class-diagram data-after-save="loadClassDiagrams"
+             data-class-diagram="currentClassDiagram"
+             data-current-class="currentClass"
+             data-editing-relations="editingRelations"
+             data-ng-show="currentClassDiagram">
+    </gsd-class-diagram>
+
+    <gsd-class-diagram-versions data-ng-show="classDiagramToManageVersions"
+                                data-after-restore="loadClassDiagrams"
+                                data-artifact-id="classDiagramToManageVersions.id">
+    </gsd-class-diagram-versions>
+
+    <article data-gsd-links-management=""
+             data-specification-item="classDiagramToManageLinks"
+             data-ng-show="classDiagramToManageLinks"></article>
+</div>

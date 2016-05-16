@@ -64,20 +64,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="Decorators\CommandHandlerSaveChangesDecorator.cs" />
+    <Compile Include="DataHydrators\IssueHydration.cs" />
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
-    <Compile Include="Mappings\ActorMapping.cs" />
-    <Compile Include="Mappings\ClassContentMapping.cs" />
-    <Compile Include="Mappings\ClassDiagramMapping.cs" />
-    <Compile Include="Mappings\ClassMapping.cs" />
-    <Compile Include="Mappings\ClassMethodContentMapping.cs" />
-    <Compile Include="Mappings\ClassMethodMapping.cs" />
-    <Compile Include="Mappings\ClassMethodParameterContentMapping.cs" />
-    <Compile Include="Mappings\ClassMethodParameterMapping.cs" />
-    <Compile Include="Mappings\ClassPropertyContentMapping.cs" />
-    <Compile Include="Mappings\ClassPropertyMapping.cs" />
-    <Compile Include="Mappings\ClassRelationshipMapping.cs" />
+    <Compile Include="Mappings\AuditingMapping.cs" />
+    <Compile Include="Mappings\UseCases\ActorContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\ActorMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassDiagramContentMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassDiagramMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassMethodMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassMethodParameterMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassPropertyMapping.cs" />
+    <Compile Include="Mappings\ClassDiagrams\ClassRelationshipMapping.cs" />
     <Compile Include="Mappings\ContactMapping.cs" />
     <Compile Include="Mappings\IssueCommentContentMapping.cs" />
     <Compile Include="Mappings\IssueCommentMapping.cs" />
@@ -92,34 +92,35 @@
     <Compile Include="Mappings\ProjectContentMapping.cs" />
     <Compile Include="Mappings\ProjectMapping.cs" />
     <Compile Include="Mappings\RequirementMapping.cs" />
-    <Compile Include="Mappings\UserCaseMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseDiagramContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseDiagramMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityRelationContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseEntityRelationMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCaseMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePostConditionContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePostConditionMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePreConditionContentMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasePreConditionMapping.cs" />
+    <Compile Include="Mappings\UseCases\UseCasesRelationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201604051129040_initial-migration.cs" />
-    <Compile Include="Migrations\201604051129040_initial-migration.Designer.cs">
-      <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604081330225_issues-translations.cs" />
-    <Compile Include="Migrations\201604081330225_issues-translations.Designer.cs">
-      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.cs" />
-    <Compile Include="Migrations\201604111346476_issue-paginated-query-indexes.Designer.cs">
-      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604141203171_specificationItemLinks.cs" />
-    <Compile Include="Migrations\201604141203171_specificationItemLinks.Designer.cs">
-      <DependentUpon>201604141203171_specificationItemLinks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604141210196_specification-item-type.cs" />
-    <Compile Include="Migrations\201604141210196_specification-item-type.Designer.cs">
-      <DependentUpon>201604141210196_specification-item-type.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604141340046_specification-item-label.cs" />
-    <Compile Include="Migrations\201604141340046_specification-item-label.Designer.cs">
-      <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    <Compile Include="Migrations\201605160124183_schema.cs" />
+    <Compile Include="Migrations\201605160124183_schema.Designer.cs">
+      <DependentUpon>201605160124183_schema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Auditings\ByPeriod\AuditingsByPeriodQueryHandler.cs" />
+    <Compile Include="Queries\Auditings\ByProject\AuditingsByProjectQuery.cs" />
+    <Compile Include="Queries\Auditings\ByProject\AuditingsByProjectQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Detailed\ClassDiagramDetailQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\NextId\ClassDiagramNextIdQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQuery.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\ClassDiagrams\Paginated\ClassDiagramsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\ClassDiagrams\Versions\ClassDiagramVersionsQuery.cs" />
+    <Compile Include="Queries\ClassDiagrams\Versions\ClassDiagramVersionsQueryHandler.cs" />
     <Compile Include="Queries\Contacts\ContactByUserIdQueryHandler.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQuery.cs" />
     <Compile Include="Queries\IsssueComments\IssueCommentsQueryHandler.cs" />
@@ -146,16 +147,32 @@
     <Compile Include="Queries\Projects\ProjectsPaginated\ProjectsPaginatedQueryResult.cs" />
     <Compile Include="Queries\Projects\ProjectWithContents\ProjectWithContentsQueryHandler.cs" />
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContents\ProjectWithCurrentCultureContentsQueryHandler.cs" />
-    <Compile Include="Queries\Requirements\LastVersion\LastVersionRequirementQueryHandler.cs" />
+    <Compile Include="Queries\Requirements\Detailed\DetailedRequirementQueryHandler.cs" />
     <Compile Include="Queries\Requirements\NextId\RequirementNextIdQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQuery.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryHandler.cs" />
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\Requirements\Versions\RequirementVersionsQuery.cs" />
+    <Compile Include="Queries\Requirements\Versions\RequirementVersionsQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\ByPackage\SpecificationItemsByPackageQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQuery.cs" />
     <Compile Include="Queries\SpecificationItems\Links\LinksFromSpecificationItemQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithClassDiagrams\SpecificationItemWithClassDiagramsQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\WithRequirements\SpecificationItemWithRequirementsQueryHandler.cs" />
+    <Compile Include="Queries\SpecificationItems\WithUseCaseDiagrams\SpecificationItemWithUseCaseDiagramsQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\ActorsByDiagram\ActorsByDiagramQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Detailed\UseCaseDiagramDetailQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\NextId\UseCaseDiagramNextIdQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\NextUcId\NextUseCaseIdQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Paginated\UseCaseDiagramsPaginatedQueryResult.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCaseBySpecificationItemId\UseCaseBySpecificationItemIdQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\UseCasesByDiagram\UseCasesByDiagramQueryHandler.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Versions\UseCaseDiagramVersionsQuery.cs" />
+    <Compile Include="Queries\UseCaseDiagrams\Versions\UseCaseDiagramVersionsQueryHandler.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQuery.cs" />
     <Compile Include="Queries\Users\ByLogin\UserByLoginQueryHandler.cs" />
     <Compile Include="Queries\Users\BySearchTerm\UsersBySearchTermQuery.cs" />
@@ -182,23 +199,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604051129040_initial-migration.resx">
-      <DependentUpon>201604051129040_initial-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604081330225_issues-translations.resx">
-      <DependentUpon>201604081330225_issues-translations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604111346476_issue-paginated-query-indexes.resx">
-      <DependentUpon>201604111346476_issue-paginated-query-indexes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604141203171_specificationItemLinks.resx">
-      <DependentUpon>201604141203171_specificationItemLinks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604141210196_specification-item-type.resx">
-      <DependentUpon>201604141210196_specification-item-type.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604141340046_specification-item-label.resx">
-      <DependentUpon>201604141340046_specification-item-label.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605160124183_schema.resx">
+      <DependentUpon>201605160124183_schema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

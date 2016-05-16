@@ -23,6 +23,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             AutomaticMigrationsEnabled = false;
 
             DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
+            CodeGenerator = new MySqlMigrationCodeGenerator();
             SetSqlGenerator("MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator());
             SetHistoryContextFactory(MySqlProviderInvariantName.ProviderName, 
                                     (connection, schema) => new MySqlHistoryContext(connection, schema));

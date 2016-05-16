@@ -15,7 +15,7 @@
     }
     else
     {
-        Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+        Layout = "~/Views/Shared/_InstantLoadLayout.cshtml";
     }
 }
 
@@ -203,6 +203,12 @@
             @HelpSentences.afterSelectingAProjectInTheContextThePackagesButtonWillBeDisplayedInTheHeadersLeftSide
             @HelpSentences.itWillLeadYouToTheManagePackagesPageWhereItsPossibleToCreateEditAndRemovePackages
             @HelpSentences.toPerformTheseActionsItsRequiredToHaveAnEditorPermissionInTheProjectOrToBeItsOwner
+        </p>
+
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @HelpSentences.theDataStructureIsArrangedAsProjectContainsPackagesAndPackageContainsArtifacts
+            @HelpSentences.thisWayToCreateAPackageItsNecessaryToHaveAProjectToLinkToItAndToCreateAnArtifactItsNecessaryToHaveAPackageToLinkToIt
         </p>
 
         <h4>@HelpSentences.creatingANewPackage</h4>

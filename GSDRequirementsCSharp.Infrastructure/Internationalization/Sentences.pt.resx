@@ -297,9 +297,6 @@
   <data name="packageUpdatedSuccessfully" xml:space="preserve">
     <value>Pacote atualizado com sucesso</value>
   </data>
-  <data name="nameIsARequiredField" xml:space="preserve">
-    <value>Nome é um campo obrigatório</value>
-  </data>
   <data name="original" xml:space="preserve">
     <value>Original</value>
   </data>
@@ -716,5 +713,437 @@
   </data>
   <data name="projectDetails" xml:space="preserve">
     <value>Detalhes do projeto</value>
+  </data>
+  <data name="errorLoadingClassDiagrams" xml:space="preserve">
+    <value>Erro ao carregar diagramas de classe</value>
+  </data>
+  <data name="classDiagramInactivatedSuccessfully" xml:space="preserve">
+    <value>Diagrama de classe removido com sucesso</value>
+  </data>
+  <data name="errorInactivatingClassDiagram" xml:space="preserve">
+    <value>Erro ao inativar diagrama de classes</value>
+  </data>
+  <data name="addClassDiagram" xml:space="preserve">
+    <value>Adicionar diagrama de classe</value>
+  </data>
+  <data name="inactivateClassDiagram" xml:space="preserve">
+    <value>Remover diagrama de classe</value>
+  </data>
+  <data name="noClassDiagramsRegistered" xml:space="preserve">
+    <value>Nenhum diagrama de classe cadastrado</value>
+  </data>
+  <data name="addClass" xml:space="preserve">
+    <value>Adicionar classe</value>
+  </data>
+  <data name="addParameter" xml:space="preserve">
+    <value>Adicionar parâmetro</value>
+  </data>
+  <data name="addProperty" xml:space="preserve">
+    <value>Adicionar propriedade</value>
+  </data>
+  <data name="createClassDiagram" xml:space="preserve">
+    <value>Criar diagrama de classes</value>
+  </data>
+  <data name="metadata" xml:space="preserve">
+    <value>Metadados</value>
+  </data>
+  <data name="methods" xml:space="preserve">
+    <value>Métodos</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>Parâmetros</value>
+  </data>
+  <data name="properties" xml:space="preserve">
+    <value>Propriedades</value>
+  </data>
+  <data name="relations" xml:space="preserve">
+    <value>Relações</value>
+  </data>
+  <data name="removeMethod" xml:space="preserve">
+    <value>Remover método</value>
+  </data>
+  <data name="removeParameter" xml:space="preserve">
+    <value>Remover parâmetro</value>
+  </data>
+  <data name="removeProperty" xml:space="preserve">
+    <value>Remover propriedade</value>
+  </data>
+  <data name="returnType" xml:space="preserve">
+    <value>Tipo do retorno</value>
+  </data>
+  <data name="addMethod" xml:space="preserve">
+    <value>Adicionar método</value>
+  </data>
+  <data name="noMethodRegistered" xml:space="preserve">
+    <value>Nenhum método registrado</value>
+  </data>
+  <data name="noParametersRegistered" xml:space="preserve">
+    <value>Nenhum parâmetro cadastrado</value>
+  </data>
+  <data name="noPropertyRegistered" xml:space="preserve">
+    <value>Nenhuma propriedade cadastrada</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Abstrata</value>
+  </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>Concreta</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="selectAProjectAboveAndDefineItAsTheContextOrRegisterANewOneIfNoProjectIsRegistered" xml:space="preserve">
+    <value>Selecione um projeto acima e o defina como o contexto, ou se não há projetos cadastrados, cadastre um novo.</value>
+  </data>
+  <data name="thePageYouReTryingToAccessRequireAProjectDefinedInTheContext" xml:space="preserve">
+    <value>A página que você está tentando acessar, requer que um projeto esteja definido no contexto.</value>
+  </data>
+  <data name="editSelectedClass" xml:space="preserve">
+    <value>Editar classe selecionada</value>
+  </data>
+  <data name="editSelectedClassRelations" xml:space="preserve">
+    <value>Editar relações da classe selecionada</value>
+  </data>
+  <data name="removeSelectedClass" xml:space="preserve">
+    <value>Remover classe selecionada</value>
+  </data>
+  <data name="editRelations" xml:space="preserve">
+    <value>Editar relações</value>
+  </data>
+  <data name="addRelation" xml:space="preserve">
+    <value>Adicionar relação</value>
+  </data>
+  <data name="manageClassDiagram" xml:space="preserve">
+    <value>Gerenciar diagrama de classe</value>
+  </data>
+  <data name="relationType" xml:space="preserve">
+    <value>Tipo de relação</value>
+  </data>
+  <data name="source" xml:space="preserve">
+    <value>Fonte</value>
+  </data>
+  <data name="sourceMultiplicity" xml:space="preserve">
+    <value>Multiplicidade da fonte</value>
+  </data>
+  <data name="target" xml:space="preserve">
+    <value>Alvo</value>
+  </data>
+  <data name="targetMultiplicity" xml:space="preserve">
+    <value>Multiplicidade do alvo</value>
+  </data>
+  <data name="editClass" xml:space="preserve">
+    <value>Editar classe</value>
+  </data>
+  <data name="thereAreNoRelationsRegistered" xml:space="preserve">
+    <value>Não há relações cadastradas</value>
+  </data>
+  <data name="Aggregation" xml:space="preserve">
+    <value>Agregação</value>
+  </data>
+  <data name="Association" xml:space="preserve">
+    <value>Associação</value>
+  </data>
+  <data name="atLeastOneClassMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>Ao menos uma classe deve estar cadastrada para acessar o gerenciamento de relações</value>
+  </data>
+  <data name="Composition" xml:space="preserve">
+    <value>Composição</value>
+  </data>
+  <data name="Inheritance" xml:space="preserve">
+    <value>Herança</value>
+  </data>
+  <data name="manageRelations" xml:space="preserve">
+    <value>Gerenciar relações</value>
+  </data>
+  <data name="Realization" xml:space="preserve">
+    <value>Implementação</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Protected" xml:space="preserve">
+    <value>Protegido</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="visibility" xml:space="preserve">
+    <value>Visibilidade</value>
+  </data>
+  <data name="classDiagramSavedSuccessfully" xml:space="preserve">
+    <value>Diagrama de classes salvo com sucesso</value>
+  </data>
+  <data name="errorSavingClassDiagram" xml:space="preserve">
+    <value>Erro ao salvar diagrama de classes</value>
+  </data>
+  <data name="toEditOrRemoveAClassClickAboveItAndTheClassActionMenuWillAppear" xml:space="preserve">
+    <value>Para editar ou remover uma classe, clique nela e o menu de ações da classe será exibido</value>
+  </data>
+  <data name="thisPackageWasRemoved" xml:space="preserve">
+    <value>Esse pacote foi removido</value>
+  </data>
+  <data name="classDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Diagrama de classes removido com sucesso</value>
+  </data>
+  <data name="noUseCaseDiagramsRegistered" xml:space="preserve">
+    <value>Nenhum diagrama de casos de uso cadastrado</value>
+  </data>
+  <data name="removeUseCaseDiagram" xml:space="preserve">
+    <value>Remover diagrama de casos de uso</value>
+  </data>
+  <data name="errorRemovingUseCaseDiagram" xml:space="preserve">
+    <value>Erro ao remover Diagrama de Casos de Uso</value>
+  </data>
+  <data name="useCaseDiagramRemovedSuccessfully" xml:space="preserve">
+    <value>Diagrama de Casos de Uso removido com sucesso</value>
+  </data>
+  <data name="addActor" xml:space="preserve">
+    <value>Adicionar ator</value>
+  </data>
+  <data name="addUseCase" xml:space="preserve">
+    <value>Adicionar caso de uso</value>
+  </data>
+  <data name="atLeastOneActorOrUseCaseMustBeRegisteredToAccessTheRelationManagement" xml:space="preserve">
+    <value>Ao menos um ator ou um caso de uso deve estar cadastrado para gerenciar as relações</value>
+  </data>
+  <data name="editActor" xml:space="preserve">
+    <value>Editar ator</value>
+  </data>
+  <data name="editSelected" xml:space="preserve">
+    <value>Editar selecionado</value>
+  </data>
+  <data name="editUseCase" xml:space="preserve">
+    <value>Editar caso de uso</value>
+  </data>
+  <data name="manageUseCaseDiagram" xml:space="preserve">
+    <value>Gerenciar Diagrama de Casos de Uso</value>
+  </data>
+  <data name="removeSelected" xml:space="preserve">
+    <value>Remover selecionado</value>
+  </data>
+  <data name="toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear" xml:space="preserve">
+    <value>Para editar ou remover um caso de uso ou ator, clique em cima dele e o menu de ações será exibido</value>
+  </data>
+  <data name="extend" xml:space="preserve">
+    <value>Extender</value>
+  </data>
+  <data name="generalization" xml:space="preserve">
+    <value>Generalizar</value>
+  </data>
+  <data name="include" xml:space="preserve">
+    <value>Incluir</value>
+  </data>
+  <data name="label" xml:space="preserve">
+    <value>Rótulo</value>
+  </data>
+  <data name="path" xml:space="preserve">
+    <value>Narrativa</value>
+  </data>
+  <data name="addPostCondition" xml:space="preserve">
+    <value>Adicionar pós condição</value>
+  </data>
+  <data name="addPreCondition" xml:space="preserve">
+    <value>Adicionar pré condição</value>
+  </data>
+  <data name="noPostConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pós condição cadastrada</value>
+  </data>
+  <data name="noPreConditionsRegistered" xml:space="preserve">
+    <value>Nenhuma pré condição cadastrada</value>
+  </data>
+  <data name="postCondition" xml:space="preserve">
+    <value>Pós Condição</value>
+  </data>
+  <data name="preConditions" xml:space="preserve">
+    <value>Pré Condições</value>
+  </data>
+  <data name="useCaseDiagram" xml:space="preserve">
+    <value>Diagrama de casos de uso</value>
+  </data>
+  <data name="useCaseDiagramNotFound" xml:space="preserve">
+    <value>Diagrama de casos de uso não encontrado</value>
+  </data>
+  <data name="anIdentifierWillBeAssignedToThisUseCaseAfterTheDiagramIsSaved" xml:space="preserve">
+    <value>Um identificador será atribuído para esse caso de uso, após o diagrama ser salvo.</value>
+  </data>
+  <data name="identifier" xml:space="preserve">
+    <value>Identificador</value>
+  </data>
+  <data name="artifactToEditLinks" xml:space="preserve">
+    <value>Artefato para gerenciar vínculos</value>
+  </data>
+  <data name="errorLoadingUseCase" xml:space="preserve">
+    <value>Erro ao carregar caso de uso</value>
+  </data>
+  <data name="errorLoadingUseCaseDiagram" xml:space="preserve">
+    <value>Erro ao carregar diagrama de casos de uso</value>
+  </data>
+  <data name="postConditions" xml:space="preserve">
+    <value>Pós condições</value>
+  </data>
+  <data name="useCaseDetails" xml:space="preserve">
+    <value>Detalhes do caso de uso</value>
+  </data>
+  <data name="useCaseNotFound" xml:space="preserve">
+    <value>Caso de uso não encontrado</value>
+  </data>
+  <data name="errorAddingPermission" xml:space="preserve">
+    <value>Erro ao adicionar permissão</value>
+  </data>
+  <data name="youMustClickInTheUserToSelectItBeforeAddingThePermission" xml:space="preserve">
+    <value>Você deve clicar no usuário para selecioná-lo, antes de adicionar a permissão</value>
+  </data>
+  <data name="errorLoadingVersions" xml:space="preserve">
+    <value>Erro ao carregar versões</value>
+  </data>
+  <data name="manageVersions" xml:space="preserve">
+    <value>Gerenciar versões</value>
+  </data>
+  <data name="restoreVersion" xml:space="preserve">
+    <value>Restaurar versão</value>
+  </data>
+  <data name="errorRestoringVersion" xml:space="preserve">
+    <value>Erro ao restaurar versão</value>
+  </data>
+  <data name="versionRestoredSuccessfully" xml:space="preserve">
+    <value>Versão restaurada com sucesso</value>
+  </data>
+  <data name="classDiagramCreated" xml:space="preserve">
+    <value>Diagrama de classes criado</value>
+  </data>
+  <data name="newClassDiagramVersionAdded" xml:space="preserve">
+    <value>Nova versão de diagrama de classes de uso adicionada</value>
+  </data>
+  <data name="newPackageAdded" xml:space="preserve">
+    <value>Novo pacote adicionado</value>
+  </data>
+  <data name="newUseCaseDiagramVersionCreated" xml:space="preserve">
+    <value>Nova versão de diagrama de casos de uso criada</value>
+  </data>
+  <data name="packageEdited" xml:space="preserve">
+    <value>Pacote editado</value>
+  </data>
+  <data name="packageRemoved" xml:space="preserve">
+    <value>Pacote removido</value>
+  </data>
+  <data name="requirementCreated" xml:space="preserve">
+    <value>Requisito criado</value>
+  </data>
+  <data name="requirementEdited" xml:space="preserve">
+    <value>Requisito removido</value>
+  </data>
+  <data name="useCaseDiagramCreated" xml:space="preserve">
+    <value>Diagrama de casos de uso criado</value>
+  </data>
+  <data name="useCaseDiagramRemoved" xml:space="preserve">
+    <value>Diagrama de casos de uso removido</value>
+  </data>
+  <data name="requirementRemoved" xml:space="preserve">
+    <value>Requisito removido</value>
+  </data>
+  <data name="aMinuteAgo" xml:space="preserve">
+    <value>um minuto atrás</value>
+  </data>
+  <data name="anHourAgo" xml:space="preserve">
+    <value>uma hora atrás</value>
+  </data>
+  <data name="daysAgo" xml:space="preserve">
+    <value>dias atrás</value>
+  </data>
+  <data name="hoursAgo" xml:space="preserve">
+    <value>horas atrás</value>
+  </data>
+  <data name="minutesAgo" xml:space="preserve">
+    <value>minutos atrás</value>
+  </data>
+  <data name="monthsAgo" xml:space="preserve">
+    <value>meses atrás</value>
+  </data>
+  <data name="oneMonthAgo" xml:space="preserve">
+    <value>um mês atrás</value>
+  </data>
+  <data name="oneSecondAgo" xml:space="preserve">
+    <value>um segundo atrás</value>
+  </data>
+  <data name="oneYearAgo" xml:space="preserve">
+    <value>um ano atrás</value>
+  </data>
+  <data name="secondsAgo" xml:space="preserve">
+    <value>segundos atrás</value>
+  </data>
+  <data name="yearsAgo" xml:space="preserve">
+    <value>anos atrás</value>
+  </data>
+  <data name="yesterday" xml:space="preserve">
+    <value>ontem</value>
+  </data>
+  <data name="auditingPeriodNotDefined" xml:space="preserve">
+    <value>Periodo de auditoria não definido</value>
+  </data>
+  <data name="activitiesInTheCurrentProject" xml:space="preserve">
+    <value>Atividades do projeto atual</value>
+  </data>
+  <data name="firstSteps" xml:space="preserve">
+    <value>Primeiros passos</value>
+  </data>
+  <data name="lastActivitiesInProjects" xml:space="preserve">
+    <value>Últimas atividades em projetos</value>
+  </data>
+  <data name="errorRetrievingActivities" xml:space="preserve">
+    <value>Erro ao obter as atividades</value>
+  </data>
+  <data name="activity" xml:space="preserve">
+    <value>Atividade</value>
+  </data>
+  <data name="executedAt" xml:space="preserve">
+    <value>Executada em</value>
+  </data>
+  <data name="noActivityRegistered" xml:space="preserve">
+    <value>Nenhuma atividade registrada</value>
+  </data>
+  <data name="creatingAProject" xml:space="preserve">
+    <value>Criando um projeto</value>
+  </data>
+  <data name="creatingPackages" xml:space="preserve">
+    <value>Criando pacotes</value>
+  </data>
+  <data name="invitingUsersToJoinAProject" xml:space="preserve">
+    <value>Adicionando usuários a um projeto</value>
+  </data>
+  <data name="authenticationData" xml:space="preserve">
+    <value>Dados de autenticação</value>
+  </data>
+  <data name="wasAlreadyTaken" xml:space="preserve">
+    <value>O {0} já está em uso, por favor escolha outro</value>
+  </data>
+  <data name="email_unique" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="login_unique" xml:space="preserve">
+    <value>Nome de usuário</value>
+  </data>
+  <data name="issueAdded" xml:space="preserve">
+    <value>Observação criada</value>
+  </data>
+  <data name="issueCommentAdded" xml:space="preserve">
+    <value>Comentário de observação adicionado</value>
+  </data>
+  <data name="issueCommentEdited" xml:space="preserve">
+    <value>Comentário de observação editado</value>
+  </data>
+  <data name="issueCommentRemoved" xml:space="preserve">
+    <value>Comentário de observação removido</value>
+  </data>
+  <data name="issueConcluded" xml:space="preserve">
+    <value>Observação concluída</value>
+  </data>
+  <data name="issueEdited" xml:space="preserve">
+    <value>Observação editada</value>
+  </data>
+  <data name="toManageArtifactsAtLeastOnePackageMustBeRegistered" xml:space="preserve">
+    <value>Para gerenciar artefatos, ao menos um pacote deve estar cadastrado</value>
   </data>
 </root>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithRequirements
 {
-    internal class SpecificationItemWithRequirementsQueryHandler : IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItem>
+    internal class SpecificationItemWithRequirementsQueryHandler : IQueryHandler<SpecificationItemWithRequirementsQuery, SpecificationItemWithRequirementsQueryResult>
     {
         private readonly GSDRequirementsContext _context;
 
@@ -19,11 +19,25 @@ namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithRequi
             _context = context;
         }    
 
-        public SpecificationItem Handle(SpecificationItemWithRequirementsQuery query)
+        public SpecificationItemWithRequirementsQueryResult Handle(SpecificationItemWithRequirementsQuery query)
         {
             return _context.SpecificationItems
-                           .Include(si => si.Requirements)
-                           .FirstOrDefault(si => si.Id == query.Id);
+                           .Where(si => si.Id == query.Id)
+                           .Join(_context.Requirements,
+                                 si => si.Id,
+                                 cd => cd.Id,
+                                 (si, r) => new
+                                 {
+                                     Requirement = r,
+                                     SpecificationItem = si
+                                 })
+                           .GroupBy(r => r.SpecificationItem.Id)
+                           .Select(r => new SpecificationItemWithRequirementsQueryResult
+                           {
+                               SpecificationItem = r.FirstOrDefault().SpecificationItem,
+                               Requirements = r.Select(i => i.Requirement)
+                           })
+                           .FirstOrDefault();
         }
     }
 }

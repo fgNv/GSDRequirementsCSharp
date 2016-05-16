@@ -67,7 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in specificationItems"
+                    <tr data-ng-repeat="item in specificationItems | orderBy:'label'"
                         data-ng-class="{'selected': selected == item}"
                         style="cursor: pointer"
                         data-ng-click="selectItem(item)">
@@ -102,10 +102,19 @@
                 @Sentences.selectAnArtifactToSeeItsDetails
             </small>
         </div>
-        <div class="col-md-7" data-ng-show="selected">
+        <div class="col-md-9 diagram-display-box" data-ng-show="selected">
             <gsd-requirement-details data-ng-if="selected.type == artifactTypes.Requirement"
-                                     data-requirement-id="selected.id">
+                                     data-requirement-link="selected">
             </gsd-requirement-details>
+            <gsd-class-diagram-display data-ng-if="selected.type == artifactTypes.ClassDiagram"
+                                     data-specification-item="selected">
+            </gsd-class-diagram-display>
+            <gsd-use-case-diagram-display data-ng-if="selected.type == artifactTypes.UseCaseDiagram"
+                                       data-specification-item="selected">
+            </gsd-use-case-diagram-display>
+            <gsd-use-case-display data-ng-if="selected.type == artifactTypes.UseCase"
+                                  data-specification-item="selected">
+            </gsd-use-case-display>
         </div>
     </div>
 </article>

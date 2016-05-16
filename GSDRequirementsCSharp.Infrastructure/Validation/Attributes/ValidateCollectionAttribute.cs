@@ -29,7 +29,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Validation.Attributes
                 errorsList.AddRange(results);
             }
             if (errorsList.Any())
-                return new ValidationResult(Sentences.invalidItems);
+                return new InvalidCollectionValidationResult(errorsList);
 
             return ValidationResult.Success;
         }

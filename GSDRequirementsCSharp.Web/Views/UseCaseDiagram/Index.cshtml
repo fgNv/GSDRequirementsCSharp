@@ -1,6 +1,129 @@
-﻿
-@{ 
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Domain.Models
+@using GSDRequirementsCSharp.Domain
+
+@{
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<h2>Diagramas de caso de uso</h2>
+<div data-ng-controller="UseCaseDiagramListController"
+     data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+
+    <h2 data-ng-show="!classDiagramToManageLinks">
+        @Sentences.useCaseDiagrams
+        <button class="btn btn-primary"
+                data-ng-show="!currentUseCaseDiagram &&
+                              !useCaseDiagramToManageLinks &&
+                              !useCaseDiagramToManageVersions &&
+                              hasEditPermission"
+                title="@Sentences.addClassDiagram"
+                data-ng-click="addUseCaseDiagram()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h2>
+
+    <article data-ng-show="!currentUseCaseDiagram &&
+                           !useCaseDiagramToManageLinks&&
+                           !useCaseDiagramToManageVersions">
+        <div class="alert alert-info" data-ng-show="useCaseDiagrams.length == 0">
+            @Sentences.noUseCaseDiagramsRegistered
+        </div>
+
+        <article data-ng-show="useCaseDiagrams.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>@Sentences.id</th>
+                        <th>@Sentences.name</th>
+                        <th>@Sentences.package</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="uc in useCaseDiagrams">
+                        <td>
+                            <gsd-item-issues data-specification-item="uc"
+                                             data-ng-show="uc.issues.length > 0"
+                                             data-on-all-issues-concluded="loadUseCaseDiagrams">
+                            </gsd-item-issues>
+                        </td>
+                        <td>
+                            @UseCaseDiagram.PREFIX {{uc.identifier}}
+                        </td>
+                        <td>{{uc.getName()}}</td>
+                        <td>
+                            @Package.PREFIX {{uc.packageIdentifier}}
+                        </td>
+                        <td>
+                            <button class="btn btn-default"
+                                    title="@Sentences.addNewVersion"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setCurrentUseCaseDiagram(uc)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    title="@Sentences.manageVersions"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="setUseCaseDiagramToManageVersions(uc)">
+                                <i class="fa fa-history" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-default"
+                                    data-ng-show="hasEditPermission"
+                                    data-ng-click="removeUseCaseDiagram(uc)"
+                                    title="@Sentences.removeUseCaseDiagram">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default"
+                                    type="button"
+                                    data-ng-click="setUseCaseDiagramToManageLinks(uc)"
+                                    title="@Sentences.manageLinks">
+                                <span class="glyphicon glyphicon-transfer"></span>
+                            </button>
+                            <gsd-issue-create data-specification-item="uc"
+                                              data-after-save="loadUseCaseDiagrams">
+                            </gsd-issue-create>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav>
+                <ul class="pagination">
+                    <li data-ng-repeat="page in getPaginationRange()"
+                        data-ng-class="{'active' : page == currentPage}">
+                        <a href="#" data-ng-click="loadPage(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </article>
+
+    <gsd-use-case-diagram data-after-save="loadUseCaseDiagrams"
+                          data-use-case-diagram="currentUseCaseDiagram"
+                          data-current-use-case="currentUseCase"
+                          data-current-actor="currentActor"
+                          data-editing-relations="editingRelations"
+                          data-ng-show="currentUseCaseDiagram">
+    </gsd-use-case-diagram>
+
+    <div class="form-group" data-ng-show="useCaseDiagramToManageLinks">
+        <label>
+            @Sentences.artifactToEditLinks
+        </label>
+        <select data-ng-model="modelToEditLinks"
+                class="form-control"
+                data-ng-options="artifact as artifact.getLabel() for artifact in artifactsToManageLinks"></select>
+    </div>
+
+    <article data-gsd-links-management=""
+             data-specification-item="modelToEditLinks"
+             data-ng-show="useCaseDiagramToManageLinks"></article>
+
+    <gsd-use-case-diagram-versions data-artifact-id="useCaseDiagramToManageVersions.id"
+                                   data-after-restore="loadUseCaseDiagrams"
+                                   data-ng-show="useCaseDiagramToManageVersions">
+    </gsd-use-case-diagram-versions>
+</div>

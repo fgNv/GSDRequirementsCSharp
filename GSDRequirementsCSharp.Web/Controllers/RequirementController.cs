@@ -9,7 +9,8 @@ using System.Web.Mvc;
 namespace GSDRequirements.Web.Controllers
 {
     public class RequirementController : Controller
-    { 
+    {
+        [ContextProjectRequired]
         // GET: /<controller>/
         public ActionResult Index()
         {
@@ -32,6 +33,12 @@ namespace GSDRequirements.Web.Controllers
         public PartialViewResult Details()
         {
             return PartialView("_Details");
+        }
+
+        [SkipUserDataSetter]
+        public PartialViewResult Versions()
+        {
+            return PartialView("_Versions");
         }
 
         [SkipUserDataSetter]

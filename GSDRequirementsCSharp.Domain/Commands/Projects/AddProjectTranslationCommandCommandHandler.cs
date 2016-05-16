@@ -24,7 +24,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 
         public void Handle(AddProjectTranslationCommand command)
         {
-            var project = _projectWithContentsQueryHandler.Handle(command.Id);
+            var project = _projectWithContentsQueryHandler.Handle(command.Id.Value);
             foreach (var item in command.Items)
             {
                 var content = project.ProjectContents.FirstOrDefault(c => c.Locale == item.Locale);

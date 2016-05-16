@@ -1,0 +1,50 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<div>
+    <h2>
+        @Sentences.useCaseDetails {{useCase.getLabel()}} -
+        @Sentences.version {{useCase.version}}
+    </h2>
+
+    <h3>@Sentences.data</h3>
+
+    <div class="form-group">
+        <label>@Sentences.language</label>
+        <select class="form-control"
+                data-ng-options="language for language in availableLocales"
+                data-ng-model="useCase.currentContentLocale"></select>
+    </div>
+
+    <dl>
+        <dt>@Sentences.name</dt>
+        <dd>{{useCase.getContentProperty('name')}}</dd>
+        <dt>@Sentences.description</dt>
+        <dd>{{useCase.getContentProperty('description')}}</dd>
+        <dt class="margin-top">@Sentences.path</dt>
+        <dd>{{useCase.getContentProperty('path')}}</dd>
+    </dl>
+
+    <h4>@Sentences.preConditions</h4>
+
+    <div class="alert alert-info" data-ng-show="useCase.preConditions.length == 0">
+        @Sentences.noPreConditionsRegistered
+    </div>
+
+    <ul data-ng-show="useCase.preConditions.length > 0">
+        <li data-ng-repeat="preCondition in useCase.preConditions">
+            {{preCondition.getContentProperty('description', useCase.currentContentLocale)}}
+        </li>
+    </ul>
+
+    <h4>@Sentences.postConditions</h4>
+
+    <ul data-ng-show="useCase.postConditions.length > 0">
+        <li data-ng-repeat="postCondition in useCase.postConditions">
+            {{postCondition.getContentProperty('description', useCase.currentContentLocale)}}
+        </li>
+    </ul>
+
+    <div class="alert alert-info" data-ng-show="useCase.postConditions.length == 0">
+        @Sentences.noPostConditionsRegistered
+    </div>
+</div>

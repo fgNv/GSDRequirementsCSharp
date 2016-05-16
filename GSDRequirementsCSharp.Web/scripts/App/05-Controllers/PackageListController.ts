@@ -31,7 +31,7 @@
                 $scope.currentPackage = {}
                 window.location.href = "#/form"
             }
-            
+
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
                 var pathValues = $location.path().split('/')
                 var step = pathValues[1];
@@ -81,8 +81,7 @@
                     $scope.loadPackages()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingPackage,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingPackage, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;
@@ -99,7 +98,7 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingPackages, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingPackages, err.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

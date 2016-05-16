@@ -1,0 +1,20 @@
+﻿#useCaseDiagramPaper svg,#classDiagramPaper svg {
+    border: solid #BABACA 1px;
+}
+
+svg .selectedCell rect, svg .selectedCell ellipse {
+    stroke: #3A9A3A;
+    stroke-width: 3;
+}
+
+.link-tools .tool-remove {
+    display: none;
+}
+
+.link-tools .tool-options {
+    display: none;
+}
+
+.marker-arrowheads {
+    display: none;
+}

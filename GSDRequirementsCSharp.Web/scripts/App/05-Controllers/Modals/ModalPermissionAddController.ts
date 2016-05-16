@@ -14,10 +14,10 @@
             $scope.loadingUsers = false;
             $scope.permission = {}
             $scope.permission.profile = Models.profile.editor
-            
+
             var usersWithPermissionsEmails = _.map(permissionsGrantedPreviously,
                 (p) => p.user.email)
-            
+
             $scope.getUserLabel = (user) => {
                 if (!user) return "";
                 return `${user.name} (${user.email})`
@@ -34,8 +34,7 @@
                         );
                     })
                     .catch((error) => {
-                        Notification.notifyError(Sentences.errorSearchingUsers,
-                            error.messages)
+                        Notification.notifyError(Sentences.errorSearchingUsers, error.data.messages)
                     })
                     .finally((r) => {
                         $scope.loadingUsers = false
@@ -43,6 +42,10 @@
             }
 
             $scope.conclude = () => {
+                if (!$scope.permission || !$scope.permission.user || !$scope.permission.user.id) {
+                    Notification.notifyError(Sentences.errorAddingPermission, [Sentences.youMustClickInTheUserToSelectItBeforeAddingThePermission])
+                    return;
+                }
                 $uibModalInstance.close($scope.permission);
             };
 

@@ -23,7 +23,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.IssuesComments
 
         public void Handle(DeleteIssueCommentCommand command)
         {
-            var issueComment = _issueCommentRepository.Get(command.IssueCommentId);
+            var issueComment = _issueCommentRepository.Get(command.IssueCommentId.Value);
             issueComment.Active = false;
         }
     }

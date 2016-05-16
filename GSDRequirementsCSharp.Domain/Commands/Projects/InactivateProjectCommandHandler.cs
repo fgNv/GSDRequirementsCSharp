@@ -19,7 +19,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Projects
 
         public void Handle(InactivateProjectCommand command)
         {
-            var project = _projectRepository.Get(command.Id);
+            var project = _projectRepository.Get(command.Id.Value);
             project.Active = false;
         }
     }

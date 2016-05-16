@@ -1,0 +1,88 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<h3>
+    @Sentences.relations
+    <button class="btn btn-primary"
+            data-ng-click="addRelation()"
+            title="@Sentences.addRelation">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</h3>
+<div class="alert alert-info" data-ng-show="relationsOnEdit.length == 0">
+    @Sentences.thereAreNoRelationsRegistered
+</div>
+<table class="table" data-ng-show="relationsOnEdit.length > 0">
+    <thead>
+        <tr>
+            <th>@Sentences.relationType</th>
+            <th>@Sentences.source</th>
+            <th>@Sentences.sourceMultiplicity</th>
+            <th>@Sentences.target</th>
+            <th>@Sentences.targetMultiplicity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="relation in relationsOnEdit">
+            <td>
+                <div class="form-group">
+                    <select data-ng-options="type.value as type.label for
+                                             type in relationTypeOptions"
+                            class="form-control"
+                            data-ng-model="relation.type"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">                    
+                    <select data-ng-options="entity.cell.id as entity.name for
+                                             entity in getClassOptions(relation)"                            
+                            class="form-control"
+                            data-ng-model="relation.sourceId"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group"
+                     data-ng-show="relation.type != 300 && relation.type != 900">
+                    <!-- Must be different than Inheritance And Implementation -->
+                    <input type="text"
+                           class="form-control"
+                           id="class-name"
+                           data-ng-model="relation.sourceMultiplicity" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <select data-ng-options="entity.cell.id as entity.name for
+                                             entity in getClassOptions(relation)"
+                            class="form-control"
+                            data-ng-model="relation.targetId"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group" 
+                     data-ng-show="relation.type != 300 && relation.type != 900">
+                    <!-- Must be different than Inheritance And Implementation -->                    
+                    <input type="text"
+                           class="form-control"
+                           data-ng-model="relation.targetMultiplicity" />
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-default">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="btn-group">
+    <button class="btn btn-default"
+            data-ng-click="backToDiagram()">
+        @Sentences.goBack
+    </button>
+    <button class="btn btn-primary"
+            data-ng-click="saveRelations()">
+        @Sentences.save
+    </button>
+</div>
+

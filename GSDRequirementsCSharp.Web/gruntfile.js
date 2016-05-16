@@ -1,4 +1,3 @@
-/// <binding AfterBuild='default' />
 /*
 This file in the main entry point for defining grunt tasks and using grunt plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkID=513275&clcid=0x409
@@ -42,12 +41,14 @@ module.exports = function (grunt) {
             my_target: {
                 files: {
                     'Scripts/app.js': ['Scripts/App/**/*.js'],
-                    'Scripts/vendor.js': [bowerPath + 'jquery/dist/jquery.js',
+                    'Scripts/vendor.js': [bowerPath + 'jquery/jquery.js',
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
                                           bowerPath + 'toastr/toastr.js',
                                           bowerPath + 'angular-mask/dist/ngMask.js',
-                                          bowerPath + 'underscore/underscore.js',
+                                          bowerPath + 'lodash/lodash.js',
+                                          bowerPath + 'backbone/backbone.js',
+                                          bowerPath + 'jointjs/dist/joint.js',
                                           bowerPath + 'angular-resource/angular-resource.js',
                                           bowerPath + 'angular-bootstrap/ui-bootstrap-tpls.js',
                                           bowerPath + 'ng-dialog/js/ngDialog.js',
@@ -63,6 +64,7 @@ module.exports = function (grunt) {
                                                 bowerPath + 'bootstrap/dist/css/bootstrap.css',
                                                 bowerPath + 'bootstrap/dist/css/bootstrap-theme.css',
                                                 bowerPath + 'toastr/toastr.css',
+                                                bowerPath + 'jointjs/dist/joint.css',
                                                 bowerPath + 'components-font-awesome/css/font-awesome.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog.css',
                                                 bowerPath + 'ng-dialog/css/ngDialog-theme-default.css',
@@ -76,8 +78,8 @@ module.exports = function (grunt) {
                 options: {
                     interrupt: true
                 },
-                files: ['Scripts/App/*/**.js'],
-                tasks: ['uglify']
+                files: ['Scripts/App/*/**.js', 'Scripts/App/*/**.ts'],
+                tasks: ['default']
             },
             css: {
                 options: {
@@ -90,7 +92,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('minification', ['uglify', 'cssmin', 'copy']);
-    grunt.registerTask('default', ['minification']);
+    grunt.registerTask('default', ['typescript', 'minification']);
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');

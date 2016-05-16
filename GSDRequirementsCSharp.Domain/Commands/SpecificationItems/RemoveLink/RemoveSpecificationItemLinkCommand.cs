@@ -1,4 +1,5 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,10 +12,14 @@ namespace GSDRequirementsCSharp.Domain.Commands.SpecificationItems
     public class RemoveSpecificationItemLinkCommand : IProjectCommand
     {
         /** <summary>Origin item id</summary>  */
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.sourceIsARequiredField))]
         public Guid? Id { get; set; }
 
-        [Required]
+        [Required(
+         ErrorMessageResourceType = typeof(ValidationMessages),
+         ErrorMessageResourceName = nameof(ValidationMessages.targetIsARequiredField))]
         public Guid? TargetItemId { get; set; }
     }
 }

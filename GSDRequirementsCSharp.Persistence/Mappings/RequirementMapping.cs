@@ -35,6 +35,9 @@ namespace GSDRequirementsCSharp.Persistence.Mappings
                                                          }));
             Property(r => r.ProjectId).HasColumnName("project_id");
 
+            HasRequired(si => si.SpecificationItem).WithMany()
+                                                   .HasForeignKey(cd => cd.Id);
+
             HasRequired(r => r.Project).WithMany()
                                        .HasForeignKey(p => p.ProjectId);
 

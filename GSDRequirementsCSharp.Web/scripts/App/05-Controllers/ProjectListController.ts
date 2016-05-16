@@ -79,7 +79,7 @@
                     $scope.loadProjects()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingProject, error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingProject, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;
@@ -96,8 +96,7 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((error) => {
-                    Notification.notifyError(Sentences.errorLoadingProjects,
-                        error.data.errors)
+                    Notification.notifyError(Sentences.errorLoadingProjects, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

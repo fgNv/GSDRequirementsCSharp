@@ -363,4 +363,10 @@
   <data name="whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide" xml:space="preserve">
     <value>When there are pending issues for an artifact, a red button with a warning sign will be displayed in each artifact row, at the left side.</value>
   </data>
+  <data name="theDataStructureIsArrangedAsProjectContainsPackagesAndPackageContainsArtifacts" xml:space="preserve">
+    <value>The data structure is arranged as: Project contains packages and package contains artifacts.</value>
+  </data>
+  <data name="thisWayToCreateAPackageItsNecessaryToHaveAProjectToLinkToItAndToCreateAnArtifactItsNecessaryToHaveAPackageToLinkToIt" xml:space="preserve">
+    <value>This way, to create a package it's necessary to have a project toLink to it, and to create an artifact it's necessary to have a package to link to it.</value>
+  </data>
 </root>

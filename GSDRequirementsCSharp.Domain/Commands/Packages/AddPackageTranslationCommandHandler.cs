@@ -32,7 +32,7 @@ namespace GSDRequirementsCSharp.Domain.Commands.Packages
 
         public void Handle(AddPackageTranslationCommand command)
         {
-            var package = _packageWithContents.Handle(command.Id);
+            var package = _packageWithContents.Handle(command.Id.Value);
             foreach (var item in command.Items)
             {
                 var content = package.Contents.FirstOrDefault(c => c.Locale == item.Locale);

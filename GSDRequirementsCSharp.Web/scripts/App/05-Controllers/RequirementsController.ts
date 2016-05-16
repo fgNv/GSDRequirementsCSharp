@@ -15,6 +15,8 @@
         requirementToShowDetails: Models.Requirement
         requirementToAddIssues: Models.Requirement
         requirementToManageLinks: Models.Requirement
+        requirementToManageVersions: any
+        setRequirementToManageVersions: any
 
         loadPage(page: number): void
         addRequirement(): void
@@ -40,12 +42,13 @@
             $scope.maxPages = 1
             $scope.requirements = []
             $scope.pendingRequests = 0
+            $scope.requirementToManageVersions = null
             $scope.hasEditPermission =
                 GSDRequirements.currentProfile == Models.profile.editor ||
                 GSDRequirements.currentProfile == Models.profile.projectOwner
             
             window.location.href = "#"
-
+            
             $rootScope.$on('$locationChangeStart', (event, newUrl, oldUrl): void => {
                 var pathValues = $location.path().split('/')
                 var step = pathValues[1];
@@ -55,6 +58,7 @@
                     $scope.requirementToTranslate = null
                     $scope.requirementToManageLinks = null
                     $scope.requirementToShowDetails = null
+                    $scope.requirementToManageVersions = null
                 }
             });
 
@@ -70,7 +74,12 @@
                 $scope.currentPage = page
                 $scope.loadRequirements()
             }
-            
+
+            $scope.setRequirementToManageVersions = (requirement): void => {
+                window.location.href = "#/versions"
+                $scope.requirementToManageVersions = requirement
+            }
+
             $scope.addRequirement = () => {
                 window.location.href = "#/form"
                 $scope.currentRequirement = new Models.Requirement({})
@@ -98,6 +107,7 @@
                     !$scope.requirementToTranslate &&
                     !$scope.requirementToShowDetails &&
                     !$scope.requirementToAddIssues &&
+                    !$scope.requirementToManageVersions && 
                     !$scope.requirementToManageLinks;
             }
 
@@ -110,13 +120,14 @@
             };
 
             $scope.inactivateRequirement = (r): void => {
-                this.InactivateRequirement(SpecificationItemResource, $scope, r)
+                this.InactivateRequirement(RequirementResource, $scope, r)
             }
         }
         private LoadRequirements(requirementResource: any,
             $scope: IRequirementsControllerScope,
             pageSize: number): void {
-            $scope.pendingRequests++;
+            $scope.pendingRequests++
+
             var request = { page: $scope.currentPage, pageSize: pageSize }
             requirementResource.get(request)
                 .$promise
@@ -126,13 +137,13 @@
                     $scope.maxPages = response.maxPages
                 })
                 .catch((err) => {
-                    Notification.notifyError(Sentences.errorLoadingRequirements, err.messages)
+                    Notification.notifyError(Sentences.errorLoadingRequirements, err.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;
                 });
         }
-        private InactivateRequirement(specificationItemResource: any,
+        private InactivateRequirement(requirementResource: any,
             $scope: IRequirementsControllerScope,
             requirement: Models.Requirement): void {
             if (!confirm(Sentences.areYouCertainYouWishToRemoveThisItem)) {
@@ -140,15 +151,14 @@
             }
 
             $scope.pendingRequests++;
-            specificationItemResource.remove({ id: requirement.id })
+            requirementResource.remove({ id: requirement.id })
                 .$promise
                 .then(r => {
                     Notification.notifySuccess(Sentences.requirementInactivatedSuccessfully)
                     $scope.loadRequirements()
                 })
                 .catch(error => {
-                    Notification.notifyError(Sentences.errorInactivatingRequirement,
-                        error.messages)
+                    Notification.notifyError(Sentences.errorInactivatingRequirement, error.data.messages)
                 })
                 .finally(() => {
                     $scope.pendingRequests--;

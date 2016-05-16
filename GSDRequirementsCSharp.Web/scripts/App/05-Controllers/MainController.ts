@@ -20,6 +20,12 @@
                 $scope.$broadcast(Globals.EventNames.updateProjectList)
             })
 
+            $scope.$on(Globals.EventNames.packageAdded, () => {
+                $scope.canAddArtifacts = true;
+            })
+
+            $scope.canAddArtifacts = GSDRequirements.canAddArtifacts; 
+
             setTimeout(function () {
                 $('.hidden-pre-load').fadeIn('slow', function () { });
             }, 110);

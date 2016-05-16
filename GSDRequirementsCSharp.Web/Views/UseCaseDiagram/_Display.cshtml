@@ -1,0 +1,10 @@
+﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+
+<article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
+    <h2>@Sentences.useCaseDiagram {{specificationItem.label}} - @Sentences.version {{version}}</h2>
+
+    <div id="useCaseDiagramDisplayPaperContainer">
+        <div id="useCaseDiagramDisplayPaper"> </div>
+    </div>
+
+</article>
