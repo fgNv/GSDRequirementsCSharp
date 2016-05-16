@@ -105,21 +105,9 @@
     <Compile Include="Mappings\UseCases\UseCasePreConditionMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCasesRelationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201605131418306_schema.cs" />
-    <Compile Include="Migrations\201605131418306_schema.Designer.cs">
-      <DependentUpon>201605131418306_schema.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605150152242_auditing.cs" />
-    <Compile Include="Migrations\201605150152242_auditing.Designer.cs">
-      <DependentUpon>201605150152242_auditing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605151558303_user-login-unique.cs" />
-    <Compile Include="Migrations\201605151558303_user-login-unique.Designer.cs">
-      <DependentUpon>201605151558303_user-login-unique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605151606093_contact-email-unique.cs" />
-    <Compile Include="Migrations\201605151606093_contact-email-unique.Designer.cs">
-      <DependentUpon>201605151606093_contact-email-unique.cs</DependentUpon>
+    <Compile Include="Migrations\201605152346541_schema.cs" />
+    <Compile Include="Migrations\201605152346541_schema.Designer.cs">
+      <DependentUpon>201605152346541_schema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,17 +199,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605131418306_schema.resx">
-      <DependentUpon>201605131418306_schema.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605150152242_auditing.resx">
-      <DependentUpon>201605150152242_auditing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605151558303_user-login-unique.resx">
-      <DependentUpon>201605151558303_user-login-unique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605151606093_contact-email-unique.resx">
-      <DependentUpon>201605151606093_contact-email-unique.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605152346541_schema.resx">
+      <DependentUpon>201605152346541_schema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

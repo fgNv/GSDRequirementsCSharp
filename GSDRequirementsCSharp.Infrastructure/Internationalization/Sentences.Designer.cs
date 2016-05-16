@@ -1465,6 +1465,51 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue added.
+        /// </summary>
+        public static string issueAdded {
+            get {
+                return ResourceManager.GetString("issueAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue comment added.
+        /// </summary>
+        public static string issueCommentAdded {
+            get {
+                return ResourceManager.GetString("issueCommentAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue comment edited.
+        /// </summary>
+        public static string issueCommentEdited {
+            get {
+                return ResourceManager.GetString("issueCommentEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue comment removed.
+        /// </summary>
+        public static string issueCommentRemoved {
+            get {
+                return ResourceManager.GetString("issueCommentRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue concluded.
+        /// </summary>
+        public static string issueConcluded {
+            get {
+                return ResourceManager.GetString("issueConcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Issue created successfully.
         /// </summary>
         public static string issueCreatedSuccessfully {
@@ -1479,6 +1524,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string issueDetails {
             get {
                 return ResourceManager.GetString("issueDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue edited.
+        /// </summary>
+        public static string issueEdited {
+            get {
+                return ResourceManager.GetString("issueEdited", resourceCulture);
             }
         }
         
@@ -2776,6 +2830,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear {
             get {
                 return ResourceManager.GetString("toEditOrRemoveAnUseCaseOrActorClickAboveItAndTheActionMenuWillAppear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To manage artifacts, at least one package must be registered.
+        /// </summary>
+        public static string toManageArtifactsAtLeastOnePackageMustBeRegistered {
+            get {
+                return ResourceManager.GetString("toManageArtifactsAtLeastOnePackageMustBeRegistered", resourceCulture);
             }
         }
         

@@ -45,6 +45,7 @@
                     Notification.notifySuccess(successMessage);
                     if ($scope.afterSave) { $scope.afterSave() }
                     $scope.package = null
+                    $scope.$emit(Globals.EventNames.packageAdded)
                     window.location.href = "#"
                 }).catch(function (error) {
                     Notification.notifyError(Sentences.errorSavingPackage, error.data.messages)

@@ -1125,4 +1125,25 @@
   <data name="login_unique" xml:space="preserve">
     <value>Nome de usuário</value>
   </data>
+  <data name="issueAdded" xml:space="preserve">
+    <value>Observação criada</value>
+  </data>
+  <data name="issueCommentAdded" xml:space="preserve">
+    <value>Comentário de observação adicionado</value>
+  </data>
+  <data name="issueCommentEdited" xml:space="preserve">
+    <value>Comentário de observação editado</value>
+  </data>
+  <data name="issueCommentRemoved" xml:space="preserve">
+    <value>Comentário de observação removido</value>
+  </data>
+  <data name="issueConcluded" xml:space="preserve">
+    <value>Observação concluída</value>
+  </data>
+  <data name="issueEdited" xml:space="preserve">
+    <value>Observação editada</value>
+  </data>
+  <data name="toManageArtifactsAtLeastOnePackageMustBeRegistered" xml:space="preserve">
+    <value>Para gerenciar artefatos, ao menos um pacote deve estar cadastrado</value>
+  </data>
 </root>

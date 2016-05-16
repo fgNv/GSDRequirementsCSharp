@@ -24,9 +24,11 @@
                          .Where(entry => entry.Key != null && entry.Value != null)
                          .ToDictionary(r => r.Key.ToString(), r => r.Value.ToString());
         }
+
+        bool? anyPackagesRegistered = ViewBag.AnyPackagesRegistered;
     }
 
-    @foreach(var sentence in sentences)
+    @foreach (var sentence in sentences)
     {
         WriteLiteral(String.Format("Sentences.{0} = \"{1}\";", sentence.Key, sentence.Value));
     }
@@ -34,6 +36,7 @@
     var baseUrl = '@(Url.Content("/"))';
     GSDRequirements.baseUrl = baseUrl;
     GSDRequirements.currentLocale = '@(Thread.CurrentThread.CurrentCulture.Name)';
+    GSDRequirements.canAddArtifacts = @(!anyPackagesRegistered.HasValue || !anyPackagesRegistered.Value ? "false" : "true");
 
     @{
         var localesAvailable = Locale.GetLocales();

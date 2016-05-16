@@ -1,9 +1,11 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Queries.Permissions;
+using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.ServiceProviders;
+using GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject;
 using GSDRequirementsCSharp.Web.Filters.Attributes;
 using SimpleInjector;
 using System;
@@ -34,8 +36,14 @@ namespace GSDRequirementsCSharp.Web.Filters
 
             var permission = permissionByUserAndProjectQueryHandler.Handle(query);
 
-            if (permission != null)
-                filterContext.Controller.ViewBag.Profile = permission.Profile;
+            if (permission == null)
+                return;
+
+            filterContext.Controller.ViewBag.Profile = permission.Profile;
+
+            var packagesQueryHandler = container.GetInstance<IQueryHandler<PackagesCurrentProjectQuery, IEnumerable<PackageViewModel>>>();
+            var packages = packagesQueryHandler.Handle(null);
+            filterContext.Controller.ViewBag.AnyPackagesRegistered = packages.Count() > 0;
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -49,8 +57,8 @@ namespace GSDRequirementsCSharp.Web.Filters
             var container = DependencyInjection.ContainerExtensions.GetScopedContainer();
             using (container.BeginLifetimeScope())
             {
-                var currentUserProvider = container.GetInstance<ICurrentUserRetriever<User>>();                
-                
+                var currentUserProvider = container.GetInstance<ICurrentUserRetriever<User>>();
+
                 var currentUser = currentUserProvider.Get();
                 if (currentUser == null)
                     return;

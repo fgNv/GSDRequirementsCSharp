@@ -7,13 +7,13 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class auditing : IMigrationMetadata
+    public sealed partial class schema : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(auditing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(schema));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605150152242_auditing"; }
+            get { return "201605152346541_schema"; }
         }
         
         string IMigrationMetadata.Source

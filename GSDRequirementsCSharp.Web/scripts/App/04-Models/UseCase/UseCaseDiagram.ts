@@ -11,6 +11,7 @@
         public id: string
         public identifier: string
         public relations: any
+        public version: number
         public useCasesRelations: any //input / output
         public useCases: any //output / input
         public getLabel() {
@@ -42,7 +43,7 @@
                 this.actors = _.map(this.actors, a => new Actor(a))
                 this.entities = _.union(this.useCases, this.actors)
                 this.relations = _.map(_.union(this.useCasesRelations, this.entitiesRelations),
-                                      (r) => new Models.UseCaseRelationship(r))
+                    (r) => new Models.UseCaseRelationship(r))
             } else {
                 this.entities = []
                 this.relations = []

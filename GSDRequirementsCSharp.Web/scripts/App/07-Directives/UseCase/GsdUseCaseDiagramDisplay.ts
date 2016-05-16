@@ -119,6 +119,9 @@
                         .$promise
                         .then((response) => {
                             var useCaseDiagram = new Models.UseCaseDiagram(response)
+                            if (!$scope.version)
+                                $scope.version = useCaseDiagram.version
+                            
                             drawDiagram(useCaseDiagram)
                         })
                         .catch((err) => {

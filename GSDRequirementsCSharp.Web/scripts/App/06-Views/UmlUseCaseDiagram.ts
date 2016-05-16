@@ -65,7 +65,7 @@
                     ry: 60,
                     fill: '#FFFFFF',
                     stroke: 'black',
-                    'stroke-width' : 2
+                    'stroke-width': 2
                 },
                 'text': {
                     'font-size': 12,
@@ -102,7 +102,7 @@
 
             if (actor.cell && actor.cell.id) {
                 newActor.set('id', actor.cell.id)
-            } else if (actor.id){
+            } else if (actor.id) {
                 newActor.set('id', actor.id)
             }
 
@@ -187,7 +187,7 @@
                 }
 
                 removeSelections(graph, paper)
-                
+
                 cellViewVectorized.addClass('selectedCell')
                 if (cellClickCallback) {
                     cellClickCallback(cellView)
@@ -204,7 +204,9 @@
             var isSelfReference = sourceId == targetId
 
             var cell = null
-            
+
+            var thinArrowPath = 'M 10 0 L 0 5 M 10 10 L 0 5 M 10 5 L 0 5'
+
             switch (relationData.type) {
                 case Models.UseCasesRelationType.association:
                     cell = new joint.shapes.uml.Association({
@@ -225,8 +227,16 @@
                     cell = new joint.shapes.uml.Implementation({
                         source: { id: sourceId },
                         target: { id: targetId },
+                        attrs: {
+                            '.marker-target': { fill: '#4b4a67', stroke: '#4b4a67', d: thinArrowPath }
+                        },
                         labels: [
-                            { position: 0.5, attrs: { text: { text: "<<extend>>" } } }
+                            {
+                                position: 0.5,
+                                attrs: {
+                                    text: { text: "<<extend>>" }
+                                }
+                            }
                         ]
                     })
                     break;
@@ -239,8 +249,16 @@
                     cell = new joint.shapes.uml.Implementation({
                         source: { id: sourceId },
                         target: { id: targetId },
+                        attrs: {
+                            '.marker-target': { fill: '#4b4a67', stroke: '#4b4a67', d: thinArrowPath }
+                        },
                         labels: [
-                            { position: 0.5, attrs: { text: { text: "<<include>>" } } }
+                            {
+                                position: 0.5,
+                                attrs: {
+                                    text: { text: "<<include>>" }
+                                }
+                            }
                         ]
                     })
                     break;

@@ -32,13 +32,24 @@
                     </a>
                 </li>
                 <li class="dropdown">
+                    <a class="dropdown-toggle disabled"                       
+                       data-ng-show="!canAddArtifacts"
+                       data-uib-popover="@Sentences.toManageArtifactsAtLeastOnePackageMustBeRegistered"
+                       data-popover-placement="bottom"
+                       data-popover-trigger="mouseenter"
+                       role="button">
+                        @Sentences.artifacts
+                        <i class="fa fa-ban"></i>
+                    </a>
                     <a class="dropdown-toggle"
                        data-toggle="dropdown"
+                       data-ng-show="canAddArtifacts"
                        role="button"
                        aria-haspopup="true" aria-expanded="false">
-                        @Sentences.artifacts <span class="caret"></span>
+                        @Sentences.artifacts
+                        <span class="caret" data-ng-show="canAddArtifacts"></span>
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" data-ng-show="canAddArtifacts">
                         <li>
                             <a href="@Url.Action("Index", "Requirement")">
                                 @Sentences.requirements

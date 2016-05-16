@@ -258,7 +258,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_UnauthenticatedLayout.cshtml" />
     <Content Include="Views\Shared\Internationalization\CurrentCultureSetterForm.cshtml" />
-    <Content Include="Views\Shared\Internationalization\DataToJS.cshtml" />
+    <Content Include="Views\Shared\DataToJS.cshtml" />
     <Content Include="App_Code\TextInputHelper.cshtml" />
     <Content Include="Views\Project\_Form.cshtml" />
     <Content Include="Views\Project\_Translation.cshtml" />

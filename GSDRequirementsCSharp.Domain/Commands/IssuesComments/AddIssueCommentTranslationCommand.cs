@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Infrastructure.Internationalization;
+﻿using GSDRequirementsCSharp.Domain.Metadata;
+using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands.IssuesComments
 {
+    [CommandDescription(nameof(Sentences.issueCommentEdited))]
     public class AddIssueCommentTranslationCommand : IProjectCollaboratorCommand
     {
         [Required(

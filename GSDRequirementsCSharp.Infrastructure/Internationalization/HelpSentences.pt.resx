@@ -363,4 +363,10 @@
   <data name="whenThereArePendingIssuesForAnArtifactARedButtonWithAWarningWillBeDisplayedInTheRowAtTheLeftSide" xml:space="preserve">
     <value>Quando há observações pendentes para um artefato, um botão vermelho com um símbolo de aviso em cada linha na listagem de artefatos, do lado esquerdo.</value>
   </data>
+  <data name="theDataStructureIsArrangedAsProjectContainsPackagesAndPackageContainsArtifacts" xml:space="preserve">
+    <value>A estrutura de dados está organizada da seguinte forma: Projeto contém pacotes e pacote contém artefatos.</value>
+  </data>
+  <data name="thisWayToCreateAPackageItsNecessaryToHaveAProjectToLinkToItAndToCreateAnArtifactItsNecessaryToHaveAPackageToLinkToIt" xml:space="preserve">
+    <value>Dessa forma, para criar um pacote é necessário haver um projeto para vincular ao pacote, e para criar um artefato é necessário possuir um pacote para vincular ao artefato.</value>
+  </data>
 </root>

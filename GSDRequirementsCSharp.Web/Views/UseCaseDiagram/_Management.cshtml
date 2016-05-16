@@ -89,7 +89,7 @@
     </div>
     <div class="btn-group"
          style="margin-bottom: 10px; "
-         data-ng-show="selectedActor">
+         data-ng-show="selectedActor && !editingRelations">
         <button class="btn btn-default"
                 data-ng-click="removeSelectedActor()">
             @Sentences.removeSelected
@@ -101,7 +101,7 @@
     </div>
     <div class="btn-group"
          style="margin-bottom: 10px; "
-         data-ng-show="selectedUseCase">
+         data-ng-show="selectedUseCase && !editingRelations">
         <button class="btn btn-default"
                 data-ng-click="removeSelectedUseCase()">
             @Sentences.removeSelected

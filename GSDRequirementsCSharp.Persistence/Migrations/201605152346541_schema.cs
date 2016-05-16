@@ -157,6 +157,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                     })
                 .PrimaryKey(t => t.id)                
                 .ForeignKey("Contact", t => t.contactId)
+                .Index(t => t.login, unique: true, name: "login_unique")
                 .Index(t => t.contactId);
             
             CreateTable(
@@ -169,7 +170,8 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         name = c.String(nullable: false, maxLength: 100, unicode: false),
                         phone = c.String(maxLength: 100, unicode: false),
                     })
-                .PrimaryKey(t => t.id)                ;
+                .PrimaryKey(t => t.id)                
+                .Index(t => t.email, unique: true, name: "email_unique");
             
             CreateTable(
                 "Requirement",
@@ -369,11 +371,11 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false),
-                        use_case_diagram_id = c.Guid(nullable: false),
-                        Source_Id = c.Guid(nullable: false),
                         Source_Version = c.Int(nullable: false),
-                        Target_Id = c.Guid(nullable: false),
                         Target_Version = c.Int(nullable: false),
+                        Source_Id = c.Guid(nullable: false),
+                        Target_Id = c.Guid(nullable: false),
+                        use_case_diagram_id = c.Guid(nullable: false),
                         UseCaseDiagram_Id = c.Guid(nullable: false),
                         UseCaseDiagram_Version = c.Int(nullable: false),
                     })
@@ -415,6 +417,22 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                 .Index(t => new { t.target_id, t.version })
                 .Index(t => new { t.source_id, t.version })
                 .Index(t => new { t.use_case_diagram_id, t.version });
+            
+            CreateTable(
+                "Auditing",
+                c => new
+                    {
+                        id = c.Guid(nullable: false),
+                        project_id = c.Guid(nullable: false),
+                        user_id = c.Int(nullable: false),
+                        activity_description = c.String(unicode: false),
+                        executed_at = c.DateTime(nullable: false, precision: 0),
+                    })
+                .PrimaryKey(t => t.id)                
+                .ForeignKey("Project", t => t.project_id, cascadeDelete: true)
+                .ForeignKey("User", t => t.user_id, cascadeDelete: true)
+                .Index(t => t.project_id)
+                .Index(t => t.user_id);
             
             CreateTable(
                 "ClassDiagram",
@@ -585,6 +603,8 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropForeignKey("ClassProperty", "class_id", "Class");
             DropForeignKey("ClassMethod", "class_id", "Class");
             DropForeignKey("ClassMethodParameter", "class_method_id", "ClassMethod");
+            DropForeignKey("Auditing", "user_id", "User");
+            DropForeignKey("Auditing", "project_id", "Project");
             DropForeignKey("UseCasesRelation", new[] { "use_case_diagram_id", "version" }, "UseCaseDiagram");
             DropForeignKey("UseCasesRelation", new[] { "target_id", "version" }, "UseCase");
             DropForeignKey("UseCasesRelation", new[] { "source_id", "version" }, "UseCase");
@@ -641,6 +661,8 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("Class", new[] { "ClassDiagram_Id", "ClassDiagram_Version" });
             DropIndex("ClassDiagram", "class_diagram_identifier");
             DropIndex("ClassDiagram", new[] { "id" });
+            DropIndex("Auditing", new[] { "user_id" });
+            DropIndex("Auditing", new[] { "project_id" });
             DropIndex("UseCasesRelation", new[] { "use_case_diagram_id", "version" });
             DropIndex("UseCasesRelation", new[] { "source_id", "version" });
             DropIndex("UseCasesRelation", new[] { "target_id", "version" });
@@ -670,7 +692,9 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropIndex("Requirement", "IX_Requirement_Last_Version");
             DropIndex("Requirement", "requirement_identifier");
             DropIndex("Requirement", new[] { "id" });
+            DropIndex("Contact", "email_unique");
             DropIndex("User", new[] { "contactId" });
+            DropIndex("User", "login_unique");
             DropIndex("Project", "project_identifier");
             DropIndex("Project", new[] { "owner_id" });
             DropIndex("UseCasePreConditionContent", new[] { "id" });
@@ -693,6 +717,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
             DropTable("ClassMethod");
             DropTable("Class");
             DropTable("ClassDiagram");
+            DropTable("Auditing");
             DropTable("UseCasesRelation");
             DropTable("UseCaseEntitiesRelationContent");
             DropTable("UseCaseEntityRelation");

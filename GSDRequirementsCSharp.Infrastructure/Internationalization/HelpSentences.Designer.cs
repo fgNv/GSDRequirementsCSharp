@@ -600,6 +600,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The data structure is arranged as: Project contains packages and package contains artifacts..
+        /// </summary>
+        public static string theDataStructureIsArrangedAsProjectContainsPackagesAndPackageContainsArtifacts {
+            get {
+                return ResourceManager.GetString("theDataStructureIsArrangedAsProjectContainsPackagesAndPackageContainsArtifacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The links are always bidirectional..
         /// </summary>
         public static string theLinksAreAlwaysBidirectional {
@@ -687,6 +696,16 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm {
             get {
                 return ResourceManager.GetString("thisCanBeAccomplishedByPressingTheRegisterButtonBelowTheLoginForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This way, to create a package it&apos;s necessary to have a project toLink to it, and to create an artifact it&apos;s necessary to have a package to link to it..
+        /// </summary>
+        public static string thisWayToCreateAPackageItsNecessaryToHaveAProjectToLinkToItAndToCreateAnArtifactItsNecessaryToHaveAPackageToLinkToIt {
+            get {
+                return ResourceManager.GetString("thisWayToCreateAPackageItsNecessaryToHaveAProjectToLinkToItAndToCreateAnArtifactI" +
+                        "tsNecessaryToHaveAPackageToLinkToIt", resourceCulture);
             }
         }
         
