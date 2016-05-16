@@ -207,9 +207,9 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         /// <summary>
         ///   Looks up a localized string similar to Max &quot;Mobile Phone&quot; length is 20.
         /// </summary>
-        public static string maxMobilePhoneLengthIs50 {
+        public static string maxMobilePhoneLengthIs20 {
             get {
-                return ResourceManager.GetString("maxMobilePhoneLengthIs50", resourceCulture);
+                return ResourceManager.GetString("maxMobilePhoneLengthIs20", resourceCulture);
             }
         }
         
@@ -232,7 +232,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Max &quot;Phone&quot; length is 50.
+        ///   Looks up a localized string similar to Max &quot;Phone&quot; length is 20.
         /// </summary>
         public static string maxPhoneLengthIs20 {
             get {

@@ -2,7 +2,7 @@
 @using GSDRequirementsCSharp.Web.Models
 
 @{
-    ViewBag.Title = Sentences.createNewAccount;
+    ViewBag.Title = "GSD-R: " + Sentences.createNewAccount;
     Layout = "~/Views/Shared/_UnauthenticatedLayout.cshtml";
 }
 
@@ -25,13 +25,13 @@
         <div class="col-md-6">
             @TextInputHelper.TextInput("mobilePhone", Sentences.mobilePhone, false,
                                        Att.NgModel("UserData.MobilePhone"),
-                                       Att.NgMaskNumber(),
+                                       Att.NgMaskPhone(),
                                        Att.Length(10))
         </div>
         <div class="col-md-6">
             @TextInputHelper.TextInput("phone", Sentences.phone, false,
                                        Att.NgModel("UserData.Phone"),
-                                       Att.NgMaskNumber(), Att.Length(10))
+                                       Att.NgMaskPhone(), Att.Length(10))
         </div>
     </div>
 

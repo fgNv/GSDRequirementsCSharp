@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand.CreateUserCommand;
 
 namespace GSDRequirementsCSharp.Domain.Commands.Users
 {
@@ -22,10 +23,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
           ErrorMessageResourceName = nameof(ValidationMessages.maxEmailLengthIs50))]
         public string Email { get; set; }
 
-        [StringLength(20,
+        [StringLength(23,
         ErrorMessageResourceType = typeof(ValidationMessages),
-        ErrorMessageResourceName = nameof(ValidationMessages.maxMobilePhoneLengthIs50))]
-        [RegularExpression(@"^([0-9]+)$",
+        ErrorMessageResourceName = nameof(ValidationMessages.maxMobilePhoneLengthIs20))]
+        [RegularExpression(PHONE_REGULAR_EXPRESSION,
         ErrorMessageResourceType = typeof(ValidationMessages),
         ErrorMessageResourceName = nameof(ValidationMessages.mobilePhoneMustContainOnlyNumbers))]
         public string MobilePhone { get; set; }
@@ -38,10 +39,10 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
       ErrorMessageResourceName = nameof(ValidationMessages.maxNameLengthIs100))]
         public string Name { get; set; }
 
-        [StringLength(20,
+        [StringLength(23,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.maxPhoneLengthIs20))]
-        [RegularExpression(@"^([0-9]+)$",
+        [RegularExpression(PHONE_REGULAR_EXPRESSION,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.phoneMustContainOnlyNumbers))]
         public string Phone { get; set; }

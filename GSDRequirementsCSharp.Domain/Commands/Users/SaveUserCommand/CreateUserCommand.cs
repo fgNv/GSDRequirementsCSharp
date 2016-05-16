@@ -11,6 +11,8 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
 {
     public class CreateUserCommand : ICommand
     {
+        public const string PHONE_REGULAR_EXPRESSION = @"^\+([0-9\s]*)$";
+
         [Required(
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.loginIsARequiredField))]
@@ -41,10 +43,10 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
          ErrorMessageResourceName = nameof(ValidationMessages.maxEmailLengthIs50))]
         public string Email { get; set; }
 
-        [StringLength(20,
+        [StringLength(23,
          ErrorMessageResourceType = typeof(ValidationMessages),
-         ErrorMessageResourceName = nameof(ValidationMessages.maxMobilePhoneLengthIs50))]
-        [RegularExpression(@"^([0-9]+)$",
+         ErrorMessageResourceName = nameof(ValidationMessages.maxMobilePhoneLengthIs20))]
+        [RegularExpression(PHONE_REGULAR_EXPRESSION,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.mobilePhoneMustContainOnlyNumbers))]
         public string MobilePhone { get; set; }
@@ -57,10 +59,10 @@ namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
          ErrorMessageResourceName = nameof(ValidationMessages.maxNameLengthIs100))]
         public string Name { get; set; }
 
-        [StringLength(20,
+        [StringLength(23,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.maxPhoneLengthIs20))]
-        [RegularExpression(@"^([0-9]+)$",
+        [RegularExpression(PHONE_REGULAR_EXPRESSION,
          ErrorMessageResourceType = typeof(ValidationMessages),
          ErrorMessageResourceName = nameof(ValidationMessages.phoneMustContainOnlyNumbers))]
         public string Phone { get; set; }

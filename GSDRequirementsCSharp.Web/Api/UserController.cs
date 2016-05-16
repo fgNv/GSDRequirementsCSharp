@@ -3,7 +3,10 @@ using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand;
 using GSDRequirementsCSharp.Persistence.Queries.Users.BySearchTerm;
+using GSDRequirementsCSharp.Web.Api.Globals;
+using GSDRequirementsCSharp.Web.Context;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api
@@ -27,9 +30,16 @@ namespace GSDRequirementsCSharp.Web.Api
         }
 
         // POST api/<controller>
-        public void Post([FromBody]CreateUserCommand command)
+        public HttpResponseMessage Post([FromBody]CreateUserCommand command)
         {
+            var response = new HttpResponseMessage();
+            var projectCookieRemoval = CookieRemoval.Get(ActionContext.Request, ProjectContext.COOKIE_NAME);
+            if (projectCookieRemoval != null)
+                response.Headers.AddCookies(new[] { projectCookieRemoval });
+
             _createUserCommandHandler.Handle(command);
+            response.StatusCode = System.Net.HttpStatusCode.Created;
+            return response;
         }
 
         // PUT api/<controller>/5

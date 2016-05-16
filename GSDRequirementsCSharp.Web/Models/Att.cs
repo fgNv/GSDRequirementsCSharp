@@ -31,6 +31,11 @@ namespace GSDRequirementsCSharp.Web.Models
             return NgMask("9999999999999");
         }
 
+        public static Att NgMaskPhone()
+        {
+            return NgMask("+99 999 99999 9999 9999");
+        }
+
         public static Att Length(int maxLength)
         {
             return new Att("length", maxLength.ToString());

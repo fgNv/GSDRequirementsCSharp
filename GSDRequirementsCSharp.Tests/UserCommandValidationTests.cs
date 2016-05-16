@@ -17,10 +17,10 @@ namespace GSDRequirementsCSharp.Tests
 
             command.Email = "teste@teste.com";
             command.Login = "teste";
-            command.MobilePhone = "9988887777";
+            command.MobilePhone = "+ 55888 7777";
             command.Name = "teste";
             command.Password = "teste";
-            command.Phone = "77666655555";        
+            command.Phone = "+5588 8877 77";        
 
             var validator = ContainerExtensions.GetInstance<IValidator>();
             var errors = validator.Validate(command);

@@ -27,9 +27,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
             var user = _currentUserRetriever.Get();
             var contact = _contactByUserIdQueryHandler.Handle(user.Id);
             contact.Email = command.Email;
-            contact.MobilePhone = command.MobilePhone;
+            contact.MobilePhone = command.MobilePhone.Replace(" ", "").Replace("+", "");
             contact.Name = command.Name;
-            contact.Phone = command.Phone;
+            contact.Phone = command.Phone.Replace(" ", "").Replace("+", "");
         }
     }
 }

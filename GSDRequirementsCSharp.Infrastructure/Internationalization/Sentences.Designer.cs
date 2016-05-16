@@ -151,6 +151,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding translation for project.
+        /// </summary>
+        public static string addingTranslationForProject {
+            get {
+                return ResourceManager.GetString("addingTranslationForProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add issue.
         /// </summary>
         public static string addIssue {
@@ -804,6 +813,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string editClass {
             get {
                 return ResourceManager.GetString("editClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editing Project.
+        /// </summary>
+        public static string editingProject {
+            get {
+                return ResourceManager.GetString("editingProject", resourceCulture);
             }
         }
         
@@ -2302,6 +2320,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project defined in the context required.
+        /// </summary>
+        public static string projectDefinedInTheContextRequired {
+            get {
+                return ResourceManager.GetString("projectDefinedInTheContextRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project details.
         /// </summary>
         public static string projectDetails {
@@ -2415,6 +2442,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string register {
             get {
                 return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register Or Login.
+        /// </summary>
+        public static string registerOrLogin {
+            get {
+                return ResourceManager.GetString("registerOrLogin", resourceCulture);
             }
         }
         
@@ -3019,6 +3055,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         public static string userAccountSuccessfullyCreated {
             get {
                 return ResourceManager.GetString("userAccountSuccessfullyCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Data Management.
+        /// </summary>
+        public static string userDataManagement {
+            get {
+                return ResourceManager.GetString("userDataManagement", resourceCulture);
             }
         }
         

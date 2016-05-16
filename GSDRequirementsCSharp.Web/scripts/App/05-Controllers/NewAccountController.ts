@@ -12,14 +12,15 @@
 
     class NewAccountController {
         constructor(
-            private $scope: any,
-            private UserResource: any
+            private $scope,
+            private UserResource,
+            private $cookies
         ) {
-            $scope.save = () => this.Save(UserResource, $scope)
+            $scope.save = () => this.Save(UserResource, $scope, $cookies)
             $scope.pendingRequests = 0
             this.$scope.UserData = new UserData()
         }
-        private Save(userResource: any, $scope: any): void {
+        private Save(userResource, $scope, $cookies): void {
 
             if ($scope.passwordConfirmation != $scope.UserData.Password) {
                 Notification.notifyWarning(Sentences.errorSavingUserAccount,
@@ -31,8 +32,9 @@
             userResource.save($scope.UserData)
                 .$promise
                 .then((response) => {
-                    Notification.notifySuccess(Sentences.userAccountSuccessfullyCreated);
-                    setTimeout(() => window.location = <any>(baseUrl + "home/login"), 2100);
+                    Notification.notifySuccess(Sentences.userAccountSuccessfullyCreated)
+                    $cookies.remove("projectContext")
+                    setTimeout(() => window.location = <any>(baseUrl + "project/setContext"), 2100)
                 })
                 .catch((error) => {
                     $scope.pendingRequests--;
@@ -40,5 +42,5 @@
                 });
         }
     }
-    app.controller('NewAccountController', ["$scope", "UserResource", NewAccountController]);
+    app.controller('NewAccountController', ["$scope", "UserResource", "$cookies", NewAccountController]);
 }
