@@ -20,6 +20,8 @@ namespace GSDRequirementsCSharp.Persistence.Mappings.UseCases
             Property(e => e.Name).HasColumnName("name");
             Property(e => e.Description).HasColumnName("description")
                                         .HasColumnType("text");
+            Property(e => e.Path).HasColumnName("path")
+                                        .HasColumnType("text");
 
             Property(e => e.Locale).HasColumnName("locale");
             HasRequired(e => e.UseCase).WithMany(uc => uc.Contents);

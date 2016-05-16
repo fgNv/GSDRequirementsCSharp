@@ -73,7 +73,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
                         id = c.Guid(nullable: false),
                         locale = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
                         name = c.String(nullable: false, maxLength: 100, unicode: false),
-                        Path = c.String(maxLength: 65535, storeType: "nvarchar"),
+                        path = c.String(unicode: false, storeType: "text"),
                         description = c.String(unicode: false, storeType: "text"),
                         UseCase_Id = c.Guid(nullable: false),
                         UseCase_Version = c.Int(nullable: false),

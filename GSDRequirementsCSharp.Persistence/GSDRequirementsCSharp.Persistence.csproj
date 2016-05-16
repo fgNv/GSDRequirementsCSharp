@@ -105,9 +105,9 @@
     <Compile Include="Mappings\UseCases\UseCasePreConditionMapping.cs" />
     <Compile Include="Mappings\UseCases\UseCasesRelationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
-    <Compile Include="Migrations\201605152346541_schema.cs" />
-    <Compile Include="Migrations\201605152346541_schema.Designer.cs">
-      <DependentUpon>201605152346541_schema.cs</DependentUpon>
+    <Compile Include="Migrations\201605160124183_schema.cs" />
+    <Compile Include="Migrations\201605160124183_schema.Designer.cs">
+      <DependentUpon>201605160124183_schema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,8 +199,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605152346541_schema.resx">
-      <DependentUpon>201605152346541_schema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605160124183_schema.resx">
+      <DependentUpon>201605160124183_schema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

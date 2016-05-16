@@ -13,7 +13,7 @@ namespace GSDRequirementsCSharp.Persistence.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201605152346541_schema"; }
+            get { return "201605160124183_schema"; }
         }
         
         string IMigrationMetadata.Source
