@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Requirements
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [CommandDescription(nameof(Sentences.requirementRemoved))]
     public class RemoveRequirementCommand : IProjectCommand

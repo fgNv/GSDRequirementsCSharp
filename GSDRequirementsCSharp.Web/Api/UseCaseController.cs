@@ -1,9 +1,6 @@
-﻿using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
+﻿using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api

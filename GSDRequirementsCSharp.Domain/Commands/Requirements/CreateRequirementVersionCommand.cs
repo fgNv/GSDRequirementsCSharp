@@ -3,7 +3,7 @@ using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Requirements
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [CommandDescription(nameof(Sentences.newRequirementVersionCreated))]
     public class CreateRequirementVersionCommand : SaveRequirementCommand

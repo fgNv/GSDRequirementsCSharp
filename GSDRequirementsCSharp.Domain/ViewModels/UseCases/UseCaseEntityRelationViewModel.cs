@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
+namespace GSDRequirementsCSharp.Domain.ViewModels
 {
     public class UseCaseEntityRelationViewModel
     {

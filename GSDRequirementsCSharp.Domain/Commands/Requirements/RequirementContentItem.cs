@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Requirements
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [RequirementDescriptionRequired(
      ErrorMessageResourceType = typeof(ValidationMessages),

@@ -1,17 +1,15 @@
 ﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Queries.Permissions;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Infrastructure.ServiceProviders;
 using GSDRequirementsCSharp.Persistence.Queries.Packages.CurrentProject;
 using GSDRequirementsCSharp.Web.Filters.Attributes;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GSDRequirementsCSharp.Web.Filters

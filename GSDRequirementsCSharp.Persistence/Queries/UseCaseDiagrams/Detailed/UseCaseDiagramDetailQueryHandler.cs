@@ -1,9 +1,9 @@
 ﻿using GSDRequirementsCSharp.Infrastructure.CQS;
 using System.Data.Entity;
 using System.Linq;
-using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
 using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.ViewModels;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.ClassDiagrams.Detailed
 {

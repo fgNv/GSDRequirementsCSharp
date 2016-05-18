@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.IssuesComments
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class IssueCommentContentItem
     {

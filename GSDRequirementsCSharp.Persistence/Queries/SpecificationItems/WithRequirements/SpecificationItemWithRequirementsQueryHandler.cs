@@ -1,12 +1,6 @@
-﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using System.Data.Entity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.SpecificationItems.WithRequirements
 {

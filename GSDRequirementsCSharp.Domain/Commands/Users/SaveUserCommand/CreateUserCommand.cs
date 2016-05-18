@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 
-namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+namespace GSDRequirementsCSharp.Persistence.Commands
 {
     public class CreateUserCommand : ICommand
     {

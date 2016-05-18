@@ -1,4 +1,4 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Projects;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Context;

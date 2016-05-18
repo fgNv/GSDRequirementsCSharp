@@ -8,7 +8,7 @@ using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class MethodItem
     {

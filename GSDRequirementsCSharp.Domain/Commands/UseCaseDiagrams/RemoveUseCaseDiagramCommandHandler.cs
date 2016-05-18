@@ -1,14 +1,11 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class RemoveUseCaseDiagramCommandHandler : ICommandHandler<RemoveUseCaseDiagramCommand>
     {

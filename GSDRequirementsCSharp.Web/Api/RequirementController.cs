@@ -1,14 +1,12 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands;
-using GSDRequirementsCSharp.Domain.Commands.Requirements;
-using GSDRequirementsCSharp.Domain.Queries.Requirements;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Validation;
 using GSDRequirementsCSharp.Persistence.Queries;
-using System;
 using System.Collections.Generic;
 using System.Web.Http;
 

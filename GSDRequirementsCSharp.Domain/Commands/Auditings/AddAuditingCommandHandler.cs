@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Auditings
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     class AddAuditingCommandHandler : ICommandHandler<AddAuditingCommand>
     {

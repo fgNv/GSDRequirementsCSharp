@@ -1,17 +1,10 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Queries.Packages;
 using GSDRequirementsCSharp.Infrastructure;
-using GSDRequirementsCSharp.Infrastructure.Authentication;
-using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Packages
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     class UpdatePackageCommandHandler : ICommandHandler<UpdatePackageCommand>
     {

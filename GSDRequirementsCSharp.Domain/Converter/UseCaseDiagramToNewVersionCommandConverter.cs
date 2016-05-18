@@ -1,8 +1,6 @@
 ﻿using GSDRequirementsCSharp.Domain.Commands;
-using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams.DTO;
 using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Models.UseCases;
-using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System.Collections.Generic;

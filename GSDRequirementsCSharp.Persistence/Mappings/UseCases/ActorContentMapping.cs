@@ -1,11 +1,5 @@
-﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Models.UseCases;
-using System;
-using System.Collections.Generic;
+﻿using GSDRequirementsCSharp.Domain.Models;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Mappings
 {

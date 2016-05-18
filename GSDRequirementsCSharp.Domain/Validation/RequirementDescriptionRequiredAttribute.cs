@@ -1,10 +1,5 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Requirements;
-using System;
-using System.Collections.Generic;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Validation
 {

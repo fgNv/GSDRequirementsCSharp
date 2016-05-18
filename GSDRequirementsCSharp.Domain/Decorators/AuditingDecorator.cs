@@ -1,13 +1,9 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Auditings;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.Metadata;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Decorators
 {

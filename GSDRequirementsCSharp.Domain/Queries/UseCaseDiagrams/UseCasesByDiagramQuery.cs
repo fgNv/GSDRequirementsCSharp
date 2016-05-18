@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams
+namespace GSDRequirementsCSharp.Domain.Queries
 {
     public  class UseCasesByDiagramQuery
     {

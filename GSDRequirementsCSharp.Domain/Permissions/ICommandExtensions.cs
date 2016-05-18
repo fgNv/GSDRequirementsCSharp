@@ -3,16 +3,12 @@ using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using GSDRequirementsCSharp.Infrastructure.ServiceProviders;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GSDRequirementsCSharp.Domain.Queries.Permissions;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.Exceptions;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using GSDRequirementsCSharp.Domain.Models;
+using GSDRequirementsCSharp.Domain.Queries;
 
 namespace GSDRequirementsCSharp.Domain.Permissions
 {

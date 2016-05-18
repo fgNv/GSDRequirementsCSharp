@@ -1,19 +1,14 @@
 ﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Commands.Projects;
+using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Queries.Projects;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Persistence.Commands.Projects
+namespace GSDRequirementsCSharp.Persistence.Commands
 {
     class CreateProjectCommandHandler : ICommandHandler<CreateProjectCommand>
     {

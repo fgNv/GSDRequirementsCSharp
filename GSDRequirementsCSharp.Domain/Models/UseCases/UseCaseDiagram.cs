@@ -28,7 +28,7 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public bool IsLastVersion { get; set; }
 
-        public ICollection<UseCases.UseCaseEntity> Entities { get; set; }
+        public ICollection<Models.UseCaseEntity> Entities { get; set; }
 
         public ICollection<UseCaseEntityRelation> EntitiesRelations { get; set; }
 
@@ -46,7 +46,7 @@ namespace GSDRequirementsCSharp.Domain.Models
 
         public UseCaseDiagram()
         {
-            Entities = new HashSet<UseCases.UseCaseEntity>();
+            Entities = new HashSet<Models.UseCaseEntity>();
             EntitiesRelations = new HashSet<UseCaseEntityRelation>();
             Contents = new HashSet<UseCaseDiagramContent>();
             UseCasesRelations = new HashSet<UseCasesRelation>();

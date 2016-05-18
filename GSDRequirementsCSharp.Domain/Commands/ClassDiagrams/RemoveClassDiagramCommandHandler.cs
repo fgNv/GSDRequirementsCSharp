@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class RemoveClassDiagramCommandHandler : ICommandHandler<RemoveClassDiagramCommand>
     {

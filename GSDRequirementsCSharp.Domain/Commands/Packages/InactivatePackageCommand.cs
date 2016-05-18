@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Packages
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [CommandDescription(nameof(Sentences.packageRemoved))]
     public class InactivatePackageCommand : IProjectCommand

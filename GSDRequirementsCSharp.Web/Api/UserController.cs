@@ -1,7 +1,7 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Users;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand;
+using GSDRequirementsCSharp.Persistence.Commands;
 using GSDRequirementsCSharp.Persistence.Queries.Users.BySearchTerm;
 using GSDRequirementsCSharp.Web.Api.Globals;
 using GSDRequirementsCSharp.Web.Context;

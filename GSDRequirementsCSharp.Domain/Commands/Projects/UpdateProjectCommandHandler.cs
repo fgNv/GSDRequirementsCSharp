@@ -1,16 +1,10 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Queries.Projects;
 using GSDRequirementsCSharp.Infrastructure;
-using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Projects
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class UpdateProjectCommandHandler : ICommandHandler<UpdateProjectCommand>
     {

@@ -1,11 +1,6 @@
-﻿using GSDRequirementsCSharp.Domain.Models.UseCases;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GSDRequirementsCSharp.Domain.Models;
 
-namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
+namespace GSDRequirementsCSharp.Domain.ViewModels
 {
     public class ActorContentViewModel
     {

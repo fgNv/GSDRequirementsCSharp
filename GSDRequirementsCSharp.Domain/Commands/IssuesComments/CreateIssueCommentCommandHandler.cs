@@ -5,16 +5,16 @@ using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 
-namespace GSDRequirementsCSharp.Domain.Commands.IssuesComments
+namespace GSDRequirementsCSharp.Domain.Commands
 {
-    public class CreateIssueCommandHandler : ICommandHandler<CreateIssueCommentCommand>
+    public class CreateIssueCommentCommandHandler : ICommandHandler<CreateIssueCommentCommand>
     {
         private readonly ICurrentUserRetriever<User> _currentUserRetriever;
         private readonly IRepository<IssueComment, Guid> _issueCommentRepository;
         private readonly ICurrentProjectContextId _currentProjectContextId;
         private readonly IRepository<IssueCommentContent, LocaleKey> _issueCommentContentRepository;
 
-        public CreateIssueCommandHandler(ICurrentUserRetriever<User> currentUserRetriever,
+        public CreateIssueCommentCommandHandler(ICurrentUserRetriever<User> currentUserRetriever,
                                          IRepository<IssueComment, Guid> issueCommentRepository,
                                          ICurrentProjectContextId currentProjectContextId,
                                          IRepository<IssueCommentContent, LocaleKey> issueCommentContentRepository)

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand
+namespace GSDRequirementsCSharp.Persistence.Commands
 {
     public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
     {

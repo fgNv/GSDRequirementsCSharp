@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Requirements
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [CommandDescription(nameof(Sentences.requirementCreated))]
     public class SaveRequirementCommand : IProjectCommand
