@@ -21,6 +21,11 @@ namespace GSDRequirementsCSharp.Web.Models
             return new Att("data-ng-model", value);
         }
 
+        public static Att Placeholder(string value)
+        {
+            return new Att("placeholder", value);
+        }
+
         public static Att NgMask(string value)
         {
             return new Att("data-mask", value);

@@ -28,7 +28,7 @@
             }
 
             $scope.addPackage = () => {
-                $scope.currentPackage = {}
+                $scope.currentPackage = new Models.Package()
                 window.location.href = "#/form"
             }
 
