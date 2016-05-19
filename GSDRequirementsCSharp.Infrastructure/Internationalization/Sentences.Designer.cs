@@ -1834,6 +1834,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Missing translations.
+        /// </summary>
+        public static string missingTranslations {
+            get {
+                return ResourceManager.GetString("missingTranslations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile phone.
         /// </summary>
         public static string mobilePhone {

@@ -58,9 +58,9 @@
                                 {{project.identifier}}
                             </a>
                             <span class="glyphicon glyphicon-alert"
-                                  data-ng-show="project.isOutdated"
+                                  data-ng-show="project.canAddTranslation()"
                                   style="color: red"
-                                  title="@Sentences.translationsIsOutdated">
+                                  title="@Sentences.missingTranslations">
                             </span>
                         </td>
                         <td>{{project.name}}</td>
@@ -72,19 +72,13 @@
                             </a>
                             <button class="btn btn-default"
                                     title="@Sentences.edit"
-                                    data-ng-click="setCurrentProject(project.getCommandModel())">
+                                    data-ng-click="setCurrentProject(project)">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button class="btn btn-default"
                                     data-ng-click="inactivateProject(project)"
                                     title="@Sentences.inactivateProject">
                                 <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                            <button class="btn btn-default"
-                                    data-ng-click="setProjectToTranslate(project)"
-                                    data-ng-show="project.canAddTranslation()"
-                                    title="@Sentences.addTranslation">
-                                <span class="glyphicon glyphicon-globe"></span>
                             </button>
                         </td>
                     </tr>
@@ -109,9 +103,5 @@
              data-project="currentProject"
              data-ng-show="currentProject"></article>
 
-    <article data-gsd-project-translation=""
-             data-after-save="loadProjects"
-             data-project="projectToTranslate"
-             data-ng-show="projectToTranslate"></article>
 </article>
 

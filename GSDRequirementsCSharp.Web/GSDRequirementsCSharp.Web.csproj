@@ -262,13 +262,9 @@
     <Content Include="Views\Shared\DataToJS.cshtml" />
     <Content Include="App_Code\TextInputHelper.cshtml" />
     <Content Include="Views\Project\_Form.cshtml" />
-    <Content Include="Views\Project\_Translation.cshtml" />
     <Content Include="Views\Project\_Context.cshtml" />
     <Content Include="Views\Package\_Form.cshtml" />
-    <Content Include="Views\Package\_Translation.cshtml" />
     <Content Include="Views\Project\_ContentFields.cshtml" />
-    <Content Include="Views\Project\_TranslationList.cshtml" />
-    <Content Include="Views\Package\_TranslationList.cshtml" />
     <Content Include="Views\Shared\_TranslationListLayout.cshtml" />
     <Content Include="Views\Requirement\_ContentFields.cshtml" />
     <Content Include="Views\Requirement\_TranslationList.cshtml" />

@@ -1164,4 +1164,7 @@
   <data name="editingProject" xml:space="preserve">
     <value>Editing Project</value>
   </data>
+  <data name="missingTranslations" xml:space="preserve">
+    <value>Missing translations</value>
+  </data>
 </root>

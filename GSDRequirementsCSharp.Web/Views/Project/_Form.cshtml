@@ -5,13 +5,52 @@
     <h4 data-ng-hide="project.id">@Sentences.createProject</h4>
     <h4 data-ng-show="project.id">@Sentences.editProject {{project.name}}</h4>
 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="select-box" style="margin-bottom: 10px; ">
+                <label>@Sentences.language</label>
+                <ui-select data-ng-model="project.currentContentLocale"
+                           data-theme="bootstrap"
+                           data-search-enabled="false"
+                           append-to-body="false">
+                    <ui-select-match>
+                        {{$select.selected}}
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="project.containsLocale($select.selected)">
+                        </span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="locale in locales track by locale">
+                        <span ng-bind="locale"></span>
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="project.containsLocale(locale)">
+                        </span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+
     <article data-ng-form="" data-name="projectForm">
-        @Html.Partial("_ContentFields")
-    </article>
-    
-    <article data-gsd-project-translation-list=""
-             data-translations="translations"
-             data-translations-already-provided="translationsAlreadyProvided">
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextInput("name",
+                                  Sentences.name,
+                                  true,
+                                  Att.NgModel("project.contentDictionary[project.currentContentLocale].name"),
+                                  Att.Placeholder("{{project.getContentProperty('name')}}"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @TextInputHelper.TextArea("description",
+                                  Sentences.description,
+                                  true,
+                                  Att.NgModel("project.contentDictionary[project.currentContentLocale].description"),
+                                  Att.Placeholder("{{project.getContentProperty('description')}}"))
+            </div>
+        </div>
     </article>
 
     <div class="btn-group">
