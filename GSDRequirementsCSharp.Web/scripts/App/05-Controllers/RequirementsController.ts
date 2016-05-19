@@ -82,7 +82,7 @@
 
             $scope.addRequirement = () => {
                 window.location.href = "#/form"
-                $scope.currentRequirement = new Models.Requirement({})
+                $scope.currentRequirement = new Models.Requirement()
             }
 
             $scope.setCurrentRequirement = (r): void => {

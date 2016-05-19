@@ -31,6 +31,8 @@
                 var currentLocale = _.find(GSDRequirements.localesAvailable,
                     (l) => l.name == GSDRequirements.currentLocale)
 
+                $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
+
                 $scope.translationsAlreadyProvided = [
                     currentLocale,
                     GSDRequirements.currentLocale
@@ -59,16 +61,14 @@
                 $scope.save = () => {
                     $scope.pendingRequests++;
 
-                    $scope.requirement.items = [
-                        {
-                            "action": $scope.requirement.action,
-                            "subject": $scope.requirement.subject,
-                            "condition": $scope.requirement.condition,
-                            "locale": GSDRequirements.currentLocale
-                        }
-                    ]
+                    $scope.requirement.items = []
 
-                    _.each($scope.translations, (i): void=> $scope.requirement.items.push(i))
+                    var contents = _.filter($scope.requirement.contentDictionary,
+                        (i) => i.subject || i.action || i.condition)
+
+                    _.each(contents, (i): void => $scope.requirement.items.push(i))
+
+                    _.each($scope.translations, (i): void => $scope.package.items.push(i))
 
                     var promise = $scope.requirement.id ?
                         RequirementResource.update($scope.requirement).$promise :
