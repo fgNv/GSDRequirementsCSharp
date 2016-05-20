@@ -23,9 +23,6 @@
                                          package in packagesOptions"></select>
             </div>
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label>
@@ -39,8 +36,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -55,9 +50,7 @@
 
             </div>
         </div>
-    </div>
-
-    <div class="row">
+ 
         <div class="col-md-6">
             <div class="form-group">
                 <label>
@@ -102,9 +95,9 @@
         </div>
     </div>
 
-    <input type="hidden" data-ng-init="defaultConditionPlaceholder = '@Sentences.whenTheUserIsAnAdministrator'" />
-    <input type="hidden" data-ng-init="defaultSubjectPlaceholder = '@Sentences.theSystem'" />
-    <input type="hidden" data-ng-init="defaultActionPlaceholder = '@Sentences.mustAllowAccessPermissionManagement'" />
+    <input type="hidden" data-ng-init="defaultConditionPlaceholder = '@(Sentences.ex): @Sentences.whenTheUserIsAnAdministrator'" />
+    <input type="hidden" data-ng-init="defaultSubjectPlaceholder = '@(Sentences.ex): @Sentences.theSystem'" />
+    <input type="hidden" data-ng-init="defaultActionPlaceholder = '@(Sentences.ex): @Sentences.mustAllowAccessPermissionManagement'" />
 
     <div class="row">
         <div class="col-md-6">
@@ -135,7 +128,7 @@
         </div>
     </div>
 
-    <div class="btn-group">
+    <div class="btn-group" style="margin-bottom: 20px; ">
         <button type="button"
                 data-ng-click="cancel()"
                 class="btn btn-default">

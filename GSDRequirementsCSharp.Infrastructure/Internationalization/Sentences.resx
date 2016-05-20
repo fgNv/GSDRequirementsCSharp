@@ -373,13 +373,13 @@
     <value>Condition</value>
   </data>
   <data name="mustAllowAccessPermissionManagement" xml:space="preserve">
-    <value>Must allow access permission management</value>
+    <value>must allow access permission management</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>Subject</value>
   </data>
   <data name="theSystem" xml:space="preserve">
-    <value>The system</value>
+    <value>the system</value>
   </data>
   <data name="whenTheUserIsAnAdministrator" xml:space="preserve">
     <value>When the user is an administrator</value>
@@ -1166,5 +1166,8 @@
   </data>
   <data name="missingTranslations" xml:space="preserve">
     <value>Missing translations</value>
+  </data>
+  <data name="ex" xml:space="preserve">
+    <value>ex:</value>
   </data>
 </root>

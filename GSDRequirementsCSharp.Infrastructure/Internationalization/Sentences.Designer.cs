@@ -1249,6 +1249,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ex:.
+        /// </summary>
+        public static string ex {
+            get {
+                return ResourceManager.GetString("ex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Executed at.
         /// </summary>
         public static string executedAt {
@@ -1861,7 +1870,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Must allow access permission management.
+        ///   Looks up a localized string similar to must allow access permission management.
         /// </summary>
         public static string mustAllowAccessPermissionManagement {
             get {
@@ -2834,7 +2843,7 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The system.
+        ///   Looks up a localized string similar to the system.
         /// </summary>
         public static string theSystem {
             get {

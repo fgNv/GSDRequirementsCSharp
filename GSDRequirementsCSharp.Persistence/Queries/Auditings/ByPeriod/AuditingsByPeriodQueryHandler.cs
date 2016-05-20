@@ -55,7 +55,8 @@ namespace GSDRequirementsCSharp.Persistence.Queries.Auditings
             var auditings = _context.Auditings
                                     .Include(a => a.Project.ProjectContents)
                                     .Include(a => a.User.Contact)
-                                    .Where(a => projectsIds.Contains(a.ProjectId) &&
+                                    .Where(a => a.Project.Active &&
+                                                projectsIds.Contains(a.ProjectId) &&
                                                 (!dateTimeFilter.HasValue || a.ExecutedAt >= dateTimeFilter.Value))
                                     .OrderByDescending(a => a.ExecutedAt)
                                     .Select(AuditingViewModel.FromModel)

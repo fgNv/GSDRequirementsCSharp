@@ -34,9 +34,9 @@ namespace GSDRequirementsCSharp.Persistence.Commands
             var contact = new Contact();
             contact.Email = command.Email;
             contact.Id = Guid.NewGuid();
-            contact.MobilePhone = command.MobilePhone.Replace(" ", "").Replace("+", "");
+            contact.MobilePhone = command.MobilePhone?.Replace(" ", "").Replace("+", "");
             contact.Name = command.Name;
-            contact.Phone = command.Phone.Replace(" ", "").Replace("+", "");
+            contact.Phone = command.Phone?.Replace(" ", "").Replace("+", "");
 
             user.Contact = contact;
 
