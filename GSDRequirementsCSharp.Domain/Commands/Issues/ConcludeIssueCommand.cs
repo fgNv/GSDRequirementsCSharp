@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Issues
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     [CommandDescription(nameof(Sentences.issueConcluded))]
     public class ConcludeIssueCommand : IProjectCollaboratorCommand

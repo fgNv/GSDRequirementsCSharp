@@ -1,4 +1,5 @@
 ﻿@using GSDRequirementsCSharp.Infrastructure.Internationalization
+@using GSDRequirementsCSharp.Web.Models
 
 <article data-ng-class="{ 'global-loading' : pendingRequests > 0 }">
 
@@ -22,9 +23,6 @@
                                          package in packagesOptions"></select>
             </div>
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label>
@@ -38,8 +36,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -54,9 +50,7 @@
 
             </div>
         </div>
-    </div>
-
-    <div class="row">
+ 
         <div class="col-md-6">
             <div class="form-group">
                 <label>
@@ -73,18 +67,68 @@
             </div>
         </div>
     </div>
-    
-    @Html.Partial("_ContentFields")
 
     <div class="row">
-        <article data-gsd-requirement-translation-list=""
-                 data-translations="translations"
-                 data-original-data="requirement"
-                 class="col-sm-offset-1 col-md-8"
-                 data-translations-already-provided="translationsAlreadyProvided"></article>
+        <div class="col-md-6">
+            <div class="select-box" style="margin-bottom: 10px; ">
+                <label>@Sentences.language</label>
+                <ui-select data-ng-model="requirement.currentLocale"
+                           data-theme="bootstrap"
+                           data-search-enabled="false"
+                           append-to-body="false">
+                    <ui-select-match>
+                        {{$select.selected}}
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="requirement.containsLocale($select.selected)">
+                        </span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="locale in locales track by locale">
+                        <span ng-bind="locale"></span>
+                        <span class="glyphicon glyphicon-ok"
+                              style="color: #008A21"
+                              data-ng-show="requirement.containsLocale(locale)">
+                        </span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
     </div>
 
-    <div class="btn-group col-sm-offset-1">
+    <input type="hidden" data-ng-init="defaultConditionPlaceholder = '@(Sentences.ex): @Sentences.whenTheUserIsAnAdministrator'" />
+    <input type="hidden" data-ng-init="defaultSubjectPlaceholder = '@(Sentences.ex): @Sentences.theSystem'" />
+    <input type="hidden" data-ng-init="defaultActionPlaceholder = '@(Sentences.ex): @Sentences.mustAllowAccessPermissionManagement'" />
+
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("condition",
+                                       Sentences.condition,
+                                       false,
+                                       Att.NgModel("requirement.contentDictionary[requirement.currentLocale].condition"),
+                                       Att.Placeholder("{{requirement.getContentProperty('condition') || defaultConditionPlaceholder}}"))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("subject",
+                                       Sentences.subject,
+                                       false,
+                                       Att.NgModel("requirement.contentDictionary[requirement.currentLocale].subject"),
+                                       Att.Placeholder("{{requirement.getContentProperty('subject') || defaultSubjectPlaceholder}}"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @TextInputHelper.TextInput("action",
+                                       Sentences.action,
+                                       false,
+                                       Att.NgModel("requirement.contentDictionary[requirement.currentLocale].action"),
+                                       Att.Placeholder("{{requirement.getContentProperty('action') || defaultActionPlaceholder}}"))
+        </div>
+    </div>
+
+    <div class="btn-group" style="margin-bottom: 20px; ">
         <button type="button"
                 data-ng-click="cancel()"
                 class="btn btn-default">
@@ -95,6 +139,5 @@
                 data-ng-click="save()">
             @Sentences.save
         </button>
-    </div>
     </div>
 </article>

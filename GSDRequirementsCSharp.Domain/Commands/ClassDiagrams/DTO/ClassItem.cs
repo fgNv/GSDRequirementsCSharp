@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using GSDRequirementsCSharp.Infrastructure.Validation.Attributes;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class ClassItem
     {

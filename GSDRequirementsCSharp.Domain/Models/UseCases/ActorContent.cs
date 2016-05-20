@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Models.UseCases
+namespace GSDRequirementsCSharp.Domain.Models
 {
     public class ActorContent : IEntity<LocaleKey>
     {

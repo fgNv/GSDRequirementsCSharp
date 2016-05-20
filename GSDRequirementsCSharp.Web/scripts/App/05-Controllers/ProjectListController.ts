@@ -36,11 +36,11 @@
             if (window.location.href.indexOf("#/form") == -1) {
                 window.location.href = "#"
             } else {
-                $scope.currentProject = {}
+                $scope.currentProject = new Models.Project()
             }
 
             $scope.addProject = () => {
-                $scope.currentProject = {}
+                $scope.currentProject = new Models.Project()
                 $scope.currentProjectEditionName = ''
                 window.location.href = "#/form"
             }

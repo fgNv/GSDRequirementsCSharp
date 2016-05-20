@@ -1,14 +1,10 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Queries.Permissions;
-using GSDRequirementsCSharp.Domain.ViewModels;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Permissions
 {

@@ -1,4 +1,4 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Infrastructure.Converter;
 using System;
 using System.Collections.Generic;

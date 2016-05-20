@@ -1,4 +1,4 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.Permissions;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Context;
 using GSDRequirementsCSharp.Infrastructure.CQS;
@@ -6,10 +6,8 @@ using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Permissions
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class SavePermissionCommandHandler : ICommandHandler<SavePermissionCommand>
     {

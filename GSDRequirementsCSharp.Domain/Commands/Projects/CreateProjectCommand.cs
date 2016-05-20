@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Projects
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class CreateProjectCommand : ICommand
     {

@@ -2,12 +2,9 @@
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.DataHydrators;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
+using GSDRequirementsCSharp.Domain.ViewModels;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
 {

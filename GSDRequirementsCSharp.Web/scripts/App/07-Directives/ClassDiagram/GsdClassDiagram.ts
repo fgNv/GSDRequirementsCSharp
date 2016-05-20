@@ -102,6 +102,8 @@
                 }
 
                 $scope.getClassOptions = (relation) => {
+                    if (!$scope.classDiagram)
+                        return []
                     return $scope.classDiagram.classes;
                 }
 
@@ -124,13 +126,16 @@
                 }
 
                 function removeRelationFromDiagram(relation: Models.ClassRelationship) {
+                    
                     $scope.classDiagram.relations = _.filter(
                         $scope.classDiagram.relations,
                         (r) => r != relation)
                     relation.cell.remove()
                 }
 
-                function redrawRelations() {                    
+                function redrawRelations() {        
+                    Views.removeAllLinks()
+
                     _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
                         var cell = Views.ClassDiagram.buildRelation(relation)
                         if (!cell) return
@@ -142,11 +147,11 @@
                 $scope.saveRelations = () => {
                     if (!graph) return
 
-                    _.each($scope.relations, (relation: Models.ClassRelationship) => {
+                    _.each($scope.classDiagram.relations, (relation: Models.ClassRelationship) => {
                         if (relation.cell != null) { removeRelationFromDiagram(relation) }
                     })
 
-                    $scope.relations = []
+                    $scope.classDiagram.relations = []
 
                     _.each($scope.relationsOnEdit, (relation: Models.ClassRelationship) => {
                         var cell = Views.ClassDiagram.buildRelation(relation)
@@ -184,6 +189,7 @@
                 $scope.editSelectedClass = () => {
                     window.location.href = "#/diagram/form"
                     $scope.currentClass = $scope.selectedClass
+                    $scope.selectedClass = null
                 }
 
                 $scope.backToDiagram = () => {

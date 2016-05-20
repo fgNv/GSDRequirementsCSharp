@@ -1,21 +1,16 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands;
-using GSDRequirementsCSharp.Domain.Commands.UseCaseDiagrams;
 using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Domain.Queries;
-using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
 using GSDRequirementsCSharp.Domain.ViewModels;
-using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Converter;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Validation;
 using GSDRequirementsCSharp.Persistence.Queries;
 using GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api

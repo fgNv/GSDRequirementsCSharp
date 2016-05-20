@@ -1,6 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
 using GSDRequirementsCSharp.Domain.Commands;
-using GSDRequirementsCSharp.Domain.Commands.ClassDiagrams;
 using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;

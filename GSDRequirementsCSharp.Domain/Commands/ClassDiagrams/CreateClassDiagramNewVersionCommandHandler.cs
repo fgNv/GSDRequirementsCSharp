@@ -1,15 +1,13 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class CreateClassDiagramNewVersionCommandHandler : ICommandHandler<CreateClassDiagramNewVersionCommand>
     {

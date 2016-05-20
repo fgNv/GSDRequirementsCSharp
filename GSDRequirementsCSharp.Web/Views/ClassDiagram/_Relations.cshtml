@@ -68,14 +68,15 @@
                 </div>
             </td>
             <td>
-                <button class="btn btn-default">
+                <button class="btn btn-default"
+                         data-ng-click="removeRelation(relation)">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </td>
         </tr>
     </tbody>
 </table>
-<div class="btn-group">
+<div class="btn-group" style="margin-bottom: 20px; ">
     <button class="btn btn-default"
             data-ng-click="backToDiagram()">
         @Sentences.goBack

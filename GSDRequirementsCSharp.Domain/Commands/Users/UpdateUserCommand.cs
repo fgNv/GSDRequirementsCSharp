@@ -1,14 +1,9 @@
 ﻿using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand.CreateUserCommand;
+using static GSDRequirementsCSharp.Persistence.Commands.CreateUserCommand;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Users
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class UpdateUserCommand : ICommand
     {

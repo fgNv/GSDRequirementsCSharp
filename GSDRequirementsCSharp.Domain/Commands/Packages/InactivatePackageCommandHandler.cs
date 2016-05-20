@@ -1,14 +1,10 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using GSDRequirementsCSharp.Persistence;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Packages
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     class InactivatePackageCommandHandler : ICommandHandler<InactivatePackageCommand>
     {

@@ -16,6 +16,7 @@
             <tbody>
                 <tr data-ng-repeat="version in versions"
                     role="button"
+                    data-ng-class="{'selected': selected == version}"
                     data-ng-click="select(version)">
                     <td>{{version.label}}</td>
                     <td>{{version.version}}</td>

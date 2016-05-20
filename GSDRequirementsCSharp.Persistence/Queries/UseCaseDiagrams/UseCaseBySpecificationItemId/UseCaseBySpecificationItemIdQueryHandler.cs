@@ -1,12 +1,9 @@
-﻿using GSDRequirementsCSharp.Domain.ViewModels.UseCases;
-using GSDRequirementsCSharp.Infrastructure.CQS;
+﻿using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
+using GSDRequirementsCSharp.Domain.ViewModels;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
 {

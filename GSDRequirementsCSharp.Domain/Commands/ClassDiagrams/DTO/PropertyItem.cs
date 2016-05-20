@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using GSDRequirementsCSharp.Domain.Models;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 
-namespace GSDRequirementsCSharp.Domain.Commands.ClassDiagrams
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class PropertyItem
     {

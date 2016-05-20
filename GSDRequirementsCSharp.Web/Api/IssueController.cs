@@ -1,15 +1,10 @@
-﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Commands.Issues;
-using GSDRequirementsCSharp.Domain.Commands.IssuesComments;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Persistence.Queries.IsssueComments;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace GSDRequirementsCSharp.Web.Api

@@ -373,13 +373,13 @@
     <value>Condição</value>
   </data>
   <data name="mustAllowAccessPermissionManagement" xml:space="preserve">
-    <value>Deve permitir o gerenciamento de permissão de acesso</value>
+    <value>deve permitir o gerenciamento de permissão de acesso</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>Sujeito</value>
   </data>
   <data name="theSystem" xml:space="preserve">
-    <value>O sistema</value>
+    <value>o sistema</value>
   </data>
   <data name="whenTheUserIsAnAdministrator" xml:space="preserve">
     <value>Quando o usuário é administrador</value>
@@ -1160,5 +1160,14 @@
   </data>
   <data name="editingProject" xml:space="preserve">
     <value>Editando projeto</value>
+  </data>
+  <data name="missingTranslations" xml:space="preserve">
+    <value>Traduções faltando</value>
+  </data>
+  <data name="newRequirementVersionCreated" xml:space="preserve">
+    <value>Nova versão de requisito criada</value>
+  </data>
+  <data name="ex" xml:space="preserve">
+    <value>ex:</value>
   </data>
 </root>

@@ -1,10 +1,6 @@
-﻿using GSDRequirementsCSharp.Domain.Commands.Requirements;
+﻿using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Infrastructure.Converter;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Converter
 {

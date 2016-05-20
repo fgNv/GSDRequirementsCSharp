@@ -14,7 +14,9 @@
             $scope.pendingRequests = 0;
             $scope.translations = []
             $scope.translationsAlreadyProvided = [GSDRequirements.currentLocale]
-            
+
+            $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
+
             $scope.$watch("project", (newValue, oldValue) => {
                 if (!newValue)
                     return
@@ -25,15 +27,12 @@
             $scope.save = () => {
                 $scope.pendingRequests++;
 
-                $scope.project.items = [
-                    {
-                        "name": $scope.project.name,
-                        "description": $scope.project.description,
-                        "locale": GSDRequirements.currentLocale
-                    }
-                ]
+                $scope.project.items = []
 
-                _.each($scope.translations, (i): void=> $scope.project.items.push(i))
+                var contents = _.filter($scope.project.contentDictionary,
+                    (i) => i.name && i.description)
+                
+                _.each(contents, (i): void => $scope.project.items.push(i))
 
                 var promise = $scope.project.id ?
                     ProjectResource.update($scope.project).$promise :

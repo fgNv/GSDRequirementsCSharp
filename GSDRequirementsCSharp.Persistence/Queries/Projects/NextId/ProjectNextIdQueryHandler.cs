@@ -1,4 +1,5 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.Projects;
+﻿using GSDRequirementsCSharp.Domain.Queries;
+using GSDRequirementsCSharp.Domain.Queries.Projects;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using System;
 using System.Collections.Generic;

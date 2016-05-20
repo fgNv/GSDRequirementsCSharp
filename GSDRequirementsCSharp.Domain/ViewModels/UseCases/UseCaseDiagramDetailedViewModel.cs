@@ -1,12 +1,9 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Models.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.ViewModels.UseCases
+namespace GSDRequirementsCSharp.Domain.ViewModels
 {
     public class UseCaseDiagramDetailedViewModel
     {

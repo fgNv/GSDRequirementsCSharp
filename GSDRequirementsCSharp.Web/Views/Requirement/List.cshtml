@@ -25,7 +25,14 @@
                                      data-on-all-issues-concluded="loadRequirements">
                     </gsd-item-issues>
                 </td>
-                <td>{{r.prefix}}{{r.identifier}}</td>
+                <td>
+                    {{r.prefix}}{{r.identifier}}
+                    <span class="glyphicon glyphicon-alert"
+                          data-ng-show="r.canAddTranslation()"
+                          style="color: red"
+                          title="@Sentences.missingTranslations">
+                    </span>
+                </td>
                 <td>{{r.description}}</td>
                 <td>@Package.PREFIX{{r.package.identifier}}</td>
                 <td>{{r.version}}</td>
@@ -65,14 +72,6 @@
                     <gsd-issue-create data-specification-item="r"
                                       data-after-save="loadRequirements">
                     </gsd-issue-create>
-
-                    <button class="btn btn-default"
-                            type="button"
-                            data-ng-click="setRequirementToTranslate(r)"
-                            title="@Sentences.addTranslation"
-                            data-ng-show="hasEditPermission && r.canAddTranslation()">
-                        <span class="glyphicon glyphicon-globe"></span>
-                    </button>
                 </td>
             </tr>
         </tbody>

@@ -15,6 +15,8 @@
             $scope.translations = []
             $scope.translationsAlreadyProvided = [GSDRequirements.currentLocale]
 
+            $scope.locales = _.map(GSDRequirements.localesAvailable, l => l.name)
+
             $scope.$watch("package", (newValue, oldValue) => {
                 if (!newValue) return
 
@@ -24,12 +26,12 @@
             $scope.save = () => {
                 $scope.pendingRequests++;
 
-                $scope.package.items = [
-                    {
-                        "description": $scope.package.description,
-                        "locale": GSDRequirements.currentLocale
-                    }
-                ]
+                $scope.package.items = []
+
+                var contents = _.filter($scope.package.contentDictionary,
+                    (i) => i.description)
+
+                _.each(contents, (i): void => $scope.package.items.push(i))
 
                 _.each($scope.translations, (i): void=> $scope.package.items.push(i))
 

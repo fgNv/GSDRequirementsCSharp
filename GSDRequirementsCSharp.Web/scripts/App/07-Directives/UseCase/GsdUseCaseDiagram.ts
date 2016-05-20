@@ -163,6 +163,8 @@
                 }
 
                 function redrawRelations() {
+                    Views.removeAllLinks()
+
                     _.each($scope.useCaseDiagram.relations, (relation: Models.UseCaseRelationship) => {
                         var cell = Views.UseCaseDiagram.buildRelation(relation)
                         if (!cell) return

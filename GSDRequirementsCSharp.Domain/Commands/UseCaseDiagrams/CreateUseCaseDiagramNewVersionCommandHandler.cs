@@ -1,15 +1,11 @@
 ﻿using GSDRequirementsCSharp.Domain.Models;
-using GSDRequirementsCSharp.Domain.Models.UseCases;
-using GSDRequirementsCSharp.Domain.Queries.SpecificationItems;
-using GSDRequirementsCSharp.Domain.Queries.UseCaseDiagrams;
+using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;
 using GSDRequirementsCSharp.Infrastructure.Internationalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Commands
 {

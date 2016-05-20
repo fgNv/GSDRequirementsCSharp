@@ -1,5 +1,5 @@
 ﻿using GSDRequirementsCSharp.Domain;
-using GSDRequirementsCSharp.Domain.Commands.SpecificationItems;
+using GSDRequirementsCSharp.Domain.Commands;
 using GSDRequirementsCSharp.Domain.ViewModels;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.CQS;

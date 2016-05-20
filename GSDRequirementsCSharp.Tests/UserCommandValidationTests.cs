@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GSDRequirementsCSharp.Persistence.Commands.Users.SaveUserCommand;
 using GSDRequirementsCSharp.Tests.DependencyInjection;
 using GSDRequirementsCSharp.Infrastructure.Validation;
+using GSDRequirementsCSharp.Persistence.Commands;
 
 namespace GSDRequirementsCSharp.Tests
 {

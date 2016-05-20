@@ -1,10 +1,6 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.Requirements;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Persistence.Queries.Requirements.NextId
 {

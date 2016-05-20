@@ -1,14 +1,9 @@
-﻿using GSDRequirementsCSharp.Domain.Queries.Contacts;
+﻿using GSDRequirementsCSharp.Domain.Queries;
 using GSDRequirementsCSharp.Infrastructure;
 using GSDRequirementsCSharp.Infrastructure.Authentication;
 using GSDRequirementsCSharp.Infrastructure.CQS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Users
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand>
     {
@@ -27,9 +22,9 @@ namespace GSDRequirementsCSharp.Domain.Commands.Users
             var user = _currentUserRetriever.Get();
             var contact = _contactByUserIdQueryHandler.Handle(user.Id);
             contact.Email = command.Email;
-            contact.MobilePhone = command.MobilePhone.Replace(" ", "").Replace("+", "");
+            contact.MobilePhone = command.MobilePhone?.Replace(" ", "").Replace("+", "");
             contact.Name = command.Name;
-            contact.Phone = command.Phone.Replace(" ", "").Replace("+", "");
+            contact.Phone = command.Phone?.Replace(" ", "").Replace("+", "");
         }
     }
 }

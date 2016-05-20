@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Commands.Projects
+namespace GSDRequirementsCSharp.Domain.Commands
 {
     public class AddProjectTranslationCommandCommandHandler : ICommandHandler<AddProjectTranslationCommand>
     {

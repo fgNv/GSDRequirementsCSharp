@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSDRequirementsCSharp.Domain.Queries.Contacts
+namespace GSDRequirementsCSharp.Domain.Queries
 {
     public class ContactByUserIdQuery
     {

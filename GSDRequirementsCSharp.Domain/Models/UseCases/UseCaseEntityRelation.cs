@@ -1,11 +1,7 @@
-﻿using GSDRequirementsCSharp.Domain.Models.UseCases;
-using GSDRequirementsCSharp.Infrastructure.Persistence;
+﻿using GSDRequirementsCSharp.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSDRequirementsCSharp.Domain.Models
 {
