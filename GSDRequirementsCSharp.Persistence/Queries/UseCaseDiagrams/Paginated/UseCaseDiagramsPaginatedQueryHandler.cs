@@ -37,7 +37,7 @@ namespace GSDRequirementsCSharp.Persistence.Queries.UseCaseDiagrams
             var useCaseDiagrams = useCaseDiagramsQuery.OrderBy(cd => cd.Identifier)
                                         .Include(ucd => ucd.Contents)
                                         .Include(ucd => ucd.SpecificationItem.Package)
-                                        .Where(ucd => ucd.SpecificationItem.Active)
+                                        .Where(ucd => ucd.SpecificationItem.Active && ucd.IsLastVersion)
                                         .Skip(skip)
                                         .Take(query.PageSize)
                                         .Select(UseCaseDiagramViewModel.FromModel)
