@@ -1170,4 +1170,10 @@
   <data name="ex" xml:space="preserve">
     <value>ex:</value>
   </data>
+  <data name="sequenceDiagram" xml:space="preserve">
+    <value>SequenceDiagram</value>
+  </data>
+  <data name="sequenceDiagramCreated" xml:space="preserve">
+    <value>Sequence diagram created</value>
+  </data>
 </root>

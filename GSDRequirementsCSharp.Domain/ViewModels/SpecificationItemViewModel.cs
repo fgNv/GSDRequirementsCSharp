@@ -32,6 +32,8 @@ namespace GSDRequirementsCSharp.Domain.ViewModels
                     return Sentences.useCaseDiagram;
                 case SpecificationItemType.UseCase:
                     return Sentences.useCase;
+                case SpecificationItemType.SequenceDiagram:
+                    return Sentences.sequenceDiagram;
             }
             return "";
         }

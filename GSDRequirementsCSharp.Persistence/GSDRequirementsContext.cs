@@ -101,6 +101,9 @@ namespace GSDRequirementsCSharp.Persistence
             modelBuilder.Configurations.Add(new UseCasePostConditionContentMapping());
 
             modelBuilder.Configurations.Add(new UseCasesRelationMapping());
+
+            modelBuilder.Configurations.Add(new SequenceDiagramMapping());
+            modelBuilder.Configurations.Add(new SequenceDiagramContentMapping());
         }
     }
 }

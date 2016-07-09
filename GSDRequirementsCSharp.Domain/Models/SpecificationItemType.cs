@@ -11,6 +11,7 @@ namespace GSDRequirementsCSharp.Domain.Models
         Requirement = 1,
         ClassDiagram = 55,
         UseCaseDiagram = 541,
-        UseCase = 841
+        UseCase = 841,
+        SequenceDiagram = 1087
     }
 }

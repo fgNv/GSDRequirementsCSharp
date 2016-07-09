@@ -69,6 +69,8 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="GSDRequirementsContext.cs" />
     <Compile Include="Mappings\AuditingMapping.cs" />
+    <Compile Include="Mappings\SequenceDiagramContentMapping.cs" />
+    <Compile Include="Mappings\SequenceDiagramMapping.cs" />
     <Compile Include="Mappings\UseCases\ActorContentMapping.cs" />
     <Compile Include="Mappings\UseCases\ActorMapping.cs" />
     <Compile Include="Mappings\ClassDiagrams\ClassDiagramContentMapping.cs" />
@@ -108,6 +110,10 @@
     <Compile Include="Migrations\201605160124183_schema.cs" />
     <Compile Include="Migrations\201605160124183_schema.Designer.cs">
       <DependentUpon>201605160124183_schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607091150168_SequenceDiagram.cs" />
+    <Compile Include="Migrations\201607091150168_SequenceDiagram.Designer.cs">
+      <DependentUpon>201607091150168_SequenceDiagram.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +207,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605160124183_schema.resx">
       <DependentUpon>201605160124183_schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607091150168_SequenceDiagram.resx">
+      <DependentUpon>201607091150168_SequenceDiagram.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

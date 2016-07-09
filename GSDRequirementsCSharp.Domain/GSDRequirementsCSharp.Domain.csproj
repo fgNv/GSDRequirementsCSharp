@@ -154,6 +154,8 @@
     <Compile Include="DependencyInjection\ContainerExtensions.cs" />
     <Compile Include="Globals\DateTimeExtensions.cs" />
     <Compile Include="Models\Auditing.cs" />
+    <Compile Include="Models\SequenceDiagram.cs" />
+    <Compile Include="Models\SequenceDiagramContent.cs" />
     <Compile Include="Models\UseCases\Actor.cs" />
     <Compile Include="Models\ClassDiagrams\Class.cs" />
     <Compile Include="Models\ClassDiagrams\ClassDiagram.cs" />

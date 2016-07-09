@@ -252,6 +252,9 @@
   <data name="returnTypeIsARequiredField" xml:space="preserve">
     <value>"Return Type" is a required field</value>
   </data>
+  <data name="sequenceDiagramIdIsARequiredInformation" xml:space="preserve">
+    <value>"Sequence diagram id" is a required information</value>
+  </data>
   <data name="sourceIsARequiredField" xml:space="preserve">
     <value>"Source" is a required field</value>
   </data>

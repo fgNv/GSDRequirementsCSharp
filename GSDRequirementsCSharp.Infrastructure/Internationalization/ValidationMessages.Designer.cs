@@ -466,6 +466,15 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Sequence diagram id&quot; is a required information.
+        /// </summary>
+        public static string sequenceDiagramIdIsARequiredInformation {
+            get {
+                return ResourceManager.GetString("sequenceDiagramIdIsARequiredInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;Source&quot; is a required field.
         /// </summary>
         public static string sourceIsARequiredField {

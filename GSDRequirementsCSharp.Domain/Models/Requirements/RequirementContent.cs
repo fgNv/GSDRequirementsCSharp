@@ -26,7 +26,7 @@ namespace GSDRequirementsCSharp.Domain
 
         public int Version { get; set; }
 
-        public Guid? CreatorId { get; set; }
+        public int? CreatorId { get; set; }
 
         public virtual Requirement Requirement { get; set; }
 

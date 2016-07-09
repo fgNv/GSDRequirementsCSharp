@@ -252,6 +252,9 @@
   <data name="returnTypeIsARequiredField" xml:space="preserve">
     <value>"Tipo do retorno" é um campo obrigatório</value>
   </data>
+  <data name="sequenceDiagramIdIsARequiredInformation" xml:space="preserve">
+    <value>"Id do diagrama de sequencia" é uma informação obrigatória</value>
+  </data>
   <data name="sourceIsARequiredField" xml:space="preserve">
     <value>"Fonte" é um campo obrigatório</value>
   </data>

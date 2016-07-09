@@ -2753,6 +2753,24 @@ namespace GSDRequirementsCSharp.Infrastructure.Internationalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SequenceDiagram.
+        /// </summary>
+        public static string sequenceDiagram {
+            get {
+                return ResourceManager.GetString("sequenceDiagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence diagram created.
+        /// </summary>
+        public static string sequenceDiagramCreated {
+            get {
+                return ResourceManager.GetString("sequenceDiagramCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show details and manage versions.
         /// </summary>
         public static string showDetailsAndManageVersions {
