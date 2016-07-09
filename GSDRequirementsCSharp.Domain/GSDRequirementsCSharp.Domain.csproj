@@ -115,6 +115,10 @@
     <Compile Include="Commands\Requirements\SaveRequirementCommand.cs" />
     <Compile Include="Commands\Requirements\CreateRequirementCommandHandler.cs" />
     <Compile Include="Commands\RestoreVersionCommand.cs" />
+    <Compile Include="Commands\SequenceDiagrams\SaveSequenceDiagramCommand.cs" />
+    <Compile Include="Commands\SequenceDiagrams\CreateSequenceDiagramCommandHandler.cs" />
+    <Compile Include="Commands\SequenceDiagrams\SequenceDiagramContentItem.cs" />
+    <Compile Include="Commands\SequenceDiagrams\UpdateSequenceDiagramCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommand.cs" />
     <Compile Include="Commands\SpecificationItems\AddLink\AddSpecificationItemLinkCommandHandler.cs" />
     <Compile Include="Commands\SpecificationItems\Inactivate\InactivateSpecificationItemCommand.cs" />
