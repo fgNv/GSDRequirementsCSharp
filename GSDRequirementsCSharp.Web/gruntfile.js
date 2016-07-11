@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             my_target: {
                 files: {
                     'Scripts/app.js': ['Scripts/App/**/*.js'],
-                    'Scripts/vendor.js': [bowerPath + 'jquery/jquery.js',
+                    'Scripts/vendor.js': [bowerPath + 'jquery/dist/jquery.js',
                                           bowerPath + 'bootstrap/dist/js/bootstrap.js',
                                           bowerPath + 'angular/angular.js',
                                           bowerPath + 'angular-cookies/angular-cookies.js',
