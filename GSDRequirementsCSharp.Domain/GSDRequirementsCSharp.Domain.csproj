@@ -226,6 +226,7 @@
     <Compile Include="Queries\Projects\ProjectWithCurrentCultureContentsQueryResult.cs" />
     <Compile Include="Queries\Requirements\DetailedRequirementQuery.cs" />
     <Compile Include="Queries\Requirements\RequirementNextIdQuery.cs" />
+    <Compile Include="Queries\SequenceDiagrams\SequenceDiagramNextIdQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemsByPackageQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQuery.cs" />
     <Compile Include="Queries\SpecificationItems\SpecificationItemWithClassDiagramsQueryResult.cs" />

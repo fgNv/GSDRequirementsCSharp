@@ -160,6 +160,7 @@
     <Compile Include="Queries\Requirements\Paginated\RequirementsPaginatedQueryResult.cs" />
     <Compile Include="Queries\Requirements\Versions\RequirementVersionsQuery.cs" />
     <Compile Include="Queries\Requirements\Versions\RequirementVersionsQueryHandler.cs" />
+    <Compile Include="Queries\SequenceDiagrams\SequenceDiagramNextIdQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\ByPackage\SpecificationItemsByPackageQueryHandler.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQuery.cs" />
     <Compile Include="Queries\SpecificationItems\ByProject\ItemsByProjectQueryHandler.cs" />
