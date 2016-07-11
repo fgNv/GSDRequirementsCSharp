@@ -104,6 +104,16 @@ namespace GSDRequirementsCSharp.Persistence.Repositories
         public RequirementContentRepository(GSDRequirementsContext context) : base(context) { }
     }
 
+    internal class SequenceDiagramRepository : GenericRepository<SequenceDiagram, VersionKey>
+    {
+        public SequenceDiagramRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
+    internal class SequenceDiagramContentRepository : GenericRepository<SequenceDiagramContent, LocaleKey>
+    {
+        public SequenceDiagramContentRepository(GSDRequirementsContext context) : base(context) { }
+    }
+
     internal class SpecificationItemRepository : GenericRepository<SpecificationItem, Guid>
     {
         public SpecificationItemRepository(GSDRequirementsContext context) : base(context) { }

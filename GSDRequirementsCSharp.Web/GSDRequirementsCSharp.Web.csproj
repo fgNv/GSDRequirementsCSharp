@@ -186,6 +186,7 @@
     <Compile Include="Api\PermissionController.cs" />
     <Compile Include="Api\ProjectController.cs" />
     <Compile Include="Api\RequirementController.cs" />
+    <Compile Include="Api\SequenceDiagramController.cs" />
     <Compile Include="Api\SpecificationItemController.cs" />
     <Compile Include="Api\UseCaseController.cs" />
     <Compile Include="Api\UseCaseDiagramController.cs" />
