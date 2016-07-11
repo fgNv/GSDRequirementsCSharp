@@ -35,6 +35,7 @@ namespace GSDRequirementsCSharp.Persistence
         public virtual DbSet<ClassMethodParameter> ClassMethodParameters { get; set; }
         public virtual DbSet<ClassProperty> ClassProperties { get; set; }
         public virtual DbSet<ClassRelationship> ClassRelationships { get; set; }
+        public virtual DbSet<SequenceDiagram> SequenceDiagrams{ get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Issue> Issues { get; set; }
         public virtual DbSet<IssueComment> IssueComments { get; set; }
